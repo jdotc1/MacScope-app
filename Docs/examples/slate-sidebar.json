@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "user.slate-sidebar",
+  "name": "Slate Sidebar",
+  "summary": "Lumen's light canvas with a deep slate sidebar: chrome themed separately from content.",
+  "inherits": "lumen.standard",
+  "light": {
+    "sidebar.background": "#1F2430",
+    "sidebar.rowSelected": "#313A4D",
+    "sidebar.rowSelectedInactive": "#353A45",
+    "sidebar.rowHover": "#283042",
+    "sidebar.foreground": "#ECEFF4",
+    "sidebar.secondaryForeground": "#AEB6C4",
+    "sidebar.accent": "#A89BFF"
+  }
+}

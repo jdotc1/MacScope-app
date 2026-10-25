@@ -1,0 +1,420 @@
+{
+  "$defs" : {
+    "color" : {
+      "description" : "#RRGGBB or #RRGGBBAA",
+      "pattern" : "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "type" : "string"
+    },
+    "palette" : {
+      "additionalProperties" : {
+        "$ref" : "#/$defs/color"
+      },
+      "properties" : {
+        "accent.default" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "accent.filled" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to menu.highlight. Filled accent shapes: primary buttons, checked boxes, selected chips; deep in dark."
+        },
+        "accent.filledForeground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to menu.highlightForeground."
+        },
+        "accent.soft" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. A lighter accent for apps' own marks (charts, badges); Lumen's components don't draw it."
+        },
+        "accent.subtle" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Accent tint behind text."
+        },
+        "activity.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.inset. The toolbar's activity status capsule."
+        },
+        "bg.canvas" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. The main content area."
+        },
+        "bg.elevated" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Cards, popovers and raised controls."
+        },
+        "bg.hover" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Hovered rows."
+        },
+        "bg.hoverRaised" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.hover. Hover on cards, popovers, sheets and menus."
+        },
+        "bg.inset" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Wells, pills and tags."
+        },
+        "bg.insetRaised" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.inset. Wells, pills and tags on cards, popovers and sheets."
+        },
+        "bg.selected" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Selected rows in the focused window; with the system accent, the canvas tinted with it."
+        },
+        "bg.selectedInactive" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Selected rows when the window is inactive."
+        },
+        "bg.selectedInactiveRaised" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.selectedInactive. Inactive selection on cards, popovers, sheets and menus."
+        },
+        "bg.sidebar" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Sidebars and source lists."
+        },
+        "bg.window" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Window background and title area."
+        },
+        "border.control" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to border.strong. Edges of unchecked checkboxes, radios and switches."
+        },
+        "border.default" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.focus" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.strong" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.subtle" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "chip.selectedBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.filled. The selected filter chip: a filled accent shape, deep in dark."
+        },
+        "chip.selectedForeground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.filledForeground."
+        },
+        "fg.disabled" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Disabled text; exempt from contrast (WCAG)."
+        },
+        "fg.link" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.onAccent" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.primary" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.secondary" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.tertiary" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "field.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default at 10% over bg.sidebar. Capsule filter and search fields."
+        },
+        "hue.blue" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.graphite" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.green" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.indigo" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.orange" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.pink" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.red" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.teal" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.violet" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "hue.yellow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Categorical hue for tiles and categories."
+        },
+        "inspector.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar."
+        },
+        "keycap.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.inset."
+        },
+        "keycap.foreground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.secondary."
+        },
+        "layoutToggle.on" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default. A panel toggle's region while that panel shows."
+        },
+        "menu.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.elevated."
+        },
+        "menu.destructive" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.danger."
+        },
+        "menu.foreground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.primary."
+        },
+        "menu.highlight" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default. The highlighted item's fill in menus, and the filled selection in pickers and lists; in dark a deep tone under white text."
+        },
+        "menu.highlightForeground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.onAccent."
+        },
+        "menu.secondaryForeground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.secondary."
+        },
+        "menu.separator" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to border.subtle."
+        },
+        "panel.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.window. Settings and preference panes."
+        },
+        "panel.group" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.elevated. Grouped form cards."
+        },
+        "panel.groupBorder" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to border.subtle."
+        },
+        "sidebar.accent" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default."
+        },
+        "sidebar.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar."
+        },
+        "sidebar.foreground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.primary. Sidebar text; set it with sidebar.background for a sidebar darker or lighter than the canvas."
+        },
+        "sidebar.rowHover" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.hover."
+        },
+        "sidebar.rowSelected" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.selected."
+        },
+        "sidebar.rowSelectedInactive" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.selectedInactive. A selected sidebar row in an inactive window; set it with sidebar.foreground so that text reads on it."
+        },
+        "sidebar.secondaryForeground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.secondary."
+        },
+        "status.danger" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.dangerBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Fill behind status.danger text."
+        },
+        "status.info" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.infoBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Fill behind status.info text."
+        },
+        "status.neutral" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.neutralBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Fill behind status.neutral text."
+        },
+        "status.success" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.successBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Fill behind status.success text."
+        },
+        "status.warning" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.warningBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Fill behind status.warning text."
+        },
+        "tab.accentBar" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default."
+        },
+        "tab.activeFill" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.canvas."
+        },
+        "titlebar.activeBottom" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to toolbar.background. Bottom of the title bar's glow while the window is active."
+        },
+        "titlebar.activeTop" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to toolbar.background. Top of the title bar's glow while the window is active; inactive windows use toolbar.background."
+        },
+        "toolbar.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar."
+        },
+        "toolbar.foreground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.primary."
+        },
+        "toolbar.secondaryForeground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.secondary. Secondary toolbar text (the identity's location)."
+        },
+        "welcome.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.window. The welcome window's hero side, behind the starfield."
+        },
+        "welcome.glow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default. The soft glow behind the app mark."
+        },
+        "welcome.panel" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar. The welcome window's recents panel."
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "anyOf" : [
+    {
+      "required" : [
+        "inherits"
+      ]
+    },
+    {
+      "required" : [
+        "light"
+      ]
+    },
+    {
+      "required" : [
+        "dark"
+      ]
+    }
+  ],
+  "properties" : {
+    "colorSpace" : {
+      "enum" : [
+        "srgb",
+        "display-p3"
+      ]
+    },
+    "dark" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "darkHighContrast" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "highContrast" : {
+      "description" : "A maximum-legibility theme: components draw their Increase Contrast look for it.",
+      "type" : "boolean"
+    },
+    "id" : {
+      "minLength" : 1,
+      "pattern" : "\\S",
+      "type" : "string"
+    },
+    "inherits" : {
+      "examples" : [
+        "lumen.standard",
+        "lumen.midnight",
+        "lumen.ultraviolet",
+        "lumen.contrast"
+      ],
+      "type" : "string"
+    },
+    "light" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "lightHighContrast" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "name" : {
+      "minLength" : 1,
+      "pattern" : "\\S",
+      "type" : "string"
+    },
+    "schemaVersion" : {
+      "maximum" : 1,
+      "minimum" : 1,
+      "type" : "integer"
+    },
+    "summary" : {
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "id",
+    "name"
+  ],
+  "title" : "Lumen theme",
+  "type" : "object"
+}

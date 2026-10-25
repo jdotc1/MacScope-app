@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Toolchain
+        run: swift --version
+      - name: Build (warnings are errors)
+        run: swift build --build-tests -Xswiftc -warnings-as-errors
+      - name: Test
+        # Golden images are recorded on the maintainer's macOS and fonts; another OS renders text
+        # differently, so CI runs every test but those.
+        env:
+          LUMEN_SKIP_GOLDENS: "1"
+          # Hosted runners are slower, shared VMs; widen every performance budget equally.
+          LUMEN_PERF_BUDGET_SCALE: "2"
+        run: swift test --skip-build
