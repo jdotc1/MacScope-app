@@ -96,7 +96,8 @@ final class LumenPublicViewCoverageTests: XCTestCase {
     func testEveryPublicViewIsInTheCatalogOrAGolden() throws {
         let views = try Self.publicViews()
         XCTAssertGreaterThan(views.count, 20, "the scan found too few public views")
-        var exercised = try Self.swiftFiles(in: "Sources/LumenCatalog").map { try String(contentsOf: $0, encoding: .utf8) }
+        // The MacScope workspace shell is a Catalog page whose views live in their own target.
+        var exercised = try (Self.swiftFiles(in: "Sources/LumenCatalog") + Self.swiftFiles(in: "Sources/MacScopeShell")).map { try String(contentsOf: $0, encoding: .utf8) }
         exercised.append(try String(contentsOf: Self.root.appending(path: "Tests/LumenUITests/LumenGoldenTests.swift"), encoding: .utf8))
         let corpus = Self.code(exercised.joined(separator: "\n"))
         let missing = views.filter { name in
