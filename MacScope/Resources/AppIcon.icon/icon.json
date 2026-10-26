@@ -1,0 +1,152 @@
+{
+  "features" : [
+    "refractivity"
+  ],
+  "fill-specializations" : [
+    {
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.54510,0.42353,0.94902,1.00000",
+          "srgb:0.29020,0.17255,0.76863,1.00000"
+        ]
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.16471,0.12941,0.33725,1.00000",
+          "srgb:0.06275,0.04706,0.14118,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name-specializations" : [
+            {
+              "value" : "3-spark-light.svg"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "3-spark-dark.svg"
+            }
+          ],
+          "name" : "Spark",
+          "position" : {
+            "scale" : 1.04,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "3 Spark",
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.6
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    },
+    {
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "2-braces.svg",
+          "name" : "Braces",
+          "opacity" : 0.94,
+          "position" : {
+            "scale" : 1.04,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "glass" : true,
+          "image-name" : "2-ticks.svg",
+          "name" : "Ticks",
+          "opacity" : 0.94,
+          "position" : {
+            "scale" : 1.04,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "combined",
+      "name" : "2 Reticle",
+      "refractivity" : {
+        "depth" : 0.7,
+        "enabled" : true,
+        "strength" : 0.8
+      },
+      "shadow" : {
+        "kind" : "layer-color",
+        "opacity" : 0.7
+      },
+      "specular" : true,
+      "translucency-specializations" : [
+        {
+          "value" : {
+            "enabled" : true,
+            "value" : 0.35
+          }
+        },
+        {
+          "appearance" : "dark",
+          "value" : {
+            "enabled" : true,
+            "value" : 0.12
+          }
+        }
+      ]
+    },
+    {
+      "layers" : [
+        {
+          "glass" : false,
+          "image-name" : "1-dashes.svg",
+          "name" : "Dashed X",
+          "opacity-specializations" : [
+            {
+              "value" : 0.22
+            },
+            {
+              "appearance" : "dark",
+              "value" : 0.16
+            }
+          ]
+        }
+      ],
+      "lighting" : "individual",
+      "name" : "1 Guides",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0
+      },
+      "specular" : false,
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [
+      "macOS"
+    ]
+  }
+}

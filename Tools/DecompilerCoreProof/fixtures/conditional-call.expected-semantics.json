@@ -1,0 +1,89 @@
+{
+  "analysisLevel": "native-sleigh-effective-load-image-darwin-register-dataflow-proof",
+  "contractCompleteness": "partial-dcp03",
+  "functionSourceSha256": "19daa44efde0c0b296557e4f686c8b65bae87b3c04b0aee15304dcf67200df6c",
+  "instructionAddresses": [
+    "0x100001000",
+    "0x100001004",
+    "0x100001008",
+    "0x10000100c",
+    "0x100001010",
+    "0x100001014",
+    "0x100001018"
+  ],
+  "instructionMnemonics": [
+    "cmp",
+    "b.eq",
+    "bl",
+    "add",
+    "ret",
+    "mov",
+    "ret"
+  ],
+  "basicBlocks": [
+    {
+      "id": "bb_100001000",
+      "instructionIndices": [
+        0,
+        1
+      ],
+      "terminatorKind": "conditionalBranch"
+    },
+    {
+      "id": "bb_100001008",
+      "instructionIndices": [
+        2,
+        3,
+        4
+      ],
+      "terminatorKind": "return"
+    },
+    {
+      "id": "bb_100001014",
+      "instructionIndices": [
+        5,
+        6
+      ],
+      "terminatorKind": "return"
+    }
+  ],
+  "edges": [
+    {
+      "kind": "branchTrue",
+      "sourceBlockId": "bb_100001000",
+      "targetBlockId": "bb_100001014"
+    },
+    {
+      "kind": "branchFalse",
+      "sourceBlockId": "bb_100001000",
+      "targetBlockId": "bb_100001008"
+    }
+  ],
+  "directCall": {
+    "sourceAddress": "0x100001008",
+    "targetAddress": "0x10000101c",
+    "targetSymbol": "_helper"
+  },
+  "unavailableCapabilities": [
+    "decompilerHeritage",
+    "registerSSA",
+    "registerAliasRecovery",
+    "recoveredVariables",
+    "genericTypeRecovery",
+    "controlFlowStructuring",
+    "tokenizedPseudocode"
+  ],
+  "availableCapabilities": [
+    "storageHeritage",
+    "exactStorageSSA",
+    "memorySSA",
+    "aarch64GprAliasRecovery",
+    "aarch64GprSSA",
+    "darwinAapcs64BaseCallEffects",
+    "callRegisterInputs",
+    "callRegisterClobbers",
+    "relocationApplication",
+    "aarch64MachORelocationApplication",
+    "dyldChainedPointerNormalization"
+  ]
+}

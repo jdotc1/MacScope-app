@@ -1,0 +1,8 @@
+# CoreTests classes that must run serially, never alongside other classes.
+# The qualification harness skips these in the parallel CoreTests pass and runs
+# them in a separate -parallel-testing-enabled NO pass, then merges the result
+# bundles. One class name per line; '#' starts a comment.
+# Tests sharing process-wide native state run serially.
+
+# No classes currently require a separate serial pass. The ABI oracle binds
+# tool content and tolerates metadata-only ctime churn from parallel hosts.

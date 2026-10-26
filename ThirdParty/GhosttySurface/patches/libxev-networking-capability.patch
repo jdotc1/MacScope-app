@@ -1,0 +1,116 @@
+diff --git a/src/posix.zig b/src/posix.zig
+index 81e3210..8f487c0 100644
+--- a/src/posix.zig
++++ b/src/posix.zig
+@@ -221,6 +221,7 @@ pub const ConnectError = error{
+ } || posix.UnexpectedError;
+ 
+ pub fn connect(sock: posix.socket_t, sock_addr: *const posix.sockaddr, len: posix.socklen_t) ConnectError!void {
++    if (!std.options.networking) return error.NetworkUnreachable;
+     while (true) {
+         switch (posix.errno(system.connect(sock, sock_addr, len))) {
+             .SUCCESS => return,
+@@ -244,6 +245,7 @@ pub fn connect(sock: posix.socket_t, sock_addr: *const posix.sockaddr, len: posi
+ }
+ 
+ pub fn getsockoptError(sockfd: posix.fd_t) ConnectError!void {
++    if (!std.options.networking) return error.NetworkUnreachable;
+     const E = std.posix.E;
+     const SOL = if (@hasDecl(std.posix, "SOL")) std.posix.SOL else std.os.linux.SOL;
+     const SO = if (@hasDecl(std.posix, "SO")) std.posix.SO else std.os.linux.SO;
+@@ -333,6 +335,7 @@ pub fn accept(
+     addr_size: *posix.socklen_t,
+     flags: u32,
+ ) AcceptError!posix.socket_t {
++    if (!std.options.networking) return error.NetworkDown;
+     while (true) {
+         const rc = system.accept(sock, addr, addr_size);
+         switch (posix.errno(rc)) {
+@@ -354,6 +357,7 @@ pub fn accept(
+ }
+ 
+ pub fn socket(domain: u32, socket_type: u32, protocol: u32) SocketError!posix.socket_t {
++    if (!std.options.networking) return error.ProtocolNotSupported;
+     const have_sock_flags = !builtin.target.os.tag.isDarwin() and builtin.target.os.tag != .haiku;
+     const filtered_sock_type = if (have_sock_flags)
+         socket_type
+@@ -381,6 +385,7 @@ pub fn socket(domain: u32, socket_type: u32, protocol: u32) SocketError!posix.so
+ }
+ 
+ pub fn bind(sock: posix.socket_t, addr: *const posix.sockaddr, len: posix.socklen_t) BindError!void {
++    if (!std.options.networking) return error.AccessDenied;
+     switch (posix.errno(system.bind(sock, addr, len))) {
+         .SUCCESS => return,
+         .ACCES, .PERM => return error.AccessDenied,
+@@ -400,6 +405,7 @@ pub fn bind(sock: posix.socket_t, addr: *const posix.sockaddr, len: posix.sockle
+ }
+ 
+ pub fn listen(sock: posix.socket_t, backlog: u31) ListenError!void {
++    if (!std.options.networking) return error.OperationNotSupported;
+     switch (posix.errno(system.listen(sock, backlog))) {
+         .SUCCESS => return,
+         .ADDRINUSE => return error.AddressInUse,
+@@ -413,6 +419,7 @@ pub fn listen(sock: posix.socket_t, backlog: u31) ListenError!void {
+ }
+ 
+ pub fn getsockname(sock: posix.socket_t, addr: *posix.sockaddr, addrlen: *posix.socklen_t) GetSockNameError!void {
++    if (!std.options.networking) return error.FileDescriptorNotASocket;
+     switch (posix.errno(system.getsockname(sock, addr, addrlen))) {
+         .SUCCESS => return,
+         .NOTSOCK => return error.FileDescriptorNotASocket,
+@@ -572,6 +579,7 @@ pub fn sendto(
+     dest_addr: ?*const posix.sockaddr,
+     addrlen: posix.socklen_t,
+ ) SendError!usize {
++    if (!std.options.networking) return error.NetworkSubsystemFailed;
+     while (true) {
+         const rc = system.sendto(sockfd, buf.ptr, buf.len, flags, dest_addr, addrlen);
+         switch (posix.errno(rc)) {
+@@ -603,6 +611,7 @@ pub fn sendto(
+ pub const SendMsgError = SendError;
+ 
+ pub fn sendmsg(sockfd: posix.socket_t, msg: *const std.os.linux.msghdr_const, flags: u32) SendError!usize {
++    if (!std.options.networking) return error.NetworkSubsystemFailed;
+     while (true) {
+         const rc = system.sendmsg(sockfd, @ptrCast(msg), flags);
+         switch (posix.errno(rc)) {
+@@ -635,6 +644,7 @@ pub fn recvfrom(
+     src_addr: ?*posix.sockaddr,
+     addrlen: ?*posix.socklen_t,
+ ) RecvFromError!usize {
++    if (!std.options.networking) return error.NetworkSubsystemFailed;
+     while (true) {
+         const rc = system.recvfrom(sockfd, buf.ptr, buf.len, flags, src_addr, addrlen);
+         switch (posix.errno(rc)) {
+diff --git a/src/backend/kqueue.zig b/src/backend/kqueue.zig
+index a78249d..a764272 100644
+--- a/src/backend/kqueue.zig
++++ b/src/backend/kqueue.zig
+@@ -732,6 +732,9 @@ pub const Loop = struct {
+             },
+ 
+             .connect => |*v| action: {
++                if (!std.options.networking) {
++                    break :action .{ .result = errno_to_result(.NETDOWN) };
++                }
+                 while (true) {
+                     const result = posix.system.connect(v.socket, &v.addr.any, v.addr.getOsSockLen());
+                     switch (posix.errno(result)) {
+@@ -803,6 +806,9 @@ pub const Loop = struct {
+             },
+ 
+             .shutdown => |v| action: {
++                if (!std.options.networking) {
++                    break :action .{ .result = errno_to_result(.NETDOWN) };
++                }
+                 const result = posix.system.shutdown(v.socket, switch (v.how) {
+                     .recv => posix.SHUT.RD,
+                     .send => posix.SHUT.WR,
+@@ -1544,6 +1550,7 @@ fn monotonicNanos() i128 {
+ }
+ 
+ fn getsockoptError(socket: posix.socket_t) ConnectError!void {
++    if (!std.options.networking) return error.NetworkDown;
+     var err_code: c_int = 0;
+     var err_len: posix.socklen_t = @sizeOf(c_int);
+     const rc = std.c.getsockopt(socket, posix.SOL.SOCKET, posix.SO.ERROR, &err_code, &err_len);

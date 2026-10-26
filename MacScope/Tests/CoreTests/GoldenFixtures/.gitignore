@@ -1,0 +1,14 @@
+# Clean-room: never commit captured analysis outputs. Authorized reference outputs
+# (reference.json) and Ghidra reference outputs (ghidra.json) are kept locally only and diffed in
+# place; MacScope's own emitted snapshots (macscope.json) are reproducible and need not be
+# tracked. Only README.md, this file, and the reproducible corpus/ sources are.
+**/reference.json
+**/ghidra.json
+**/macscope.json
+# Built corpus binaries (reproducible from corpus/*.{swift,m} via Scripts/build_golden_corpus.sh).
+swift_corpus/swift_corpus
+objc_corpus/objc_corpus
+# Per-image-container refactor: local, host-specific pre-refactor byte anchors
+# (captured from this host's /bin/ls). Reproducible; a same-host developer gate,
+# not a portable committed fixture.
+prerefactor/

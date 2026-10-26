@@ -1,0 +1,217 @@
+{
+  "schema": "macscope.sdk-type-archive",
+  "schemaMajor": 1,
+  "schemaMinor": 0,
+  "configurationID": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "provenance": {
+    "compiler": "fixture-clang",
+    "compilerVersion": "authored contract fixture; not extraction evidence",
+    "libclangVersion": "fixture-only",
+    "sdkIdentity": "fixture-sdk",
+    "targetTriple": "arm64-apple-macosx27.0",
+    "language": "c",
+    "extractorVersion": "1",
+    "input": "minimal.h",
+    "inputSHA256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "arguments": [
+      "-target",
+      "arm64-apple-macosx27.0",
+      "-x",
+      "c"
+    ]
+  },
+  "diagnostics": [
+    "Authored loader fixture, not compiler-generated layout evidence."
+  ],
+  "types": [
+    {
+      "id": "scalar:ulong",
+      "kind": "scalar",
+      "spelling": "unsigned long",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 8,
+        "alignmentBytes": 8
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "signed": false
+    },
+    {
+      "id": "record:Node",
+      "kind": "record",
+      "spelling": "struct Node",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 16,
+        "alignmentBytes": 8
+      },
+      "fields": [
+        {
+          "id": "Node/0",
+          "name": "next",
+          "typeID": "pointer:Node",
+          "bitOffset": 0,
+          "flexibleArray": false,
+          "anonymous": false
+        },
+        {
+          "id": "Node/1",
+          "name": "flags",
+          "typeID": "scalar:ulong",
+          "bitOffset": 64,
+          "flexibleArray": false,
+          "anonymous": false,
+          "bitWidth": 3
+        }
+      ],
+      "enumValues": [],
+      "qualifiers": [],
+      "recordKind": "struct"
+    },
+    {
+      "id": "pointer:Node",
+      "kind": "pointer",
+      "spelling": "struct Node *",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 8,
+        "alignmentBytes": 8
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "pointeeTypeID": "record:Node"
+    },
+    {
+      "id": "record:Opaque",
+      "kind": "record",
+      "spelling": "struct Opaque",
+      "layout": {
+        "status": "unknown",
+        "reason": "incomplete declaration"
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "recordKind": "struct"
+    },
+    {
+      "id": "enum:Wide",
+      "kind": "enumeration",
+      "spelling": "enum Wide",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 8,
+        "alignmentBytes": 8
+      },
+      "fields": [],
+      "enumValues": [
+        {
+          "name": "Maximum",
+          "value": "18446744073709551615"
+        }
+      ],
+      "qualifiers": [],
+      "underlyingTypeID": "scalar:ulong"
+    },
+    {
+      "id": "alias:Count",
+      "kind": "typedef",
+      "spelling": "Count",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 8,
+        "alignmentBytes": 8
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "underlyingTypeID": "scalar:ulong"
+    },
+    {
+      "id": "scalar:char",
+      "kind": "scalar",
+      "spelling": "char",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 1,
+        "alignmentBytes": 1
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "signed": true
+    },
+    {
+      "id": "array:tail",
+      "kind": "array",
+      "spelling": "char[]",
+      "layout": {
+        "status": "unknown",
+        "reason": "flexible extent"
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "elementTypeID": "scalar:char"
+    },
+    {
+      "id": "record:Flexible",
+      "kind": "record",
+      "spelling": "struct Flexible",
+      "layout": {
+        "status": "known",
+        "sizeBytes": 8,
+        "alignmentBytes": 8
+      },
+      "fields": [
+        {
+          "id": "Flexible/0",
+          "name": "count",
+          "typeID": "alias:Count",
+          "bitOffset": 0,
+          "flexibleArray": false,
+          "anonymous": false
+        },
+        {
+          "id": "Flexible/1",
+          "name": "bytes",
+          "typeID": "array:tail",
+          "bitOffset": 64,
+          "flexibleArray": true,
+          "anonymous": false
+        }
+      ],
+      "enumValues": [],
+      "qualifiers": [],
+      "recordKind": "struct"
+    },
+    {
+      "id": "opaque:enumBase",
+      "kind": "opaque",
+      "spelling": "unknown integer base",
+      "layout": {
+        "status": "unknown",
+        "reason": "compiler did not establish width or signedness"
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": []
+    },
+    {
+      "id": "enum:Unknown",
+      "kind": "enumeration",
+      "spelling": "enum Unknown",
+      "layout": {
+        "status": "unknown",
+        "reason": "unknown enum base"
+      },
+      "fields": [],
+      "enumValues": [],
+      "qualifiers": [],
+      "underlyingTypeID": "opaque:enumBase"
+    }
+  ]
+}

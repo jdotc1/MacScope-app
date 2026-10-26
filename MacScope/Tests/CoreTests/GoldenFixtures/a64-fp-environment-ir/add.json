@@ -1,0 +1,58 @@
+[
+  {
+    "expected": {
+      "bits": "40000001",
+      "fpcr": 4194304,
+      "fpsr": 17,
+      "id": "cp14-b16696ac770996a84705d64e",
+      "raised": 16
+    },
+    "id": "cp14-b16696ac770996a84705d64e",
+    "observation": {
+      "bits": "40000001",
+      "fpcr": 4194304,
+      "fpsr": 17,
+      "inputs": {
+        "a": "1",
+        "b": "40000000",
+        "c": "bf7fffff",
+        "fpcr": 4194304,
+        "fpsr": 1
+      }
+    },
+    "op": "add",
+    "product_projection": "UNSUPPORTED: FPCR/FPSR environment state is not modeled",
+    "profile": "b32-r1-fz0-dn0",
+    "seed": 20261013,
+    "source": "generate.py:b32-r1-fz0-dn0:add:1",
+    "width": 32
+  },
+  {
+    "expected": {
+      "bits": "4000000000000000",
+      "fpcr": 33554432,
+      "fpsr": 17,
+      "id": "cp14-b84c2e5350a295b408954379",
+      "raised": 16
+    },
+    "id": "cp14-b84c2e5350a295b408954379",
+    "observation": {
+      "bits": "4000000000000000",
+      "fpcr": 33554432,
+      "fpsr": 17,
+      "inputs": {
+        "a": "1",
+        "b": "4000000000000000",
+        "c": "bfefffffffffffff",
+        "fpcr": 33554432,
+        "fpsr": 1
+      }
+    },
+    "op": "add",
+    "product_projection": "UNSUPPORTED: FPCR/FPSR environment state is not modeled",
+    "profile": "b64-r0-fz0-dn1",
+    "seed": 20261013,
+    "source": "generate.py:b64-r0-fz0-dn1:add:1",
+    "width": 64
+  }
+]

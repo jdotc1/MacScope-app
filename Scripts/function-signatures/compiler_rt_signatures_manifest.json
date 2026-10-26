@@ -1,0 +1,33 @@
+{
+  "counts": {
+    "archive_members": 286,
+    "boundary_symbols": 293,
+    "candidate_atoms": 274,
+    "emitted_signatures": 244,
+    "external_start_atoms": 278,
+    "mach_o_objects": 285,
+    "ranlib_entries": 289,
+    "rejections": 34,
+    "text_relocation_records": 699,
+    "text_relocation_sites": 663
+  },
+  "drop_reason_counts": {
+    "predicate-collision": 2,
+    "same-address-alias": 4,
+    "unstable-checksum": 13,
+    "weak-evidence": 15
+  },
+  "schema_version": 1,
+  "selected_cpu": {
+    "normalized_subtype": 0,
+    "raw_subtype": 0,
+    "raw_type": 16777228,
+    "slice_offset": 360552,
+    "slice_size": 245008
+  },
+  "source": {
+    "archive_name": "libclang_rt.osx.a",
+    "archive_sha256": "5f20304aa257ed57bcba9f64287497d0be09b8cc7a5a91479b6a274294a22dfe",
+    "slice_sha256": "5a1691a79a430a241f4120a5a11c39b8658bc7e82c16d7e5cda112b56ba17ad1"
+  }
+}

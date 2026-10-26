@@ -1,0 +1,83 @@
+From a6e4b2901e12865556157b8636bfff370b366b20 Mon Sep 17 00:00:00 2001
+From: MacScope contributors <contributors@macscope.invalid>
+Date: Wed, 26 Aug 2026 16:50:51 -0400
+Subject: [PATCH] build(gst): disable root networking in external-only mode
+
+---
+ src/build/Config.zig |  8 ++++++++
+ src/main_ghostty.zig | 12 ++++++++++++
+ 2 files changed, 20 insertions(+)
+
+diff --git a/src/build/Config.zig b/src/build/Config.zig
+index d5ddf8ea5..9ab46a04d 100644
+--- a/src/build/Config.zig
++++ b/src/build/Config.zig
+@@ -33,6 +33,7 @@ wayland: bool = false,
+ sentry: bool = true,
+ simd: bool = true,
+ i18n: bool = true,
++macscope_external_io_only: bool = false,
+ wasm_shared: bool = true,
+ 
+ /// Ghostty exe properties
+@@ -235,6 +236,12 @@ pub fn init(b: *std.Build, appVersion: []const u8, libVersion: []const u8) !Conf
+         else => false,
+     };
+ 
++    config.macscope_external_io_only = b.option(
++        bool,
++        "macscope-external-io-only",
++        "Build the private MacScope external-I/O surface without network-capable std.Io operations.",
++    ) orelse false;
++
+     //---------------------------------------------------------------
+     // Ghostty Exe Properties
+ 
+@@ -607,6 +614,7 @@ pub fn addOptions(self: *const Config, step: *std.Build.Step.Options) !void {
+     step.addOption(bool, "sentry", self.sentry);
+     step.addOption(bool, "simd", self.simd);
+     step.addOption(bool, "i18n", self.i18n);
++    step.addOption(bool, "macscope_external_io_only", self.macscope_external_io_only);
+     step.addOption(ApprtRuntime, "app_runtime", self.app_runtime);
+     step.addOption(FontBackend, "font_backend", self.font_backend);
+     step.addOption(RendererBackend, "renderer", self.renderer);
+diff --git a/src/main_ghostty.zig b/src/main_ghostty.zig
+index cd2ef0c17..c6a29f0e2 100644
+--- a/src/main_ghostty.zig
++++ b/src/main_ghostty.zig
+@@ -10,6 +10,7 @@ const macos = @import("macos");
+ const cli = @import("cli.zig");
+ const renderer = @import("renderer.zig");
+ const apprt = @import("apprt.zig");
++const build_options = @import("build_options");
+ 
+ const App = @import("App.zig");
+ const Ghostty = @import("main_c.zig").Ghostty;
+@@ -167,6 +168,10 @@ fn logFn(
+ }
+ 
+ pub const std_options: std.Options = .{
++    // MacScope's external-I/O surface is fed exclusively by its signed host.
++    // Compile network-capable std.Io methods out of that private artifact.
++    .networking = !build_options.macscope_external_io_only,
++
+     // Our log level is always at least info in every build mode.
+     //
+     // Note, we don't lower this to debug even with conditional logging
+@@ -199,6 +204,13 @@ pub const std_options: std.Options = .{
+         builtin.strip_debug_info,
+ };
+ 
++test "MacScope external-I/O-only mode controls the root networking capability" {
++    try std.testing.expectEqual(
++        !build_options.macscope_external_io_only,
++        std_options.networking,
++    );
++}
++
+ test {
+     _ = @import("pty.zig");
+     _ = @import("Command.zig");
+-- 
+2.54.0 (Apple Git-157)
+

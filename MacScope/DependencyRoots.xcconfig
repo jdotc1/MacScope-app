@@ -1,0 +1,52 @@
+// Machine-local dependency roots for MacScope.
+//
+// These are Xcode BUILD SETTINGS, deliberately not scheme environment variables.
+// A scheme's environment variables apply to the Run and Test actions only; they
+// are never visible to build script phases, so they cannot carry these values.
+// An xcconfig is the only form that resolves identically for the Xcode UI, the
+// headless Xcode MCP server, and `xcodebuild`.
+//
+// These defaults name the repository-owned inputs. Missing or invalid inputs
+// remain fail-closed in the consuming verification phases; no producer may
+// silently substitute a cache or network checkout.
+//
+// Scripts/bootstrap.sh writes DependencyRoots.local.xcconfig with this machine's
+// verified roots. That file is untracked; the optional include below is a no-op
+// when it is absent. A command-line override (xcodebuild MACSCOPE_...=...) still
+// outranks everything here, so the existing qualification harness is unaffected.
+
+// This include is mandatory: a missing signing declaration must fail project
+// resolution rather than silently falling back to an empty or ad-hoc identity.
+#include "SigningIdentity.xcconfig"
+
+// The component root contains repository provenance and the exact source
+// closure. Scripts/bootstrap.sh builds/reuses it outside the repository, then
+// records both the producer root and its strict two-item materialization in the
+// machine-local configuration. The empty defaults fail closed when bootstrap
+// has not run. An explicit schema-1 release root remains a rollback override.
+MACSCOPE_SLEIGH_COMPONENT_ROOT = $(SRCROOT)/../ThirdParty/SleighNative
+MACSCOPE_SLEIGH_SOURCE_BUILD_ROOT =
+MACSCOPE_SLEIGH_MATERIALIZATION_ROOT =
+MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT = $(SRCROOT)/../ThirdParty/MachOKit/materialization
+// Bootstrap publishes the Ghostty VT work root plus the full-surface generated
+// source/artifact roots only after both closures have been built and verified
+// offline. Those producer-only work roots are introduced by the local include;
+// when it is absent, undefined settings expand empty and consumers fail closed.
+MACSCOPE_GHOSTTY_SURFACE_SOURCE_DIR =
+MACSCOPE_GHOSTTY_SURFACE_ARTIFACT_ROOT =
+// Receipt-only compatibility alias retained while bootstrap/signing contracts
+// migrate to the staged static-archive name. No Xcode target consumes it.
+MACSCOPE_GHOSTTY_SURFACE_FRAMEWORK =
+MACSCOPE_GHOSTTY_SURFACE_ENABLED =
+
+// Shared content-addressed dependency cache for the RX-03 parser engines (prebuilt LIEF,
+// pe-parse, go-macho and bridge archives). The qualifier's MACSCOPE_DEPENDENCY_CACHE_ROOT
+// environment value, when set, takes precedence in the staging phase.
+MACSCOPE_PARSER_ENGINE_CACHE_ROOT =
+
+// Already-staged pattern adapter archive and Clang module from an accepted native
+// build receipt. Bootstrap records an explicitly supplied root; absent roots fail
+// closed in the analysis worker. No pattern source is compiled by Xcode.
+MACSCOPE_PATTERN_ADAPTER_ROOT =
+
+#include? "DependencyRoots.local.xcconfig"

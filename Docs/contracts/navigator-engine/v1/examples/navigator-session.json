@@ -1,0 +1,623 @@
+{
+ "baseState": {
+  "annotations": [],
+  "facts": [
+   {
+    "id": "f-fd18fdc4cb91844b2cdf17e68945c001",
+    "kind": "Fact",
+    "predicate": "isFunctionStart",
+    "provenance": [
+     {
+      "kind": "loaderRecord",
+      "ref": "LC_FUNCTION_STARTS[12]"
+     }
+    ],
+    "revert": "revert:f-fd18fdc4cb91844b2cdf17e68945c001",
+    "schemaVersion": 1,
+    "status": "authoritative",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e",
+    "value": true
+   },
+   {
+    "id": "f-51cd59814946ad769f160e164f2f59a8",
+    "kind": "Fact",
+    "predicate": "callsTarget",
+    "provenance": [
+     {
+      "kind": "decodedInstruction",
+      "ref": "0x100004018 bl"
+     }
+    ],
+    "revert": "revert:f-51cd59814946ad769f160e164f2f59a8",
+    "schemaVersion": 1,
+    "status": "authoritative",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e",
+    "value": "swift_allocObject"
+   },
+   {
+    "derivedFrom": [
+     [
+      "f-51cd59814946ad769f160e164f2f59a8",
+      "f-fd18fdc4cb91844b2cdf17e68945c001"
+     ]
+    ],
+    "id": "f-ebe4356af1b43347e6047d34de63eef8",
+    "kind": "Fact",
+    "predicate": "hasType",
+    "provenance": [
+     {
+      "kind": "proofCertificate",
+      "ref": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "rule": "swift.alloc-init-is-constructor",
+      "ruleVersion": "1"
+     }
+    ],
+    "revert": "revert:f-ebe4356af1b43347e6047d34de63eef8",
+    "schemaVersion": 1,
+    "status": "proven",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e",
+    "value": "(Int) -> Example.Counter"
+   }
+  ],
+  "frontier": [
+   {
+    "blockedBy": [
+     "f-fd18fdc4cb91844b2cdf17e68945c001"
+    ],
+    "cost": {
+     "instructions": 48
+    },
+    "detail": "no symbol, no export",
+    "gap": "unnamedFunction",
+    "id": "g-7931d4f3746d9023618d26d3c4d460d0",
+    "kind": "FrontierItem",
+    "leverage": 3,
+    "missingEvidence": [],
+    "primitives": [
+     {
+      "name": "identity.knownLibrary",
+      "preconditions": []
+     },
+     {
+      "name": "swiftMetadata.vtableSlot",
+      "preconditions": [
+       "class descriptor"
+      ]
+     }
+    ],
+    "reason": [],
+    "schemaVersion": 1,
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e"
+   }
+  ],
+  "kind": "NavigatorEngineState",
+  "reverted": [],
+  "schemaVersion": 1,
+  "toolchain": "xcode27-swift6.2-arm64e"
+ },
+ "description": "Scripted navigator session over contract v1. Each step shows the operation, its outcome (null = accepted, else a typed refusal), the displayed hasName/hasType and the frontier gaps after it.",
+ "finalState": {
+  "annotations": [
+   {
+    "action": "rename",
+    "author": "analyst",
+    "cites": [],
+    "id": "a-241c0b21cab1abc9ae1678170fb09018",
+    "kind": "Annotation",
+    "predicate": "hasName",
+    "rationale": "",
+    "revert": "revert:a-241c0b21cab1abc9ae1678170fb09018",
+    "reverted": true,
+    "schemaVersion": 1,
+    "seq": 3,
+    "session": "analyst",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "value": "Counter.init(count:)"
+   }
+  ],
+  "facts": [
+   {
+    "id": "f-51cd59814946ad769f160e164f2f59a8",
+    "kind": "Fact",
+    "predicate": "callsTarget",
+    "provenance": [
+     {
+      "kind": "decodedInstruction",
+      "ref": "0x100004018 bl"
+     }
+    ],
+    "revert": "revert:f-51cd59814946ad769f160e164f2f59a8",
+    "schemaVersion": 1,
+    "status": "authoritative",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e",
+    "value": "swift_allocObject"
+   },
+   {
+    "derivedFrom": [
+     [
+      "f-51cd59814946ad769f160e164f2f59a8",
+      "f-fd18fdc4cb91844b2cdf17e68945c001"
+     ]
+    ],
+    "id": "f-ebe4356af1b43347e6047d34de63eef8",
+    "kind": "Fact",
+    "predicate": "hasType",
+    "provenance": [
+     {
+      "kind": "proofCertificate",
+      "ref": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "rule": "swift.alloc-init-is-constructor",
+      "ruleVersion": "1"
+     }
+    ],
+    "revert": "revert:f-ebe4356af1b43347e6047d34de63eef8",
+    "schemaVersion": 1,
+    "status": "proven",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e",
+    "value": "(Int) -> Example.Counter"
+   },
+   {
+    "id": "f-fd18fdc4cb91844b2cdf17e68945c001",
+    "kind": "Fact",
+    "predicate": "isFunctionStart",
+    "provenance": [
+     {
+      "kind": "loaderRecord",
+      "ref": "LC_FUNCTION_STARTS[12]"
+     }
+    ],
+    "revert": "revert:f-fd18fdc4cb91844b2cdf17e68945c001",
+    "schemaVersion": 1,
+    "status": "authoritative",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e",
+    "value": true
+   }
+  ],
+  "frontier": [
+   {
+    "blockedBy": [
+     "f-fd18fdc4cb91844b2cdf17e68945c001"
+    ],
+    "cost": {
+     "instructions": 48
+    },
+    "detail": "no symbol, no export",
+    "gap": "unnamedFunction",
+    "id": "g-7931d4f3746d9023618d26d3c4d460d0",
+    "kind": "FrontierItem",
+    "leverage": 3,
+    "missingEvidence": [],
+    "primitives": [
+     {
+      "name": "identity.knownLibrary",
+      "preconditions": []
+     },
+     {
+      "name": "swiftMetadata.vtableSlot",
+      "preconditions": [
+       "class descriptor"
+      ]
+     }
+    ],
+    "reason": [],
+    "schemaVersion": 1,
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "toolchain": "xcode27-swift6.2-arm64e"
+   }
+  ],
+  "kind": "NavigatorEngineState",
+  "reverted": [],
+  "schemaVersion": 1,
+  "toolchain": "xcode27-swift6.2-arm64e"
+ },
+ "steps": [
+  {
+   "display": {
+    "hasName": {
+     "conflict": false,
+     "source": "derived",
+     "values": [
+      "\"Example.Counter.init(_:)\""
+     ]
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction"
+   ],
+   "op": "primitive",
+   "outcome": null,
+   "payload": {
+    "budget": {
+     "bytes": 512,
+     "instructions": 64
+    },
+    "facts": [
+     {
+      "derivedFrom": [
+       [
+        "f-ebe4356af1b43347e6047d34de63eef8"
+       ]
+      ],
+      "id": "f-60a6ef7fe3a06315f6382151e01324b1",
+      "kind": "Fact",
+      "predicate": "hasName",
+      "provenance": [
+       {
+        "kind": "metadataRecord",
+        "ref": "vtable[0]@0x100010200",
+        "rule": "swift.vtable-slot-name",
+        "ruleVersion": "1"
+       }
+      ],
+      "revert": "revert:f-60a6ef7fe3a06315f6382151e01324b1",
+      "schemaVersion": 1,
+      "status": "derived",
+      "subject": {
+       "image": "Example.app/Example",
+       "kind": "function",
+       "ref": "0x100004000"
+      },
+      "tier": 3,
+      "toolchain": "xcode27-swift6.2-arm64e",
+      "value": "Example.Counter.init(_:)"
+     }
+    ],
+    "frontier": [],
+    "kind": "PrimitiveResult",
+    "outcome": "facts",
+    "primitive": "swiftMetadata.vtableSlot",
+    "primitiveVersion": "1",
+    "schemaVersion": 1,
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    }
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": false,
+     "source": "navigator",
+     "values": [
+      "\"Counter.init(start:)\""
+     ]
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction"
+   ],
+   "op": "accept",
+   "outcome": null,
+   "payload": {
+    "action": "rename",
+    "author": "navigator",
+    "cites": [
+     "f-60a6ef7fe3a06315f6382151e01324b1",
+     "f-ebe4356af1b43347e6047d34de63eef8"
+    ],
+    "id": "a-be01d8902fc0e7e7631497098196aea3",
+    "kind": "Annotation",
+    "predicate": "hasName",
+    "rationale": "vtable slot 0 and the proven constructor shape",
+    "revert": "revert:a-be01d8902fc0e7e7631497098196aea3",
+    "reverted": false,
+    "schemaVersion": 1,
+    "seq": 0,
+    "session": "nav-1",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "value": "Counter.init(start:)"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": true,
+     "source": "navigator",
+     "values": [
+      "\"Counter.init(start:)\"",
+      "\"Counter.make(_:)\""
+     ]
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction",
+    "conflictingAnnotations"
+   ],
+   "op": "accept",
+   "outcome": null,
+   "payload": {
+    "action": "rename",
+    "author": "navigator",
+    "cites": [
+     "f-ebe4356af1b43347e6047d34de63eef8"
+    ],
+    "id": "a-6725ffed8e5ca618b658405e13a18330",
+    "kind": "Annotation",
+    "predicate": "hasName",
+    "rationale": "factory naming convention",
+    "revert": "revert:a-6725ffed8e5ca618b658405e13a18330",
+    "reverted": false,
+    "schemaVersion": 1,
+    "seq": 1,
+    "session": "nav-1",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "value": "Counter.make(_:)"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": true,
+     "source": "navigator",
+     "values": [
+      "\"Counter.init(start:)\"",
+      "\"Counter.make(_:)\""
+     ]
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction",
+    "conflictingAnnotations"
+   ],
+   "op": "accept",
+   "outcome": {
+    "code": "conflictsWithAuthority",
+    "detail": "proven f-ebe4356af1b43347e6047d34de63eef8 holds a different value",
+    "retryable": false
+   },
+   "payload": {
+    "action": "setType",
+    "author": "navigator",
+    "cites": [
+     "f-fd18fdc4cb91844b2cdf17e68945c001"
+    ],
+    "id": "a-9d5e3fd7e8888eb208d63c04cfbefbbf",
+    "kind": "Annotation",
+    "predicate": "hasType",
+    "rationale": "guess",
+    "revert": "revert:a-9d5e3fd7e8888eb208d63c04cfbefbbf",
+    "reverted": false,
+    "schemaVersion": 1,
+    "seq": 2,
+    "session": "nav-1",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "value": "() -> Void"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": false,
+     "source": "analyst",
+     "values": [
+      "\"Counter.init(count:)\""
+     ]
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction",
+    "conflictingAnnotations"
+   ],
+   "op": "accept",
+   "outcome": null,
+   "payload": {
+    "action": "rename",
+    "author": "analyst",
+    "cites": [],
+    "id": "a-241c0b21cab1abc9ae1678170fb09018",
+    "kind": "Annotation",
+    "predicate": "hasName",
+    "rationale": "",
+    "revert": "revert:a-241c0b21cab1abc9ae1678170fb09018",
+    "reverted": false,
+    "schemaVersion": 1,
+    "seq": 3,
+    "session": "analyst",
+    "subject": {
+     "image": "Example.app/Example",
+     "kind": "function",
+     "ref": "0x100004000"
+    },
+    "value": "Counter.init(count:)"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": true,
+     "source": "navigator",
+     "values": [
+      "\"Counter.init(start:)\"",
+      "\"Counter.make(_:)\""
+     ]
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction",
+    "conflictingAnnotations"
+   ],
+   "op": "revert",
+   "outcome": null,
+   "payload": {
+    "handle": "revert:a-241c0b21cab1abc9ae1678170fb09018"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": false,
+     "source": "fallback",
+     "values": []
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "fallback",
+     "values": []
+    }
+   },
+   "frontier": [
+    "unnamedFunction",
+    "staleAnnotation",
+    "staleAnnotation"
+   ],
+   "op": "revert",
+   "outcome": null,
+   "payload": {
+    "handle": "revert:f-ebe4356af1b43347e6047d34de63eef8"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": false,
+     "source": "fallback",
+     "values": []
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "fallback",
+     "values": []
+    }
+   },
+   "frontier": [
+    "unnamedFunction",
+    "staleAnnotation",
+    "staleAnnotation"
+   ],
+   "op": "revert",
+   "outcome": {
+    "code": "notReversible",
+    "detail": "authoritative facts are read from the image",
+    "retryable": false
+   },
+   "payload": {
+    "handle": "revert:f-fd18fdc4cb91844b2cdf17e68945c001"
+   }
+  },
+  {
+   "display": {
+    "hasName": {
+     "conflict": false,
+     "source": "fallback",
+     "values": []
+    },
+    "hasType": {
+     "conflict": false,
+     "source": "proven",
+     "values": [
+      "\"(Int) -> Example.Counter\""
+     ]
+    }
+   },
+   "frontier": [
+    "unnamedFunction"
+   ],
+   "op": "undoSession",
+   "outcome": null,
+   "payload": {
+    "journalEntriesRemoved": 4,
+    "session": "nav-1"
+   }
+  }
+ ],
+ "undoRestoresSnapshot": true
+}

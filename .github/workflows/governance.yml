@@ -1,0 +1,118 @@
+name: Governance
+
+# Runs portable repository governance tests (nightly and on dispatch). The
+# separate ci.yml workflow runs native build/CoreTests on the provisioned
+# Apple-Silicon Xcode 27 runner; this lane does not build, sign, or run XCTest.
+# Discovery includes new Scripts/tests modules by default and explicitly excludes
+# modules requiring native macOS tooling. Counts and permitted skips are reported
+# by Scripts/ci/run_hosted_governance.py. A separate visible step runs the
+# portable MacScope Python client tests through Scripts/ci/run_python_client_tests.py
+# under both Python 3.9 (Apple's /usr/bin/python3 and LLDB floor, MS-21) and
+# Homebrew's current python3.
+
+# Runs on the light self-hosted runner with labels:
+# self-hosted, macOS, ARM64, light; Homebrew python3 on PATH; never Xcode
+# jobs, so governance spends no hosted Actions minutes (D12). Triggers: the
+# nightly schedule (same 03:00 EDT slot as ci.yml) and manual dispatch for a
+# one-off run of an unreviewed branch. No push or pull_request trigger.
+on:
+  workflow_dispatch:
+  schedule:
+    # 03:00 EDT (07:00 UTC; 02:00 EST in winter): a quiet hour on this Mac.
+    # 07:45 UTC = 03:45 EDT: after the 03:00 native nightly's heavy phase.
+    - cron: "45 7 * * *"
+
+concurrency:
+  group: governance-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+jobs:
+  hosted-governance:
+    name: Host-independent governance suite
+    # A personal self-hosted runner must never execute code from a fork PR.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, macOS, ARM64, light]
+    timeout-minutes: 45
+    env:
+      # MACSCOPE_WORK_ROOT comes from the self-hosted runner's local .env file.
+      # Homebrew python3 is the current-interpreter leg; Apple's
+      # /usr/bin/python3 (3.9) is the floor leg; no setup-python action.
+      PATH: /opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    steps:
+      # Phase 2 corpus governance resolves each ready fixture at its recorded
+      # content-verification commit. A depth-1 checkout cannot perform that proof.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          # LFS payloads come from this Mac's local object stores below, never
+          # from GitHub LFS bandwidth (about 400 MB per run with `lfs: true`).
+          lfs: false
+
+      - name: Materialize LFS payloads from local object stores
+        shell: bash
+        run: |
+          # Copy any object this clone lacks from this Mac's other stores, then
+          # check the payloads out locally. `git lfs checkout` never downloads.
+          git lfs install --local --skip-smudge >/dev/null
+          store="$(git rev-parse --git-common-dir)/lfs/objects"
+          while read -r oid _marker path; do
+            relative="${oid:0:2}/${oid:2:2}/${oid}"
+            for seed in "$MACSCOPE_WORK_ROOT/.lfs-shared" "$MACSCOPE_WORK_ROOT/macscope/.git/lfs/objects"; do
+              if [[ ! -f "$store/$relative" && -f "$seed/$relative" ]]; then
+                mkdir -p "$store/${oid:0:2}/${oid:2:2}"
+                cp "$seed/$relative" "$store/$relative"
+              fi
+            done
+            test -f "$store/$relative" || { echo "LFS object for $path is not on this Mac" >&2; exit 1; }
+          done < <(git lfs ls-files --long)
+          git lfs checkout
+          pointers="$(git lfs ls-files | grep -c ' - ' || true)"
+          test "$pointers" = 0
+
+      - name: Report interpreters
+        run: |
+          python3 --version
+          /usr/bin/python3 --version
+
+      # pypcode backs the decompiler core-proof differential tests. Without it those
+      # cases XCTSkip with a recorded reason rather than failing, so installation is
+      # best-effort: a PyPI outage must not turn into a spurious governance failure.
+      # The run prints its own skip count either way, so reduced coverage stays visible.
+      # Kept in a persistent venv in the runner tool cache: the DCP-03 supervisor
+      # runs its child with PYTHONNOUSERSITE=1, so a --user install is invisible to it.
+      - name: Materialize optional proof dependency
+        continue-on-error: true
+        run: |
+          venv="$RUNNER_TOOL_CACHE/macscope-governance-python"
+          test -x "$venv/bin/python" || python3 -m venv "$venv"
+          "$venv/bin/python" -m pip install --disable-pip-version-check --quiet pypcode==4.0.0
+
+      - name: Run host-independent governance suite
+        env:
+          # The runner's fresh checkout has no private submodule credentials/seed.
+          # The real-root test proves missing-package rejection; hermetic Git
+          # fixtures cover valid/tampered packages. Native bootstrap still must
+          # pass the real populated-root inventory validator, without this flag.
+          MACSCOPE_HOSTED_UNMATERIALIZED_FIRST_PARTY: '1'
+        run: |
+          venv="$RUNNER_TOOL_CACHE/macscope-governance-python"
+          python="$venv/bin/python"
+          test -x "$python" || python=python3
+          "$python" --version
+          "$python" Scripts/ci/run_hosted_governance.py
+
+      # Portable MacScope Python client tests (MacScope/python/tests): standard
+      # library only, real responder subprocesses, no MacScope build or pytest.
+      # The native end-to-end client suite is excluded by name in the runner.
+      # The runner also compiles the build-phase scripts and LLDB extractor
+      # programs, so the 3.9 leg proves the Apple-interpreter floor (MS-21).
+      # Independent of the governance suite, so it still reports when that fails.
+      - name: Run portable Python client tests
+        if: success() || failure()
+        run: |
+          /usr/bin/python3 Scripts/ci/run_python_client_tests.py
+          python3 Scripts/ci/run_python_client_tests.py
+

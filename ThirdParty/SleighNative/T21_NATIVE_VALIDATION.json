@@ -1,0 +1,1531 @@
+{
+  "schemaVersion": 1,
+  "authorization": "CLX-D19-0046, CODEX-ADDENDUM-COMPUTE-20261012.md section T21",
+  "sourceCommit": "887060c5aec389291b277c3f5ec623c5320ea983",
+  "status": "native_admission_partially_accepted",
+  "selector": "CoreTests/Phase2LiveAIAgentXPCProductionGateTests/testOptInOrdinaryNativeAdmissionForCapturedInput",
+  "station": "S1",
+  "worker": "/root/lane21_native_receipts",
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "approval": "never",
+  "sandbox": "danger-full-access",
+  "gitAccessProbe": "common-git unique write/remove and no-change index refresh passed before edits",
+  "headlessPath": "MacScope/App/MacScopeApp.swift:54-56,110-115 XCTest host Settings { EmptyView() }",
+  "nativeInvocationCount": 5,
+  "fixture": {
+    "path": "lane21-evidence/bfmlal-input",
+    "assemblyPath": "lane21-evidence/bfmlal-input.s",
+    "source": "MacScope/Tests/CoreTests/ARM64BF16Tests.swift:testBFMLALByElement",
+    "functions": 2,
+    "uniqueFeatureWords": 8,
+    "words": [
+      "0fc2f020",
+      "0fd2f020",
+      "0ff2f820",
+      "0ffff820",
+      "4fc2f020",
+      "4ff2f820",
+      "4ffff020",
+      "4fcafa85"
+    ],
+    "hardwareExecuted": false,
+    "preparationFailure": "Initial clang link omitted libSystem and failed; corrected fixture link adds -lSystem before any native invocation."
+  },
+  "workers": {
+    "xcodeJobs": 3,
+    "sharedNativeSlots": 3
+  },
+  "retainedRX18": {
+    "receipt": "ThirdParty/SleighNative/RX18_VALIDATION.json",
+    "compileReceipt": "t6-sme-20261012.noindex/compile.json",
+    "currentAppleSlaSHA256FromReceipt": "dfc99de03ffc783a787d47c6650b3f55a9ca3cc6da74d219976d9c8fe9dd82c5",
+    "originalCheckedInRX18Words": 39,
+    "eachVariant": {
+      "normal_path": 3,
+      "decode_only": 35,
+      "still_fail_closed": 1
+    },
+    "scope": "actual vendored sleigh-lift decode and pcode, not native-provider or hardware acceptance",
+    "rerun": false
+  },
+  "preparedSets": {
+    "RX17": {
+      "path": "ThirdParty/SleighNative/tests/rx17_native_acceptance_vectors.json",
+      "uniqueWords": 16
+    },
+    "RX18": {
+      "path": "ThirdParty/SleighNative/tests/rx18_feature_vectors.json",
+      "rows": 132,
+      "uniqueAllocatedWords": 120,
+      "reservedGuards": 12
+    }
+  },
+  "log": "lane21-evidence/dev-loop.log",
+  "nonclaims": [
+    "No instruction hardware execution",
+    "No GUI or MTPLX/model load",
+    "No full qualification, corpus pass, baseline replay, or repeated source/dependency verification",
+    "Native provider success alone does not establish the prepared vectors full SSA-aware semantic obligations"
+  ],
+  "commandsWithNativeExecution": 2,
+  "repeatedFeatureWords": 0,
+  "build": {
+    "exitStatus": 0,
+    "lockWaitSeconds": 8.7,
+    "prepareSeconds": 66.9,
+    "buildSeconds": 397.1,
+    "testSeconds": 10.0,
+    "totalSeconds": 482.7,
+    "note": "SwiftCompile cache messages reported failed with exit code 0; build and selected test ultimately exited0. No cache workaround or build retry."
+  },
+  "bfmlal": {
+    "test": "passed",
+    "diagnosticsPath": "macscope-ordinary-native-admission-960BEF1A-6F2A-4525-8DC8-80E0FAC2E868/diagnostics.json",
+    "functionAdmissions": 2,
+    "featureWordsInAdmittedFunctions": 8,
+    "records": [
+      {
+        "hostBundle": "MacScopeDevLoop.noindex/DerivedData/ms-13-f5a2241a465f-xcode-c80fb9750234/Build/Products/Debug/MacScope.app",
+        "input": "lane21-evidence/bfmlal-input",
+        "stage": "identity"
+      },
+      {
+        "backend": "ghidra-native-decompiler",
+        "packageTreeSHA256": "8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f",
+        "stage": "hostAttestation",
+        "status": "passed"
+      },
+      {
+        "attestationCount": "2",
+        "functionStartCount": "2",
+        "inputSHA256": "c649fbc5050c0b397f10a5aa8d93d085bc0c9d18acbacf633b886165a74bc0c4",
+        "stage": "loader",
+        "status": "passed"
+      },
+      {
+        "attestationCount": "2",
+        "functionCount": "2",
+        "stage": "analysis",
+        "status": "passed"
+      },
+      {
+        "function": "_t21_bfmlalb",
+        "requestSHA256": "fab0a858db027e22e0efd172fd14165e0bda3e60e16705c779bbb756b605cd03",
+        "stage": "projection",
+        "start": "4294968024",
+        "status": "passed"
+      },
+      {
+        "function": "_t21_bfmlalb",
+        "requestSHA256": "fab0a858db027e22e0efd172fd14165e0bda3e60e16705c779bbb756b605cd03",
+        "stage": "nativeAdmission",
+        "status": "passed"
+      },
+      {
+        "function": "_t21_bfmlalt",
+        "requestSHA256": "f31a3068692ed2a4fd95d475165d50d94bda189da1033ffec66a61185d75deff",
+        "stage": "projection",
+        "start": "4294968044",
+        "status": "passed"
+      },
+      {
+        "function": "_t21_bfmlalt",
+        "requestSHA256": "f31a3068692ed2a4fd95d475165d50d94bda189da1033ffec66a61185d75deff",
+        "stage": "nativeAdmission",
+        "status": "passed"
+      },
+      {
+        "admissionCount": "2",
+        "authority": "ready(MacScope.NativeDecompilerRuntimeIdentity(backendID: \"ghidra-native-decompiler\", engineVersion: \"12.1.2\", engineRevision: \"c0f584bf229fffba61b36431f3ce30c0c3e4e682\", wrapperVersion: \"dcp05c-v1\", wrapperRevision: \"9ceb6d7c30dbda0ad41817a4090ba4e59b2a91907e83fa109588c988effa359e\", packageManifestSHA256: \"10463a45ad103159d75ef76019d29a9142bf5e72b700c479ad6ac998955342a8\", packageTreeSHA256: \"8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f\", languageID: \"AARCH64:LE:64:AppleSilicon\", compilerSpecID: \"default\", targetProfileID: \"apple-aarch64-pac-visible-clobber-v1\", contextProfileSHA256: \"6aa45ea9206f967c095d175b05c6c0d7980cd15a0702826d7ab38e4fd37c8ca5\"))",
+        "stage": "runtime"
+      },
+      {
+        "functionID": "600b7a30-ddf5-8e32-a8ea-99638f04e4b5",
+        "requestID": "49F2EDEC-39F4-4FCC-B0FE-8297F2E5CDD0",
+        "stage": "nativeObservation",
+        "status": "success"
+      },
+      {
+        "functionID": "20c113a7-45e1-83a0-b4d4-05b7065ee397",
+        "requestID": "B320F7C0-DE14-44F2-950F-C47FDEE5AEE9",
+        "stage": "nativeObservation",
+        "status": "success"
+      }
+    ]
+  },
+  "remainingRun": {
+    "startedAtEpoch": 1791868154.756099,
+    "command": "xcodebuild test-without-building",
+    "testIterations": 1,
+    "parallelTesting": false,
+    "xcodeJobs": 3,
+    "finishedAtEpoch": 1791868175.886132,
+    "seconds": 21.13,
+    "exitStatus": 65,
+    "xctestrun": "lane21-evidence/remaining.xctestrun",
+    "xcresult": "lane21-evidence/remaining.xcresult",
+    "log": "lane21-evidence/remaining.log",
+    "nativeTestCases": 4,
+    "nativeTestCasesFailed": 4,
+    "testRepetition": "default single execution; no retry/repetition options",
+    "uniqueFeatureAndGuardWordsSubmittedOnce": 148
+  },
+  "launchFailuresBeforeNativeExecution": [
+    {
+      "exitStatus": 64,
+      "reason": "Xcode rejects explicit -test-iterations1; omitted option to use default single execution",
+      "seconds": 0.741,
+      "log": "lane21-evidence/remaining.log.cli-rejected",
+      "nativeExecuted": false
+    },
+    {
+      "exitStatus": 64,
+      "reason": "Previous rejected CLI created result bundle; preserved it as remaining-cli-rejected.xcresult and used fresh output path",
+      "seconds": 0.523,
+      "log": "lane21-evidence/remaining.log.existing-result-rejected",
+      "nativeExecuted": false
+    }
+  ],
+  "remainingConfigurations": [
+    {
+      "name": "rx17",
+      "input": "lane21-evidence/rx17",
+      "functions": [
+        {
+          "symbol": "_t21_rx17_bfdot",
+          "words": [
+            "4f62f820"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx17_bfdot",
+            "requestSHA256": "dc6576201e8be7e1c9d370f72a0548314efc4496eb646c7fc23001fb5dc636dd",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_sudot",
+          "words": [
+            "4f22f820"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx17_sudot",
+            "requestSHA256": "9b74d279888a83ca5dea2677673009717182bc9245e25a9745a3e07117af5ec4",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_usdot",
+          "words": [
+            "4fa2f822"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx17_usdot",
+            "requestSHA256": "1b0d427090fba727738e524376aaf0bf94baa9eed0f575b271ddeb0597128e67",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_fcmla",
+          "words": [
+            "6f627820",
+            "6f823820",
+            "6ec2dc20"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx17_fcmla",
+            "requestSHA256": "1d25376bfd952a832f814ce7c6a8bd633db5d27ece48dd47dafa30b6bd613998",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_fjcvtzs",
+          "words": [
+            "1e7e0020"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx17_fjcvtzs",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_bfcvt",
+          "words": [
+            "1e634020"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx17_bfcvt",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_frint32",
+          "words": [
+            "1e28c020",
+            "1e68c020",
+            "1e284020",
+            "1e684020"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx17_frint32",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx17_frint64",
+          "words": [
+            "1e29c020",
+            "1e69c020",
+            "1e294020",
+            "1e694020"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx17_frint64",
+            "stage": "functionFailure"
+          }
+        }
+      ],
+      "uniqueFeatureWords": 16,
+      "diagnosticsPath": "macscope-ordinary-native-admission-CAA8BC2A-326A-462F-8D60-1D0381C3F925/diagnostics.json",
+      "records": [
+        {
+          "hostBundle": "MacScopeDevLoop.noindex/DerivedData/ms-13-f5a2241a465f-xcode-c80fb9750234/Build/Products/Debug/MacScope.app",
+          "input": "lane21-evidence/rx17",
+          "stage": "identity"
+        },
+        {
+          "backend": "ghidra-native-decompiler",
+          "packageTreeSHA256": "8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f",
+          "stage": "hostAttestation",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionStartCount": "8",
+          "inputSHA256": "935eefcff9f3021cb04ff0ed244b68f7a8fb0743e2955f82ec7518fcf94d94a1",
+          "stage": "loader",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionCount": "8",
+          "stage": "analysis",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_bfdot",
+          "requestSHA256": "dc6576201e8be7e1c9d370f72a0548314efc4496eb646c7fc23001fb5dc636dd",
+          "stage": "projection",
+          "start": "4294968024",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_bfdot",
+          "requestSHA256": "dc6576201e8be7e1c9d370f72a0548314efc4496eb646c7fc23001fb5dc636dd",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_sudot",
+          "requestSHA256": "9b74d279888a83ca5dea2677673009717182bc9245e25a9745a3e07117af5ec4",
+          "stage": "projection",
+          "start": "4294968032",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_sudot",
+          "requestSHA256": "9b74d279888a83ca5dea2677673009717182bc9245e25a9745a3e07117af5ec4",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_usdot",
+          "requestSHA256": "1b0d427090fba727738e524376aaf0bf94baa9eed0f575b271ddeb0597128e67",
+          "stage": "projection",
+          "start": "4294968040",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_usdot",
+          "requestSHA256": "1b0d427090fba727738e524376aaf0bf94baa9eed0f575b271ddeb0597128e67",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_fcmla",
+          "requestSHA256": "1d25376bfd952a832f814ce7c6a8bd633db5d27ece48dd47dafa30b6bd613998",
+          "stage": "projection",
+          "start": "4294968048",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_fcmla",
+          "requestSHA256": "1d25376bfd952a832f814ce7c6a8bd633db5d27ece48dd47dafa30b6bd613998",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx17_fjcvtzs",
+          "requestSHA256": "ad0fd5789c74db3d05be89aedbf0378b6f8b017defbfa9e7e01744e263bd7fbc",
+          "stage": "projection",
+          "start": "4294968064",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx17_fjcvtzs",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx17_bfcvt",
+          "requestSHA256": "151ca1951306935464888b6aadfb4876075537d3afb74441ef7698d989ccdc71",
+          "stage": "projection",
+          "start": "4294968072",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx17_bfcvt",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx17_frint32",
+          "requestSHA256": "1d052255aa6bc301b05d36008f851c88b4e4c6a57d3d563862eb18326126f1ad",
+          "stage": "projection",
+          "start": "4294968080",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx17_frint32",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx17_frint64",
+          "requestSHA256": "3afd7434d75f6ab448a096d1645f900a5f4ab1162e668234074184e628fdc5bf",
+          "stage": "projection",
+          "start": "4294968100",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx17_frint64",
+          "stage": "functionFailure"
+        },
+        {
+          "admissionCount": "8",
+          "authority": "ready(MacScope.NativeDecompilerRuntimeIdentity(backendID: \"ghidra-native-decompiler\", engineVersion: \"12.1.2\", engineRevision: \"c0f584bf229fffba61b36431f3ce30c0c3e4e682\", wrapperVersion: \"dcp05c-v1\", wrapperRevision: \"9ceb6d7c30dbda0ad41817a4090ba4e59b2a91907e83fa109588c988effa359e\", packageManifestSHA256: \"10463a45ad103159d75ef76019d29a9142bf5e72b700c479ad6ac998955342a8\", packageTreeSHA256: \"8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f\", languageID: \"AARCH64:LE:64:AppleSilicon\", compilerSpecID: \"default\", targetProfileID: \"apple-aarch64-pac-visible-clobber-v1\", contextProfileSHA256: \"6aa45ea9206f967c095d175b05c6c0d7980cd15a0702826d7ab38e4fd37c8ca5\"))",
+          "stage": "runtime"
+        },
+        {
+          "functionID": "600b7a30-ddf5-8e32-a8ea-99638f04e4b5",
+          "requestID": "3E543D05-BB51-4964-A390-B7AE834B70F7",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "4163eb64-6c12-8ae5-b57f-2b6d591a174b",
+          "requestID": "DC06C35D-6EF5-4C62-BA5E-2FAF45086FDF",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "5af61ed4-2c7b-8f8d-98e3-fdfb6768812e",
+          "requestID": "0AF566A7-A30E-4529-87FF-B6E05E9F29A3",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "ae47f3b7-daef-82c8-b33d-f472bd73dbc1",
+          "requestID": "A927E99B-1F4E-40CF-80C9-57A4163E2594",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "c645d24c-4e2d-8e44-824c-ec8103363340",
+          "requestID": "2A8F531A-82D0-4AD8-A612-C210C16CD548",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "9c30b4ca-6e4d-8896-aba3-eaa6f2b3f165",
+          "requestID": "0FA6AC84-1773-4ECD-BC66-BD712CEFE1F2",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "7576044e-e597-8b4d-ab05-c97b2cf69383",
+          "requestID": "FC17BAB0-9CB5-4A74-9E6B-0A639C3BF949",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "153eb578-7619-83db-8172-b2ec603829ce",
+          "requestID": "1260EA5E-4053-4488-8A63-9EA6A8977634",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        }
+      ],
+      "summary": {
+        "admitted": 4,
+        "provider_rejected": 4
+      },
+      "featureWordsInAdmittedFunctions": 6,
+      "featureWordsInRejectedFunctions": 10
+    },
+    {
+      "name": "rx18_allocated",
+      "input": "lane21-evidence/rx18_allocated",
+      "functions": [
+        {
+          "symbol": "_t21_rx18_allocated_state_memory_zero",
+          "words": [
+            "04bf5820",
+            "04bf5bfe",
+            "04bf5c1f",
+            "c0080081",
+            "e12063ef",
+            "e11f83c0"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx18_allocated_state_memory_zero",
+            "requestSHA256": "131e8bb65d7225ca99b6d7d04f0047bbb0bbe0165d9bbdbc01eb32b610bda61d",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_allocated_rx18",
+          "words": [
+            "d503477f",
+            "d503437f",
+            "d503457f",
+            "d503467f",
+            "d503427f",
+            "d503447f",
+            "c0080000",
+            "c00800ff",
+            "c0080055",
+            "c00800aa",
+            "e1000000",
+            "e13f83e0",
+            "04bf5fff",
+            "04bf5c15",
+            "c0080001",
+            "c0080011",
+            "c0080033",
+            "2518e3e0",
+            "2558e103",
+            "25d8e3ef",
+            "25a11400",
+            "256704a3",
+            "25eb1d42",
+            "65820020",
+            "65c50483",
+            "654808e6",
+            "05223020",
+            "25b8c000",
+            "a540bd52",
+            "e540eb78",
+            "81a1f522",
+            "c0cc0000",
+            "c0cc1000",
+            "c0cc2000",
+            "a547a054",
+            "a548a0ac",
+            "e547e031",
+            "e548e002"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_allocated_rx18",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_allocated_outer",
+          "words": [
+            "809ff523",
+            "80dff527",
+            "81bff522",
+            "819ff529",
+            "809ff533",
+            "80dff537",
+            "81bff532",
+            "819ff539"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_allocated_outer",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_allocated_lookup",
+          "words": [
+            "c0cfc3df",
+            "c0cfd3df",
+            "c0cfe3df"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx18_allocated_lookup",
+            "requestSHA256": "3e1515ea076eb0d511d085014b18ec9a63fbb10e95b23115bb9c2d7a79ed208d",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_allocated_move",
+          "words": [
+            "c0007fef",
+            "c0020000",
+            "c000ffef",
+            "c0028000",
+            "c0407fef",
+            "c0420100",
+            "c040ffef",
+            "c0428100",
+            "c0807fef",
+            "c0820180",
+            "c080ffef",
+            "c0828180",
+            "c0c07fef",
+            "c0c201c0",
+            "c0c0ffef",
+            "c0c281c0",
+            "c0c17fef",
+            "c0c301e0",
+            "c0c1ffef",
+            "c0c381e0"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx18_allocated_move",
+            "requestSHA256": "99714c9e7a576e6dc7d2978f9ae4a70cff08361d5d7cfa501c79b91cdb22c54e",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_allocated_tile_memory",
+          "words": [
+            "e01e7fef",
+            "e01f1c00",
+            "e03e7fef",
+            "e03f1c00",
+            "e01effef",
+            "e01f9c00",
+            "e03effef",
+            "e03f9c00",
+            "e05e7fef",
+            "e05f1c08",
+            "e07e7fef",
+            "e07f1c08",
+            "e05effef",
+            "e05f9c08",
+            "e07effef",
+            "e07f9c08",
+            "e09e7fef",
+            "e09f1c0c",
+            "e0be7fef",
+            "e0bf1c0c",
+            "e09effef",
+            "e09f9c0c",
+            "e0beffef",
+            "e0bf9c0c",
+            "e0de7fef",
+            "e0df1c0e",
+            "e0fe7fef",
+            "e0ff1c0e",
+            "e0deffef",
+            "e0df9c0e",
+            "e0feffef",
+            "e0ff9c0e",
+            "e1de7fef",
+            "e1df1c0f",
+            "e1fe7fef",
+            "e1ff1c0f",
+            "e1deffef",
+            "e1df9c0f",
+            "e1feffef",
+            "e1ff9c0f"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_allocated_tile_memory",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_allocated_tile_add",
+          "words": [
+            "c090f7e3",
+            "c0d0f7e7",
+            "c091f7e3",
+            "c0d1f7e7"
+          ],
+          "expected": "native_admission",
+          "kind": "allocated",
+          "actual": "admitted",
+          "nativeRecord": {
+            "function": "_t21_rx18_allocated_tile_add",
+            "requestSHA256": "e16a0ed4bc1001244a2a13168045b507799e5049ad24a6791ded15010eeb48fa",
+            "stage": "nativeAdmission",
+            "status": "passed"
+          }
+        }
+      ],
+      "uniqueFeatureWords": 119,
+      "diagnosticsPath": "macscope-ordinary-native-admission-2F9F5F62-6E42-4688-97B4-5C60216330AB/diagnostics.json",
+      "records": [
+        {
+          "hostBundle": "MacScopeDevLoop.noindex/DerivedData/ms-13-f5a2241a465f-xcode-c80fb9750234/Build/Products/Debug/MacScope.app",
+          "input": "lane21-evidence/rx18_allocated",
+          "stage": "identity"
+        },
+        {
+          "backend": "ghidra-native-decompiler",
+          "packageTreeSHA256": "8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f",
+          "stage": "hostAttestation",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionStartCount": "7",
+          "inputSHA256": "c1c848275ae850cef8c1a0103e490adf6b971adda171e0dfcca0b2cdf4330de7",
+          "stage": "loader",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionCount": "7",
+          "stage": "analysis",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_state_memory_zero",
+          "requestSHA256": "131e8bb65d7225ca99b6d7d04f0047bbb0bbe0165d9bbdbc01eb32b610bda61d",
+          "stage": "projection",
+          "start": "4294968024",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_state_memory_zero",
+          "requestSHA256": "131e8bb65d7225ca99b6d7d04f0047bbb0bbe0165d9bbdbc01eb32b610bda61d",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_rx18",
+          "requestSHA256": "1b4a8e81e1490e3c4415ad923df16f122a4ae8eeb474389d647a54c83f6ddb3e",
+          "stage": "projection",
+          "start": "4294968052",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_allocated_rx18",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_allocated_outer",
+          "requestSHA256": "e5d0b95f2f3d799616b0684b60eab039b0202385cd1d7cfcf850aecaa91c2fab",
+          "stage": "projection",
+          "start": "4294968208",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_allocated_outer",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_allocated_lookup",
+          "requestSHA256": "3e1515ea076eb0d511d085014b18ec9a63fbb10e95b23115bb9c2d7a79ed208d",
+          "stage": "projection",
+          "start": "4294968244",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_lookup",
+          "requestSHA256": "3e1515ea076eb0d511d085014b18ec9a63fbb10e95b23115bb9c2d7a79ed208d",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_move",
+          "requestSHA256": "99714c9e7a576e6dc7d2978f9ae4a70cff08361d5d7cfa501c79b91cdb22c54e",
+          "stage": "projection",
+          "start": "4294968260",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_move",
+          "requestSHA256": "99714c9e7a576e6dc7d2978f9ae4a70cff08361d5d7cfa501c79b91cdb22c54e",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_tile_memory",
+          "requestSHA256": "47633183022be2759868755fd50a5086f08d190ad9d073e4cc2f71a0b0804697",
+          "stage": "projection",
+          "start": "4294968344",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_allocated_tile_memory",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_allocated_tile_add",
+          "requestSHA256": "e16a0ed4bc1001244a2a13168045b507799e5049ad24a6791ded15010eeb48fa",
+          "stage": "projection",
+          "start": "4294968508",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_allocated_tile_add",
+          "requestSHA256": "e16a0ed4bc1001244a2a13168045b507799e5049ad24a6791ded15010eeb48fa",
+          "stage": "nativeAdmission",
+          "status": "passed"
+        },
+        {
+          "admissionCount": "7",
+          "authority": "ready(MacScope.NativeDecompilerRuntimeIdentity(backendID: \"ghidra-native-decompiler\", engineVersion: \"12.1.2\", engineRevision: \"c0f584bf229fffba61b36431f3ce30c0c3e4e682\", wrapperVersion: \"dcp05c-v1\", wrapperRevision: \"9ceb6d7c30dbda0ad41817a4090ba4e59b2a91907e83fa109588c988effa359e\", packageManifestSHA256: \"10463a45ad103159d75ef76019d29a9142bf5e72b700c479ad6ac998955342a8\", packageTreeSHA256: \"8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f\", languageID: \"AARCH64:LE:64:AppleSilicon\", compilerSpecID: \"default\", targetProfileID: \"apple-aarch64-pac-visible-clobber-v1\", contextProfileSHA256: \"6aa45ea9206f967c095d175b05c6c0d7980cd15a0702826d7ab38e4fd37c8ca5\"))",
+          "stage": "runtime"
+        },
+        {
+          "functionID": "600b7a30-ddf5-8e32-a8ea-99638f04e4b5",
+          "requestID": "46302AD9-4B43-41C5-9A7A-75DE8E4CC038",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "1454afde-73d0-848c-a023-93d758b8d23d",
+          "requestID": "6B5F7EED-9254-4C22-A4DB-3F6526758A4E",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "84763f30-987a-879b-a722-4dfb33ce6372",
+          "requestID": "6F3F4E0B-BE57-4D8B-8506-8842C5EB4C24",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "e8a6ed27-dc9e-869a-a9bd-11c7e5ff8592",
+          "requestID": "E6D03732-D416-4CC0-879A-DFC37111E37B",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "dc276e78-5267-8df0-b7ff-904123a5be03",
+          "requestID": "B340B10F-95D0-4E2C-8B7A-BE2274BE210F",
+          "stage": "nativeObservation",
+          "status": "success"
+        },
+        {
+          "functionID": "254348ea-3764-8625-9001-a339349b17cd",
+          "requestID": "8869EF99-E45B-473D-B840-AEBD6CA63A48",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "251cb8f3-558c-877a-b586-46e7c265efc1",
+          "requestID": "E17E1F12-D6B6-4904-85B2-F59828ABEA1A",
+          "stage": "nativeObservation",
+          "status": "success"
+        }
+      ],
+      "summary": {
+        "admitted": 4,
+        "provider_rejected": 3
+      },
+      "featureWordsInAdmittedFunctions": 33,
+      "featureWordsInRejectedFunctions": 86
+    },
+    {
+      "name": "rx18_guards_a",
+      "input": "lane21-evidence/rx18_guards_a",
+      "functions": [
+        {
+          "symbol": "_t21_rx18_guards_a_c0cc3000",
+          "words": [
+            "c0cc3000"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_c0cc3000",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_a_c0cd3000",
+          "words": [
+            "c0cd3000"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_c0cd3000",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_a_c0000010",
+          "words": [
+            "c0000010"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_c0000010",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_a_c0020200",
+          "words": [
+            "c0020200"
+          ],
+          "expected": "admitted",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_c0020200",
+            "stage": "functionFailure"
+          },
+          "historicalExpectation": {
+            "expected": "provider_rejection",
+            "kind": "reserved"
+          },
+          "historicalObservation": {
+            "actual": "provider_rejected",
+            "nativeRecord": {
+              "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+              "function": "_t21_rx18_guards_a_c0020200",
+              "stage": "functionFailure"
+            }
+          },
+          "observationScope": "Historical T21 observation; CP1b native acceptance is pending."
+        },
+        {
+          "symbol": "_t21_rx18_guards_a_c0900004",
+          "words": [
+            "c0900004"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_c0900004",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_a_c0d00008",
+          "words": [
+            "c0d00008"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_c0d00008",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_a_e0000010",
+          "words": [
+            "e0000010"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_a_e0000010",
+            "stage": "functionFailure"
+          }
+        }
+      ],
+      "uniqueFeatureWords": 7,
+      "diagnosticsPath": "macscope-ordinary-native-admission-B81326FA-D0B9-4A0E-9F76-3EAAD9D67762/diagnostics.json",
+      "records": [
+        {
+          "hostBundle": "MacScopeDevLoop.noindex/DerivedData/ms-13-f5a2241a465f-xcode-c80fb9750234/Build/Products/Debug/MacScope.app",
+          "input": "lane21-evidence/rx18_guards_a",
+          "stage": "identity"
+        },
+        {
+          "backend": "ghidra-native-decompiler",
+          "packageTreeSHA256": "8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f",
+          "stage": "hostAttestation",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionStartCount": "7",
+          "inputSHA256": "cbbe41cad6d4a651816d164c05787b8e09525ca8cf8e2f9b75495f12a6e7e68f",
+          "stage": "loader",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionCount": "7",
+          "stage": "analysis",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_guards_a_c0cc3000",
+          "requestSHA256": "c82d9b736e38d4826c79c2824bc344c37372d1a58e61c5d939f24b4dd0c6f49b",
+          "stage": "projection",
+          "start": "4294968024",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_c0cc3000",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_a_c0cd3000",
+          "requestSHA256": "bba19e38e5e21297f312aa6a24f2010344b93395ba5d2982a4316c729c6c6f92",
+          "stage": "projection",
+          "start": "4294968032",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_c0cd3000",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_a_c0000010",
+          "requestSHA256": "018cb2f020536a5e1b3e8caef9842ea9a36fef53d0903857ff69ded70028cc04",
+          "stage": "projection",
+          "start": "4294968040",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_c0000010",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_a_c0020200",
+          "requestSHA256": "12263f56d350308f1a75da392f77723bb0982da40798c204dbb04da3d026fded",
+          "stage": "projection",
+          "start": "4294968048",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_c0020200",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_a_c0900004",
+          "requestSHA256": "5b88ac17e7b094e195ccae80cab9d8bdd605cf30036e59b5d97a59c3cae7a5c4",
+          "stage": "projection",
+          "start": "4294968056",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_c0900004",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_a_c0d00008",
+          "requestSHA256": "6210164c532dc2999983d3513183d3f64cbac23dd0ea0ef612475704f3c25d8f",
+          "stage": "projection",
+          "start": "4294968064",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_c0d00008",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_a_e0000010",
+          "requestSHA256": "0a06d04f6673519ec6e6c06a85d20eef1cee6d720adaa08aad92d1f36429dad3",
+          "stage": "projection",
+          "start": "4294968072",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_a_e0000010",
+          "stage": "functionFailure"
+        },
+        {
+          "admissionCount": "7",
+          "authority": "ready(MacScope.NativeDecompilerRuntimeIdentity(backendID: \"ghidra-native-decompiler\", engineVersion: \"12.1.2\", engineRevision: \"c0f584bf229fffba61b36431f3ce30c0c3e4e682\", wrapperVersion: \"dcp05c-v1\", wrapperRevision: \"9ceb6d7c30dbda0ad41817a4090ba4e59b2a91907e83fa109588c988effa359e\", packageManifestSHA256: \"10463a45ad103159d75ef76019d29a9142bf5e72b700c479ad6ac998955342a8\", packageTreeSHA256: \"8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f\", languageID: \"AARCH64:LE:64:AppleSilicon\", compilerSpecID: \"default\", targetProfileID: \"apple-aarch64-pac-visible-clobber-v1\", contextProfileSHA256: \"6aa45ea9206f967c095d175b05c6c0d7980cd15a0702826d7ab38e4fd37c8ca5\"))",
+          "stage": "runtime"
+        },
+        {
+          "functionID": "600b7a30-ddf5-8e32-a8ea-99638f04e4b5",
+          "requestID": "D325C51A-C23D-4748-BBFE-DBBECADC3443",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "4163eb64-6c12-8ae5-b57f-2b6d591a174b",
+          "requestID": "3B218485-759C-4172-B289-5DFA03CB1C52",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "5af61ed4-2c7b-8f8d-98e3-fdfb6768812e",
+          "requestID": "3CA479D4-6FA6-44D4-B3FE-049065628336",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "ae47f3b7-daef-82c8-b33d-f472bd73dbc1",
+          "requestID": "E1B2F2FA-BFC2-4D48-911E-FE591D6EBBFB",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "05fec66b-099a-89f1-b9c9-b05d69ef81ac",
+          "requestID": "C497A4D6-C945-4733-8ECD-7E2BCA86169F",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "c645d24c-4e2d-8e44-824c-ec8103363340",
+          "requestID": "CFEDA3C9-E1E0-43D0-BB2A-4454DF354939",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "9c30b4ca-6e4d-8896-aba3-eaa6f2b3f165",
+          "requestID": "5DF87118-73F9-46FB-AC81-E88E2A1FAA5B",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        }
+      ],
+      "summary": {
+        "admitted": 0,
+        "provider_rejected": 7
+      },
+      "featureWordsInAdmittedFunctions": 0,
+      "featureWordsInRejectedFunctions": 7
+    },
+    {
+      "name": "rx18_guards_b",
+      "input": "lane21-evidence/rx18_guards_b",
+      "functions": [
+        {
+          "symbol": "_t21_rx18_guards_b_e0400010",
+          "words": [
+            "e0400010"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_b_e0400010",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_b_c0080100",
+          "words": [
+            "c0080100"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_b_c0080100",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_b_81a00004",
+          "words": [
+            "81a00004"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_b_81a00004",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_b_80800004",
+          "words": [
+            "80800004"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_b_80800004",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_b_80c00008",
+          "words": [
+            "80c00008"
+          ],
+          "expected": "provider_rejection",
+          "kind": "reserved",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_b_80c00008",
+            "stage": "functionFailure"
+          }
+        },
+        {
+          "symbol": "_t21_rx18_guards_b_25231057",
+          "words": [
+            "25231057"
+          ],
+          "expected": "admitted",
+          "kind": "allocated",
+          "actual": "provider_rejected",
+          "nativeRecord": {
+            "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+            "function": "_t21_rx18_guards_b_25231057",
+            "stage": "functionFailure"
+          },
+          "historicalExpectation": {
+            "expected": "provider_rejection",
+            "kind": "known_allocated_gap"
+          },
+          "historicalObservation": {
+            "actual": "provider_rejected",
+            "nativeRecord": {
+              "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+              "function": "_t21_rx18_guards_b_25231057",
+              "stage": "functionFailure"
+            }
+          },
+          "observationScope": "Historical T21 observation; CP1b native acceptance is pending."
+        }
+      ],
+      "uniqueFeatureWords": 6,
+      "diagnosticsPath": "macscope-ordinary-native-admission-9A176162-BA78-4034-9DA0-966DED7F38B2/diagnostics.json",
+      "records": [
+        {
+          "hostBundle": "MacScopeDevLoop.noindex/DerivedData/ms-13-f5a2241a465f-xcode-c80fb9750234/Build/Products/Debug/MacScope.app",
+          "input": "lane21-evidence/rx18_guards_b",
+          "stage": "identity"
+        },
+        {
+          "backend": "ghidra-native-decompiler",
+          "packageTreeSHA256": "8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f",
+          "stage": "hostAttestation",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionStartCount": "6",
+          "inputSHA256": "095fdf1a2cc07ea8379287ae0311aab272d1662458c9d5f9436378f681be18b9",
+          "stage": "loader",
+          "status": "passed"
+        },
+        {
+          "attestationCount": "2",
+          "functionCount": "6",
+          "stage": "analysis",
+          "status": "passed"
+        },
+        {
+          "function": "_t21_rx18_guards_b_e0400010",
+          "requestSHA256": "1502eee0a0ae05220a2c05f278f5bb83cb0f760ae620e61b73097bbbabdd95a5",
+          "stage": "projection",
+          "start": "4294968024",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_b_e0400010",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_b_c0080100",
+          "requestSHA256": "d075ce27c498ad160826dae503600e34be17baf0a8c4d11bc3afca9e5848f62d",
+          "stage": "projection",
+          "start": "4294968032",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_b_c0080100",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_b_81a00004",
+          "requestSHA256": "6313ec9fe0faf4d649c6cbe659cdd22bfaf823758f99994a68ea5b49915ec812",
+          "stage": "projection",
+          "start": "4294968040",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_b_81a00004",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_b_80800004",
+          "requestSHA256": "0dfe251502a62aa91baac63de15b1b42a1906b100ffcd678102470e1cd14d464",
+          "stage": "projection",
+          "start": "4294968048",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_b_80800004",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_b_80c00008",
+          "requestSHA256": "e9ff73e5ece387ec05ec4efefbfe3eae27496ec24bed0aa3bc66cc825864ccbb",
+          "stage": "projection",
+          "start": "4294968056",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_b_80c00008",
+          "stage": "functionFailure"
+        },
+        {
+          "function": "_t21_rx18_guards_b_25231057",
+          "requestSHA256": "b713b4e8934adcaeb2235f163d98e8458f6425158bc55d1499d53a95f7a12b9e",
+          "stage": "projection",
+          "start": "4294968064",
+          "status": "passed"
+        },
+        {
+          "error": "MacScope.NativeDecompilerOwnerAdmissionError.terminalProviderResult",
+          "function": "_t21_rx18_guards_b_25231057",
+          "stage": "functionFailure"
+        },
+        {
+          "admissionCount": "6",
+          "authority": "ready(MacScope.NativeDecompilerRuntimeIdentity(backendID: \"ghidra-native-decompiler\", engineVersion: \"12.1.2\", engineRevision: \"c0f584bf229fffba61b36431f3ce30c0c3e4e682\", wrapperVersion: \"dcp05c-v1\", wrapperRevision: \"9ceb6d7c30dbda0ad41817a4090ba4e59b2a91907e83fa109588c988effa359e\", packageManifestSHA256: \"10463a45ad103159d75ef76019d29a9142bf5e72b700c479ad6ac998955342a8\", packageTreeSHA256: \"8e48bea6e59a4a417bc4538555c83625bc773a1aba1da509f15bddbc4e7fb68f\", languageID: \"AARCH64:LE:64:AppleSilicon\", compilerSpecID: \"default\", targetProfileID: \"apple-aarch64-pac-visible-clobber-v1\", contextProfileSHA256: \"6aa45ea9206f967c095d175b05c6c0d7980cd15a0702826d7ab38e4fd37c8ca5\"))",
+          "stage": "runtime"
+        },
+        {
+          "functionID": "600b7a30-ddf5-8e32-a8ea-99638f04e4b5",
+          "requestID": "2B6F52F6-AC39-4519-995A-64424CA27859",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "4163eb64-6c12-8ae5-b57f-2b6d591a174b",
+          "requestID": "8E1E5772-14E8-4BC7-AB14-F2B429DB5A47",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "5af61ed4-2c7b-8f8d-98e3-fdfb6768812e",
+          "requestID": "42BA48F2-76BB-4FBD-9695-2AEC377104F9",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "ae47f3b7-daef-82c8-b33d-f472bd73dbc1",
+          "requestID": "0ABFE03D-7C6B-4E2D-9B82-64D286176305",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "05fec66b-099a-89f1-b9c9-b05d69ef81ac",
+          "requestID": "9778153B-10B4-4DEC-B3BF-368658C51118",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        },
+        {
+          "functionID": "c645d24c-4e2d-8e44-824c-ec8103363340",
+          "requestID": "794EF3B6-8EBB-4322-A0AB-3B8D2B3B7635",
+          "stage": "nativeObservation",
+          "status": "providerFailure(MacScope.NativeDecompilerWireFailureCode.nativeFailure)"
+        }
+      ],
+      "summary": {
+        "admitted": 0,
+        "provider_rejected": 6
+      },
+      "featureWordsInAdmittedFunctions": 0,
+      "featureWordsInRejectedFunctions": 6
+    }
+  ],
+  "aggregate": {
+    "uniqueFeatureAndGuardWordsSubmittedOnce": 156,
+    "functionRequests": 30,
+    "admittedFunctions": 10,
+    "rejectedFunctions": 20,
+    "wordsInAdmittedFunctions": 47,
+    "allocatedWordsInUnexpectedlyRejectedFunctions": 96,
+    "reservedGuardRejections": 12,
+    "knownAllocatedGapRejections": 1,
+    "allHostsAttested": true,
+    "perWordDecodeStatusInsideRejectedGroups": "unknown; a failed function does not establish every contained instruction was translated or individually failed"
+  },
+  "scopeLimitations": [
+    "Input batches exercise native admission for grouped instructions, not each prepared RX17 semantic obligation",
+    "Successful groups establish provider admission; no full SSA helper/provenance or numerical semantic qualification",
+    "Rejected groups are not per-word decode counts; no vector replay was performed to isolate a failing word",
+    "The 39-word exact decode counts remain the prior lifter receipt; original39 native group includes knownWHILEGT isolated and38 words in one rejected function",
+    "No inferred claim that terminalProviderResult identifies the underlying decode, lifting, mapping, or semantic failure cause"
+  ],
+  "nextAction": "Assigned native-provider owner may inspect retained diagnostics/code; further vector execution requires new explicit authorization. T21 performs no retry or implementation fix.",
+  "cp1b": {
+    "sourceRevision": "910b72e19",
+    "originalFileSHA256": "ef44e151469ebe5eb3b4e9c4c28aa7089e58bd24c02f3fd43bdf154c62c3b17e",
+    "originalReceipt": "receipts/ledgers-before/T21_NATIVE_VALIDATION.json",
+    "scope": "Current expectations for the two corrected words only. Unaffected historical fields, rows, counts, hashes, observations and diagnostics are retained; they are not new CP1b execution evidence.",
+    "nativeAcceptance": "not_executed_in_cp1b_linux",
+    "currentExpectations": {
+      "c0020200": {
+        "form": "MOVAZ_Z_RZA_B",
+        "assembly": "movaz z0.b, za0h.b[w12, 0]",
+        "encoding": {
+          "base": "0xc0020200",
+          "mask": "0xffff1e00"
+        },
+        "featureAnyOf": [
+          "FEAT_SME2p1"
+        ],
+        "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75",
+        "reason": "Allocated SME2p1 MOVAZ, not a reserved encoding; CP1 already has explicit normal-path p-code.",
+        "kind": "allocated",
+        "expectedNativeOutcome": "admitted",
+        "expectedPcodeStatus": "normal_path",
+        "nativeObservation": "pending_mac_governed_recompile_and_acceptance"
+      },
+      "25231057": {
+        "form": "WHILEGT_P_P_RR__",
+        "assembly": "whilegt p7.b, x2, x3",
+        "encoding": {
+          "base": "0x25200010",
+          "mask": "0xff20ec10"
+        },
+        "featureAnyOf": [
+          "FEAT_SVE2",
+          "FEAT_SME"
+        ],
+        "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38",
+        "reason": "Allocated WHILEGT already has explicit normal-path p-code; the historical fail-closed exception is retired.",
+        "kind": "allocated",
+        "expectedNativeOutcome": "admitted",
+        "expectedPcodeStatus": "normal_path",
+        "nativeObservation": "pending_mac_governed_recompile_and_acceptance"
+      }
+    },
+    "historicalMetadataFields": [
+      "schemaVersion",
+      "authorization",
+      "sourceCommit",
+      "status",
+      "selector",
+      "station",
+      "worker",
+      "model",
+      "effort",
+      "approval",
+      "sandbox",
+      "gitAccessProbe",
+      "headlessPath",
+      "nativeInvocationCount",
+      "fixture",
+      "workers",
+      "retainedRX18",
+      "preparedSets",
+      "log",
+      "nonclaims",
+      "commandsWithNativeExecution",
+      "repeatedFeatureWords",
+      "build",
+      "bfmlal",
+      "remainingRun",
+      "launchFailuresBeforeNativeExecution",
+      "aggregate",
+      "scopeLimitations",
+      "nextAction"
+    ],
+    "remainingConfigurationsScope": "Only the two identified expectations/classifications are current. Actual/nativeRecord fields, configuration summaries and aggregate counts are unchanged historical T21 observations; those observations do not predict CP1b admission.",
+    "currentPreparedSet": {
+      "rows": 133,
+      "uniqueAllocatedWords": 121,
+      "reservedGuards": 11
+    }
+  }
+}

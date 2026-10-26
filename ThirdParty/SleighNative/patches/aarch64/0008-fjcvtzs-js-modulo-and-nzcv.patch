@@ -1,0 +1,73 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+index 3accd43..4586c94 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+@@ -3317,6 +3317,8 @@ define pcodeop NEON_fcmgt;
+ define pcodeop NEON_fcmla;
+ define pcodeop NEON_fcmle;
+ define pcodeop NEON_fcmlt;
++# MacScope RX-17: FP exception effect contract; see RX17_SEMANTICS.md.
++define pcodeop ARM64FPProcessExceptions;
+ define pcodeop NEON_fcvtzs;
+ define pcodeop NEON_fcvtzu;
+ define pcodeop NEON_fmax;
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+index 2104934..3c73059 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+@@ -7263,8 +7263,53 @@ is m=0 & b_3030=0 & s=0 & b_2428=0x1e & ftype=3 & b_2121=1 & Rm_FPR16 & b_1215=0
+ :fjcvtzs Rd_GPR32, Rn_FPR64
+ is b_1031=0b0001111001111110000000 & Rd_GPR32 & Rn_FPR64 & Rd_GPR64
+ {
+-	Rd_GPR32 = trunc(Rn_FPR64);
+-	zext_rs(Rd_GPR64); # zero upper 28 bytes of Rd_GPR64
++    # MacScope RX-17: IEEE-754 bits -> JS ToInt32 modulo result and exact-Z.
++    # Integer shifts avoid host FLOAT_TRUNC saturation/undefined overflow.
++    # Branch-free: every path is computed and combined with masks so the
++    # instruction is a single basic block; shift counts are bounded to 0..63.
++    local raw:8 = Rn_FPR64;
++    local exponent:8 = (raw >> 52) & 0x7ff;
++    local fraction:8 = raw & 0x000fffffffffffff;
++    local negative:1 = (raw >> 63) != 0;
++    local isSpecial:1 = exponent == 0x7ff;
++    local isZeroExp:1 = exponent == 0;
++    local isZero:1 = isZeroExp & (fraction == 0);
++    local isDenormal:1 = isZeroExp & (fraction != 0);
++    local isNormal:1 = !isSpecial & !isZeroExp;
++    # FIZ flushes silently; FZ (when AH=0) records input denormal.
++    local flushFZ:1 = isDenormal & ((fpcr & 0x1000000) != 0) & ((fpcr & 2) == 0);
++    local flushFIZ:1 = isDenormal & !flushFZ & ((fpcr & 1) != 0);
++    local denormalInexact:1 = isDenormal & !flushFZ & !flushFIZ;
++    local small:1 = isNormal & (exponent < 1023);
++    local inRange:1 = isNormal & !small;
++    local significand:8 = fraction | 0x0010000000000000;
++    local rightShift:8 = (1075 - exponent) & 63;
++    local leftShift:8 = (exponent - 1075) & 63;
++    local rightPath:1 = exponent < 1075;
++    # For left shifts >=32 the low 32 bits are necessarily zero.
++    local leftPath:1 = !rightPath & (exponent < 1107);
++    local magnitude:8 = ((significand >> rightShift) * zext(rightPath)) | ((significand << leftShift) * zext(leftPath));
++    local discarded:1 = rightPath & ((significand & ((1:8 << rightShift) - 1)) != 0);
++    local outOfRange:1 = inRange & ((exponent > 1054) | (magnitude > (0x7fffffff + zext(negative))));
++    local fractional:1 = inRange & !outOfRange & discarded;
++    local exact:1 = (isZero & !negative) | (inRange & !outOfRange & !discarded);
++    local unsignedResult:4 = magnitude:4 * zext(inRange);
++    local signFill:4 = 0 - zext(negative);
++    local result:4 = (unsignedResult ^ signFill) - signFill;
++    local invalidBit:8 = zext(isSpecial | outOfRange);
++    local inexactBit:8 = zext(small | fractional | denormalInexact);
++    local denormalBit:8 = zext(flushFZ);
++    local exceptions:8 = invalidBit | (inexactBit << 4) | (denormalBit << 7);
++    # Exception processing is an explicit effect, not an assumed pure conversion;
++    # its status is selected only when an exception was raised.
++    local raisedStatus:8 = ARM64FPProcessExceptions(exceptions, fpcr, fpsr);
++    local raised:8 = 0 - zext(exceptions != 0);
++    fpsr = (raisedStatus & raised) | (fpsr & ~raised);
++    Rd_GPR64 = zext(result);
++    NG = 0;
++    ZR = exact;
++    CY = 0;
++    OV = 0;
+ }
+ 
+ # C7.2.100 FMADD page C7-2246 line 131323 MATCH x1f000000/mask=xff208000

@@ -1,0 +1,36 @@
+{
+ "sources": [
+  "MacScope/Services/NavigatorContract/NavigatorContractJSON.swift",
+  "MacScope/Services/NavigatorContract/NavigatorContractRecords.swift",
+  "MacScope/Services/NavigatorContract/NavigatorContractStore.swift",
+  "MacScope/Services/NavigatorContract/NavigatorContractValidation.swift",
+  "MacScope/Services/NavigatorContract/NavigatorContractVocabulary.swift"
+ ],
+ "build_seconds": 21.4,
+ "seed": 20261022,
+ "flags": "-O -strict-concurrency=complete -warnings-as-errors",
+ "mismatches": [],
+ "vocabulary_equal": true,
+ "records": {
+  "cases": 50000,
+  "valid": 4438,
+  "invalid": 31312,
+  "unparsed": 14250
+ },
+ "sessions": {
+  "cases": 3000,
+  "steps": 25362,
+  "outcomes": {
+   "accepted": 16741,
+   "budgetExceeded": 2562,
+   "conflictsWithAuthority": 1464,
+   "malformedInput": 379,
+   "notReversible": 2260,
+   "preconditionFailed": 183,
+   "unknownFact": 1773
+  },
+  "invalid_persisted_states": 0,
+  "round_trip_failures": 0
+ },
+ "mismatch_count": 0
+}

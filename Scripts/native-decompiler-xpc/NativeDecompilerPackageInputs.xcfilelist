@@ -1,0 +1,6 @@
+$(SRCROOT)/../Scripts/native-decompiler-xpc/stage_xcode_resources.py
+$(SRCROOT)/../Scripts/native-decompiler-xpc/stage_verified_package.py
+$(SRCROOT)/../Scripts/native-decompiler-direct/verify_sleigh_package.py
+$(SRCROOT)/../Scripts/native-decompiler-direct/sleigh_package.py
+$(MACSCOPE_SLEIGH_MATERIALIZATION_ROOT)/MATERIALIZATION.json
+$(MACSCOPE_SLEIGH_MATERIALIZATION_ROOT)/package

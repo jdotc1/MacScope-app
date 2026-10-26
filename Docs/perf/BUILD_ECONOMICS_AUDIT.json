@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "historical-source-inconsistent-not-qualification-evidence",
+  "receipt_sha256": "c1b68383a6f72bd67569d4b3cd5a4d2cfb9f3f00eaa56e535044f9f224280d48",
+  "recorded_git_head": "71d65aed6e8997a425c9133daf77c2b28952e146",
+  "receipt_only_phases": [
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify exact MachOKit source materialization",
+      "target": "AnalysisWorkerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "postBuildScripts",
+      "name": "Verify compiled MachOKit identity in AnalysisWorker",
+      "target": "AnalysisWorkerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Stage call-argument oracle test resources",
+      "target": "CoreTests"
+    }
+  ],
+  "recorded_source_only_phases": []
+}

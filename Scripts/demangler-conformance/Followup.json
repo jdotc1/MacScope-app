@@ -1,0 +1,109 @@
+{
+  "compiler": "Apple Swift 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)",
+  "schemaVersion": 1,
+  "scope": "Seven selected names and exact mapped metadata-section bytes from one bounded linked sample. Legacy _TF function grammar and indirect symbolic references remain unverified.",
+  "sections": [
+    {
+      "address": 5808,
+      "bytes": "AAAAAAAAAAAAAAAAAAAAAERlbWFuZ2xlckZvbGxvd3VwAExlZ2FjeUJyaWRnZQBQYXJlbnQAQ2hpbGQATGVhZgBDb250YWluZXIAQm94AAC8+v//5Pr//wAAAECkKQAAQ29uY3JldGUASXRlbTAxAEl0ZW0wMgBJdGVtMDMASXRlbTA0AEl0ZW0wNQBJdGVtMDYASXRlbTA3AEl0ZW0wOABJdGVtMDkASXRlbTEwAEl0ZW0xMQBJdGVtMTIASXRlbTEzAEl0ZW0xNABJdGVtMTUASXRlbTE2AAADAA==",
+      "fileOffset": 5808,
+      "name": "__const",
+      "segment": "__TEXT",
+      "size": 220
+    },
+    {
+      "address": 6032,
+      "bytes": "X1R0QzE3RGVtYW5nbGVyRm9sbG93dXAxMkxlZ2FjeUJyaWRnZQAAAAAAAAAAAAAAX1R0QzE3RGVtYW5nbGVyRm9sbG93dXA2UGFyZW50AABfVHRDQzE3RGVtYW5nbGVyRm9sbG93dXA2UGFyZW50NUNoaWxkAA==",
+      "fileOffset": 6032,
+      "name": "__objc_classname",
+      "segment": "__TEXT",
+      "size": 118
+    },
+    {
+      "address": 6152,
+      "bytes": "AAAAAAAAAACw/v//UAAAgPD///+2/v//sPT//5gDAAAAAAAAAwAAAAsAAAABAAAAAAAAAAoAAAAKAAAAAQAAAAEAAACU8P//UAAAgLT///+H/v//mPT//2wDAAAAAAAAAwAAAAsAAAABAAAAAAAAAAoAAAAKAAAAAQAAAAEAAADQ8f//UAAAgMD///9S/v//gPT//0ADAAAAAAAAAwAAAAsAAAABAAAAAAAAAAoAAAAKAAAAAQAAAAEAAADY8P//UQAAADz///8c/v//aPT//xQDAAABAAAAAgAAAFEAAAAg////Bf7//7j4//8UAwAAAwAAAAIAAADRAAAABP////P9//9c+///LAMAAAEAAAADAAAAXGoAAOD9//8BAAAAAQAAAIAAAABRAAAA1P7//9j9//9M+///GAMAAAEAAAACAAAAUQAAALj+///F/f//RPv//xgDAAAAAAAAAgAAAFEAAACc/v//sP3//zz7//8MAwAAAAAAAAIAAABRAAAAgP7//5v9//80+///AAMAAAAAAAACAAAAUQAAAGT+//+G/f//LPv///QCAAAAAAAAAgAAAFEAAABI/v//cf3//yT7///oAgAAAAAAAAIAAABRAAAALP7//1z9//8c+///3AIAAAAAAAACAAAAUQAAABD+//9H/f//FPv//9ACAAAAAAAAAgAAAFEAAAD0/f//Mv3//wz7///EAgAAAAAAAAIAAABRAAAA2P3//x39//8E+///uAIAAAAAAAACAAAAUQAAALz9//8I/f///Pr//6wCAAAAAAAAAgAAAFEAAACg/f//8/z///T6//+gAgAAAAAAAAIAAABRAAAAhP3//978///s+v//lAIAAAAAAAACAAAAUQAAAGj9///J/P//5Pr//4gCAAAAAAAAAgAAAFEAAABM/f//tPz//9z6//98AgAAAAAAAAIAAABRAAAAMP3//5/8///U+v//cAIAAAAAAAACAAAAUQAAABT9//+K/P//zPr//2QCAAAAAAAAAgAAAA==",
+      "fileOffset": 6152,
+      "name": "__constg_swiftt",
+      "segment": "__TEXT",
+      "size": 772
+    },
+    {
+      "address": 6924,
+      "bytes": "AQf9//8AAT39//8AAXP9//8AAan9//8AU2kAAAG7/f//AFNheQGW/f//RwABj/3//1NnAAG//f//AHgAAef9//8AAbH9//95AXP9//9HAAAB7/3//wABBf7//wABG/7//wABMf7//wABR/7//wABXf7//wABc/7//wABif7//wABn/7//wABtf7//wABy/7//wAB4f7//wAB9/7//wABDf///wABI////wABOf///wA=",
+      "fileOffset": 6924,
+      "name": "__swift5_typeref",
+      "segment": "__TEXT",
+      "size": 176
+    },
+    {
+      "address": 7100,
+      "bytes": "UP///wAAAAABAAwAAAAAAEb///8AAAAAAQAMAAAAAAA8////AAAAAAEADAAAAAAAMv///wAAAAAAAAwAAQAAAAAAAAAk////cAEAACD///8AAAAAAAAMAAMAAAAAAAAAAv///1gBAAAAAAAABv///1ABAAAAAAAABP///0kBAAAE////AAAAAAAADAABAAAAAAAAAPb+//82AQAA8P7//wAAAAAAAAwAAQAAAAAAAADi/v//IAEAAOj+//8AAAAAAAAMAAAAAADe/v//AAAAAAAADAAAAAAA1P7//wAAAAAAAAwAAAAAAMr+//8AAAAAAAAMAAAAAADA/v//AAAAAAAADAAAAAAAtv7//wAAAAAAAAwAAAAAAKz+//8AAAAAAAAMAAAAAACi/v//AAAAAAAADAAAAAAAmP7//wAAAAAAAAwAAAAAAI7+//8AAAAAAAAMAAAAAACE/v//AAAAAAAADAAAAAAAev7//wAAAAAAAAwAAAAAAHD+//8AAAAAAAAMAAAAAABm/v//AAAAAAAADAAAAAAAXP7//wAAAAAAAAwAAAAAAFL+//8AAAAAAAAMAAAAAAA=",
+      "fileOffset": 7100,
+      "name": "__swift5_fieldmd",
+      "segment": "__TEXT",
+      "size": 440
+    },
+    {
+      "address": 7540,
+      "bytes": "dGFnAG9uZQBtYW55AG9wdGlvbmFsAHZhbHVlAGJveGVkAA==",
+      "fileOffset": 7540,
+      "name": "__swift5_reflstr",
+      "segment": "__TEXT",
+      "size": 34
+    },
+    {
+      "address": 7576,
+      "bytes": "fPr//7T6///s+v//JPv//zz7//9U+///gPv//5j7//+w+///yPv//+D7///4+///EPz//yj8//9A/P//WPz//3D8//+I/P//oPz//7j8///Q/P//6Pz//wD9//8=",
+      "fileOffset": 7576,
+      "name": "__swift5_types",
+      "segment": "__TEXT",
+      "size": 92
+    },
+    {
+      "address": 16384,
+      "bytes": "AAAAAAAAAAAAAAAAAAAggAACAAAAAAAAyBgAAAAAIAAAAAAAAAAAAFANAAAAABAAjA0AAAAAEACkDQAAAAAQAPgNAAAAABAAWA4AAAAAEABsDgAAAAAQAMAOAAAAABAA2A8AAAAAUAAZAAAAAAAAACAAAAAAAAAABwADAP///38AAAAAAAAAAChAAAAAACAAAAIAAAAAAADkGAAAAAAwAAAAAAAIAAAAEAAAAAAAAACIEgAAAAAQALgSAAAAABAA6BIAAAAAEAAgEwAAAAAQAFgTAAAAABAAkBMAAAAAEADIEwAAAAAQABQUAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAggAACAAAAAAAAMBkAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAIIAAAgAAAAAAAEwZAAAAACAAAAAAAAAAAAABAAAAAAAggAACAAAAAAAAaBkAAAAAIAAAAAAAAAAAAAEAAAAAACCAAAIAAAAAAACEGQAAAAAgAAAAAAAAAAAAAQAAAAAAIIAAAgAAAAAAAKAZAAAAACAAAAAAAAAAAAABAAAAAAAggAACAAAAAAAAvBkAAAAAIAAAAAAAAAAAAAEAAAAAACCAAAIAAAAAAADYGQAAAAAgAAAAAAAAAAAAAQAAAAAAIIAAAgAAAAAAAPQZAAAAACAAAAAAAAAAAAABAAAAAAAggAACAAAAAAAAEBoAAAAAIAAAAAAAAAAAAAEAAAAAACCAAAIAAAAAAAAsGgAAAAAgAAAAAAAAAAAAAQAAAAAAIIAAAgAAAAAAAEgaAAAAACAAAAAAAAAAAAABAAAAAAAggAACAAAAAAAAZBoAAAAAIAAAAAAAAAAAAAEAAAAAACCAAAIAAAAAAACAGgAAAAAgAAAAAAAAAAAAAQAAAAAAIIAAAgAAAAAAAJwaAAAAACAAAAAAAAAAAAABAAAAAAAggAACAAAAAAAAuBoAAAAAIAAAAAAAAAAAAAEAAAAAACCAAAIAAAAAAADUGgAAAAAgAAAAAAAAAAAAAQAAAAAAIIAAAgAAAAAAAPAaAAAAABAA",
+      "fileOffset": 16384,
+      "name": "__const",
+      "segment": "__DATA_CONST",
+      "size": 816
+    }
+  ],
+  "source": "Scripts/demangler-conformance/Followup.swift",
+  "symbols": [
+    {
+      "expected": "DemanglerFollowup.wide(DemanglerFollowup.Item01, DemanglerFollowup.Item02, DemanglerFollowup.Item03, DemanglerFollowup.Item04, DemanglerFollowup.Item05, DemanglerFollowup.Item06, DemanglerFollowup.Item07, DemanglerFollowup.Item08, DemanglerFollowup.Item09, DemanglerFollowup.Item10, DemanglerFollowup.Item11, DemanglerFollowup.Item12, DemanglerFollowup.Item13, DemanglerFollowup.Item14, DemanglerFollowup.Item15, DemanglerFollowup.Item16, DemanglerFollowup.Item16) -> DemanglerFollowup.Item16",
+      "kind": "stable-substitution",
+      "mangled": "$s17DemanglerFollowup4wideyAA6Item16VAA6Item01V_AA6Item02VAA6Item03VAA6Item04VAA6Item05VAA6Item06VAA6Item07VAA6Item08VAA6Item09VAA6Item10VAA6Item11VAA6Item12VAA6Item13VAA6Item14VAA6Item15VA2DtF"
+    },
+    {
+      "expected": "DemanglerFollowup.words(DemanglerFollowup.Container, DemanglerFollowup.Container) -> DemanglerFollowup.Container",
+      "kind": "stable-substitution",
+      "mangled": "$s17DemanglerFollowup5wordsyAA9ContainerVAD_ADtF"
+    },
+    {
+      "expected": "DemanglerFollowup.repeats(DemanglerFollowup.Leaf, DemanglerFollowup.Leaf, DemanglerFollowup.Leaf) -> DemanglerFollowup.Leaf",
+      "kind": "stable-substitution",
+      "mangled": "$s17DemanglerFollowup7repeatsyAA4LeafVAD_A2DtF"
+    },
+    {
+      "expected": "DemanglerFollowup.extended(DemanglerFollowup.Item01, DemanglerFollowup.Item02, DemanglerFollowup.Item03, DemanglerFollowup.Item04, DemanglerFollowup.Item05, DemanglerFollowup.Item06, DemanglerFollowup.Item07, DemanglerFollowup.Item08, DemanglerFollowup.Item09, DemanglerFollowup.Item10, DemanglerFollowup.Item11, DemanglerFollowup.Item12, DemanglerFollowup.Item13, DemanglerFollowup.Item14, DemanglerFollowup.Item15, DemanglerFollowup.Item16, DemanglerFollowup.Item16, DemanglerFollowup.Item13) -> ()",
+      "kind": "stable-substitution",
+      "mangled": "$s17DemanglerFollowup8extendedyyAA6Item01V_AA6Item02VAA6Item03VAA6Item04VAA6Item05VAA6Item06VAA6Item07VAA6Item08VAA6Item09VAA6Item10VAA6Item11VAA6Item12VAA6Item13VAA6Item14VAA6Item15VAA6Item16VA6_A0_tF"
+    },
+    {
+      "expected": "DemanglerFollowup.LegacyBridge",
+      "kind": "legacy-runtime-class",
+      "mangled": "_TtC17DemanglerFollowup12LegacyBridge"
+    },
+    {
+      "expected": "DemanglerFollowup.Parent",
+      "kind": "legacy-runtime-class",
+      "mangled": "_TtC17DemanglerFollowup6Parent"
+    },
+    {
+      "expected": "DemanglerFollowup.Parent.Child",
+      "kind": "legacy-runtime-class",
+      "mangled": "_TtCC17DemanglerFollowup6Parent5Child"
+    }
+  ]
+}

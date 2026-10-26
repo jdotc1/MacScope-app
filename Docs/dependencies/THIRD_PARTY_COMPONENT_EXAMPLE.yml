@@ -1,0 +1,40 @@
+{
+  "id": "example-component",
+  "name": "Example component",
+  "canonical_repository": "https://github.com/example/project",
+  "approval": "pilot-approved",
+  "integration_mode": "external-pinned-source-build",
+  "license_expression": "MIT",
+  "pin": {
+    "git_revision": "0123456789abcdef0123456789abcdef01234567",
+    "source_tree_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+  },
+  "tracked_paths": [
+    "ThirdParty/ExampleComponent",
+    "Scripts/dependencies/materialize_example_component.sh"
+  ],
+  "materialization": {
+    "script": "Scripts/dependencies/materialize_example_component.sh",
+    "network_allowed": true,
+    "implicit_build_invocation": false,
+    "expected_untracked_root": "example-component"
+  },
+  "license_paths": [
+    "ThirdParty/ExampleComponent/LICENSE.txt"
+  ],
+  "license_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "notice_paths": [
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "patches_path": "ThirdParty/ExampleComponent/PATCHES.md",
+  "targets": [
+    "DecompilerCoreXPCService"
+  ],
+  "review": {
+    "date": "2026-07-20",
+    "status": "pending",
+    "public_distribution_blocked": true,
+    "reviewer": "unassigned"
+  },
+  "notes": "Copy this object into THIRD_PARTY_COMPONENTS.yml only after the allowlist, license, architecture, and qualification gates are satisfied."
+}

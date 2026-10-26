@@ -1,0 +1,2522 @@
+name: MacScope
+options:
+  minimumXcodeGenVersion: 2.45.4
+  deploymentTarget:
+    macOS: "27.0"
+configFiles:
+  Debug: DependencyRoots.xcconfig
+  Release: DependencyRoots.xcconfig
+packages:
+  RecoveryKit:
+    path: ../Packages/RecoveryKit
+  Lumen:
+    path: ../ThirdParty/Lumen
+  MachOKit:
+    path: ../ThirdParty/MachOKit/materialization/MachOKit
+settings:
+  base:
+    ARCHS: arm64
+    ONLY_ACTIVE_ARCH: YES
+    SUPPORTED_PLATFORMS: macosx
+    MACOSX_DEPLOYMENT_TARGET: "27.0"
+    SWIFT_VERSION: "6.0"
+    AD_HOC_CODE_SIGNING_ALLOWED: NO
+    CODE_SIGNING_ALLOWED: YES
+    CODE_SIGNING_REQUIRED: YES
+    CODE_SIGN_STYLE: Manual
+    # Keep one certificate-backed designated requirement across rebuilds so macOS
+    # TCC approvals (App Management, Full Disk Access, Accessibility, Developer
+    # Tools) can remain associated with the app as its code changes. Ad-hoc signing
+    # falls back to a cdhash requirement that changes on every build.
+    DEVELOPMENT_TEAM: "$(MACSCOPE_SIGNING_TEAM)"
+    CODE_SIGN_IDENTITY: "$(MACSCOPE_SIGNING_IDENTITY)"
+    PROVISIONING_PROFILE: ""
+    PROVISIONING_PROFILE_SPECIFIER: ""
+    ENABLE_HARDENED_RUNTIME: YES
+    OTHER_CODE_SIGN_FLAGS: ""
+    # The Ghostty producer roots, MACSCOPE_SLEIGH_SOURCE_BUILD_ROOT, and the
+    # strict MACSCOPE_SLEIGH_MATERIALIZATION_ROOT are supplied by
+    # DependencyRoots.xcconfig (see configFiles below), NOT here. A
+    # value set in this block lands in the generated pbxproj and outranks the
+    # xcconfig, which would silently re-empty both settings for every Xcode-driven
+    # build. Both remain overridable from the xcodebuild command line as before.
+    # Live XPC supervision controls are compiled only by the explicit signed
+    # qualification harness. Ordinary Debug and Release builds leave this empty.
+    MACSCOPE_NATIVE_DECOMPILER_LIVE_TEST_CONDITION: ""
+    # Routine Debug preserves embedded runtime attestation without repeatedly
+    # qualifying the entire source closure. Qualification opts into source identity.
+    MACSCOPE_DEBUG_SOURCE_IDENTITY: runtime-only
+    # Shared target-intermediate location for the service's verified PIC
+    # archive. It remains outside every product and source directory.
+    MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT: "$(PROJECT_TEMP_DIR)/NativeDecompilerBridge"
+    # Dedicated Xcode-owned scratch/output root for the tracked cross-language
+    # native bridge golden gate. It must remain distinct from both immutable
+    # package inputs and the native archive build root.
+    MACSCOPE_NATIVE_DECOMPILER_GOLDEN_BUILD_ROOT: "$(PROJECT_TEMP_DIR)/NativeDecompilerBridgeGolden"
+    # A typed Release admission supplies lists for its actual outputs.
+    MACSCOPE_NATIVE_BRIDGE_INPUT_FILE_LIST: "$(SRCROOT)/../Scripts/native-decompiler-xpc/NativeDecompilerBridgeInputs.xcfilelist"
+    MACSCOPE_NATIVE_BRIDGE_OUTPUT_FILE_LIST: "$(SRCROOT)/../Scripts/native-decompiler-xpc/NativeDecompilerBridgeOutputs.xcfilelist"
+    MACSCOPE_NATIVE_PACKAGE_INPUT_FILE_LIST: "$(SRCROOT)/../Scripts/native-decompiler-xpc/NativeDecompilerPackageInputs.xcfilelist"
+    MACSCOPE_NATIVE_PACKAGE_OUTPUT_FILE_LIST: "$(SRCROOT)/../Scripts/native-decompiler-xpc/NativeDecompilerPackageOutputs.xcfilelist"
+    MACSCOPE_NATIVE_GOLDEN_INPUT_FILE_LIST: "$(SRCROOT)/../Scripts/native-decompiler-xpc/NativeDecompilerBridgeGoldenInputs.xcfilelist"
+    MACSCOPE_NATIVE_GOLDEN_OUTPUT_FILE_LIST: "$(SRCROOT)/../Scripts/native-decompiler-xpc/NativeDecompilerBridgeGoldenOutputs.xcfilelist"
+    # RX-03 parser engines (LIEF, pe-parse, go-macho + MacScope C bridge). The worker's
+    # pre-build phase stages the cached, prebuilt static archives here; no engine source is
+    # compiled by Xcode. Shared by AnalysisWorkerXPCService and CoreTests.
+    MACSCOPE_PARSER_ENGINES_ROOT: "$(PROJECT_TEMP_DIR)/MacScopeParserEngines"
+    MACSCOPE_PARSER_ENGINES_LDFLAGS: '"$(MACSCOPE_PARSER_ENGINES_ROOT)/parser-engine-bridge/lib/libmacscope_parser_engines.a" "$(MACSCOPE_PARSER_ENGINES_ROOT)/parser-engine-lief/lib/libLIEF.a" "$(MACSCOPE_PARSER_ENGINES_ROOT)/parser-engine-pe-parse/lib/libpe-parse.a" "$(MACSCOPE_PARSER_ENGINES_ROOT)/parser-engine-go-macho/lib/libmacscope_gomacho.a" -lc++ -lresolv -framework CoreFoundation -framework Security'
+    MACSCOPE_PARSER_ENGINES_INCLUDE: '"$(MACSCOPE_PARSER_ENGINES_ROOT)/parser-engine-bridge/include"'
+  configs:
+    Debug:
+      CODE_SIGN_ENTITLEMENTS: ""
+      CODE_SIGN_INJECT_BASE_ENTITLEMENTS: YES
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) DEBUG"
+      # Xcode's generated-project default currently resolves to -O for these
+      # targets. Keep routine edit/build cycles unoptimized and reserve
+      # optimization for the explicitly tuned Release configuration below.
+      SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+      # Routine edit/build cycles skip linker dead-stripping: it costs link
+      # time on every relink and is not needed to run or debug locally.
+      # Release keeps stripping. Debug already resolved dwarf (no dSYM) for
+      # every target; pin it so a preset change cannot add dSYM generation.
+      DEAD_CODE_STRIPPING: NO
+      DEBUG_INFORMATION_FORMAT: dwarf
+    Release:
+      # The installed app is a local-development qualification artifact, not a
+      # distribution build. Keep the stable Apple Development identity and
+      # hardened runtime, but inject the standard development entitlement so
+      # Xcode LLDB/debugserver can prove installed-app launch/attach contracts.
+      CODE_SIGN_ENTITLEMENTS: ""
+      CODE_SIGN_INJECT_BASE_ENTITLEMENTS: YES
+      # Xcode 27 enables coverage for this scheme by default, including plain
+      # Release builds. Keep instrumentation confined to the Debug test action.
+      ENABLE_CODE_COVERAGE: NO
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
+      DEAD_CODE_STRIPPING: YES
+      # Measured on the M1 Max with a fresh external DerivedData root: the
+      # 463-file MacScope module fell from 629.25 s to 358.92 s wall time when
+      # optimized per file, because WMO spent minutes on a single frontend
+      # critical path before exposing parallel code generation.
+      SWIFT_COMPILATION_MODE: singlefile
+targets:
+  MacScopeTestSupport:
+    type: library.static
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: Tests/TestSupport/PlatformXCTestCase.swift
+    settings:
+      base:
+        PRODUCT_NAME: MacScopeTestSupport
+        PRODUCT_MODULE_NAME: MacScopeTestSupport
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.MacScopeTestSupport
+        SKIP_INSTALL: YES
+        ENABLE_TESTING_SEARCH_PATHS: YES
+  SwiftAssemblyVendor:
+    type: library.static
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: ../ThirdParty/SwiftAssemblyVendor/Sources
+    settings:
+      base:
+        PRODUCT_NAME: SwiftAssemblyVendor
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.SwiftAssemblyVendor
+        SKIP_INSTALL: YES
+        SWIFT_VERSION: "6.0"
+  # D12 layer 3 (BUILD-STATIONS.md): the analysis engine, loaders, decoders, MacIR and the
+  # models they need, compiled ONCE and linked by the app and AnalysisWorkerXPCService (it used to
+  # compile into both). Sources stay in place; the app excludes them from its folder globs.
+  # Clients import it implicitly as `@testable` (OTHER_SWIFT_FLAGS -testable-import-module), so
+  # these files keep `internal` access and no client file needs an import line. The app
+  # force-loads the archive so hosted CoreTests resolve every symbol through the test host.
+  MacScopeAnalysisCore:
+    type: library.static
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: Services/AppKitSemantic
+        group: MacScopeAnalysisCore
+      - path: Models/Analyst/AnalystFindingEnvelope.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Analyst/AnalystFindingLifecycle.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Analyst/AnalystFindingRevision.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Analyst/AnalystFindingSupport.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2GroundedContext.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2ReadIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2ReadOperation.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2DebuggerReadOperationID.swift
+        group: MacScopeAnalysisCore
+      - path: Models/PatternInterpretation/PatternInterpretationModels.swift
+        group: MacScopeAnalysisCore
+      - path: Services/PatternInterpretation/PatternInterpretationValidation.swift
+        group: MacScopeAnalysisCore
+      - path: Services/PatternInterpretation/PatternInterpretationService.swift
+        group: MacScopeAnalysisCore
+      - path: Services/PatternInterpretation/PatternWorkerAdmission.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Support/CheckedAddressSpan.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Support/HexByteFormatter.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Support/StringDisplayEncoding.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorContractJSON.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorContractRecords.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorContractStore.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorContractValidation.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorContractVocabulary.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorAnalysisInputKey.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorKnowledgeVersion.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorPrimitiveRegistry.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorSubjectRef.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorToolchainKey.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorProofCertificate.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NavigatorContract/NavigatorProvenanceResolver.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Analysis/Proofs/FunctionStartStructuralProof.swift
+        group: MacScopeAnalysisCore
+      - path: ../ThirdParty/REA/generated/REAEmbeddedIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/REA/REAInspectionModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/REA/REANativeApplicationModels.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ProductionJSONSchema.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+TypeDefinitions.swift
+        group: MacScopeAnalysisCore
+      - path: Models/ImageSlot.swift
+        group: MacScopeAnalysisCore
+      - path: Models/DyldCacheAnalysisModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/ELFArchiveModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/COFFSectionCoordinate.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionSourceProfile.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionSourceRevision.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionSourceOracle.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionCorpusModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionEvidenceModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionEvidenceGraphIntegrity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionFinalSynthesisKind.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionToolModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionOperationID.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionCanonicalJSON.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionCorpusCanonicalizer.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2TerminalRuntimeAuthority.swift
+        group: MacScopeAnalysisCore
+      - path: Models/DebuggerLaunchProfileModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/DebuggerLogicalBreakpointModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/MachOSliceArtifactIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Concurrency/ConcurrentMap.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Concurrency/AnalysisResourceBudget.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Performance/PerformanceIntervals.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/InstructionOperands.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64OperandRenderer.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/Disassembler.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/UnsupportedArchitectureDecoder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/X86_64Decoder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/FunctionSignatures/FunctionSignature.swift
+        group: MacScopeAnalysisCore
+      - path: Services/FunctionSignatures/FunctionSignatureCorpus.swift
+        group: MacScopeAnalysisCore
+      - path: Services/FunctionSignatures/FunctionSignatureMatcher.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/ELFArchiveParser.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/ELFProgramHeaders.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOFile.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/EntitlementValueReader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/EntitlementRiskCatalog.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/EntitlementRiskAnalyzer.swift
+        group: MacScopeAnalysisCore
+      - path: Models/MachOConstants.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOLoadMetadata.swift
+        group: MacScopeAnalysisCore
+      - path: Services/LoadPathRisk/LoadPathRiskReport.swift
+        group: MacScopeAnalysisCore
+      - path: Services/LoadPathRisk/LoadPathRiskAnalyzer.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOSliceSelector.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ObjectiveC/ObjCModel.swift
+        group: MacScopeAnalysisCore
+      - path: Services/StubSymbolication/ObjCStubSelectorRecovery.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataModel.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerError.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerXPCPeerRequirement.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerSupervision.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/OwnedChildController.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerXPCProtocol.swift
+        group: MacScopeAnalysisCore
+      - path: Services/REA/REANativeApplicationProjection.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/REAInspectionWireCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/REAWorkerService.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ParserCrossCheck/ParserCrossCheck.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ParserCrossCheck/AnalysisEngine+ParserCrossCheck.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisDiagnostic.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisFingerprint.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+Overrides.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+WorkspaceSnapshot.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+PackageManifest.swift
+        group: MacScopeAnalysisCore
+      - path: Models/NavigatorEngineStateEnvelope.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+PackageRecords.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+DocumentPackage.swift
+        group: MacScopeAnalysisCore
+      - path: Models/AnalysisModels+InstructionSidecar.swift
+        group: MacScopeAnalysisCore
+      - path: Models/InstructionOperandsStorageCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Models/WorkspaceInstructionSidecar.swift
+        group: MacScopeAnalysisCore
+      - path: Models/WorkspaceAnalysisIntegrity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/BranchTargetSymbolizer.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionSourceEvaluation.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionSourceBehaviorHarness.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionSourceRevisionAdmission.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionEvidenceIntegrity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionJobModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionFeatureScope.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionObservation.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionRetrievalQuery.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionWorkspaceState.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionPackageModels.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionReceiptAuthority.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionEvidenceReadAuthority.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionToolRegistry.swift
+        group: MacScopeAnalysisCore
+      # DOT-07: one Foundation-only implementation shared by app, worker, and hosted tests.
+      - path: Models/RehydrationLoaderProducts.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Rehydration/RehydrationDerivedProducts.swift
+        group: MacScopeAnalysisCore
+      - path: Models/FileAddressMapping.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AnalysisDiagnosticsCollector.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AnalysisEngine.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AnalysisStableIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Services/NoReturnAnalysis.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/NoReturnCatalog.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AnalysisFingerprintBuilder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AnalysisPayloadCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AnalysisProviding.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/DataCrossReferenceResolver.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/DarwinARM64ParameterBinder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/JumpTableResolver.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/JumpTableResolver+Ranges.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/JumpTableResolver+Affine.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIR.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/SecurityTriage
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRFPEnvironment.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Demangler/SwiftDemangler.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Demangler/SwiftDemangler+ExtendedKinds.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Demangler/SwiftDemangler+ResidualGrammar.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Demangler/SwiftSymbolFacts.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftABI/SwiftConventionAdapter.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftABI/SwiftConventionCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftABI/SwiftRuntimeConventionSeeds.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+Atomics.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+Branches.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+Crypto.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+DataProcessingImmediate.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+DataProcessingRegister.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+LoadsStores.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+MemoryOperations.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+ReadCheckWrite.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+ShippingExtensions.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+PointerAuth.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SME.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SVE.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SIMDByElement.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SIMDLoadsStores.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SIMDPermuteImmediate.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SIMDScalar.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SIMDThreeSame.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+SIMDVector.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+ScalarFloatingPoint.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Disassembly/ARM64Decoder+System.swift
+        group: MacScopeAnalysisCore
+      - path: Services/DyldCacheAnalysis/DyldCacheAnalysisProviding.swift
+        group: MacScopeAnalysisCore
+      - path: Services/DyldCacheAnalysis/DyldCacheSourceIdentityReader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/DyldCacheAnalysis/DyldCacheSourcePreflight.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Import/MachOImportService.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/BinaryLoaderRouter.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/DyldMultiFileCacheReader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/DyldSharedCacheBinaryLoader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/DyldSharedCacheParser.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/ELFArchiveBinaryLoader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/ELFBinaryLoader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/ELFDynamicLinking.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/ELFProgramHeaderBinaryProjection.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/LittleEndianReader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/LoadedBinary.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/MachOBinaryLoader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Loader/PEBinaryLoader.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachODyldInfoFixups.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOParser.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOSliceArtifactReconstructor.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOUnwindFunctionStarts.swift
+        group: MacScopeAnalysisCore
+      - path: Services/MachO/MachOExceptionLSDA.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ObjectiveC/ObjCClassParser.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AttackSurface/AttackSurfaceReport.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AttackSurface/AttackSurfaceAnalyzer.swift
+        group: MacScopeAnalysisCore
+      - path: Services/AttackSurface/AttackSurfaceCalls.swift
+        group: MacScopeAnalysisCore
+      - path: Services/StubSymbolication/StubCallSymbolicator.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataParser.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataParser+OpaqueDescriptors.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataParser+ReflectionRecords.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataParser+RuntimeRecords.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataFunctionExtractor.swift
+        group: MacScopeAnalysisCore
+      - path: Services/SwiftMetadata/SwiftMetadataFactProjection.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/CallSignatureCatalog.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/CallSignatureCorpus.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/RuntimeSignatureSeeds.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/CallSignaturePack.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/FormatStringParser.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/DarwinARM64VariadicCursor.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/DarwinX86_64VariadicABI.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/ImageConstantStringProvider.swift
+        group: MacScopeAnalysisCore
+      - path: Services/TypeImport/ImportedTypeIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Services/TypeImport/SDKTypeArchive.swift
+        group: MacScopeAnalysisCore
+      - path: Services/TypeImport/ImportedTypeLayoutProvider.swift
+        group: MacScopeAnalysisCore
+      - path: Services/TypeCatalog/ImageTypeCatalog.swift
+        group: MacScopeAnalysisCore
+      - path: Services/TypeCatalog/StructLayoutCandidate.swift
+        group: MacScopeAnalysisCore
+      - path: Services/TypeCatalog/StructCandidateTypeAdapter.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ObjectiveC/ObjCTypeEncoding.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ObjectiveC/BlocksABI.swift
+        group: MacScopeAnalysisCore
+      - path: Services/ObjectiveC/BlocksABI+Decode.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWireCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerCancellationRegistry.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerService.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerService+Rehydrate.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisRehydrateWireCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/AnalysisWorkerXPCPrincipal.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/DyldCacheAnalysisWireCodec.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/DyldCacheAnalysisWorkerService.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRSSA.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRSSA+ReturnProof.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+SSA.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+SSAEffects.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+StateSSA.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRCFG.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/CFGBuilder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/DecompilerOptions.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/ForLoopFolder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+ModernISA.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+RegisterEffects.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorBufferSequence.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorCarrier.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorIndexedMemory.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorInterleavedMemory.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorLogical.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorLanes.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+StructuredOperands.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRFrameAnalysis.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRStackRegionAnalysis.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRStructUsageSummary.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRStructUsageAnalysis.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRIndirectTargetResolution.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRCallerReturnEvidence.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/ReturnContractTable.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/FunctionAddressTakenIndex.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/SlotTypedPrototypeBinding.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+StackStorage.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRVectorSemanticsLanes.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRVectorSemanticsMemory.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRVectorSemanticsChannels.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRVectorSemanticsBuffers.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRVectorSemanticsArithmetic.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRVectorSemanticsBitsAndControl.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+SemanticLifting.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+State.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+TailCalls.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+ScalarCFG.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder+VectorCFG.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRArithmeticRewrite.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRBuilder.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/MacIRLocalTypeInferencePass.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodePrinter+CompareElision.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodePrinter.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodeSSARecoveryEmitter.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodePrinter+StackLocalOverrides.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodePrinter+RecoveryTextCheck.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodePrinter+SemanticRendering.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/PseudocodePrinter+RecordFields.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/RegionTree.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Decompiler/Structuring
+        group: MacScopeAnalysisCore
+    settings:
+      base:
+        PRODUCT_NAME: MacScopeAnalysisCore
+        PRODUCT_MODULE_NAME: MacScopeAnalysisCore
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.AnalysisCore
+        SKIP_INSTALL: YES
+        # Clients use an implicit @testable import, Release included. (Quoted: governance
+        # tests patch the app's first unquoted ENABLE_TESTABILITY line.)
+        ENABLE_TESTABILITY: "YES"
+  # D12 layer 3: the debugger engine (LLDB transport, reducers, breakpoint/inspection models,
+  # DebugSymbols) compiled as its own static library so app edits no longer re-check it and it
+  # no longer inflates the app module's emit. Same pattern as MacScopeAnalysisCore: sources stay
+  # in place (app globs exclude them), implicit @testable import, app force-loads the archive.
+  MacScopeDebuggerCore:
+    type: library.static
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: Models/Phase2/Phase2AIShellOneShotExecution.swift
+        group: MacScopeDebuggerCore
+      - path: Models/Phase2/Phase2AIShellProposal.swift
+        group: MacScopeDebuggerCore
+      - path: Models/Phase2/Phase2DebuggerReadEvidence.swift
+        group: MacScopeDebuggerCore
+      - path: Models/Phase2/Phase2DebuggerReadOperation.swift
+        group: MacScopeDebuggerCore
+      - path: Services/DebugSymbols/DSYMImportService.swift
+        group: MacScopeDebuggerCore
+      - path: Services/DebugSymbols/DWARFDIETree.swift
+        group: MacScopeDebuggerCore
+      - path: Services/DebugSymbols/DWARFRecordedDefinitionComparison.swift
+        group: MacScopeDebuggerCore
+      - path: Services/DebugSymbols/DWARFFunctionSignatureReader.swift
+        group: MacScopeDebuggerCore
+      - path: Services/DebugSymbols/DWARFLineProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/DebugSymbols/DWARFReader.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerAttachModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerAuthoredInputValidation.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerAuthoringModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerBreakpointBindingModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerBreakpointBindingReducer.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerBreakpointResolutionCatalog.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerClient.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerInspectionModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerInspectionPresentationModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLLDBSealedLaunchPlan.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLocalProcessAttachWriteInterlock.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLocalProcessDiscoveryService.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLocalProcessIdentityObserver.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLocalProcessModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLocalProcessObservationPolicyProvider.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLogicalBreakpointPresentation.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLogicalBreakpointReconcileRequest.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerLogicalBreakpointResolver.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerMemoryInspectionModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerWatchpointModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBWatchpointProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBSessionCoordinator+Contracts.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerOriginAwareRecoveryPolicy.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerOwnedInfrastructureRegistry.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerRuntimeAddressTranslator.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerRuntimeModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerRuntimeModuleCollectionAssembler.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerRuntimeModuleInventoryCollector.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerRuntimeModuleInventoryReducer.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerRuntimeModuleModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerSessionLeaseRegistry.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerSessionReducer.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerSourceInspectionModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerTransportModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerTransportSnapshotProjector.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerVariableInspectionModels.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerWorkspaceArtifactCorrelator.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/DebuggerWorkspaceAuthority.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBCLITranscriptDecoder.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBDebuggerBackend.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBLogicalBreakpointCallbackBatchDecoder.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBLogicalBreakpointProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBLogicalBreakpointTransactionCodec.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBLogicalBreakpointTransactionCollector.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBRunToCursorTransactionCodec.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBRuntimeModuleExtractorProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBRuntimeModuleInventoryDecoder.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBVariableExtractorProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/LLDBVariableSnapshotDecoder.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBAttachProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBCLIAdapter.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBCLIProcessChannel.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBDetachProgram.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBLifecycleReceiptTranscriptDecoder.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBOwnedProcessChannelLauncher.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBProductionController.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBSessionCoordinator.swift
+        group: MacScopeDebuggerCore
+      - path: Services/Debugger/PersistentLLDBTargetlessTransportFactory.swift
+        group: MacScopeDebuggerCore
+    settings:
+      base:
+        PRODUCT_NAME: MacScopeDebuggerCore
+        PRODUCT_MODULE_NAME: MacScopeDebuggerCore
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.DebuggerCore
+        SKIP_INSTALL: YES
+        # Clients use an implicit @testable import, Release included (quoted: see MacScopeAnalysisCore).
+        ENABLE_TESTABILITY: "YES"
+        OTHER_SWIFT_FLAGS: "$(inherited) -Xfrontend -testable-import-module -Xfrontend MacScopeAnalysisCore"
+    dependencies:
+      - target: MacScopeAnalysisCore
+        link: false
+  MacScopeApp:
+    type: application
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+      - name: Stage verified Ghostty surface build inputs
+        basedOnDependencyAnalysis: true
+        inputFiles:
+          - "$(SRCROOT)/../Scripts/dependencies/stage_verified_ghostty_surface.py"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_MANIFEST)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_INPUT_ARCHIVE)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_INPUT_HEADER)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_INPUT_MODULE_MAP)"
+        outputFiles:
+          - "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_DESCRIPTOR)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_ARCHIVE)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_HEADER)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_MODULE_MAP)"
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/release_phase_receipt_reuse.py" \
+              --phase ghostty-surface --current-release
+            exit 0
+          fi
+          if [ -z "${MACSCOPE_GHOSTTY_SURFACE_ARTIFACT_ROOT:-}" ] || \
+             [ -z "${MACSCOPE_GHOSTTY_SURFACE_MANIFEST:-}" ]; then
+            echo "ERROR: verified Ghostty surface inputs are required" >&2
+            exit 1
+          fi
+          /bin/mkdir -p "$PROJECT_TEMP_DIR"
+          /usr/bin/python3 -B "$SRCROOT/../Scripts/dependencies/stage_verified_ghostty_surface.py" \
+            --manifest "$MACSCOPE_GHOSTTY_SURFACE_MANIFEST" \
+            --artifact-root "$MACSCOPE_GHOSTTY_SURFACE_ARTIFACT_ROOT" \
+            --destination "$MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT" \
+            --allowed-root "$PROJECT_TEMP_DIR"
+      - name: Build repository-owned Ghostty VT
+        # Build the vendored, checksum-governed source directly into Xcode-owned DerivedData.
+        # The phase always runs because source/package/toolchain identity and signing identity
+        # are not fully represented by Xcode's timestamp graph.
+        basedOnDependencyAnalysis: false
+        inputFiles:
+          - "$(SRCROOT)/../Scripts/build_ghostty_vt.sh"
+          - "$(SRCROOT)/../Scripts/dependencies/stage_verified_ghostty_vt.py"
+          - "$(SRCROOT)/../Scripts/dependencies/stage_verified_ghostty_surface.py"
+          - "$(SRCROOT)/../Scripts/ghostty-vt-source.contract"
+          - "$(SRCROOT)/../Scripts/dependencies/zig_toolchain_receipt.py"
+          - "$(SRCROOT)/../Scripts/qualification/dev_dependency_cache.py"
+          - "$(SRCROOT)/../Scripts/qualification/dependency_cache.py"
+          - "$(SRCROOT)/../ThirdParty/GhosttyVT/Source/build.zig"
+          - "$(SRCROOT)/../ThirdParty/GhosttyVT/Source/build.zig.zon"
+        outputFiles:
+          - "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/lib/.macscope-ghostty-vt-manifest"
+          - "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/lib/libghostty-vt.dylib"
+          - "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include/ghostty/vt.h"
+          - "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include/module.modulemap"
+          - "$(TARGET_BUILD_DIR)/$(FRAMEWORKS_FOLDER_PATH)/libghostty-vt.dylib"
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/release_phase_receipt_reuse.py" \
+              --phase ghostty-vt --current-release
+            exit 0
+          fi
+          umask 077
+          # Routine Debug only: reuse the last verified run when nothing it reads
+          # changed (Scripts/build_phase_stamp.py). Release and qualification
+          # (source-qualified) builds always run the full check below.
+          PHASE_STAMP=""
+          if [ "${CONFIGURATION:-}" = Debug ] && [ "${MACSCOPE_DEBUG_SOURCE_IDENTITY:-}" = runtime-only ]; then
+            PHASE_STAMP="$SRCROOT/../Scripts/build_phase_stamp.py"
+            if /usr/bin/python3 -B "$PHASE_STAMP" check ghostty-vt; then
+              exit 0
+            fi
+          fi
+
+          EXPECTED_BUILD_ROOT="$CONFIGURATION_TEMP_DIR/MacScopeGhosttyVT"
+          if [ "${MACSCOPE_GHOSTTY_VT_BUILD_ROOT:-}" != "$EXPECTED_BUILD_ROOT" ]; then
+            echo "ERROR: Ghostty VT output must remain inside Xcode DerivedData" >&2
+            exit 1
+          fi
+          /bin/mkdir -p "$MACSCOPE_GHOSTTY_VT_BUILD_ROOT"
+          VT_ARTIFACT_ROOT="${MACSCOPE_GHOSTTY_VT_VERIFIED_ARTIFACT_ROOT:-}"
+          VT_DESCRIPTOR="${MACSCOPE_GHOSTTY_VT_VERIFIED_DESCRIPTOR:-}"
+          VT_DESCRIPTOR_SHA256="${MACSCOPE_GHOSTTY_VT_VERIFIED_DESCRIPTOR_SHA256:-}"
+          if [ -z "$VT_ARTIFACT_ROOT$VT_DESCRIPTOR$VT_DESCRIPTOR_SHA256" ] && [ -n "$PHASE_STAMP" ]; then
+            # Routine Debug outside qualification: stage the shared verified,
+            # content-addressed VT build (same key as the qualifier) instead of
+            # recompiling Zig per DerivedData. Status 3 keeps the local build.
+            VT_STATUS=0
+            VT_CONTRACT="$(/usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/dev_dependency_cache.py" \
+              resolve --component ghostty-vt --repository-root "$SRCROOT/..")" || VT_STATUS=$?
+            if [ "$VT_STATUS" = 0 ]; then
+              VT_ARTIFACT_ROOT="$(printf '%s\n' "$VT_CONTRACT" | /usr/bin/sed -n 's/^MACSCOPE_GHOSTTY_VT_VERIFIED_ARTIFACT_ROOT=//p')"
+              VT_DESCRIPTOR="$(printf '%s\n' "$VT_CONTRACT" | /usr/bin/sed -n 's/^MACSCOPE_GHOSTTY_VT_VERIFIED_DESCRIPTOR=//p')"
+              VT_DESCRIPTOR_SHA256="$(printf '%s\n' "$VT_CONTRACT" | /usr/bin/sed -n 's/^MACSCOPE_GHOSTTY_VT_VERIFIED_DESCRIPTOR_SHA256=//p')"
+            elif [ "$VT_STATUS" != 3 ]; then
+              echo "ERROR: shared dependency cache rejected Ghostty VT" >&2
+              exit 1
+            fi
+          fi
+          if [ -n "$VT_ARTIFACT_ROOT$VT_DESCRIPTOR$VT_DESCRIPTOR_SHA256" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/dependencies/stage_verified_ghostty_vt.py" \
+              --artifact-root "${VT_ARTIFACT_ROOT:?}" \
+              --descriptor "${VT_DESCRIPTOR:?}" \
+              --descriptor-sha256 "${VT_DESCRIPTOR_SHA256:?}" \
+              --destination "$MACSCOPE_GHOSTTY_VT_BUILD_ROOT/artifacts" \
+              --allowed-root "$MACSCOPE_GHOSTTY_VT_BUILD_ROOT"
+          else
+            "$SRCROOT/../Scripts/build_ghostty_vt.sh" \
+              --work-root "$MACSCOPE_GHOSTTY_VT_BUILD_ROOT"
+          fi
+
+          BUNDLE_TEMPORARY=""
+          cleanup_ghostty_vt_bundle() {
+            if [ -n "$BUNDLE_TEMPORARY" ] && [ -f "$BUNDLE_TEMPORARY" ]; then
+              /bin/rm -f "$BUNDLE_TEMPORARY"
+            fi
+          }
+          trap cleanup_ghostty_vt_bundle EXIT INT TERM
+
+          DEST_DIR="$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH"
+          /bin/mkdir -p "$DEST_DIR"
+          BUNDLE_DYLIB="$DEST_DIR/libghostty-vt.dylib"
+          BUNDLE_TEMPORARY="$(/usr/bin/mktemp "$DEST_DIR/.libghostty-vt.dylib.XXXXXX")"
+          /bin/cp -f "$MACSCOPE_GHOSTTY_VT_BUILD_ROOT/artifacts/lib/libghostty-vt.dylib" "$BUNDLE_TEMPORARY"
+          /bin/chmod 0700 "$BUNDLE_TEMPORARY"
+          if [ "${CODE_SIGNING_ALLOWED:-NO}" = "YES" ] && [ -n "${EXPANDED_CODE_SIGN_IDENTITY:-}" ]; then
+            /usr/bin/codesign --force --sign "$EXPANDED_CODE_SIGN_IDENTITY" \
+              --identifier org.macscope.app.GhosttyVT --options runtime \
+              --timestamp=none "$BUNDLE_TEMPORARY"
+          fi
+          /bin/chmod 0555 "$BUNDLE_TEMPORARY"
+          /bin/mv -f "$BUNDLE_TEMPORARY" "$BUNDLE_DYLIB"
+          BUNDLE_TEMPORARY=""
+          trap - EXIT INT TERM
+          if [ -n "$PHASE_STAMP" ]; then
+            /usr/bin/python3 -B "$PHASE_STAMP" record ghostty-vt
+          fi
+    # Embed and sign the analysis worker so the default live NSXPCConnection can
+    # resolve it from MacScope.app/Contents/XPCServices. Certificate-backed signing
+    # keeps the nested service and the CoreTests TEST_HOST on the supported path.
+    dependencies:
+      - package: RecoveryKit
+        product: RecoveryKit
+      - target: MacScopeAnalysisCore
+        link: false
+      - target: MacScopeDebuggerCore
+        link: false
+      # Public audit-token accessors used by the gate-owned dynamic process
+      # authority. System SDK library only; never copied or embedded.
+      - sdk: libbsm.tbd
+      - package: Lumen
+        product: LumenTokens
+      - package: Lumen
+        product: LumenUI
+      - package: Lumen
+        product: LumenConformance
+      - target: SwiftAssemblyVendor
+      - target: AnalysisWorkerXPCService
+        embed: true
+        codeSign: true
+      - target: AIAgentWorkerXPCService
+        embed: true
+        codeSign: true
+      - target: NativeDecompilerXPCService
+        embed: true
+        codeSign: true
+      - target: ShellBrokerXPCService
+        embed: true
+        codeSign: true
+      - target: ShellBrokerLaunchAgent
+      - target: SourceExecutionRunner
+    sources:
+      - path: ../ThirdParty/REA/licenses
+        type: folder
+        buildPhase: resources
+      - path: App
+        excludes:
+          - "**/.DS_Store"
+          - HeadlessWorkspaceAcceptance.swift
+          - HeadlessWorkspaceTerminalAcceptance.swift
+          - HeadlessWorkspaceREAAcceptance.swift
+      - path: App/HeadlessWorkspaceAcceptance.swift
+      - path: App/HeadlessWorkspaceTerminalAcceptance.swift
+      - path: App/HeadlessWorkspaceREAAcceptance.swift
+      - path: AIWorkerProtocol
+        excludes:
+          - "**/.DS_Store"
+      - path: DesignSystem
+        excludes:
+          - "**/.DS_Store"
+      - path: Features
+        excludes:
+          - "**/.DS_Store"
+      - path: Models
+        excludes:
+          - "**/.DS_Store"
+          - Analyst/AnalystFindingEnvelope.swift
+          - Analyst/AnalystFindingLifecycle.swift
+          - Analyst/AnalystFindingRevision.swift
+          - Analyst/AnalystFindingSupport.swift
+          - Phase2/Phase2GroundedContext.swift
+          - Phase2/Phase2DebuggerReadOperationID.swift
+          - PatternInterpretation/PatternInterpretationModels.swift
+          - REA/REAInspectionModels.swift
+          - REA/REANativeApplicationModels.swift
+          - AnalysisModels+TypeDefinitions.swift
+          - ImageSlot.swift
+          - DyldCacheAnalysisModels.swift
+          - ELFArchiveModels.swift
+          - COFFSectionCoordinate.swift
+          - Reconstruction/ReconstructionSourceProfile.swift
+          - Reconstruction/ReconstructionIdentity.swift
+          - Reconstruction/ReconstructionSourceRevision.swift
+          - Reconstruction/ReconstructionSourceOracle.swift
+          - Reconstruction/ReconstructionCorpusModels.swift
+          - Reconstruction/ReconstructionEvidenceModels.swift
+          - Reconstruction/ReconstructionEvidenceGraphIntegrity.swift
+          - Reconstruction/ReconstructionFinalSynthesisKind.swift
+          - Reconstruction/ReconstructionToolModels.swift
+          - Reconstruction/ReconstructionOperationID.swift
+          - Phase2/Phase2TerminalRuntimeAuthority.swift
+          - DebuggerLaunchProfileModels.swift
+          - DebuggerLogicalBreakpointModels.swift
+          - MachOSliceArtifactIdentity.swift
+          - MachOConstants.swift
+          - AnalysisDiagnostic.swift
+          - AnalysisFingerprint.swift
+          - AnalysisModels.swift
+          - AnalysisModels+Overrides.swift
+          - AnalysisModels+WorkspaceSnapshot.swift
+          - AnalysisModels+PackageManifest.swift
+          - NavigatorEngineStateEnvelope.swift
+          - AnalysisModels+PackageRecords.swift
+          - AnalysisModels+DocumentPackage.swift
+          - AnalysisModels+InstructionSidecar.swift
+          - InstructionOperandsStorageCodec.swift
+          - WorkspaceInstructionSidecar.swift
+          - WorkspaceAnalysisIntegrity.swift
+          - BranchTargetSymbolizer.swift
+          - Reconstruction/ReconstructionSourceEvaluation.swift
+          - Reconstruction/ReconstructionSourceBehaviorHarness.swift
+          - Reconstruction/ReconstructionEvidenceIntegrity.swift
+          - Reconstruction/ReconstructionJobModels.swift
+          - Reconstruction/ReconstructionFeatureScope.swift
+          - Reconstruction/ReconstructionObservation.swift
+          - Reconstruction/ReconstructionRetrievalQuery.swift
+          - Reconstruction/ReconstructionWorkspaceState.swift
+          - Reconstruction/ReconstructionPackageModels.swift
+          - FileAddressMapping.swift
+          - RehydrationLoaderProducts.swift
+          # MacScopeDebuggerCore sources (compiled once, linked; see that target)
+          - Phase2/Phase2AIShellOneShotExecution.swift
+          - Phase2/Phase2AIShellProposal.swift
+          - Phase2/Phase2DebuggerReadEvidence.swift
+          - Phase2/Phase2DebuggerReadOperation.swift
+          - Phase2/Phase2ReadIdentity.swift
+          - Phase2/Phase2ReadOperation.swift
+      - path: PluginSDK
+        excludes:
+          - "**/.DS_Store"
+      - path: Plugins
+        excludes:
+          - "**/.DS_Store"
+      - path: Stores
+        excludes:
+          - "**/.DS_Store"
+      - path: Services
+        excludes:
+          - AppKitSemantic/**
+          - "**/.DS_Store"
+          - AttackSurface/AttackSurfaceReport.swift
+          - AttackSurface/AttackSurfaceAnalyzer.swift
+          - AttackSurface/AttackSurfaceCalls.swift
+          - Phase2/Phase2ModelQualificationHarness.swift
+          - Phase2/QualificationGate/**
+          - Reconstruction/ReconstructionCanonicalJSON.swift
+          - Reconstruction/ReconstructionCorpusCanonicalizer.swift
+          - Concurrency/ConcurrentMap.swift
+          - Concurrency/AnalysisResourceBudget.swift
+          - Performance/PerformanceIntervals.swift
+          - Disassembly/InstructionOperands.swift
+          - Disassembly/ARM64OperandRenderer.swift
+          - Disassembly/Disassembler.swift
+          - Disassembly/UnsupportedArchitectureDecoder.swift
+          - Disassembly/X86_64Decoder.swift
+          - FunctionSignatures/FunctionSignature.swift
+          - FunctionSignatures/FunctionSignatureCorpus.swift
+          - FunctionSignatures/FunctionSignatureMatcher.swift
+          - Loader/ELFArchiveParser.swift
+          - Loader/ELFProgramHeaders.swift
+          - MachO/MachOFile.swift
+          - MachO/EntitlementValueReader.swift
+          - MachO/EntitlementRiskCatalog.swift
+          - MachO/EntitlementRiskAnalyzer.swift
+          - MachO/MachOLoadMetadata.swift
+          - LoadPathRisk/LoadPathRiskReport.swift
+          - LoadPathRisk/LoadPathRiskAnalyzer.swift
+          - MachO/MachOSliceSelector.swift
+          - ObjectiveC/ObjCModel.swift
+          - StubSymbolication/ObjCStubSelectorRecovery.swift
+          - SwiftMetadata/SwiftMetadataModel.swift
+          - XPC/AnalysisWorkerError.swift
+          - XPC/AnalysisWorkerXPCPeerRequirement.swift
+          - XPC/AnalysisWorkerSupervision.swift
+          - XPC/OwnedChildController.swift
+          - XPC/OwnedChildWire.swift
+          - XPC/PosixChildProcessOps.swift
+          - XPC/AnalysisWorkerXPCProtocol.swift
+          - PatternInterpretation/PatternInterpretationValidation.swift
+          - PatternInterpretation/PatternInterpretationService.swift
+          - PatternInterpretation/PatternWorkerAdmission.swift
+          - REA/REANativeApplicationProjection.swift
+          - XPC/REAInspectionWireCodec.swift
+          - XPC/REAWorkerService.swift
+          - ParserCrossCheck/ParserCrossCheck.swift
+          - ParserCrossCheck/AnalysisEngine+ParserCrossCheck.swift
+          - Reconstruction/ReconstructionSourceRevisionAdmission.swift
+          - Reconstruction/ReconstructionReceiptAuthority.swift
+          - Reconstruction/ReconstructionEvidenceReadAuthority.swift
+          - Reconstruction/ReconstructionToolRegistry.swift
+          - Rehydration/RehydrationDerivedProducts.swift
+          - AnalysisDiagnosticsCollector.swift
+          - AnalysisEngine.swift
+          - AnalysisStableIdentity.swift
+          - NoReturnAnalysis.swift
+          - Decompiler/NoReturnCatalog.swift
+          - AnalysisFingerprintBuilder.swift
+          - AnalysisPayloadCodec.swift
+          - AnalysisProviding.swift
+          - Decompiler/DataCrossReferenceResolver.swift
+          - Decompiler/DarwinARM64ParameterBinder.swift
+          - Decompiler/JumpTableResolver.swift
+          - Decompiler/JumpTableResolver+Ranges.swift
+          - Decompiler/JumpTableResolver+Affine.swift
+          - Decompiler/MacIR.swift
+          - Decompiler/SecurityTriage/**
+          - Decompiler/MacIRFPEnvironment.swift
+          - Demangler/SwiftDemangler.swift
+          - Demangler/SwiftDemangler+ExtendedKinds.swift
+          - Demangler/SwiftDemangler+ResidualGrammar.swift
+          - Demangler/SwiftSymbolFacts.swift
+          - SwiftABI/**
+          - Disassembly/ARM64Decoder.swift
+          - Disassembly/ARM64Decoder+Atomics.swift
+          - Disassembly/ARM64Decoder+Branches.swift
+          - Disassembly/ARM64Decoder+Crypto.swift
+          - Disassembly/ARM64Decoder+DataProcessingImmediate.swift
+          - Disassembly/ARM64Decoder+DataProcessingRegister.swift
+          - Disassembly/ARM64Decoder+LoadsStores.swift
+          - Disassembly/ARM64Decoder+MemoryOperations.swift
+          - Disassembly/ARM64Decoder+ReadCheckWrite.swift
+          - Disassembly/ARM64Decoder+ShippingExtensions.swift
+          - Disassembly/ARM64Decoder+PointerAuth.swift
+          - Disassembly/ARM64Decoder+SME.swift
+          - Disassembly/ARM64Decoder+SVE.swift
+          - Disassembly/ARM64Decoder+SIMDByElement.swift
+          - Disassembly/ARM64Decoder+SIMDLoadsStores.swift
+          - Disassembly/ARM64Decoder+SIMDPermuteImmediate.swift
+          - Disassembly/ARM64Decoder+SIMDScalar.swift
+          - Disassembly/ARM64Decoder+SIMDThreeSame.swift
+          - Disassembly/ARM64Decoder+SIMDVector.swift
+          - Disassembly/ARM64Decoder+ScalarFloatingPoint.swift
+          - Disassembly/ARM64Decoder+System.swift
+          - DyldCacheAnalysis/DyldCacheAnalysisProviding.swift
+          - DyldCacheAnalysis/DyldCacheSourceIdentityReader.swift
+          - DyldCacheAnalysis/DyldCacheSourcePreflight.swift
+          - Import/MachOImportService.swift
+          - Loader/BinaryLoaderRouter.swift
+          - Loader/DyldMultiFileCacheReader.swift
+          - Loader/DyldSharedCacheBinaryLoader.swift
+          - Loader/DyldSharedCacheParser.swift
+          - Loader/ELFArchiveBinaryLoader.swift
+          - Loader/ELFBinaryLoader.swift
+          - Loader/ELFDynamicLinking.swift
+          - Loader/ELFProgramHeaderBinaryProjection.swift
+          - Loader/LittleEndianReader.swift
+          - Loader/LoadedBinary.swift
+          - Loader/MachOBinaryLoader.swift
+          - Loader/PEBinaryLoader.swift
+          - MachO/MachOParser.swift
+          - MachO/MachODyldInfoFixups.swift
+          - MachO/MachOSliceArtifactReconstructor.swift
+          - MachO/MachOUnwindFunctionStarts.swift
+          - MachO/MachOExceptionLSDA.swift
+          - ObjectiveC/ObjCClassParser.swift
+          - StubSymbolication/StubCallSymbolicator.swift
+          - SwiftMetadata/SwiftMetadataParser.swift
+          - SwiftMetadata/SwiftMetadataParser+OpaqueDescriptors.swift
+          - SwiftMetadata/SwiftMetadataParser+ReflectionRecords.swift
+          - SwiftMetadata/SwiftMetadataParser+RuntimeRecords.swift
+          - SwiftMetadata/SwiftMetadataFunctionExtractor.swift
+          - SwiftMetadata/SwiftMetadataFactProjection.swift
+          - Decompiler/CallSignatureCatalog.swift
+          - Decompiler/CallSignatureCorpus.swift
+          - Decompiler/RuntimeSignatureSeeds.swift
+          - Decompiler/CallSignaturePack.swift
+          - Decompiler/FormatStringParser.swift
+          - Decompiler/DarwinARM64VariadicCursor.swift
+          - Decompiler/DarwinX86_64VariadicABI.swift
+          - Decompiler/ImageConstantStringProvider.swift
+          - TypeImport/ImportedTypeIdentity.swift
+          - TypeImport/SDKTypeArchive.swift
+          - TypeImport/ImportedTypeLayoutProvider.swift
+          - TypeCatalog/ImageTypeCatalog.swift
+          - TypeCatalog/StructLayoutCandidate.swift
+          - TypeCatalog/StructCandidateTypeAdapter.swift
+          - ObjectiveC/ObjCTypeEncoding.swift
+          - ObjectiveC/BlocksABI.swift
+          - ObjectiveC/BlocksABI+Decode.swift
+          - XPC/AnalysisWireCodec.swift
+          - XPC/AnalysisWorkerCancellationRegistry.swift
+          - XPC/AnalysisWorkerService.swift
+          - XPC/AnalysisWorkerService+Rehydrate.swift
+          - XPC/AnalysisRehydrateWireCodec.swift
+          - XPC/AnalysisWorkerXPCPrincipal.swift
+          - XPC/DyldCacheAnalysisWireCodec.swift
+          - XPC/DyldCacheAnalysisWorkerService.swift
+          # MacScopeAnalysisCore sources (compiled once, linked; see that target)
+          - Support/CheckedAddressSpan.swift
+          - Support/HexByteFormatter.swift
+          - Support/StringDisplayEncoding.swift
+          - NavigatorContract/NavigatorContractJSON.swift
+          - NavigatorContract/NavigatorContractRecords.swift
+          - NavigatorContract/NavigatorContractStore.swift
+          - NavigatorContract/NavigatorContractValidation.swift
+          - NavigatorContract/NavigatorContractVocabulary.swift
+          - NavigatorContract/NavigatorAnalysisInputKey.swift
+          - NavigatorContract/NavigatorKnowledgeVersion.swift
+          - NavigatorContract/NavigatorPrimitiveRegistry.swift
+          - NavigatorContract/NavigatorSubjectRef.swift
+          - NavigatorContract/NavigatorToolchainKey.swift
+          - NavigatorContract/NavigatorProofCertificate.swift
+          - NavigatorContract/NavigatorProvenanceResolver.swift
+          - Analysis/Proofs/FunctionStartStructuralProof.swift
+          # MacScopeDebuggerCore sources (compiled once, linked; see that target)
+          - DebugSymbols/DSYMImportService.swift
+          - DebugSymbols/DWARFDIETree.swift
+          - DebugSymbols/DWARFRecordedDefinitionComparison.swift
+          - DebugSymbols/DWARFFunctionSignatureReader.swift
+          - DebugSymbols/DWARFLineProgram.swift
+          - DebugSymbols/DWARFReader.swift
+          - Debugger/DebuggerAttachModels.swift
+          - Debugger/DebuggerAuthoredInputValidation.swift
+          - Debugger/DebuggerAuthoringModels.swift
+          - Debugger/DebuggerBreakpointBindingModels.swift
+          - Debugger/DebuggerBreakpointBindingReducer.swift
+          - Debugger/DebuggerBreakpointResolutionCatalog.swift
+          - Debugger/DebuggerClient.swift
+          - Debugger/DebuggerInspectionModels.swift
+          - Debugger/DebuggerInspectionPresentationModels.swift
+          - Debugger/DebuggerLLDBSealedLaunchPlan.swift
+          - Debugger/DebuggerLocalProcessAttachWriteInterlock.swift
+          - Debugger/DebuggerLocalProcessDiscoveryService.swift
+          - Debugger/DebuggerLocalProcessIdentityObserver.swift
+          - Debugger/DebuggerLocalProcessModels.swift
+          - Debugger/DebuggerLocalProcessObservationPolicyProvider.swift
+          - Debugger/DebuggerLogicalBreakpointPresentation.swift
+          - Debugger/DebuggerLogicalBreakpointReconcileRequest.swift
+          - Debugger/DebuggerLogicalBreakpointResolver.swift
+          - Debugger/DebuggerMemoryInspectionModels.swift
+          - Debugger/DebuggerWatchpointModels.swift
+          - Debugger/LLDBWatchpointProgram.swift
+          - Debugger/PersistentLLDBSessionCoordinator+Contracts.swift
+          - Debugger/DebuggerModels.swift
+          - Debugger/DebuggerOriginAwareRecoveryPolicy.swift
+          - Debugger/DebuggerOwnedInfrastructureRegistry.swift
+          - Debugger/DebuggerRuntimeAddressTranslator.swift
+          - Debugger/DebuggerRuntimeModels.swift
+          - Debugger/DebuggerRuntimeModuleCollectionAssembler.swift
+          - Debugger/DebuggerRuntimeModuleInventoryCollector.swift
+          - Debugger/DebuggerRuntimeModuleInventoryReducer.swift
+          - Debugger/DebuggerRuntimeModuleModels.swift
+          - Debugger/DebuggerSessionLeaseRegistry.swift
+          - Debugger/DebuggerSessionReducer.swift
+          - Debugger/DebuggerSourceInspectionModels.swift
+          - Debugger/DebuggerTransportModels.swift
+          - Debugger/DebuggerTransportSnapshotProjector.swift
+          - Debugger/DebuggerVariableInspectionModels.swift
+          - Debugger/DebuggerWorkspaceArtifactCorrelator.swift
+          - Debugger/DebuggerWorkspaceAuthority.swift
+          - Debugger/LLDBCLITranscriptDecoder.swift
+          - Debugger/LLDBDebuggerBackend.swift
+          - Debugger/LLDBLogicalBreakpointCallbackBatchDecoder.swift
+          - Debugger/LLDBLogicalBreakpointProgram.swift
+          - Debugger/LLDBLogicalBreakpointTransactionCodec.swift
+          - Debugger/LLDBLogicalBreakpointTransactionCollector.swift
+          - Debugger/LLDBRunToCursorTransactionCodec.swift
+          - Debugger/LLDBRuntimeModuleExtractorProgram.swift
+          - Debugger/LLDBRuntimeModuleInventoryDecoder.swift
+          - Debugger/LLDBVariableExtractorProgram.swift
+          - Debugger/LLDBVariableSnapshotDecoder.swift
+          - Debugger/PersistentLLDBAttachProgram.swift
+          - Debugger/PersistentLLDBCLIAdapter.swift
+          - Debugger/PersistentLLDBCLIProcessChannel.swift
+          - Debugger/PersistentLLDBDetachProgram.swift
+          - Debugger/PersistentLLDBLifecycleReceiptTranscriptDecoder.swift
+          - Debugger/PersistentLLDBOwnedProcessChannelLauncher.swift
+          - Debugger/PersistentLLDBProductionController.swift
+          - Debugger/PersistentLLDBSessionCoordinator.swift
+          - Debugger/PersistentLLDBTargetlessTransportFactory.swift
+          - Decompiler/MacIRSSA.swift
+          - Decompiler/MacIRSSA+ReturnProof.swift
+          - Decompiler/MacIRBuilder+SSA.swift
+          - Decompiler/MacIRBuilder+SSAEffects.swift
+          - Decompiler/MacIRBuilder+StateSSA.swift
+          - Decompiler/MacIRCFG.swift
+          - Decompiler/CFGBuilder.swift
+          - Decompiler/DecompilerOptions.swift
+          - Decompiler/ForLoopFolder.swift
+          - Decompiler/MacIRBuilder+ModernISA.swift
+          - Decompiler/MacIRBuilder+RegisterEffects.swift
+          - Decompiler/MacIRBuilder+VectorBufferSequence.swift
+          - Decompiler/MacIRBuilder+VectorCarrier.swift
+          - Decompiler/MacIRBuilder+VectorIndexedMemory.swift
+          - Decompiler/MacIRBuilder+VectorInterleavedMemory.swift
+          - Decompiler/MacIRBuilder+VectorLogical.swift
+          - Decompiler/MacIRBuilder+VectorLanes.swift
+          - Decompiler/MacIRBuilder+StructuredOperands.swift
+          - Decompiler/MacIRFrameAnalysis.swift
+          - Decompiler/MacIRStackRegionAnalysis.swift
+          - Decompiler/MacIRStructUsageSummary.swift
+          - Decompiler/MacIRStructUsageAnalysis.swift
+          - Decompiler/MacIRIndirectTargetResolution.swift
+          - Decompiler/MacIRCallerReturnEvidence.swift
+          - Decompiler/ReturnContractTable.swift
+          - Decompiler/FunctionAddressTakenIndex.swift
+          - Decompiler/SlotTypedPrototypeBinding.swift
+          - Decompiler/MacIRBuilder+StackStorage.swift
+          - Decompiler/MacIRVectorSemanticsLanes.swift
+          - Decompiler/MacIRVectorSemanticsMemory.swift
+          - Decompiler/MacIRVectorSemanticsChannels.swift
+          - Decompiler/MacIRVectorSemanticsBuffers.swift
+          - Decompiler/MacIRVectorSemanticsArithmetic.swift
+          - Decompiler/MacIRVectorSemanticsBitsAndControl.swift
+          - Decompiler/MacIRBuilder+SemanticLifting.swift
+          - Decompiler/MacIRBuilder+State.swift
+          - Decompiler/MacIRBuilder+TailCalls.swift
+          - Decompiler/MacIRBuilder+ScalarCFG.swift
+          - Decompiler/MacIRBuilder+VectorCFG.swift
+          - Decompiler/MacIRArithmeticRewrite.swift
+          - Decompiler/MacIRBuilder.swift
+          - Decompiler/MacIRLocalTypeInferencePass.swift
+          - Decompiler/PseudocodePrinter+CompareElision.swift
+          - Decompiler/PseudocodePrinter.swift
+          - Decompiler/PseudocodeSSARecoveryEmitter.swift
+          - Decompiler/PseudocodePrinter+StackLocalOverrides.swift
+          - Decompiler/PseudocodePrinter+RecoveryTextCheck.swift
+          - Decompiler/PseudocodePrinter+SemanticRendering.swift
+          - Decompiler/PseudocodePrinter+RecordFields.swift
+          - Decompiler/RegionTree.swift
+          - Decompiler/Structuring
+      # The signed headless F4C Gate executes inside MacScope so the AI worker's
+      # designated peer requirement remains exact. Keep this list closed over
+      # only the worker-side protocol/runtime pieces the Gate actually needs.
+      - path: AIAgentWorkerCore/Phase2LoopbackEndpoint.swift
+      - path: AIAgentWorkerCore/Phase2ProductionToolRegistry.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptModules.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionProductionToolRegistry.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOutputSchemas.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionSourceOutput.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionPromptModules.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionRoundAccumulator.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIToolCallAssembler.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptCompiler.swift
+      - path: AIAgentWorkerCore/Phase2GroundedOutputDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatStreamDecoder.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2SSEDecoder.swift
+      - path: Services/Phase2/Phase2ModelQualificationHarness.swift
+      - path: Services/Phase2/QualificationGate
+        excludes:
+          - "**/.DS_Store"
+      - path: NativeDecompilerXPCService/NativeDecompilerLiveXPCTestControl.swift
+      - path: Bridges
+        excludes:
+          - "**/.DS_Store"
+      - path: Resources
+        excludes:
+          - "**/.DS_Store"
+          - Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: MacScope
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app
+        # Use the hand-authored Info.plist as-is. Do NOT add an `info:` block:
+        # an `info:` block makes XcodeGen GENERATE/overwrite the file at its path,
+        # stripping the rich UTExportedTypeDeclarations / CFBundleDocumentTypes.
+        # Pointing INFOPLIST_FILE at the source keeps `xcodegen generate` idempotent.
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Resources/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Brand-violet global accent (the AccentColor.colorset). This makes the app's
+        # accent resolve to #8B7CF6 everywhere the SwiftUI .tint cannot reach — AppKit
+        # window chrome (e.g. the Settings tab-bar selector), Color.accentColor, and
+        # NSColor.controlAccentColor — instead of the user's system accent (blue).
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        # Localization readiness: Xcode extracts every SwiftUI/String(localized:) literal into
+        # Resources/Localizable.xcstrings on build.
+        SWIFT_EMIT_LOC_STRINGS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        ENABLE_TESTABILITY: YES
+        OTHER_SWIFT_FLAGS: "$(inherited) -Xfrontend -testable-import-module -Xfrontend MacScopeAnalysisCore -Xfrontend -testable-import-module -Xfrontend MacScopeDebuggerCore"
+        # Ghostty VT is built from repository-owned source directly into Xcode
+        # DerivedData. The full-surface library retains its separately governed input.
+        MACSCOPE_GHOSTTY_VT_BUILD_ROOT: "$(CONFIGURATION_TEMP_DIR)/MacScopeGhosttyVT"
+        MACSCOPE_GHOSTTY_SURFACE_INPUT_HEADER: "$(MACSCOPE_GHOSTTY_SURFACE_ARTIFACT_ROOT)/macos-arm64/Headers/ghostty.h"
+        MACSCOPE_GHOSTTY_SURFACE_INPUT_MODULE_MAP: "$(MACSCOPE_GHOSTTY_SURFACE_ARTIFACT_ROOT)/macos-arm64/Headers/module.modulemap"
+        MACSCOPE_GHOSTTY_SURFACE_INPUT_ARCHIVE: "$(MACSCOPE_GHOSTTY_SURFACE_ARTIFACT_ROOT)/macos-arm64/libghostty-internal.a"
+        MACSCOPE_GHOSTTY_SURFACE_MANIFEST: "$(MACSCOPE_GHOSTTY_SURFACE_SOURCE_DIR)/macos/.macscope-ghostty-surface-manifest"
+        MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT: "$(PROJECT_TEMP_DIR)/MacScopeGhosttySurface"
+        MACSCOPE_GHOSTTY_SURFACE_STAGED_DESCRIPTOR: "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/STAGED_GHOSTTY_SURFACE.json"
+        MACSCOPE_GHOSTTY_SURFACE_HEADER: "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers/ghostty.h"
+        MACSCOPE_GHOSTTY_SURFACE_MODULE_MAP: "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers/module.modulemap"
+        MACSCOPE_GHOSTTY_SURFACE_ARCHIVE: "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/libghostty-internal.a"
+        HEADER_SEARCH_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include" "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers"'
+        LIBRARY_SEARCH_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/lib"'
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+        OTHER_LDFLAGS: "$(inherited) -force_load $(BUILT_PRODUCTS_DIR)/libMacScopeAnalysisCore.a -force_load $(BUILT_PRODUCTS_DIR)/libMacScopeDebuggerCore.a -lghostty-vt $(MACSCOPE_GHOSTTY_SURFACE_ARCHIVE) -lc++ -framework Carbon -framework GameController"
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) $(MACSCOPE_NATIVE_DECOMPILER_LIVE_TEST_CONDITION) $(MACSCOPE_GHOSTTY_SURFACE_ENABLED)"
+        SWIFT_INCLUDE_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include" "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers"'
+        # The embedded native worker carries manifest-bound static archives as
+        # runtime resources. Xcode's Copy Files stripping rewrites those archives
+        # after the worker has been verified, invalidating the closed package.
+        COPY_PHASE_STRIP: NO
+      configs:
+        Debug:
+          # Preserve the signed executable inventory; opt out of Xcode's app
+          # debug/preview dylibs without changing optimization or entitlements.
+          ENABLE_DEBUG_DYLIB: NO
+        Release:
+          # Production installs do not need the Debug test host's internal exports.
+          ENABLE_TESTABILITY: NO
+    # Deliberately the final app phase: both embedded XPC products have already
+    # been copied, while Xcode's automatic CodeSign step has not sealed the app.
+    postBuildScripts:
+      - name: Stage ShellBroker LaunchAgent property list
+        basedOnDependencyAnalysis: true
+        inputFiles:
+          - "$(SRCROOT)/ShellBrokerService/LaunchAgent.plist"
+          - "$(BUILT_PRODUCTS_DIR)/ShellBrokerLaunchAgent"
+        outputFiles:
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/Library/LaunchAgents/org.macscope.app.ShellBroker.agent.plist"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/MacOS/ShellBrokerLaunchAgent"
+        script: |
+          set -euo pipefail
+          DEST_DIR="$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/Library/LaunchAgents"
+          mkdir -p "$DEST_DIR"
+          /bin/cp -f "$SRCROOT/ShellBrokerService/LaunchAgent.plist" "$DEST_DIR/org.macscope.app.ShellBroker.agent.plist"
+          /bin/cp -f "$BUILT_PRODUCTS_DIR/ShellBrokerLaunchAgent" "$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/MacOS/ShellBrokerLaunchAgent"
+      - name: Stage signed source execution runner
+        basedOnDependencyAnalysis: true
+        inputFiles:
+          - "$(BUILT_PRODUCTS_DIR)/SourceExecutionRunner"
+        outputFiles:
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/MacOS/SourceExecutionRunner"
+        script: |
+          set -euo pipefail
+          /bin/cp -f "$BUILT_PRODUCTS_DIR/SourceExecutionRunner" "$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/MacOS/SourceExecutionRunner"
+      - name: Generate sealed Release build provenance
+        basedOnDependencyAnalysis: false
+        inputFiles:
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerBridgeGolden.json"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerPackage/MATERIALIZATION.json"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerPackage/package"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerPackage/package/lib/libdecomp.a"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerPackage/package/lib/libsla.a"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/Info.plist"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/MacOS/NativeDecompilerXPCService"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/NativeDecompilerXPCService.xpc/Contents/_CodeSignature/CodeResources"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_MANIFEST)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_DESCRIPTOR)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_ARCHIVE)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_HEADER)"
+          - "$(MACSCOPE_GHOSTTY_SURFACE_MODULE_MAP)"
+          - "$(TARGET_BUILD_DIR)/$(CONTENTS_FOLDER_PATH)/XPCServices/AnalysisWorkerXPCService.xpc/Contents/MacOS/AnalysisWorkerXPCService"
+          - "$(MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT)/MATERIALIZATION.json"
+        outputFiles:
+          - "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/MacScopeBuildProvenance.json"
+        script: |
+          if [ "$CONFIGURATION" != "Release" ] && [ "$CONFIGURATION" != "Debug" ]; then
+            exit 1
+          fi
+          /usr/bin/python3 "$SRCROOT/../Scripts/generate_release_build_provenance.py" \
+            --repo-root "$SRCROOT/.." \
+            --project-yml "$SRCROOT/project.yml" \
+            --project-file-path "$PROJECT_FILE_PATH" \
+            --configuration "$CONFIGURATION" \
+            --debug-source-identity "$MACSCOPE_DEBUG_SOURCE_IDENTITY" \
+            --ghostty-source-dir "$SRCROOT/../ThirdParty/GhosttyVT/Source" \
+            --ghostty-surface-manifest "$MACSCOPE_GHOSTTY_SURFACE_MANIFEST" \
+            --ghostty-surface-staged-root "$MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT" \
+            --sleigh-materialization-root "$MACSCOPE_SLEIGH_MATERIALIZATION_ROOT" \
+            --machokit-materialization-root "$MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT" \
+            --analysis-worker-executable "$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/XPCServices/AnalysisWorkerXPCService.xpc/Contents/MacOS/AnalysisWorkerXPCService" \
+            --native-decompiler-live-test-condition "$MACSCOPE_NATIVE_DECOMPILER_LIVE_TEST_CONDITION" \
+            --swift-active-compilation-conditions "$SWIFT_ACTIVE_COMPILATION_CONDITIONS" \
+            --other-swift-flags "$OTHER_SWIFT_FLAGS" \
+            --architectures "$ARCHS" \
+            --deployment-target "$MACOSX_DEPLOYMENT_TARGET" \
+            --sdk-name "$SDK_NAME" \
+            --sdk-version "$SDK_VERSION" \
+            --sdk-build "$SDK_PRODUCT_BUILD_VERSION" \
+            --developer-dir "$DEVELOPER_DIR" \
+            --swift-executable "$DEVELOPER_DIR/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc" \
+            --native-decompiler-golden-result "$TARGET_BUILD_DIR/$CONTENTS_FOLDER_PATH/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerBridgeGolden.json" \
+            --output "$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/MacScopeBuildProvenance.json"
+  # Bundled plugin XPC service. Self-contained: it compiles only the
+  # connection-free Plugins/ + PluginSDK/ sources (which have NO dependency on
+  # Stores/Services/SwiftUI) plus its own runtime entry point under XPCService/.
+  #
+  # NOT wired as a MacScopeApp dependency on purpose: making the app embed+sign the
+  # .xpc would pull code-signing into the unit-test build (CoreTests loads the app
+  # as its TEST_HOST), which is fragile in headless CI. To SHIP the live service,
+  # add this to the app target's `dependencies:` with `embed: true, codeSign: true`
+  # (XcodeGen then copies it into MacScope.app/Contents/XPCServices and signs it):
+  #
+  #   MacScopeApp:
+  #     dependencies:
+  #       - target: PluginXPCService
+  #         embed: true
+  #         codeSign: true
+  #
+  # See integrationRisks in the task report for the exact embed/sign tail.
+  PluginXPCService:
+    type: xpc-service
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+    sources:
+      - path: XPCService
+        excludes:
+          - "**/.DS_Store"
+          - Info.plist
+      - path: Plugins
+        excludes:
+          - "**/.DS_Store"
+      - path: PluginSDK
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_NAME: PluginXPCService
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.PluginXPCService
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: XPCService/Info.plist
+        SKIP_INSTALL: YES
+  # Bundled analysis-worker XPC product. Its source list is intentionally closed over only the
+  # real AnalysisEngine dependency graph plus the worker-side XPC seam and runtime tail. In
+  # particular it does NOT compile Stores, Features/SwiftUI, scripting, debugger, exporters,
+  # golden tooling, plugin hosting, or the client-side XPC provider/transport.
+  #
+  # MacScopeApp embeds and signs this service as a target dependency above. Keep
+  # the source list closed and preserve certificate-backed signing because
+  # CoreTests loads the containing MacScope.app as its TEST_HOST.
+  AnalysisWorkerXPCService:
+    type: xpc-service
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+      - name: Require retained pattern adapter
+        basedOnDependencyAnalysis: false
+        script: |
+          set -eu
+          expected="<dependency cache root>/pattern-adapter/<content key>"
+          if [ -z "${MACSCOPE_PATTERN_ADAPTER_ROOT:-}" ]; then
+            echo "ERROR: MACSCOPE_PATTERN_ADAPTER_ROOT is not set. Supply the retained staged pattern adapter root, expected at $expected." >&2
+            exit 1
+          fi
+          case "$MACSCOPE_PATTERN_ADAPTER_ROOT" in
+            /*) ;;
+            *) echo "ERROR: MACSCOPE_PATTERN_ADAPTER_ROOT must be absolute: $MACSCOPE_PATTERN_ADAPTER_ROOT (expected at $expected)" >&2; exit 1 ;;
+          esac
+          # The retained native build receipt owns these already-staged inputs.
+          # Admission checks presence only; Xcode never rebuilds or rehashes them.
+          for staged in MacScopePatternAdapter.a module.modulemap include/MacScopePatternAdapter.h; do
+            if [ ! -f "$MACSCOPE_PATTERN_ADAPTER_ROOT/$staged" ]; then
+              echo "ERROR: retained pattern adapter root $MACSCOPE_PATTERN_ADAPTER_ROOT is missing or unreachable: no $staged (expected at $expected)" >&2
+              exit 1
+            fi
+          done
+      - name: Stage cached parser engines
+        basedOnDependencyAnalysis: false
+        outputFiles:
+          - "$(MACSCOPE_PARSER_ENGINES_ROOT)/STAGED.json"
+        script: |
+          set -eu
+          # Prebuilt LIEF / pe-parse / go-macho archives come from the shared content-addressed
+          # dependency cache, keyed by pinned source, builder and toolchain. Unchanged inputs
+          # return in milliseconds; a new key builds once per machine (never per worktree).
+          CACHE_ROOT="${MACSCOPE_DEPENDENCY_CACHE_ROOT:-${MACSCOPE_PARSER_ENGINE_CACHE_ROOT:-}}"
+          if [ -z "$CACHE_ROOT" ]; then
+            echo "ERROR: MACSCOPE_PARSER_ENGINE_CACHE_ROOT (DependencyRoots.xcconfig) is required" >&2
+            exit 1
+          fi
+          /usr/bin/python3 -B "$SRCROOT/../Scripts/dependencies/build_parser_engines.py" stage \
+            --destination "$MACSCOPE_PARSER_ENGINES_ROOT" --cache-root "$CACHE_ROOT"
+      - name: Verify canonical embedded REA resource
+        basedOnDependencyAnalysis: false
+        script: |
+          set -eu
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/release_phase_receipt_reuse.py" \
+              --phase rea --current-release
+            exit 0
+          fi
+          # Routine Debug only: reuse the last verified run when nothing it reads
+          # changed (Scripts/build_phase_stamp.py). Release and qualification
+          # (source-qualified) builds always run the full check below.
+          PHASE_STAMP=""
+          if [ "${CONFIGURATION:-}" = Debug ] && [ "${MACSCOPE_DEBUG_SOURCE_IDENTITY:-}" = runtime-only ]; then
+            PHASE_STAMP="$SRCROOT/../Scripts/build_phase_stamp.py"
+            if /usr/bin/python3 -B "$PHASE_STAMP" check rea-resource; then
+              exit 0
+            fi
+          fi
+          /usr/bin/python3 -B "$SRCROOT/../Scripts/dependencies/rea_verify.py"
+          if [ -n "$PHASE_STAMP" ]; then
+            /usr/bin/python3 -B "$PHASE_STAMP" record rea-resource
+          fi
+      - name: Verify exact MachOKit source materialization
+        basedOnDependencyAnalysis: false
+        inputFiles:
+          - "$(MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT)/MATERIALIZATION.json"
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/release_phase_receipt_reuse.py" \
+              --phase machokit --current-release
+            exit 0
+          fi
+          if [ -z "${MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT:-}" ]; then
+            echo "ERROR: MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT is required" >&2
+            exit 1
+          fi
+          # Routine Debug only: reuse the last verified run when nothing it reads
+          # changed (Scripts/build_phase_stamp.py). Release and qualification
+          # (source-qualified) builds always run the full check below.
+          PHASE_STAMP=""
+          if [ "${CONFIGURATION:-}" = Debug ] && [ "${MACSCOPE_DEBUG_SOURCE_IDENTITY:-}" = runtime-only ]; then
+            PHASE_STAMP="$SRCROOT/../Scripts/build_phase_stamp.py"
+            if /usr/bin/python3 -B "$PHASE_STAMP" check machokit-source; then
+              exit 0
+            fi
+          fi
+          /usr/bin/python3 "$SRCROOT/../Scripts/machokit_source_identity.py" verify \
+            --materialization-root "$MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT"
+          VERIFIED_ROOT="$(cd "$MACSCOPE_MACHOKIT_MATERIALIZATION_ROOT" && /bin/pwd -P)"
+          PACKAGE_ROOT="$(cd "$SRCROOT/LocalPackages" && /bin/pwd -P)"
+          if [ "$VERIFIED_ROOT" != "$PACKAGE_ROOT" ]; then
+            echo "ERROR: LocalPackages resolves outside the verified MachOKit materialization" >&2
+            exit 1
+          fi
+          if [ -n "$PHASE_STAMP" ]; then
+            /usr/bin/python3 -B "$PHASE_STAMP" record machokit-source
+          fi
+    postBuildScripts:
+      - name: Verify compiled MachOKit identity in AnalysisWorker
+        basedOnDependencyAnalysis: false
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/release_phase_receipt_reuse.py" \
+              --phase machokit-compiled --current-release
+            exit 0
+          fi
+          # Routine Debug only: reuse the last verified run when nothing it reads
+          # changed (Scripts/build_phase_stamp.py). Release and qualification
+          # (source-qualified) builds always run the full check below.
+          PHASE_STAMP=""
+          if [ "${CONFIGURATION:-}" = Debug ] && [ "${MACSCOPE_DEBUG_SOURCE_IDENTITY:-}" = runtime-only ]; then
+            PHASE_STAMP="$SRCROOT/../Scripts/build_phase_stamp.py"
+            if /usr/bin/python3 -B "$PHASE_STAMP" check machokit-compiled; then
+              exit 0
+            fi
+          fi
+          /usr/bin/python3 -B "$SRCROOT/../Scripts/verify_machokit_analysis_worker_identity.py" \
+            --executable "$TARGET_BUILD_DIR/$EXECUTABLE_PATH" \
+            --quiet
+          if [ -n "$PHASE_STAMP" ]; then
+            /usr/bin/python3 -B "$PHASE_STAMP" record machokit-compiled
+          fi
+    dependencies:
+      - target: MacScopeAnalysisCore
+        link: false
+      - sdk: JavaScriptCore.framework
+      - package: MachOKit
+        product: MachOKit
+    sources:
+      - path: AnalysisWorkerService/REAJavaScriptHost.swift
+      - path: ../ThirdParty/REA/licenses
+        type: folder
+        buildPhase: resources
+      - path: ../ThirdParty/REA/generated/MacScopeREAKernel.js
+        buildPhase: resources
+      - path: Services/XPC/OwnedChildWire.swift
+      - path: Services/XPC/PosixChildProcessOps.swift
+      - path: AnalysisWorkerService/main.swift
+      - path: AnalysisWorkerService/PatternNativeJob.swift
+      - path: AnalysisWorkerService/AnalysisWorkerProcessControl.swift
+      - path: AnalysisWorkerService/MachOKitDyldCacheAnalysisProvider.swift
+      - path: AnalysisWorkerService/NativeParserEngines.swift
+      # HOP-5: the offline-generated SDK signature pack (Scripts/signatures/); discovery reads its
+      # noReturn names. The app gets the same file through its Resources folder.
+      - path: Resources/SDKCallSignaturePack.json
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: AnalysisWorkerXPCService
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.AnalysisWorker
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: AnalysisWorkerService/Info.plist
+        SKIP_INSTALL: YES
+        SWIFT_INCLUDE_PATHS: '$(inherited) $(MACSCOPE_PARSER_ENGINES_INCLUDE) "$(MACSCOPE_PATTERN_ADAPTER_ROOT)" "$(SRCROOT)/Support/ChildProcessC"'
+        OTHER_LDFLAGS: '$(inherited) $(BUILT_PRODUCTS_DIR)/libMacScopeAnalysisCore.a $(MACSCOPE_PARSER_ENGINES_LDFLAGS) "$(MACSCOPE_PATTERN_ADAPTER_ROOT)/MacScopePatternAdapter.a" -framework Foundation -lc++'
+        OTHER_SWIFT_FLAGS: "$(inherited) -Xfrontend -testable-import-module -Xfrontend MacScopeAnalysisCore"
+  # Dedicated provider worker for Phase 2 AI turns. Its network authority is limited to exact
+  # literal-loopback inference, read-only inventory discovery, and explicit manual model-lifecycle
+  # routes. Keep this closed source list separate from analysis, stores, UI, scripting, debugger,
+  # persistence, and broader mutation authority.
+  AIAgentWorkerXPCService:
+    type: xpc-service
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+    sources:
+      - path: AIWorkerProtocol/Phase2AIWorkerXPCProtocol.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerProductionProtocol.swift
+      - path: AIWorkerProtocol/Phase2ProductionProtocolProbeCatalog.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerWireModels.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerWireCodec.swift
+      - path: AIWorkerProtocol/Phase2LocalInferencePolicy.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerConfigurationWireModels.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerConfigurationWireCodec.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerModelDiscoveryWireModels.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerModelDiscoveryWireCodec.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerModelLifecycleWireModels.swift
+      - path: AIWorkerProtocol/Phase2AIWorkerModelLifecycleWireCodec.swift
+      - path: Models/Reconstruction/ReconstructionOperationID.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionToolModels.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionFinalSynthesisKind.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionInference.swift
+      - path: Models/Reconstruction/ReconstructionSourceInference.swift
+      - path: Models/ImageSlot.swift
+        group: MacScopeAnalysisCore
+      - path: Models/MachOConstants.swift
+        group: MacScopeAnalysisCore
+      - path: Models/MachOSliceArtifactIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionSourceProfile.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionIdentity.swift
+        group: MacScopeAnalysisCore
+      - path: Services/Reconstruction/ReconstructionReadablePromptProjection.swift
+      - path: AIWorkerProtocol/Phase2ReconstructionAIWorkerWireModels.swift
+      - path: AIWorkerProtocol/Phase2ReconstructionAIWorkerWireCodec.swift
+      - path: AIAgentWorkerCore/Phase2LoopbackEndpoint.swift
+      - path: AIAgentWorkerCore/Phase2ProductionJSONSchema.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ProductionToolRegistry.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptModules.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionProductionToolRegistry.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOutputSchemas.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionSourceOutput.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionPromptModules.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionRoundAccumulator.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIToolCallAssembler.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptCompiler.swift
+      - path: AIAgentWorkerCore/Phase2GroundedOutputDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatStreamDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2MTPLXModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelDiscoveryHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelLifecycleHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2SSEDecoder.swift
+      - path: AIAgentWorkerService/main.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerPrincipal.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerHandler.swift
+      - path: AIAgentWorkerService/Phase2ReconstructionAIWorkerHandler.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerModelLifecycleHandler.swift
+    settings:
+      base:
+        PRODUCT_NAME: AIAgentWorkerXPCService
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.AIAgentWorker
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: AIAgentWorkerService/Info.plist
+        SKIP_INSTALL: YES
+  # Developer-only DCP-04 native-provider host. The source list is closed over
+  # the Foundation wire seam, bounded scheduler/service tail, and Objective-C++
+  # adapter. MacScopeApp embeds and signs this product, but never compiles or
+  # links its native implementation or package resources.
+  NativeDecompilerXPCService:
+    type: xpc-service
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+      - name: Build verified native decompiler bridge
+        basedOnDependencyAnalysis: true
+        inputFileLists:
+          - "$(MACSCOPE_NATIVE_BRIDGE_INPUT_FILE_LIST)"
+        outputFileLists:
+          - "$(MACSCOPE_NATIVE_BRIDGE_OUTPUT_FILE_LIST)"
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/native_release_admission.py" phase \
+              --repository-root "$SRCROOT/.." --phase bridge
+            exit 0
+          fi
+          if [ -z "${MACSCOPE_SLEIGH_MATERIALIZATION_ROOT:-}" ]; then
+            echo "ERROR: MACSCOPE_SLEIGH_MATERIALIZATION_ROOT is required for NativeDecompilerXPCService" >&2
+            exit 1
+          fi
+          REPOSITORY_ROOT="$(cd "$SRCROOT/.." && pwd -P)"
+          BRIDGE_PAYLOAD="$SRCROOT/../Scripts/native-decompiler-xpc/native_bridge_cache_payload.py"
+          if [ "${CONFIGURATION:-}" = Debug ] && [ "${MACSCOPE_DEBUG_SOURCE_IDENTITY:-}" = runtime-only ]; then
+            # Routine Debug only (R11.2): stage the shared verified, path-free
+            # bridge archive keyed by wrapper sources + SLEIGH key + toolchain
+            # instead of a cold CMake build per DerivedData. Status 3 (no cache,
+            # dirty sources, or a SLEIGH root other than the cache view) keeps
+            # the local build. Release, qualification and Gate F never take this
+            # path and keep building from source.
+            BRIDGE_STATUS=0
+            BRIDGE_CONTRACT="$(PATH="/opt/homebrew/bin:$PATH" /usr/bin/python3 -B \
+              "$SRCROOT/../Scripts/qualification/dev_dependency_cache.py" \
+              resolve --component native-bridge --repository-root "$REPOSITORY_ROOT" \
+              --materialization-root "$MACSCOPE_SLEIGH_MATERIALIZATION_ROOT")" || BRIDGE_STATUS=$?
+            if [ "$BRIDGE_STATUS" = 0 ]; then
+              BRIDGE_VIEW="$(printf '%s\n' "$BRIDGE_CONTRACT" | /usr/bin/sed -n 's/^MACSCOPE_NATIVE_DECOMPILER_CACHED_VIEW=//p')"
+              /usr/bin/python3 -B "$BRIDGE_PAYLOAD" stage \
+                --view "${BRIDGE_VIEW:?}" \
+                --build-root "$MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT" \
+                --repository-root "$REPOSITORY_ROOT" \
+                --materialization-root "$MACSCOPE_SLEIGH_MATERIALIZATION_ROOT" \
+                --sdk-root "$SDKROOT"
+              exit 0
+            elif [ "$BRIDGE_STATUS" != 3 ]; then
+              echo "ERROR: shared dependency cache rejected the native decompiler bridge" >&2
+              exit 1
+            fi
+          fi
+          /usr/bin/python3 -B "$BRIDGE_PAYLOAD" clear-projection \
+            --build-root "$MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT"
+          WRAPPER_REVISION="$(/usr/bin/python3 -B \
+            "$SRCROOT/../Scripts/native-decompiler-xpc/native_decompiler_source_identity.py" \
+            --repository-root "$REPOSITORY_ROOT" \
+            --profile wrapper)"
+          "$SRCROOT/../Scripts/native-decompiler-xpc/build_native_bridge.sh" \
+            --source-root "$REPOSITORY_ROOT/Tools/NativeDecompilerBridge" \
+            --build-root "$MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT" \
+            --materialization-root "$MACSCOPE_SLEIGH_MATERIALIZATION_ROOT" \
+            --wrapper-revision "$WRAPPER_REVISION" \
+            --configuration Release
+      - name: Stage verified native decompiler package
+        # The external package is a closed verified tree. Xcode cannot observe every nested leaf
+        # through a directory input, so re-run the verifier/stager and let its digest identity
+        # safely reuse an already identical destination.
+        basedOnDependencyAnalysis: false
+        inputFileLists:
+          - "$(MACSCOPE_NATIVE_PACKAGE_INPUT_FILE_LIST)"
+        outputFileLists:
+          - "$(MACSCOPE_NATIVE_PACKAGE_OUTPUT_FILE_LIST)"
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/native_release_admission.py" phase \
+              --repository-root "$SRCROOT/.." --phase package
+            exit 0
+          fi
+          if [ -z "${MACSCOPE_SLEIGH_MATERIALIZATION_ROOT:-}" ]; then
+            echo "ERROR: MACSCOPE_SLEIGH_MATERIALIZATION_ROOT is required for NativeDecompilerXPCService" >&2
+            exit 1
+          fi
+          # Routine Debug only: reuse the last verified run when nothing it reads
+          # changed (Scripts/build_phase_stamp.py). Release and qualification
+          # (source-qualified) builds always run the full check below.
+          PHASE_STAMP=""
+          if [ "${CONFIGURATION:-}" = Debug ] && [ "${MACSCOPE_DEBUG_SOURCE_IDENTITY:-}" = runtime-only ]; then
+            PHASE_STAMP="$SRCROOT/../Scripts/build_phase_stamp.py"
+            if /usr/bin/python3 -B "$PHASE_STAMP" check native-package-stage; then
+              exit 0
+            fi
+          fi
+          STAGE_METADATA_DIR="$TARGET_TEMP_DIR/NativeDecompilerPackageStage"
+          /bin/mkdir -p "$STAGE_METADATA_DIR"
+          /usr/bin/python3 -B "$SRCROOT/../Scripts/native-decompiler-xpc/stage_xcode_resources.py" \
+            --source-materialization-root "$MACSCOPE_SLEIGH_MATERIALIZATION_ROOT" \
+            --target-build-dir "$TARGET_BUILD_DIR" \
+            --unlocalized-resources-folder-path "$UNLOCALIZED_RESOURCES_FOLDER_PATH" \
+            --metadata-directory "$STAGE_METADATA_DIR"
+          if [ -n "$PHASE_STAMP" ]; then
+            /usr/bin/python3 -B "$PHASE_STAMP" record native-package-stage
+          fi
+      - name: Validate native decompiler bridge golden
+        # The preceding always-run stage fully verifies the package source and destination.
+        # Depend on its digest-bound stamp instead of rediscovering the staged tree one build late.
+        basedOnDependencyAnalysis: true
+        inputFileLists:
+          - "$(MACSCOPE_NATIVE_GOLDEN_INPUT_FILE_LIST)"
+        outputFileLists:
+          - "$(MACSCOPE_NATIVE_GOLDEN_OUTPUT_FILE_LIST)"
+        script: |
+          set -euo pipefail
+          if [ -n "${MACSCOPE_NATIVE_RELEASE_ADMISSION:-}" ]; then
+            /usr/bin/python3 -B "$SRCROOT/../Scripts/qualification/native_release_admission.py" phase \
+              --repository-root "$SRCROOT/.." --phase golden
+            exit 0
+          fi
+          STAGED_MATERIALIZATION_ROOT="$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/NativeDecompilerPackage"
+          "$SRCROOT/../Scripts/native-decompiler-xpc/run_native_bridge_golden.sh" \
+            --build-root "$MACSCOPE_NATIVE_DECOMPILER_GOLDEN_BUILD_ROOT" \
+            --materialization-root "$STAGED_MATERIALIZATION_ROOT" \
+            --native-archive-root "$MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT" \
+            --stage-stamp "$TARGET_TEMP_DIR/NativeDecompilerPackageStage/NativeDecompilerPackage.stage.json" \
+            --developer-dir "$DEVELOPER_DIR" \
+            --sdk-root "$SDKROOT" \
+            --sdk-name "$SDK_NAME" \
+            --target-build-dir "$TARGET_BUILD_DIR" \
+            --project-temp-dir "$PROJECT_TEMP_DIR" \
+            --result "$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/NativeDecompilerBridgeGolden.json"
+    sources:
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireBinaryPropertyListValidator.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireCodec.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWirePrimitives.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireTargetProfile.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireAuthoredModels.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireCanonicalRequest.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireResultModels.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerWireSemanticValidator.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerXPCPeerRequirement.swift
+      - path: Models/NativeDecompilerWire/NativeDecompilerLiveXPCTestProtocol.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerCancellationState.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerLiveXPCTestControl.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerRequestScheduler.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceComposition.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceHost.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceListenerDelegate.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerXPCPrincipal.swift
+      - path: Services/XPC/OwnedChildWire.swift
+      - path: NativeDecompilerXPCService/main.swift
+      - path: NativeDecompilerXPCService/Bridge/NativeDecompilerWireBridge.hpp
+      - path: NativeDecompilerXPCService/Bridge/NativeDecompilerWireCodec.mm
+      - path: NativeDecompilerXPCService/Bridge/NativeDecompilerObjCBridge.h
+      - path: NativeDecompilerXPCService/Bridge/NativeDecompilerObjCBridge.mm
+      - path: NativeDecompilerXPCService/NativeDecompilerXPCService-Bridging-Header.h
+    settings:
+      base:
+        PRODUCT_NAME: NativeDecompilerXPCService
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.NativeDecompiler
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: NativeDecompilerXPCService/Info.plist
+        SKIP_INSTALL: YES
+        CLANG_CXX_LANGUAGE_STANDARD: c++20
+        GCC_SYMBOLS_PRIVATE_EXTERN: YES
+        HEADER_SEARCH_PATHS: '$(inherited) "$(SRCROOT)/NativeDecompilerXPCService/Bridge" "$(SRCROOT)/../Tools/NativeDecompilerBridge/include"'
+        OTHER_CPLUSPLUSFLAGS: "$(inherited) -fvisibility=hidden -fvisibility-inlines-hidden"
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) $(MACSCOPE_NATIVE_DECOMPILER_LIVE_TEST_CONDITION)"
+        # Final linking consumes only the atomically published, digest-bound
+        # Xcode-owned package snapshot. Ordinary bootstrap supplies the
+        # schema-2 source-built external materialization; an explicit schema-1
+        # release materialization remains a rollback override. Either external
+        # root is an input to strict staging, never directly to this linker.
+        OTHER_LDFLAGS: '$(inherited) "$(MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT)/libmacscope_native_decompiler_contract.a" "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/NativeDecompilerPackage/package/lib/libdecomp.a" "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/NativeDecompilerPackage/package/lib/libsla.a" -lz -lc++'
+        SWIFT_OBJC_BRIDGING_HEADER: NativeDecompilerXPCService/NativeDecompilerXPCService-Bridging-Header.h
+  # Embedded Phase 2 R2 shell-broker XPC boundary. Keep the source list closed over only the
+  # broker protocol, lifecycle, process-adapter/PTY ownership seam, principal, and runtime tail.
+  ShellBrokerXPCService:
+    type: xpc-service
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+    sources:
+      - path: Models/REA/REAProcessCaptureModels.swift
+      - path: Models/REA/REAAssetCatalogCaptureModels.swift
+      - path: Models/REA/REAInspectionModels.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/REAInspectionWireCodec.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ProductionJSONSchema.swift
+        group: MacScopeAnalysisCore
+      - path: Services/REA/REAScenarioCapture.swift
+      - path: ShellBrokerService/REAScenarioCaptureService.swift
+      - path: ShellBrokerService/REAAssetCatalogCaptureService.swift
+      - path: Models/Phase2/Phase2HumanPTYTranscript.swift
+      - path: Models/Phase2/Phase2HumanPTYBroker.swift
+      - path: Models/Reconstruction/ReconstructionSourceProfile.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2ShellBrokerXPCProtocol.swift
+      - path: Models/Phase2/Phase2ShellBrokerLifecycle.swift
+      - path: Models/Phase2/Phase2DurableShellBrokerIdentity.swift
+      - path: ShellBrokerService/Phase2ShellBrokerProcessAdapter.swift
+      - path: ShellBrokerService/ReconstructionSourceExecutionLease.swift
+      - path: ShellBrokerService/Phase2DurableShellBrokerRegistry.swift
+      - path: ShellBrokerService/main.swift
+      - path: ShellBrokerService/Phase2ShellBrokerPrincipal.swift
+    settings:
+      base:
+        PRODUCT_NAME: ShellBrokerXPCService
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.ShellBroker
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: ShellBrokerService/Info.plist
+        SKIP_INSTALL: YES
+  # Standalone, certificate-signed per-user LaunchAgent. The embedded XPC product above remains
+  # the development/test fallback; SMAppService runs this distinct executable from MacScope.app.
+  ShellBrokerLaunchAgent:
+    type: tool
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+    sources:
+      - path: Models/REA/REAProcessCaptureModels.swift
+      - path: Models/REA/REAAssetCatalogCaptureModels.swift
+      - path: Models/REA/REAInspectionModels.swift
+        group: MacScopeAnalysisCore
+      - path: Services/XPC/REAInspectionWireCodec.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ProductionJSONSchema.swift
+        group: MacScopeAnalysisCore
+      - path: Services/REA/REAScenarioCapture.swift
+      - path: ShellBrokerService/REAScenarioCaptureService.swift
+      - path: ShellBrokerService/REAAssetCatalogCaptureService.swift
+      - path: Models/Phase2/Phase2HumanPTYTranscript.swift
+      - path: Models/Phase2/Phase2HumanPTYBroker.swift
+      - path: Models/Reconstruction/ReconstructionSourceProfile.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2ShellBrokerXPCProtocol.swift
+      - path: Models/Phase2/Phase2ShellBrokerLifecycle.swift
+      - path: Models/Phase2/Phase2DurableShellBrokerIdentity.swift
+      - path: ShellBrokerService/Phase2ShellBrokerProcessAdapter.swift
+      - path: ShellBrokerService/ReconstructionSourceExecutionLease.swift
+      - path: ShellBrokerService/Phase2DurableShellBrokerRegistry.swift
+      - path: ShellBrokerService/main.swift
+      - path: ShellBrokerService/Phase2ShellBrokerPrincipal.swift
+    settings:
+      base:
+        PRODUCT_NAME: ShellBrokerLaunchAgent
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.ShellBrokerLaunchAgent
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: ShellBrokerService/LaunchAgentInfo.plist
+        CREATE_INFOPLIST_SECTION_IN_BINARY: YES
+        SKIP_INSTALL: YES
+  SourceExecutionRunner:
+    type: tool
+    platform: macOS
+    deploymentTarget: "27.0"
+    preBuildScripts:
+      - name: Verify certificate-backed signing environment
+        basedOnDependencyAnalysis: false
+        script: |
+          /usr/bin/python3 "$SRCROOT/../Scripts/check_local_signing_policy.py" --build-environment --target "$TARGET_NAME"
+    sources:
+      - path: SourceExecutionRunner/main.c
+    settings:
+      base:
+        PRODUCT_NAME: SourceExecutionRunner
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.SourceExecutionRunner
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: SourceExecutionRunner/Info.plist
+        CREATE_INFOPLIST_SECTION_IN_BINARY: YES
+        SKIP_INSTALL: YES
+  CoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: AnalysisWorkerService/REAJavaScriptHost.swift
+      - path: AnalysisWorkerService/NativeParserEngines.swift
+      - path: ShellBrokerService/REAScenarioCaptureService.swift
+      - path: ShellBrokerService/REAAssetCatalogCaptureService.swift
+      - path: Tests/MacScopeInstalledAppUITests/Task10FixtureDocumentIdentity.swift
+      - path: Tests/MacScopeInstalledAppUITests/Task10CreationHistoryVerifier.swift
+      - path: AIAgentWorkerCore/Phase2LoopbackEndpoint.swift
+      - path: AIAgentWorkerCore/Phase2ProductionJSONSchema.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ProductionToolRegistry.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptModules.swift
+      - path: Models/Reconstruction/ReconstructionOperationID.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionToolModels.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ReconstructionProductionToolRegistry.swift
+      - path: Services/Reconstruction/ReconstructionReadablePromptProjection.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOutputSchemas.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionSourceOutput.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionPromptModules.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionRoundAccumulator.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIToolCallAssembler.swift
+      - path: AIWorkerProtocol/Phase2ProductionProtocolProbeCatalog.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptCompiler.swift
+      - path: AIAgentWorkerCore/Phase2GroundedOutputDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatStreamDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2MTPLXModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelDiscoveryHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelLifecycleHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2SSEDecoder.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerPrincipal.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerHandler.swift
+      - path: AIAgentWorkerService/Phase2ReconstructionAIWorkerHandler.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerModelLifecycleHandler.swift
+      - path: Models/Reconstruction/ReconstructionSourceProfile.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2ShellBrokerXPCProtocol.swift
+      - path: ShellBrokerService/Phase2ShellBrokerProcessAdapter.swift
+      - path: ShellBrokerService/ReconstructionSourceExecutionLease.swift
+      - path: ShellBrokerService/Phase2DurableShellBrokerRegistry.swift
+      - path: ShellBrokerService/Phase2ShellBrokerPrincipal.swift
+      # Compile the service's pure Swift orchestration into CoreTests while the
+      # production-only Objective-C++ bridge and executable main remain isolated
+      # in NativeDecompilerXPCService.
+      - path: NativeDecompilerXPCService/NativeDecompilerCancellationState.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerRequestScheduler.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceHost.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerXPCPrincipal.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceListenerDelegate.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceComposition.swift
+      - path: Services/XPC/OwnedChildWire.swift
+      - path: Tests/CoreTests
+        # GoldenFixtures holds differential SOURCES (corpus/*.swift,*.m — must NOT compile into the
+        # test bundle), git-ignored captured oracle JSONs, and built corpus binaries. The tests read
+        # them from the source tree via #filePath, never the bundle, so the whole subtree is excluded
+        # from the target — otherwise the corpus sources get compiled and the per-binary ghidra.json
+        # files collide in the flat copy-resources phase.
+        excludes:
+          - "**/.DS_Store"
+          - GoldenFixtures/**
+          # Owned D01 assembly/object are loaded from the source tree by the
+          # focused test; neither belongs in Swift compilation or bundle copy.
+          - Support/A64Oracle/Fixtures/**
+          # Header-only H1 parser fixture, preprocessed explicitly by its focused test.
+          - Fixtures/libjpeg-turbo-3.2.0/**
+          - NativeDecompilerObjCBridgeTests.mm
+          - NativeDecompilerObjCBridgeCrossLanguageTests.swift
+    dependencies:
+      - target: MacScopeApp
+      - target: MacScopeTestSupport
+      - package: RecoveryKit
+        product: RecoveryKit
+        link: false
+        embed: false
+      - sdk: JavaScriptCore.framework
+      # Hosted tests import these modules but resolve their symbols from the app.
+      # A second link owner promotes automatic package products to frameworks.
+      - package: Lumen
+        product: LumenTokens
+        link: false
+        embed: false
+      - package: Lumen
+        product: LumenUI
+        link: false
+        embed: false
+      - package: Lumen
+        product: LumenConformance
+        link: false
+        embed: false
+    settings:
+      base:
+        PRODUCT_NAME: CoreTests
+        PRODUCT_MODULE_NAME: CoreTests
+        OTHER_SWIFT_FLAGS: "$(inherited) -Xfrontend -testable-import-module -Xfrontend MacScopeAnalysisCore -Xfrontend -testable-import-module -Xfrontend MacScopeDebuggerCore"
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.CoreTests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/MacScope.app/Contents/MacOS/MacScope"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        GENERATE_INFOPLIST_FILE: YES
+        # Explicitly empty so XcodeGen does not adopt an Info.plist found under the excluded
+        # GoldenFixtures tree. Generation runs in a temporary staging directory and XcodeGen
+        # would store that plist relative to it, which only resolves from worktrees no deeper
+        # than the staging directory.
+        INFOPLIST_FILE: ""
+        MACSCOPE_GHOSTTY_VT_BUILD_ROOT: "$(CONFIGURATION_TEMP_DIR)/MacScopeGhosttyVT"
+        MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT: "$(PROJECT_TEMP_DIR)/MacScopeGhosttySurface"
+        MACSCOPE_GHOSTTY_SURFACE_ARCHIVE: "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/libghostty-internal.a"
+        HEADER_SEARCH_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include" "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers"'
+        LIBRARY_SEARCH_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/lib"'
+        OTHER_LDFLAGS: "$(inherited) $(MACSCOPE_GHOSTTY_SURFACE_ARCHIVE) -lc++ -framework Carbon -framework GameController $(MACSCOPE_PARSER_ENGINES_LDFLAGS)"
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) TESTING_PARSER_ENGINES TESTING_REA_WORKER_HOST TESTING_WORKER_PRINCIPAL TESTING_SHELL_BROKER_PRINCIPAL TESTING_NATIVE_DECOMPILER_SERVICE_COMPOSITION $(MACSCOPE_NATIVE_DECOMPILER_LIVE_TEST_CONDITION) $(MACSCOPE_GHOSTTY_SURFACE_ENABLED)"
+        SWIFT_INCLUDE_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include" "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers" $(MACSCOPE_PARSER_ENGINES_INCLUDE) "$(SRCROOT)/Support/ChildProcessC"'
+    preBuildScripts:
+      - name: Stage call-argument oracle test resources
+        basedOnDependencyAnalysis: true
+        inputFiles:
+          - "$(SRCROOT)/../Scripts/decompiler-oracles/call_argument_oracle.py"
+          - "$(SRCROOT)/../Scripts/decompiler-oracles/fixtures/call-arguments/call_arguments.c"
+          - "$(SRCROOT)/../Scripts/decompiler-oracles/fixtures/call-arguments/entry_capture.s"
+          - "$(SRCROOT)/../Scripts/decompiler-oracles/fixtures/call-arguments/objc_call_arguments.m"
+        outputFiles:
+          - "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/call_argument_oracle.py"
+          - "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/call-arguments/call_arguments.c"
+          - "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/call-arguments/entry_capture.s"
+          - "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/call-arguments/objc_call_arguments.m"
+        script: |
+          set -eu
+          SOURCE_ROOT="$SRCROOT/../Scripts/decompiler-oracles"
+          RESOURCE_ROOT="$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH"
+          FIXTURE_DESTINATION="$RESOURCE_ROOT/call-arguments"
+          /bin/mkdir -p "$FIXTURE_DESTINATION"
+          /usr/bin/install -m 0444 "$SOURCE_ROOT/call_argument_oracle.py" "$RESOURCE_ROOT/call_argument_oracle.py"
+          /usr/bin/install -m 0444 "$SOURCE_ROOT/fixtures/call-arguments/call_arguments.c" "$FIXTURE_DESTINATION/call_arguments.c"
+          /usr/bin/install -m 0444 "$SOURCE_ROOT/fixtures/call-arguments/entry_capture.s" "$FIXTURE_DESTINATION/entry_capture.s"
+          /usr/bin/install -m 0444 "$SOURCE_ROOT/fixtures/call-arguments/objc_call_arguments.m" "$FIXTURE_DESTINATION/objc_call_arguments.m"
+    # Copy the app's already-produced provenance into the Gate test bundle before
+    # Xcode seals CoreTests. The app target dependency above must complete first.
+    # The exact source and destination form a complete dependency graph, so an
+    # unchanged sealed input must not invalidate and re-seal CoreTests.
+    postBuildScripts:
+      - name: Copy sealed provenance into CoreTests
+        basedOnDependencyAnalysis: true
+        inputFiles:
+          - "$(BUILT_PRODUCTS_DIR)/MacScope.app/Contents/Resources/MacScopeBuildProvenance.json"
+        outputFiles:
+          - "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/MacScopeBuildProvenance.json"
+        script: |
+          set -eu
+          if [ "$CONFIGURATION" != "Release" ] && [ "$CONFIGURATION" != "Debug" ]; then
+            exit 1
+          fi
+          SOURCE="$BUILT_PRODUCTS_DIR/MacScope.app/Contents/Resources/MacScopeBuildProvenance.json"
+          DESTINATION="$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/MacScopeBuildProvenance.json"
+          if [ ! -f "$SOURCE" ] || [ -L "$SOURCE" ]; then
+            echo "ERROR: sealed app provenance is missing or is not a regular file" >&2
+            exit 1
+          fi
+          /bin/mkdir -p "$(/usr/bin/dirname "$DESTINATION")"
+          TEMPORARY="$(/usr/bin/mktemp "$DESTINATION.tmp.XXXXXX")"
+          cleanup() { /bin/rm -f "$TEMPORARY"; }
+          trap cleanup 0 1 2 15
+          /bin/cp -p "$SOURCE" "$TEMPORARY"
+          if [ ! -f "$TEMPORARY" ] || [ -L "$TEMPORARY" ]; then
+            echo "ERROR: temporary CoreTests provenance is not a regular file" >&2
+            exit 1
+          fi
+          /usr/bin/cmp -s "$SOURCE" "$TEMPORARY" || {
+            echo "ERROR: CoreTests provenance copy changed bytes" >&2
+            exit 1
+          }
+          SOURCE_MODE="$(/usr/bin/stat -f '%Lp' "$SOURCE")"
+          TEMPORARY_MODE="$(/usr/bin/stat -f '%Lp' "$TEMPORARY")"
+          if [ "$SOURCE_MODE" != "$TEMPORARY_MODE" ]; then
+            echo "ERROR: CoreTests provenance copy changed file mode" >&2
+            exit 1
+          fi
+          /bin/mv -f "$TEMPORARY" "$DESTINATION"
+          trap - 0 1 2 15
+          if [ ! -f "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
+            echo "ERROR: CoreTests provenance destination is not a regular file" >&2
+            exit 1
+          fi
+          /usr/bin/cmp -s "$SOURCE" "$DESTINATION" || {
+            echo "ERROR: installed CoreTests provenance changed bytes" >&2
+            exit 1
+          }
+          DESTINATION_MODE="$(/usr/bin/stat -f '%Lp' "$DESTINATION")"
+          if [ "$SOURCE_MODE" != "$DESTINATION_MODE" ]; then
+            echo "ERROR: installed CoreTests provenance changed file mode" >&2
+            exit 1
+          fi
+  # D12 layer 3: Phase 2 / reconstruction / AI-worker / shell / REA tests in their own hosted bundle
+  # (BUILD-STATIONS.md), so a focused run builds one bundle (dev_loop picks the per-bundle scheme).
+  # Same host, flags and service seam as CoreTests; shared helpers are listed explicitly.
+  Phase2Tests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      - path: AnalysisWorkerService/REAJavaScriptHost.swift
+      - path: AnalysisWorkerService/NativeParserEngines.swift
+      - path: ShellBrokerService/REAScenarioCaptureService.swift
+      - path: ShellBrokerService/REAAssetCatalogCaptureService.swift
+      - path: Tests/MacScopeInstalledAppUITests/Task10FixtureDocumentIdentity.swift
+      - path: Tests/MacScopeInstalledAppUITests/Task10CreationHistoryVerifier.swift
+      - path: AIAgentWorkerCore/Phase2LoopbackEndpoint.swift
+      - path: AIAgentWorkerCore/Phase2ProductionJSONSchema.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ProductionToolRegistry.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptModules.swift
+      - path: Models/Reconstruction/ReconstructionOperationID.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Reconstruction/ReconstructionToolModels.swift
+        group: MacScopeAnalysisCore
+      - path: AIAgentWorkerCore/Phase2ReconstructionProductionToolRegistry.swift
+      - path: Services/Reconstruction/ReconstructionReadablePromptProjection.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOutputSchemas.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionSourceOutput.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionPromptModules.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionRoundAccumulator.swift
+      - path: AIAgentWorkerCore/Phase2ReconstructionOpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIToolCallAssembler.swift
+      - path: AIWorkerProtocol/Phase2ProductionProtocolProbeCatalog.swift
+      - path: AIAgentWorkerCore/Phase2GroundedPromptCompiler.swift
+      - path: AIAgentWorkerCore/Phase2GroundedOutputDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatRequestEncoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatStreamDecoder.swift
+      - path: AIAgentWorkerCore/Phase2OpenAIChatHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2MTPLXModelCatalogDecoder.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelDiscoveryHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2NativeModelLifecycleHTTPClient.swift
+      - path: AIAgentWorkerCore/Phase2SSEDecoder.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerPrincipal.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerHandler.swift
+      - path: AIAgentWorkerService/Phase2ReconstructionAIWorkerHandler.swift
+      - path: AIAgentWorkerService/Phase2AIWorkerModelLifecycleHandler.swift
+      - path: Models/Reconstruction/ReconstructionSourceProfile.swift
+        group: MacScopeAnalysisCore
+      - path: Models/Phase2/Phase2ShellBrokerXPCProtocol.swift
+      - path: ShellBrokerService/Phase2ShellBrokerProcessAdapter.swift
+      - path: ShellBrokerService/ReconstructionSourceExecutionLease.swift
+      - path: ShellBrokerService/Phase2DurableShellBrokerRegistry.swift
+      - path: ShellBrokerService/Phase2ShellBrokerPrincipal.swift
+      # Compile the service's pure Swift orchestration into CoreTests while the
+      # production-only Objective-C++ bridge and executable main remain isolated
+      # in NativeDecompilerXPCService.
+      - path: NativeDecompilerXPCService/NativeDecompilerCancellationState.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerRequestScheduler.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceHost.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerXPCPrincipal.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceListenerDelegate.swift
+      - path: NativeDecompilerXPCService/NativeDecompilerServiceComposition.swift
+      - path: Tests/Phase2Tests
+        excludes:
+          - "**/.DS_Store"
+      # Shared test helpers (no test classes) that also compile into CoreTests.
+      - path: Tests/CoreTests/Support/CoreTestPipeDrain.swift
+      - path: Tests/CoreTests/DyldCacheAnalysisTestFixtures.swift
+      - path: Tests/CoreTests/Support/Golden/GoldenOutput.swift
+      - path: Tests/CoreTests/Support/MachOFixture.swift
+      - path: Tests/CoreTests/Support/ReconstructionHeadlessFixture.swift
+      - path: Tests/CoreTests/Support/ReconstructionSourceRepairFixture.swift
+      - path: Tests/CoreTests/Task10InstalledScenarioFixtureSupport.swift
+      - path: Tests/CoreTests/Support/TestSourceRoot.swift
+      - path: Tests/CoreTests/Support/TestWorkRoot.swift
+      - path: Tests/CoreTests/Support/ModeIsolatedTestCase.swift
+      - path: Tests/CoreTests/UncachedDisassemblyListingOracle.swift
+      - path: Tests/CoreTests/ReconstructionJoinedWorkflowTestFixture.swift
+      - path: Tests/CoreTests/Support/ReconstructionDatabaseTestFixtures.swift
+    dependencies:
+      - target: MacScopeTestSupport
+      - target: MacScopeApp
+      - sdk: JavaScriptCore.framework
+    settings:
+      base:
+        PRODUCT_NAME: Phase2Tests
+        PRODUCT_MODULE_NAME: Phase2Tests
+        OTHER_SWIFT_FLAGS: "$(inherited) -Xfrontend -testable-import-module -Xfrontend MacScopeAnalysisCore -Xfrontend -testable-import-module -Xfrontend MacScopeDebuggerCore"
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.Phase2Tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/MacScope.app/Contents/MacOS/MacScope"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        GENERATE_INFOPLIST_FILE: YES
+        MACSCOPE_GHOSTTY_VT_BUILD_ROOT: "$(CONFIGURATION_TEMP_DIR)/MacScopeGhosttyVT"
+        MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT: "$(PROJECT_TEMP_DIR)/MacScopeGhosttySurface"
+        MACSCOPE_GHOSTTY_SURFACE_ARCHIVE: "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/libghostty-internal.a"
+        HEADER_SEARCH_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include" "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers"'
+        LIBRARY_SEARCH_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/lib"'
+        OTHER_LDFLAGS: "$(inherited) $(MACSCOPE_GHOSTTY_SURFACE_ARCHIVE) -lc++ -framework Carbon -framework GameController $(MACSCOPE_PARSER_ENGINES_LDFLAGS)"
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) TESTING_PARSER_ENGINES TESTING_REA_WORKER_HOST TESTING_WORKER_PRINCIPAL TESTING_SHELL_BROKER_PRINCIPAL TESTING_NATIVE_DECOMPILER_SERVICE_COMPOSITION $(MACSCOPE_NATIVE_DECOMPILER_LIVE_TEST_CONDITION) $(MACSCOPE_GHOSTTY_SURFACE_ENABLED)"
+        SWIFT_INCLUDE_PATHS: '$(inherited) "$(MACSCOPE_GHOSTTY_VT_BUILD_ROOT)/artifacts/include" "$(MACSCOPE_GHOSTTY_SURFACE_STAGED_ROOT)/Headers" $(MACSCOPE_PARSER_ENGINES_INCLUDE)'
+  MacScopeInstalledAppUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    deploymentTarget: "27.0"
+    sources:
+      # One production layout authority, compiled into the separate UI runner.
+      # Importing the application module would also require its native engines.
+      - path: DesignSystem/AppLayout.swift
+      - path: Tests/MacScopeInstalledAppUITests
+        excludes:
+          - "**/.DS_Store"
+          - "Fixtures/**"
+      - path: Tests/MacScopeInstalledAppUITests/Fixtures/Task10PersistedWorkspace.mscope
+        type: folder
+      - path: Tests/MacScopeInstalledAppUITests/Fixtures/Task10PersistedWorkspace.fixture.json
+      - path: Tests/MacScopeInstalledAppUITests/Fixtures/Task10InstalledScenarios
+        type: folder
+      - path: Tests/MacScopeInstalledAppUITests/Fixtures/Task10InstalledScenarios.fixture.json
+    dependencies:
+      - target: MacScopeApp
+    settings:
+      base:
+        PRODUCT_NAME: MacScopeInstalledAppUITests
+        PRODUCT_MODULE_NAME: MacScopeInstalledAppUITests
+        PRODUCT_BUNDLE_IDENTIFIER: org.macscope.app.MacScopeInstalledAppUITests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: MacScopeApp
+        # Exact-domain preference isolation for the sandboxed installed-app test runner only.
+        CODE_SIGN_ENTITLEMENTS: Tests/MacScopeInstalledAppUITests/InstalledAppUITests.entitlements
+        # Test-only authority for the owned Python child to bind literal-loopback 127.0.0.1:0.
+        # The XCUITest runner remains sandboxed; no shipping target receives this entitlement.
+        ENABLE_INCOMING_NETWORK_CONNECTIONS: YES
+schemes:
+  MacScopeApp:
+    build:
+      targets:
+        MacScopeApp: all
+        CoreTests: [test]
+        Phase2Tests: [test]
+    test:
+      gatherCoverageData: true
+      coverageTargets:
+        - MacScopeApp
+      targets:
+        # Xcode runs whole CoreTests classes concurrently in cloned MacScope.app
+        # test hosts. Classes isolate filesystem, defaults and subprocess state
+        # per test; preserve isolation when adding shared global state.
+        - name: CoreTests
+          parallelizable: true
+        - name: Phase2Tests
+          parallelizable: true
+  # One scheme per test bundle: dev_loop builds only the bundle its selectors name.
+  CoreTests:
+    build:
+      targets:
+        MacScopeApp: all
+        CoreTests: [test]
+    test:
+      targets:
+        - name: CoreTests
+          parallelizable: true
+  Phase2Tests:
+    build:
+      targets:
+        MacScopeApp: all
+        Phase2Tests: [test]
+    test:
+      targets:
+        - name: Phase2Tests
+          parallelizable: true
+  MacScopeInstalledAppUITests:
+    build:
+      targets:
+        MacScopeApp: all
+        MacScopeInstalledAppUITests: [test]
+    test:
+      targets:
+        - MacScopeInstalledAppUITests

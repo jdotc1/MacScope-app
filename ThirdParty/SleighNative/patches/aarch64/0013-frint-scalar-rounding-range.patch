@@ -1,0 +1,203 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+index 5d18977..71a202d 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+@@ -31512,6 +31512,58 @@ is b_2131=0b01101110010 & Rm_VPR128.8H & b_1015=0b111011 & Rn_VPR128.8H & Rd_VPR
+ 	Rd_VPR128.4S = NEON_bfmmla(Rd_VPR128.4S, Rn_VPR128.8H, Rm_VPR128.8H);
+ }
+ 
++# MacScope RX-17b: FPRoundIntN returns an integral FLOAT, not integer bits.
++# Bit-level rounding avoids host rounding modes and conversion overflow. Explicit
++# invalid/inexact effects retain the existing ARM64FPProcessExceptions boundary.
++macro macscope_frintn(source, result, fractionBits, exponentMask, bias, signMask, intBits, mode) {
++    # Branch-free: every path is computed and combined with masks so each
++    # use stays inside one basic block; shift counts are bounded to 0..63.
++    local raw:8 = zext(source);
++    local exponent:8 = (raw >> fractionBits) & exponentMask;
++    local fraction:8 = raw & ((1:8 << fractionBits) - 1);
++    local negative:1 = (raw & signMask) != 0;
++    local limit:8 = 1:8 << (intBits - 1);
++    local isSpecial:1 = exponent == exponentMask;
++    local isZeroExp:1 = exponent == 0;
++    local isDenormal:1 = isZeroExp & (fraction != 0);
++    # FZ is ignored with AH; FIZ still flushes, without an input-denormal flag.
++    local flushFZ:1 = isDenormal & ((fpcr & 0x1000000) != 0) & ((fpcr & 2) == 0);
++    local flushFIZ:1 = isDenormal & !flushFZ & ((fpcr & 1) != 0);
++    local finite:1 = !isSpecial & (!isZeroExp | (isDenormal & !flushFZ & !flushFIZ));
++    local tooLarge:1 = exponent >= bias + intBits;
++    local small:1 = exponent < bias;
++    local integral:1 = exponent >= bias + fractionBits;
++    local fractionalPart:1 = !small & !integral;
++    local significand:8 = fraction | (1:8 << fractionBits);
++    local roundingShift:8 = (bias + fractionBits - exponent) & 63;
++    local integralShift:8 = (exponent - bias - fractionBits) & 63;
++    local magnitude:8 = ((significand >> roundingShift) * zext(fractionalPart)) | ((significand << integralShift) * zext(integral));
++    local smallDiscarded:8 = 1 + (zext(exponent == bias - 1) * (1 + zext(fraction != 0)));
++    local discarded:8 = ((significand & ((1:8 << roundingShift) - 1)) * zext(fractionalPart)) | (smallDiscarded * zext(small));
++    local halfway:8 = ((1:8 << ((roundingShift - 1) & 63)) * zext(fractionalPart)) | (2 * zext(small));
++    local inexact:1 = discarded != 0;
++    local nearestIncrement:1 = (discarded > halfway) | ((discarded == halfway) & ((magnitude & 1) != 0));
++    local directedIncrement:1 = ((mode == 1) & !negative) | ((mode == 2) & negative);
++    local increment:1 = inexact & (((mode == 0) & nearestIncrement) | ((mode != 0) & directedIncrement));
++    magnitude = magnitude + zext(increment);
++    local invalid:1 = isSpecial | (finite & (tooLarge | (magnitude > limit) | ((magnitude == limit) & !negative)));
++    local signFill:8 = 0 - zext(negative);
++    local signedMagnitude:8 = (magnitude ^ signFill) - signFill;
++    local value:8 = (signedMagnitude * zext(finite & !invalid)) | ((0 - limit) * zext(invalid));
++    # Zero results (integral, signed-zero and flushed inputs) keep the source sign;
++    # every other negative input already converts to a negative float, so OR-ing
++    # the source sign bit is exact.
++    result = int2float(value);
++    result = result | (source & signMask);
++    local invalidBit:8 = zext(invalid);
++    local inexactBit:8 = zext(finite & !invalid & inexact);
++    local denormalBit:8 = zext(flushFZ);
++    local exceptions:8 = invalidBit | (inexactBit << 4) | (denormalBit << 7);
++    local raisedStatus:8 = ARM64FPProcessExceptions(exceptions, fpcr, fpsr);
++    local raised:8 = 0 - zext(exceptions != 0);
++    fpsr = (raisedStatus & raised) | (fpsr & ~raised);
++}
++
+ # C7.2.147 FRINT32X (vector) page C7-2353 line 137678 MATCH x2e21e800/mask=xbfbffc00
+ # CONSTRUCT x2e21e800/mask=xbfbffc00 MATCHED 1 DOCUMENTED OPCODES
+ # x2e21e800/mask=xbfbffc00 NOT MATCHED BY ANY CONSTRUCTOR
+@@ -31548,16 +31600,29 @@ is b_3131=0b0 & Q=1 & b_2329=0b1011100 & b_22=1 & b_1021=0b100001111010 & Rn_VPR
+ # b_0031=000111100.101000110000..........
+ 
+ :frint32x Rd_FPR32, Rn_FPR32
+-is b_2331=0b000111100 & b_22=0 & b_1021=0b101000110000 & Rn_FPR32 & Rd_FPR32
++is b_2331=0b000111100 & b_22=0 & b_1021=0b101000110000 & Rn_FPR32 & Rd_FPR32 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	Rd_FPR32 = trunc(Rn_FPR32);
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:4 = 0;
++    macscope_frintn(sourceN[0,32], lane0, 23:8, 255:8, 127:8, 0x80000000, 32:8, ((fpcr >> 22) & 3));
++    result[0,32] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ :frint32x Rd_FPR64, Rn_FPR64
+-is b_2331=0b000111100 & b_22=1 & b_1021=0b101000110000 & Rn_FPR64 & Rd_FPR64
++is b_2331=0b000111100 & b_22=1 & b_1021=0b101000110000 & Rn_FPR64 & Rd_FPR64 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	local result:4 = trunc(Rn_FPR64);
+-	Rd_FPR64 = zext(result);
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:8 = 0;
++    macscope_frintn(sourceN[0,64], lane0, 52:8, 2047:8, 1023:8, 0x8000000000000000, 32:8, ((fpcr >> 22) & 3));
++    result[0,64] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.149 FRINT32Z (vector) page C7-2357 line 137862 MATCH x0e21e800/mask=xbfbffc00
+@@ -31596,16 +31661,29 @@ is b_3131=0b0 & Q=1 & b_2329=0b0011100 & b_22=1 & b_1021=0b100001111010 & Rn_VPR
+ # b_0031=000111100.101000010000..........
+ 
+ :frint32z Rd_FPR32, Rn_FPR32
+-is b_2331=0b000111100 & b_22=0 & b_1021=0b101000010000 & Rn_FPR32 & Rd_FPR32
++is b_2331=0b000111100 & b_22=0 & b_1021=0b101000010000 & Rn_FPR32 & Rd_FPR32 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	Rd_FPR32 = trunc(Rn_FPR32);
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:4 = 0;
++    macscope_frintn(sourceN[0,32], lane0, 23:8, 255:8, 127:8, 0x80000000, 32:8, 3:8);
++    result[0,32] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ :frint32z Rd_FPR64, Rn_FPR64
+-is b_2331=0b000111100 & b_22=1 & b_1021=0b101000010000 & Rn_FPR64 & Rd_FPR64
++is b_2331=0b000111100 & b_22=1 & b_1021=0b101000010000 & Rn_FPR64 & Rd_FPR64 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	local result:4 = trunc(Rn_FPR64);
+-	Rd_FPR64 = zext(result);
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:8 = 0;
++    macscope_frintn(sourceN[0,64], lane0, 52:8, 2047:8, 1023:8, 0x8000000000000000, 32:8, 3:8);
++    result[0,64] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.151 FRINT64X (vector) page C7-2361 line 138043 MATCH x2e21f800/mask=xbfbffc00
+@@ -31648,16 +31726,29 @@ is b_3131=0b0 & Q=1 & b_2329=0b1011100 & b_22=1 & b_1021=0b100001111110 & Rn_VPR
+ # b_0031=000111100.101001110000..........
+ 
+ :frint64x Rd_FPR32, Rn_FPR32
+-is b_2331=0b000111100 & b_22=0 & b_1021=0b101001110000 & Rn_FPR32 & Rd_FPR32
++is b_2331=0b000111100 & b_22=0 & b_1021=0b101001110000 & Rn_FPR32 & Rd_FPR32 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	local result:8 = trunc(Rn_FPR32);
+-	Rd_FPR32 = result[0,32];
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:4 = 0;
++    macscope_frintn(sourceN[0,32], lane0, 23:8, 255:8, 127:8, 0x80000000, 64:8, ((fpcr >> 22) & 3));
++    result[0,32] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ :frint64x Rd_FPR64, Rn_FPR64
+-is b_2331=0b000111100 & b_22=1 & b_1021=0b101001110000 & Rn_FPR64 & Rd_FPR64
++is b_2331=0b000111100 & b_22=1 & b_1021=0b101001110000 & Rn_FPR64 & Rd_FPR64 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	Rd_FPR64 = trunc(Rn_FPR64);
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:8 = 0;
++    macscope_frintn(sourceN[0,64], lane0, 52:8, 2047:8, 1023:8, 0x8000000000000000, 64:8, ((fpcr >> 22) & 3));
++    result[0,64] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.153 FRINT64Z (vector) page C7-2365 line 138227 MATCH x0e21f800/mask=xbfbffc00
+@@ -31700,16 +31791,29 @@ is b_3131=0b0 & Q=1 & b_2329=0b0011100 & b_22=1 & b_1021=0b100001111110 & Rn_VPR
+ # b_0031=000111100.101001010000..........
+ 
+ :frint64z Rd_FPR32, Rn_FPR32
+-is b_2331=0b000111100 & b_22=0 & b_1021=0b101001010000 & Rn_FPR32 & Rd_FPR32
++is b_2331=0b000111100 & b_22=0 & b_1021=0b101001010000 & Rn_FPR32 & Rd_FPR32 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	local result:8 = trunc(Rn_FPR32);
+-	Rd_FPR32 = result[0,32];
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:4 = 0;
++    macscope_frintn(sourceN[0,32], lane0, 23:8, 255:8, 127:8, 0x80000000, 64:8, 3:8);
++    result[0,32] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ :frint64z Rd_FPR64, Rn_FPR64
+-is b_2331=0b000111100 & b_22=1 & b_1021=0b101001010000 & Rn_FPR64 & Rd_FPR64
++is b_2331=0b000111100 & b_22=1 & b_1021=0b101001010000 & Rn_FPR64 & Rd_FPR64 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	Rd_FPR64 = trunc(Rn_FPR64);
++    local sourceN:16 = Rn_VPR128;
++    # FPCR.NEP keeps the destination's upper bits (branch-free mask).
++    local result:16 = Rd_VPR128 * zext((fpcr & 4) != 0);
++    local lane0:8 = 0;
++    macscope_frintn(sourceN[0,64], lane0, 52:8, 2047:8, 1023:8, 0x8000000000000000, 64:8, 3:8);
++    result[0,64] = lane0;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.278 SMMLA (vector) page C7-2634 line 153703 MATCH x4e80a400/mask=xffe0fc00

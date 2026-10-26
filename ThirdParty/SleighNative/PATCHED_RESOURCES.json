@@ -1,0 +1,197 @@
+{
+ "baseline": {
+  "artifactSha256": "e1391c811de7b2d79c9e8a1f6f74cd9ade23baf55deebd75c626a3152e5e451a",
+  "description": "lifting-bits/sleigh v12.1.2 release-archive AArch64 resources (unchanged in package/ and MATERIALIZATION.json)",
+  "packageTreeSha256": "9cc94c918e6af5659a211330561a7fed7099a00fa3ea05c54698051827498460",
+  "resourceClosureTreeSha256": "5d4ed653137cd15a26413818b0e96debeebd691bc2a20a9614b7691521e86d4f",
+  "resourceFileCount": 25
+ },
+ "compiler": {
+  "path": "package/bin/sleigh",
+  "scope": "executed compiler identity; native product acceptance is separate",
+  "script": "ThirdParty/SleighNative/tests/cp1/tooling/rederive_pins.py",
+  "sha256": "f96d4e12c0d7fe3202011171f7e2e9b387ab5f024b83e7f0440152edfec19d34",
+  "upstreamReproducible": true
+ },
+ "componentId": "sleigh-native-dcp03b4-aarch64-patched-resources",
+ "cp1Status": "MAC_PINS_DERIVED_NATIVE_ACCEPTANCE_STILL_REQUIRED",
+ "patchSeries": [
+  {
+   "path": "patches/aarch64/0001-AARCH64-fix-MOPS-WT-option-field-SET-mnemonic-and-si.patch",
+   "sha256": "871ef743a9c93a166b49b56e47cfd0317d68eef6dffc6aa93b02a43d62d7607a"
+  },
+  {
+   "path": "patches/aarch64/0002-AARCH64-exclude-odd-hint-immediates-from-BTI-and-dec.patch",
+   "sha256": "0e810a05543b6c27ddbea744d17773d9a192f76b12f507ac2b9d7eef287f48df"
+  },
+  {
+   "path": "patches/aarch64/0003-AARCH64-reject-MOPS-encodings-with-aliased-or-invali.patch",
+   "sha256": "7c18e7381e82a8fc5ca15c8c2957fe14565efe7c94bc5c1a2260c2a0ecd94645"
+  },
+  {
+   "path": "patches/aarch64/0004-dot-element-export-and-accumulator.patch",
+   "sha256": "a8ee6e1c6605be18c660ab3c0fb3e4510ee6586044abdc0f6b8557d9a8e0835c"
+  },
+  {
+   "path": "patches/aarch64/0005-rmif-rotate-and-preserve-flags.patch",
+   "sha256": "79cc5f04d77059b00c077b4aa2d985f4cf55c5307b316b59c49d41798dbe43e8"
+  },
+  {
+   "path": "patches/aarch64/0006-cssc-clear-upper-x.patch",
+   "sha256": "e266a214ba29c203860dfd70471b2aa1806210a3314c5ffe3300f13e367f8fd0"
+  },
+  {
+   "path": "patches/aarch64/0007-vector-lane-operands.patch",
+   "sha256": "221ac3c3063af3b349218189f7f8cd50d608aacf2084c28ae2bd9ab9e7e15c39"
+  },
+  {
+   "path": "patches/aarch64/0008-fjcvtzs-js-modulo-and-nzcv.patch",
+   "sha256": "7ed15e12a792b1d69227d3732014e0704328bbb83b1ff09d7de409ff28792399"
+  },
+  {
+   "path": "patches/aarch64/0009-fhm-widen-before-fp-accumulation.patch",
+   "sha256": "419d2e112fe2cd75fc08ae8f277de318d5a72e7ce8df3c9003f8aaefd30250ff"
+  },
+  {
+   "path": "patches/aarch64/0010-bf16-narrowing-and-preserved-halves.patch",
+   "sha256": "683179d8b377e2d0386c61353f5dc02ff87aae4700ecc8c52dbecfd239de72c2"
+  },
+  {
+   "path": "patches/aarch64/0011-dot-and-fcmla-accumulator-dataflow.patch",
+   "sha256": "faf2b748423826edd3c43bc7b4ff0091bf93bf40c4162caf9ba9b00aa1e45e79"
+  },
+  {
+   "path": "patches/aarch64/0012-base-modification-notice.patch",
+   "sha256": "582775adeea463398cda6e388e5981f340e4a2af33ac08f57787eff310c10059"
+  },
+  {
+   "path": "patches/aarch64/0013-frint-scalar-rounding-range.patch",
+   "sha256": "f2049514c8ddda6d403a8a64b49ae7af07dea7eb325c6da0a33ba289086710a4"
+  },
+  {
+   "path": "patches/aarch64/0014-sme-sme2-bounded-decode.patch",
+   "sha256": "422b35f225a487c867aba584fa12f72f0f64c58b7dee358f39e43f011b8f836d"
+  },
+  {
+   "path": "patches/aarch64/0015-cp1-sme-normal-path-and-decode-identities.patch",
+   "sha256": "2b35979c47380480efbbc6a66ce254e9337632aa39a51e1289cc9e500a7dcbd6"
+  },
+  {
+   "path": "patches/aarch64/0017-cp1b-vertical-mova-fixed-subpieces.patch",
+   "sha256": "171c7659b2e65afcf9ab94fb3bd83939037d2dcdeef132cfb578d6bc31f8737e"
+  },
+  {
+   "path": "patches/aarch64/0018-cp1b-decimal-register-display.patch",
+   "sha256": "200a70bf8fb6835f7eb0f019894ec299d8769957915d16f20a3112ed24862928"
+  },
+  {
+   "path": "patches/aarch64/0019-cp1b-packed-mova-destinations.patch",
+   "sha256": "02374e08a90ea064c8372cd5dae2ba6aabc0aafe19f0f67f59341aba11224a4d"
+  }
+ ],
+ "patched": {
+  "changedFiles": {
+   "AARCH64.sla": {
+    "baselineSha256": "40dbafe9e6ae6466185ae6a9bab0d33a80585dd70ab8b7212829b970e0fad9c3",
+    "patchedSha256": "4efce3f7cf5f38038f5b3e869b1056a2f0718a880d19f4d9e365235632476215"
+   },
+   "AARCH64BE.sla": {
+    "baselineSha256": "f99ce5c84152c3d23b75b27a4fe7cecd36816cdc30907bea7fcf5018c1b0ff70",
+    "patchedSha256": "2ea25367438df7bbacb1db9fb464dfa64fcd2a17d204cffb585f7140fe21cd8a"
+   },
+   "AARCH64_AppleSilicon.sla": {
+    "baselineSha256": "5ac26c9f5e13554d2347c82632fd901c5d830054782a3cdc5078787e2bdda1ae",
+    "patchedSha256": "24d42d97538871f3ee536a8a9adbc875dd1498697d6ab077e7331d85fe06bec9"
+   },
+   "AARCH64_PAuthLR_MOPS_THE.sinc": {
+    "baselineSha256": null,
+    "patchedSha256": "714524ed28c25ef88b9fcfe4c6338da2a782b364375512986bfdb0ccfcb5caf6"
+   },
+   "AARCH64base.sinc": {
+    "baselineSha256": "a02ec3681ebb32fe13c294ed146407a0017d4b1f5dcad25b170da92eb76bc39b",
+    "patchedSha256": "8c0bf536e9cae8dee45a350659487457297f2d81ba8e3730e27228eec7621773"
+   },
+   "AARCH64instructions.sinc": {
+    "baselineSha256": "fde6454c27ed9c2ab99cbdc403af8d188b7cf3a044468b9d9569654afcf04683",
+    "patchedSha256": "ccc67c426b050b006d1eb5acbee357bf952436aa0e2f66fcab2ec0ff33077349"
+   },
+   "AARCH64neon.sinc": {
+    "baselineSha256": "1c5d3053ea9d53ddb486d3a2a15a9f5a29df08b2ac26706dc4e7702f17390eb0",
+    "patchedSha256": "e08bd7dea857522c8bdd2cef33630b067e3dd7704defbfdcb8cfda94c6246f54"
+   },
+   "AARCH64sme.sinc": {
+    "baselineSha256": null,
+    "patchedSha256": "cd686ea4db3fe5040973259d2f8bda34ffc8e12628dae5c5400afe0e8aa0080d"
+   },
+   "AARCH64sme_core.sinc": {
+    "baselineSha256": null,
+    "patchedSha256": "eb09c5cc33e74cad4ae44d9a0956f72e027a4588907a43bbfca3a5133c0a632d"
+   },
+   "AARCH64sme_cp1.sinc": {
+    "baselineSha256": null,
+    "patchedSha256": "ddb69817cf403713cbc3bc6f7eabbe100af9f723e75996524227661d232c8007"
+   },
+   "AARCH64sve.sinc": {
+    "baselineSha256": "a1697a874d0c4f85ec425b9aec5632f94d2cd24433343ebdf77e1b948f0b7e87",
+    "patchedSha256": "eb0ec850dc08ce6c32ba53f62d616d3328c10168e5727bb0379914af7002f480"
+   }
+  },
+  "packageFileCountWithResourceOverlay": 4059,
+  "packageTotalBytesWithResourceOverlay": 345164146,
+  "packageTreeSha256WithResourceOverlay": "f58ca156d1fbe25f0941c37295b01e3b012be9937259aebb4e19db337f9b3eb6",
+  "resourceClosureTreeSha256": "c7e6f7fc0c4d5228f1073d4e3f0a3b510ab80252784e95869f8c5c26d015aa8d",
+  "resourceFileCount": 29,
+  "resourceRoot": "AARCH64",
+  "resourceTotalBytes": 11398861
+ },
+ "previousAcceptedMacCompiler": {
+  "path": "package/bin/sleigh",
+  "script": "Scripts/dependencies/compile_sleigh_aarch64_specs.sh",
+  "sha256": "f96d4e12c0d7fe3202011171f7e2e9b387ab5f024b83e7f0440152edfec19d34",
+  "upstreamReproducible": true
+ },
+ "previousAcceptedMacOverlay": {
+  "changedFiles": {
+   "AARCH64.sla": {
+    "baselineSha256": "40dbafe9e6ae6466185ae6a9bab0d33a80585dd70ab8b7212829b970e0fad9c3",
+    "patchedSha256": "9912619509451b8f78fcd44260a03089dbc3365f3e72a09ee827dd1b2dfc35e8"
+   },
+   "AARCH64BE.sla": {
+    "baselineSha256": "f99ce5c84152c3d23b75b27a4fe7cecd36816cdc30907bea7fcf5018c1b0ff70",
+    "patchedSha256": "230b83f93d2f8e82740c10e35723026c2163b6c34f526f12aab0ce4436078bde"
+   },
+   "AARCH64_AppleSilicon.sla": {
+    "baselineSha256": "5ac26c9f5e13554d2347c82632fd901c5d830054782a3cdc5078787e2bdda1ae",
+    "patchedSha256": "1bc0f833fafb1beb9748bf690930b9b368b59c0101c38032090b97cfcca42ef4"
+   },
+   "AARCH64_PAuthLR_MOPS_THE.sinc": {
+    "baselineSha256": null,
+    "patchedSha256": "714524ed28c25ef88b9fcfe4c6338da2a782b364375512986bfdb0ccfcb5caf6"
+   },
+   "AARCH64base.sinc": {
+    "baselineSha256": "a02ec3681ebb32fe13c294ed146407a0017d4b1f5dcad25b170da92eb76bc39b",
+    "patchedSha256": "b1651607cf8cb84462af7e8b2a5cd555780b63529912eaf5fe32ce0aa8a5b167"
+   },
+   "AARCH64instructions.sinc": {
+    "baselineSha256": "fde6454c27ed9c2ab99cbdc403af8d188b7cf3a044468b9d9569654afcf04683",
+    "patchedSha256": "70bbf9444c458528136d277a792e040623ee54816dfbc19091a28b130ca0ec14"
+   },
+   "AARCH64neon.sinc": {
+    "baselineSha256": "1c5d3053ea9d53ddb486d3a2a15a9f5a29df08b2ac26706dc4e7702f17390eb0",
+    "patchedSha256": "e08bd7dea857522c8bdd2cef33630b067e3dd7704defbfdcb8cfda94c6246f54"
+   },
+   "AARCH64sme.sinc": {
+    "baselineSha256": null,
+    "patchedSha256": "e22d3c9928c85b6126d638cd23242eaeed502e493165277d811c0d345b8f3470"
+   }
+  },
+  "packageFileCountWithResourceOverlay": 4057,
+  "packageTotalBytesWithResourceOverlay": 338133931,
+  "packageTreeSha256WithResourceOverlay": "bc756ce0233b5fe877fffab8d1ab2f529562535b96512a8504e3e7b8cafbfe8d",
+  "resourceClosureTreeSha256": "9ca45cdee27c7c32bd177dec5f2eee89d3a797ef81e67ef6a909789731a0eb3d",
+  "resourceFileCount": 27,
+  "resourceRoot": "AARCH64",
+  "resourceTotalBytes": 4368646
+ },
+ "schemaVersion": 1
+}

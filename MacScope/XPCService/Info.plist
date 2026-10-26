@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.macscope.app.PluginXPCService</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>XPC!</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>XPCService</key>
+	<dict>
+		<!-- Run the service on demand; the host launches it by service name. -->
+		<key>ServiceType</key>
+		<string>Application</string>
+		<!-- A Swift `@main`-free service uses a top-level entry point in
+		     PluginXPCServiceMain.swift, so no PrincipalClass is required. If the
+		     service is rewritten to use a principal class, set it here:
+		     <key>PrincipalClass</key>
+		     <string>$(PRODUCT_MODULE_NAME).PluginXPCServiceListenerDelegate</string> -->
+	</dict>
+</dict>
+</plist>

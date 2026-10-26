@@ -1,0 +1,848 @@
+{
+  "schema_version": 1,
+  "distribution_policy": {
+    "status": "private-development-only",
+    "public_distribution_approved": false,
+    "decision_record": "docs/dependencies/LicenseDecision.md"
+  },
+  "components": [
+    {
+      "id": "ghostty-vt",
+      "name": "Ghostty libghostty-vt",
+      "canonical_repository": "https://github.com/ghostty-org/ghostty",
+      "approval": "shipping-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "94d775fefc21f74d9cc85a46b34c4e1d85318fd0",
+        "version": "1.3.2-dev",
+        "source_archive_sha256": "dcafd130a3bc64ccfc009876404b193cd495b0eb672833577529d9a75a625c76",
+        "source_tree_sha256": "7e4ee3fccd169f96068fcaf5a93024651bed82ccb042b6e5262d2ffd4e8dd661"
+      },
+      "tracked_paths": [
+        "MacScope/project.yml",
+        "Scripts/build_ghostty_vt.sh",
+        "Scripts/ghostty-vt-source.contract",
+        "Scripts/provision_ghostty_vt_ci.sh",
+        "Scripts/dependencies/materialize_ghostty_vt.sh",
+        "ThirdParty/GhosttyVT"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_ghostty_vt.sh",
+        "network_allowed": true,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": "ghostty-main"
+      },
+      "license_paths": [
+        "ThirdParty/GhosttyVT/LICENSE.txt"
+      ],
+      "license_sha256": "386211873e5b7a02f663ae4d7adf96285999f91608f8f9f31fecfd0f4095e6f1",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/GhosttyVT/PATCHES.md",
+      "targets": [
+        "MacScopeApp"
+      ],
+      "review": {
+        "date": "2026-08-30",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "The complete reviewed source snapshot and closed Zig package store are repository-owned under ThirdParty/GhosttyVT. The source identity is 7e4ee3fccd169f96068fcaf5a93024651bed82ccb042b6e5262d2ffd4e8dd661 and the closed package-store identity is 70147cac57344d68a8dd812b7dd85b1d0eae984da531064e424128f937105d0f. The package store excludes Finder and AppleDouble metadata; the metadata-only closure preserves 46 reviewed CRLF Windows project files as ordinary Git bytes so clean worktrees and Git-less sealed exports are identical. Ordinary builds verify these tracked inputs and the repository-owned Zig receipt without network access, then emit only the arm64 macOS dylib, C headers, module map, caches, SDK overlay, and governed manifest into an explicit external work root. The retained network-capable materializer is an explicit provenance/replacement path and is never invoked by normal bootstrap, build, or test. Rollback is the isolated vendoring commit plus restoration of the prior explicit external source seam. Public distribution remains blocked until the repository-level license decision and a complete transitive notice review are recorded."
+    },
+    {
+      "id": "ghostty-surface",
+      "name": "GhosttyKit host-fed external-I/O surface",
+      "canonical_repository": "https://github.com/ghostty-org/ghostty",
+      "approval": "shipping-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "f64f4aca2c29b554d111b36c3d946a9bddd159ff",
+        "version": "1.3.2-dev",
+        "source_sha256": "a9702b7a9646f86e19d1938f16ca5701d57ff91476c3121d65a1a04431e773f5",
+        "source_tree_sha256": "ead5d48a8cda07addb59af1f35c6c9f7226bbdbd977b7330afd9714ecec6d8ab"
+      },
+      "tracked_paths": [
+        "Scripts/ghostty-surface-source.contract",
+        "Scripts/dependencies/build_ghostty_surface.sh",
+        "Scripts/dependencies/build_vendored_ghostty_surface.sh",
+        "Scripts/dependencies/materialize_ghostty_surface.sh",
+        "Scripts/tests/test_ghostty_surface_build_contract.py",
+        "Scripts/tests/test_ghostty_surface_patch_contract.py",
+        "ThirdParty/GhosttySurface"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_ghostty_surface.sh",
+        "network_allowed": true,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": "ghostty-surface-f64f4aca"
+      },
+      "license_paths": [
+        "ThirdParty/GhosttySurface/LICENSE.txt",
+        "ThirdParty/GhosttySurface/libxev-LICENSE.txt"
+      ],
+      "license_sha256": "386211873e5b7a02f663ae4d7adf96285999f91608f8f9f31fecfd0f4095e6f1",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/GhosttySurface/PATCHES.md",
+      "targets": [
+        "gst01-ghostty-surface-materializer",
+        "gst01-ghostty-surface-builder"
+      ],
+      "review": {
+        "date": "2026-08-30",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "The accepted GST-01 patchset adds a bounded host-fed external-I/O ABI without Ghostty process or PTY ownership. The patched source identity is ead5d48a8cda07addb59af1f35c6c9f7226bbdbd977b7330afd9714ecec6d8ab; the raw and patched closed package-store identities are 70147cac57344d68a8dd812b7dd85b1d0eae984da531064e424128f937105d0f and 13f8e6d6cc075fc5c13bb211e624c2a4311ff47cae414b44b7d509830adbf84c. The package stores exclude Finder and AppleDouble metadata; the metadata-only closure preserves 46 reviewed CRLF Windows project files as ordinary Git bytes so clean worktrees and Git-less sealed exports are identical. Those inputs are repository-owned; only generated build snapshots, caches, and GhosttyKit remain in an explicit external work root. The ordinary vendored builder accepts no caller-supplied dependency root and performs no acquisition. The dedicated macscope-xcframework graph disables the Ghostty application runtime, app/executable/resource emission, internationalization, Sentry/Breakpad crash-reporting dependency, root Zig networking capability, and direct libxev socket surface. The separately pinned MIT libxev package patch is verified between raw and final package-store identities. Zig 0.16.0 still emits five frozen unreachable network imports from its root I/O vtable; artifact validation rejects any expansion. Rollback omits the isolated surface patch/package closure and retains the Ghostty VT/legacy-grid fallback. Public distribution remains blocked."
+    },
+    {
+      "id": "machokit-v2",
+      "name": "p-x9 MachOKit 0.52.2 direct source",
+      "canonical_repository": "https://github.com/p-x9/MachOKit",
+      "approval": "shipping-approved",
+      "integration_mode": "swift-package",
+      "license_expression": "MIT AND APSL-2.0 AND BSD-4-Clause AND BSD-3-Clause AND LicenseRef-CMU-Mach",
+      "pin": {
+        "git_revision": "773e10797abc53914b94c2ee8c6f40f5da0b06eb",
+        "version": "0.52.2",
+        "source_archive_sha256": "2e6d429f248ac3f01b896379c3c77518858a2213ef3da0d89939d112de9fd945",
+        "source_tree_sha256": "0a0bdc104b7f20c3f34ef595e113152cfc78ec496e96e14cb4957cf4d81dd038"
+      },
+      "tracked_paths": [
+        "MacScope/AnalysisWorkerService/MachOKitDyldCacheAnalysisProvider.swift",
+        "MacScope/Models/DyldCacheAnalysisModels.swift",
+        "MacScope/Services/DyldCacheAnalysis",
+        "MacScope/Services/XPC/DyldCacheAnalysisTransport.swift",
+        "MacScope/Services/XPC/DyldCacheAnalysisWireCodec.swift",
+        "MacScope/Services/XPC/DyldCacheAnalysisWorkerService.swift",
+        "MacScope/Services/XPC/XPCDyldCacheAnalysisProvider.swift",
+        "MacScope/Tests/CoreTests/DyldCacheAnalysisModelsTests.swift",
+        "MacScope/Tests/CoreTests/DyldCacheAnalysisTestFixtures.swift",
+        "MacScope/Tests/CoreTests/DyldCacheAnalysisWireCodecTests.swift",
+        "MacScope/Tests/CoreTests/DyldCacheAnalysisWorkerServiceTests.swift",
+        "MacScope/Tests/CoreTests/DyldCacheCatalogDifferentialComparatorTests.swift",
+        "MacScope/Tests/CoreTests/DyldCacheSourcePreflightTests.swift",
+        "MacScope/Tests/CoreTests/XPCDyldCacheAnalysisProviderTests.swift",
+        "Scripts/dependencies/materialize_machokit.py",
+        "Scripts/machokit_source_identity.py",
+        "Scripts/tests/test_machokit_materialization.py",
+        "ThirdParty/MachOKit",
+        "docs/dependencies/MachOKit.md"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_machokit.py",
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/MachOKit/LICENSE.txt",
+        "ThirdParty/MachOKit/LICENSE.swift-fileio.txt",
+        "ThirdParty/MachOKit/LICENSE.swift-fileio-extra.txt",
+        "ThirdParty/MachOKit/LICENSE.swift-binary-parse-support.txt",
+        "ThirdParty/MachOKit/LICENSE.APSL-2.0.txt",
+        "ThirdParty/MachOKit/LICENSE.BSD-4-Clause-UCB.txt",
+        "ThirdParty/MachOKit/LICENSE.BSD-3-Clause-Demetriou.txt",
+        "ThirdParty/MachOKit/LICENSE.CMU-Mach.txt"
+      ],
+      "license_sha256": "df1c382ec7102b0ee7687dd72ed330131893b55ac0ac84c6d2b88cac3c29134f",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md",
+        "ThirdParty/MachOKit/NOTICE.Apple-Original-Code.txt",
+        "ThirdParty/MachOKit/NOTICE.Apple-OSReference.txt"
+      ],
+      "patches_path": "ThirdParty/MachOKit/PATCHES.md",
+      "targets": [
+        "AnalysisWorkerXPCService"
+      ],
+      "review": {
+        "date": "2026-08-28",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "One reviewed direct-source SwiftPM form is permitted: MachOKit 0.52.2 plus the exact swift-fileio d589ff3966f9f064574780f527449a946736b989, swift-fileio-extra 8d83506dd4dff737807d90dbf2264096ed98c7a7, and swift-binary-parse-support 5fb96b503672ea4752eded6b4e301fd87214b03b closure. The complete repository-owned materialization identity is e6796548485d32a183c3e1641989d637f5f6344c9e5af5a9cfbb83f549007950 and the governed compiled source identity is b2f928cfc635b3a539129d1dbd50464c9d218c4a815553bc4b710ac813a790ea. Ordinary builds consume the tracked read-only closure without network acquisition or package URL resolution. The compiled MachOKitC target includes retained Apple APSL-2.0 and OSReference notices, UCB BSD-4-Clause material, Christopher G. Demetriou BSD-3-Clause material, and CMU Mach material in addition to the four upstream MIT package licenses; all source-level records are indexed above. XCFrameworks and binary targets are prohibited. MachOKit runs only inside the signed AnalysisWorkerXPCService as a supplemental dyld-cache catalog provider; MacScope's existing dyld projector and LoadedBinary remain the authority for selected-image bytes, offsets, addresses, identity, patches, persistence, and downstream analysis. Vendor mapped bytes and pointer-bearing models never cross XPC. Rollback reverts the isolated materialization commit and restores the prior explicit local-package seam."
+    },
+    {
+      "id": "swift-assembly-vendor",
+      "name": "swiftbin swift-assembly selected direct source",
+      "canonical_repository": "https://github.com/swiftbin/swift-assembly",
+      "approval": "shipping-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "b6798dbd0081ec989d25b5a0676ab8cbd36bd9b1",
+        "source_sha256": "063a49e06b080a9f3488b5ba4c4f496eabc7778e6dbe09ce91a3de25c30f4afa",
+        "source_tree_sha256": "05235d94e3b47c2ba1e0163ad0cb596078420e1590345a281ba94088d981e24c"
+      },
+      "tracked_paths": [
+        "MacScope/Services/Assembler/ARM64Assembler.swift",
+        "MacScope/Services/Assembler/ARM64AssemblyRouter.swift",
+        "MacScope/Services/Assembler/SwiftAssemblyARM64FallbackBackend.swift",
+        "MacScope/Tests/CoreTests/ARM64AssemblyRouterTests.swift",
+        "Scripts/dependencies/materialize_swift_assembly.py",
+        "Scripts/swift_assembly_source_identity.py",
+        "Scripts/tests/test_swift_assembly_materialization.py",
+        "ThirdParty/SwiftAssemblyVendor",
+        "docs/dependencies/SwiftAssembly.md"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_swift_assembly.py",
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/SwiftAssemblyVendor/LICENSE"
+      ],
+      "license_sha256": "00511a028804276eb97fcc0cdba28ce973bcaf37cfa555d3cf934d9cec08f7cb",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/SwiftAssemblyVendor/PATCHES.md",
+      "targets": [
+        "SwiftAssemblyVendor",
+        "MacScopeApp"
+      ],
+      "review": {
+        "date": "2026-08-28",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Only the audited 15-file Foundation-only ARM64/Core source closure is compiled, exactly once, as an internal MacScope target. The immutable SOURCE_IDENTITY.json SHA-256 is independently pinned by Scripts/swift_assembly_source_identity.py. No upstream package manifest, binary/XCFramework, package-manager dependency, vendor type in persistence or XPC, or fallback for substantive primary-assembler rejection is permitted. MacScope remains authority for architecture identity, address policy, primary assembly, independent decoding, and fallback acceptance."
+    },
+    {
+      "id": "zig-toolchain",
+      "name": "Zig 0.16.0 Apple-Silicon toolchain",
+      "canonical_repository": "https://github.com/ziglang/zig",
+      "approval": "tooling-oracle-approved",
+      "integration_mode": "developer-tool",
+      "license_expression": "MIT",
+      "pin": {
+        "version": "0.16.0",
+        "selected_artifact_sha256": "b23d70deaa879b5c2d486ed3316f7eaa53e84acf6fc9cc747de152450d401489",
+        "source_tree_sha256": "521e2ef7605386b8da70aa3d6c3d135b344ee319c4b5a280470f8c07265ace43"
+      },
+      "tracked_paths": [
+        "Scripts/dependencies/materialize_zig_toolchain.sh",
+        "Scripts/dependencies/zig_toolchain_receipt.py",
+        "Scripts/prepare_zig_macos_sdk_overlay.py",
+        "ThirdParty/Zig",
+        "ThirdParty/ZigToolchain"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_zig_toolchain.sh",
+        "network_allowed": true,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/ZigToolchain/LICENSE.txt",
+        "ThirdParty/Zig/zig-0.16.0/LICENSE"
+      ],
+      "license_sha256": "5c537d6853e005298a285d508cff9ac7192cea23576c840d485b2b586a7ff177",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/Zig/PROVENANCE.md",
+      "targets": [
+        "ghostty-vt-materializer",
+        "gst01-ghostty-surface-builder"
+      ],
+      "review": {
+        "date": "2026-08-30",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "The exact official Apple-Silicon Zig toolchain and canonical receipt are repository-owned build inputs. The verified archive is normalized by removing its seven empty directories, which Git cannot preserve; the resulting Git-stable closed-tree identity is 521e2ef7605386b8da70aa3d6c3d135b344ee319c4b5a280470f8c07265ace43 and the schema-2 canonical receipt identity is 55f99da3a6d9cfed280b2dbbe2ec87776cc3dc28b7a5d71cab9adabc8f8bdc94. Zig is not linked into MacScope; the self-contained Ghostty builders verify the complete receipt and invoke it only to emit derived artifacts into explicit external work roots. The retained networked materializer documents reproducible provenance and replacement but is never invoked by ordinary build/test commands. Rollback reverts the isolated toolchain-vendoring commit and restores the prior explicitly materialized tool seam. Public distribution remains blocked pending the repository-level license and transitive-notice decision."
+    },
+    {
+      "id": "xcodegen-tool",
+      "name": "XcodeGen 2.46.0 repository project generator",
+      "canonical_repository": "https://github.com/yonaskolb/XcodeGen",
+      "approval": "tooling-oracle-approved",
+      "integration_mode": "developer-tool",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "8445e778451c7e44237b90281bde622d764b0084",
+        "version": "2.46.0",
+        "source_archive_sha256": "c83c7bd70255b0ddf4116dadce16bdf0e5939165b43a544e124de294ec84aa27",
+        "selected_artifact_sha256": "5b5d393779d405bbe78a2de8130f0bfaa4f90f7295cd3c8436d620b04aaee49a"
+      },
+      "tracked_paths": [
+        "Scripts/dependencies/materialize_xcodegen.py",
+        "Scripts/tests/test_xcodegen_materialization.py",
+        "ThirdParty/XcodeGen"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_xcodegen.py",
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/XcodeGen/LICENSE"
+      ],
+      "license_sha256": "1e210fcab168d549f41a7495d11a7092836bc38c742baa5e21c0883cd0f1d1a1",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/XcodeGen/PATCHES.md",
+      "targets": [
+        "xcodegen-project-generator"
+      ],
+      "review": {
+        "date": "2026-08-30",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "MacScope carries the official XcodeGen 2.46.0 source archive and the accepted arm64 executable as repository-owned developer-tool inputs. The executable identity is 5b5d393779d405bbe78a2de8130f0bfaa4f90f7295cd3c8436d620b04aaee49a; the source archive identity is c83c7bd70255b0ddf4116dadce16bdf0e5939165b43a544e124de294ec84aa27. Ordinary project generation uses the tracked executable without PATH, package-manager, or network authority. The replacement script accepts only caller-supplied files and verifies archive safety, source and binary checksums, arm64 architecture, version, and license before atomic publication; it has no acquisition path. Rollback reverts the isolated tool-vendoring commit and restores the prior system XcodeGen preflight. The tool is not linked or copied into MacScopeApp."
+    },
+    {
+      "id": "compiler-rt-signature-corpus",
+      "name": "LLVM compiler-rt signature corpus source evidence",
+      "canonical_repository": "https://github.com/llvm/llvm-project",
+      "approval": "tooling-oracle-approved",
+      "integration_mode": "generated-data-corpus",
+      "license_expression": "Apache-2.0 WITH LLVM-exception",
+      "pin": {
+        "source_sha256": "5f20304aa257ed57bcba9f64287497d0be09b8cc7a5a91479b6a274294a22dfe",
+        "selected_artifact_sha256": "5a1691a79a430a241f4120a5a11c39b8658bc7e82c16d7e5cda112b56ba17ad1"
+      },
+      "tracked_paths": [
+        "MacScope/Services/FunctionSignatures/FunctionSignatureCorpus.swift",
+        "Scripts/function-signatures",
+        "ThirdParty/CompilerRTCorpus"
+      ],
+      "materialization": {
+        "script": "Scripts/function-signatures/generate_compiler_rt_signatures.py",
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "Scripts/function-signatures/LICENSE.compiler-rt.txt"
+      ],
+      "license_sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/CompilerRTCorpus/PATCHES.md",
+      "targets": [
+        "MacScopeApp",
+        "CoreTests",
+        "offline-generator"
+      ],
+      "review": {
+        "date": "2026-07-20",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "No compiler-rt implementation source or Xcode archive is committed. Only bounded source-oracle fixtures, generated predicates, provenance, and rejection records are tracked."
+    },
+    {
+      "id": "pypcode-dcp03-proof",
+      "name": "pypcode 4.0.0 native SLEIGH effective-load-image proof",
+      "canonical_repository": "https://github.com/angr/pypcode",
+      "approval": "pilot-approved",
+      "integration_mode": "developer-tool",
+      "license_expression": "BSD-2-Clause AND Apache-2.0 AND Zlib",
+      "pin": {
+        "git_revision": "2787546a83b42a62dde3a1905deea8b0906e85b5",
+        "version": "4.0.0",
+        "source_archive_sha256": "1a83fa81769a2c1cfe8024ad627977edb99ed7ecb76dbc12722416fb7a54ec34",
+        "selected_artifact_sha256": "dd7c79b6e0547e09b5e35d30a3548e8604f829a376dabf0b44c722e57a6acb1f"
+      },
+      "tracked_paths": [
+        "Tools/DecompilerCoreProof",
+        "Scripts/decompiler-proof",
+        "Scripts/dependencies/materialize_pypcode_dcp03.sh",
+        "Scripts/tests/test_decompiler_core_proof.py",
+        "ThirdParty/PyPcodeProof",
+        "Scripts/tests/test_decompiler_dataflow.py",
+        "Scripts/tests/test_decompiler_register_dataflow.py",
+        "Scripts/tests/test_decompiler_load_image.py"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_pypcode_dcp03.sh",
+        "network_allowed": true,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": "pypcode-dcp03"
+      },
+      "license_paths": [
+        "ThirdParty/PyPcodeProof/LICENSE.pypcode.txt",
+        "ThirdParty/PyPcodeProof/LICENSE.ghidra-apache-2.0.txt",
+        "ThirdParty/PyPcodeProof/NOTICE.ghidra.txt",
+        "ThirdParty/PyPcodeProof/DISCLAIMER.ghidra.md",
+        "ThirdParty/PyPcodeProof/LICENSE.zlib.txt",
+        "ThirdParty/PyPcodeProof/README.zlib.txt",
+        "ThirdParty/PyPcodeProof/METADATA.pypcode.txt"
+      ],
+      "license_sha256": "5c28940e6cbd85e503319fc0861b7579f4b2d92b396aa0d85713f47bc324e817",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/PyPcodeProof/PATCHES.md",
+      "targets": [
+        "dcp03-native-sleigh-effective-load-image-darwin-register-dataflow-proof"
+      ],
+      "review": {
+        "date": "2026-07-21",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Developer-only partial DCP-03 pilot. The selected artifact hash is the macOS arm64 CPython 3.13 wheel. The explicit materializer also permits the Linux x86_64 validation wheel SHA-256 214aeed946e33293d398b22af57cab92ceff733f684bc2c25d74efac21115e93. No pypcode wheel, Python runtime, or processor tree is committed or shipped; no app target imports it. Native SLEIGH supplies decoding and raw p-code only. Exact-storage SSA, operand heritage, single-partition MemorySSA, AArch64 x/w and sp/wsp canonical GPR SSA, 19-slice conservative base call inputs, 56-slice Darwin AAPCS64 base call clobbers, and the bounded authority-preserving effective-memory layer for the frozen AArch64 Mach-O relocation and normalized dyld-pointer subset are MacScope-owned proof layers. They are not represented as native Ghidra decompiler heritage, complete register SSA, complete Mach-O/dyld loading, PAC validation, recovered types, or full decompilation."
+    },
+    {
+      "id": "libghidra-dcp03b3-pilot",
+      "name": "libghidra 0.0.2 effective-image native decompiler pilot",
+      "canonical_repository": "https://github.com/0xeb/libghidra",
+      "approval": "pilot-approved",
+      "integration_mode": "developer-tool",
+      "license_expression": "MPL-2.0 AND Apache-2.0 AND Zlib",
+      "pin": {
+        "git_revision": "61b37fa2d99aa5cf0da450b84f2abd797fb6a27c",
+        "version": "0.0.2",
+        "selected_artifact_sha256": "c96f2266c66d16302b917ce2645d5ba08ca90bac30f44d957a7e16ad40d40fee"
+      },
+      "tracked_paths": [
+        "Tools/NativeDecompilerPilot",
+        "Scripts/native-decompiler-pilot",
+        "Scripts/dependencies/materialize_libghidra_dcp03b3.sh",
+        "Scripts/tests/native_decompiler_pilot_fixtures.py",
+        "Scripts/tests/test_native_decompiler_pilot.py",
+        "Scripts/tests/test_native_decompiler_pilot_supervisor.py",
+        "ThirdParty/LibGhidraPilot"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_libghidra_dcp03b3.sh",
+        "network_allowed": true,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": "libghidra-dcp03b3"
+      },
+      "license_paths": [
+        "ThirdParty/LibGhidraPilot/LICENSE.libghidra-mpl-2.0.txt",
+        "ThirdParty/LibGhidraPilot/LICENSE.ghidra-apache-2.0.txt",
+        "ThirdParty/LibGhidraPilot/NOTICE.ghidra.txt",
+        "ThirdParty/LibGhidraPilot/DISCLAIMER.ghidra.md",
+        "ThirdParty/LibGhidraPilot/LICENSE.zlib.txt",
+        "ThirdParty/LibGhidraPilot/README.zlib.txt",
+        "ThirdParty/LibGhidraPilot/METADATA.libghidra.txt"
+      ],
+      "license_sha256": "18b904141141e6b86b9fcee567c7d1f25dafb1108ab4da3d4003c058fd21e74b",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/LibGhidraPilot/PATCHES.md",
+      "targets": [
+        "dcp03b3-libghidra-effective-image-native-pilot"
+      ],
+      "review": {
+        "date": "2026-07-21",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Developer-only shadow pilot for one caller-supplied AArch64 function. DCP-03B2 remains the raw-byte and address authority and derives the bounded effective load image; only verified effective bytes enter the deterministic Mach-O transport carrier. Raw bytes, effective bytes, patch identifiers, and image-qualified ranges remain explicit in the output. The pinned libghidra v0.0.2 local backend truthfully supplies decompiled pseudocode, one function record, and address-driven instruction records only. It does not populate tokens, locals, native CFG, heritage, SSA, MemorySSA, recovered types, structured regions, or structured calls, and MacScope never reparses rendered C to fabricate them. The selected artifact is the macOS arm64 abi3 wheel; the explicit materializer also permits the Linux x86_64 validation wheel SHA-256 aeb32952ad1ba30f87d480c3ab56eb0346f199470c2584ebe67e05d03d4e6c78. No wheel, Python runtime, native extension, or Ghidra resource payload is committed, linked into an app target, or acquired by ordinary build/test paths. Public distribution remains blocked pending MPL-2.0 source-form and transitive-notice review."
+    },
+    {
+      "id": "sleigh-native-dcp03b4",
+      "name": "lifting-bits/sleigh 12.1.2 native Ghidra decompiler package",
+      "canonical_repository": "https://github.com/lifting-bits/sleigh",
+      "approval": "shipping-approved",
+      "integration_mode": "linked-library",
+      "license_expression": "Apache-2.0",
+      "pin": {
+        "git_revision": "bfd38a983b4aa53dd386365e1df5ed5499b7e2fb",
+        "version": "12.1.2",
+        "selected_artifact_sha256": "e1391c811de7b2d79c9e8a1f6f74cd9ade23baf55deebd75c626a3152e5e451a",
+        "source_tree_sha256": "9cc94c918e6af5659a211330561a7fed7099a00fa3ea05c54698051827498460"
+      },
+      "tracked_paths": [
+        "Tools/NativeDecompilerBridge",
+        "Scripts/dependencies/materialize_sleigh_native_dcp03b4.sh",
+        "Scripts/dependencies/internalize_sleigh_aarch64_resources.py",
+        "Scripts/native-decompiler-direct",
+        "Scripts/tests/test_sleigh_native_package.py",
+        "Scripts/tests/test_sleigh_aarch64_internalization.py",
+        "ThirdParty/SleighNative",
+        "MacScope/App/MacScopeApp.swift",
+        "MacScope/App/MacScopeAppRuntimeServices.swift",
+        "MacScope/App/NativeDecompilerRuntimeRegistry.swift",
+        "MacScope/App/WorkspaceSessionRegistry.swift",
+        "MacScope/Models/NativeDecompilerWire",
+        "MacScope/NativeDecompilerXPCService",
+        "MacScope/Services/NativeDecompilerXPC",
+        "MacScope/Stores/WorkspaceStore.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerLiveXPCTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerObjCBridgeCrossLanguageTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerObjCBridgeTests.mm",
+        "MacScope/Tests/CoreTests/NativeDecompilerServiceCompositionTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerServiceHostTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerServiceSchedulingTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerCoordinatorTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerRuntimeRegistryTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerSnapshotBuilderTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerWireBinaryPropertyListValidatorTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerWireCodecTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerWireSemanticValidatorTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerXPCClientTests.swift",
+        "MacScope/Tests/CoreTests/NativeDecompilerXPCPeerRequirementTests.swift",
+        "Scripts/bootstrap.sh",
+        "Scripts/check_local_signing_policy.py",
+        "Scripts/generate_release_build_provenance.py",
+        "Scripts/native-decompiler-xpc",
+        "Scripts/test.sh",
+        "Scripts/tests/test_local_signing_policy.py",
+        "Scripts/tests/test_native_decompiler_xpc_bridge_runner.py",
+        "Scripts/tests/test_native_decompiler_xpc_package.py",
+        "Scripts/tests/test_native_decompiler_xpc_target_integration.py",
+        "Scripts/tests/test_native_decompiler_source_identity.py",
+        "Scripts/tests/test_release_build_provenance.py"
+      ],
+      "materialization": {
+        "script": "Scripts/dependencies/materialize_sleigh_native_dcp03b4.sh",
+        "network_allowed": true,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": "sleigh-native-dcp03b4"
+      },
+      "license_paths": [
+        "ThirdParty/SleighNative/LICENSE.sleigh-apache-2.0.txt",
+        "ThirdParty/SleighNative/NOTICE.ghidra.txt",
+        "ThirdParty/SleighNative/DISCLAIMER.ghidra.md",
+        "ThirdParty/SleighNative/METADATA.sleigh.txt",
+        "ThirdParty/SleighNative/README.md"
+      ],
+      "license_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/SleighNative/PATCHES.md",
+      "targets": [
+        "dcp03b4-native-sleigh-package-qualification",
+        "macscope_native_decompiler_contract",
+        "macscope_sleigh_decomp_api_probe",
+        "NativeDecompilerXPCService"
+      ],
+      "review": {
+        "date": "2026-08-30",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Shipping-approved for MacScope's default-on private product runtime in the signed embedded NativeDecompilerXPCService after DCP-03B4/B5 and DCP-04 qualification. The complete repository-owned macOS arm64 package contains 4,055 files / 338,010,000 bytes and has tree identity 9cc94c918e6af5659a211330561a7fed7099a00fa3ea05c54698051827498460. Its separately indexed 25-file AArch64 resource subset has tree identity 5d4ed653137cd15a26413818b0e96debeebd691bc2a20a9614b7691521e86d4f. The selected release-artifact hash remains e1391c811de7b2d79c9e8a1f6f74cd9ade23baf55deebd75c626a3152e5e451a; the retained explicit materializer also permits the Linux x86_64 validation package SHA-256 7539dd630b7069b372d8fbe9be8e29ef4ca9c7ce2945c2a3009d43ab98b12ea4 but is never invoked by ordinary build/test commands. The offline verifier rejects links and rehashes the complete tracked package before staging. Only NativeDecompilerXPCService may link the archives or load the bundle-local resource copy, which is reverified before signing and native startup. Native code/resources remain outside MacScopeApp; validated output is transient, cannot mutate persisted workspace authority, and may be compared with or fall back to MacScope analysis. Rollback reverts the isolated package/resource vendoring commits and restores the prior explicit verified package seam. Every other app/XPC target and public distribution remain blocked."
+    },
+    {
+      "id": "rea-selected",
+      "name": "REA selected native, UI and comparison algorithms",
+      "canonical_repository": "https://github.com/morluto/rea",
+      "approval": "shipping-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT AND BSD-3-Clause",
+      "pin": {
+        "git_revision": "c29931ce81dc530d2623ec992714a70b1f3e50e4",
+        "version": "6.3.0"
+      },
+      "tracked_paths": [
+        "ThirdParty/REA",
+        "Scripts/dependencies/rea_verify.py",
+        "Scripts/dependencies/rea_build.mjs"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/REA/LICENSE",
+        "ThirdParty/REA/licenses/zod/LICENSE",
+        "ThirdParty/REA/licenses/base64-js/LICENSE",
+        "ThirdParty/REA/licenses/canonicalize/LICENSE",
+        "ThirdParty/REA/licenses/ieee754/LICENSE",
+        "ThirdParty/REA/licenses/buffer/LICENSE"
+      ],
+      "license_sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "targets": [
+        "AnalysisWorkerXPCService"
+      ],
+      "review": {
+        "date": "2026-10-11",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "MacScope owner-authorized REA implementation"
+      },
+      "patches_path": "ThirdParty/REA/PATCHES.md",
+      "notes": "Selected fixed JavaScriptCore resource only in signed AnalysisWorker; no REA server or Node runtime. Canonical source and runtime closure verified offline; public distribution excluded."
+    },
+    {
+      "id": "corkami-pocs-pe-specimens",
+      "name": "corkami/pocs selected PE specimens",
+      "canonical_repository": "https://github.com/corkami/pocs",
+      "approval": "tooling-oracle-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "LicenseRef-corkami-PE-readme-BSD",
+      "pin": {
+        "git_revision": "6d277c83efdceb6916ee8c6efe6ff0639cc6193f"
+      },
+      "tracked_paths": [
+        "ThirdParty/CorkamiPocs"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/CorkamiPocs/PE/readme.txt"
+      ],
+      "license_sha256": "6fea91b45b04fdc2499ae54e13a771ffa57b3c57dfaa1e7c68c086640ac1ecf6",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/CorkamiPocs/PROVENANCE.md",
+      "targets": [
+        "parser-oracle-goldens"
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "status": "oracle-only",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Four inert PE specimens and the PE corpus readme, byte-identical to upstream at the pinned commit (Git blob identities recorded in Scripts/parser-oracles/oracles.lock.json and verified offline by Scripts/tests/test_parser_oracles.py). The repository has no LICENSE file; PE/readme.txt states BSD Licence, 2009-2013, recorded per file. Committed without execute permission; never executed, loaded or shipped."
+    },
+    {
+      "id": "lief-parser-engine",
+      "name": "LIEF 1.0.0 Mach-O/PE parser engine",
+      "canonical_repository": "https://github.com/lief-project/LIEF",
+      "approval": "pilot-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "Apache-2.0 AND MIT AND BSL-1.0 AND CC0-1.0 AND (Apache-2.0 OR GPL-2.0-or-later)",
+      "pin": {
+        "git_revision": "d05b3499b6934137e917c009a4df0a9dc8cb11c5",
+        "version": "1.0.0",
+        "source_archive_sha256": "120929e1bf9dbc1f6e4d4f0aadf5f4bd4b5efac7cffae8c24c0faafcce4fbfae"
+      },
+      "tracked_paths": [
+        "ThirdParty/LIEF"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/LIEF/LICENSE",
+        "ThirdParty/LIEF/licenses/expected-COPYING",
+        "ThirdParty/LIEF/licenses/frozen-LICENSE",
+        "ThirdParty/LIEF/licenses/mbedtls-LICENSE",
+        "ThirdParty/LIEF/licenses/spdlog-LICENSE",
+        "ThirdParty/LIEF/licenses/tf-psa-crypto-LICENSE",
+        "ThirdParty/LIEF/licenses/utfcpp-LICENSE"
+      ],
+      "license_sha256": "998dc6a9d251b4d9d4274d8a7e121fe20c33b1dfd4300bca276e87da23dc582e",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/LIEF/PATCHES.md",
+      "targets": [
+        "AnalysisWorkerXPCService",
+        "CoreTests",
+        "parser-oracle-goldens"
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Pruned upstream source (CMake, include, src, config, package, api/CMakeLists.txt) plus the bundled expected, frozen, mbedtls, spdlog, tcb-span (BSL-1.0, header-only) and utfcpp archives LIEF verifies by URL_HASH. Mach-O, PE and COFF modules only; ELF, DEX, ART, OAT, VDEX, logging, JSON and the C API are disabled. Built offline by Scripts/dependencies/build_parser_engines.py once per cache key (source tree, builder, clang/SDK/CMake/Ninja or Go identity) into the shared content-addressed dependency cache; Xcode links the staged static archive into AnalysisWorkerXPCService and CoreTests only. Cross-check evidence for MacScope's loaders (owner direction 2026-10-12); never image, address or byte authority."
+    },
+    {
+      "id": "pe-parse-parser-engine",
+      "name": "pe-parse 2.1.1 PE parser engine",
+      "canonical_repository": "https://github.com/trailofbits/pe-parse",
+      "approval": "pilot-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "7888f1f8de2f6bc302c291a5b4519fad926c0133",
+        "version": "2.1.1",
+        "source_archive_sha256": "7c2fbaa69ac8bb6566a216c473521d4fe94bbdc3dca8f376a2a851706755799e"
+      },
+      "tracked_paths": [
+        "ThirdParty/PEParse"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/PEParse/LICENSE"
+      ],
+      "license_sha256": "5fb0c373b1b1077d3ae66fab21516a3c58dc2265e0480e526aaa8ff8da377dc6",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/PEParse/PATCHES.md",
+      "targets": [
+        "AnalysisWorkerXPCService",
+        "CoreTests",
+        "parser-oracle-goldens"
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "pe-parser-library and VERSION only. Built offline by Scripts/dependencies/build_parser_engines.py once per cache key (source tree, builder, clang/SDK/CMake/Ninja or Go identity) into the shared content-addressed dependency cache; Xcode links the staged static archive into AnalysisWorkerXPCService and CoreTests only. Cross-check evidence for MacScope's loaders (owner direction 2026-10-12); never image, address or byte authority."
+    },
+    {
+      "id": "go-macho-parser-engine",
+      "name": "go-macho 1.1.283 Mach-O parser engine (cgo c-archive)",
+      "canonical_repository": "https://github.com/blacktop/go-macho",
+      "approval": "pilot-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "0b3c4a4cb4548a0d1284c1b5fc0de6f4422c0246",
+        "version": "1.1.283",
+        "source_archive_sha256": "77158340391ef8b0bc21680d339bba3071723a6fe03e7bf36038b2aabe600da7"
+      },
+      "tracked_paths": [
+        "ThirdParty/GoMachO"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/GoMachO/go-macho/LICENSE",
+        "ThirdParty/GoMachO/go-dwarf/LICENSE"
+      ],
+      "license_sha256": "f8120b21ffd13b3f8284da1d5caa27871722e15a7ff5c9719ce0f7f59e3a9c8a",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/GoMachO/PATCHES.md",
+      "targets": [
+        "AnalysisWorkerXPCService",
+        "CoreTests",
+        "parser-oracle-goldens"
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "go-macho (the Mach-O parser inside blacktop/ipsw) and its only module dependency go-dwarf v1.0.14 (commit 6368b8ca72705d7d99e8ab93317669b81bb0bbd6, archive SHA-256 b4f173e2cb4d4f1ab766a6c80f59dd1329630e9988dc4bca7e6b07526ff5358b), tests and testdata omitted. Built with go build -buildmode=c-archive, GOPROXY=off, GOTOOLCHAIN=local and replace directives to these directories. Built offline by Scripts/dependencies/build_parser_engines.py once per cache key (source tree, builder, clang/SDK/CMake/Ninja or Go identity) into the shared content-addressed dependency cache; Xcode links the staged static archive into AnalysisWorkerXPCService and CoreTests only. Cross-check evidence for MacScope's loaders (owner direction 2026-10-12); never image, address or byte authority."
+    },
+    {
+      "id": "binexport2-schema",
+      "name": "google/binexport BinExport2 proto2 schema",
+      "canonical_repository": "https://github.com/google/binexport",
+      "approval": "shipping-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "Apache-2.0",
+      "pin": {
+        "git_revision": "c4c5b5f1c2793b03e5adc6264f100ba597430a1b",
+        "version": "binexport2.proto blob 7e1dc3b3eb04d6f3238f5371c01f0abbaffe5ce5",
+        "source_archive_sha256": "e8e4943de00b37038b614bbd0515cb188caf3e4a2e20c6566544e791f93647d8"
+      },
+      "tracked_paths": [
+        "ThirdParty/BinExport",
+        "Scripts/dependencies/generate_binexport2_schema.py",
+        "MacScope/Services/Export/BinExport2Schema.generated.swift",
+        "MacScope/Tests/CoreTests/Resources/binexport2.proto"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/BinExport/LICENSE"
+      ],
+      "license_sha256": "c1724a9c059a2450d2f4945de389eba5789b1f74212491a7973a0b69fbdb399e",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/BinExport/PATCHES.md",
+      "targets": [
+        "MacScopeApp",
+        "CoreTests"
+      ],
+      "review": {
+        "date": "2026-10-12",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "RX-04. binexport2.proto and LICENSE only, byte-identical to upstream. Generated once per pin by Scripts/dependencies/generate_binexport2_schema.py into the checked-in BinExport2Schema.generated.swift field table (the schema is data, so there is no compiled artifact and nothing is rebuilt per build, worktree or CI run; governance runs the generator --check). Product use: BinExport2Conformance checks every app export against the table and BinDiff's hard requirements before the file is written. No protoc or protobuf runtime is linked."
+    },
+    {
+      "id": "entitlements-comparison",
+      "name": "EntitlementDiff exact entitlement comparison source",
+      "canonical_repository": "https://github.com/jdotc1/EntitlementDiff",
+      "approval": "shipping-approved",
+      "integration_mode": "vendored-source",
+      "license_expression": "MIT",
+      "pin": {
+        "git_revision": "a28a431895a65fe6d23494038ef67f62e80bd559"
+      },
+      "tracked_paths": [
+        "MacScope/Services/EntitlementComparison",
+        "MacScope/Features/MachOMetadata/EntitlementComparisonView.swift",
+        "ThirdParty/EntitlementDiff"
+      ],
+      "materialization": {
+        "script": null,
+        "network_allowed": false,
+        "implicit_build_invocation": false,
+        "expected_untracked_root": null
+      },
+      "license_paths": [
+        "ThirdParty/EntitlementDiff/LICENSE"
+      ],
+      "license_sha256": "c3811e7b126091d0a825db74cfeeac20767baa73b45ea3a4791a7a90687777c6",
+      "notice_paths": [
+        "THIRD_PARTY_NOTICES.md"
+      ],
+      "patches_path": "ThirdParty/EntitlementDiff/PATCHES.md",
+      "targets": [
+        "MacScopeApp"
+      ],
+      "review": {
+        "date": "2026-10-18",
+        "status": "reviewed-private-development",
+        "public_distribution_blocked": true,
+        "reviewer": "repository-owner-policy"
+      },
+      "notes": "Owner-authorized bounded source adaptation for read-only comparison of embedded entitlement declarations from two already loaded image slots. Exact value, snapshot, comparison and browser projection logic is adapted into MacScope source; row and control patterns are adapted into the existing metadata surface. MacScope retains image, selected-slice byte and generation authority. No Security extraction, signature validation, effective-permission claims, risk scoring, alternate loading, saved reports or inspector integration. Source compiles directly in MacScopeApp using existing Foundation and SwiftUI dependencies, with no package-manager or acquisition edge. Full MIT notices remain in copied source headers and ThirdParty/EntitlementDiff/LICENSE. Public distribution remains subject to the repository-level decision."
+    }
+  ]
+}

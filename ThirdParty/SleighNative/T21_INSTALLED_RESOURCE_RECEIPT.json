@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "scope": "One explicitly authorized read-only installed .sla receipt. No app launch, signing verification, or dependency-tree hashing.",
+  "createdAt": "2026-10-13T04:58:07.265635+00:00",
+  "installedCommit": "63a3b991a8239a800535315a674373351bb49345",
+  "installedTree": "e3f00a745091e313e1809d1d681c0ca0b7c650a4",
+  "installedConfiguration": "Release",
+  "sourceTraceCommit": "63a3b991a8239a800535315a674373351bb49345",
+  "selectedLanguageID": "AARCH64:LE:64:AppleSilicon",
+  "selectedSla": "/Applications/MacScope.app/Contents/XPCServices/NativeDecompilerXPCService.xpc/Contents/Resources/NativeDecompilerPackage/package/share/sleigh/specfiles/Ghidra/Processors/AARCH64/data/languages/AARCH64_AppleSilicon.sla",
+  "selectedSlaBytes": 518760,
+  "selectedSlaSHA256": "dfc99de03ffc783a787d47c6650b3f55a9ca3cc6da74d219976d9c8fe9dd82c5",
+  "baselineSHA256": "5ac26c9f5e13554d2347c82632fd901c5d830054782a3cdc5078787e2bdda1ae",
+  "currentOverlaySHA256": "dfc99de03ffc783a787d47c6650b3f55a9ca3cc6da74d219976d9c8fe9dd82c5",
+  "matchesBaseline": false,
+  "matchesCurrentOverlay": true,
+  "runtimeObserved": false,
+  "sourceTrace": [
+    {
+      "path": "MacScope/NativeDecompilerXPCService/Bridge/NativeDecompilerObjCBridge.mm",
+      "lines": "43-47,86-88",
+      "finding": "NSBundle.mainBundle.resourceURL/NativeDecompilerPackage; materialization configuration selects AARCH64:LE:64:AppleSilicon/default"
+    },
+    {
+      "path": "Tools/NativeDecompilerBridge/src/GhidraProvider.cpp",
+      "lines": "4594-4621,4828-4836",
+      "finding": "Relocatable materialization uses package/share/sleigh/specfiles; attested global spec root passed to runtime lease"
+    },
+    {
+      "path": "Tools/NativeDecompilerBridge/src/GhidraRuntime.cpp",
+      "lines": "158-163",
+      "finding": "startDecompilerLibrary receives only attested globalSpecRoot; exact language required"
+    },
+    {
+      "path": "ThirdParty/SleighNative/Source/ghidra/Ghidra/Features/Decompiler/src/decompile/cpp/sleigh_arch.cc",
+      "lines": "355-371,408-412",
+      "finding": "language slafile is located through specpaths and supplied to translator"
+    }
+  ]
+}

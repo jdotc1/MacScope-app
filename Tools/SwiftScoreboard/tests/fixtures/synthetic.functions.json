@@ -1,0 +1,92 @@
+[
+  [
+    {
+      "name": "__TEXT,__text",
+      "address": "0x1000",
+      "size": 192,
+      "executable": true
+    }
+  ],
+  [
+    {
+      "address": "0x1000",
+      "end": "0x1010",
+      "name": "_main",
+      "confidence": 1
+    },
+    {
+      "address": "0x1010",
+      "end": "0x1020",
+      "name": "sub_0x1010",
+      "confidence": 1
+    },
+    {
+      "address": "0x1020",
+      "end": "0x1030",
+      "name": "_$s4Test5aliasyyF",
+      "confidence": 1
+    },
+    {
+      "address": "0x1030",
+      "end": "0x1038",
+      "name": "wrong_four",
+      "confidence": 1
+    },
+    {
+      "address": "0x1040",
+      "end": "0x1060",
+      "name": "five",
+      "confidence": 1
+    },
+    {
+      "address": "0x1050",
+      "end": "0x1060",
+      "name": "merged generic specialization <Swift.Int> of Test.bar() -> ()",
+      "confidence": 1
+    },
+    {
+      "address": "0x1070",
+      "end": "0x1078",
+      "name": "loc_1070",
+      "confidence": 1
+    },
+    {
+      "address": "0x1080",
+      "end": "0x1090",
+      "name": "nine",
+      "confidence": 1
+    },
+    {
+      "address": "0x1090",
+      "end": "0x10a0",
+      "name": "wrong_ten",
+      "confidence": 1
+    },
+    {
+      "address": "0x10b0",
+      "end": "0x10c0",
+      "name": "twelve",
+      "confidence": 1
+    },
+    {
+      "address": "0x1038",
+      "end": "0x1040",
+      "name": "sub_1038",
+      "confidence": 1
+    },
+    {
+      "address": "0x107c",
+      "end": "0x1080",
+      "name": "sub_107c",
+      "confidence": 1
+    },
+    {
+      "address": "0x2000",
+      "end": "0x2010",
+      "name": "outside",
+      "confidence": 1
+    }
+  ],
+  [],
+  []
+]

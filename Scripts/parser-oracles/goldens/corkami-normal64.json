@@ -1,0 +1,128 @@
+{
+  "agreement": [
+    {
+      "agreed": [
+        "entry_point_va",
+        "exports",
+        "format",
+        "image_base",
+        "import_count",
+        "imports",
+        "machine",
+        "number_of_sections",
+        "sections"
+      ],
+      "disagreed": {},
+      "selection": null,
+      "single_oracle_facts": [],
+      "status_agree": true,
+      "statuses": {
+        "lief": "parsed",
+        "pe-parse": "parsed"
+      }
+    }
+  ],
+  "fixture": {
+    "classification": "valid",
+    "consumers": [
+      "MS-14 PE32+ regression"
+    ],
+    "format": "pe",
+    "id": "corkami-normal64",
+    "provenance": "corkami/pocs 6d277c83 PE/bin/normal64.exe (BSD Licence, 2009-2013 per PE/readme.txt)",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "host_bound": false,
+    "path": "ThirdParty/CorkamiPocs/PE/bin/normal64.exe",
+    "sha256": "d526f32ec97c10f9cef71132c89d457b388711b4a4eb4168da3896fb4d45b6d0",
+    "size": 1024
+  },
+  "results": [
+    {
+      "command": [
+        "<macscope-parser-dump>",
+        "lief",
+        "pe",
+        "<specimen>"
+      ],
+      "error": null,
+      "facts": {
+        "entry_point_va": 4198400,
+        "exports": [],
+        "format": "pe32+",
+        "image_base": 4194304,
+        "import_count": 0,
+        "imports": [],
+        "machine": "amd64",
+        "number_of_sections": 1,
+        "sections": [
+          {
+            "characteristics": 2684354560,
+            "name": "",
+            "raw_pointer": 512,
+            "raw_size": 512,
+            "va": 4198400,
+            "virtual_size": 4096
+          }
+        ]
+      },
+      "oracle": "lief",
+      "selection": null,
+      "status": "parsed"
+    },
+    {
+      "command": [
+        "<macscope-parser-dump>",
+        "pe-parse",
+        "pe",
+        "<specimen>"
+      ],
+      "error": null,
+      "facts": {
+        "entry_point_va": 4198400,
+        "exports": [],
+        "format": "pe32+",
+        "image_base": 4194304,
+        "import_count": 0,
+        "imports": [],
+        "machine": "amd64",
+        "number_of_sections": 1,
+        "sections": [
+          {
+            "characteristics": 2684354560,
+            "name": "",
+            "raw_pointer": 512,
+            "raw_size": 512,
+            "va": 4198400,
+            "virtual_size": 4096
+          }
+        ]
+      },
+      "oracle": "pe-parse",
+      "selection": null,
+      "status": "parsed"
+    }
+  ],
+  "schema": "macscope.parser-oracle-golden.v2",
+  "tools": [
+    {
+      "bridge_source_tree_sha256": "0dd2a9b19790bc0527c86af1dba7e23843c6cb4e32bd62bfe35a973cf4ea3d66",
+      "git_revision": "d05b3499b6934137e917c009a4df0a9dc8cb11c5",
+      "kind": "linked-engine",
+      "oracle": "lief",
+      "source_tree_sha256": "9a4c4d0530ba062f721b9355e863be3f0d4d1f1c23ed7ff021a70a15e4e67243",
+      "version": "1.0.0"
+    },
+    {
+      "bridge_source_tree_sha256": "0dd2a9b19790bc0527c86af1dba7e23843c6cb4e32bd62bfe35a973cf4ea3d66",
+      "git_revision": "7888f1f8de2f6bc302c291a5b4519fad926c0133",
+      "kind": "linked-engine",
+      "oracle": "pe-parse",
+      "source_tree_sha256": "536df18046ac098fba0724096da0a4f867dc7a44109d94cab64fc74fea4e2dc1",
+      "version": "2.1.1"
+    }
+  ]
+}

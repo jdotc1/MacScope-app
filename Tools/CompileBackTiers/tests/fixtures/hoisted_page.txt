@@ -1,0 +1,30 @@
+1000: adrp x20, 0x9000
+1004: nop
+1008: nop
+100c: nop
+1010: nop
+1014: nop
+1018: nop
+101c: nop
+1020: nop
+1024: nop
+1028: nop
+102c: nop
+1030: nop
+1034: nop
+1038: nop
+103c: nop
+1040: nop
+1044: nop
+1048: nop
+104c: nop
+1050: nop
+1054: nop
+1058: nop
+105c: nop
+1060: nop
+1064: nop
+1068: nop
+106c: nop
+1070: ldr x0, [x20, #0x40]
+1074: ret

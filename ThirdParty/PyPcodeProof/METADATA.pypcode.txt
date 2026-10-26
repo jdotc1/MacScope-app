@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: pypcode
+Version: 4.0.0
+Summary: Machine code disassembly and IR translation library
+License-Expression: BSD-2-Clause AND Apache-2.0 AND Zlib
+Project-URL: Homepage, https://api.angr.io/projects/pypcode/en/latest/
+Project-URL: Repository, https://github.com/angr/pypcode
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Provides-Extra: docs
+Requires-Dist: furo; extra == "docs"
+Requires-Dist: ipython; extra == "docs"
+Requires-Dist: myst-parser; extra == "docs"
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints; extra == "docs"
+Provides-Extra: testing
+Requires-Dist: pytest; extra == "testing"
+Requires-Dist: pytest-cov; extra == "testing"
+Requires-Dist: coverage; extra == "testing"
+Requires-Dist: gcovr; extra == "testing"
+Dynamic: license-file

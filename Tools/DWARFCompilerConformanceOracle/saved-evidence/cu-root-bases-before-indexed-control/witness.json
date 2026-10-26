@@ -1,0 +1,103 @@
+{
+  "id": "compile.log",
+  "parent": "clang-d5-O0-multiple-f00",
+  "classification": "PASS_CONTROL",
+  "original_elf_sha256": "bb82e0665ea2edaf1b287ebc89e0b33be73309adb4ae1841dc61347d650867fb",
+  "reduced_elf_sha256": "1dc8453e0f6529075dfcc93c3890f242ff5018cc48330f4579e72681d71d85f4",
+  "admission": "llvm-dwarfdump-19 --verify exit 0 before pyelftools and product execution",
+  "reference": "pyelftools 0.32",
+  "die_count": 1,
+  "cu_count": 1,
+  "original_debug_bytes": 1480,
+  "reduced_debug_bytes": 448,
+  "retained_sections": {
+    ".debug_info": {
+      "bytes": 23,
+      "sha256": "9393b66b09ec1ef377ec3b325c6e7182e36de3210e828210f57350730a81f4ca",
+      "unchanged_from_compiler": false
+    },
+    ".debug_abbrev": {
+      "bytes": 14,
+      "sha256": "3a7c142ab4c8a866f0e3e9885ad5cba0e1681c928fa8a5f2009b0bf66d016ba4",
+      "unchanged_from_compiler": false
+    },
+    ".debug_str": {
+      "bytes": 251,
+      "sha256": "7eab771817ec6614b8ae06e7ec1d23bd336c0498ef7859bdabb717644237ffcb",
+      "unchanged_from_compiler": true
+    },
+    ".debug_addr": {
+      "bytes": 56,
+      "sha256": "d804d4f5ecb0fe566427f5e4d15b0e3fb3a746adb3c6ba4058c7783b754422f3",
+      "unchanged_from_compiler": true
+    },
+    ".debug_str_offsets": {
+      "bytes": 104,
+      "sha256": "cb07b40efa1ae084478752f9b3f879ee88f7b00c434a9e0b63975e8397f191aa",
+      "unchanged_from_compiler": true
+    }
+  },
+  "allocated_sections_and_linked_addresses_unchanged": true,
+  "attribute_source_map": [
+    {
+      "tag": "DW_TAG_compile_unit",
+      "original_die_offset": 121,
+      "attributes": [
+        {
+          "name": "DW_AT_str_offsets_base",
+          "form": "DW_FORM_sec_offset",
+          "original_byte_span": [
+            126,
+            130
+          ],
+          "bytes_hex": "38000000"
+        },
+        {
+          "name": "DW_AT_addr_base",
+          "form": "DW_FORM_sec_offset",
+          "original_byte_span": [
+            140,
+            144
+          ],
+          "bytes_hex": "20000000"
+        },
+        {
+          "name": "DW_AT_name",
+          "form": "DW_FORM_strx1",
+          "original_byte_span": [
+            125,
+            126
+          ],
+          "bytes_hex": "01"
+        },
+        {
+          "name": "DW_AT_low_pc",
+          "form": "DW_FORM_addrx",
+          "original_byte_span": [
+            135,
+            136
+          ],
+          "bytes_hex": "00"
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "attribute": "3",
+      "expected": "entry.c",
+      "observed": "entry.c",
+      "equal": true
+    },
+    {
+      "attribute": "17",
+      "expected": 4198448,
+      "observed": 4198448,
+      "equal": true
+    }
+  ],
+  "llvm_rendering_contains_expected": true,
+  "mechanism": "Causal control: reorder only the same base and indexed attributes; independent semantic values unchanged.",
+  "minimality": "Same one-DIE reduction as the mismatch; only abbreviation/attribute ordering differs.",
+  "reduction": "Drop all other DIEs and CUs, all unrelated attributes, and now-unreferenced debug sections. Copy retained encoded attribute bytes verbatim in original order; rebuild only CU header/abbreviation declarations. No stmt_list survives removing debug_line."
+}

@@ -1,0 +1,15 @@
+{
+  "target": "arm64-apple-macosx27.0",
+  "architecture": "arm64",
+  "deployment_target": "27.0",
+  "language": "c",
+  "dialect": "c17",
+  "objc_runtime": "none",
+  "arc": false,
+  "blocks": true,
+  "modules": "disabled",
+  "include_roots": [],
+  "framework_roots": [],
+  "defines": [],
+  "undefines": []
+}

@@ -1,0 +1,784 @@
+{
+  "agreement": [
+    {
+      "selection": "image",
+      "status_agree": true,
+      "statuses": {
+        "dyld_info": "parsed"
+      }
+    }
+  ],
+  "fixture": {
+    "classification": "valid",
+    "consumers": [
+      "MS-16 dyld-cache image identity",
+      "RX-02 gap audit (system framework)"
+    ],
+    "format": "dyld",
+    "id": "dyld-host-libobjc",
+    "provenance": "this Mac's read-only system dyld shared cache; never copied or committed. The golden binds every cache file by SHA-256 and goes stale when macOS updates.",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "cache": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_arm64e",
+    "cache_files": [
+      {
+        "name": "dyld_shared_cache_arm64e",
+        "sha256": "7f7653a35686733e9799d778725367d47e01cc35f56ce383dc31544e26f500c6",
+        "size": 753664
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.01",
+        "sha256": "efb80ad4f644c0a488ddab954ff6256c578486a1af7681bf302100ccecbdbbfd",
+        "size": 130711552
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.02",
+        "sha256": "671a061db7f317480fb0da7015c2b2209eba98da6aa08c3f1d8c5bc7b72a1d1c",
+        "size": 229376
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.03",
+        "sha256": "934a04b7f8b75b0fc1a02427e7e7e3f25a56734df893dedfac4be994223831b4",
+        "size": 131284992
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.04",
+        "sha256": "36a2b0d3d531bf027b7a7f80dff1bda2d9cc4ee22a8434f494cc10ff4ad2b46d",
+        "size": 245760
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.05",
+        "sha256": "aa1722cda5f543ad0b6264a65033faa397a6eb44d436e86a478e55d93e0ac443",
+        "size": 131203072
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.06",
+        "sha256": "14b07073b20644e31fa2f06f80800156f9276d7213887c83b71a3d11f89ad4e4",
+        "size": 229376
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.07",
+        "sha256": "85f8b40db7dc4b83af3cfe68da4fc0a2b961a6a665f7d857116bf69863c2e175",
+        "size": 130809856
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.08",
+        "sha256": "c28555fa783ee6a8b85f9dd53e8090c37cc2d84857f0684844d4f086889e60be",
+        "size": 278528
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.09",
+        "sha256": "e3bfd60670fc80df2d4d3156acc03eaca1e45f8cdf7678b10c90c23b29278f4d",
+        "size": 131121152
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.10",
+        "sha256": "6f5990aa412a831f67e0356229b741b1704bd40651cdc6415754e28da1f9ee53",
+        "size": 245760
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.11",
+        "sha256": "b6b168df7e7b8749a856ffd85ed075d11ecb2bfd88fe2615aab8a5cca6d10ee7",
+        "size": 131940352
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.12",
+        "sha256": "75c1b41745d589c768ea39eff32fc8e1c6aa135904183b2309da621967dae8d7",
+        "size": 245760
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.13",
+        "sha256": "10eed1537ef59fcbb7132bfc18fde2625811281db6e4996349983f32d72e6d25",
+        "size": 131366912
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.14",
+        "sha256": "a100ab26f9ac8b4e9f89b1d3649d9fdb4758a65186c55aaa66e253c762e6e5fa",
+        "size": 344064
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.15",
+        "sha256": "c265e54d4d1cd3e1cd897b9c3ea6e9a6493f3c99410064ae61a61aa7e59fb3db",
+        "size": 131170304
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.16",
+        "sha256": "4f7f07fd6ac6eceec1ce38f8c1c13f4b730fd7d7cab8435433df5d1346c9bf83",
+        "size": 212992
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.17",
+        "sha256": "94d27f1701c0e4fcad72a9525849fd472b347f848ab2886cc1d2c7c90baa866c",
+        "size": 131334144
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.18",
+        "sha256": "32b5586e2cbd84ed7735c45d1c169234238411131d8b323f94db91d9ee94a72b",
+        "size": 229376
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.19",
+        "sha256": "8dfb6fd9ce22e0d55982430eb4daf890c55597f4ad29fbea9834bbb7a96f63cf",
+        "size": 131268608
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.20",
+        "sha256": "4ca754b2423a61474e5771784e8b442b5942ab4d447672be698e01e7d3d012c2",
+        "size": 294912
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.21",
+        "sha256": "9c593bf0c0f209d37ce5c83f6a9bf8079d47135a5b4bd85ac9f2c66800fda3f9",
+        "size": 131317760
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.22",
+        "sha256": "7654451a8c363a8912cd2203c03d7350a284c2e59c1da0d430eeeeb35652a943",
+        "size": 262144
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.23",
+        "sha256": "bdf3a5148327c198771e23959132ccac0ef3a2e0b03cdc237d533315a6280336",
+        "size": 131399680
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.24",
+        "sha256": "619402f6d13228e4e136113499619d6926162bf55a1ae4b47641eddde428309e",
+        "size": 360448
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.25.dylddata",
+        "sha256": "126b3e54ffe6d9c434084d5c372aab5d4108a928469004d7802f47f36ef8be2d",
+        "size": 219873280
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.26.dyldreadonly",
+        "sha256": "c4c9474133d8a4d7f7223fc7259615ee4318244f9efb42425e808ce432c34e0b",
+        "size": 179683328
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.27",
+        "sha256": "eeec68af069787a3b0f7b1b0c2f9c3165932a52bd2dfc975b852082744d653b3",
+        "size": 32768
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.28",
+        "sha256": "74116092cb63e8bcf7146f39eacdf57943e8e7154ea07596d9a5b0ea97684bb1",
+        "size": 131268608
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.29",
+        "sha256": "a0a48f94b3e2b4d92a9db2fd3ebc966452b1d06fafed16aed7cea100da74b7b0",
+        "size": 344064
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.30",
+        "sha256": "be20751777bd0b3cff08c100f783694218ceb458429c9938491ab4114687fb02",
+        "size": 131874816
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.31",
+        "sha256": "ae31143ccfa1adc0ec46099890e8a2c40d41898760ef709e42779e8a01d3f856",
+        "size": 376832
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.32",
+        "sha256": "1baed43533eb17aac605b9dfed547b14ae66681e481924380310825c9c6ce9d7",
+        "size": 131268608
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.33",
+        "sha256": "649eef7250f7749256299a9b9f243fcfdbc685912242b3893e69a0d14a3cc4af",
+        "size": 393216
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.34",
+        "sha256": "a00147c00362ff9ad2e8882cbfb746f7990480a1d607be309f880435617aa8e3",
+        "size": 130940928
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.35",
+        "sha256": "60247263bfa0f7cf16783ebf2bfa5cc0c779d1b04f6d727bba33a3e5b0a66e43",
+        "size": 491520
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.36",
+        "sha256": "4abc1618211ec0197829d678e3ea3901d25e90ca5fe0871cba610d6d4e40b1aa",
+        "size": 130351104
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.37",
+        "sha256": "9dbc719d5adf85882f3669f6972c15b13be9040fcb96a356156e249e7f1780b2",
+        "size": 147456
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.38",
+        "sha256": "9b44da00ad43694a9a977939635af610f8686c3d663e9b4a166edf481b9a5de7",
+        "size": 131383296
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.39",
+        "sha256": "cc9008cfcfdc6f8eaad3a0af1a2d5f526931227442852cdbb22ab3bd8c4c4b60",
+        "size": 344064
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.40",
+        "sha256": "ccfb58c7b027f17a2a3373462b4b23ddef6ce7dc532ce28dc99c96d320202b0b",
+        "size": 130826240
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.41",
+        "sha256": "64dd0b0fddc682771a3d745ea72f7f0641c946a606129e95f5ef572e86f8243a",
+        "size": 344064
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.42",
+        "sha256": "3a7d815946c2c9df90bff113a1569715a880b802cb24420e8bbb389251bd890e",
+        "size": 131334144
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.43",
+        "sha256": "cec061aa312133076715b965e95cffa233e72e9a4e3cbd937d94f10497166064",
+        "size": 327680
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.44",
+        "sha256": "55d0fbf98043c3f2dedf62a450a43bb08c297d84d05485bd7de588feb90fa99f",
+        "size": 131137536
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.45",
+        "sha256": "6ec21c4bc91cc9d4d5a6b1f7060f3c61dcc4f8c7b79775e7923f625befd7beb5",
+        "size": 425984
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.46",
+        "sha256": "bc6afb0cc8f4221d1f18bdc22069deecb6236f0ae7c4a2a3daf290fe039db994",
+        "size": 130449408
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.47",
+        "sha256": "39e10667ff11796b7bdc07af7c90d7686910af90f79ee24f5ca38b52674aeba9",
+        "size": 65536
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.48",
+        "sha256": "8cde4c27794fec5a940529de8883e6cb375d96ed9fd140251ecaf8d2b2106826",
+        "size": 130678784
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.49",
+        "sha256": "098d5645d6b6c0a453f3a1cd46f0ae7baed0b377676dd0712e30123447e191b6",
+        "size": 212992
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.50",
+        "sha256": "2364a23c5fb6145e7dbc24c94faa8d381973bfbb48994010f53e0d59ced4585e",
+        "size": 130596864
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.51",
+        "sha256": "33754b0b75edfe3d115d728a06d37bd9e7aec049e43a45389474b960be381981",
+        "size": 376832
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.52",
+        "sha256": "c8d9a1eded175cd35ed4d2522d9bc9639e0aa18fe735e1406b3f10078d4899ab",
+        "size": 130727936
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.53",
+        "sha256": "8415d025d77de184010537dc4e6b1f158c77b397660fe99081f9ba2ddf409b8d",
+        "size": 344064
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.54.dylddata",
+        "sha256": "cce01fc33453bbf08fda9270c5a1a5244d4d1d299e89023ea80dfbc515d97626",
+        "size": 204341248
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.55.dyldreadonly",
+        "sha256": "7be71473fe31978fbc3ea290ffb68f71323aa6b339f68599df0fbd01872920aa",
+        "size": 5341184
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.56",
+        "sha256": "471d8dc01c06448649b80831e3582d9b4f1de877bcabef7ac4391ab72f00a45a",
+        "size": 32768
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.57",
+        "sha256": "49d5324667f8f7a2e0c402f5af9991feaa32260e55d1b6cc99c994fd7e56ee13",
+        "size": 130367488
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.58",
+        "sha256": "e40f1a9d9869aad1a470801083f76a06d7b0e640787341e0a157bb57fca3d951",
+        "size": 147456
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.59",
+        "sha256": "e6febdb5153ef43f0d4880819841430ee48f9742743c4ba0a3b124a3c5d7e82f",
+        "size": 130678784
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.60",
+        "sha256": "292ad79411ca9f6547824fe00ab7e80dc5ace8f91a085f5d97b8672b5242e072",
+        "size": 294912
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.61",
+        "sha256": "a4398bce8ea7e384d112789cae9f8a69b8f93c2c36b623d7304f15a230d34724",
+        "size": 130695168
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.62",
+        "sha256": "f6bfcb842243a3ff79b152e18a3187a2b1f95bea4022e51faff0e248a949428d",
+        "size": 262144
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.63",
+        "sha256": "db7291b296538c9a341c50e817aab07f6bbec9e5132c6f5e1b634d5210f95313",
+        "size": 130482176
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.64",
+        "sha256": "0c64e45f6ce510b72248a86f80dcf0452af96949e248b64d34601b9f9edac4dd",
+        "size": 180224
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.65",
+        "sha256": "f2048ba5c999ef0c63b16255547cbd150c7101be46dfadba14758cfdda0d1f26",
+        "size": 130973696
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.66",
+        "sha256": "09c5322e8a89c6990791b52897ff189422ab73af1af46a9ee5690c195d5373a2",
+        "size": 425984
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.67",
+        "sha256": "45decc0e64faa3ecc47c3e3e32d834742d84cfcf9244f7d010d08259c09bb1d4",
+        "size": 130777088
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.68",
+        "sha256": "65a345a0a143f40683a6052072d1847f43d88a74fdcedf760f855bd5511342f2",
+        "size": 278528
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.69",
+        "sha256": "78dc0272dc2db9ee9df8700dc47e32cd6ee6a03ba4cbb2a619e5c7e22d298abc",
+        "size": 130646016
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.70",
+        "sha256": "f2c91ac93799861e1fa84ace614253de95e170c93c42fcf0694424d87c6846c3",
+        "size": 278528
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.71",
+        "sha256": "6fac08e2d6666b4e49043d9968e92c4b093a7e69fb59857403f89c52f5e6137b",
+        "size": 131088384
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.72",
+        "sha256": "0fa7d7986c4a35cb2059094d8f2e731b00713ae4c7b2a80bd5ee3371b027cfc8",
+        "size": 327680
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.73",
+        "sha256": "1d45655d21e681665457cf311083be73a0f0e4c643f4a2ef7a5e92892bafe015",
+        "size": 131170304
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.74",
+        "sha256": "a8c91b74373ebc201c238c6284611cde1a84936e236ba43a079e0506902c4927",
+        "size": 409600
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.75",
+        "sha256": "9f4a7afc732cd55cd8ac310cf3d7897c2446ce9f73d4e58e65b0d0841d21c5bd",
+        "size": 130629632
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.76",
+        "sha256": "c6cf8f76c70e34be771f23b8d5744d60639db965d63c03c10fffe221f3cc5b7a",
+        "size": 344064
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.77",
+        "sha256": "016d7c8e44aa5b96f1cc69218aa4012d6f7f0057323ad63d04068dff74acd65a",
+        "size": 130301952
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.78",
+        "sha256": "1e0818242d40d50a50ed88c41f1c0175756850ffdf8ca0cbbdba9e22db8104dc",
+        "size": 147456
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.79.dylddata",
+        "sha256": "22bc4a1ce05d891589a658b100f60f8b84c647ed3fb6a313e67af9e9ed8744a5",
+        "size": 170491904
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.80.dyldreadonly",
+        "sha256": "3a04a9882056e279b4f11c6f05a2d17a8fdac77511ea74bd3cad97e93f275edd",
+        "size": 1982464
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.81.dyldlinkedit",
+        "sha256": "8bb6b56b4cba39f13a66a9d7bd41f38100c2d57a9a2bf646e54b751bfeb96e1e",
+        "size": 1698807808
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.atlas",
+        "sha256": "b59c5bab942ce8ac31ca9e6d8245cbb0308da62452bcd15e6e871c5c62187e40",
+        "size": 2707356
+      },
+      {
+        "name": "dyld_shared_cache_arm64e.map",
+        "sha256": "37af08b1e5e0f448738f528dadd0cd50c8da5282ee71383ef7b878e25d875ec8",
+        "size": 1504163
+      }
+    ],
+    "host_bound": true,
+    "image": "/usr/lib/libobjc.A.dylib",
+    "macos": {
+      "build_version": "26B5101f",
+      "product_version": "27.2"
+    }
+  },
+  "results": [
+    {
+      "command": [
+        "<dyld_info>",
+        "-platform",
+        "-segments",
+        "-dependents",
+        "/usr/lib/libobjc.A.dylib"
+      ],
+      "error": null,
+      "facts": {
+        "dependents": [
+          "/usr/lib/objc/libobjcMsgSend.dylib",
+          "/usr/lib/libc++abi.dylib",
+          "/usr/lib/libRosetta.dylib",
+          "/usr/lib/libobjc-env.dylib",
+          "/usr/lib/libc++.1.dylib",
+          "/usr/lib/libSystem.B.dylib",
+          "/usr/lib/swift/libswiftCore.dylib"
+        ],
+        "platform": {
+          "minos": "27.2.0",
+          "platform": "zippered(macOS/Catalyst)",
+          "sdk": "27.2.0"
+        },
+        "sections": [
+          {
+            "addr": 12893328016,
+            "name": "__text",
+            "segment": "__TEXT",
+            "size": 254204
+          },
+          {
+            "addr": 12893582220,
+            "name": "__lazy_helpers",
+            "segment": "__TEXT",
+            "size": 168
+          },
+          {
+            "addr": 12893582392,
+            "name": "__objc_methlist",
+            "segment": "__TEXT",
+            "size": 1516
+          },
+          {
+            "addr": 12893583920,
+            "name": "__const",
+            "segment": "__TEXT",
+            "size": 16688
+          },
+          {
+            "addr": 12893600608,
+            "name": "__objc_dyld",
+            "segment": "__TEXT",
+            "size": 4
+          },
+          {
+            "addr": 12893600616,
+            "name": "__objc_opt_ro",
+            "segment": "__TEXT",
+            "size": 16384
+          },
+          {
+            "addr": 12893617000,
+            "name": "__cstring",
+            "segment": "__TEXT",
+            "size": 20467
+          },
+          {
+            "addr": 12893637468,
+            "name": "__gcc_except_tab",
+            "segment": "__TEXT",
+            "size": 2860
+          },
+          {
+            "addr": 12893640328,
+            "name": "__dof_objc_runt",
+            "segment": "__TEXT",
+            "size": 4408
+          },
+          {
+            "addr": 12893644736,
+            "name": "__objc_init_offs",
+            "segment": "__TEXT",
+            "size": 0
+          },
+          {
+            "addr": 12893644736,
+            "name": "__unwind_info",
+            "segment": "__TEXT",
+            "size": 3736
+          },
+          {
+            "addr": 12893648472,
+            "name": "__auth_stubs",
+            "segment": "__TEXT",
+            "size": 0
+          },
+          {
+            "addr": 12893648472,
+            "name": "__objc_classname",
+            "segment": "__TEXT",
+            "size": 0
+          },
+          {
+            "addr": 12893648472,
+            "name": "__objc_methname",
+            "segment": "__TEXT",
+            "size": 0
+          },
+          {
+            "addr": 12893648472,
+            "name": "__objc_methtype",
+            "segment": "__TEXT",
+            "size": 0
+          },
+          {
+            "addr": 14501664000,
+            "name": "__const",
+            "segment": "__DATA_CONST",
+            "size": 2288
+          },
+          {
+            "addr": 14501666288,
+            "name": "__objc_classlist",
+            "segment": "__DATA_CONST",
+            "size": 40
+          },
+          {
+            "addr": 14501666328,
+            "name": "__objc_nlclslist",
+            "segment": "__DATA_CONST",
+            "size": 32
+          },
+          {
+            "addr": 14501666360,
+            "name": "__objc_protolist",
+            "segment": "__DATA_CONST",
+            "size": 8
+          },
+          {
+            "addr": 14501666368,
+            "name": "__objc_imageinfo",
+            "segment": "__DATA_CONST",
+            "size": 8
+          },
+          {
+            "addr": 14501666376,
+            "name": "__objc_selrefs",
+            "segment": "__DATA_CONST",
+            "size": 464
+          },
+          {
+            "addr": 14501666840,
+            "name": "__objc_scoffs",
+            "segment": "__DATA_CONST",
+            "size": 40
+          },
+          {
+            "addr": 14501666880,
+            "name": "__got",
+            "segment": "__DATA_CONST",
+            "size": 104
+          },
+          {
+            "addr": 14534594784,
+            "name": "__const",
+            "segment": "__AUTH_CONST",
+            "size": 1368
+          },
+          {
+            "addr": 14534596152,
+            "name": "__objc_const",
+            "segment": "__AUTH_CONST",
+            "size": 1128
+          },
+          {
+            "addr": 14534597280,
+            "name": "__lazy_load_got",
+            "segment": "__AUTH_CONST",
+            "size": 16
+          },
+          {
+            "addr": 14534597296,
+            "name": "__auth_got",
+            "segment": "__AUTH_CONST",
+            "size": 1160
+          },
+          {
+            "addr": 14534598464,
+            "name": "__auth_ptr",
+            "segment": "__AUTH_CONST",
+            "size": 0
+          },
+          {
+            "addr": 14745999040,
+            "name": "__objc_data",
+            "segment": "__AUTH",
+            "size": 80
+          },
+          {
+            "addr": 14745999120,
+            "name": "__objc_opt_ptrs",
+            "segment": "__AUTH",
+            "size": 8
+          },
+          {
+            "addr": 14745999128,
+            "name": "__data",
+            "segment": "__AUTH",
+            "size": 64
+          },
+          {
+            "addr": 14685061120,
+            "name": "__objc_ivar",
+            "segment": "__DATA",
+            "size": 8
+          },
+          {
+            "addr": 14685061128,
+            "name": "__data",
+            "segment": "__DATA",
+            "size": 192
+          },
+          {
+            "addr": 14685061376,
+            "name": "__bss",
+            "segment": "__DATA",
+            "size": 1821
+          },
+          {
+            "addr": 14685063200,
+            "name": "__common",
+            "segment": "__DATA",
+            "size": 24
+          },
+          {
+            "addr": 14726579456,
+            "name": "__objc_data",
+            "segment": "__DATA_DIRTY",
+            "size": 320
+          },
+          {
+            "addr": 14726579776,
+            "name": "__data",
+            "segment": "__DATA_DIRTY",
+            "size": 2260
+          },
+          {
+            "addr": 14726582040,
+            "name": "__crash_info",
+            "segment": "__DATA_DIRTY",
+            "size": 328
+          },
+          {
+            "addr": 14726582400,
+            "name": "__bss",
+            "segment": "__DATA_DIRTY",
+            "size": 23120
+          },
+          {
+            "addr": 14726605520,
+            "name": "__common",
+            "segment": "__DATA_DIRTY",
+            "size": 40
+          }
+        ],
+        "segments": [
+          {
+            "initprot": "r-x",
+            "maxprot": "r-x",
+            "name": "__TEXT",
+            "size_kb": 317,
+            "vmaddr": 6446661632
+          },
+          {
+            "initprot": "rw-",
+            "maxprot": "rw-",
+            "name": "__DATA_CONST",
+            "size_kb": 2,
+            "vmaddr": 8055002368
+          },
+          {
+            "initprot": "rw-",
+            "maxprot": "rw-",
+            "name": "__AUTH_CONST",
+            "size_kb": 3,
+            "vmaddr": 8087933152
+          },
+          {
+            "initprot": "rw-",
+            "maxprot": "rw-",
+            "name": "__AUTH",
+            "size_kb": 0,
+            "vmaddr": 8299337408
+          },
+          {
+            "initprot": "rw-",
+            "maxprot": "rw-",
+            "name": "__DATA",
+            "size_kb": 2,
+            "vmaddr": 8238399488
+          },
+          {
+            "initprot": "rw-",
+            "maxprot": "rw-",
+            "name": "__DATA_DIRTY",
+            "size_kb": 25,
+            "vmaddr": 8279917824
+          }
+        ]
+      },
+      "oracle": "dyld_info",
+      "selection": "image",
+      "status": "parsed"
+    }
+  ],
+  "schema": "macscope.parser-oracle-golden.v2",
+  "tools": [
+    {
+      "executable_sha256": "bc708fdf9306f01bfdfd979577d18493f71bcf5879c0d59274b7cfe2cd716c1d",
+      "kind": "platform-tool",
+      "macos": {
+        "build_version": "26B5101f",
+        "product_version": "27.2"
+      },
+      "oracle": "dyld_info"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "analysis" : {
+    "addressOverrides" : [
+
+    ],
+    "basicBlocks" : [
+      {
+        "endAddress" : 4294967336,
+        "functionID" : "15C4881C-D0DE-4180-A824-546E96D77736",
+        "id" : "5D1311C5-6F8A-4C89-A247-55CA9EA423ED",
+        "instructionCount" : 10,
+        "startAddress" : 4294967296
+      },
+      {
+        "endAddress" : 4294971968,
+        "functionID" : "5009963F-8024-4DB7-B832-F5E43FECB187",
+        "id" : "F904FA92-1221-48B0-82B9-E0B19E49D7F2",
+        "instructionCount" : 18,
+        "startAddress" : 4294971392
+      },
+      {
+        "endAddress" : 4294976384,
+        "functionID" : "58356E66-1A75-4771-BDE6-2FDB747A40E0",
+        "id" : "FA42DCBE-F50C-4DAE-BB60-B4C56A29F158",
+        "instructionCount" : 24,
+        "startAddress" : 4294975488
+      }
+    ],
+    "bookmarks" : [
+
+    ],
+    "controlFlowEdges" : [
+      {
+        "from" : 4294967316,
+        "id" : "D6682B74-DD8C-4B9B-B48F-F840891C03D1",
+        "kind" : "call",
+        "to" : 4294971392
+      },
+      {
+        "from" : 4294975520,
+        "id" : "FC97DA11-B8C2-4870-A6C6-3AE70E6281C6",
+        "kind" : "reference",
+        "to" : 4294967296
+      }
+    ],
+    "exports" : [
+
+    ],
+    "functions" : [
+      {
+        "confidence" : 0.92,
+        "endAddress" : 4294967336,
+        "id" : "15C4881C-D0DE-4180-A824-546E96D77736",
+        "name" : "_main",
+        "startAddress" : 4294967296
+      },
+      {
+        "confidence" : 0.71,
+        "endAddress" : 4294971968,
+        "id" : "5009963F-8024-4DB7-B832-F5E43FECB187",
+        "name" : "_analyze_macho",
+        "startAddress" : 4294971392
+      },
+      {
+        "confidence" : 0.66,
+        "endAddress" : 4294976384,
+        "id" : "58356E66-1A75-4771-BDE6-2FDB747A40E0",
+        "name" : "_render_listing",
+        "startAddress" : 4294975488
+      }
+    ],
+    "imports" : [
+
+    ],
+    "indirectSymbols" : [
+
+    ],
+    "instructions" : [
+      {
+        "address" : 4294967296,
+        "bytes" : "ff 83 00 d1",
+        "comment" : "Stack frame",
+        "hasBreakpoint" : false,
+        "mnemonic" : "sub",
+        "operands" : "sp, sp, #0x20"
+      },
+      {
+        "address" : 4294967300,
+        "bytes" : "fd 7b 01 a9",
+        "hasBreakpoint" : true,
+        "mnemonic" : "stp",
+        "operands" : "x29, x30, [sp, #0x10]"
+      },
+      {
+        "address" : 4294967304,
+        "bytes" : "fd 43 00 91",
+        "hasBreakpoint" : false,
+        "mnemonic" : "add",
+        "operands" : "x29, sp, #0x10"
+      },
+      {
+        "address" : 4294967308,
+        "bytes" : "08 00 00 90",
+        "comment" : "Page-relative address",
+        "hasBreakpoint" : false,
+        "mnemonic" : "adrp",
+        "operands" : "x8, 0x100002000"
+      },
+      {
+        "address" : 4294967312,
+        "bytes" : "00 01 40 f9",
+        "hasBreakpoint" : false,
+        "mnemonic" : "ldr",
+        "operands" : "x0, [x8]"
+      },
+      {
+        "address" : 4294967316,
+        "bytes" : "05 00 00 94",
+        "comment" : "Call analysis entry",
+        "hasBreakpoint" : false,
+        "mnemonic" : "bl",
+        "operands" : "_analyze_macho"
+      },
+      {
+        "address" : 4294967320,
+        "bytes" : "00 00 80 52",
+        "hasBreakpoint" : false,
+        "mnemonic" : "mov",
+        "operands" : "w0, #0"
+      },
+      {
+        "address" : 4294967324,
+        "bytes" : "fd 7b 41 a9",
+        "hasBreakpoint" : false,
+        "mnemonic" : "ldp",
+        "operands" : "x29, x30, [sp, #0x10]"
+      },
+      {
+        "address" : 4294967328,
+        "bytes" : "ff 83 00 91",
+        "hasBreakpoint" : false,
+        "mnemonic" : "add",
+        "operands" : "sp, sp, #0x20"
+      },
+      {
+        "address" : 4294967332,
+        "bytes" : "c0 03 5f d6",
+        "hasBreakpoint" : false,
+        "mnemonic" : "ret",
+        "operands" : ""
+      }
+    ],
+    "logicalBreakpointCatalog" : {
+      "catalogID" : "93499EA3-0258-4CAE-906E-2196AB343B04",
+      "revision" : 1,
+      "schemaVersion" : 1,
+      "specifications" : [
+        {
+          "actions" : [
+
+          ],
+          "disposition" : "stop",
+          "enabled" : true,
+          "hitPolicy" : {
+            "type" : "always"
+          },
+          "id" : {
+            "rawValue" : "00000000-0000-4000-8000-000000000001"
+          },
+          "revision" : 1,
+          "schemaVersion" : 1,
+          "target" : {
+            "owner" : {
+              "binaryID" : "C8AE340C-EA6B-47C5-B06B-7389903CA479",
+              "slot" : 0
+            },
+            "preferredVA" : 4294967300,
+            "type" : "preferredAddress"
+          }
+        }
+      ]
+    },
+    "manualXRefs" : [
+
+    ],
+    "segmentOverrides" : [
+
+    ],
+    "stringLiterals" : [
+
+    ],
+    "symbols" : [
+
+    ],
+    "typeDefinitions" : [
+
+    ],
+    "xrefs" : [
+      {
+        "from" : 4294967316,
+        "id" : "C1D6AF67-00E7-450E-B9CA-F1D9EB0B6067",
+        "kind" : "call",
+        "to" : 4294971392
+      },
+      {
+        "from" : 4294975520,
+        "id" : "ACD0BAC3-5725-4120-A3E4-67CB338532CC",
+        "kind" : "reference",
+        "to" : 4294967296
+      }
+    ]
+  },
+  "binaries" : [
+    {
+      "architecture" : "arm64",
+      "attachmentRelativePath" : "attachments\/c8ae340c-ea6b-47c5-b06b-7389903ca479\/Sample.app",
+      "displayName" : "MacScope Sample Binary",
+      "fileHash" : "ffcdbf1a84cb4e0cc2ba8b1093258c469f238f1f973f884e9c66f07615b00142",
+      "fileSize" : 40,
+      "id" : "C8AE340C-EA6B-47C5-B06B-7389903CA479",
+      "kind" : "synthetic arm64 fixture",
+      "originalPath" : "\/Applications\/Sample.app"
+    }
+  ],
+  "bookmarkResolutionDecision" : "resolve_stored_bookmarks",
+  "createdAt" : "2024-08-30T06:40:00.000Z",
+  "documentID" : "6504843E-6232-4CE2-8FE6-661F7C4CA2F8",
+  "formatIdentifier" : "org.macscope.workspace-package",
+  "formatVersion" : 1,
+  "inputCopyingDecision" : "copy_inputs_into_package",
+  "modifiedAt" : "2024-08-30T06:40:00.000Z",
+  "session" : {
+    "editorMode" : "Disassembly",
+    "isInspectorPresented" : true,
+    "selectedAddress" : 4294967296,
+    "selectedSidebarItemID" : "binary:C8AE340C-EA6B-47C5-B06B-7389903CA479",
+    "selectedTool" : "Project",
+    "sidebarSearchText" : "",
+    "updatedAt" : "2024-08-30T06:40:00.000Z"
+  },
+  "workspaceName" : "Task 10 persisted workspace",
+  "workspaceUUID" : "D713C025-9C94-433C-AA15-9423F629EACA"
+}

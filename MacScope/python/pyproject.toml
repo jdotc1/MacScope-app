@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "macscope"
+version = "0.1.0"
+description = "Python client for the MacScope binary-analysis app (drives MacScope --mcp over JSON-RPC/MCP)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "MacScope" }]
+keywords = ["reverse-engineering", "disassembler", "mach-o", "elf", "pe", "mcp"]
+# Intentionally NO runtime dependencies — pure standard library.
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["macscope*"]

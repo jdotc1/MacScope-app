@@ -1,0 +1,11 @@
+{
+  "integrationMode": "direct-source",
+  "materializedByteCount": 746961,
+  "materializedFileCount": 19,
+  "provider": "swiftbin/swift-assembly",
+  "schemaVersion": 1,
+  "sourceIdentityFile": "SOURCE_IDENTITY.json",
+  "sourceIdentitySHA256": "063a49e06b080a9f3488b5ba4c4f496eabc7778e6dbe09ce91a3de25c30f4afa",
+  "swiftSourceCount": 15,
+  "treeSHA256": "05235d94e3b47c2ba1e0163ad0cb596078420e1590345a281ba94088d981e24c"
+}

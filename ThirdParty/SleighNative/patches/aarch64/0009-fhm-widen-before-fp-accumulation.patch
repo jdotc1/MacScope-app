@@ -1,0 +1,689 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+@@ -8558,19 +8558,21 @@
+ :fmlal Rd_VPR64.2S, vRn_VPR64^".2H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=0 & b_2329=0b0011111 & b_22=0 & b_1215=0b0000 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPS1 = Rn_VPR64[0,32];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPS2 = TMPS1 f* tmp2 on lane size 2
+-	TMPS2[0,16] = TMPS1[0,16] f* tmp2;
+-	TMPS2[16,16] = TMPS1[16,16] f* tmp2;
+-	# simd resize TMPD3 = float2float(TMPS2) (lane size 2 to 4)
+-	TMPD3[0,32] = float2float(TMPS2[0,16]);
+-	TMPD3[32,32] = float2float(TMPS2[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S + TMPD3 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] + TMPD3[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] + TMPD3[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.123 FMLAL, FMLAL2 (by element) page C7-2294 line 134165 MATCH x0f800000/mask=xbfc0f400
+@@ -8583,25 +8585,29 @@
+ :fmlal Rd_VPR128.4S, vRn_VPR128^".4H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=1 & b_2329=0b0011111 & b_22=0 & b_1215=0b0000 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPD1 = Rn_VPR128[0,64];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPD2 = TMPD1 f* tmp2 on lane size 2
+-	TMPD2[0,16] = TMPD1[0,16] f* tmp2;
+-	TMPD2[16,16] = TMPD1[16,16] f* tmp2;
+-	TMPD2[32,16] = TMPD1[32,16] f* tmp2;
+-	TMPD2[48,16] = TMPD1[48,16] f* tmp2;
+-	# simd resize TMPQ3 = float2float(TMPD2) (lane size 2 to 4)
+-	TMPQ3[0,32] = float2float(TMPD2[0,16]);
+-	TMPQ3[32,32] = float2float(TMPD2[16,16]);
+-	TMPQ3[64,32] = float2float(TMPD2[32,16]);
+-	TMPQ3[96,32] = float2float(TMPD2[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S + TMPQ3 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] + TMPQ3[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] + TMPQ3[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] + TMPQ3[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] + TMPQ3[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	local n2:4 = float2float(sourceN[32,16]);
++	local m2:4 = float2float(sourceM);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f+ product2;
++	local n3:4 = float2float(sourceN[48,16]);
++	local m3:4 = float2float(sourceM);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f+ product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.123 FMLAL, FMLAL2 (by element) page C7-2294 line 134165 MATCH x2f808000/mask=xbfc0f400
+@@ -8614,19 +8620,21 @@
+ :fmlal2 Rd_VPR64.2S, vRn_VPR64^".2H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=0 & b_2329=0b1011111 & b_22=0 & b_1215=0b1000 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPS1 = Rn_VPR64[32,32];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPS2 = TMPS1 f* tmp2 on lane size 2
+-	TMPS2[0,16] = TMPS1[0,16] f* tmp2;
+-	TMPS2[16,16] = TMPS1[16,16] f* tmp2;
+-	# simd resize TMPD3 = float2float(TMPS2) (lane size 2 to 4)
+-	TMPD3[0,32] = float2float(TMPS2[0,16]);
+-	TMPD3[32,32] = float2float(TMPS2[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S + TMPD3 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] + TMPD3[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] + TMPD3[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[32,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[48,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.123 FMLAL, FMLAL2 (by element) page C7-2294 line 134165 MATCH x2f808000/mask=xbfc0f400
+@@ -8639,25 +8647,29 @@
+ :fmlal2 Rd_VPR128.4S, vRn_VPR128^".4H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=1 & b_2329=0b1011111 & b_22=0 & b_1215=0b1000 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPD1 = Rn_VPR128[64,64];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPD2 = TMPD1 f* tmp2 on lane size 2
+-	TMPD2[0,16] = TMPD1[0,16] f* tmp2;
+-	TMPD2[16,16] = TMPD1[16,16] f* tmp2;
+-	TMPD2[32,16] = TMPD1[32,16] f* tmp2;
+-	TMPD2[48,16] = TMPD1[48,16] f* tmp2;
+-	# simd resize TMPQ3 = float2float(TMPD2) (lane size 2 to 4)
+-	TMPQ3[0,32] = float2float(TMPD2[0,16]);
+-	TMPQ3[32,32] = float2float(TMPD2[16,16]);
+-	TMPQ3[64,32] = float2float(TMPD2[32,16]);
+-	TMPQ3[96,32] = float2float(TMPD2[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S + TMPQ3 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] + TMPQ3[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] + TMPQ3[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] + TMPQ3[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] + TMPQ3[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[64,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[80,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	local n2:4 = float2float(sourceN[96,16]);
++	local m2:4 = float2float(sourceM);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f+ product2;
++	local n3:4 = float2float(sourceN[112,16]);
++	local m3:4 = float2float(sourceM);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f+ product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.124 FMLAL, FMLAL2 (vector) page C7-2296 line 134298 MATCH x0e20ec00/mask=xbfe0fc00
+@@ -8670,18 +8682,21 @@
+ :fmlal Rd_VPR64.2S, vRn_VPR64^".2H", vRm_VPR64^".2H"
+ is b_31=0 & b_30=0 & b_2329=0b0011100 & b_22=0 & b_21=1 & b_1015=0b111011 & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & vRm_VPR64 & Rm_VPR64 & Zd
+ {
+-	TMPS1 = Rn_VPR64[0,32];
+-	TMPS2 = Rm_VPR64[0,32];
+-	# simd infix TMPS3 = TMPS1 f* TMPS2 on lane size 2
+-	TMPS3[0,16] = TMPS1[0,16] f* TMPS2[0,16];
+-	TMPS3[16,16] = TMPS1[16,16] f* TMPS2[16,16];
+-	# simd resize TMPD4 = float2float(TMPS3) (lane size 2 to 4)
+-	TMPD4[0,32] = float2float(TMPS3[0,16]);
+-	TMPD4[32,32] = float2float(TMPS3[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S + TMPD4 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] + TMPD4[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] + TMPD4[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:8 = Rm_VPR64;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM[0,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM[16,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.124 FMLAL, FMLAL2 (vector) page C7-2296 line 134298 MATCH x0e20ec00/mask=xbfe0fc00
+@@ -8691,27 +8706,32 @@
+ # AUNIT --inst x4e20ec00/mask=xffe0fc00 --rand sfp --status noqemu --comment "ext nofpround"
+ # SIMD 4S when Q = 1
+ 
+-:fmlal Rd_VPR128.4S, vRn_VPR128^".4H", Rm_VPR64.4H
+-is b_31=0 & b_30=1 & b_2329=0b0011100 & b_22=0 & b_21=1 & b_1015=0b111011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Rm_VPR64.4H & Zd
+-{
+-	TMPD1 = Rn_VPR128[0,64];
+-	TMPD2 = Rm_VPR64.4H[0,64];
+-	# simd infix TMPD3 = TMPD1 f* TMPD2 on lane size 2
+-	TMPD3[0,16] = TMPD1[0,16] f* TMPD2[0,16];
+-	TMPD3[16,16] = TMPD1[16,16] f* TMPD2[16,16];
+-	TMPD3[32,16] = TMPD1[32,16] f* TMPD2[32,16];
+-	TMPD3[48,16] = TMPD1[48,16] f* TMPD2[48,16];
+-	# simd resize TMPQ4 = float2float(TMPD3) (lane size 2 to 4)
+-	TMPQ4[0,32] = float2float(TMPD3[0,16]);
+-	TMPQ4[32,32] = float2float(TMPD3[16,16]);
+-	TMPQ4[64,32] = float2float(TMPD3[32,16]);
+-	TMPQ4[96,32] = float2float(TMPD3[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S + TMPQ4 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] + TMPQ4[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] + TMPQ4[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] + TMPQ4[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] + TMPQ4[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++:fmlal Rd_VPR128.4S, vRn_VPR128^".4H", vRm_VPR128^".4H"
++is b_31=0 & b_30=1 & b_2329=0b0011100 & b_22=0 & b_21=1 & b_1015=0b111011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & vRm_VPR128 & Rm_VPR128 & Zd
++{
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:16 = Rm_VPR128;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM[0,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM[16,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	local n2:4 = float2float(sourceN[32,16]);
++	local m2:4 = float2float(sourceM[32,16]);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f+ product2;
++	local n3:4 = float2float(sourceN[48,16]);
++	local m3:4 = float2float(sourceM[48,16]);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f+ product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.124 FMLAL, FMLAL2 (vector) page C7-2296 line 134298 MATCH x2e20cc00/mask=xbfe0fc00
+@@ -8724,18 +8744,21 @@
+ :fmlal2 Rd_VPR64.2S, vRn_VPR64^".2H", vRm_VPR128^".2H"
+ is b_31=0 & b_30=0 & b_2329=0b1011100 & b_22=0 & b_21=1 & b_1015=0b110011 & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & vRm_VPR128 & Rm_VPR128 & Zd
+ {
+-	TMPS1 = Rn_VPR64[32,32];
+-	TMPS2 = Rm_VPR128[32,32];
+-	# simd infix TMPS3 = TMPS1 f* TMPS2 on lane size 2
+-	TMPS3[0,16] = TMPS1[0,16] f* TMPS2[0,16];
+-	TMPS3[16,16] = TMPS1[16,16] f* TMPS2[16,16];
+-	# simd resize TMPD4 = float2float(TMPS3) (lane size 2 to 4)
+-	TMPD4[0,32] = float2float(TMPS3[0,16]);
+-	TMPD4[32,32] = float2float(TMPS3[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S + TMPD4 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] + TMPD4[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] + TMPD4[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:16 = Rm_VPR128;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[32,16]);
++	local m0:4 = float2float(sourceM[32,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[48,16]);
++	local m1:4 = float2float(sourceM[48,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.124 FMLAL, FMLAL2 (vector) page C7-2296 line 134298 MATCH x2e20cc00/mask=xbfe0fc00
+@@ -8745,26 +8768,32 @@
+ # AUNIT --inst x6e20cc00/mask=xffe0fc00 --rand sfp --status noqemu --comment "ext nofpround"
+ # SIMD 4S when Q = 1
+ 
+-:fmlal2 Rd_VPR128.4S, vRn_VPR128^".4H", Rm_VPR64.4H
+-is b_31=0 & b_30=1 & b_2329=0b1011100 & b_22=0 & b_21=1 & b_1015=0b110011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Rm_VPR64.4H & Zd
+-{
+-	TMPD1 = Rn_VPR128[64,64];
+-	# simd infix TMPD2 = TMPD1 f* Rm_VPR64.4H on lane size 2
+-	TMPD2[0,16] = TMPD1[0,16] f* Rm_VPR64.4H[0,16];
+-	TMPD2[16,16] = TMPD1[16,16] f* Rm_VPR64.4H[16,16];
+-	TMPD2[32,16] = TMPD1[32,16] f* Rm_VPR64.4H[32,16];
+-	TMPD2[48,16] = TMPD1[48,16] f* Rm_VPR64.4H[48,16];
+-	# simd resize TMPQ3 = float2float(TMPD2) (lane size 2 to 4)
+-	TMPQ3[0,32] = float2float(TMPD2[0,16]);
+-	TMPQ3[32,32] = float2float(TMPD2[16,16]);
+-	TMPQ3[64,32] = float2float(TMPD2[32,16]);
+-	TMPQ3[96,32] = float2float(TMPD2[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S + TMPQ3 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] + TMPQ3[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] + TMPQ3[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] + TMPQ3[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] + TMPQ3[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++:fmlal2 Rd_VPR128.4S, vRn_VPR128^".4H", vRm_VPR128^".4H"
++is b_31=0 & b_30=1 & b_2329=0b1011100 & b_22=0 & b_21=1 & b_1015=0b110011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & vRm_VPR128 & Rm_VPR128 & Zd
++{
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:16 = Rm_VPR128;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[64,16]);
++	local m0:4 = float2float(sourceM[64,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f+ product0;
++	local n1:4 = float2float(sourceN[80,16]);
++	local m1:4 = float2float(sourceM[80,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f+ product1;
++	local n2:4 = float2float(sourceN[96,16]);
++	local m2:4 = float2float(sourceM[96,16]);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f+ product2;
++	local n3:4 = float2float(sourceN[112,16]);
++	local m3:4 = float2float(sourceM[112,16]);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f+ product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.125 FMLS (by element) page C7-2298 line 134425 MATCH x0f805000/mask=xbf80f400
+@@ -9048,19 +9077,21 @@
+ :fmlsl Rd_VPR64.2S, vRn_VPR64^".2H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=0 & b_2329=0b0011111 & b_22=0 & b_1215=0b0100 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPS1 = Rn_VPR64[0,32];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPS2 = TMPS1 f* tmp2 on lane size 2
+-	TMPS2[0,16] = TMPS1[0,16] f* tmp2;
+-	TMPS2[16,16] = TMPS1[16,16] f* tmp2;
+-	# simd resize TMPD3 = float2float(TMPS2) (lane size 2 to 4)
+-	TMPD3[0,32] = float2float(TMPS2[0,16]);
+-	TMPD3[32,32] = float2float(TMPS2[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S - TMPD3 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] - TMPD3[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] - TMPD3[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.127 FMLSL, FMLSL2 (by element) page C7-2304 line 134788 MATCH x0f804000/mask=xbfc0f400
+@@ -9073,25 +9104,29 @@
+ :fmlsl Rd_VPR128.4S, vRn_VPR128^".4H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=1 & b_2329=0b0011111 & b_22=0 & b_1215=0b0100 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPD1 = Rn_VPR128[0,64];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPD2 = TMPD1 f* tmp2 on lane size 2
+-	TMPD2[0,16] = TMPD1[0,16] f* tmp2;
+-	TMPD2[16,16] = TMPD1[16,16] f* tmp2;
+-	TMPD2[32,16] = TMPD1[32,16] f* tmp2;
+-	TMPD2[48,16] = TMPD1[48,16] f* tmp2;
+-	# simd resize TMPQ3 = float2float(TMPD2) (lane size 2 to 4)
+-	TMPQ3[0,32] = float2float(TMPD2[0,16]);
+-	TMPQ3[32,32] = float2float(TMPD2[16,16]);
+-	TMPQ3[64,32] = float2float(TMPD2[32,16]);
+-	TMPQ3[96,32] = float2float(TMPD2[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S - TMPQ3 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] - TMPQ3[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] - TMPQ3[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] - TMPQ3[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] - TMPQ3[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	local n2:4 = float2float(sourceN[32,16]);
++	local m2:4 = float2float(sourceM);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f- product2;
++	local n3:4 = float2float(sourceN[48,16]);
++	local m3:4 = float2float(sourceM);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f- product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.127 FMLSL, FMLSL2 (by element) page C7-2304 line 134788 MATCH x2f80c000/mask=xbfc0f400
+@@ -9104,19 +9139,21 @@
+ :fmlsl2 Rd_VPR64.2S, vRn_VPR64^".2H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=0 & b_2329=0b1011111 & b_22=0 & b_1215=0b1100 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPS1 = Rn_VPR64[32,32];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPS2 = TMPS1 f* tmp2 on lane size 2
+-	TMPS2[0,16] = TMPS1[0,16] f* tmp2;
+-	TMPS2[16,16] = TMPS1[16,16] f* tmp2;
+-	# simd resize TMPD3 = float2float(TMPS2) (lane size 2 to 4)
+-	TMPD3[0,32] = float2float(TMPS2[0,16]);
+-	TMPD3[32,32] = float2float(TMPS2[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S - TMPD3 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] - TMPD3[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] - TMPD3[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[32,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[48,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.127 FMLSL, FMLSL2 (by element) page C7-2304 line 134788 MATCH x2f80c000/mask=xbfc0f400
+@@ -9129,25 +9166,29 @@
+ :fmlsl2 Rd_VPR128.4S, vRn_VPR128^".4H", Re_VPR128Lo.H.vIndexFullHLM
+ is b_31=0 & b_30=1 & b_2329=0b1011111 & b_22=0 & b_1215=0b1100 & b_10=0 & Re_VPR128Lo.H & vIndexFullHLM & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Re_VPR128Lo.H.vIndexFullHLM & Zd
+ {
+-	TMPD1 = Rn_VPR128[64,64];
+-	# simd element Re_VPR128Lo.H[vIndexFullHLM] lane size 2
+-	local tmp2:2 = Re_VPR128Lo.H.vIndexFullHLM;
+-	# simd infix TMPD2 = TMPD1 f* tmp2 on lane size 2
+-	TMPD2[0,16] = TMPD1[0,16] f* tmp2;
+-	TMPD2[16,16] = TMPD1[16,16] f* tmp2;
+-	TMPD2[32,16] = TMPD1[32,16] f* tmp2;
+-	TMPD2[48,16] = TMPD1[48,16] f* tmp2;
+-	# simd resize TMPQ3 = float2float(TMPD2) (lane size 2 to 4)
+-	TMPQ3[0,32] = float2float(TMPD2[0,16]);
+-	TMPQ3[32,32] = float2float(TMPD2[16,16]);
+-	TMPQ3[64,32] = float2float(TMPD2[32,16]);
+-	TMPQ3[96,32] = float2float(TMPD2[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S - TMPQ3 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] - TMPQ3[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] - TMPQ3[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] - TMPQ3[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] - TMPQ3[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:2 = Re_VPR128Lo.H.vIndexFullHLM;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[64,16]);
++	local m0:4 = float2float(sourceM);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[80,16]);
++	local m1:4 = float2float(sourceM);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	local n2:4 = float2float(sourceN[96,16]);
++	local m2:4 = float2float(sourceM);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f- product2;
++	local n3:4 = float2float(sourceN[112,16]);
++	local m3:4 = float2float(sourceM);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f- product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.128 FMLSL, FMLSL2 (vector) page C7-2306 line 134921 MATCH x0ea0ec00/mask=xbfe0fc00
+@@ -9160,18 +9201,21 @@
+ :fmlsl Rd_VPR64.2S, vRn_VPR64^".2H", vRm_VPR64^".2H"
+ is b_31=0 & b_30=0 & b_2329=0b0011101 & b_22=0 & b_21=1 & b_1015=0b111011 & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & vRm_VPR64 & Rm_VPR64 & Zd
+ {
+-	TMPS1 = Rn_VPR64[0,32];
+-	TMPS2 = Rm_VPR64[0,32];
+-	# simd infix TMPS3 = TMPS1 f* TMPS2 on lane size 2
+-	TMPS3[0,16] = TMPS1[0,16] f* TMPS2[0,16];
+-	TMPS3[16,16] = TMPS1[16,16] f* TMPS2[16,16];
+-	# simd resize TMPD4 = float2float(TMPS3) (lane size 2 to 4)
+-	TMPD4[0,32] = float2float(TMPS3[0,16]);
+-	TMPD4[32,32] = float2float(TMPS3[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S - TMPD4 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] - TMPD4[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] - TMPD4[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:8 = Rm_VPR64;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM[0,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM[16,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.128 FMLSL, FMLSL2 (vector) page C7-2306 line 134921 MATCH x0ea0ec00/mask=xbfe0fc00
+@@ -9181,27 +9225,32 @@
+ # AUNIT --inst x4ea0ec00/mask=xffe0fc00 --rand sfp --status noqemu --comment "ext nofpround"
+ # SIMD 4S when Q = 1
+ 
+-:fmlsl Rd_VPR128.4S, vRn_VPR128^".4H", Rm_VPR64.4H
+-is b_31=0 & b_30=1 & b_2329=0b0011101 & b_22=0 & b_21=1 & b_1015=0b111011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Rm_VPR64.4H & Zd
+-{
+-	TMPD1 = Rn_VPR128[0,64];
+-	TMPD2 = Rm_VPR64.4H[0,64];
+-	# simd infix TMPD3 = TMPD1 f* TMPD2 on lane size 2
+-	TMPD3[0,16] = TMPD1[0,16] f* TMPD2[0,16];
+-	TMPD3[16,16] = TMPD1[16,16] f* TMPD2[16,16];
+-	TMPD3[32,16] = TMPD1[32,16] f* TMPD2[32,16];
+-	TMPD3[48,16] = TMPD1[48,16] f* TMPD2[48,16];
+-	# simd resize TMPQ4 = float2float(TMPD3) (lane size 2 to 4)
+-	TMPQ4[0,32] = float2float(TMPD3[0,16]);
+-	TMPQ4[32,32] = float2float(TMPD3[16,16]);
+-	TMPQ4[64,32] = float2float(TMPD3[32,16]);
+-	TMPQ4[96,32] = float2float(TMPD3[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S - TMPQ4 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] - TMPQ4[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] - TMPQ4[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] - TMPQ4[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] - TMPQ4[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++:fmlsl Rd_VPR128.4S, vRn_VPR128^".4H", vRm_VPR128^".4H"
++is b_31=0 & b_30=1 & b_2329=0b0011101 & b_22=0 & b_21=1 & b_1015=0b111011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & vRm_VPR128 & Rm_VPR128 & Zd
++{
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:16 = Rm_VPR128;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[0,16]);
++	local m0:4 = float2float(sourceM[0,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[16,16]);
++	local m1:4 = float2float(sourceM[16,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	local n2:4 = float2float(sourceN[32,16]);
++	local m2:4 = float2float(sourceM[32,16]);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f- product2;
++	local n3:4 = float2float(sourceN[48,16]);
++	local m3:4 = float2float(sourceM[48,16]);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f- product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.128 FMLSL, FMLSL2 (vector) page C7-2306 line 134921 MATCH x2ea0cc00/mask=xbfe0fc00
+@@ -9214,18 +9263,21 @@
+ :fmlsl2 Rd_VPR64.2S, vRn_VPR64^".2H", vRm_VPR128^".2H"
+ is b_31=0 & b_30=0 & b_2329=0b1011101 & b_22=0 & b_21=1 & b_1015=0b110011 & Rd_VPR64.2S & vRn_VPR64 & Rn_VPR64 & vRm_VPR128 & Rm_VPR128 & Zd
+ {
+-	TMPS1 = Rn_VPR64[32,32];
+-	TMPS2 = Rm_VPR128[32,32];
+-	# simd infix TMPS3 = TMPS1 f* TMPS2 on lane size 2
+-	TMPS3[0,16] = TMPS1[0,16] f* TMPS2[0,16];
+-	TMPS3[16,16] = TMPS1[16,16] f* TMPS2[16,16];
+-	# simd resize TMPD4 = float2float(TMPS3) (lane size 2 to 4)
+-	TMPD4[0,32] = float2float(TMPS3[0,16]);
+-	TMPD4[32,32] = float2float(TMPS3[16,16]);
+-	# simd infix Rd_VPR64.2S = Rd_VPR64.2S - TMPD4 on lane size 4
+-	Rd_VPR64.2S[0,32] = Rd_VPR64.2S[0,32] - TMPD4[0,32];
+-	Rd_VPR64.2S[32,32] = Rd_VPR64.2S[32,32] - TMPD4[32,32];
+-	zext_zd(Zd); # zero upper 24 bytes of Zd
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:8 = Rd_VPR64.2S;
++	local sourceN:8 = Rn_VPR64;
++	local sourceM:16 = Rm_VPR128;
++	local result:8 = 0;
++	local n0:4 = float2float(sourceN[32,16]);
++	local m0:4 = float2float(sourceM[32,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[48,16]);
++	local m1:4 = float2float(sourceM[48,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	Rd_VPR64.2S = result;
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.128 FMLSL, FMLSL2 (vector) page C7-2306 line 134921 MATCH x2ea0cc00/mask=xbfe0fc00
+@@ -9235,26 +9287,32 @@
+ # AUNIT --inst x6ea0cc00/mask=xffe0fc00 --rand sfp --status noqemu --comment "ext nofpround"
+ # SIMD 4S when Q = 1
+ 
+-:fmlsl2 Rd_VPR128.4S, vRn_VPR128^".4H", Rm_VPR64.4H
+-is b_31=0 & b_30=1 & b_2329=0b1011101 & b_22=0 & b_21=1 & b_1015=0b110011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & Rm_VPR64.4H & Zd
+-{
+-	TMPD1 = Rn_VPR128[64,64];
+-	# simd infix TMPD2 = TMPD1 f* Rm_VPR64.4H on lane size 2
+-	TMPD2[0,16] = TMPD1[0,16] f* Rm_VPR64.4H[0,16];
+-	TMPD2[16,16] = TMPD1[16,16] f* Rm_VPR64.4H[16,16];
+-	TMPD2[32,16] = TMPD1[32,16] f* Rm_VPR64.4H[32,16];
+-	TMPD2[48,16] = TMPD1[48,16] f* Rm_VPR64.4H[48,16];
+-	# simd resize TMPQ3 = float2float(TMPD2) (lane size 2 to 4)
+-	TMPQ3[0,32] = float2float(TMPD2[0,16]);
+-	TMPQ3[32,32] = float2float(TMPD2[16,16]);
+-	TMPQ3[64,32] = float2float(TMPD2[32,16]);
+-	TMPQ3[96,32] = float2float(TMPD2[48,16]);
+-	# simd infix Rd_VPR128.4S = Rd_VPR128.4S - TMPQ3 on lane size 4
+-	Rd_VPR128.4S[0,32] = Rd_VPR128.4S[0,32] - TMPQ3[0,32];
+-	Rd_VPR128.4S[32,32] = Rd_VPR128.4S[32,32] - TMPQ3[32,32];
+-	Rd_VPR128.4S[64,32] = Rd_VPR128.4S[64,32] - TMPQ3[64,32];
+-	Rd_VPR128.4S[96,32] = Rd_VPR128.4S[96,32] - TMPQ3[96,32];
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++:fmlsl2 Rd_VPR128.4S, vRn_VPR128^".4H", vRm_VPR128^".4H"
++is b_31=0 & b_30=1 & b_2329=0b1011101 & b_22=0 & b_21=1 & b_1015=0b110011 & Rd_VPR128.4S & vRn_VPR128 & Rn_VPR128 & vRm_VPR128 & Rm_VPR128 & Zd
++{
++	# MacScope RX-17: snapshot aliases, widen before multiply, accumulate in FP32.
++	local oldD:16 = Rd_VPR128.4S;
++	local sourceN:16 = Rn_VPR128;
++	local sourceM:16 = Rm_VPR128;
++	local result:16 = 0;
++	local n0:4 = float2float(sourceN[64,16]);
++	local m0:4 = float2float(sourceM[64,16]);
++	local product0:4 = n0 f* m0;
++	result[0,32] = oldD[0,32] f- product0;
++	local n1:4 = float2float(sourceN[80,16]);
++	local m1:4 = float2float(sourceM[80,16]);
++	local product1:4 = n1 f* m1;
++	result[32,32] = oldD[32,32] f- product1;
++	local n2:4 = float2float(sourceN[96,16]);
++	local m2:4 = float2float(sourceM[96,16]);
++	local product2:4 = n2 f* m2;
++	result[64,32] = oldD[64,32] f- product2;
++	local n3:4 = float2float(sourceN[112,16]);
++	local m3:4 = float2float(sourceM[112,16]);
++	local product3:4 = n3 f* m3;
++	result[96,32] = oldD[96,32] f- product3;
++	Rd_VPR128.4S = result;
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.129 FMOV (vector, immediate) page C7-2308 line 135048 MATCH x0f00f400/mask=x9ff8fc00

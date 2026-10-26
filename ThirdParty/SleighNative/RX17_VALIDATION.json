@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "scope": "Offline source/lifter evidence only; native app and Gate F pending",
+  "compile": {
+    "cache": "built",
+    "compilerSha256": "f96d4e12c0d7fe3202011171f7e2e9b387ab5f024b83e7f0440152edfec19d34",
+    "inputClosureSha256": "f7061561c9dce48be531c16acbabdf6c9c5158f927b85d045383511a21fee8af",
+    "inputs": [
+      {
+        "name": "AARCH64.slaspec",
+        "sha256": "99381f51825b672b70e1006a111462e77c2384f5a1ea4e6b63669bc5027b3439",
+        "size": 68
+      },
+      {
+        "name": "AARCH64BE.slaspec",
+        "sha256": "9215124e42ebf29184c2e46ea6399446736cc4eb323023aa98685bbd340ac097",
+        "size": 65
+      },
+      {
+        "name": "AARCH64_AMXext.sinc",
+        "sha256": "2d8241d973bb3d3384cb4ac161729337040d53430438273f46d9ecde9ae53613",
+        "size": 4364
+      },
+      {
+        "name": "AARCH64_AppleSilicon.slaspec",
+        "sha256": "9034c31ca2137eec0dd074a976f886157d9f819327e5e5d13398b3b4d119ab97",
+        "size": 99
+      },
+      {
+        "name": "AARCH64_PAuthLR_MOPS_THE.sinc",
+        "sha256": "714524ed28c25ef88b9fcfe4c6338da2a782b364375512986bfdb0ccfcb5caf6",
+        "size": 392
+      },
+      {
+        "name": "AARCH64_base_PACoptions.sinc",
+        "sha256": "6b7c77988212836deec88f4905d7db38623ecc69f2a608b760b22489c15a0aea",
+        "size": 10297
+      },
+      {
+        "name": "AARCH64base.sinc",
+        "sha256": "af8878078adaaed1bc6d7699bf41dae38a749829e9d5f15e89b15d6c47d71540",
+        "size": 368584
+      },
+      {
+        "name": "AARCH64instructions.sinc",
+        "sha256": "388254498e7d3459ec7f93bdc2ad1ecd786118daefb84a5a9f71941f30347913",
+        "size": 144757
+      },
+      {
+        "name": "AARCH64ldst.sinc",
+        "sha256": "bc2a55815b9368a0a8d1a14e165e32e39cce54337575c7eae287e4e008ec6aa8",
+        "size": 396489
+      },
+      {
+        "name": "AARCH64neon.sinc",
+        "sha256": "3c2a1b23f6b147cab236e0a7fb8c07320c11145e364128512557abcb5a51b198",
+        "size": 1453855
+      },
+      {
+        "name": "AARCH64sve.sinc",
+        "sha256": "a1697a874d0c4f85ec425b9aec5632f94d2cd24433343ebdf77e1b948f0b7e87",
+        "size": 313658
+      }
+    ],
+    "network": "disabled",
+    "outputs": {
+      "AARCH64.sla": "2a69210131ad484eda00690628b1d32f67c7ffd92ef771d924218b990cf53dfa",
+      "AARCH64BE.sla": "4fc282019c6b0e8c59edf17058879e73144f909f3d29024af72521723ce08b8b",
+      "AARCH64_AppleSilicon.sla": "336c44078f47a102354411018513e68da858906c821002e3557dfda2bccee894"
+    },
+    "schemaVersion": 1,
+    "scriptSha256": "7f7404409083d1a5cd0800f2310e6b9b43fd4d98f66ad2400a8f8d9afeda38c3"
+  },
+  "compileSeconds": 1.26,
+  "replay": "12 patches, zero fuzz, exact source bytes; existing compile receipt reused",
+  "numeric": {
+    "le": {
+      "scope": "Vendored lifter p-code execution; not native app or hardware acceptance",
+      "variants": {
+        "le": {
+          "fj": {
+            "passed": 384
+          },
+          "fhm": {
+            "passed": 576
+          },
+          "bf16": {
+            "passed": 3456
+          },
+          "sla_sha256": "27e7278f80d8a687b9fb29dc9c857885f8d3d7a38a79071cfbf83931489f3dc6"
+        }
+      }
+    },
+    "be": {
+      "scope": "Vendored lifter p-code execution; not native app or hardware acceptance",
+      "variants": {
+        "be": {
+          "fj": {
+            "passed": 384
+          },
+          "fhm": {
+            "passed": 576
+          },
+          "bf16": {
+            "passed": 3456
+          },
+          "sla_sha256": "750d8836a9043a362fd47410e66af2f60ab953522a40a3810c1c66fd557339cd"
+        }
+      }
+    },
+    "apple": {
+      "scope": "Vendored lifter p-code execution; not native app or hardware acceptance",
+      "variants": {
+        "apple": {
+          "fj": {
+            "passed": 384
+          },
+          "fhm": {
+            "passed": 576
+          },
+          "bf16": {
+            "passed": 3456
+          },
+          "sla_sha256": "6469187d3f8a6ce871bd3480173e70cb98b6a8e08cbe8bb4ed3731f6ce395824"
+        }
+      }
+    }
+  },
+  "numericReuse": "Final change affects FCMLA element-size constants and a comment only; unchanged FJ/FHM/BF16/RMIF/CSSC receipts retained without rerun",
+  "rmifCssc": {
+    "le": {
+      "variant": "le",
+      "rmif": {
+        "words": 2048,
+        "cases": 786432,
+        "passed": 786432,
+        "failed": 0,
+        "fail_kinds": {
+          "wrong_selected": 0,
+          "unselected_changed": 0,
+          "other_reg_written": 0
+        },
+        "examples": []
+      },
+      "cssc": {
+        "words": 7225,
+        "passed": 75490,
+        "failed": 0,
+        "per_form": {
+          "abs_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "cnt_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "ctz_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smax_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smin_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umax_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umin_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smax_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smin_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umax_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umin_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          }
+        }
+      },
+      "seconds": 88.10588650000136
+    },
+    "be": {
+      "variant": "be",
+      "rmif": {
+        "words": 2048,
+        "cases": 786432,
+        "passed": 786432,
+        "failed": 0,
+        "fail_kinds": {
+          "wrong_selected": 0,
+          "unselected_changed": 0,
+          "other_reg_written": 0
+        },
+        "examples": []
+      },
+      "cssc": {
+        "words": 7225,
+        "passed": 75490,
+        "failed": 0,
+        "per_form": {
+          "abs_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "cnt_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "ctz_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smax_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smin_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umax_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umin_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smax_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smin_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umax_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umin_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          }
+        }
+      },
+      "seconds": 89.3553027909984
+    },
+    "apple": {
+      "variant": "apple",
+      "rmif": {
+        "words": 2048,
+        "cases": 786432,
+        "passed": 786432,
+        "failed": 0,
+        "fail_kinds": {
+          "wrong_selected": 0,
+          "unselected_changed": 0,
+          "other_reg_written": 0
+        },
+        "examples": []
+      },
+      "cssc": {
+        "words": 7225,
+        "passed": 75490,
+        "failed": 0,
+        "per_form": {
+          "abs_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "cnt_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "ctz_one": {
+            "passed": 70,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smax_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smin_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umax_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umin_reg": {
+            "passed": 900,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smax_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "smin_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umax_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          },
+          "umin_imm": {
+            "passed": 17920,
+            "failed": 0,
+            "upper_stale": 0,
+            "other": 0,
+            "example": null
+          }
+        }
+      },
+      "seconds": 88.21216912499949
+    }
+  },
+  "dataflow": {
+    "scope": "Actual p-code CALLOTHER argument, output-width and upper-clearing contracts; no numerical helper semantics or native-app claim",
+    "aliases": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        3,
+        3,
+        3
+      ],
+      [
+        0,
+        17,
+        18
+      ],
+      [
+        31,
+        30,
+        31
+      ]
+    ],
+    "variants": {
+      "le": {
+        "passed": {
+          "bfdot_indexed": 56,
+          "sudot_indexed": 56,
+          "usdot_indexed": 56,
+          "bfdot_vector": 14,
+          "fcmla_vector": 140,
+          "fcmla_indexed": 224
+        },
+        "helper_ids": {
+          "bfdot": 145,
+          "sudot": 263,
+          "usdot": 294,
+          "fcmla": 157
+        },
+        "failures": [],
+        "sla_sha256": "2a69210131ad484eda00690628b1d32f67c7ffd92ef771d924218b990cf53dfa"
+      },
+      "be": {
+        "passed": {
+          "bfdot_indexed": 56,
+          "sudot_indexed": 56,
+          "usdot_indexed": 56,
+          "bfdot_vector": 14,
+          "fcmla_vector": 140,
+          "fcmla_indexed": 224
+        },
+        "helper_ids": {
+          "bfdot": 145,
+          "sudot": 263,
+          "usdot": 294,
+          "fcmla": 157
+        },
+        "failures": [],
+        "sla_sha256": "4fc282019c6b0e8c59edf17058879e73144f909f3d29024af72521723ce08b8b"
+      },
+      "apple": {
+        "passed": {
+          "bfdot_indexed": 56,
+          "sudot_indexed": 56,
+          "usdot_indexed": 56,
+          "bfdot_vector": 14,
+          "fcmla_vector": 140,
+          "fcmla_indexed": 224
+        },
+        "helper_ids": {
+          "bfdot": 145,
+          "sudot": 263,
+          "usdot": 294,
+          "fcmla": 157
+        },
+        "failures": [],
+        "sla_sha256": "336c44078f47a102354411018513e68da858906c821002e3557dfda2bccee894"
+      }
+    },
+    "wall_seconds": 85.543
+  },
+  "overlayTests": {
+    "passed": 8,
+    "seconds": 2.543
+  },
+  "review": {
+    "agent": "/root/rx17_review",
+    "result": "No new actionable findings; known FCMLA element-size issue corrected separately"
+  },
+  "externalEvidenceRoot": "isa-integration-20261012.noindex",
+  "pending": [
+    "Strict consumer admission of PATCHED_RESOURCES.json",
+    "Root-owned hardcoded patch contract and top-level governance records",
+    "Native provider family scenarios",
+    "CI/CoreTests and Gate F"
+  ]
+}

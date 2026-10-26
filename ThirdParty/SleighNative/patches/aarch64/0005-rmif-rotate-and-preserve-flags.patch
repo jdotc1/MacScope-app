@@ -1,0 +1,31 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+@@ -3905,11 +3905,11 @@
+     setNG:1 = (condMask & 0x8) == 0x8;
+ 	NG = ((setNG==0) * NG) | ((setNG==1) * (((value >> 3) & 1) ==1));
+ 	setZR:1 = (condMask & 0x4) == 0x4;
+-	ZR = ((setZR==0) * NG) | ((setZR==1) * (((value >> 2) & 1) ==1));
++	ZR = ((setZR==0) * ZR) | ((setZR==1) * (((value >> 2) & 1) ==1));
+ 	setCY:1 = (condMask & 0x2) == 0x2;
+-	CY = ((setCY==0) * NG) | ((setCY==1) * (((value >> 1) & 1) == 1));
++	CY = ((setCY==0) * CY) | ((setCY==1) * (((value >> 1) & 1) == 1));
+ 	setOV:1 = (condMask & 0x1) == 0x1;
+-	OV = ((setOV==0) * NG) | ((setOV==1) * (((value >> 0) & 1) == 1));
++	OV = ((setOV==0) * OV) | ((setOV==1) * (((value >> 0) & 1) == 1));
+ }
+ 
+ # Macro to access simd lanes
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+@@ -4979,7 +4979,8 @@
+ :rmif Rn_GPR64, UImm6, NZCVImm_uimm4
+ is b_2131=0b10111010000 & b_1014=0b00001 & b_04=0b0 & Rn_GPR64 & UImm6 & NZCVImm_uimm4
+ {
+-	tmp:8 = Rn_GPR64 >> UImm6;
++	# Rotate in 64 bits; mask the complementary shift so an immediate of 0 is explicit.
++	tmp:8 = (Rn_GPR64 >> UImm6) | (Rn_GPR64 << ((64 - UImm6) & 63));
+ 	condMask:1 = NZCVImm_uimm4;
+ 	set_NZCV(tmp,condMask);
+ }

@@ -1,0 +1,99 @@
+// MacScopeNativeDecompiler/PcodeOpcodeVocabulary.def
+//
+// Single source of truth for the exported p-code opcode vocabulary.
+// MACSCOPE_PCODE_OPCODE(ghidra_enumerator, canonical_export_name, wire_token)
+//
+// Hand-authored 2026-08-18 and checked against the pinned SLEIGH package by a probe
+// that linked ghidra::get_opname() and enumerated the full OpCode range. There is no
+// generator script: this file is maintained by hand, and Scripts/tests/
+// test_pcode_opcode_vocabulary_parity.py is what keeps the copies honest.
+//
+// OPEN GAP — no test binds this file to ghidra::OpCode. The parity test compares the
+// manifest to the Swift enum and to the C++/ObjC++ expansions, all of which derive
+// from this file, so a package repin that renumbers or renames an opcode would pass
+// every test in the repository while silently reintroducing MS-01. Closing that needs
+// PcodeOpcodeVocabularyBindingTests.cpp links against the pinned package and walks
+// CPUI_COPY..<CPUI_MAX, including SPULL and the intentional raw-value hole at 45.
+//
+// WHY THIS EXISTS: ghidra::get_opname() is NOT a safe source for exported names in this
+// pinned version. Its name table disagrees with the OpCode enum for 11 opcodes -- the six
+// CPUI_FLOAT_* conversions lose their FLOAT_ prefix, and MULTIEQUAL/INDIRECT/PTRADD/PTRSUB
+// return the sleigh-compiler tokens BUILD/DELAY_SLOT/LABEL/CROSSBUILD. Nine of those are
+// live defects: the wire codec rejects an unrecognised name and fails the WHOLE result.
+//
+// Rule: canonical name is the enumerator without its CPUI_ prefix; wire token is that
+// lowercased. CPUI_ZPULL is the single deliberate exception (exported as EXTRACT/extract).
+
+MACSCOPE_PCODE_OPCODE(CPUI_COPY               , "COPY"              , "copy")
+MACSCOPE_PCODE_OPCODE(CPUI_LOAD               , "LOAD"              , "load")
+MACSCOPE_PCODE_OPCODE(CPUI_STORE              , "STORE"             , "store")
+MACSCOPE_PCODE_OPCODE(CPUI_BRANCH             , "BRANCH"            , "branch")
+MACSCOPE_PCODE_OPCODE(CPUI_CBRANCH            , "CBRANCH"           , "cbranch")
+MACSCOPE_PCODE_OPCODE(CPUI_BRANCHIND          , "BRANCHIND"         , "branchind")
+MACSCOPE_PCODE_OPCODE(CPUI_CALL               , "CALL"              , "call")
+MACSCOPE_PCODE_OPCODE(CPUI_CALLIND            , "CALLIND"           , "callind")
+MACSCOPE_PCODE_OPCODE(CPUI_CALLOTHER          , "CALLOTHER"         , "callother")
+MACSCOPE_PCODE_OPCODE(CPUI_RETURN             , "RETURN"            , "return")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_EQUAL          , "INT_EQUAL"         , "int_equal")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_NOTEQUAL       , "INT_NOTEQUAL"      , "int_notequal")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SLESS          , "INT_SLESS"         , "int_sless")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SLESSEQUAL     , "INT_SLESSEQUAL"    , "int_slessequal")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_LESS           , "INT_LESS"          , "int_less")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_LESSEQUAL      , "INT_LESSEQUAL"     , "int_lessequal")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_ZEXT           , "INT_ZEXT"          , "int_zext")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SEXT           , "INT_SEXT"          , "int_sext")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_ADD            , "INT_ADD"           , "int_add")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SUB            , "INT_SUB"           , "int_sub")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_CARRY          , "INT_CARRY"         , "int_carry")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SCARRY         , "INT_SCARRY"        , "int_scarry")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SBORROW        , "INT_SBORROW"       , "int_sborrow")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_2COMP          , "INT_2COMP"         , "int_2comp")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_NEGATE         , "INT_NEGATE"        , "int_negate")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_XOR            , "INT_XOR"           , "int_xor")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_AND            , "INT_AND"           , "int_and")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_OR             , "INT_OR"            , "int_or")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_LEFT           , "INT_LEFT"          , "int_left")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_RIGHT          , "INT_RIGHT"         , "int_right")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SRIGHT         , "INT_SRIGHT"        , "int_sright")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_MULT           , "INT_MULT"          , "int_mult")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_DIV            , "INT_DIV"           , "int_div")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SDIV           , "INT_SDIV"          , "int_sdiv")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_REM            , "INT_REM"           , "int_rem")
+MACSCOPE_PCODE_OPCODE(CPUI_INT_SREM           , "INT_SREM"          , "int_srem")
+MACSCOPE_PCODE_OPCODE(CPUI_BOOL_NEGATE        , "BOOL_NEGATE"       , "bool_negate")
+MACSCOPE_PCODE_OPCODE(CPUI_BOOL_XOR           , "BOOL_XOR"          , "bool_xor")
+MACSCOPE_PCODE_OPCODE(CPUI_BOOL_AND           , "BOOL_AND"          , "bool_and")
+MACSCOPE_PCODE_OPCODE(CPUI_BOOL_OR            , "BOOL_OR"           , "bool_or")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_EQUAL        , "FLOAT_EQUAL"       , "float_equal")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_NOTEQUAL     , "FLOAT_NOTEQUAL"    , "float_notequal")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_LESS         , "FLOAT_LESS"        , "float_less")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_LESSEQUAL    , "FLOAT_LESSEQUAL"   , "float_lessequal")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_NAN          , "FLOAT_NAN"         , "float_nan")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_ADD          , "FLOAT_ADD"         , "float_add")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_DIV          , "FLOAT_DIV"         , "float_div")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_MULT         , "FLOAT_MULT"        , "float_mult")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_SUB          , "FLOAT_SUB"         , "float_sub")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_NEG          , "FLOAT_NEG"         , "float_neg")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_ABS          , "FLOAT_ABS"         , "float_abs")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_SQRT         , "FLOAT_SQRT"        , "float_sqrt")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_INT2FLOAT    , "FLOAT_INT2FLOAT"   , "float_int2float")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_FLOAT2FLOAT  , "FLOAT_FLOAT2FLOAT" , "float_float2float")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_TRUNC        , "FLOAT_TRUNC"       , "float_trunc")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_CEIL         , "FLOAT_CEIL"        , "float_ceil")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_FLOOR        , "FLOAT_FLOOR"       , "float_floor")
+MACSCOPE_PCODE_OPCODE(CPUI_FLOAT_ROUND        , "FLOAT_ROUND"       , "float_round")
+MACSCOPE_PCODE_OPCODE(CPUI_MULTIEQUAL         , "MULTIEQUAL"        , "multiequal")
+MACSCOPE_PCODE_OPCODE(CPUI_INDIRECT           , "INDIRECT"          , "indirect")
+MACSCOPE_PCODE_OPCODE(CPUI_PIECE              , "PIECE"             , "piece")
+MACSCOPE_PCODE_OPCODE(CPUI_SUBPIECE           , "SUBPIECE"          , "subpiece")
+MACSCOPE_PCODE_OPCODE(CPUI_CAST               , "CAST"              , "cast")
+MACSCOPE_PCODE_OPCODE(CPUI_PTRADD             , "PTRADD"            , "ptradd")
+MACSCOPE_PCODE_OPCODE(CPUI_PTRSUB             , "PTRSUB"            , "ptrsub")
+MACSCOPE_PCODE_OPCODE(CPUI_SEGMENTOP          , "SEGMENTOP"         , "segmentop")
+MACSCOPE_PCODE_OPCODE(CPUI_CPOOLREF           , "CPOOLREF"          , "cpoolref")
+MACSCOPE_PCODE_OPCODE(CPUI_NEW                , "NEW"               , "new")
+MACSCOPE_PCODE_OPCODE(CPUI_INSERT             , "INSERT"            , "insert")
+MACSCOPE_PCODE_OPCODE(CPUI_ZPULL              , "EXTRACT"           , "extract")
+MACSCOPE_PCODE_OPCODE(CPUI_POPCOUNT           , "POPCOUNT"          , "popcount")
+MACSCOPE_PCODE_OPCODE(CPUI_LZCOUNT            , "LZCOUNT"           , "lzcount")
+MACSCOPE_PCODE_OPCODE(CPUI_SPULL              , "SPULL"             , "spull")

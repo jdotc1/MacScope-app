@@ -1,0 +1,324 @@
+{
+ "annotations": [
+  {
+   "action": "rename",
+   "author": "analyst",
+   "cites": [],
+   "id": "a-09401338d064871bf2900c1d817a6769",
+   "kind": "Annotation",
+   "predicate": "hasName",
+   "rationale": "",
+   "revert": "revert:a-09401338d064871bf2900c1d817a6769",
+   "reverted": false,
+   "schemaVersion": 1,
+   "seq": 0,
+   "session": "analyst",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1100"
+   },
+   "value": "analyst_alone"
+  }
+ ],
+ "facts": [
+  {
+   "id": "f-2c99a93bd2c41017916919085948fc72",
+   "kind": "Fact",
+   "predicate": "hasName",
+   "provenance": [
+    {
+     "kind": "loaderRecord",
+     "ref": "export@0x1300"
+    }
+   ],
+   "revert": "revert:f-2c99a93bd2c41017916919085948fc72",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1300"
+   },
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": "_main"
+  },
+  {
+   "id": "f-602538161122528b95796792041be530",
+   "kind": "Fact",
+   "predicate": "libraryIdentity",
+   "provenance": [
+    {
+     "kind": "signatureRecord",
+     "ref": "demo:candidate-only",
+     "rule": "h18.pack.demo",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-602538161122528b95796792041be530",
+   "schemaVersion": 1,
+   "status": "candidate",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1200"
+   },
+   "tier": 1,
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": {
+    "alternatives": [
+     {
+      "library": "demo",
+      "name": "_demo_public"
+     },
+     {
+      "library": "demo",
+      "name": "_demo_static_worker"
+     }
+    ]
+   }
+  },
+  {
+   "derivedFrom": [
+    [
+     "f-7fabb3a0be07b554e65e0591a384d48c"
+    ]
+   ],
+   "id": "f-6b52c689d2285660b05e3d3303b09ecd",
+   "kind": "Fact",
+   "predicate": "hasName",
+   "provenance": [
+    {
+     "kind": "rule",
+     "ref": "f-7fabb3a0be07b554e65e0591a384d48c",
+     "rule": "h18.name-from-identity",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-6b52c689d2285660b05e3d3303b09ecd",
+   "schemaVersion": 1,
+   "status": "derived",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1000"
+   },
+   "tier": 3,
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": "_demo_alone"
+  },
+  {
+   "derivedFrom": [
+    [
+     "f-eaad776736263ec47f33c1e656dd3643"
+    ]
+   ],
+   "id": "f-77f723189e23f2b15818678ba313c0b3",
+   "kind": "Fact",
+   "predicate": "libraryIdentity",
+   "provenance": [
+    {
+     "kind": "signatureRecord",
+     "ref": "40517a2d9ea2bee5b53309ab",
+     "rule": "h18.pack.demo",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-77f723189e23f2b15818678ba313c0b3",
+   "schemaVersion": 1,
+   "status": "derived",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1100"
+   },
+   "tier": 3,
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": {
+    "library": "demo",
+    "libraryVersion": "0.0.1",
+    "name": "_demo_alone"
+   }
+  },
+  {
+   "derivedFrom": [
+    [
+     "f-e35037c30a2f018a9254ab0eb8692feb"
+    ]
+   ],
+   "id": "f-7fabb3a0be07b554e65e0591a384d48c",
+   "kind": "Fact",
+   "predicate": "libraryIdentity",
+   "provenance": [
+    {
+     "kind": "signatureRecord",
+     "ref": "40517a2d9ea2bee5b53309ab",
+     "rule": "h18.pack.demo",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-7fabb3a0be07b554e65e0591a384d48c",
+   "schemaVersion": 1,
+   "status": "derived",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1000"
+   },
+   "tier": 3,
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": {
+    "library": "demo",
+    "libraryVersion": "0.0.1",
+    "name": "_demo_alone"
+   }
+  },
+  {
+   "id": "f-8616e59061794b3fcc2484fea535479e",
+   "kind": "Fact",
+   "predicate": "isFunctionStart",
+   "provenance": [
+    {
+     "kind": "loaderRecord",
+     "ref": "LC_FUNCTION_STARTS@0x1200"
+    }
+   ],
+   "revert": "revert:f-8616e59061794b3fcc2484fea535479e",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1200"
+   },
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": true
+  },
+  {
+   "id": "f-8736d93c40151abdc411f19331310588",
+   "kind": "Fact",
+   "predicate": "isFunctionStart",
+   "provenance": [
+    {
+     "kind": "loaderRecord",
+     "ref": "LC_FUNCTION_STARTS@0x1300"
+    }
+   ],
+   "revert": "revert:f-8736d93c40151abdc411f19331310588",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1300"
+   },
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": true
+  },
+  {
+   "derivedFrom": [
+    [
+     "f-77f723189e23f2b15818678ba313c0b3"
+    ]
+   ],
+   "id": "f-d6b4c6656da57a810035bf4df12d8711",
+   "kind": "Fact",
+   "predicate": "hasName",
+   "provenance": [
+    {
+     "kind": "rule",
+     "ref": "f-77f723189e23f2b15818678ba313c0b3",
+     "rule": "h18.name-from-identity",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-d6b4c6656da57a810035bf4df12d8711",
+   "schemaVersion": 1,
+   "status": "derived",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1100"
+   },
+   "tier": 3,
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": "_demo_alone"
+  },
+  {
+   "id": "f-e35037c30a2f018a9254ab0eb8692feb",
+   "kind": "Fact",
+   "predicate": "isFunctionStart",
+   "provenance": [
+    {
+     "kind": "loaderRecord",
+     "ref": "LC_FUNCTION_STARTS@0x1000"
+    }
+   ],
+   "revert": "revert:f-e35037c30a2f018a9254ab0eb8692feb",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1000"
+   },
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": true
+  },
+  {
+   "id": "f-eaad776736263ec47f33c1e656dd3643",
+   "kind": "Fact",
+   "predicate": "isFunctionStart",
+   "provenance": [
+    {
+     "kind": "loaderRecord",
+     "ref": "LC_FUNCTION_STARTS@0x1100"
+    }
+   ],
+   "revert": "revert:f-eaad776736263ec47f33c1e656dd3643",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1100"
+   },
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho",
+   "value": true
+  }
+ ],
+ "frontier": [
+  {
+   "blockedBy": [
+    "f-602538161122528b95796792041be530"
+   ],
+   "cost": {},
+   "detail": "candidate-only",
+   "gap": "ambiguousLibraryIdentity",
+   "id": "g-e83c0552a3eb1c794a093c5bad934348",
+   "kind": "FrontierItem",
+   "leverage": 0,
+   "missingEvidence": [],
+   "primitives": [
+    {
+     "name": "identity.disambiguate",
+     "preconditions": [
+      "callers or data references"
+     ]
+    }
+   ],
+   "reason": [],
+   "schemaVersion": 1,
+   "subject": {
+    "image": "demo.dylib",
+    "kind": "function",
+    "ref": "0x1200"
+   },
+   "toolchain": "zig0.13-clang18-lld18-arm64-macho"
+  }
+ ],
+ "kind": "NavigatorEngineState",
+ "reverted": [],
+ "schemaVersion": 1,
+ "toolchain": "zig0.13-clang18-lld18-arm64-macho"
+}

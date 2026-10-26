@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<!--
+  MacScope scripting definition.
+
+  Exposes a small, SAFE subset of the analysis to AppleScript, bridged to the
+  in-process WorkspaceScriptingAPI through AppleScriptCommandTranslator. The exposed
+  surface is read commands plus the already-undoable authoring ops (set name / set
+  comment / set tag); no structural or destructive verb is scriptable. Every command
+  name + parameter name here matches a case/key handled by
+  AppleScriptCommandTranslator.translate, which validates inputs and rejects anything
+  outside the allowlist.
+
+  Live NSScriptCommand wiring (per-verb command classes that read evaluatedArguments,
+  call the translator, then run the result on the front document's WorkspaceScriptingAPI)
+  is the remaining environment-heavy step; the translator is unit-tested independently.
+-->
+<dictionary title="MacScope Terminology">
+
+    <suite name="MacScope Suite" code="MScp"
+           description="Commands for inspecting and annotating a disassembled binary.">
+
+        <!-- Reads -->
+
+        <command name="get info" code="MScpInfo"
+                 description="Get a summary of the loaded binary (name, format, architecture, counts).">
+            <cocoa class="MacScopeScriptCommand"/>
+            <result type="record" description="A record describing the loaded binary."/>
+        </command>
+
+        <command name="get functions" code="MScpFunc"
+                 description="Get the list of the primary image's discovered functions.">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="limit" code="lim?" type="integer" optional="yes"
+                       description="Maximum number of functions to return.">
+                <cocoa key="limit"/>
+            </parameter>
+            <result type="list" description="A list of function records (name, address, end)."/>
+        </command>
+
+        <command name="get instructions" code="MScpInst"
+                 description="Get the instructions of a function (by name) or at an address.">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="function" code="func" type="text" optional="yes"
+                       description="The function name whose instructions to return: the display name listed by get functions (a rename wins) or an unambiguous raw name. An ambiguous name is rejected; use at instead.">
+                <cocoa key="function"/>
+            </parameter>
+            <parameter name="at" code="addr" type="text" optional="yes"
+                       description="A start address (a 0x… hex string or an integer).">
+                <cocoa key="at"/>
+            </parameter>
+            <parameter name="count" code="cnt?" type="integer" optional="yes"
+                       description="How many instructions to return from the address.">
+                <cocoa key="count"/>
+            </parameter>
+            <result type="list" description="A list of instruction records."/>
+        </command>
+
+        <command name="get name at" code="MScpNmAt"
+                 description="Get the display name at an address in the primary image (a custom name if one is set).">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="at" code="addr" type="text"
+                       description="The address to look up (a 0x… hex string or an integer).">
+                <cocoa key="at"/>
+            </parameter>
+            <result type="text" description="The display name, or missing value if none."/>
+        </command>
+
+        <command name="get comment" code="MScpGcmt"
+                 description="Get the comment at an address in the primary image, if any.">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="at" code="addr" type="text"
+                       description="The address to read (a 0x… hex string or an integer).">
+                <cocoa key="at"/>
+            </parameter>
+            <result type="record" description="The instruction record at the address (its comment field carries the comment)."/>
+        </command>
+
+        <!-- Undoable authoring -->
+
+        <command name="set name" code="MScpSnam"
+                 description="Set a custom name at an address in the primary image, the image get functions lists, whichever image is focused (an undoable edit).">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="at" code="addr" type="text"
+                       description="The address to rename (a 0x… hex string or an integer).">
+                <cocoa key="at"/>
+            </parameter>
+            <parameter name="to" code="valu" type="text"
+                       description="The new name.">
+                <cocoa key="to"/>
+            </parameter>
+        </command>
+
+        <command name="set comment" code="MScpScmt"
+                 description="Set a comment at an address in the primary image, whichever image is focused, or clear it with an empty string (an undoable edit).">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="at" code="addr" type="text"
+                       description="The address to annotate (a 0x… hex string or an integer).">
+                <cocoa key="at"/>
+            </parameter>
+            <parameter name="to" code="valu" type="text"
+                       description="The comment text (empty clears it).">
+                <cocoa key="to"/>
+            </parameter>
+        </command>
+
+        <command name="set tag" code="MScpStag"
+                 description="Set a free-text tag at an address in the primary image, whichever image is focused, or clear it with an empty string (an undoable edit).">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="at" code="addr" type="text"
+                       description="The address to tag (a 0x… hex string or an integer).">
+                <cocoa key="at"/>
+            </parameter>
+            <parameter name="to" code="valu" type="text"
+                       description="The tag text (empty clears it).">
+                <cocoa key="to"/>
+            </parameter>
+        </command>
+
+        <!-- Generic, allowlisted escape hatch -->
+
+        <command name="run command" code="MScpRcmd"
+                 description="Run one allowlisted scripting command by identifier, returning its JSON result as text.">
+            <cocoa class="MacScopeScriptCommand"/>
+            <parameter name="command" code="cmid" type="text"
+                       description="The scripting command identifier (must be allowlisted).">
+                <cocoa key="command"/>
+            </parameter>
+            <parameter name="with arguments" code="args" type="record" optional="yes"
+                       description="Arguments for the command, as a record.">
+                <cocoa key="arguments"/>
+            </parameter>
+            <result type="text" description="The command's JSON result, as text."/>
+        </command>
+
+    </suite>
+
+</dictionary>

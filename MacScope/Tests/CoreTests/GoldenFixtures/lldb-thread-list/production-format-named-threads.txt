@@ -1,0 +1,9 @@
+Process 78331 stopped
+  thread #1: tid = 0x5d5597, 0x0000000191831af4 libsystem_kernel.dylib`__ulock_wait
+  thread #2: tid = 0x5d55a7, 0x0000000191833308 libsystem_kernel.dylib`__semwait_signal, name = 'macscope.worker.1'
+  thread #3: tid = 0x5d55a8, 0x0000000191833308 libsystem_kernel.dylib`__semwait_signal, name = 'macscope.worker.2'
+* thread #4: tid = 0x5d55a9, 0x0000000100000558 threads`rendezvous, name = 'macscope.worker.3', stop reason = breakpoint 1.1
+* thread #4: tid = 0x5d55a9, stop reason = breakpoint 1.1
+  * frame #0: 0x0000000100000558 threads`rendezvous(id=3) at DebuggerThreadsLiveFixture.c:14:41
+    frame #1: 0x0000000100000728 threads`worker(arg=0x0000000000000003) at DebuggerThreadsLiveFixture.c:32:9
+    frame #2: 0x0000000191874ce4 libsystem_pthread.dylib`_pthread_start + 136

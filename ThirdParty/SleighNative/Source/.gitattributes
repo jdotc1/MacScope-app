@@ -1,0 +1,3 @@
+# Preserve the exact upstream snapshots, including their original whitespace.
+ghidra/** -whitespace
+sleigh/** -whitespace

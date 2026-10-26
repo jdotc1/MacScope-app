@@ -1,0 +1,82 @@
+{
+  "metrics": {
+    "fn_start_recall": [
+      10,
+      12
+    ],
+    "fn_start_precision": [
+      10,
+      12
+    ],
+    "fn_extent_exact": [
+      8,
+      10
+    ],
+    "fn_extent_within": [
+      9,
+      10
+    ],
+    "name_given": [
+      8,
+      10
+    ],
+    "name_exact": [
+      6,
+      10
+    ],
+    "name_wrong": [
+      2,
+      10
+    ],
+    "name_raw_exact": [
+      2,
+      10
+    ]
+  },
+  "class_counts": {
+    "main": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "function": [
+      3,
+      3,
+      2,
+      2,
+      1,
+      1
+    ],
+    "metadataAccessor": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "other": [
+      9,
+      7,
+      6,
+      4,
+      0,
+      0
+    ]
+  },
+  "unreached": [
+    "0x1060",
+    "0x10a0"
+  ],
+  "wrong": [
+    "0x1030",
+    "0x1090"
+  ],
+  "extras": {
+    "0x1038": "split",
+    "0x107c": "gap"
+  }
+}

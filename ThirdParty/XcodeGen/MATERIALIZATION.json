@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "provider": "yonaskolb/XcodeGen",
+  "repository": "https://github.com/yonaskolb/XcodeGen",
+  "revision": "2.46.0",
+  "gitRevision": "8445e778451c7e44237b90281bde622d764b0084",
+  "sourceArchive": "source/XcodeGen-2.46.0.tar.gz",
+  "sourceArchiveSHA256": "c83c7bd70255b0ddf4116dadce16bdf0e5939165b43a544e124de294ec84aa27",
+  "binary": "bin/xcodegen",
+  "binarySHA256": "5b5d393779d405bbe78a2de8130f0bfaa4f90f7295cd3c8436d620b04aaee49a",
+  "binaryArchitecture": "arm64",
+  "binaryVersion": "2.46.0",
+  "license": "LICENSE",
+  "licenseSHA256": "1e210fcab168d549f41a7495d11a7092836bc38c742baa5e21c0883cd0f1d1a1",
+  "integrationMode": "repository-owned-prebuilt-tool",
+  "materializer": "Scripts/dependencies/materialize_xcodegen.py",
+  "networkRequired": false
+}

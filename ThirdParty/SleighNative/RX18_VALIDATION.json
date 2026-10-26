@@ -1,0 +1,2978 @@
+{
+  "scope": "bounded actual SLEIGH decode/pcode; not native provider or hardware acceptance",
+  "nativeAcceptance": "prepared_not_native_executed",
+  "jobs": 4,
+  "seconds": 27.642,
+  "summary": {
+    "le": {
+      "normal_path": 7,
+      "decode_only": 112,
+      "still_fail_closed": 13
+    },
+    "be": {
+      "normal_path": 7,
+      "decode_only": 112,
+      "still_fail_closed": 13
+    },
+    "apple": {
+      "normal_path": 7,
+      "decode_only": 112,
+      "still_fail_closed": 13
+    }
+  },
+  "originalCheckedInRX18Words": 39,
+  "originalRX18Summary": {
+    "le": {
+      "normal_path": 3,
+      "decode_only": 35,
+      "still_fail_closed": 1
+    },
+    "be": {
+      "normal_path": 3,
+      "decode_only": 35,
+      "still_fail_closed": 1
+    },
+    "apple": {
+      "normal_path": 3,
+      "decode_only": 35,
+      "still_fail_closed": 1
+    }
+  },
+  "numericCases": 66,
+  "failures": [],
+  "svcrBitCases": 144,
+  "receiptReuse": {
+    "initial": "vectors-initial.json",
+    "failingWordsOnlyRetry": "vectors-retry.json",
+    "retrySeconds": 0.833,
+    "svcr": "144 new bit-update assertions over captured p-code; no repeated lift or numerical cases"
+  },
+  "expectedStillFailClosed": {},
+  "compiledOutputs": {
+    "AARCH64.sla": "36a63ad1f7eb767184b9432e4405d07e5beb69645b86717f541a9adb02ce359f",
+    "AARCH64BE.sla": "2c548084f198cf162728f5cc357e63140fbdde3fb1f5a452c721aad070583932",
+    "AARCH64_AppleSilicon.sla": "dfc99de03ffc783a787d47c6650b3f55a9ca3cc6da74d219976d9c8fe9dd82c5"
+  },
+  "resultTable": [
+    {
+      "variant": "le",
+      "word": "04bf5820",
+      "numericCases": 4,
+      "text": "rdsvl x0, #0x1",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "04bf5bfe",
+      "numericCases": 4,
+      "text": "rdsvl x30, #0x1f",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "04bf5c15",
+      "numericCases": 4,
+      "text": "rdsvl x21, #-0x20",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "04bf5c1f",
+      "numericCases": 4,
+      "text": "rdsvl xzr, #-0x20",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "04bf5fff",
+      "numericCases": 4,
+      "text": "rdsvl xzr, #-0x1",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "05223020",
+      "numericCases": 0,
+      "text": "tbl z0.B, {z1.B}, z2.B",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "2518e3e0",
+      "numericCases": 0,
+      "text": "ptrue p0.B",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "25231057",
+      "numericCases": 0,
+      "text": null,
+      "status": "expected_admission",
+      "historicalObservation": {
+        "variant": "le",
+        "word": "25231057",
+        "numericCases": 0,
+        "text": null,
+        "status": "still_fail_closed"
+      },
+      "expectedPcodeStatus": "normal_path",
+      "expectedDisassembly": "whilegt p7.b, x2, x3",
+      "observedNativeOutcome": null,
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38"
+    },
+    {
+      "variant": "le",
+      "word": "2558e103",
+      "numericCases": 0,
+      "text": "ptrue p3.H, VL8",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "256704a3",
+      "numericCases": 0,
+      "text": "whilelt p3.H, w5, w7",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "25a11400",
+      "numericCases": 0,
+      "text": "whilelt p0.S, x0, x1",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "25b8c000",
+      "numericCases": 0,
+      "text": "fmov z0.S, #0.0",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "25d8e3ef",
+      "numericCases": 0,
+      "text": "ptrue p15.D",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "25eb1d42",
+      "numericCases": 0,
+      "text": "whilelo p2.D, x10, x11",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "654808e6",
+      "numericCases": 0,
+      "text": "fmul z6.H, z7.H, z8.H",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "65820020",
+      "numericCases": 0,
+      "text": "fadd z0.S, z1.S, z2.S",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "65c50483",
+      "numericCases": 0,
+      "text": "fsub z3.D, z4.D, z5.D",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "80800004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "809ff523",
+      "numericCases": 0,
+      "text": "fmopa za0x3.s, p5/m, p7/m, z9.s, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "809ff533",
+      "numericCases": 0,
+      "text": "fmops za0x3.s, p5/m, p7/m, z9.s, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "80c00008",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "80dff527",
+      "numericCases": 0,
+      "text": "fmopa za0x7.d, p5/m, p7/m, z9.d, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "80dff537",
+      "numericCases": 0,
+      "text": "fmops za0x7.d, p5/m, p7/m, z9.d, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "819ff529",
+      "numericCases": 0,
+      "text": "fmopa za0x1.h, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "819ff539",
+      "numericCases": 0,
+      "text": "fmops za0x1.h, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "81a00004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "81a1f522",
+      "numericCases": 0,
+      "text": "fmopa za0x2.s, p5/m, p7/m, z9.h, z1.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "81bff522",
+      "numericCases": 0,
+      "text": "fmopa za0x2.s, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "81bff532",
+      "numericCases": 0,
+      "text": "fmops za0x2.s, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "a540bd52",
+      "numericCases": 0,
+      "text": "ld1w {z18.S}, p7/z, [x10]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "a547a054",
+      "numericCases": 0,
+      "text": "ld1w {z20.S}, p0/z, [x2, #0x7, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "a548a0ac",
+      "numericCases": 0,
+      "text": "ld1w {z12.S}, p0/z, [x5, #-0x8, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0000010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "c0007fef",
+      "numericCases": 0,
+      "text": "mov za0h.b[w15, 0xf], p7/m, z31.b",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c000ffef",
+      "numericCases": 0,
+      "text": "mov za0v.b[w15, 0xf], p7/m, z31.b",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0020000",
+      "numericCases": 0,
+      "text": "mov z0.b, p0/m, za0h.b[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0020200",
+      "numericCases": 0,
+      "text": null,
+      "status": "expected_admission",
+      "historicalObservation": {
+        "variant": "le",
+        "word": "c0020200",
+        "numericCases": 0,
+        "text": null,
+        "status": "still_fail_closed"
+      },
+      "expectedPcodeStatus": "normal_path",
+      "expectedDisassembly": "movaz z0.b, za0h.b[w12, 0]",
+      "observedNativeOutcome": null,
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75"
+    },
+    {
+      "variant": "le",
+      "word": "c0028000",
+      "numericCases": 0,
+      "text": "mov z0.b, p0/m, za0v.b[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080000",
+      "numericCases": 0,
+      "text": "zero {}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080001",
+      "numericCases": 0,
+      "text": "zero {za0.d}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080011",
+      "numericCases": 0,
+      "text": "zero {za0.s}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080033",
+      "numericCases": 0,
+      "text": "zero {za0.s, za1.s}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080055",
+      "numericCases": 0,
+      "text": "zero {za0.h}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080081",
+      "numericCases": 0,
+      "text": "zero {za0.d, za7.d}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c00800aa",
+      "numericCases": 0,
+      "text": "zero {za1.h}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c00800ff",
+      "numericCases": 0,
+      "text": "zero {za}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0080100",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "c0407fef",
+      "numericCases": 0,
+      "text": "mov za0x1h.h[w15, 0x7], p7/m, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c040ffef",
+      "numericCases": 0,
+      "text": "mov za0x1v.h[w15, 0x7], p7/m, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0420100",
+      "numericCases": 0,
+      "text": "mov z0.h, p0/m, za0x1h.h[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0428100",
+      "numericCases": 0,
+      "text": "mov z0.h, p0/m, za0x1v.h[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0807fef",
+      "numericCases": 0,
+      "text": "mov za0x3h.s[w15, 0x3], p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c080ffef",
+      "numericCases": 0,
+      "text": "mov za0x3v.s[w15, 0x3], p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0820180",
+      "numericCases": 0,
+      "text": "mov z0.s, p0/m, za0x3h.s[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0828180",
+      "numericCases": 0,
+      "text": "mov z0.s, p0/m, za0x3v.s[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0900004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "c090f7e3",
+      "numericCases": 0,
+      "text": "addha za0x3.s, p5/m, p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c091f7e3",
+      "numericCases": 0,
+      "text": "addva za0x3.s, p5/m, p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c07fef",
+      "numericCases": 0,
+      "text": "mov za0x7h.d[w15, 0x1], p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c0ffef",
+      "numericCases": 0,
+      "text": "mov za0x7v.d[w15, 0x1], p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c17fef",
+      "numericCases": 0,
+      "text": "mov za0xfh.q[w15, 0], p7/m, z31.q",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c1ffef",
+      "numericCases": 0,
+      "text": "mov za0xfv.q[w15, 0], p7/m, z31.q",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c201c0",
+      "numericCases": 0,
+      "text": "mov z0.d, p0/m, za0x7h.d[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c281c0",
+      "numericCases": 0,
+      "text": "mov z0.d, p0/m, za0x7v.d[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c301e0",
+      "numericCases": 0,
+      "text": "mov z0.q, p0/m, za0xfh.q[w12, 0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0c381e0",
+      "numericCases": 0,
+      "text": "mov z0.q, p0/m, za0xfv.q[w12, 0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0cc0000",
+      "numericCases": 0,
+      "text": "luti2 z0.b, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0cc1000",
+      "numericCases": 0,
+      "text": "luti2 z0.h, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0cc2000",
+      "numericCases": 0,
+      "text": "luti2 z0.s, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0cc3000",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "c0cd3000",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "c0cfc3df",
+      "numericCases": 0,
+      "text": "luti2 z31.b, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0cfd3df",
+      "numericCases": 0,
+      "text": "luti2 z31.h, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0cfe3df",
+      "numericCases": 0,
+      "text": "luti2 z31.s, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0d00008",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "c0d0f7e7",
+      "numericCases": 0,
+      "text": "addha za0x7.d, p5/m, p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "c0d1f7e7",
+      "numericCases": 0,
+      "text": "addva za0x7.d, p5/m, p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "d503427f",
+      "numericCases": 0,
+      "text": "smstop sm",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "le",
+      "word": "d503437f",
+      "numericCases": 0,
+      "text": "smstart sm",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "le",
+      "word": "d503447f",
+      "numericCases": 0,
+      "text": "smstop za",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "le",
+      "word": "d503457f",
+      "numericCases": 0,
+      "text": "smstart za",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "le",
+      "word": "d503467f",
+      "numericCases": 0,
+      "text": "smstop",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "le",
+      "word": "d503477f",
+      "numericCases": 0,
+      "text": "smstart",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "le",
+      "word": "e0000010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "e01e7fef",
+      "numericCases": 0,
+      "text": "ld1b {za0h.b[w15, 0xf]}, p7/z, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e01effef",
+      "numericCases": 0,
+      "text": "ld1b {za0v.b[w15, 0xf]}, p7/z, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e01f1c00",
+      "numericCases": 0,
+      "text": "ld1b {za0h.b[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e01f9c00",
+      "numericCases": 0,
+      "text": "ld1b {za0v.b[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e03e7fef",
+      "numericCases": 0,
+      "text": "st1b {za0h.b[w15, 0xf]}, p7, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e03effef",
+      "numericCases": 0,
+      "text": "st1b {za0v.b[w15, 0xf]}, p7, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e03f1c00",
+      "numericCases": 0,
+      "text": "st1b {za0h.b[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e03f9c00",
+      "numericCases": 0,
+      "text": "st1b {za0v.b[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0400010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "le",
+      "word": "e05e7fef",
+      "numericCases": 0,
+      "text": "ld1h {za0x1h.h[w15, 0x7]}, p7/z, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e05effef",
+      "numericCases": 0,
+      "text": "ld1h {za0x1v.h[w15, 0x7]}, p7/z, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e05f1c08",
+      "numericCases": 0,
+      "text": "ld1h {za0x1h.h[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e05f9c08",
+      "numericCases": 0,
+      "text": "ld1h {za0x1v.h[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e07e7fef",
+      "numericCases": 0,
+      "text": "st1h {za0x1h.h[w15, 0x7]}, p7, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e07effef",
+      "numericCases": 0,
+      "text": "st1h {za0x1v.h[w15, 0x7]}, p7, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e07f1c08",
+      "numericCases": 0,
+      "text": "st1h {za0x1h.h[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e07f9c08",
+      "numericCases": 0,
+      "text": "st1h {za0x1v.h[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e09e7fef",
+      "numericCases": 0,
+      "text": "ld1w {za0x3h.s[w15, 0x3]}, p7/z, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e09effef",
+      "numericCases": 0,
+      "text": "ld1w {za0x3v.s[w15, 0x3]}, p7/z, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e09f1c0c",
+      "numericCases": 0,
+      "text": "ld1w {za0x3h.s[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e09f9c0c",
+      "numericCases": 0,
+      "text": "ld1w {za0x3v.s[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0be7fef",
+      "numericCases": 0,
+      "text": "st1w {za0x3h.s[w15, 0x3]}, p7, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0beffef",
+      "numericCases": 0,
+      "text": "st1w {za0x3v.s[w15, 0x3]}, p7, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0bf1c0c",
+      "numericCases": 0,
+      "text": "st1w {za0x3h.s[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0bf9c0c",
+      "numericCases": 0,
+      "text": "st1w {za0x3v.s[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0de7fef",
+      "numericCases": 0,
+      "text": "ld1d {za0x7h.d[w15, 0x1]}, p7/z, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0deffef",
+      "numericCases": 0,
+      "text": "ld1d {za0x7v.d[w15, 0x1]}, p7/z, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0df1c0e",
+      "numericCases": 0,
+      "text": "ld1d {za0x7h.d[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0df9c0e",
+      "numericCases": 0,
+      "text": "ld1d {za0x7v.d[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0fe7fef",
+      "numericCases": 0,
+      "text": "st1d {za0x7h.d[w15, 0x1]}, p7, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0feffef",
+      "numericCases": 0,
+      "text": "st1d {za0x7v.d[w15, 0x1]}, p7, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0ff1c0e",
+      "numericCases": 0,
+      "text": "st1d {za0x7h.d[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e0ff9c0e",
+      "numericCases": 0,
+      "text": "st1d {za0x7v.d[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1000000",
+      "numericCases": 0,
+      "text": "ldr za[w12, 0x0], [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e11f83c0",
+      "numericCases": 1,
+      "text": "ldr zt0, [x30]",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "e12063ef",
+      "numericCases": 0,
+      "text": "str za[w15, 0xf], [sp, #0xf, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e13f83e0",
+      "numericCases": 1,
+      "text": "str zt0, [sp]",
+      "status": "normal_path"
+    },
+    {
+      "variant": "le",
+      "word": "e1de7fef",
+      "numericCases": 0,
+      "text": "ld1q {za0xfh.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1deffef",
+      "numericCases": 0,
+      "text": "ld1q {za0xfv.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1df1c0f",
+      "numericCases": 0,
+      "text": "ld1q {za0xfh.q[w12, 0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1df9c0f",
+      "numericCases": 0,
+      "text": "ld1q {za0xfv.q[w12, 0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1fe7fef",
+      "numericCases": 0,
+      "text": "st1q {za0xfh.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1feffef",
+      "numericCases": 0,
+      "text": "st1q {za0xfv.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1ff1c0f",
+      "numericCases": 0,
+      "text": "st1q {za0xfh.q[w12, 0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e1ff9c0f",
+      "numericCases": 0,
+      "text": "st1q {za0xfv.q[w12, 0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e540eb78",
+      "numericCases": 0,
+      "text": "st1w {z24.S}, p2, [x27]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e547e031",
+      "numericCases": 0,
+      "text": "st1w {z17.S}, p0, [x1, #0x7, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "le",
+      "word": "e548e002",
+      "numericCases": 0,
+      "text": "st1w {z2.S}, p0, [x0, #-0x8, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "04bf5820",
+      "numericCases": 4,
+      "text": "rdsvl x0, #0x1",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "04bf5bfe",
+      "numericCases": 4,
+      "text": "rdsvl x30, #0x1f",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "04bf5c15",
+      "numericCases": 4,
+      "text": "rdsvl x21, #-0x20",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "04bf5c1f",
+      "numericCases": 4,
+      "text": "rdsvl xzr, #-0x20",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "04bf5fff",
+      "numericCases": 4,
+      "text": "rdsvl xzr, #-0x1",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "05223020",
+      "numericCases": 0,
+      "text": "tbl z0.B, {z1.B}, z2.B",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "2518e3e0",
+      "numericCases": 0,
+      "text": "ptrue p0.B",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "25231057",
+      "numericCases": 0,
+      "text": null,
+      "status": "expected_admission",
+      "historicalObservation": {
+        "variant": "be",
+        "word": "25231057",
+        "numericCases": 0,
+        "text": null,
+        "status": "still_fail_closed"
+      },
+      "expectedPcodeStatus": "normal_path",
+      "expectedDisassembly": "whilegt p7.b, x2, x3",
+      "observedNativeOutcome": null,
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38"
+    },
+    {
+      "variant": "be",
+      "word": "2558e103",
+      "numericCases": 0,
+      "text": "ptrue p3.H, VL8",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "256704a3",
+      "numericCases": 0,
+      "text": "whilelt p3.H, w5, w7",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "25a11400",
+      "numericCases": 0,
+      "text": "whilelt p0.S, x0, x1",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "25b8c000",
+      "numericCases": 0,
+      "text": "fmov z0.S, #0.0",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "25d8e3ef",
+      "numericCases": 0,
+      "text": "ptrue p15.D",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "25eb1d42",
+      "numericCases": 0,
+      "text": "whilelo p2.D, x10, x11",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "654808e6",
+      "numericCases": 0,
+      "text": "fmul z6.H, z7.H, z8.H",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "65820020",
+      "numericCases": 0,
+      "text": "fadd z0.S, z1.S, z2.S",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "65c50483",
+      "numericCases": 0,
+      "text": "fsub z3.D, z4.D, z5.D",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "80800004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "809ff523",
+      "numericCases": 0,
+      "text": "fmopa za0x3.s, p5/m, p7/m, z9.s, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "809ff533",
+      "numericCases": 0,
+      "text": "fmops za0x3.s, p5/m, p7/m, z9.s, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "80c00008",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "80dff527",
+      "numericCases": 0,
+      "text": "fmopa za0x7.d, p5/m, p7/m, z9.d, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "80dff537",
+      "numericCases": 0,
+      "text": "fmops za0x7.d, p5/m, p7/m, z9.d, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "819ff529",
+      "numericCases": 0,
+      "text": "fmopa za0x1.h, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "819ff539",
+      "numericCases": 0,
+      "text": "fmops za0x1.h, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "81a00004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "81a1f522",
+      "numericCases": 0,
+      "text": "fmopa za0x2.s, p5/m, p7/m, z9.h, z1.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "81bff522",
+      "numericCases": 0,
+      "text": "fmopa za0x2.s, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "81bff532",
+      "numericCases": 0,
+      "text": "fmops za0x2.s, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "a540bd52",
+      "numericCases": 0,
+      "text": "ld1w {z18.S}, p7/z, [x10]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "a547a054",
+      "numericCases": 0,
+      "text": "ld1w {z20.S}, p0/z, [x2, #0x7, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "a548a0ac",
+      "numericCases": 0,
+      "text": "ld1w {z12.S}, p0/z, [x5, #-0x8, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0000010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "c0007fef",
+      "numericCases": 0,
+      "text": "mov za0h.b[w15, 0xf], p7/m, z31.b",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c000ffef",
+      "numericCases": 0,
+      "text": "mov za0v.b[w15, 0xf], p7/m, z31.b",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0020000",
+      "numericCases": 0,
+      "text": "mov z0.b, p0/m, za0h.b[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0020200",
+      "numericCases": 0,
+      "text": null,
+      "status": "expected_admission",
+      "historicalObservation": {
+        "variant": "be",
+        "word": "c0020200",
+        "numericCases": 0,
+        "text": null,
+        "status": "still_fail_closed"
+      },
+      "expectedPcodeStatus": "normal_path",
+      "expectedDisassembly": "movaz z0.b, za0h.b[w12, 0]",
+      "observedNativeOutcome": null,
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75"
+    },
+    {
+      "variant": "be",
+      "word": "c0028000",
+      "numericCases": 0,
+      "text": "mov z0.b, p0/m, za0v.b[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080000",
+      "numericCases": 0,
+      "text": "zero {}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080001",
+      "numericCases": 0,
+      "text": "zero {za0.d}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080011",
+      "numericCases": 0,
+      "text": "zero {za0.s}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080033",
+      "numericCases": 0,
+      "text": "zero {za0.s, za1.s}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080055",
+      "numericCases": 0,
+      "text": "zero {za0.h}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080081",
+      "numericCases": 0,
+      "text": "zero {za0.d, za7.d}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c00800aa",
+      "numericCases": 0,
+      "text": "zero {za1.h}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c00800ff",
+      "numericCases": 0,
+      "text": "zero {za}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0080100",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "c0407fef",
+      "numericCases": 0,
+      "text": "mov za0x1h.h[w15, 0x7], p7/m, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c040ffef",
+      "numericCases": 0,
+      "text": "mov za0x1v.h[w15, 0x7], p7/m, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0420100",
+      "numericCases": 0,
+      "text": "mov z0.h, p0/m, za0x1h.h[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0428100",
+      "numericCases": 0,
+      "text": "mov z0.h, p0/m, za0x1v.h[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0807fef",
+      "numericCases": 0,
+      "text": "mov za0x3h.s[w15, 0x3], p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c080ffef",
+      "numericCases": 0,
+      "text": "mov za0x3v.s[w15, 0x3], p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0820180",
+      "numericCases": 0,
+      "text": "mov z0.s, p0/m, za0x3h.s[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0828180",
+      "numericCases": 0,
+      "text": "mov z0.s, p0/m, za0x3v.s[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0900004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "c090f7e3",
+      "numericCases": 0,
+      "text": "addha za0x3.s, p5/m, p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c091f7e3",
+      "numericCases": 0,
+      "text": "addva za0x3.s, p5/m, p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c07fef",
+      "numericCases": 0,
+      "text": "mov za0x7h.d[w15, 0x1], p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c0ffef",
+      "numericCases": 0,
+      "text": "mov za0x7v.d[w15, 0x1], p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c17fef",
+      "numericCases": 0,
+      "text": "mov za0xfh.q[w15, 0], p7/m, z31.q",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c1ffef",
+      "numericCases": 0,
+      "text": "mov za0xfv.q[w15, 0], p7/m, z31.q",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c201c0",
+      "numericCases": 0,
+      "text": "mov z0.d, p0/m, za0x7h.d[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c281c0",
+      "numericCases": 0,
+      "text": "mov z0.d, p0/m, za0x7v.d[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c301e0",
+      "numericCases": 0,
+      "text": "mov z0.q, p0/m, za0xfh.q[w12, 0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0c381e0",
+      "numericCases": 0,
+      "text": "mov z0.q, p0/m, za0xfv.q[w12, 0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0cc0000",
+      "numericCases": 0,
+      "text": "luti2 z0.b, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0cc1000",
+      "numericCases": 0,
+      "text": "luti2 z0.h, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0cc2000",
+      "numericCases": 0,
+      "text": "luti2 z0.s, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0cc3000",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "c0cd3000",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "c0cfc3df",
+      "numericCases": 0,
+      "text": "luti2 z31.b, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0cfd3df",
+      "numericCases": 0,
+      "text": "luti2 z31.h, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0cfe3df",
+      "numericCases": 0,
+      "text": "luti2 z31.s, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0d00008",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "c0d0f7e7",
+      "numericCases": 0,
+      "text": "addha za0x7.d, p5/m, p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "c0d1f7e7",
+      "numericCases": 0,
+      "text": "addva za0x7.d, p5/m, p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "d503427f",
+      "numericCases": 0,
+      "text": "smstop sm",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "be",
+      "word": "d503437f",
+      "numericCases": 0,
+      "text": "smstart sm",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "be",
+      "word": "d503447f",
+      "numericCases": 0,
+      "text": "smstop za",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "be",
+      "word": "d503457f",
+      "numericCases": 0,
+      "text": "smstart za",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "be",
+      "word": "d503467f",
+      "numericCases": 0,
+      "text": "smstop",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "be",
+      "word": "d503477f",
+      "numericCases": 0,
+      "text": "smstart",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "be",
+      "word": "e0000010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "e01e7fef",
+      "numericCases": 0,
+      "text": "ld1b {za0h.b[w15, 0xf]}, p7/z, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e01effef",
+      "numericCases": 0,
+      "text": "ld1b {za0v.b[w15, 0xf]}, p7/z, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e01f1c00",
+      "numericCases": 0,
+      "text": "ld1b {za0h.b[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e01f9c00",
+      "numericCases": 0,
+      "text": "ld1b {za0v.b[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e03e7fef",
+      "numericCases": 0,
+      "text": "st1b {za0h.b[w15, 0xf]}, p7, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e03effef",
+      "numericCases": 0,
+      "text": "st1b {za0v.b[w15, 0xf]}, p7, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e03f1c00",
+      "numericCases": 0,
+      "text": "st1b {za0h.b[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e03f9c00",
+      "numericCases": 0,
+      "text": "st1b {za0v.b[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0400010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "be",
+      "word": "e05e7fef",
+      "numericCases": 0,
+      "text": "ld1h {za0x1h.h[w15, 0x7]}, p7/z, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e05effef",
+      "numericCases": 0,
+      "text": "ld1h {za0x1v.h[w15, 0x7]}, p7/z, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e05f1c08",
+      "numericCases": 0,
+      "text": "ld1h {za0x1h.h[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e05f9c08",
+      "numericCases": 0,
+      "text": "ld1h {za0x1v.h[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e07e7fef",
+      "numericCases": 0,
+      "text": "st1h {za0x1h.h[w15, 0x7]}, p7, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e07effef",
+      "numericCases": 0,
+      "text": "st1h {za0x1v.h[w15, 0x7]}, p7, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e07f1c08",
+      "numericCases": 0,
+      "text": "st1h {za0x1h.h[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e07f9c08",
+      "numericCases": 0,
+      "text": "st1h {za0x1v.h[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e09e7fef",
+      "numericCases": 0,
+      "text": "ld1w {za0x3h.s[w15, 0x3]}, p7/z, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e09effef",
+      "numericCases": 0,
+      "text": "ld1w {za0x3v.s[w15, 0x3]}, p7/z, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e09f1c0c",
+      "numericCases": 0,
+      "text": "ld1w {za0x3h.s[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e09f9c0c",
+      "numericCases": 0,
+      "text": "ld1w {za0x3v.s[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0be7fef",
+      "numericCases": 0,
+      "text": "st1w {za0x3h.s[w15, 0x3]}, p7, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0beffef",
+      "numericCases": 0,
+      "text": "st1w {za0x3v.s[w15, 0x3]}, p7, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0bf1c0c",
+      "numericCases": 0,
+      "text": "st1w {za0x3h.s[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0bf9c0c",
+      "numericCases": 0,
+      "text": "st1w {za0x3v.s[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0de7fef",
+      "numericCases": 0,
+      "text": "ld1d {za0x7h.d[w15, 0x1]}, p7/z, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0deffef",
+      "numericCases": 0,
+      "text": "ld1d {za0x7v.d[w15, 0x1]}, p7/z, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0df1c0e",
+      "numericCases": 0,
+      "text": "ld1d {za0x7h.d[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0df9c0e",
+      "numericCases": 0,
+      "text": "ld1d {za0x7v.d[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0fe7fef",
+      "numericCases": 0,
+      "text": "st1d {za0x7h.d[w15, 0x1]}, p7, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0feffef",
+      "numericCases": 0,
+      "text": "st1d {za0x7v.d[w15, 0x1]}, p7, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0ff1c0e",
+      "numericCases": 0,
+      "text": "st1d {za0x7h.d[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e0ff9c0e",
+      "numericCases": 0,
+      "text": "st1d {za0x7v.d[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1000000",
+      "numericCases": 0,
+      "text": "ldr za[w12, 0x0], [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e11f83c0",
+      "numericCases": 1,
+      "text": "ldr zt0, [x30]",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "e12063ef",
+      "numericCases": 0,
+      "text": "str za[w15, 0xf], [sp, #0xf, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e13f83e0",
+      "numericCases": 1,
+      "text": "str zt0, [sp]",
+      "status": "normal_path"
+    },
+    {
+      "variant": "be",
+      "word": "e1de7fef",
+      "numericCases": 0,
+      "text": "ld1q {za0xfh.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1deffef",
+      "numericCases": 0,
+      "text": "ld1q {za0xfv.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1df1c0f",
+      "numericCases": 0,
+      "text": "ld1q {za0xfh.q[w12, 0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1df9c0f",
+      "numericCases": 0,
+      "text": "ld1q {za0xfv.q[w12, 0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1fe7fef",
+      "numericCases": 0,
+      "text": "st1q {za0xfh.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1feffef",
+      "numericCases": 0,
+      "text": "st1q {za0xfv.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1ff1c0f",
+      "numericCases": 0,
+      "text": "st1q {za0xfh.q[w12, 0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e1ff9c0f",
+      "numericCases": 0,
+      "text": "st1q {za0xfv.q[w12, 0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e540eb78",
+      "numericCases": 0,
+      "text": "st1w {z24.S}, p2, [x27]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e547e031",
+      "numericCases": 0,
+      "text": "st1w {z17.S}, p0, [x1, #0x7, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "be",
+      "word": "e548e002",
+      "numericCases": 0,
+      "text": "st1w {z2.S}, p0, [x0, #-0x8, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "04bf5820",
+      "numericCases": 4,
+      "text": "rdsvl x0, #0x1",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "04bf5bfe",
+      "numericCases": 4,
+      "text": "rdsvl x30, #0x1f",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "04bf5c15",
+      "numericCases": 4,
+      "text": "rdsvl x21, #-0x20",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "04bf5c1f",
+      "numericCases": 4,
+      "text": "rdsvl xzr, #-0x20",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "04bf5fff",
+      "numericCases": 4,
+      "text": "rdsvl xzr, #-0x1",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "05223020",
+      "numericCases": 0,
+      "text": "tbl z0.B, {z1.B}, z2.B",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "2518e3e0",
+      "numericCases": 0,
+      "text": "ptrue p0.B",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "25231057",
+      "numericCases": 0,
+      "text": null,
+      "status": "expected_admission",
+      "historicalObservation": {
+        "variant": "apple",
+        "word": "25231057",
+        "numericCases": 0,
+        "text": null,
+        "status": "still_fail_closed"
+      },
+      "expectedPcodeStatus": "normal_path",
+      "expectedDisassembly": "whilegt p7.b, x2, x3",
+      "observedNativeOutcome": null,
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38"
+    },
+    {
+      "variant": "apple",
+      "word": "2558e103",
+      "numericCases": 0,
+      "text": "ptrue p3.H, VL8",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "256704a3",
+      "numericCases": 0,
+      "text": "whilelt p3.H, w5, w7",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "25a11400",
+      "numericCases": 0,
+      "text": "whilelt p0.S, x0, x1",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "25b8c000",
+      "numericCases": 0,
+      "text": "fmov z0.S, #0.0",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "25d8e3ef",
+      "numericCases": 0,
+      "text": "ptrue p15.D",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "25eb1d42",
+      "numericCases": 0,
+      "text": "whilelo p2.D, x10, x11",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "654808e6",
+      "numericCases": 0,
+      "text": "fmul z6.H, z7.H, z8.H",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "65820020",
+      "numericCases": 0,
+      "text": "fadd z0.S, z1.S, z2.S",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "65c50483",
+      "numericCases": 0,
+      "text": "fsub z3.D, z4.D, z5.D",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "80800004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "809ff523",
+      "numericCases": 0,
+      "text": "fmopa za0x3.s, p5/m, p7/m, z9.s, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "809ff533",
+      "numericCases": 0,
+      "text": "fmops za0x3.s, p5/m, p7/m, z9.s, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "80c00008",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "80dff527",
+      "numericCases": 0,
+      "text": "fmopa za0x7.d, p5/m, p7/m, z9.d, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "80dff537",
+      "numericCases": 0,
+      "text": "fmops za0x7.d, p5/m, p7/m, z9.d, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "819ff529",
+      "numericCases": 0,
+      "text": "fmopa za0x1.h, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "819ff539",
+      "numericCases": 0,
+      "text": "fmops za0x1.h, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "81a00004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "81a1f522",
+      "numericCases": 0,
+      "text": "fmopa za0x2.s, p5/m, p7/m, z9.h, z1.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "81bff522",
+      "numericCases": 0,
+      "text": "fmopa za0x2.s, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "81bff532",
+      "numericCases": 0,
+      "text": "fmops za0x2.s, p5/m, p7/m, z9.h, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "a540bd52",
+      "numericCases": 0,
+      "text": "ld1w {z18.S}, p7/z, [x10]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "a547a054",
+      "numericCases": 0,
+      "text": "ld1w {z20.S}, p0/z, [x2, #0x7, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "a548a0ac",
+      "numericCases": 0,
+      "text": "ld1w {z12.S}, p0/z, [x5, #-0x8, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0000010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "c0007fef",
+      "numericCases": 0,
+      "text": "mov za0h.b[w15, 0xf], p7/m, z31.b",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c000ffef",
+      "numericCases": 0,
+      "text": "mov za0v.b[w15, 0xf], p7/m, z31.b",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0020000",
+      "numericCases": 0,
+      "text": "mov z0.b, p0/m, za0h.b[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0020200",
+      "numericCases": 0,
+      "text": null,
+      "status": "expected_admission",
+      "historicalObservation": {
+        "variant": "apple",
+        "word": "c0020200",
+        "numericCases": 0,
+        "text": null,
+        "status": "still_fail_closed"
+      },
+      "expectedPcodeStatus": "normal_path",
+      "expectedDisassembly": "movaz z0.b, za0h.b[w12, 0]",
+      "observedNativeOutcome": null,
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75"
+    },
+    {
+      "variant": "apple",
+      "word": "c0028000",
+      "numericCases": 0,
+      "text": "mov z0.b, p0/m, za0v.b[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080000",
+      "numericCases": 0,
+      "text": "zero {}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080001",
+      "numericCases": 0,
+      "text": "zero {za0.d}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080011",
+      "numericCases": 0,
+      "text": "zero {za0.s}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080033",
+      "numericCases": 0,
+      "text": "zero {za0.s, za1.s}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080055",
+      "numericCases": 0,
+      "text": "zero {za0.h}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080081",
+      "numericCases": 0,
+      "text": "zero {za0.d, za7.d}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c00800aa",
+      "numericCases": 0,
+      "text": "zero {za1.h}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c00800ff",
+      "numericCases": 0,
+      "text": "zero {za}",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0080100",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "c0407fef",
+      "numericCases": 0,
+      "text": "mov za0x1h.h[w15, 0x7], p7/m, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c040ffef",
+      "numericCases": 0,
+      "text": "mov za0x1v.h[w15, 0x7], p7/m, z31.h",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0420100",
+      "numericCases": 0,
+      "text": "mov z0.h, p0/m, za0x1h.h[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0428100",
+      "numericCases": 0,
+      "text": "mov z0.h, p0/m, za0x1v.h[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0807fef",
+      "numericCases": 0,
+      "text": "mov za0x3h.s[w15, 0x3], p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c080ffef",
+      "numericCases": 0,
+      "text": "mov za0x3v.s[w15, 0x3], p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0820180",
+      "numericCases": 0,
+      "text": "mov z0.s, p0/m, za0x3h.s[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0828180",
+      "numericCases": 0,
+      "text": "mov z0.s, p0/m, za0x3v.s[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0900004",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "c090f7e3",
+      "numericCases": 0,
+      "text": "addha za0x3.s, p5/m, p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c091f7e3",
+      "numericCases": 0,
+      "text": "addva za0x3.s, p5/m, p7/m, z31.s",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c07fef",
+      "numericCases": 0,
+      "text": "mov za0x7h.d[w15, 0x1], p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c0ffef",
+      "numericCases": 0,
+      "text": "mov za0x7v.d[w15, 0x1], p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c17fef",
+      "numericCases": 0,
+      "text": "mov za0xfh.q[w15, 0], p7/m, z31.q",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c1ffef",
+      "numericCases": 0,
+      "text": "mov za0xfv.q[w15, 0], p7/m, z31.q",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c201c0",
+      "numericCases": 0,
+      "text": "mov z0.d, p0/m, za0x7h.d[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c281c0",
+      "numericCases": 0,
+      "text": "mov z0.d, p0/m, za0x7v.d[w12, 0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c301e0",
+      "numericCases": 0,
+      "text": "mov z0.q, p0/m, za0xfh.q[w12, 0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0c381e0",
+      "numericCases": 0,
+      "text": "mov z0.q, p0/m, za0xfv.q[w12, 0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cc0000",
+      "numericCases": 0,
+      "text": "luti2 z0.b, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cc1000",
+      "numericCases": 0,
+      "text": "luti2 z0.h, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cc2000",
+      "numericCases": 0,
+      "text": "luti2 z0.s, zt0, z0[0x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cc3000",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cd3000",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cfc3df",
+      "numericCases": 0,
+      "text": "luti2 z31.b, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cfd3df",
+      "numericCases": 0,
+      "text": "luti2 z31.h, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0cfe3df",
+      "numericCases": 0,
+      "text": "luti2 z31.s, zt0, z30[0xf]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0d00008",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "c0d0f7e7",
+      "numericCases": 0,
+      "text": "addha za0x7.d, p5/m, p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "c0d1f7e7",
+      "numericCases": 0,
+      "text": "addva za0x7.d, p5/m, p7/m, z31.d",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "d503427f",
+      "numericCases": 0,
+      "text": "smstop sm",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "apple",
+      "word": "d503437f",
+      "numericCases": 0,
+      "text": "smstart sm",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "apple",
+      "word": "d503447f",
+      "numericCases": 0,
+      "text": "smstop za",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "apple",
+      "word": "d503457f",
+      "numericCases": 0,
+      "text": "smstart za",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "apple",
+      "word": "d503467f",
+      "numericCases": 0,
+      "text": "smstop",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "apple",
+      "word": "d503477f",
+      "numericCases": 0,
+      "text": "smstart",
+      "status": "decode_only",
+      "svcrBitCases": 8
+    },
+    {
+      "variant": "apple",
+      "word": "e0000010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "e01e7fef",
+      "numericCases": 0,
+      "text": "ld1b {za0h.b[w15, 0xf]}, p7/z, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e01effef",
+      "numericCases": 0,
+      "text": "ld1b {za0v.b[w15, 0xf]}, p7/z, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e01f1c00",
+      "numericCases": 0,
+      "text": "ld1b {za0h.b[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e01f9c00",
+      "numericCases": 0,
+      "text": "ld1b {za0v.b[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e03e7fef",
+      "numericCases": 0,
+      "text": "st1b {za0h.b[w15, 0xf]}, p7, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e03effef",
+      "numericCases": 0,
+      "text": "st1b {za0v.b[w15, 0xf]}, p7, [sp, x30]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e03f1c00",
+      "numericCases": 0,
+      "text": "st1b {za0h.b[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e03f9c00",
+      "numericCases": 0,
+      "text": "st1b {za0v.b[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0400010",
+      "numericCases": 0,
+      "text": null,
+      "status": "still_fail_closed"
+    },
+    {
+      "variant": "apple",
+      "word": "e05e7fef",
+      "numericCases": 0,
+      "text": "ld1h {za0x1h.h[w15, 0x7]}, p7/z, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e05effef",
+      "numericCases": 0,
+      "text": "ld1h {za0x1v.h[w15, 0x7]}, p7/z, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e05f1c08",
+      "numericCases": 0,
+      "text": "ld1h {za0x1h.h[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e05f9c08",
+      "numericCases": 0,
+      "text": "ld1h {za0x1v.h[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e07e7fef",
+      "numericCases": 0,
+      "text": "st1h {za0x1h.h[w15, 0x7]}, p7, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e07effef",
+      "numericCases": 0,
+      "text": "st1h {za0x1v.h[w15, 0x7]}, p7, [sp, x30, lsl #1]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e07f1c08",
+      "numericCases": 0,
+      "text": "st1h {za0x1h.h[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e07f9c08",
+      "numericCases": 0,
+      "text": "st1h {za0x1v.h[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e09e7fef",
+      "numericCases": 0,
+      "text": "ld1w {za0x3h.s[w15, 0x3]}, p7/z, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e09effef",
+      "numericCases": 0,
+      "text": "ld1w {za0x3v.s[w15, 0x3]}, p7/z, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e09f1c0c",
+      "numericCases": 0,
+      "text": "ld1w {za0x3h.s[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e09f9c0c",
+      "numericCases": 0,
+      "text": "ld1w {za0x3v.s[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0be7fef",
+      "numericCases": 0,
+      "text": "st1w {za0x3h.s[w15, 0x3]}, p7, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0beffef",
+      "numericCases": 0,
+      "text": "st1w {za0x3v.s[w15, 0x3]}, p7, [sp, x30, lsl #2]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0bf1c0c",
+      "numericCases": 0,
+      "text": "st1w {za0x3h.s[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0bf9c0c",
+      "numericCases": 0,
+      "text": "st1w {za0x3v.s[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0de7fef",
+      "numericCases": 0,
+      "text": "ld1d {za0x7h.d[w15, 0x1]}, p7/z, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0deffef",
+      "numericCases": 0,
+      "text": "ld1d {za0x7v.d[w15, 0x1]}, p7/z, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0df1c0e",
+      "numericCases": 0,
+      "text": "ld1d {za0x7h.d[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0df9c0e",
+      "numericCases": 0,
+      "text": "ld1d {za0x7v.d[w12, 0x0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0fe7fef",
+      "numericCases": 0,
+      "text": "st1d {za0x7h.d[w15, 0x1]}, p7, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0feffef",
+      "numericCases": 0,
+      "text": "st1d {za0x7v.d[w15, 0x1]}, p7, [sp, x30, lsl #3]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0ff1c0e",
+      "numericCases": 0,
+      "text": "st1d {za0x7h.d[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e0ff9c0e",
+      "numericCases": 0,
+      "text": "st1d {za0x7v.d[w12, 0x0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1000000",
+      "numericCases": 0,
+      "text": "ldr za[w12, 0x0], [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e11f83c0",
+      "numericCases": 1,
+      "text": "ldr zt0, [x30]",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "e12063ef",
+      "numericCases": 0,
+      "text": "str za[w15, 0xf], [sp, #0xf, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e13f83e0",
+      "numericCases": 1,
+      "text": "str zt0, [sp]",
+      "status": "normal_path"
+    },
+    {
+      "variant": "apple",
+      "word": "e1de7fef",
+      "numericCases": 0,
+      "text": "ld1q {za0xfh.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1deffef",
+      "numericCases": 0,
+      "text": "ld1q {za0xfv.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1df1c0f",
+      "numericCases": 0,
+      "text": "ld1q {za0xfh.q[w12, 0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1df9c0f",
+      "numericCases": 0,
+      "text": "ld1q {za0xfv.q[w12, 0]}, p7/z, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1fe7fef",
+      "numericCases": 0,
+      "text": "st1q {za0xfh.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1feffef",
+      "numericCases": 0,
+      "text": "st1q {za0xfv.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1ff1c0f",
+      "numericCases": 0,
+      "text": "st1q {za0xfh.q[w12, 0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e1ff9c0f",
+      "numericCases": 0,
+      "text": "st1q {za0xfv.q[w12, 0]}, p7, [x0]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e540eb78",
+      "numericCases": 0,
+      "text": "st1w {z24.S}, p2, [x27]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e547e031",
+      "numericCases": 0,
+      "text": "st1w {z17.S}, p0, [x1, #0x7, mul vl]",
+      "status": "decode_only"
+    },
+    {
+      "variant": "apple",
+      "word": "e548e002",
+      "numericCases": 0,
+      "text": "st1w {z2.S}, p0, [x0, #-0x8, mul vl]",
+      "status": "decode_only"
+    }
+  ],
+  "postCompileSourceFormatting": "Removed trailing whitespace only from SME token declarations; compiled outputs and behavioral receipt reused without recompilation.",
+  "cp1b": {
+    "sourceRevision": "910b72e19",
+    "originalFileSHA256": "1aaab7ec8e332ca17b24d47bf85d9a46e737f5e5cb3dfa59a202df6213cf2549",
+    "originalReceipt": "receipts/ledgers-before/RX18_VALIDATION.json",
+    "scope": "Current expectations for the two corrected words only. Unaffected historical fields, rows, counts, hashes, observations and diagnostics are retained; they are not new CP1b execution evidence.",
+    "nativeAcceptance": "not_executed_in_cp1b_linux",
+    "currentExpectations": {
+      "c0020200": {
+        "form": "MOVAZ_Z_RZA_B",
+        "assembly": "movaz z0.b, za0h.b[w12, 0]",
+        "encoding": {
+          "base": "0xc0020200",
+          "mask": "0xffff1e00"
+        },
+        "featureAnyOf": [
+          "FEAT_SME2p1"
+        ],
+        "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75",
+        "reason": "Allocated SME2p1 MOVAZ, not a reserved encoding; CP1 already has explicit normal-path p-code.",
+        "kind": "allocated",
+        "expectedNativeOutcome": "admitted",
+        "expectedPcodeStatus": "normal_path",
+        "nativeObservation": "pending_mac_governed_recompile_and_acceptance"
+      },
+      "25231057": {
+        "form": "WHILEGT_P_P_RR__",
+        "assembly": "whilegt p7.b, x2, x3",
+        "encoding": {
+          "base": "0x25200010",
+          "mask": "0xff20ec10"
+        },
+        "featureAnyOf": [
+          "FEAT_SVE2",
+          "FEAT_SME"
+        ],
+        "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38",
+        "reason": "Allocated WHILEGT already has explicit normal-path p-code; the historical fail-closed exception is retired.",
+        "kind": "allocated",
+        "expectedNativeOutcome": "admitted",
+        "expectedPcodeStatus": "normal_path",
+        "nativeObservation": "pending_mac_governed_recompile_and_acceptance"
+      }
+    },
+    "historicalExpectedStillFailClosed": {
+      "25231057": "Existing WHILEGT streaming-SVE gap; uncovered within the assigned streaming-SVE scope."
+    },
+    "historicalMetadataFields": [
+      "scope",
+      "nativeAcceptance",
+      "jobs",
+      "seconds",
+      "summary",
+      "originalCheckedInRX18Words",
+      "originalRX18Summary",
+      "numericCases",
+      "failures",
+      "svcrBitCases",
+      "receiptReuse",
+      "compiledOutputs",
+      "postCompileSourceFormatting"
+    ],
+    "resultTableScope": "Six corrected rows have status expected_admission; their prior executed observations are preserved in historicalObservation. All other rows remain historical RX18 observations. No native outcome is inferred."
+  }
+}

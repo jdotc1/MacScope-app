@@ -1,0 +1,88 @@
+{
+  "functions": [
+    {
+      "low_pc": "0x1000",
+      "high_pc": "0x1010",
+      "ranges": null,
+      "linkage_name": "_main",
+      "name": null
+    },
+    {
+      "low_pc": "0x1010",
+      "high_pc": "0x1020",
+      "ranges": null,
+      "linkage_name": "_$s4Test3fooyyF",
+      "name": null
+    },
+    {
+      "low_pc": "0x1020",
+      "high_pc": "0x1030",
+      "ranges": null,
+      "linkage_name": "_$s4Test4TypeVMa",
+      "name": null
+    },
+    {
+      "low_pc": "0x1030",
+      "high_pc": "0x1040",
+      "ranges": null,
+      "linkage_name": "_four",
+      "name": null
+    },
+    {
+      "low_pc": "0x1040",
+      "high_pc": "0x1050",
+      "ranges": null,
+      "linkage_name": "_five",
+      "name": null
+    },
+    {
+      "low_pc": "0x1050",
+      "high_pc": "0x1060",
+      "ranges": null,
+      "linkage_name": "_$s4Test3baryyFTg5Tm",
+      "name": null
+    },
+    {
+      "low_pc": "0x1060",
+      "high_pc": "0x1070",
+      "ranges": null,
+      "linkage_name": "_seven",
+      "name": null
+    },
+    {
+      "low_pc": "0x1070",
+      "high_pc": "0x1078",
+      "ranges": null,
+      "linkage_name": "_eight",
+      "name": null
+    },
+    {
+      "low_pc": "0x1080",
+      "high_pc": "0x1090",
+      "ranges": null,
+      "linkage_name": "_nine",
+      "name": null
+    },
+    {
+      "low_pc": "0x1090",
+      "high_pc": "0x10a0",
+      "ranges": null,
+      "linkage_name": "_ten",
+      "name": null
+    },
+    {
+      "low_pc": "0x10a0",
+      "high_pc": "0x10b0",
+      "ranges": null,
+      "linkage_name": "_eleven",
+      "name": null
+    },
+    {
+      "low_pc": "0x10b0",
+      "high_pc": "0x10c0",
+      "ranges": null,
+      "linkage_name": "_twelve",
+      "name": null
+    }
+  ]
+}

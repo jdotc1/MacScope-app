@@ -1,0 +1,341 @@
+{
+ "extractorVersion": "1",
+ "functions": [
+  {
+   "address": 4096,
+   "blocks": 1,
+   "end": 4160,
+   "exported": false,
+   "facts": [
+    {
+     "at": 4112,
+     "kind": "call.import",
+     "name": "_SecItemCopyMatching",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 8192
+    },
+    {
+     "at": 4120,
+     "kind": "ref.string",
+     "materializedAt": 4116,
+     "resolution": "materialized_on_all_paths",
+     "target": 12288,
+     "value": "password lookup failed",
+     "via": "adrp+add"
+    }
+   ],
+   "instructionCount": 16,
+   "names": [
+    "-[Vault readPassword]"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 4352,
+   "blocks": 1,
+   "end": 4384,
+   "exported": false,
+   "facts": [
+    {
+     "at": 4360,
+     "kind": "ref.string",
+     "materializedAt": 4356,
+     "resolution": "materialized_on_all_paths",
+     "target": 12320,
+     "value": "render frame",
+     "via": "adrp+add"
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "-[Vault render:]"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 4608,
+   "blocks": 1,
+   "end": 4640,
+   "exported": false,
+   "facts": [],
+   "instructionCount": 8,
+   "names": [
+    "+[Vault render:]"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 4864,
+   "blocks": 1,
+   "end": 4928,
+   "exported": false,
+   "facts": [
+    {
+     "access": "load",
+     "at": 4876,
+     "kind": "ref.data",
+     "materializedAt": 4872,
+     "name": null,
+     "offset": null,
+     "resolution": "materialized_on_all_paths",
+     "section": "__objc_classrefs",
+     "target": 36864,
+     "via": "adrp+ldr"
+    },
+    {
+     "access": "load",
+     "at": 4880,
+     "kind": "ref.data",
+     "materializedAt": 4868,
+     "name": null,
+     "offset": null,
+     "resolution": "materialized_on_all_paths",
+     "section": "__objc_selrefs",
+     "target": 37120,
+     "via": "adrp+ldr"
+    },
+    {
+     "arguments": {
+      "x0": {
+       "loadAt": 4876,
+       "materializedAt": 4872,
+       "section": "__objc_classrefs",
+       "slot": 36864
+      },
+      "x1": {
+       "loadAt": 4880,
+       "materializedAt": 4868,
+       "section": "__objc_selrefs",
+       "slot": 37120
+      }
+     },
+     "at": 4884,
+     "kind": "call.import",
+     "name": "_objc_msgSend",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 8208
+    }
+   ],
+   "instructionCount": 16,
+   "names": [
+    "_drive"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 5120,
+   "blocks": 1,
+   "end": 5152,
+   "exported": false,
+   "facts": [
+    {
+     "arguments": {},
+     "at": 5136,
+     "kind": "call.import",
+     "name": "_objc_msgSend",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 8208
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "_anon_dispatch"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 5376,
+   "blocks": 1,
+   "end": 5408,
+   "exported": false,
+   "facts": [
+    {
+     "access": "load",
+     "at": 5384,
+     "kind": "ref.data",
+     "materializedAt": 5380,
+     "name": null,
+     "offset": null,
+     "resolution": "materialized_on_all_paths",
+     "section": "__objc_selrefs",
+     "target": 37120,
+     "via": "adrp+ldr"
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "_selref_only"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 5632,
+   "blocks": 1,
+   "end": 5664,
+   "exported": false,
+   "facts": [
+    {
+     "arguments": {},
+     "at": 5636,
+     "kind": "call.objc_stub",
+     "name": "_objc_msgSend$close",
+     "resolution": "objc_stub_symbol",
+     "tail": false,
+     "target": 8448
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "_stub_sender"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 5888,
+   "blocks": 1,
+   "end": 5920,
+   "exported": false,
+   "facts": [
+    {
+     "at": 5896,
+     "functionStart": true,
+     "kind": "ref.code_address",
+     "materializedAt": 5892,
+     "resolution": "materialized_on_all_paths",
+     "target": 4096,
+     "via": "adrp+add"
+    },
+    {
+     "at": 5900,
+     "form": "blraa",
+     "key": "A",
+     "kind": "call.indirect_authenticated",
+     "modifier": "x9",
+     "register": "x8",
+     "resolution": "target_unknown"
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "_pac_caller"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6144,
+   "blocks": 1,
+   "end": 6176,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6152,
+     "kind": "call.import",
+     "name": "_free",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 8224
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "_partial_decode"
+   ],
+   "subjectKind": "function",
+   "undecoded": 2
+  },
+  {
+   "address": 6400,
+   "blocks": 1,
+   "end": 6464,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6416,
+     "kind": "ref.string",
+     "materializedAt": 6412,
+     "resolution": "materialized_on_all_paths",
+     "target": 12352,
+     "value": "keychain password prompt",
+     "via": "adrp+add"
+    },
+    {
+     "at": 6424,
+     "kind": "call.direct",
+     "resolution": "function_start",
+     "target": 4096
+    }
+   ],
+   "instructionCount": 16,
+   "names": [
+    "_$s3Kit5VaultC4openyyF"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6656,
+   "blocks": 1,
+   "end": 6688,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6664,
+     "kind": "call.import",
+     "name": "_free",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 8224
+    }
+   ],
+   "instructionCount": 8,
+   "names": [
+    "_complete_leaf"
+   ],
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6912,
+   "blocks": 1,
+   "end": 6924,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6920,
+     "form": "register",
+     "kind": "jump.indirect",
+     "name": "_free",
+     "register": "x16",
+     "resolution": "register_holds_import_stub_address",
+     "stub": 8224
+    }
+   ],
+   "instructionCount": 3,
+   "names": [
+    "_free__thunk"
+   ],
+   "subjectKind": "import_thunk",
+   "undecoded": 0
+  }
+ ],
+ "image": {
+  "architecture": "arm64",
+  "mode": "symbol-boundaries",
+  "path": "SyntheticKit",
+  "project": "synthetic",
+  "sha256": "5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e"
+ },
+ "note": "Hand-specified synthetic fixture; not extracted from any binary.",
+ "schema": "u20_u21_query.research_facts/1"
+}

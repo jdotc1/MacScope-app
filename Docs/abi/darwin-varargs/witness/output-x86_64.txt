@@ -1,0 +1,53 @@
+printf_tail start gp=8 fp=48 overflow=0
+printf_tail int gp=16 fp=48 overflow=0
+printf_tail double gp=16 fp=64 overflow=0
+printf_tail ptr gp=24 fp=64 overflow=0
+printf_tail longdouble gp=24 fp=64 overflow=16
+printf_tail double gp=24 fp=80 overflow=16
+printf_tail values 7 2.5 s 4.5 1.125
+named_int128 start gp=48 fp=48 overflow=48
+named_int128 int gp=48 fp=48 overflow=56
+named_int128 values 5 6 7
+int128_tail start gp=8 fp=48 overflow=0
+int128_tail int gp=16 fp=48 overflow=0
+int128_tail int128 gp=32 fp=48 overflow=0
+int128_tail int gp=40 fp=48 overflow=0
+int128_tail int128 gp=40 fp=48 overflow=16
+int128_tail values 11 12 13 14
+records start gp=8 fp=48 overflow=0
+records int gp=16 fp=48 overflow=0
+records A32 gp=16 fp=48 overflow=32
+records int gp=24 fp=48 overflow=32
+records HFA4D gp=24 fp=48 overflow=64
+records int gp=32 fp=48 overflow=64
+records values 21 40 22 4.5 23
+promotions start gp=8 fp=48 overflow=0
+promotions int gp=16 fp=48 overflow=0
+promotions int gp=24 fp=48 overflow=0
+promotions double gp=24 fp=64 overflow=0
+promotions unsigned gp=32 fp=64 overflow=0
+promotions values -128 65535 1.1000000 4294967295
+five_named start gp=40 fp=48 overflow=0
+five_named int128 gp=40 fp=48 overflow=16
+five_named long gp=48 fp=48 overflow=16
+five_named int128 gp=48 fp=48 overflow=32
+five_named values 31 32 33
+nine_doubles start gp=8 fp=48 overflow=0
+nine_doubles double gp=8 fp=64 overflow=0
+nine_doubles double gp=8 fp=80 overflow=0
+nine_doubles double gp=8 fp=96 overflow=0
+nine_doubles double gp=8 fp=112 overflow=0
+nine_doubles double gp=8 fp=128 overflow=0
+nine_doubles double gp=8 fp=144 overflow=0
+nine_doubles double gp=8 fp=160 overflow=0
+nine_doubles double gp=8 fp=176 overflow=0
+nine_doubles double gp=8 fp=176 overflow=8
+nine_doubles values 45.0
+seven_named start gp=48 fp=48 overflow=8
+seven_named int gp=48 fp=48 overflow=16
+seven_named longdouble gp=48 fp=48 overflow=32
+seven_named int gp=48 fp=48 overflow=40
+seven_named values 77 41 42.5 43
+named_double start gp=0 fp=64 overflow=0
+named_double int gp=8 fp=64 overflow=0
+named_double values 1.5 9

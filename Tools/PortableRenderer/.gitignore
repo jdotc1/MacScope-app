@@ -1,0 +1,6 @@
+.build/
+Sources/RenderAll/*.swift
+!Sources/RenderAll/main.swift
+!Sources/RenderAll/Platform.swift
+
+__pycache__/

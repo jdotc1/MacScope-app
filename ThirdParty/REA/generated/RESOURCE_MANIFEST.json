@@ -1,0 +1,1548 @@
+{
+  "schemaVersion": 1,
+  "implementationIdentity": "33748ca432095d686f62a6a485a77432a059f26de1971754defcecd10918b6d2",
+  "identityPreimage": [
+    {
+      "path": "SOURCE_MANIFEST.json",
+      "sha256": "38878c1359e832df692f0edb8a1d7d10e76fb6347486ad45af28918133b1ccf4"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "a9d1c285200110a13f721b1403f310399f5d6018097dc520e1c362830b7c356e"
+    },
+    {
+      "path": "dependencies/base64-js/base64js.min.js",
+      "sha256": "d2e82495607abf54f16e21de04d90ba9ce1605451667d88425babece988f148b"
+    },
+    {
+      "path": "dependencies/base64-js/index.js",
+      "sha256": "829eadd8a1a441d25be0cb93b00e16a0d0c20fd294db95d8f2ed87e6954b7182"
+    },
+    {
+      "path": "dependencies/base64-js/package.json",
+      "sha256": "9758f3ab8c45e07bb9a368e32f9a8b3729623bbf47cbbb205b32d674ab2a91f0"
+    },
+    {
+      "path": "dependencies/buffer/index.js",
+      "sha256": "c25853fd31addfce188b01061fe85bfe667d5fb6c7a7bbb1c83d0ddfd8627acc"
+    },
+    {
+      "path": "dependencies/buffer/package.json",
+      "sha256": "5b105ac0abbf5985cbe62ad28a34032d85c7ef623e0eb01f39441b0feb419004"
+    },
+    {
+      "path": "dependencies/canonicalize/lib/canonicalize.js",
+      "sha256": "c0fd652bd174455567dcbbbab0f306fe5d40a9fb13b0f184b46aca083b29546e"
+    },
+    {
+      "path": "dependencies/canonicalize/package.json",
+      "sha256": "c9bcb2590b7a2ded24ea63582f2a47cbafb934733ed9429cef120e8d6e55bea9"
+    },
+    {
+      "path": "dependencies/ieee754/index.js",
+      "sha256": "fe3e2b20c1ebb57c3b390c8f685ad1e04e6f493517fa7e432f4351bb77a1a4d0"
+    },
+    {
+      "path": "dependencies/ieee754/package.json",
+      "sha256": "a8004b9c8dffe2e1b01a058ecf968a5d50beabcabc43cc98c655184ba6afc050"
+    },
+    {
+      "path": "dependencies/zod/index.cjs",
+      "sha256": "2a3455cecff4f7021c92d0a3e2e5fc170c0448dc5cc261160127e08f4888a9c2"
+    },
+    {
+      "path": "dependencies/zod/index.js",
+      "sha256": "c733a1897d6b4b30dad6998597f6896b265b094a65534359ada34b08ecf8932c"
+    },
+    {
+      "path": "dependencies/zod/locales/index.cjs",
+      "sha256": "77c515c23956a04462d5c8fb207321bbbaf6e231b86faa4ecd98dfaec82a40e7"
+    },
+    {
+      "path": "dependencies/zod/locales/index.js",
+      "sha256": "0b98ccbe349eb9774d8c96fa381335cef127140996f91a4eea47b7742b55f51d"
+    },
+    {
+      "path": "dependencies/zod/locales/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/mini/index.cjs",
+      "sha256": "7c39e9eb736f0a705a8127b9837e1bd220fee43b25d3416e91fc1509267bf0db"
+    },
+    {
+      "path": "dependencies/zod/mini/index.js",
+      "sha256": "92f42fea7c90ec3f2f623a923d8798d2a316cb4ff93d6399084065b9214365de"
+    },
+    {
+      "path": "dependencies/zod/mini/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/package.json",
+      "sha256": "c630bd10b52dcf71c112a2bf78dbf2734b9db58d62de663b8d86c2ec2c8cda2e"
+    },
+    {
+      "path": "dependencies/zod/v3/ZodError.cjs",
+      "sha256": "18d8de3c22805d8f8fe725d5925fe3b65ee46d5a3ce068e83642d335958c6656"
+    },
+    {
+      "path": "dependencies/zod/v3/ZodError.js",
+      "sha256": "23c273fda9773b5d4cb4f9fb672e155b9f455b21ddff70e9e88ab3a341949b8c"
+    },
+    {
+      "path": "dependencies/zod/v3/errors.cjs",
+      "sha256": "bd32dbc86faeec2de1cc8e42ee3b29af2cbeb24fb5e3b57d7f056bb09cf8d4bd"
+    },
+    {
+      "path": "dependencies/zod/v3/errors.js",
+      "sha256": "d40831f478288d76e82bbbcc3b7e95c8513b6e76471f2d49a37c979bc57d492d"
+    },
+    {
+      "path": "dependencies/zod/v3/external.cjs",
+      "sha256": "224ff76e204434ec469f71dbba41d475db1ea873d3f3a5c26d75ab3a9c9f5f11"
+    },
+    {
+      "path": "dependencies/zod/v3/external.js",
+      "sha256": "5d26d2e47e2352def36f89a3e8bf8581da22b7f857e07ef3114cd52cf4813445"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/enumUtil.cjs",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/enumUtil.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/errorUtil.cjs",
+      "sha256": "9c9e5dec7d1e9fce6a967735adf0333abd44d5e94a0225537c60ceed0c4f606a"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/errorUtil.js",
+      "sha256": "68589c0cf44c8b4ad19b77418f53caad2cd1dbc8d714f526e1876ebdee4828c5"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/parseUtil.cjs",
+      "sha256": "40aaa18765f13ae1a933c6f215ecceb6d3afee89eaa23bb080997e08c30a5b00"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/parseUtil.js",
+      "sha256": "b57484013bb360bac2e334d58fcd5f6cbfa63ffcc7d8ff3dbbb3380ca659b956"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/partialUtil.cjs",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/partialUtil.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/typeAliases.cjs",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/typeAliases.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/util.cjs",
+      "sha256": "9b75d4955de684d11371054bbf8e4d747cb1ad7284ae1eda85d4c188b84c47fc"
+    },
+    {
+      "path": "dependencies/zod/v3/helpers/util.js",
+      "sha256": "906ef685e5853d496e293ee8f8a2bb8b1ed2d078a1bcdfedb2dfd61d75b6330c"
+    },
+    {
+      "path": "dependencies/zod/v3/index.cjs",
+      "sha256": "d58a1fea61e0f0bccdb2f4fd3b7b098adcfddb44f036302c4d2c4e173540a292"
+    },
+    {
+      "path": "dependencies/zod/v3/index.js",
+      "sha256": "3db2efd285e7328d8014b54a7fce3f4861ebcdc655df40517092ed0050983617"
+    },
+    {
+      "path": "dependencies/zod/v3/locales/en.cjs",
+      "sha256": "5fe55414e39de7fff8ec19983adc1421c238b679f8aa6b9d3311c7f9f12a21f3"
+    },
+    {
+      "path": "dependencies/zod/v3/locales/en.js",
+      "sha256": "51a6dcc5d4bd52a64da127c012c6c963395c1d9a343ad75d4a8eca662fc8b205"
+    },
+    {
+      "path": "dependencies/zod/v3/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/v3/standard-schema.cjs",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "dependencies/zod/v3/standard-schema.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "dependencies/zod/v3/types.cjs",
+      "sha256": "9c7618e57545b5e44faecbcfc3bb00eed67ca46efbb11bd1b6ad3a1d69de95eb"
+    },
+    {
+      "path": "dependencies/zod/v3/types.js",
+      "sha256": "2faaeed1150d0d7126f6aa85b01594fabdd06771a0b7cb5df2d13f725e175ef1"
+    },
+    {
+      "path": "dependencies/zod/v4-mini/index.cjs",
+      "sha256": "7c39e9eb736f0a705a8127b9837e1bd220fee43b25d3416e91fc1509267bf0db"
+    },
+    {
+      "path": "dependencies/zod/v4-mini/index.js",
+      "sha256": "92f42fea7c90ec3f2f623a923d8798d2a316cb4ff93d6399084065b9214365de"
+    },
+    {
+      "path": "dependencies/zod/v4-mini/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/checks.cjs",
+      "sha256": "df8f7d3f808b226719e1a23a0303ff75c450c9037a82cc137ef6592decda3d31"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/checks.js",
+      "sha256": "78a162d29e06001b4d919e1ed08f6e7d0d665bba0ef983201373745410d7b354"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/coerce.cjs",
+      "sha256": "d25b07eead67ff339c3e2a6d5b7364647e11f57fff3e82055d49575304dce057"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/coerce.js",
+      "sha256": "fb2efe3b6eacc475c77cbb571b5fb8650d92a10f316dc869e49b722973d83c3c"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/compat.cjs",
+      "sha256": "dcd3c3b05fbc82ed0241ec7e015071a528a1e2e8025e96259be932e7340608e7"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/compat.js",
+      "sha256": "0e948b101771cc0e7b753e54b3f5b486929d3db9bd4c09d98fe4ce86271bcf7b"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/errors.cjs",
+      "sha256": "f704ed9292288d685a33123242399179eba77f1190299bc83042b434c1ae8cd6"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/errors.js",
+      "sha256": "b155316267f79068ddc2dddc7046e13785804b768ca36e6deff1691d154f7c20"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/external.cjs",
+      "sha256": "88f600b7ec41204e625886c93864568e6dbda628c94db92bc928f8b2e163eec1"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/external.js",
+      "sha256": "179a03ace3d1d77895cc5b3c54a3fcbf2b7f8bad44d6f030092491c10e5d9097"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/from-json-schema.cjs",
+      "sha256": "f413701d8a2730e2bca2bf071dcd57dd0fdc6640ce798cf80077f32e1b45940c"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/from-json-schema.js",
+      "sha256": "d8866bf5232e55d12cda032bde6a56a05a0a8b276945c2e4eed66432ef5cc9b2"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/index.cjs",
+      "sha256": "d58a1fea61e0f0bccdb2f4fd3b7b098adcfddb44f036302c4d2c4e173540a292"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/index.js",
+      "sha256": "d49030b9a324bab9bcf9f663a70298391b0f5a25328409174d86617512bf3037"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/iso.cjs",
+      "sha256": "f5d840d941b87a868da63fba9e4eb5917cadd87100af4940113f0ddd75dd9043"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/iso.js",
+      "sha256": "3cc5e6b4da086b8ffc7ee3188c69e4d3c945b368092e78d2299b5321182752c5"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/parse.cjs",
+      "sha256": "0fb97825ed1c15a1f6a238df9506e23f2e720edeae4774aa46a60ce7b2a75319"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/parse.js",
+      "sha256": "14cbcc416ab9169abc2cde97af77da54ca769684eac1e03a3753c16ea4a7cd95"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/schemas.cjs",
+      "sha256": "fbb612b8ec2f7408653908aec137a855e6763f92fbab19d4bd61c5be13341db5"
+    },
+    {
+      "path": "dependencies/zod/v4/classic/schemas.js",
+      "sha256": "eb4af7946a092aff8678b9251728ea58dab40154920cd65ec4a2ca1d4df68393"
+    },
+    {
+      "path": "dependencies/zod/v4/core/api.cjs",
+      "sha256": "df63ac3f2809bbb806c7bf371baadb21923e9be527e4e02ca27e88c238e1c1fa"
+    },
+    {
+      "path": "dependencies/zod/v4/core/api.js",
+      "sha256": "00cb5edcfde8098e5a169e66c1dce50c101484d21436e3d78e137e1fa87c4836"
+    },
+    {
+      "path": "dependencies/zod/v4/core/checks.cjs",
+      "sha256": "d9b6a4b1d366015f4f2b7ca931f1a65cf787d7892f50d693350834b9a345f2e1"
+    },
+    {
+      "path": "dependencies/zod/v4/core/checks.js",
+      "sha256": "5a33a20dcad372b4d18ead8d1e58b1950454f136a2216e62f247e0e5601ac838"
+    },
+    {
+      "path": "dependencies/zod/v4/core/core.cjs",
+      "sha256": "57512e096c35ffd303c4012f656ef9e5129c2e3e4518694c3096aea260fadab3"
+    },
+    {
+      "path": "dependencies/zod/v4/core/core.js",
+      "sha256": "a5e713beaac4647151e03716a83f51ab714e5337cf66850f3b28eaf072a0bbfe"
+    },
+    {
+      "path": "dependencies/zod/v4/core/doc.cjs",
+      "sha256": "ae6c5bfe9570d30c119cd6bc9dff33f6956858b4fa6887b2b1f9680f11d1b65d"
+    },
+    {
+      "path": "dependencies/zod/v4/core/doc.js",
+      "sha256": "e084bbcc536746a8942fd33b08afe4db345554b3a0383114f1dca95261c958d9"
+    },
+    {
+      "path": "dependencies/zod/v4/core/errors.cjs",
+      "sha256": "26ef84ea67d46859c35d8b19c1f75f45b7e39c5d025e2fe6c85e4b72e6a6537c"
+    },
+    {
+      "path": "dependencies/zod/v4/core/errors.js",
+      "sha256": "bdd0ed8fd4a6e9d04fe6423b0f9df3a0b403939bc7dcedd8930a4b8df1fb118c"
+    },
+    {
+      "path": "dependencies/zod/v4/core/index.cjs",
+      "sha256": "cb40bcdacc990895d8ceaf0aeca2d92c73db7dc67094821560eea09186840093"
+    },
+    {
+      "path": "dependencies/zod/v4/core/index.js",
+      "sha256": "f9698820ee8371215e8d015cfa060230c62e65428397dce83f78e6538976301c"
+    },
+    {
+      "path": "dependencies/zod/v4/core/json-schema-generator.cjs",
+      "sha256": "7b685f409c6ca5f76bd2184470c9fb80decfb1ce7592f3b72d4af3cfd7e52c6f"
+    },
+    {
+      "path": "dependencies/zod/v4/core/json-schema-generator.js",
+      "sha256": "9cc884cdb535a9c87b85b66e61a593ff6b686222f038834f81c5e92552cd6e23"
+    },
+    {
+      "path": "dependencies/zod/v4/core/json-schema-processors.cjs",
+      "sha256": "9b3cc9d0421b45ff5874b508517d2129d7a2c0aa3669e8ae41441a63bf1902ec"
+    },
+    {
+      "path": "dependencies/zod/v4/core/json-schema-processors.js",
+      "sha256": "ff15f567c9401dd7d3151ce11736283ff747c9a9e205cc08ee96f90eadc1c0c6"
+    },
+    {
+      "path": "dependencies/zod/v4/core/json-schema.cjs",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "dependencies/zod/v4/core/json-schema.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "dependencies/zod/v4/core/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/v4/core/parse.cjs",
+      "sha256": "78c3851f57bfeb5e0f4464d3dfe62781ba8292e89692e52b4fc00195d4b02251"
+    },
+    {
+      "path": "dependencies/zod/v4/core/parse.js",
+      "sha256": "2578b8d1341c3882a6c089f9ec57ce1c1a16b8b2b477721d4d89ba3d3ee50c9c"
+    },
+    {
+      "path": "dependencies/zod/v4/core/regexes.cjs",
+      "sha256": "1f63503c220ad78f04252e7c883335dcd994a3043d0cbc154f7537a56c3f02b6"
+    },
+    {
+      "path": "dependencies/zod/v4/core/regexes.js",
+      "sha256": "3cb122080c1154321331322ebc0cbe04878fe104c8c7b335891d9f85fc4b3f63"
+    },
+    {
+      "path": "dependencies/zod/v4/core/registries.cjs",
+      "sha256": "674a7d7f25a3db1589776b868bbb07116974198ad159ca28e66fb20616946bbd"
+    },
+    {
+      "path": "dependencies/zod/v4/core/registries.js",
+      "sha256": "620ea1a715ccc4e6e605a271343bf47942dccae90885dc71f137b1f08a972e50"
+    },
+    {
+      "path": "dependencies/zod/v4/core/schemas.cjs",
+      "sha256": "cd1cd83d15bb681ff414fd95de6145de88a91e0ef38df3d3f5deb594007a221c"
+    },
+    {
+      "path": "dependencies/zod/v4/core/schemas.js",
+      "sha256": "09da9b0cb9b9d2d795c349bc47c7521d5aaffe241885f0c9728f2aa7de3834c9"
+    },
+    {
+      "path": "dependencies/zod/v4/core/standard-schema.cjs",
+      "sha256": "d43aa81f5bc89faa359e0f97c814ba25155591ff078fbb9bfd40f8c7c9683230"
+    },
+    {
+      "path": "dependencies/zod/v4/core/standard-schema.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    {
+      "path": "dependencies/zod/v4/core/to-json-schema.cjs",
+      "sha256": "4f2ae470ccba6f44362e247875560ea8da73148b688191d4490b04931fe1d821"
+    },
+    {
+      "path": "dependencies/zod/v4/core/to-json-schema.js",
+      "sha256": "fb3c9ab59947582f7671a53c8e20a3ced5eaa92d1c220ce8b27717a59033ad0d"
+    },
+    {
+      "path": "dependencies/zod/v4/core/util.cjs",
+      "sha256": "32aebb72ac7ec6b33bd4f340cc0584886194a06f3db581da6052faf0667006a2"
+    },
+    {
+      "path": "dependencies/zod/v4/core/util.js",
+      "sha256": "968e3433e810cf7ba5efb609a1cb6d9a6cfb51215fd1f699938228f7ac25deb3"
+    },
+    {
+      "path": "dependencies/zod/v4/core/versions.cjs",
+      "sha256": "c13383c6a55e74e26b0158b2d9ff7bd80b5887a6e00471b0abcee0cfc4e5ee39"
+    },
+    {
+      "path": "dependencies/zod/v4/core/versions.js",
+      "sha256": "bf082fde98fa7725412d713c7f56da3a5603bdef199d68d5769263f30ce9c756"
+    },
+    {
+      "path": "dependencies/zod/v4/index.cjs",
+      "sha256": "35934fbd99d4ca1d46932dfcddb6071c203b5c980862cf58e254998c49e1e5b8"
+    },
+    {
+      "path": "dependencies/zod/v4/index.js",
+      "sha256": "a4b634bb8c97cc700dbf165f3bb0095ec669042da72eaf28a7c5e2ddd98169ce"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ar.cjs",
+      "sha256": "9e6476e5237fdfa8ea07d30a8a725e484ebcb7fdc732eb55607815ee701f5177"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ar.js",
+      "sha256": "220ca3ca8cf67e4ccc05d789eeed2692d970269fe0cd82f05db8fd899b661b9e"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/az.cjs",
+      "sha256": "be8c72acf84df55f5fd0a673f9488543d95a201fa65e828f9142e0dc0fa87a28"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/az.js",
+      "sha256": "4725ffef0b2f2df947194f9698c792b69f52a8c3a5a1e1bdfabbf62259a1dd46"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/be.cjs",
+      "sha256": "3071dee4104152c31a8130dd366870c32616c00f39b4bed4e565b5069d42acc9"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/be.js",
+      "sha256": "da4bda7fbc940dd9f50efdd914caa9397243be779a505b82bd4be5395d3b795e"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/bg.cjs",
+      "sha256": "6c8c8cfc221283ed7ee6039e1d9ba9b09c023e25764d4a3c769bb6a7799e3f2c"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/bg.js",
+      "sha256": "48511ad2f86043f0eea6e7673d5e2b848a3295a26c9c4650e96b3884d640196d"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ca.cjs",
+      "sha256": "cc4f06062420bd95f9e57fa0e1a3531bad691f2259a6566402c2565e73e8017f"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ca.js",
+      "sha256": "796f9ba7dcd53648171aa0132c50271ef358936765cec0a44a642c41d05b3e8c"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/cs.cjs",
+      "sha256": "a018d1328a7be5e75a50bce168593f717efbfb183bea3fc57d90ef85719aff33"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/cs.js",
+      "sha256": "670a75fe1db1104db090c95aabb01e4eb6decd451fe77fd830c2e4dafc79b49a"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/da.cjs",
+      "sha256": "aa67e238640b08a61bf4b293530577d63e5e492fd1f3e2becc3e4f58c86c1cf7"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/da.js",
+      "sha256": "cdaad7a1fa370abda1943fe9c2caba961e7896b9808d51275daf33f964af49cc"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/de.cjs",
+      "sha256": "2271ecd86ac9698136b633422c1049a7510b1470121adce607da3fc74e26d673"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/de.js",
+      "sha256": "521a4ed29fcaf3f781163875dc282cfb5262047773aa2b70a852996b1d8a51b9"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/el.cjs",
+      "sha256": "24c074abf7e5c347dd42e6758622f4622042bcb398f43c239c436e0243d6d729"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/el.js",
+      "sha256": "9857a9e4909282b2efd86317fc3e67ed86e24287f32329cfa5ab833c05fc0d81"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/en.cjs",
+      "sha256": "6f3656f0a38c4fe2ac005ffb629faed25addb895f817d53bc3437dd3f423924f"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/en.js",
+      "sha256": "232a0828d64df8e410b23ac9825a667bd9d485fd70acdc4b4d0870539faef0a4"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/eo.cjs",
+      "sha256": "8cb3c550c5947d2ce3274608e2487d3ab166ec307a5ea67ef4990b9da74d296f"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/eo.js",
+      "sha256": "ebe08048aa3ee9871ce9fe1271e254cb672b1968ec40ac253066d08d176e8a65"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/es.cjs",
+      "sha256": "d59637d0c9c319713fc21fac73ca9700154c2672da2b6c4bf23b6fd45abb0174"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/es.js",
+      "sha256": "4edd9302e9724c408b024220e99092fbd2f90100ac3c6407a94543b79843610c"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fa.cjs",
+      "sha256": "96a5dc859f85b89d3c49c859c8051887efee046c2e5393b60a2294e10a18596a"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fa.js",
+      "sha256": "2dc1bee1e984e8a15191fb3c69aaecaa26c922e12a0d4486ac005a0372b78565"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fi.cjs",
+      "sha256": "3736651f1edbf2af972e5a81ba240055414e1dc00dc79241462a7eeea7032b17"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fi.js",
+      "sha256": "3911184979f01d2ae580ce611710ee40597eff97a410d0fa823ab6ea27cee88c"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fr-CA.cjs",
+      "sha256": "5fa4eecb16770c0a56fe176a0cfa41f8d3c3c421bc3f9c6182df3300c1fc0f12"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fr-CA.js",
+      "sha256": "f8716c2baaccdfd1d958743bbc5250c9bdef5152d0801470e9b9a380d618f4ab"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fr.cjs",
+      "sha256": "1a827c6ab260e71fd2a9216eed84f0b7206f2d4fc3bfe6e029dec1a7a406f9a6"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/fr.js",
+      "sha256": "3ea466ca5737984bb5acc9008822060272f596317004618cfe1e05109f707577"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/he.cjs",
+      "sha256": "caa87c00543b915b13bfe7f0af67cc46f833c40f525d7302c3fc628bcb243b3d"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/he.js",
+      "sha256": "290512e43d2907700211da09dc3959fd98d120bfb89f8836e6e3f83a472e26fe"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/hr.cjs",
+      "sha256": "d15e7eec34db92ceaaf34876bbac7577d00f08589f0129f9d02fbff8c96f5cc1"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/hr.js",
+      "sha256": "1ea65433c32b89bead43113ac69b3acc520bb73ae231dd2e05fedf8e8c5656d6"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/hu.cjs",
+      "sha256": "fb3125c8c751902a2998fcfb7b2c1c3aa6722c1409cf4f997ee11db52ef5b8b0"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/hu.js",
+      "sha256": "913ee94a253db79b31463ae23a337060b6fe28be73dfc7657d8a83a4942bd8a8"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/hy.cjs",
+      "sha256": "9a22becbfb671b7a67141c753fdc81bde74f1ba853a8634462ee523a2e4c4d2d"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/hy.js",
+      "sha256": "0d3bbb96c0f8bc74468a2dfc7d066e838bb56fab64fd5ec03ce9c4d89eccbe99"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/id.cjs",
+      "sha256": "aa9cbd4d299b36a0a2f10b4fb612d287d63f82da5fe8b226ef642e624fbe579b"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/id.js",
+      "sha256": "cd2c19b5c30dade3ed91ffcff3deb0b068713be24f02248e7e46b87b2b9553ee"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/index.cjs",
+      "sha256": "3bae3c71f01d8bdac661d277b1ab712ae4b6b92033d2c58ef29eaa8bd4d8535a"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/index.js",
+      "sha256": "d73f41a76614855d43eea493030a1aa05dca30c9a17015a0da5b8b70da61b6b1"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/is.cjs",
+      "sha256": "62d9adfda6e5cb1d4f49af6bb9646eaa42e21fffe605786cc9cc7b7bbc9e3158"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/is.js",
+      "sha256": "ead5b14eac892229f915fe38ec94ab3b1e676f8aa2df2a8450848ba9ca9a1612"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/it.cjs",
+      "sha256": "33e6f0aba45c46bd81e66805e645a130cbc769809016f6757ef6094aac8e7ee7"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/it.js",
+      "sha256": "439969d199427d77ebf1e477bf2295b226712804b25437d442f9dfc78aca95e0"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ja.cjs",
+      "sha256": "fc485198da07908fdf412e23150d1a1e2977467aaa524cb506fe66b830bdd720"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ja.js",
+      "sha256": "43ee10378cac22b0b8aee912a66c3f36a834d5b4c76e9748f88a784044f248fd"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ka.cjs",
+      "sha256": "10538e9be2923eb155b8a876053dbb0eaaa555d5e93927d9e50e90421d366a21"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ka.js",
+      "sha256": "0ab5322368f9ac6e6b58f93dac484a4f4f06cdf4c0677f4df88164e9d8b4bf81"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/kh.cjs",
+      "sha256": "5a5f3a63e4e97a25b44692b0910f73cf15e54fc5b03c61f9d87e2a9eb6e2a098"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/kh.js",
+      "sha256": "78c3d1991041bb8c8fc0f7c5d745aae422d4c2e4e8f30bae44f3fef4765900a8"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/km.cjs",
+      "sha256": "e448be8e315d2c722875690058ac56eaa85144b085021e865f66d3a3166dec56"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/km.js",
+      "sha256": "dbdabda94dd93d4a1827e6c809505c79fa6aa7abefec91dc50fa0871382c99cc"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ko.cjs",
+      "sha256": "db9ce154ae9778fa7785417230f4bb6aaa6ebc201eadf4bba1390e1a8cf64ae0"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ko.js",
+      "sha256": "d2efe22ac069d9b32b0109fa07713ac0695ac1c1357afc4e4277056466f2e196"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/lt.cjs",
+      "sha256": "1bafea36bf6890030fa71df69c2666243c13fb66399cd5c94f346a7e18d03176"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/lt.js",
+      "sha256": "dad886e52c56a1329d22e072f8b08dc8730f69c3dc5e5acf8267cac18df1ab28"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/mk.cjs",
+      "sha256": "5db40799c29ac29a7c89e4b14d3b08938266b580ec1a845978f7b97861095fce"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/mk.js",
+      "sha256": "9eb4af0392fc5b9c438cdc6ceea446acc541b59e221dba918f7b80800d9da3d1"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ms.cjs",
+      "sha256": "9b21835c0e797a98b44b9d7869c899c69adf0532fa6979b300a4f0ddfac90dc1"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ms.js",
+      "sha256": "c550a9185d997e8fcd17311951aa1e29793a50b8e825e18310efd5a46c641795"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/nl.cjs",
+      "sha256": "3018bb81ec0b95bf05ca997f68e393ebd0403b7434c1b7ec435ff7b21c64ee70"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/nl.js",
+      "sha256": "acba414579c5bbd7f83dc6661fa1a12d65f1822f9b0f5035549ac60f46d93763"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/no.cjs",
+      "sha256": "f4ffc6925e0ff009fc253e52c7bf1195b41e0141359d86822930f89ee416135e"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/no.js",
+      "sha256": "1854483c7cf158b8f97f0faf6fd799eb1f762009018b5fde893ca33f2fb0b313"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ota.cjs",
+      "sha256": "2cf89b0f9e8ec15010282e0cd33ab44b69f38f6e2bd7a67e4c909fd7f303f23c"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ota.js",
+      "sha256": "34ae496104bc17fea7d30c3d45c94cfe3d1d569b5d39a6ca51de6c177690c556"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/pl.cjs",
+      "sha256": "013076bb5458e33e21bb3486537fa819b4d55a960a17c125afab9878fe734969"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/pl.js",
+      "sha256": "18eab58f395e30b906e8e3fddc5f212eb19f2c4362410889a5c5e0141ebe2144"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ps.cjs",
+      "sha256": "d2bd29c361f664127599e66cfacb2ce63005a557d58293100d408ac045f032d7"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ps.js",
+      "sha256": "f977b5141fa8fb6a8459372e0b2895d74b381c9f2ff4899141f7ee3e639a4513"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/pt.cjs",
+      "sha256": "27c2005bd63e25301f277b1a326bd64d1c4af5d7714760ac07f8460f835a11bc"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/pt.js",
+      "sha256": "df172afc585544dee7c063c484f5a07b5ed103e2c1072a782c763ad8ceb08e17"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ro.cjs",
+      "sha256": "357dbb8e5be59fcf39b1ad57021ea9a4115187dde340a2d6b5f0bc5f604a7e30"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ro.js",
+      "sha256": "ecae409f4299ab91e2aff1095db14e23f3cf2c05b3654e242047655352c7f46b"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ru.cjs",
+      "sha256": "d3bb2d4f2a62569f7b48aee4c06283b55bc9cc9fa7a0fd4c3adf740d9bc149e6"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ru.js",
+      "sha256": "c397a473e94d7d189a9c09c7890fe379c4f6f46d9556d52a040a90ffa56f7b93"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/sl.cjs",
+      "sha256": "a596863bd1e2fbbf15d8a8a65d0d7491896c57c0a286ba3b3a24a8f35ad3dc57"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/sl.js",
+      "sha256": "ee2ff3a19b62cd2f89b54b165088773b937de15df7253df220bef07d9adf2d80"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/sv.cjs",
+      "sha256": "8d3e57e9e9c316b13685195391d32914c3bfaf33bb1279983c0ebc65ec44c6a8"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/sv.js",
+      "sha256": "97d6718fb643e05d6fe30fa4f9f09b8d9a3eda4a3a350b57dfb2944943d19502"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ta.cjs",
+      "sha256": "8f66c3ade923ffc374efefa326cfbc4fbb8d3ab40a811088e3382e495974322a"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ta.js",
+      "sha256": "04bbde9766251f9047e786fdd77632f2ecd53aec2eb060eb2fc85bf576ad729d"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/th.cjs",
+      "sha256": "f142afb29f948d8ae28f0ac7ec6a14b5afe662ea6974b9eb76c4d4a61143b7ba"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/th.js",
+      "sha256": "aea70c9ac2b399fe4749e19ba3aa99c3efb4dfb50eadfb62b0b2a6e005748f3d"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/tr.cjs",
+      "sha256": "a7bc91118509dbd965268972c67703fe0a0e628c768a16a8104bc118e134fda9"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/tr.js",
+      "sha256": "4449f41d22c6f15ede5066f79d840a52ec45a6b694c859e16f9121062b6fad2f"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ua.cjs",
+      "sha256": "0565126e33d30fd26046fd5399fe6293e8827fa846c3a7ff414e4e63acbfbf0a"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ua.js",
+      "sha256": "9391169ffbc72f777a83230b6ffcc3f4cf46ab5945ec540de9ef4609dca1f4cc"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/uk.cjs",
+      "sha256": "2f3b10a8255f54a28fa31c1783c86e1fc1744370c5b5cddee02ba476e0ecc406"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/uk.js",
+      "sha256": "77136a2a60eef62f7cc803a0f9971aebbc641403af77c1b41fd5ce59abfa5de3"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ur.cjs",
+      "sha256": "822f8dfde3eaa1d5962cc4b606e69bff750ffbe3bf5f4927a61d79c22ddd1644"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/ur.js",
+      "sha256": "858f4f38d651073e7a3fbec7ed356692578b3ad1fae1b453cb3d85312a4f39d2"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/uz.cjs",
+      "sha256": "f0ea1420cb678cc1048915ccae38334a3c06d4f8e02a3b6ae8a38fffbe6c41b2"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/uz.js",
+      "sha256": "d540bed482d15c47cb45439cff34e053379c53019c7c7c5fbe43f222d0c81f04"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/vi.cjs",
+      "sha256": "f3ccad01b00f0501e6e0b332a8d9f36a49b717b7d9439fc8d1cf23188f2ed245"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/vi.js",
+      "sha256": "2c61bd3f4a733f3cbb1ad85e75a053cb15a8ebeb83ab56dc21f2948b1138e12f"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/yo.cjs",
+      "sha256": "f4ea0b4741b203f344fbcd3e6ef6d2960096139ad93fdb9e98d01bef6978ddb8"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/yo.js",
+      "sha256": "98b9cbf31bf00c8b2c00de62725a9dd7cb718ac72d6e8fd4e0a1a7c49723e0f4"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/zh-CN.cjs",
+      "sha256": "3a2a1f8914fec65cc60f66611758db1e0d205797a54b2ea67767808861211f2d"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/zh-CN.js",
+      "sha256": "99a4b16af598834a0b11607fcdebd1c6de026386ff1d6a5a306b364c154c5899"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/zh-TW.cjs",
+      "sha256": "e534adb851ef96b0678bfa755a4d4440453245fcc8137f801500cbe05e47d491"
+    },
+    {
+      "path": "dependencies/zod/v4/locales/zh-TW.js",
+      "sha256": "37dcae620e1553e9174a4b9434bbcc4e465150a627e80c9c17fd01de8baaf59a"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/checks.cjs",
+      "sha256": "751987cbe8e6346d30c25dc3ca04643e3ab7301a83cf31d0ee0ecf4dfb8b9149"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/checks.js",
+      "sha256": "3fbf0aa59f99b6e4d640cd2b062cff9537530af3f5bfed4f862a7f18a9caa839"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/coerce.cjs",
+      "sha256": "192c0fa8133f79cb958d02e68dfaad35e37df80f078000c25b974ed2a9d25cad"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/coerce.js",
+      "sha256": "52d5c50a16ff2a4a6c1615cf6933be996c2fc20c7a7cc42221ab00a56a1072a4"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/external.cjs",
+      "sha256": "286a0197505796e76232eebab0d75216b1db86b9dddc00bde0c13b4833911e65"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/external.js",
+      "sha256": "d746aa3e017beb3ed1e90dd2aa393acd0f22cc32e62363d982717426786c500b"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/index.cjs",
+      "sha256": "2a1c77f9c68bd47cd079ea601248dad70025528bc1062c2c657444000edabcac"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/index.js",
+      "sha256": "455d93e660b61feec18cd4c31e2f394627546ae8ab31f9bacdab6318112ac31c"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/iso.cjs",
+      "sha256": "4bed46b46d2dc8ea8b82477855573807153e62223a5e7e08eea1eb39124e4bff"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/iso.js",
+      "sha256": "24acf58a401645baaab9846987e5387cdf7c9e659e2e0aa3b3b6b8ac5555a5ed"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/parse.cjs",
+      "sha256": "3a1db8a15f2d19426e3a774543a1988e11d112c1e345a51b038d33eeaff573ac"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/parse.js",
+      "sha256": "db605a698f917c4006462596e6526fe6a9c6eff9b8409e8472fe545d4b70027c"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/schemas.cjs",
+      "sha256": "62f365ad92f87398e019c0f49fd3d809fec8ac6929c0eaee1cff879fa1250a9f"
+    },
+    {
+      "path": "dependencies/zod/v4/mini/schemas.js",
+      "sha256": "51b3a7869df2d3a1bd98acb9d5b6a61bbccc7653d7a3d8fca7f0e0db7e84e284"
+    },
+    {
+      "path": "dependencies/zod/v4/package.json",
+      "sha256": "3e3125b5a537a24c3632c1c5c09640ce7bcb3935901b127ad8ae3c37a27f133f"
+    },
+    {
+      "path": "adapters/comparison.ts",
+      "sha256": "11cc09ce67b64ed8ea0b8c7296c62266f3c859d4669dc1cd5dd3f8484f643265"
+    },
+    {
+      "path": "adapters/kernel.ts",
+      "sha256": "93cc285c831cd0dabdd5d2d445aeb89c36cc9d160b183d5e779142d3fe4f21a6"
+    },
+    {
+      "path": "adapters/native.ts",
+      "sha256": "c75f7e15874dd4666d08e07d189c6752a1bcddb1a2eb0536904390f8013360d3"
+    },
+    {
+      "path": "adapters/runtime.ts",
+      "sha256": "b57cb5aab8c94c4b681a121e5519a903520a8b0af1fa23da8f3d7f58fd8f2955"
+    },
+    {
+      "path": "adapters/ui.ts",
+      "sha256": "2db0bfb927154a74678a87e9551b59e2e90f0040b0cc8daefb58986eb975216b"
+    },
+    {
+      "path": "Scripts/dependencies/rea_build.mjs",
+      "sha256": "a7f490a4c7287531aceb48acb634c3c26034ae027814107a6a201b85ceb20eee"
+    }
+  ],
+  "upstreamCommit": "c29931ce81dc530d2623ec992714a70b1f3e50e4",
+  "esbuildVersion": "0.28.2",
+  "resource": {
+    "path": "ThirdParty/REA/generated/MacScopeREAKernel.js",
+    "sha256": "e3f6ae2d2bb4340106dd1cf1e199d1cd778d37ec18347f0fd133385d3f81c68f",
+    "bytes": 863677
+  },
+  "inputs": [
+    {
+      "path": "ThirdParty/REA/adapters/comparison.ts",
+      "sha256": "11cc09ce67b64ed8ea0b8c7296c62266f3c859d4669dc1cd5dd3f8484f643265",
+      "bytes": 8358
+    },
+    {
+      "path": "ThirdParty/REA/adapters/kernel.ts",
+      "sha256": "93cc285c831cd0dabdd5d2d445aeb89c36cc9d160b183d5e779142d3fe4f21a6",
+      "bytes": 2544
+    },
+    {
+      "path": "ThirdParty/REA/adapters/native.ts",
+      "sha256": "c75f7e15874dd4666d08e07d189c6752a1bcddb1a2eb0536904390f8013360d3",
+      "bytes": 2369
+    },
+    {
+      "path": "ThirdParty/REA/adapters/runtime.ts",
+      "sha256": "b57cb5aab8c94c4b681a121e5519a903520a8b0af1fa23da8f3d7f58fd8f2955",
+      "bytes": 3503
+    },
+    {
+      "path": "ThirdParty/REA/adapters/ui.ts",
+      "sha256": "2db0bfb927154a74678a87e9551b59e2e90f0040b0cc8daefb58986eb975216b",
+      "bytes": 20546
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/base64-js/index.js",
+      "sha256": "829eadd8a1a441d25be0cb93b00e16a0d0c20fd294db95d8f2ed87e6954b7182",
+      "bytes": 3932
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/buffer/index.js",
+      "sha256": "c25853fd31addfce188b01061fe85bfe667d5fb6c7a7bbb1c83d0ddfd8627acc",
+      "bytes": 58353
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/canonicalize/lib/canonicalize.js",
+      "sha256": "c0fd652bd174455567dcbbbab0f306fe5d40a9fb13b0f184b46aca083b29546e",
+      "bytes": 1334
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/ieee754/index.js",
+      "sha256": "fe3e2b20c1ebb57c3b390c8f685ad1e04e6f493517fa7e432f4351bb77a1a4d0",
+      "bytes": 2154
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/index.js",
+      "sha256": "c733a1897d6b4b30dad6998597f6896b265b094a65534359ada34b08ecf8932c",
+      "bytes": 121
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/checks.js",
+      "sha256": "78a162d29e06001b4d919e1ed08f6e7d0d665bba0ef983201373745410d7b354",
+      "bytes": 663
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/coerce.js",
+      "sha256": "fb2efe3b6eacc475c77cbb571b5fb8650d92a10f316dc869e49b722973d83c3c",
+      "bytes": 550
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/compat.js",
+      "sha256": "0e948b101771cc0e7b753e54b3f5b486929d3db9bd4c09d98fe4ce86271bcf7b",
+      "bytes": 1090
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/errors.js",
+      "sha256": "b155316267f79068ddc2dddc7046e13785804b768ca36e6deff1691d154f7c20",
+      "bytes": 1609
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/external.js",
+      "sha256": "179a03ace3d1d77895cc5b3c54a3fcbf2b7f8bad44d6f030092491c10e5d9097",
+      "bytes": 907
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/from-json-schema.js",
+      "sha256": "d8866bf5232e55d12cda032bde6a56a05a0a8b276945c2e4eed66432ef5cc9b2",
+      "bytes": 24161
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/iso.js",
+      "sha256": "3cc5e6b4da086b8ffc7ee3188c69e4d3c945b368092e78d2299b5321182752c5",
+      "bytes": 1151
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/parse.js",
+      "sha256": "14cbcc416ab9169abc2cde97af77da54ca769684eac1e03a3753c16ea4a7cd95",
+      "bytes": 997
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/classic/schemas.js",
+      "sha256": "eb4af7946a092aff8678b9251728ea58dab40154920cd65ec4a2ca1d4df68393",
+      "bytes": 51378
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/api.js",
+      "sha256": "00cb5edcfde8098e5a169e66c1dce50c101484d21436e3d78e137e1fa87c4836",
+      "bytes": 28054
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/checks.js",
+      "sha256": "5a33a20dcad372b4d18ead8d1e58b1950454f136a2216e62f247e0e5601ac838",
+      "bytes": 20005
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/core.js",
+      "sha256": "a5e713beaac4647151e03716a83f51ab714e5337cf66850f3b28eaf072a0bbfe",
+      "bytes": 2578
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/doc.js",
+      "sha256": "e084bbcc536746a8942fd33b08afe4db345554b3a0383114f1dca95261c958d9",
+      "bytes": 1088
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/errors.js",
+      "sha256": "bdd0ed8fd4a6e9d04fe6423b0f9df3a0b403939bc7dcedd8930a4b8df1fb118c",
+      "bytes": 6413
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/index.js",
+      "sha256": "f9698820ee8371215e8d015cfa060230c62e65428397dce83f78e6538976301c",
+      "bytes": 594
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/json-schema-generator.js",
+      "sha256": "9cc884cdb535a9c87b85b66e61a593ff6b686222f038834f81c5e92552cd6e23",
+      "bytes": 3218
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/json-schema-processors.js",
+      "sha256": "ff15f567c9401dd7d3151ce11736283ff747c9a9e205cc08ee96f90eadc1c0c6",
+      "bytes": 20716
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/json-schema.js",
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "bytes": 11
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/parse.js",
+      "sha256": "2578b8d1341c3882a6c089f9ec57ce1c1a16b8b2b477721d4d89ba3d3ee50c9c",
+      "bytes": 4444
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/regexes.js",
+      "sha256": "3cb122080c1154321331322ebc0cbe04878fe104c8c7b335891d9f85fc4b3f63",
+      "bytes": 9078
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/registries.js",
+      "sha256": "620ea1a715ccc4e6e605a271343bf47942dccae90885dc71f137b1f08a972e50",
+      "bytes": 1512
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/schemas.js",
+      "sha256": "09da9b0cb9b9d2d795c349bc47c7521d5aaffe241885f0c9728f2aa7de3834c9",
+      "bytes": 83322
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/to-json-schema.js",
+      "sha256": "fb3c9ab59947582f7671a53c8e20a3ced5eaa92d1c220ce8b27717a59033ad0d",
+      "bytes": 17006
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/util.js",
+      "sha256": "968e3433e810cf7ba5efb609a1cb6d9a6cfb51215fd1f699938228f7ac25deb3",
+      "bytes": 22018
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/core/versions.js",
+      "sha256": "bf082fde98fa7725412d713c7f56da3a5603bdef199d68d5769263f30ce9c756",
+      "bytes": 70
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ar.js",
+      "sha256": "220ca3ca8cf67e4ccc05d789eeed2692d970269fe0cd82f05db8fd899b661b9e",
+      "bytes": 5188
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/az.js",
+      "sha256": "4725ffef0b2f2df947194f9698c792b69f52a8c3a5a1e1bdfabbf62259a1dd46",
+      "bytes": 4511
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/be.js",
+      "sha256": "da4bda7fbc940dd9f50efdd914caa9397243be779a505b82bd4be5395d3b795e",
+      "bytes": 6619
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/bg.js",
+      "sha256": "48511ad2f86043f0eea6e7673d5e2b848a3295a26c9c4650e96b3884d640196d",
+      "bytes": 5785
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ca.js",
+      "sha256": "796f9ba7dcd53648171aa0132c50271ef358936765cec0a44a642c41d05b3e8c",
+      "bytes": 4710
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/cs.js",
+      "sha256": "670a75fe1db1104db090c95aabb01e4eb6decd451fe77fd830c2e4dafc79b49a",
+      "bytes": 4772
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/da.js",
+      "sha256": "cdaad7a1fa370abda1943fe9c2caba961e7896b9808d51275daf33f964af49cc",
+      "bytes": 4804
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/de.js",
+      "sha256": "521a4ed29fcaf3f781163875dc282cfb5262047773aa2b70a852996b1d8a51b9",
+      "bytes": 4588
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/el.js",
+      "sha256": "9857a9e4909282b2efd86317fc3e67ed86e24287f32329cfa5ab833c05fc0d81",
+      "bytes": 5544
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/en.js",
+      "sha256": "232a0828d64df8e410b23ac9825a667bd9d485fd70acdc4b4d0870539faef0a4",
+      "bytes": 4805
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/eo.js",
+      "sha256": "ebe08048aa3ee9871ce9fe1271e254cb672b1968ec40ac253066d08d176e8a65",
+      "bytes": 4603
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/es.js",
+      "sha256": "4edd9302e9724c408b024220e99092fbd2f90100ac3c6407a94543b79843610c",
+      "bytes": 5439
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/fa.js",
+      "sha256": "2dc1bee1e984e8a15191fb3c69aaecaa26c922e12a0d4486ac005a0372b78565",
+      "bytes": 5131
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/fi.js",
+      "sha256": "3911184979f01d2ae580ce611710ee40597eff97a410d0fa823ab6ea27cee88c",
+      "bytes": 4818
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/fr-CA.js",
+      "sha256": "f8716c2baaccdfd1d958743bbc5250c9bdef5152d0801470e9b9a380d618f4ab",
+      "bytes": 4554
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/fr.js",
+      "sha256": "3ea466ca5737984bb5acc9008822060272f596317004618cfe1e05109f707577",
+      "bytes": 5137
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/he.js",
+      "sha256": "290512e43d2907700211da09dc3959fd98d120bfb89f8836e6e3f83a472e26fe",
+      "bytes": 12005
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/hr.js",
+      "sha256": "1ea65433c32b89bead43113ac69b3acc520bb73ae231dd2e05fedf8e8c5656d6",
+      "bytes": 5052
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/hu.js",
+      "sha256": "913ee94a253db79b31463ae23a337060b6fe28be73dfc7657d8a83a4942bd8a8",
+      "bytes": 4696
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/hy.js",
+      "sha256": "0d3bbb96c0f8bc74468a2dfc7d066e838bb56fab64fd5ec03ce9c4d89eccbe99",
+      "bytes": 6390
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/id.js",
+      "sha256": "cd2c19b5c30dade3ed91ffcff3deb0b068713be24f02248e7e46b87b2b9553ee",
+      "bytes": 4577
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/index.js",
+      "sha256": "d73f41a76614855d43eea493030a1aa05dca30c9a17015a0da5b8b70da61b6b1",
+      "bytes": 2149
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/is.js",
+      "sha256": "ead5b14eac892229f915fe38ec94ab3b1e676f8aa2df2a8450848ba9ca9a1612",
+      "bytes": 4635
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/it.js",
+      "sha256": "439969d199427d77ebf1e477bf2295b226712804b25437d442f9dfc78aca95e0",
+      "bytes": 4582
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ja.js",
+      "sha256": "43ee10378cac22b0b8aee912a66c3f36a834d5b4c76e9748f88a784044f248fd",
+      "bytes": 4851
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ka.js",
+      "sha256": "0ab5322368f9ac6e6b58f93dac484a4f4f06cdf4c0677f4df88164e9d8b4bf81",
+      "bytes": 6202
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/kh.js",
+      "sha256": "78c3d1991041bb8c8fc0f7c5d745aae422d4c2e4e8f30bae44f3fef4765900a8",
+      "bytes": 111
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/km.js",
+      "sha256": "dbdabda94dd93d4a1827e6c809505c79fa6aa7abefec91dc50fa0871382c99cc",
+      "bytes": 6242
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ko.js",
+      "sha256": "d2efe22ac069d9b32b0109fa07713ac0695ac1c1357afc4e4277056466f2e196",
+      "bytes": 4929
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/lt.js",
+      "sha256": "dad886e52c56a1329d22e072f8b08dc8730f69c3dc5e5acf8267cac18df1ab28",
+      "bytes": 8082
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/mk.js",
+      "sha256": "9eb4af0392fc5b9c438cdc6ceea446acc541b59e221dba918f7b80800d9da3d1",
+      "bytes": 5157
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ms.js",
+      "sha256": "c550a9185d997e8fcd17311951aa1e29793a50b8e825e18310efd5a46c641795",
+      "bytes": 4491
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/nl.js",
+      "sha256": "acba414579c5bbd7f83dc6661fa1a12d65f1822f9b0f5035549ac60f46d93763",
+      "bytes": 4762
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/no.js",
+      "sha256": "1854483c7cf158b8f97f0faf6fd799eb1f762009018b5fde893ca33f2fb0b313",
+      "bytes": 4506
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ota.js",
+      "sha256": "34ae496104bc17fea7d30c3d45c94cfe3d1d569b5d39a6ca51de6c177690c556",
+      "bytes": 4525
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/pl.js",
+      "sha256": "18eab58f395e30b906e8e3fddc5f212eb19f2c4362410889a5c5e0141ebe2144",
+      "bytes": 4966
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ps.js",
+      "sha256": "f977b5141fa8fb6a8459372e0b2895d74b381c9f2ff4899141f7ee3e639a4513",
+      "bytes": 4909
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/pt.js",
+      "sha256": "df172afc585544dee7c063c484f5a07b5ed103e2c1072a782c763ad8ceb08e17",
+      "bytes": 4568
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ro.js",
+      "sha256": "ecae409f4299ab91e2aff1095db14e23f3cf2c05b3654e242047655352c7f46b",
+      "bytes": 4774
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ru.js",
+      "sha256": "c397a473e94d7d189a9c09c7890fe379c4f6f46d9556d52a040a90ffa56f7b93",
+      "bytes": 6714
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/sl.js",
+      "sha256": "ee2ff3a19b62cd2f89b54b165088773b937de15df7253df220bef07d9adf2d80",
+      "bytes": 4567
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/sv.js",
+      "sha256": "97d6718fb643e05d6fe30fa4f9f09b8d9a3eda4a3a350b57dfb2944943d19502",
+      "bytes": 4663
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ta.js",
+      "sha256": "04bbde9766251f9047e786fdd77632f2ecd53aec2eb060eb2fc85bf576ad729d",
+      "bytes": 6369
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/th.js",
+      "sha256": "aea70c9ac2b399fe4749e19ba3aa99c3efb4dfb50eadfb62b0b2a6e005748f3d",
+      "bytes": 6290
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/tr.js",
+      "sha256": "4449f41d22c6f15ede5066f79d840a52ec45a6b694c859e16f9121062b6fad2f",
+      "bytes": 4454
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ua.js",
+      "sha256": "9391169ffbc72f777a83230b6ffcc3f4cf46ab5945ec540de9ef4609dca1f4cc",
+      "bytes": 111
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/uk.js",
+      "sha256": "77136a2a60eef62f7cc803a0f9971aebbc641403af77c1b41fd5ce59abfa5de3",
+      "bytes": 5430
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/ur.js",
+      "sha256": "858f4f38d651073e7a3fbec7ed356692578b3ad1fae1b453cb3d85312a4f39d2",
+      "bytes": 5271
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/uz.js",
+      "sha256": "d540bed482d15c47cb45439cff34e053379c53019c7c7c5fbe43f222d0c81f04",
+      "bytes": 4739
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/vi.js",
+      "sha256": "2c61bd3f4a733f3cbb1ad85e75a053cb15a8ebeb83ab56dc21f2948b1138e12f",
+      "bytes": 4772
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/yo.js",
+      "sha256": "98b9cbf31bf00c8b2c00de62725a9dd7cb718ac72d6e8fd4e0a1a7c49723e0f4",
+      "bytes": 4665
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/zh-CN.js",
+      "sha256": "99a4b16af598834a0b11607fcdebd1c6de026386ff1d6a5a306b364c154c5899",
+      "bytes": 4452
+    },
+    {
+      "path": "ThirdParty/REA/dependencies/zod/v4/locales/zh-TW.js",
+      "sha256": "37dcae620e1553e9174a4b9434bbcc4e465150a627e80c9c17fd01de8baaf59a",
+      "bytes": 4498
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/artifacts/apple/InterfaceBuilderDecodeBudget.ts",
+      "sha256": "b431a3ffdf47c9b3081bc034d3d04d396e8377f3d165bc63249ed44c0d9eb520",
+      "bytes": 10166
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/artifacts/apple/NibArchive.ts",
+      "sha256": "b0b497a13fa8157e37533bac244dec8305eefe3b115c2109b41ee8ef5773d8ae",
+      "bytes": 16291
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/artifacts/apple/NibViewHierarchy.ts",
+      "sha256": "5734e7f6b7551eb72115a233a7f55ce7041ff1c65099fd44208435248a0ec8f1",
+      "bytes": 6065
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/analysisErrorBase.ts",
+      "sha256": "7bbdd4504f55c65e84e98ceeba267ba52f91f6cc19f27f7edbd939bf00da889e",
+      "bytes": 4415
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/analysisErrorCore.ts",
+      "sha256": "e90a3250623441c4a7dd11a09bab6e04f862beadad4b8ae04f8253b1afefb25e",
+      "bytes": 5283
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/appleAssetCatalog.ts",
+      "sha256": "f807408f493b05315bc2533976c67e98bf31d5875f1ea0fb6fd83f8c66d09b83",
+      "bytes": 6036
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/appleBundleAnatomy.ts",
+      "sha256": "550d34d85f594c1cd6025743c5d877ca4ea5748402da25fb26132144400e8ec6",
+      "bytes": 10855
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/dyldEnvironment.ts",
+      "sha256": "fd06a1ec02cb88e79e1d693abb303d92338f4ac67b03d6d8a6f259affa27bbe9",
+      "bytes": 3856
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/dyldPaths.ts",
+      "sha256": "388a3bbb5907b8f3af0de88499f39a6a443bccc52b16e308309ca9f63811382d",
+      "bytes": 3627
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/dylibResolution.ts",
+      "sha256": "ea0fcebc56625926c911a277e49ed551f38ed68f1d81c32b45eb473c7c9906a1",
+      "bytes": 22884
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/dylibResolutionFindings.ts",
+      "sha256": "ff6c216b960d67df0c341fe50f41db7daadc4d1963044b89fa6e8996ca65456a",
+      "bytes": 5364
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/interfaceBuilderGraph.ts",
+      "sha256": "41cfdf9d70c46e994865c4c25d1d40aeab0fc4e7e4b9102fc96a631669ece7df",
+      "bytes": 18467
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/interfaceBuilderKeyedArchive.ts",
+      "sha256": "df88e9ef8e1b118e8211e361badebca68acebad0b11da7ce141a354f8c12d5fd",
+      "bytes": 17545
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/apple/keyedArchive.ts",
+      "sha256": "f2cbfdf1b0818a53f7d476b794509e49ba80483b0836fd8eb120226e3795af3e",
+      "bytes": 8968
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/digests.ts",
+      "sha256": "94e86b9d1c4488cd5fa94cf80121fb3a21bbc0dc9ce0cef38bd1113ec2ac5f40",
+      "bytes": 1386
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/immutableJson.ts",
+      "sha256": "ca9f7a274917aa632762be4cbbfe4ed2ea496bcb408e90042dc0ad4498358cc9",
+      "bytes": 4797
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/jsonValue.ts",
+      "sha256": "5721a3b8b2d27e625df8a91c9529434f3f6f559273b68adcb15c3843c87dad8b",
+      "bytes": 4114
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/native/nativeInvestigationGraph.ts",
+      "sha256": "09cc9180d77bf39e44778ad33ee6cb46176209d95d69d0638e14161da991b02e",
+      "bytes": 14151
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/native/objcSwiftMetadata.ts",
+      "sha256": "9b965d0c2b3434b75db2d1972c4f2457499a755c138598576148fd5a27e5e5a2",
+      "bytes": 16601
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processCaptureCoverage.ts",
+      "sha256": "945f6495f5e02c7ec272a4fab4e266a1a69b6568bac0c694d6bf108e07be621a",
+      "bytes": 4032
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processComparison.ts",
+      "sha256": "46263ad8eb0241668b73fc03a15e96c949e92e70f7c20fab812457e56ae2beb0",
+      "bytes": 15727
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processObservation.ts",
+      "sha256": "2fb575bf68716c4eb1ee2e3db3a125a851abbd4957bdcc26ec80105488883bcb",
+      "bytes": 6561
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processTraceComparison.ts",
+      "sha256": "c88d1975b4a2ab437b0a349e0a4c07bbe9b482ab167c3d19581feb2b7866212c",
+      "bytes": 2260
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processTraceDimensionProjection.ts",
+      "sha256": "3dac1205e69ba21c8c30355159bded51d1b301e75a809bad7dd6f1c3f89217c5",
+      "bytes": 1838
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processTraceEvaluation.ts",
+      "sha256": "e7e7abb92276c1379e030ea1e45913770e02c04e75f8b2f04b61e9ec1e3f4d5a",
+      "bytes": 13751
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/process/processTraceSpecification.ts",
+      "sha256": "164fa036c7af7410531826e78255c188980f0aa229d9dc896e54e8938fd25bfc",
+      "bytes": 15276
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/propertyListXmlText.ts",
+      "sha256": "6353956b02171a48189db982b991fc242652a1a5b1b6a294830053528c91f172",
+      "bytes": 1018
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/stringPatterns.ts",
+      "sha256": "5c7dfd218efc8be0a1f0b2a5a7ad63db293472d0e31c85909ced3982de3f5111",
+      "bytes": 506
+    },
+    {
+      "path": "ThirdParty/REA/upstream/src/domain/unicodeCodePointOrder.ts",
+      "sha256": "fdff9c493eec0fbca808c7975cd88abd9f1cb9398c333a3981f185c3eaee8cb5",
+      "bytes": 1028
+    }
+  ]
+}

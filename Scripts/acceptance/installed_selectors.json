@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "installedVectors": [
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.cancel"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "cancelFromActive",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "executingReads",
+      "status": "selected-not-run",
+      "vectorID": "xcui.cancelFromActive"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.corpusSummary"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "corpusCountsAccessible",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "corpus",
+      "status": "selected-not-run",
+      "vectorID": "xcui.corpusCountsAccessible"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.job.state",
+        "reconstruction.progress"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "createCommitsBeforeAutoStart",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "ready",
+      "status": "selected-not-run",
+      "vectorID": "xcui.createCommitsBeforeAutoStart"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.primaryAction"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "createRejectsEmptySelection",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "creation.emptySelection",
+      "status": "selected-not-run",
+      "vectorID": "xcui.createRejectsEmptySelection"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.primaryAction"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "createRejectsWhitespaceObjective",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "creation.emptyObjective",
+      "status": "selected-not-run",
+      "vectorID": "xcui.createRejectsWhitespaceObjective"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.currentGap"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "currentGapAccessible",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "gap.current",
+      "status": "selected-not-run",
+      "vectorID": "xcui.currentGapAccessible"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.destination"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "destinationSwitchRestoresEditorAuthority",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "switch",
+      "status": "selected-not-run",
+      "vectorID": "xcui.destinationSwitchRestoresEditorAuthority"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.destination",
+        "reconstruction.terminalNotice"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "destinationVisibleWhenEndpointMissing",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "endpointMissing",
+      "status": "selected-not-run",
+      "vectorID": "xcui.destinationVisibleWhenEndpointMissing"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.destination",
+        "reconstruction.dashboard"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "destinationVisibleWhenReady",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "ready",
+      "status": "selected-not-run",
+      "vectorID": "xcui.destinationVisibleWhenReady"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.primaryAction",
+        "reconstruction.pause",
+        "reconstruction.resume",
+        "reconstruction.cancel"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "keyboardAndMenuEquivalence",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "commands",
+      "status": "selected-not-run",
+      "vectorID": "xcui.keyboardAndMenuEquivalence"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.pause"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "pauseFromActive",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "retrieving",
+      "status": "selected-not-run",
+      "vectorID": "xcui.pauseFromActive"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.job.state",
+        "reconstruction.resume"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "pausedModelUnavailableIsResumable",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "unavailable",
+      "status": "selected-not-run",
+      "vectorID": "xcui.pausedModelUnavailableIsResumable"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.terminalNotice",
+        "reconstruction.job.state"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "pendingPauseNotCommitted",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "intent.pause",
+      "status": "selected-not-run",
+      "vectorID": "xcui.pendingPauseNotCommitted"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.dashboard",
+        "reconstruction.terminalNotice",
+        "reconstruction.inspector"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "privacyNoRawPathPromptPseudocode",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "privacy",
+      "status": "selected-not-run",
+      "vectorID": "xcui.privacyNoRawPathPromptPseudocode"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.resume"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "resumeExactTarget",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "paused",
+      "status": "selected-not-run",
+      "vectorID": "xcui.resumeExactTarget"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.details"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "revealSourceCurrentAuthority",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "navigation.current",
+      "status": "selected-not-run",
+      "vectorID": "xcui.revealSourceCurrentAuthority"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.details",
+        "reconstruction.terminalNotice"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "revealSourceStaleAuthorityNoMutation",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "navigation.stale",
+      "status": "selected-not-run",
+      "vectorID": "xcui.revealSourceStaleAuthorityNoMutation"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.dashboard",
+        "reconstruction.job.state"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "saveReopenProjectsBeforeResume",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "restored",
+      "status": "selected-not-run",
+      "vectorID": "xcui.saveReopenProjectsBeforeResume"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.terminalNotice",
+        "reconstruction.primaryAction"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "staleCheckpointDisablesCommands",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "checkpoint.stale",
+      "status": "selected-not-run",
+      "vectorID": "xcui.staleCheckpointDisablesCommands"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.taskSummary",
+        "reconstruction.evidenceSummary"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "taskEvidenceCountsAccessible",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "counts",
+      "status": "selected-not-run",
+      "vectorID": "xcui.taskEvidenceCountsAccessible"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.primaryAction",
+        "reconstruction.pause",
+        "reconstruction.resume",
+        "reconstruction.cancel"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "terminalControlsDisabled",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "completed",
+      "status": "selected-not-run",
+      "vectorID": "xcui.terminalControlsDisabled"
+    },
+    {
+      "executionLayer": "MacScopeInstalledAppUITests",
+      "requiredIdentifiers": [
+        "reconstruction.details",
+        "reconstruction.inspector"
+      ],
+      "requiresInstalledMacOS": true,
+      "scenario": "twoWindowsKeepIndependentSelection",
+      "screenshotEvidenceSufficient": false,
+      "seedState": "multiwindow",
+      "status": "selected-not-run",
+      "vectorID": "xcui.twoWindowsKeepIndependentSelection"
+    }
+  ]
+}

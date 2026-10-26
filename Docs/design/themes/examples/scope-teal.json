@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "user.scope-teal",
+  "name": "Scope Teal",
+  "summary": "Scope with a teal accent and matching selection. Follows Light and Dark.",
+  "inherits": "com.macscope.theme.scope",
+  "light": {
+    "accent.default": "#0B6E73",
+    "accent.subtle": "#F0F8F8",
+    "accent.soft": "#7CC4C4",
+    "border.focus": "#0B6E73",
+    "bg.selected": "#CDE9E9",
+    "code.currentLine": "#EEF7F7",
+    "fg.link": "#0A6469"
+  },
+  "dark": {
+    "accent.default": "#4FC9C3",
+    "accent.subtle": "#102524",
+    "accent.soft": "#8FDCD7",
+    "border.focus": "#4FC9C3",
+    "bg.selected": "#123433",
+    "code.currentLine": "#162423",
+    "fg.link": "#6FD6D0"
+  }
+}

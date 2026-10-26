@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "contract": "navigator-engine",
+  "note": "Closed vocabularies for contract v1. Adding a term is a minor revision (append only); removing or renaming one needs schemaVersion 2. Every term lists the value shape it carries. A predicate marked multi holds a set of values per subject (several stored fields); every other predicate is single-valued, so two different values for one subject are a disagreement. Revision 1.1 (append only, schemaVersion stays 1): predicates methodTableEntry, conformanceMethod, metadataAccessorOf, pointerAuthKey; gaps conflictingFacts, budgetExceeded, producerIncomplete; no new refusal. Facts, frontier items and annotations may carry an optional generation {imageIdentity, inputKey, knowledgeVersion} and dependsOn (fingerprint facet kinds); a derivedFrom group may name an accepted annotation as ann:<session>/<seq>.",
+  "statuses": [
+    "authoritative",
+    "proven",
+    "derived",
+    "candidate",
+    "unknown"
+  ],
+  "subjectKinds": [
+    "image",
+    "address",
+    "range",
+    "function",
+    "type",
+    "metadataRecord",
+    "selector",
+    "viewBody",
+    "protocol",
+    "field"
+  ],
+  "predicates": {
+    "isFunctionStart": {
+      "value": "boolean"
+    },
+    "hasName": {
+      "value": "string"
+    },
+    "hasType": {
+      "value": "string"
+    },
+    "callsTarget": {
+      "value": "string",
+      "multi": true
+    },
+    "fieldLayout": {
+      "value": "object"
+    },
+    "selectorOf": {
+      "value": "string"
+    },
+    "asyncContinuationOf": {
+      "value": "string"
+    },
+    "viewBodyType": {
+      "value": "string"
+    },
+    "libraryIdentity": {
+      "value": "object",
+      "shape": "{name, library, libraryVersion?}"
+    },
+    "nominalKind": {
+      "value": "string",
+      "enum": [
+        "class",
+        "struct",
+        "enum",
+        "protocol"
+      ]
+    },
+    "isGeneric": {
+      "value": "boolean"
+    },
+    "storedField": {
+      "value": "object",
+      "shape": "{name, type, var}",
+      "multi": true
+    },
+    "enumCase": {
+      "value": "object",
+      "shape": "{name, payload, indirect}",
+      "multi": true
+    },
+    "superclass": {
+      "value": "string"
+    },
+    "conformsTo": {
+      "value": "string",
+      "multi": true
+    },
+    "isProtocol": {
+      "value": "boolean"
+    },
+    "isPrivateOrLocal": {
+      "value": "boolean"
+    },
+    "isImportedCType": {
+      "value": "boolean"
+    },
+    "methodTableEntry": {
+      "value": "object",
+      "shape": "{index, implementation, name?, kind: vtable|override}",
+      "multi": true
+    },
+    "conformanceMethod": {
+      "value": "object",
+      "shape": "{protocol, requirementIndex, implementation, name?}",
+      "multi": true
+    },
+    "metadataAccessorOf": {
+      "value": "string"
+    },
+    "pointerAuthKey": {
+      "value": "object",
+      "shape": "{key: IA|IB|DA|DB, diversity, addressDiversified}"
+    }
+  },
+  "gaps": [
+    "unresolvedIndirectCall",
+    "unboundGenericParameter",
+    "unlinkedAsyncContinuation",
+    "unreconstructedViewBody",
+    "unknownType",
+    "unnamedFunction",
+    "unrecoveredStruct",
+    "unresolvedObjCSend",
+    "unknownCalleeEffects",
+    "ambiguousLibraryIdentity",
+    "unsupportedToolchain",
+    "boundaryUncertain",
+    "unresolvedTypeReference",
+    "objcTypeReference",
+    "unresolvedProtocol",
+    "unknownContext",
+    "missingFieldDescriptor",
+    "malformedFieldDescriptor",
+    "unresolvedSymbolicReference",
+    "unresolvedConformance",
+    "conflictingAnnotations",
+    "staleAnnotation",
+    "conflictingFacts",
+    "budgetExceeded",
+    "producerIncomplete"
+  ],
+  "refusals": [
+    "budgetExceeded",
+    "cancelled",
+    "preconditionFailed",
+    "unsupportedToolchain",
+    "outOfBounds",
+    "malformedInput",
+    "unknownSubject",
+    "unknownFact",
+    "conflictsWithAuthority",
+    "notReversible"
+  ],
+  "provenanceKinds": [
+    "loaderRecord",
+    "decodedInstruction",
+    "metadataRecord",
+    "rule",
+    "proofCertificate",
+    "signatureRecord",
+    "analystAction",
+    "symbolGraph"
+  ],
+  "annotationActions": [
+    "rename",
+    "setType",
+    "acceptCandidate",
+    "acceptStructCandidate",
+    "makeProcedure",
+    "addXref",
+    "setFact"
+  ],
+  "annotationAuthors": [
+    "analyst",
+    "navigator"
+  ]
+}

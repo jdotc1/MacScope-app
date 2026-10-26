@@ -1,0 +1,59 @@
+{
+  "schema": "macscope.parser-oracles.lock.v2",
+  "engines": {
+    "lief": {
+      "component": "lief-parser-engine",
+      "repository": "https://github.com/lief-project/LIEF",
+      "version": "1.0.0",
+      "git_revision": "d05b3499b6934137e917c009a4df0a9dc8cb11c5",
+      "license": "Apache-2.0",
+      "source": "ThirdParty/LIEF",
+      "formats": ["macho", "pe"]
+    },
+    "pe-parse": {
+      "component": "pe-parse-parser-engine",
+      "repository": "https://github.com/trailofbits/pe-parse",
+      "version": "2.1.1",
+      "git_revision": "7888f1f8de2f6bc302c291a5b4519fad926c0133",
+      "license": "MIT",
+      "source": "ThirdParty/PEParse",
+      "formats": ["pe"]
+    },
+    "go-macho": {
+      "component": "go-macho-parser-engine",
+      "repository": "https://github.com/blacktop/go-macho",
+      "version": "1.1.283",
+      "git_revision": "0b3c4a4cb4548a0d1284c1b5fc0de6f4422c0246",
+      "license": "MIT",
+      "source": "ThirdParty/GoMachO",
+      "formats": ["macho"]
+    }
+  },
+  "bridge": {
+    "source": "MacScope/ParserEngines",
+    "builder": "Scripts/dependencies/build_parser_engines.py",
+    "dump": "parser-engine-bridge/bin/macscope-parser-dump"
+  },
+  "specimen_sources": {
+    "corkami-pocs": {
+      "component": "corkami-pocs-pe-specimens",
+      "repository": "https://github.com/corkami/pocs",
+      "git_revision": "6d277c83efdceb6916ee8c6efe6ff0639cc6193f",
+      "terms": "PE/readme.txt states 'BSD Licence, 2009-2013'; the repository has no LICENSE file, so terms are recorded per file.",
+      "files": {
+        "ThirdParty/CorkamiPocs/PE/bin/normal.exe": {"upstream_path": "PE/bin/normal.exe", "git_blob": "1499c5a83bb662c60ee566cf027fa33724b60602", "terms": "BSD Licence, 2009-2013 (PE/readme.txt)"},
+        "ThirdParty/CorkamiPocs/PE/bin/normal64.exe": {"upstream_path": "PE/bin/normal64.exe", "git_blob": "540df69fa5a77574fcdb4237d9d9a65db9995783", "terms": "BSD Licence, 2009-2013 (PE/readme.txt)"},
+        "ThirdParty/CorkamiPocs/PE/bin/tiny.exe": {"upstream_path": "PE/bin/tiny.exe", "git_blob": "acf7f576aff0cb36da62e9fe720f663f18ab32d1", "terms": "BSD Licence, 2009-2013 (PE/readme.txt)"},
+        "ThirdParty/CorkamiPocs/PE/bin/nosectionW7.exe": {"upstream_path": "PE/bin/nosectionW7.exe", "git_blob": "8d527b33d2df885cf52eb77b528e802d40746936", "terms": "BSD Licence, 2009-2013 (PE/readme.txt)"},
+        "ThirdParty/CorkamiPocs/PE/readme.txt": {"upstream_path": "PE/readme.txt", "git_blob": "cce2b3f93c9a11c2b7c40509be58d8d3c17414e0", "terms": "terms record"}
+      }
+    }
+  },
+  "platform_tools": {
+    "dyld_info": {
+      "path": "/usr/bin/dyld_info",
+      "formats": ["dyld"],
+      "note": "Apple platform tool shipped with macOS; identity is its SHA-256 plus the macOS build, recorded per run."
+    }
+  }
+}

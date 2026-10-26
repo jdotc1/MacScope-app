@@ -1,0 +1,13 @@
+# CP17 bounded local integration
+
+This directory preserves the saved supplement verbatim as historical evidence. Its completion plan is not an active instruction. The original ZIP/extracted receipts remain outside the repository unchanged. Only the confirmed CU-root indexed-base mechanism is repaired here; range-base candidates and the broad compiler corpus remain outside this PR.
+
+DWARFDIETree now reads the complete DIE, establishes its bases, then resolves raw string/address indexes. The two saved section sets and independently decoded entry.c/0x401030 expectations are unchanged. The consumer uses the existing TestSourceRoot helper for prefix-mapped native builds. Two small authored tests cover descendant base inheritance, CU reset, and unresolved-index retention.
+
+The saved v1.1 Linux execution (witness fails two value assertions, control passes) is reused without a baseline replay. Original raw probe receipts and the compile.log witness-ID typo remain preserved under saved-evidence; FINDINGS-RECONCILED.md explains the correction. Focused macOS result will be recorded in the PR and external external local acceptance receipts; no full-corpus, range-base, Release, installed or GUI acceptance is claimed.
+
+## Executed macOS acceptance
+
+Product head c3db4b51e3f837aea49d9305864fe811429b78e9, base df4f398f5. Xcode27.2/Swift6.4/macOS27.2 SDK built the actual MacScopeDebuggerCore target successfully, jobs3 under exclusive heavy lock. A direct Darwin XCTest bundle linked that exact library and MacScopeAnalysisCore: four named methods passed, zero failures/skips,0.005s suite. Temporary consumer changes only import the owning library instead of the app facade and anchor fixture lookup to the same real source root; assertions/fixtures are unchanged. No substitute DWARF implementation is tested.
+
+The full app-hosted build did not complete: initial project-generation freshness omission fixed, then stale SLEIGH cache-key/view binding stopped the unrelated native bridge phase. Its concurrently launched REA phase began its verifier before Xcode interrupted it; this was unintended, is preserved in the failed log, and was not repeated. A first direct-runner compile lacked Darwin XCTest Swift overlay/used Linux discovery; corrected to a native XCTest bundle before any test executed. All failures retained separately; no failed full app build is relabeled passed. Subsequent narrow target/test route excludes those dependency phases. Existing source/dependency/golden evidence stays retained; broad corpus/full suite/app-hosted/Release/install/GUI remain unverified. External logs/commands and RESULT.json: external local acceptance receipts.

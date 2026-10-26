@@ -1,0 +1,27 @@
+# Frozen local build-input identity for MacScope's Ghostty VT integration.
+# This identifies the user-supplied upstream source archive even when the
+# extracted checkout intentionally has no .git metadata.
+EXPECTED_GHOSTTY_NAME=ghostty
+EXPECTED_GHOSTTY_VERSION=1.3.2-dev
+EXPECTED_GHOSTTY_FINGERPRINT=0x64407a2a0b4147e5
+EXPECTED_GHOSTTY_MINIMUM_ZIG_VERSION=0.16.0
+# The reviewed acquisition artifact for this pin is the upstream commit archive
+# itself (ghostty-org/ghostty@94d775fe), so the source and GitHub archive digests
+# are intentionally identical. The repository tree has the one container-only
+# .gitattributes patch documented below and in ThirdParty/GhosttyVT/PATCHES.md.
+EXPECTED_GHOSTTY_SOURCE_ARCHIVE_SHA256=dcafd130a3bc64ccfc009876404b193cd495b0eb672833577529d9a75a625c76
+EXPECTED_GHOSTTY_GITHUB_ARCHIVE_SHA256=dcafd130a3bc64ccfc009876404b193cd495b0eb672833577529d9a75a625c76
+EXPECTED_GHOSTTY_SOURCE_REVISION=94d775fefc21f74d9cc85a46b34c4e1d85318fd0
+# MacScope's repository snapshot appends `zig-pkg/** -text` to the upstream
+# source attributes and closes the vendored package's lower-precedence Windows
+# metadata rules so Git preserves the accepted CRLF package-store bytes.
+EXPECTED_GHOSTTY_SOURCE_TREE_SHA256=7e4ee3fccd169f96068fcaf5a93024651bed82ccb042b6e5262d2ffd4e8dd661
+EXPECTED_ZIG_VERSION=0.16.0
+EXPECTED_ZIG_AARCH64_MACOS_SHA256=b23d70deaa879b5c2d486ed3316f7eaa53e84acf6fc9cc747de152450d401489
+# Closed identities of the archive-checksum-anchored, empty-directory-normalized
+# repository toolchain, its schema-2 canonical receipt, and Ghostty's complete
+# project-local `--system` package store.
+# Version-string equality alone is never sufficient to authorize a build.
+EXPECTED_ZIG_AARCH64_MACOS_TREE_SHA256=521e2ef7605386b8da70aa3d6c3d135b344ee319c4b5a280470f8c07265ace43
+EXPECTED_ZIG_TOOLCHAIN_RECEIPT_SHA256=55f99da3a6d9cfed280b2dbbe2ec87776cc3dc28b7a5d71cab9adabc8f8bdc94
+EXPECTED_GHOSTTY_ZIG_PACKAGE_STORE_SHA256=70147cac57344d68a8dd812b7dd85b1d0eae984da531064e424128f937105d0f

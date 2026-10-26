@@ -1,0 +1,273 @@
+{
+  "gitHead": "71d65aed6e8997a425c9133daf77c2b28952e146",
+  "host": {
+    "architecture": "arm64",
+    "hardwareModel": "MacBookPro18,2",
+    "logicalCPUCount": 10,
+    "macOSVersion": "27.0"
+  },
+  "invocation": {
+    "configuration": "Debug",
+    "destination": "platform=macOS,arch=arm64",
+    "indexStoreEnabled": false,
+    "project": "MacScope/MacScope.xcodeproj",
+    "scheme": "MacScopeApp",
+    "showBuildTimingSummary": true
+  },
+  "measuredAtUTC": "2026-08-26T18:09:28Z",
+  "measurementScope": "host-specific-observation",
+  "measurements": {
+    "cold": {
+      "seconds": 249.532,
+      "timingSummary": [
+        {
+          "seconds": 861.378,
+          "task": "SwiftCompile (69 tasks)"
+        },
+        {
+          "seconds": 179.961,
+          "task": "PhaseScriptExecution (12 tasks)"
+        },
+        {
+          "seconds": 64.481,
+          "task": "SwiftEmitModule (6 tasks)"
+        },
+        {
+          "seconds": 4.115,
+          "task": "SwiftDriver (6 tasks)"
+        },
+        {
+          "seconds": 3.263,
+          "task": "CompileC (2 tasks)"
+        },
+        {
+          "seconds": 3.142,
+          "task": "Copy (28 tasks)"
+        },
+        {
+          "seconds": 3.072,
+          "task": "CompileAssetCatalogVariant (1 task)"
+        },
+        {
+          "seconds": 1.676,
+          "task": "Ld (8 tasks)"
+        },
+        {
+          "seconds": 1.486,
+          "task": "CodeSign (8 tasks)"
+        },
+        {
+          "seconds": 1.112,
+          "task": "GenerateAssetSymbols (1 task)"
+        },
+        {
+          "seconds": 0.16,
+          "task": "ExtractAppIntentsMetadata (5 tasks)"
+        },
+        {
+          "seconds": 0.121,
+          "task": "RegisterExecutionPolicyException (6 tasks)"
+        },
+        {
+          "seconds": 0.107,
+          "task": "RegisterWithLaunchServices (1 task)"
+        },
+        {
+          "seconds": 0.09,
+          "task": "ProcessInfoPlistFile (6 tasks)"
+        },
+        {
+          "seconds": 0.071,
+          "task": "SwiftGeneratePch (1 task)"
+        },
+        {
+          "seconds": 0.06,
+          "task": "CopySwiftLibs (1 task)"
+        },
+        {
+          "seconds": 0.048,
+          "task": "ConstructStubExecutorLinkFileList (1 task)"
+        },
+        {
+          "seconds": 0.027,
+          "task": "ProcessProductPackagingDER (6 tasks)"
+        },
+        {
+          "seconds": 0.024,
+          "task": "WriteAuxiliaryFile (104 tasks)"
+        },
+        {
+          "seconds": 0.02,
+          "task": "Touch (5 tasks)"
+        },
+        {
+          "seconds": 0.005,
+          "task": "SwiftDriver Compilation Requirements (6 tasks)"
+        },
+        {
+          "seconds": 0.005,
+          "task": "SwiftMergeGeneratedHeaders (6 tasks)"
+        },
+        {
+          "seconds": 0.004,
+          "task": "LinkAssetCatalog (1 task)"
+        },
+        {
+          "seconds": 0.004,
+          "task": "CpResource (2 tasks)"
+        },
+        {
+          "seconds": 0.004,
+          "task": "SwiftDriver Compilation (6 tasks)"
+        },
+        {
+          "seconds": 0.002,
+          "task": "ProcessProductPackaging (6 tasks)"
+        },
+        {
+          "seconds": 0.001,
+          "task": "Validate (1 task)"
+        }
+      ]
+    },
+    "null": {
+      "seconds": 13.134,
+      "timingSummary": [
+        {
+          "seconds": 8.122,
+          "task": "PhaseScriptExecution (10 tasks)"
+        },
+        {
+          "seconds": 2.306,
+          "task": "Copy (4 tasks)"
+        },
+        {
+          "seconds": 0.456,
+          "task": "CodeSign (3 tasks)"
+        },
+        {
+          "seconds": 0.074,
+          "task": "RegisterWithLaunchServices (1 task)"
+        },
+        {
+          "seconds": 0.053,
+          "task": "ProcessInfoPlistFile (1 task)"
+        },
+        {
+          "seconds": 0.001,
+          "task": "Validate (1 task)"
+        }
+      ]
+    }
+  },
+  "schemaVersion": 1,
+  "scriptPhases": [
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "MacScopeApp"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Stage Ghostty VT dylib",
+      "target": "MacScopeApp"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "postBuildScripts",
+      "name": "Stage ShellBroker LaunchAgent property list",
+      "target": "MacScopeApp"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "postBuildScripts",
+      "name": "Generate sealed Release build provenance",
+      "target": "MacScopeApp"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "PluginXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "AnalysisWorkerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify exact MachOKit source materialization",
+      "target": "AnalysisWorkerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "postBuildScripts",
+      "name": "Verify compiled MachOKit identity in AnalysisWorker",
+      "target": "AnalysisWorkerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "AIAgentWorkerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "NativeDecompilerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": true,
+      "kind": "preBuildScripts",
+      "name": "Build verified native decompiler bridge",
+      "target": "NativeDecompilerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Stage verified native decompiler package",
+      "target": "NativeDecompilerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": true,
+      "kind": "preBuildScripts",
+      "name": "Validate native decompiler bridge golden",
+      "target": "NativeDecompilerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "ShellBrokerXPCService"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Verify certificate-backed signing environment",
+      "target": "ShellBrokerLaunchAgent"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "preBuildScripts",
+      "name": "Stage call-argument oracle test resources",
+      "target": "CoreTests"
+    },
+    {
+      "basedOnDependencyAnalysis": false,
+      "kind": "postBuildScripts",
+      "name": "Copy sealed provenance into CoreTests",
+      "target": "CoreTests"
+    }
+  ],
+  "threshold": null,
+  "toolchain": {
+    "xcodeBuild": "27A5252f",
+    "xcodeVersion": "27.0"
+  }
+}

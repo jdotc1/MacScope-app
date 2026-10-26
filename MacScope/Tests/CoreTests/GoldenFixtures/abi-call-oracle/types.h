@@ -1,0 +1,14 @@
+typedef float V2 __attribute__((vector_size(8)));
+typedef float V4 __attribute__((vector_size(16)));
+typedef struct { float f0;} H1;
+typedef struct { float f0;float f1;} H2;
+typedef struct { float f0;float f1;float f2;} H3;
+typedef struct { float f0;float f1;float f2;float f3;} H4;
+typedef struct { double f0;double f1;} D2;
+typedef struct { double f0;double f1;double f2;double f3;} D4;
+typedef struct { V4 f0;V4 f1;} HV2;
+typedef struct { V4 f0;V4 f1;V4 f2;V4 f3;} HV4;
+typedef struct { long f0;} S8;
+typedef struct { long f0;long f1;} S16;
+typedef struct { long f0;long f1;long f2;} S24;
+typedef struct {double f0;long f1;} Mix;

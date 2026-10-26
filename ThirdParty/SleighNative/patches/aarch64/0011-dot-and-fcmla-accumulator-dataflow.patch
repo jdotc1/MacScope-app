@@ -1,0 +1,170 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+@@ -2657,7 +2657,7 @@
+ vIndexHLM: val is b_2223=0 & b_2121 & b_1111 & b_2020 [ val = b_1111 << 2 | b_2121 << 1 | b_2020; ] { export *[const]:8 val; }
+ 
+ vIndexHL: val is b_2223=0b01 & b_21 & b_11 [ val = b_11 << 1 | b_21; ] { export *[const]:8 val; }
+-vIndexHL: val is b_2223=0b10 & b_21 & b_11 [ val = b_11 << 1 | b_21; ] { export *[const]:8 val; }
++vIndexHL: b_11 is b_2223=0b10 & b_11 { export *[const]:8 b_11; }
+ 
+ @if DATA_ENDIAN == "little"
+ Re_VPR128.B.sel: Re_VPR128, val is Re_VPR128 & b_2222=0 & b_2121 & b_1111 [ val = 0x5000 + 32*Re_VPR128 + b_1111 * 2 + b_2121; ] { export *[register]:1 val; }
+@@ -2734,9 +2734,19 @@
+ @else
+ Re_VPR128.Dot.sel: val is Re_VPR128 & b_21 & b_11 [ val = 0x501c + 32*Re_VPR128 - 4*(b_11*2+b_21); ] { export *[register]:4 val; }
+ @endif
+-Re_VPR128.H.vIndexHL: Re_VPR128.H^"["^vIndexHL^"]" is Re_VPR128.H & vIndexHL & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
+-Re_VPR128.2H.vIndexHL: vRe_VPR128^".2H["^vIndexHL^"]" is vRe_VPR128 & vIndexHL & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
+-Re_VPR128.4B.vIndexHL: vRe_VPR128^".4B["^vIndexHL^"]" is vRe_VPR128 & vIndexHL & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
++macscopeDotIndex: val is b_11 & b_21 [ val = b_11 << 1 | b_21; ] { export *[const]:8 val; }
++Re_VPR128.2H.vIndexHL: vRe_VPR128^".2H["^macscopeDotIndex^"]" is vRe_VPR128 & macscopeDotIndex & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
++Re_VPR128.4B.vIndexHL: vRe_VPR128^".4B["^macscopeDotIndex^"]" is vRe_VPR128 & macscopeDotIndex & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
++# FCMLA FP32 by-element selects a complex pair using H, not a scalar lane.
++@if DATA_ENDIAN == "little"
++Re_VPR128.2S.fcmlaSel: val is Re_VPR128 & b_11
++    [ val = 0x5000 + 32*Re_VPR128 + 8*b_11; ] { export *[register]:8 val; }
++@else
++Re_VPR128.2S.fcmlaSel: val is Re_VPR128 & b_11
++    [ val = 0x5018 + 32*Re_VPR128 - 8*b_11; ] { export *[register]:8 val; }
++@endif
++Re_VPR128.2S.fcmlaIndex: vRe_VPR128^".2S["^b_11^"]" is vRe_VPR128 & b_11 & Re_VPR128.2S.fcmlaSel { export Re_VPR128.2S.fcmlaSel; }
++
+ 
+ @if DATA_ENDIAN == "little"
+ Re_VPR128Lo.H.sel: Re_VPR128Lo, val is Re_VPR128Lo & b_2223=2 & b_2121 & b_1111 [ val = 0x5000 + 32*Re_VPR128Lo + (b_1111 * 2 + b_2121)*2; ] { export *[register]:2 val; }
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+@@ -5352,11 +5352,12 @@
+ # 4H variant when size = 01 , Q = 0 T=VPR64.4H imm=Re_VPR128.H.vIndexHL i1=Re_VPR128.H i2=vIndexHL
+ # NOTE: if size == '01' and H == '1' && Q == '0' then ReservedValue();
+ 
+-:fcmla Rd_VPR64.4H, Rn_VPR64.4H, Re_VPR128.H.vIndexHL, fcmla_rotate
+-is b_31=0 & b_30=0 & b_2429=0b101111 & b_2223=0b01 & b_15=0 & b_12=1 & b_11=0 & b_10=0 & fcmla_rotate & Rd_VPR64.4H & Rn_VPR64.4H & Re_VPR128.H.vIndexHL & Re_VPR128.H & vIndexHL & Zd
+-{
+-	local tmp1:2 = SIMD_PIECE(Re_VPR128.H, vIndexHL:1);
+-	Rd_VPR64.4H = NEON_fcmla(Rn_VPR64.4H, tmp1, fcmla_rotate, 2:1);
++:fcmla Rd_VPR64.4H, Rn_VPR64.4H, Re_VPR128.2H.vIndexHL, fcmla_rotate
++is b_31=0 & b_30=0 & b_2429=0b101111 & b_2223=0b01 & b_15=0 & b_12=1 & b_11=0 & b_10=0 & fcmla_rotate & Rd_VPR64.4H & Rn_VPR64.4H & Re_VPR128.2H.vIndexHL & Re_VPR128.H & vIndexHL & Zd
++{
++	local tmp1:4 = Re_VPR128.2H.vIndexHL;
++	Rd_VPR64.4H = NEON_fcmla(Rd_VPR64.4H, Rn_VPR64.4H, tmp1, fcmla_rotate, 2:1);
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.62 FCMLA (by element) page C7-2154 line 125620 MATCH x2f001000/mask=xbf009400
+@@ -5365,11 +5366,12 @@
+ # AUNIT --inst x6f401000/mask=xffc09400 --rand hfp --status noqemu --comment "noflags"
+ # 8H variant when size = 01 , Q = 1 T=VPR128.8H imm=Re_VPR128.H.vIndexHL i1=Re_VPR128.H i2=vIndexHL
+ 
+-:fcmla Rd_VPR128.8H, Rn_VPR128.8H, Re_VPR128.H.vIndexHL, fcmla_rotate
+-is b_31=0 & b_30=1 & b_2429=0b101111 & b_2223=0b01 & b_15=0 & b_12=1 & b_10=0 & fcmla_rotate & Rd_VPR128.8H & Rn_VPR128.8H & Re_VPR128.H.vIndexHL & Re_VPR128.H & vIndexHL & Zd
+-{
+-	local tmp1:2 = SIMD_PIECE(Re_VPR128.H, vIndexHL:1);
+-	Rd_VPR128.8H = NEON_fcmla(Rn_VPR128.8H, tmp1, fcmla_rotate, 2:1);
++:fcmla Rd_VPR128.8H, Rn_VPR128.8H, Re_VPR128.2H.vIndexHL, fcmla_rotate
++is b_31=0 & b_30=1 & b_2429=0b101111 & b_2223=0b01 & b_15=0 & b_12=1 & b_10=0 & fcmla_rotate & Rd_VPR128.8H & Rn_VPR128.8H & Re_VPR128.2H.vIndexHL & Re_VPR128.H & vIndexHL & Zd
++{
++	local tmp1:4 = Re_VPR128.2H.vIndexHL;
++	Rd_VPR128.8H = NEON_fcmla(Rd_VPR128.8H, Rn_VPR128.8H, tmp1, fcmla_rotate, 2:1);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.62 FCMLA (by element) page C7-2154 line 125620 MATCH x2f001000/mask=xbf009400
+@@ -5379,11 +5381,12 @@
+ # 4S variant when size = 10 , Q = 1 T=VPR128.4S imm=Re_VPR128.S.vIndex i1=Re_VPR128.S i2=vIndex
+ # NOTE: if size == '10' and (L == '1' || Q == '0') then ReservedValue();
+ 
+-:fcmla Rd_VPR128.4S, Rn_VPR128.4S, Re_VPR128.S.vIndex, fcmla_rotate
+-is b_31=0 & b_30=1 & b_2429=0b101111 & b_2223=0b10 & b_21=0 & b_15=0 & b_12=1 & b_10=0 & fcmla_rotate & Rd_VPR128.4S & Rn_VPR128.4S & Re_VPR128.S.vIndex & Re_VPR128.S & vIndex & Zd
+-{
+-	local tmp1:4 = SIMD_PIECE(Re_VPR128.S, vIndex:1);
+-	Rd_VPR128.4S = NEON_fcmla(Rn_VPR128.4S, tmp1, fcmla_rotate, 4:1);
++:fcmla Rd_VPR128.4S, Rn_VPR128.4S, Re_VPR128.2S.fcmlaIndex, fcmla_rotate
++is b_31=0 & b_30=1 & b_2429=0b101111 & b_2223=0b10 & b_21=0 & b_15=0 & b_12=1 & b_10=0 & fcmla_rotate & Rd_VPR128.4S & Rn_VPR128.4S & Re_VPR128.2S.fcmlaIndex & Re_VPR128.S & vIndex & Zd
++{
++	local tmp1:8 = Re_VPR128.2S.fcmlaIndex;
++	Rd_VPR128.4S = NEON_fcmla(Rd_VPR128.4S, Rn_VPR128.4S, tmp1, fcmla_rotate, 4:1);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.63 FCMLA page C7-2157 line 125798 MATCH x2e00c400/mask=xbf20e400
+@@ -5395,7 +5398,8 @@
+ :fcmla Rd_VPR64.4H, Rn_VPR64.4H, Rm_VPR64.4H, fcmla_rotate
+ is b_31=0 & b_30=0 & b_2429=0b101110 & b_2223=0b01 & b_21=0 & b_1315=0b110 & b_10=1 & fcmla_rotate & Rd_VPR64.4H & Rn_VPR64.4H & Rm_VPR64.4H & Zd
+ {
+-	Rd_VPR64.4H = NEON_fcmla(Rn_VPR64.4H, Rm_VPR64.4H, fcmla_rotate, 4:1);
++	Rd_VPR64.4H = NEON_fcmla(Rd_VPR64.4H, Rn_VPR64.4H, Rm_VPR64.4H, fcmla_rotate, 2:1);
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.63 FCMLA page C7-2157 line 125798 MATCH x2e00c400/mask=xbf20e400
+@@ -5407,7 +5411,8 @@
+ :fcmla Rd_VPR128.8H, Rn_VPR128.8H, Rm_VPR128.8H, fcmla_rotate
+ is b_31=0 & b_30=1 & b_2429=0b101110 & b_2223=0b01 & b_21=0 & b_1315=0b110 & b_10=1 & fcmla_rotate & Rd_VPR128.8H & Rn_VPR128.8H & Rm_VPR128.8H & Zd
+ {
+-	Rd_VPR128.8H = NEON_fcmla(Rn_VPR128.8H, Rm_VPR128.8H, fcmla_rotate, 4:1);
++	Rd_VPR128.8H = NEON_fcmla(Rd_VPR128.8H, Rn_VPR128.8H, Rm_VPR128.8H, fcmla_rotate, 2:1);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.63 FCMLA page C7-2157 line 125798 MATCH x2e00c400/mask=xbf20e400
+@@ -5419,7 +5424,8 @@
+ :fcmla Rd_VPR64.2S, Rn_VPR64.2S, Rm_VPR64.2S, fcmla_rotate
+ is b_31=0 & b_30=0 & b_2429=0b101110 & b_2223=0b10 & b_21=0 & b_1315=0b110 & b_10=1 & fcmla_rotate & Rd_VPR64.2S & Rn_VPR64.2S & Rm_VPR64.2S & Zd
+ {
+-	Rd_VPR64.2S = NEON_fcmla(Rn_VPR64.2S, Rm_VPR64.2S, fcmla_rotate, 4:1);
++	Rd_VPR64.2S = NEON_fcmla(Rd_VPR64.2S, Rn_VPR64.2S, Rm_VPR64.2S, fcmla_rotate, 4:1);
++	zext_zd(Zd);
+ }
+ 
+ # C7.2.63 FCMLA page C7-2157 line 125798 MATCH x2e00c400/mask=xbf20e400
+@@ -5431,7 +5437,8 @@
+ :fcmla Rd_VPR128.4S, Rn_VPR128.4S, Rm_VPR128.4S, fcmla_rotate
+ is b_31=0 & b_30=1 & b_2429=0b101110 & b_2223=0b10 & b_21=0 & b_1315=0b110 & b_10=1 & fcmla_rotate & Rd_VPR128.4S & Rn_VPR128.4S & Rm_VPR128.4S & Zd
+ {
+-	Rd_VPR128.4S = NEON_fcmla(Rn_VPR128.4S, Rm_VPR128.4S, fcmla_rotate, 4:1);
++	Rd_VPR128.4S = NEON_fcmla(Rd_VPR128.4S, Rn_VPR128.4S, Rm_VPR128.4S, fcmla_rotate, 4:1);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.63 FCMLA page C7-2157 line 125798 MATCH x2e00c400/mask=xbf20e400
+@@ -5443,7 +5450,8 @@
+ :fcmla Rd_VPR128.2D, Rn_VPR128.2D, Rm_VPR128.2D, fcmla_rotate
+ is b_31=0 & b_30=1 & b_2429=0b101110 & b_2223=0b11 & b_21=0 & b_1315=0b110 & b_10=1 & fcmla_rotate & Rd_VPR128.2D & Rn_VPR128.2D & Rm_VPR128.2D & Zd
+ {
+-	Rd_VPR128.2D = NEON_fcmla(Rn_VPR128.2D, Rm_VPR128.2D, fcmla_rotate, 4:1);
++	Rd_VPR128.2D = NEON_fcmla(Rd_VPR128.2D, Rn_VPR128.2D, Rm_VPR128.2D, fcmla_rotate, 8:1);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.64 FCMLE (zero) page C7-2160 line 125952 MATCH x2ea0d800/mask=xbfbffc00
+@@ -31468,18 +31476,21 @@
+ # b_0031=0.101110010.....111111..........
+ 
+ :bfdot Rd_VPR128.2S, Rn_VPR128.4H, Rm_VPR128.4H
+-is b_3131=0b0 & Q=0 & b_2129=0b101110010 & Rm_VPR128.4H & b_1015=0b111111 & Rn_VPR128.4H & Rd_VPR128.2S
+-{
+-	Rd_VPR128.2S = NEON_bfdot(Rn_VPR128.4H, Rm_VPR128.4H);
++is b_3131=0b0 & Q=0 & b_2129=0b101110010 & Rm_VPR128.4H & b_1015=0b111111 & Rn_VPR128.4H & Rd_VPR128.2S & Zd
++{
++	local result:8 = NEON_bfdot(Rd_VPR128.2S:8, Rn_VPR128.4H:8, Rm_VPR128.4H:8);
++	Rd_VPR128.2S = zext(result);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.16 BFDOT (vector) page C7-2041 line 119201 MATCH x2e40fc00/mask=xbfe0fc00
+ # CONSTRUCT x6e40fc00/mask=xffe0fc00 MATCHED 1 DOCUMENTED OPCODES
+ 
+ :bfdot Rd_VPR128.4S, Rn_VPR128.8H, Rm_VPR128.8H
+-is b_3131=0b0 & Q=1 & b_2129=0b101110010 & Rm_VPR128.8H & b_1015=0b111111 & Rn_VPR128.8H & Rd_VPR128.4S
+-{
+-	Rd_VPR128.4S = NEON_bfdot(Rn_VPR128.8H, Rm_VPR128.8H);
++is b_3131=0b0 & Q=1 & b_2129=0b101110010 & Rm_VPR128.8H & b_1015=0b111111 & Rn_VPR128.8H & Rd_VPR128.4S & Zd
++{
++	Rd_VPR128.4S = NEON_bfdot(Rd_VPR128.4S, Rn_VPR128.8H, Rm_VPR128.8H);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.17 BFMLALB, BFMLALT (by element) page C7-2043 line 119316 MATCH x0fc0f000/mask=xbfc0f400

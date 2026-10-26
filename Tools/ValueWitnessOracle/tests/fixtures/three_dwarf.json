@@ -1,0 +1,32 @@
+[
+ {
+  "mangled": "6Sample1AV",
+  "byteSize": 8,
+  "dieOffset": "0x10"
+ },
+ {
+  "mangled": "6Sample1AV",
+  "byteSize": 8,
+  "dieOffset": "0x90"
+ },
+ {
+  "mangled": "6Sample1BV",
+  "byteSize": 16,
+  "dieOffset": "0x20"
+ },
+ {
+  "mangled": "6Sample1DV",
+  "byteSize": 4,
+  "dieOffset": "0x30"
+ },
+ {
+  "mangled": "6Sample1EO",
+  "byteSize": 1,
+  "dieOffset": "0x40"
+ },
+ {
+  "mangled": "6Sample1ZV",
+  "byteSize": 2,
+  "dieOffset": "0x50"
+ }
+]

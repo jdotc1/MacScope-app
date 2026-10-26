@@ -1,0 +1,6 @@
+{
+  "name": "native-workspace-roundtrip",
+  "actions": [],
+  "package_expectations": [],
+  "reopened_selectors": ["workspace.root"]
+}

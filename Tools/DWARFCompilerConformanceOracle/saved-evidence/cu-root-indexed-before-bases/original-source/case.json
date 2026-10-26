@@ -1,0 +1,1137 @@
+{
+  "id": "clang-d5-O0-multiple-f00",
+  "seed": 20261013,
+  "producer": "clang",
+  "dwarf": 5,
+  "optimization": "O0",
+  "TU": "multiple",
+  "family": 0,
+  "architecture": "x86_64",
+  "commands": [
+    {
+      "argv": [
+        "/workspace/scratch/ddf488c1ad42/program2/clang19/usr/lib/llvm-19/bin/clang",
+        "-g",
+        "-gdwarf-5",
+        "-O0",
+        "-ffreestanding",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-no-pie",
+        "-nostdlib",
+        "-Wl,-e,_start",
+        "-Wl,--build-id=none",
+        "left/unit.c",
+        "entry.c",
+        "right/unit.c",
+        "-o",
+        "artifact.elf"
+      ],
+      "cwd": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00",
+      "exit": 0,
+      "seconds": 0.11914648400852457,
+      "log": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00/compile.log"
+    },
+    {
+      "argv": [
+        "/workspace/scratch/ddf488c1ad42/program2/llvm/usr/bin/llvm-dwarfdump-19",
+        "--verify",
+        "artifact.elf"
+      ],
+      "cwd": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00",
+      "exit": 0,
+      "seconds": 0.01566701999399811,
+      "log": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00/verify.log"
+    },
+    {
+      "argv": [
+        "/workspace/scratch/ddf488c1ad42/program2/llvm/usr/bin/llvm-dwarfdump-19",
+        "--debug-info",
+        "--debug-line",
+        "--debug-loc",
+        "--debug-loclists",
+        "--debug-ranges",
+        "--debug-rnglists",
+        "artifact.elf"
+      ],
+      "cwd": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00",
+      "exit": 0,
+      "seconds": 0.020037838999996893,
+      "log": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00/dwarfdump.log"
+    }
+  ],
+  "status": "VALID",
+  "expectation": {
+    "reference": "pyelftools 0.32",
+    "elf_type": "ET_EXEC",
+    "machine": "EM_X86_64",
+    "functions": [
+      {
+        "name": "target",
+        "address": 4198400,
+        "high": 4198438,
+        "parameters": [
+          {
+            "name": "x",
+            "type": {
+              "tag": "base_type",
+              "name": "int",
+              "byte_size": 4,
+              "encoding": 5
+            }
+          },
+          {
+            "name": "y",
+            "type": {
+              "tag": "base_type",
+              "name": "long",
+              "byte_size": 8,
+              "encoding": 5
+            }
+          }
+        ],
+        "variadic": false,
+        "return": {
+          "tag": "base_type",
+          "name": "int",
+          "byte_size": 4,
+          "encoding": 5
+        },
+        "die": 55
+      },
+      {
+        "name": "_start",
+        "address": 4198448,
+        "high": 4198465,
+        "parameters": [],
+        "variadic": false,
+        "return": {
+          "tag": "void"
+        },
+        "die": 144
+      },
+      {
+        "name": "helper",
+        "address": 4198480,
+        "high": 4198501,
+        "parameters": [
+          {
+            "name": "x",
+            "type": {
+              "tag": "base_type",
+              "name": "int",
+              "byte_size": 4,
+              "encoding": 5
+            }
+          }
+        ],
+        "variadic": false,
+        "return": {
+          "tag": "base_type",
+          "name": "int",
+          "byte_size": 4,
+          "encoding": 5
+        },
+        "die": 191
+      }
+    ],
+    "types": [
+      {
+        "tag": "volatile_type",
+        "type": {
+          "tag": "base_type",
+          "name": "int",
+          "byte_size": 4,
+          "encoding": 5
+        },
+        "die": 46,
+        "members": [],
+        "enumerators": []
+      },
+      {
+        "tag": "base_type",
+        "name": "int",
+        "byte_size": 4,
+        "encoding": 5,
+        "die": 51,
+        "members": [],
+        "enumerators": []
+      },
+      {
+        "tag": "base_type",
+        "name": "long",
+        "byte_size": 8,
+        "encoding": 5,
+        "die": 104,
+        "members": [],
+        "enumerators": []
+      },
+      {
+        "tag": "base_type",
+        "name": "int",
+        "byte_size": 4,
+        "encoding": 5,
+        "die": 218,
+        "members": [],
+        "enumerators": []
+      }
+    ],
+    "variables": [
+      {
+        "name": "sink",
+        "die": 35,
+        "tag": "DW_TAG_variable",
+        "location_form": "DW_FORM_exprloc",
+        "location_raw": [
+          161,
+          0
+        ],
+        "expression": [
+          {
+            "op": "DW_OP_addrx",
+            "args": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "x",
+        "die": 70,
+        "tag": "DW_TAG_formal_parameter",
+        "location_form": "DW_FORM_exprloc",
+        "location_raw": [
+          145,
+          124
+        ],
+        "expression": [
+          {
+            "op": "DW_OP_fbreg",
+            "args": [
+              -4
+            ]
+          }
+        ]
+      },
+      {
+        "name": "y",
+        "die": 81,
+        "tag": "DW_TAG_formal_parameter",
+        "location_form": "DW_FORM_exprloc",
+        "location_raw": [
+          145,
+          112
+        ],
+        "expression": [
+          {
+            "op": "DW_OP_fbreg",
+            "args": [
+              -16
+            ]
+          }
+        ]
+      },
+      {
+        "name": "local",
+        "die": 92,
+        "tag": "DW_TAG_variable",
+        "location_form": "DW_FORM_exprloc",
+        "location_raw": [
+          145,
+          108
+        ],
+        "expression": [
+          {
+            "op": "DW_OP_fbreg",
+            "args": [
+              -20
+            ]
+          }
+        ]
+      },
+      {
+        "name": "x",
+        "die": 206,
+        "tag": "DW_TAG_formal_parameter",
+        "location_form": "DW_FORM_exprloc",
+        "location_raw": [
+          145,
+          124
+        ],
+        "expression": [
+          {
+            "op": "DW_OP_fbreg",
+            "args": [
+              -4
+            ]
+          }
+        ]
+      }
+    ],
+    "lines": [
+      {
+        "address": 4198400,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 0,
+        "isStmt": true,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198411,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 39,
+        "isStmt": true,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198414,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 46,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198418,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 40,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198420,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 33,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198423,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 54,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198426,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 53,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198433,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 68,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198436,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 61,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198438,
+        "fileIndex": 0,
+        "line": 4,
+        "column": 61,
+        "isStmt": false,
+        "endSequence": true,
+        "lineProgramUnitOffset": 0
+      },
+      {
+        "address": 4198448,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 0,
+        "isStmt": true,
+        "endSequence": false,
+        "lineProgramUnitOffset": 113
+      },
+      {
+        "address": 4198452,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 51,
+        "isStmt": true,
+        "endSequence": false,
+        "lineProgramUnitOffset": 113
+      },
+      {
+        "address": 4198463,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 65,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 113
+      },
+      {
+        "address": 4198463,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 55,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 113
+      },
+      {
+        "address": 4198465,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 55,
+        "isStmt": false,
+        "endSequence": true,
+        "lineProgramUnitOffset": 113
+      },
+      {
+        "address": 4198480,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 0,
+        "isStmt": true,
+        "endSequence": false,
+        "lineProgramUnitOffset": 210
+      },
+      {
+        "address": 4198487,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 54,
+        "isStmt": true,
+        "endSequence": false,
+        "lineProgramUnitOffset": 210
+      },
+      {
+        "address": 4198490,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 56,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 210
+      },
+      {
+        "address": 4198497,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 55,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 210
+      },
+      {
+        "address": 4198499,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 47,
+        "isStmt": false,
+        "endSequence": false,
+        "lineProgramUnitOffset": 210
+      },
+      {
+        "address": 4198501,
+        "fileIndex": 0,
+        "line": 1,
+        "column": 47,
+        "isStmt": false,
+        "endSequence": true,
+        "lineProgramUnitOffset": 210
+      }
+    ],
+    "dies": [
+      {
+        "offset": 12,
+        "cu": 0,
+        "tag": "DW_TAG_compile_unit",
+        "name": "left/unit.c",
+        "tag_code": 17,
+        "attributes": {
+          "37": {
+            "name": "DW_AT_producer",
+            "form": "DW_FORM_strx1",
+            "value": "Debian clang version 19.1.7 (++20250114103228+cd708029e0b2-1~exp1~20250114103334.78)"
+          },
+          "19": {
+            "name": "DW_AT_language",
+            "form": "DW_FORM_data2",
+            "value": 29
+          },
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "left/unit.c"
+          },
+          "114": {
+            "name": "DW_AT_str_offsets_base",
+            "form": "DW_FORM_sec_offset",
+            "value": 8
+          },
+          "16": {
+            "name": "DW_AT_stmt_list",
+            "form": "DW_FORM_sec_offset",
+            "value": 0
+          },
+          "27": {
+            "name": "DW_AT_comp_dir",
+            "form": "DW_FORM_strx1",
+            "value": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00"
+          },
+          "17": {
+            "name": "DW_AT_low_pc",
+            "form": "DW_FORM_addrx",
+            "value": 4198400
+          },
+          "18": {
+            "name": "DW_AT_high_pc",
+            "form": "DW_FORM_data4",
+            "value": 38
+          },
+          "115": {
+            "name": "DW_AT_addr_base",
+            "form": "DW_FORM_sec_offset",
+            "value": 8
+          }
+        },
+        "forms": {
+          "DW_AT_producer": "DW_FORM_strx1",
+          "DW_AT_language": "DW_FORM_data2",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_str_offsets_base": "DW_FORM_sec_offset",
+          "DW_AT_stmt_list": "DW_FORM_sec_offset",
+          "DW_AT_comp_dir": "DW_FORM_strx1",
+          "DW_AT_low_pc": "DW_FORM_addrx",
+          "DW_AT_high_pc": "DW_FORM_data4",
+          "DW_AT_addr_base": "DW_FORM_sec_offset"
+        }
+      },
+      {
+        "offset": 35,
+        "cu": 0,
+        "tag": "DW_TAG_variable",
+        "name": "sink",
+        "tag_code": 52,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "sink"
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 46
+          },
+          "63": {
+            "name": "DW_AT_external",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 3
+          }
+        },
+        "forms": {
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_type": "DW_FORM_ref4",
+          "DW_AT_external": "DW_FORM_flag_present",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_location": "DW_FORM_exprloc"
+        }
+      },
+      {
+        "offset": 46,
+        "cu": 0,
+        "tag": "DW_TAG_volatile_type",
+        "name": null,
+        "tag_code": 53,
+        "attributes": {
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 51
+          }
+        },
+        "forms": {
+          "DW_AT_type": "DW_FORM_ref4"
+        }
+      },
+      {
+        "offset": 51,
+        "cu": 0,
+        "tag": "DW_TAG_base_type",
+        "name": "int",
+        "tag_code": 36,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "int"
+          },
+          "62": {
+            "name": "DW_AT_encoding",
+            "form": "DW_FORM_data1",
+            "value": 5
+          },
+          "11": {
+            "name": "DW_AT_byte_size",
+            "form": "DW_FORM_data1",
+            "value": 4
+          }
+        },
+        "forms": {
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_encoding": "DW_FORM_data1",
+          "DW_AT_byte_size": "DW_FORM_data1"
+        }
+      },
+      {
+        "offset": 55,
+        "cu": 0,
+        "tag": "DW_TAG_subprogram",
+        "name": "target",
+        "tag_code": 46,
+        "attributes": {
+          "17": {
+            "name": "DW_AT_low_pc",
+            "form": "DW_FORM_addrx",
+            "value": 4198400
+          },
+          "18": {
+            "name": "DW_AT_high_pc",
+            "form": "DW_FORM_data4",
+            "value": 38
+          },
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "target"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 4
+          },
+          "39": {
+            "name": "DW_AT_prototyped",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 51
+          },
+          "63": {
+            "name": "DW_AT_external",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          }
+        },
+        "forms": {
+          "DW_AT_low_pc": "DW_FORM_addrx",
+          "DW_AT_high_pc": "DW_FORM_data4",
+          "DW_AT_frame_base": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_prototyped": "DW_FORM_flag_present",
+          "DW_AT_type": "DW_FORM_ref4",
+          "DW_AT_external": "DW_FORM_flag_present"
+        }
+      },
+      {
+        "offset": 70,
+        "cu": 0,
+        "tag": "DW_TAG_formal_parameter",
+        "name": "x",
+        "tag_code": 5,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "x"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 4
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 51
+          }
+        },
+        "forms": {
+          "DW_AT_location": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_type": "DW_FORM_ref4"
+        }
+      },
+      {
+        "offset": 81,
+        "cu": 0,
+        "tag": "DW_TAG_formal_parameter",
+        "name": "y",
+        "tag_code": 5,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "y"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 4
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 104
+          }
+        },
+        "forms": {
+          "DW_AT_location": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_type": "DW_FORM_ref4"
+        }
+      },
+      {
+        "offset": 92,
+        "cu": 0,
+        "tag": "DW_TAG_variable",
+        "name": "local",
+        "tag_code": 52,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "local"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 4
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 51
+          }
+        },
+        "forms": {
+          "DW_AT_location": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_type": "DW_FORM_ref4"
+        }
+      },
+      {
+        "offset": 104,
+        "cu": 0,
+        "tag": "DW_TAG_base_type",
+        "name": "long",
+        "tag_code": 36,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "long"
+          },
+          "62": {
+            "name": "DW_AT_encoding",
+            "form": "DW_FORM_data1",
+            "value": 5
+          },
+          "11": {
+            "name": "DW_AT_byte_size",
+            "form": "DW_FORM_data1",
+            "value": 8
+          }
+        },
+        "forms": {
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_encoding": "DW_FORM_data1",
+          "DW_AT_byte_size": "DW_FORM_data1"
+        }
+      },
+      {
+        "offset": 121,
+        "cu": 109,
+        "tag": "DW_TAG_compile_unit",
+        "name": "entry.c",
+        "tag_code": 17,
+        "attributes": {
+          "37": {
+            "name": "DW_AT_producer",
+            "form": "DW_FORM_strx1",
+            "value": "Debian clang version 19.1.7 (++20250114103228+cd708029e0b2-1~exp1~20250114103334.78)"
+          },
+          "19": {
+            "name": "DW_AT_language",
+            "form": "DW_FORM_data2",
+            "value": 29
+          },
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "entry.c"
+          },
+          "114": {
+            "name": "DW_AT_str_offsets_base",
+            "form": "DW_FORM_sec_offset",
+            "value": 56
+          },
+          "16": {
+            "name": "DW_AT_stmt_list",
+            "form": "DW_FORM_sec_offset",
+            "value": 113
+          },
+          "27": {
+            "name": "DW_AT_comp_dir",
+            "form": "DW_FORM_strx1",
+            "value": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00"
+          },
+          "17": {
+            "name": "DW_AT_low_pc",
+            "form": "DW_FORM_addrx",
+            "value": 4198448
+          },
+          "18": {
+            "name": "DW_AT_high_pc",
+            "form": "DW_FORM_data4",
+            "value": 17
+          },
+          "115": {
+            "name": "DW_AT_addr_base",
+            "form": "DW_FORM_sec_offset",
+            "value": 32
+          }
+        },
+        "forms": {
+          "DW_AT_producer": "DW_FORM_strx1",
+          "DW_AT_language": "DW_FORM_data2",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_str_offsets_base": "DW_FORM_sec_offset",
+          "DW_AT_stmt_list": "DW_FORM_sec_offset",
+          "DW_AT_comp_dir": "DW_FORM_strx1",
+          "DW_AT_low_pc": "DW_FORM_addrx",
+          "DW_AT_high_pc": "DW_FORM_data4",
+          "DW_AT_addr_base": "DW_FORM_sec_offset"
+        }
+      },
+      {
+        "offset": 144,
+        "cu": 109,
+        "tag": "DW_TAG_subprogram",
+        "name": "_start",
+        "tag_code": 46,
+        "attributes": {
+          "17": {
+            "name": "DW_AT_low_pc",
+            "form": "DW_FORM_addrx",
+            "value": 4198448
+          },
+          "18": {
+            "name": "DW_AT_high_pc",
+            "form": "DW_FORM_data4",
+            "value": 17
+          },
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "_start"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 1
+          },
+          "39": {
+            "name": "DW_AT_prototyped",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          },
+          "63": {
+            "name": "DW_AT_external",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          }
+        },
+        "forms": {
+          "DW_AT_low_pc": "DW_FORM_addrx",
+          "DW_AT_high_pc": "DW_FORM_data4",
+          "DW_AT_frame_base": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_prototyped": "DW_FORM_flag_present",
+          "DW_AT_external": "DW_FORM_flag_present"
+        }
+      },
+      {
+        "offset": 168,
+        "cu": 156,
+        "tag": "DW_TAG_compile_unit",
+        "name": "right/unit.c",
+        "tag_code": 17,
+        "attributes": {
+          "37": {
+            "name": "DW_AT_producer",
+            "form": "DW_FORM_strx1",
+            "value": "Debian clang version 19.1.7 (++20250114103228+cd708029e0b2-1~exp1~20250114103334.78)"
+          },
+          "19": {
+            "name": "DW_AT_language",
+            "form": "DW_FORM_data2",
+            "value": 29
+          },
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "right/unit.c"
+          },
+          "114": {
+            "name": "DW_AT_str_offsets_base",
+            "form": "DW_FORM_sec_offset",
+            "value": 80
+          },
+          "16": {
+            "name": "DW_AT_stmt_list",
+            "form": "DW_FORM_sec_offset",
+            "value": 210
+          },
+          "27": {
+            "name": "DW_AT_comp_dir",
+            "form": "DW_FORM_strx1",
+            "value": "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00"
+          },
+          "17": {
+            "name": "DW_AT_low_pc",
+            "form": "DW_FORM_addrx",
+            "value": 4198480
+          },
+          "18": {
+            "name": "DW_AT_high_pc",
+            "form": "DW_FORM_data4",
+            "value": 21
+          },
+          "115": {
+            "name": "DW_AT_addr_base",
+            "form": "DW_FORM_sec_offset",
+            "value": 48
+          }
+        },
+        "forms": {
+          "DW_AT_producer": "DW_FORM_strx1",
+          "DW_AT_language": "DW_FORM_data2",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_str_offsets_base": "DW_FORM_sec_offset",
+          "DW_AT_stmt_list": "DW_FORM_sec_offset",
+          "DW_AT_comp_dir": "DW_FORM_strx1",
+          "DW_AT_low_pc": "DW_FORM_addrx",
+          "DW_AT_high_pc": "DW_FORM_data4",
+          "DW_AT_addr_base": "DW_FORM_sec_offset"
+        }
+      },
+      {
+        "offset": 191,
+        "cu": 156,
+        "tag": "DW_TAG_subprogram",
+        "name": "helper",
+        "tag_code": 46,
+        "attributes": {
+          "17": {
+            "name": "DW_AT_low_pc",
+            "form": "DW_FORM_addrx",
+            "value": 4198480
+          },
+          "18": {
+            "name": "DW_AT_high_pc",
+            "form": "DW_FORM_data4",
+            "value": 21
+          },
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "helper"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 1
+          },
+          "39": {
+            "name": "DW_AT_prototyped",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 62
+          },
+          "63": {
+            "name": "DW_AT_external",
+            "form": "DW_FORM_flag_present",
+            "value": true
+          }
+        },
+        "forms": {
+          "DW_AT_low_pc": "DW_FORM_addrx",
+          "DW_AT_high_pc": "DW_FORM_data4",
+          "DW_AT_frame_base": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_prototyped": "DW_FORM_flag_present",
+          "DW_AT_type": "DW_FORM_ref4",
+          "DW_AT_external": "DW_FORM_flag_present"
+        }
+      },
+      {
+        "offset": 206,
+        "cu": 156,
+        "tag": "DW_TAG_formal_parameter",
+        "name": "x",
+        "tag_code": 5,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "x"
+          },
+          "58": {
+            "name": "DW_AT_decl_file",
+            "form": "DW_FORM_data1",
+            "value": 0
+          },
+          "59": {
+            "name": "DW_AT_decl_line",
+            "form": "DW_FORM_data1",
+            "value": 1
+          },
+          "73": {
+            "name": "DW_AT_type",
+            "form": "DW_FORM_ref4",
+            "value": 62
+          }
+        },
+        "forms": {
+          "DW_AT_location": "DW_FORM_exprloc",
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_decl_file": "DW_FORM_data1",
+          "DW_AT_decl_line": "DW_FORM_data1",
+          "DW_AT_type": "DW_FORM_ref4"
+        }
+      },
+      {
+        "offset": 218,
+        "cu": 156,
+        "tag": "DW_TAG_base_type",
+        "name": "int",
+        "tag_code": 36,
+        "attributes": {
+          "3": {
+            "name": "DW_AT_name",
+            "form": "DW_FORM_strx1",
+            "value": "int"
+          },
+          "62": {
+            "name": "DW_AT_encoding",
+            "form": "DW_FORM_data1",
+            "value": 5
+          },
+          "11": {
+            "name": "DW_AT_byte_size",
+            "form": "DW_FORM_data1",
+            "value": 4
+          }
+        },
+        "forms": {
+          "DW_AT_name": "DW_FORM_strx1",
+          "DW_AT_encoding": "DW_FORM_data1",
+          "DW_AT_byte_size": "DW_FORM_data1"
+        }
+      }
+    ],
+    "loclists": [],
+    "rnglists": [],
+    "globals": [
+      {
+        "name": "sink",
+        "address": 4202496
+      }
+    ]
+  },
+  "source_hashes": {
+    "left/unit.c": "8db636d0fe59a05ac1dd0e6fc039981b743f8a568fdca5690bc7ebf4d4e420cb",
+    "entry.c": "ce268c3ddfdedf141dd854e475e712ebb9841da3c871d218b8b7b5e6325e6e25",
+    "right/unit.c": "fbcd6d8f049febec5b83c02cdce5f86099b821c624b5e498fcebb8b650976eba"
+  }
+}

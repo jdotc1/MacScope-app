@@ -1,0 +1,282 @@
+[
+  {
+    "member_name": "absvdi2.c.o",
+    "names": [
+      "___absvdi2"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "absvsi2.c.o",
+    "names": [
+      "___absvsi2"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "addvdi3.c.o",
+    "names": [
+      "___addvdi3"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "addvsi3.c.o",
+    "names": [
+      "___addvsi3"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "arm_apple_sme_abi.s.o",
+    "names": [
+      "_do_abort"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "atomic_flag_clear.c.o",
+    "names": [
+      "_atomic_flag_clear"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "bswapdi2.c.o",
+    "names": [
+      "___bswapdi2"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "bswapsi2.c.o",
+    "names": [
+      "___bswapsi2"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "chkstk_darwin.S.o",
+    "names": [
+      "___chkstk_darwin"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "chkstk_darwin2.S.o",
+    "names": [
+      "____chkstk_darwin"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "comparedf2.c.o",
+    "names": [
+      "___eqdf2",
+      "___ledf2",
+      "___ltdf2",
+      "___nedf2"
+    ],
+    "reason": "same-address-alias",
+    "start_address": 0
+  },
+  {
+    "member_name": "comparedf2.c.o",
+    "names": [
+      "___gedf2",
+      "___gtdf2"
+    ],
+    "reason": "same-address-alias",
+    "start_address": 96
+  },
+  {
+    "member_name": "comparesf2.c.o",
+    "names": [
+      "___eqsf2",
+      "___lesf2",
+      "___ltsf2",
+      "___nesf2"
+    ],
+    "reason": "same-address-alias",
+    "start_address": 0
+  },
+  {
+    "member_name": "comparesf2.c.o",
+    "names": [
+      "___gesf2",
+      "___gtsf2"
+    ],
+    "reason": "same-address-alias",
+    "start_address": 96
+  },
+  {
+    "member_name": "emupac.cpp.o",
+    "names": [
+      "___emupac_pacda"
+    ],
+    "reason": "predicate-collision",
+    "start_address": 0
+  },
+  {
+    "member_name": "emupac.cpp.o",
+    "names": [
+      "___emupac_autda"
+    ],
+    "reason": "predicate-collision",
+    "start_address": 20
+  },
+  {
+    "member_name": "emutls.c.o",
+    "names": [
+      "___emutls_get_address"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "extendhfsf2.c.o",
+    "names": [
+      "___gnu_h2f_ieee"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 104
+  },
+  {
+    "member_name": "fixdfdi.c.o",
+    "names": [
+      "___fixdfdi"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "fixsfdi.c.o",
+    "names": [
+      "___fixsfdi"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "negdf2.c.o",
+    "names": [
+      "___negdf2"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "negdi2.c.o",
+    "names": [
+      "___negdi2"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "negsf2.c.o",
+    "names": [
+      "___negsf2"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "negti2.c.o",
+    "names": [
+      "___negti2"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "negvdi2.c.o",
+    "names": [
+      "___negvdi2"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "negvsi2.c.o",
+    "names": [
+      "___negvsi2"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "negvti2.c.o",
+    "names": [
+      "___negvti2"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "os_version_check.c.o",
+    "names": [
+      "___isOSVersionAtLeast"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "subdf3.c.o",
+    "names": [
+      "___subdf3"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "subsf3.c.o",
+    "names": [
+      "___subsf3"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  },
+  {
+    "member_name": "subvdi3.c.o",
+    "names": [
+      "___subvdi3"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "subvsi3.c.o",
+    "names": [
+      "___subvsi3"
+    ],
+    "reason": "unstable-checksum",
+    "start_address": 0
+  },
+  {
+    "member_name": "truncsfhf2.c.o",
+    "names": [
+      "___gnu_f2h_ieee"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 332
+  },
+  {
+    "member_name": "udivti3.c.o",
+    "names": [
+      "___udivti3"
+    ],
+    "reason": "weak-evidence",
+    "start_address": 0
+  }
+]

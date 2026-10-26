@@ -1,0 +1,18 @@
+	movb	$2, %al
+	callq	_printf_tail
+	xorl	%eax, %eax
+	callq	_named_int128
+	xorl	%eax, %eax
+	callq	_int128_tail
+	xorl	%eax, %eax
+	callq	_records
+	movb	$1, %al
+	callq	_promotions
+	xorl	%eax, %eax
+	callq	_five_named
+	movb	$8, %al
+	callq	_nine_doubles
+	xorl	%eax, %eax
+	callq	_seven_named
+	movb	$1, %al
+	callq	_named_double

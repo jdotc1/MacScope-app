@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://macscope.invalid/schemas/dcp03-static-function-request-v1.json",
+  "title": "MacScope DCP-03 static-function request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "requestId",
+    "engine",
+    "image",
+    "function",
+    "memoryRegions",
+    "symbols",
+    "relocations",
+    "fixups",
+    "typeHints",
+    "budgets"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "requestId": {
+      "$ref": "#/$defs/identifier"
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "languageId",
+        "compilerSpecId"
+      ],
+      "properties": {
+        "languageId": {
+          "enum": [
+            "AARCH64:LE:64:AppleSilicon",
+            "AARCH64:LE:64:v8A"
+          ]
+        },
+        "compilerSpecId": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imageId",
+        "uuid",
+        "preferredLoadAddress"
+      ],
+      "properties": {
+        "imageId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "uuid": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "preferredLoadAddress": {
+          "$ref": "#/$defs/address"
+        }
+      }
+    },
+    "function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "functionId",
+        "name",
+        "entryAddress",
+        "endAddressExclusive"
+      ],
+      "properties": {
+        "functionId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "entryAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        }
+      }
+    },
+    "memoryRegions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "startAddress",
+          "permissions",
+          "bytesHex"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "startAddress": {
+            "$ref": "#/$defs/address"
+          },
+          "permissions": {
+            "type": "string",
+            "pattern": "^[r-][w-][x-]$"
+          },
+          "bytesHex": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2097152,
+            "pattern": "^(?:[0-9a-f]{2})+$"
+          }
+        }
+      }
+    },
+    "symbols": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "imageId",
+          "address",
+          "name",
+          "kind"
+        ],
+        "properties": {
+          "imageId": {
+            "$ref": "#/$defs/identifier"
+          },
+          "address": {
+            "$ref": "#/$defs/address"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024
+          },
+          "kind": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "relocations": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "address",
+          "kind",
+          "targetAddress",
+          "symbol",
+          "addend"
+        ],
+        "properties": {
+          "address": {
+            "$ref": "#/$defs/address"
+          },
+          "kind": {
+            "$ref": "#/$defs/identifier"
+          },
+          "targetAddress": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/address"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "symbol": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1024
+          },
+          "addend": {
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
+          }
+        }
+      }
+    },
+    "fixups": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "address",
+          "kind",
+          "targetAddress",
+          "authenticated",
+          "key",
+          "diversity"
+        ],
+        "properties": {
+          "address": {
+            "$ref": "#/$defs/address"
+          },
+          "kind": {
+            "$ref": "#/$defs/identifier"
+          },
+          "targetAddress": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/address"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "authenticated": {
+            "type": "boolean"
+          },
+          "key": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/identifier"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "diversity": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 65535
+          }
+        }
+      }
+    },
+    "typeHints": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "subjectKind",
+          "address",
+          "typeName",
+          "confidence",
+          "source"
+        ],
+        "properties": {
+          "subjectKind": {
+            "$ref": "#/$defs/identifier"
+          },
+          "address": {
+            "$ref": "#/$defs/address"
+          },
+          "typeName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "confidence": {
+            "enum": [
+              "asserted",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "source": {
+            "$ref": "#/$defs/identifier"
+          }
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxCodeBytes",
+        "maxInstructions",
+        "maxPcodeOps",
+        "maxOutputBytes",
+        "maxWallTimeMs"
+      ],
+      "properties": {
+        "maxCodeBytes": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 1048576
+        },
+        "maxInstructions": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "maxPcodeOps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000000
+        },
+        "maxOutputBytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 67108864
+        },
+        "maxWallTimeMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60000
+        }
+      }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,255}$"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^(?:0x0|0x[1-9a-f][0-9a-f]*)$"
+    }
+  },
+  "description": "Closed caller-owned byte and evidence contract for the non-shipping DCP-03 native proof."
+}

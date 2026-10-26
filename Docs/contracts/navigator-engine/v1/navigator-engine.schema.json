@@ -1,0 +1,806 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "macscope:navigator-engine/v1",
+  "title": "MacScope navigator-engine contract v1 records",
+  "description": "Structural schema for the five record kinds. Cross-record rules (id hashing, derivation closure, citations, precedence, revert) are not expressible here; they are specified in README.md and implemented by NavigatorContract.swift. Closed vocabularies live in vocabulary.json. Revision 1.1 adds the optional generation and dependsOn properties on Fact, FrontierItem and Annotation, and annotation premises (ann:<session>/<seq>) in derivedFrom; new gap and predicate terms need no change here because gap and predicate are Key-typed and checked against vocabulary.json.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Fact"
+    },
+    {
+      "$ref": "#/$defs/FrontierItem"
+    },
+    {
+      "$ref": "#/$defs/PrimitiveResult"
+    },
+    {
+      "$ref": "#/$defs/Annotation"
+    },
+    {
+      "$ref": "#/$defs/State"
+    }
+  ],
+  "$defs": {
+    "FactID": {
+      "type": "string",
+      "pattern": "^f-[0-9a-f]{32}$"
+    },
+    "FrontierID": {
+      "type": "string",
+      "pattern": "^g-[0-9a-f]{32}$"
+    },
+    "AnnotationID": {
+      "type": "string",
+      "pattern": "^a-[0-9a-f]{32}$"
+    },
+    "AnnotationPremise": {
+      "description": "An accepted annotation named as a premise: ann:<session>/<seq> (revision 1.1).",
+      "type": "string",
+      "pattern": "^ann:[^\\n]+/(0|[1-9][0-9]*)$"
+    },
+    "Premise": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FactID"
+        },
+        {
+          "$ref": "#/$defs/AnnotationPremise"
+        }
+      ]
+    },
+    "Generation": {
+      "description": "The analysis generation a record was produced against (revision 1.1, optional).",
+      "type": "object",
+      "required": [
+        "imageIdentity",
+        "inputKey",
+        "knowledgeVersion"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "imageIdentity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "knowledgeVersion": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "DependsOn": {
+      "description": "Fingerprint facet kinds the record was read from; a reanalysis changing one marks it stale (revision 1.1, optional).",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/Key"
+      }
+    },
+    "Key": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+    },
+    "Value": {
+      "description": "JSON without floating-point numbers; object keys are ASCII identifiers so canonical encoding is identical in Python and Swift.",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Value"
+          }
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/$defs/Key"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/Value"
+          }
+        }
+      ]
+    },
+    "Subject": {
+      "type": "object",
+      "required": [
+        "kind",
+        "ref"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "image",
+            "address",
+            "range",
+            "function",
+            "type",
+            "metadataRecord",
+            "selector",
+            "viewBody",
+            "protocol",
+            "field"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "image": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Provenance": {
+      "type": "object",
+      "required": [
+        "kind",
+        "ref"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "loaderRecord",
+            "decodedInstruction",
+            "metadataRecord",
+            "rule",
+            "proofCertificate",
+            "signatureRecord",
+            "analystAction",
+            "symbolGraph"
+          ]
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruleVersion": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "dependentRequired": {
+        "rule": [
+          "ruleVersion"
+        ],
+        "ruleVersion": [
+          "rule"
+        ]
+      }
+    },
+    "Budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "instructions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "solverSteps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "wallMillis": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "Refusal": {
+      "type": "object",
+      "required": [
+        "code",
+        "detail",
+        "retryable"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "budgetExceeded",
+            "cancelled",
+            "preconditionFailed",
+            "unsupportedToolchain",
+            "outOfBounds",
+            "malformedInput",
+            "unknownSubject",
+            "unknownFact",
+            "conflictsWithAuthority",
+            "notReversible"
+          ]
+        },
+        "detail": {
+          "type": "string"
+        },
+        "retryable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Fact": {
+      "type": "object",
+      "required": [
+        "kind",
+        "schemaVersion",
+        "id",
+        "subject",
+        "predicate",
+        "value",
+        "status",
+        "provenance",
+        "toolchain",
+        "revert"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "Fact"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "$ref": "#/$defs/FactID"
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Key"
+        },
+        "value": {
+          "$ref": "#/$defs/Value"
+        },
+        "status": {
+          "enum": [
+            "authoritative",
+            "proven",
+            "derived",
+            "candidate",
+            "unknown"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/Provenance"
+          }
+        },
+        "toolchain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tier": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "derivedFrom": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/Premise"
+            }
+          }
+        },
+        "revert": {
+          "type": "string",
+          "pattern": "^revert:f-[0-9a-f]{32}$"
+        },
+        "generation": {
+          "$ref": "#/$defs/Generation"
+        },
+        "dependsOn": {
+          "$ref": "#/$defs/DependsOn"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "derived",
+                  "candidate"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "tier"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "tier"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "derived"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "derivedFrom"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "authoritative"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "derivedFrom"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "candidate"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "object",
+                "required": [
+                  "alternatives"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "alternatives": {
+                    "type": "array",
+                    "minItems": 2,
+                    "uniqueItems": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "PrimitiveRef": {
+      "type": "object",
+      "required": [
+        "name",
+        "preconditions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FrontierItem": {
+      "type": "object",
+      "required": [
+        "kind",
+        "schemaVersion",
+        "id",
+        "subject",
+        "gap",
+        "detail",
+        "blockedBy",
+        "missingEvidence",
+        "primitives",
+        "cost",
+        "leverage",
+        "reason",
+        "toolchain"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "FrontierItem"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "$ref": "#/$defs/FrontierID"
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "gap": {
+          "$ref": "#/$defs/Key"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "blockedBy": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/FactID"
+          }
+        },
+        "missingEvidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "primitives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PrimitiveRef"
+          }
+        },
+        "cost": {
+          "$ref": "#/$defs/Budget"
+        },
+        "leverage": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reason": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Refusal"
+          }
+        },
+        "toolchain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generation": {
+          "$ref": "#/$defs/Generation"
+        },
+        "dependsOn": {
+          "$ref": "#/$defs/DependsOn"
+        }
+      }
+    },
+    "PrimitiveResult": {
+      "type": "object",
+      "required": [
+        "kind",
+        "schemaVersion",
+        "primitive",
+        "primitiveVersion",
+        "subject",
+        "budget",
+        "outcome",
+        "facts",
+        "frontier"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "PrimitiveResult"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "primitive": {
+          "type": "string",
+          "minLength": 1
+        },
+        "primitiveVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "budget": {
+          "$ref": "#/$defs/Budget"
+        },
+        "outcome": {
+          "enum": [
+            "facts",
+            "narrowed",
+            "refusal"
+          ]
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Fact"
+          }
+        },
+        "frontier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FrontierItem"
+          }
+        },
+        "refusal": {
+          "$ref": "#/$defs/Refusal"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "refusal"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "refusal"
+            ],
+            "properties": {
+              "facts": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "refusal"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "facts"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "facts": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "outcome": {
+                "const": "narrowed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "frontier": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Annotation": {
+      "type": "object",
+      "required": [
+        "kind",
+        "schemaVersion",
+        "id",
+        "seq",
+        "session",
+        "author",
+        "action",
+        "subject",
+        "predicate",
+        "value",
+        "cites",
+        "rationale",
+        "reverted",
+        "revert"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "Annotation"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "id": {
+          "$ref": "#/$defs/AnnotationID"
+        },
+        "seq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "session": {
+          "type": "string",
+          "minLength": 1
+        },
+        "author": {
+          "enum": [
+            "analyst",
+            "navigator"
+          ]
+        },
+        "action": {
+          "enum": [
+            "rename",
+            "setType",
+            "acceptCandidate",
+            "acceptStructCandidate",
+            "makeProcedure",
+            "addXref",
+            "setFact"
+          ]
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "predicate": {
+          "$ref": "#/$defs/Key"
+        },
+        "value": {
+          "$ref": "#/$defs/Value"
+        },
+        "cites": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/FactID"
+          }
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "reverted": {
+          "type": "boolean"
+        },
+        "revert": {
+          "type": "string",
+          "pattern": "^revert:a-[0-9a-f]{32}$"
+        },
+        "generation": {
+          "$ref": "#/$defs/Generation"
+        },
+        "dependsOn": {
+          "$ref": "#/$defs/DependsOn"
+        }
+      },
+      "if": {
+        "properties": {
+          "author": {
+            "const": "navigator"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "cites": {
+            "minItems": 1
+          },
+          "rationale": {
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "State": {
+      "type": "object",
+      "required": [
+        "kind",
+        "schemaVersion",
+        "toolchain",
+        "facts",
+        "reverted",
+        "frontier",
+        "annotations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "NavigatorEngineState"
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "toolchain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Fact"
+          }
+        },
+        "reverted": {
+          "description": "Ids of facts in `facts` that were reverted; they and every fact with no surviving derivation are not live, but stay persisted so reverts and stale annotations survive a save.",
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/FactID"
+          }
+        },
+        "frontier": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FrontierItem"
+          }
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Annotation"
+          }
+        }
+      }
+    }
+  }
+}

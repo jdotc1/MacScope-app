@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "requestId": "fixture-conditional-call",
+  "engine": {
+    "languageId": "AARCH64:LE:64:AppleSilicon",
+    "compilerSpecId": "default"
+  },
+  "image": {
+    "imageId": "fixture-image",
+    "uuid": "00000000-0000-4000-8000-000000000003",
+    "preferredLoadAddress": "0x100001000"
+  },
+  "function": {
+    "functionId": "fixture-image:fixture",
+    "name": "_fixture",
+    "entryAddress": "0x100001000",
+    "endAddressExclusive": "0x10000101c"
+  },
+  "memoryRegions": [
+    {
+      "name": "__TEXT.__text",
+      "startAddress": "0x100001000",
+      "permissions": "r-x",
+      "bytesHex": "1f000071800000540500009400040011c0035fd640058052c0035fd600080011c0035fd6"
+    }
+  ],
+  "symbols": [
+    {
+      "imageId": "fixture-image",
+      "address": "0x100001000",
+      "name": "_fixture",
+      "kind": "function"
+    },
+    {
+      "imageId": "fixture-image",
+      "address": "0x10000101c",
+      "name": "_helper",
+      "kind": "function"
+    }
+  ],
+  "relocations": [],
+  "fixups": [],
+  "typeHints": [
+    {
+      "subjectKind": "function",
+      "address": "0x100001000",
+      "typeName": "int32_t _fixture(int32_t value)",
+      "confidence": "asserted",
+      "source": "fixture"
+    }
+  ],
+  "budgets": {
+    "maxCodeBytes": 4096,
+    "maxInstructions": 256,
+    "maxPcodeOps": 4096,
+    "maxOutputBytes": 8388608,
+    "maxWallTimeMs": 5000
+  }
+}

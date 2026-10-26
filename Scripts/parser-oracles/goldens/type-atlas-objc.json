@@ -1,0 +1,61 @@
+{
+  "engineKey": "6a025ace8b541dce35883feb5bde21d08824da42905c6399e591d65491264f47",
+  "fixture": {
+    "classification": "valid",
+    "consumers": [
+      "K1 ImageTypeCatalog independent metadata inventory"
+    ],
+    "format": "type-inventory",
+    "id": "type-atlas-objc",
+    "oracles": [
+      "go-macho"
+    ],
+    "path": "Scripts/parser-oracles/type-atlas/objc.bin",
+    "provenance": "Authored compile-once specimen; adjacent source; arm64 macOS 27.0, Xcode 27",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "sha256": "92c5c3fedc57afe0bcb2822491edd773c4654f1ecaadc3e891bd3447987f34c2",
+    "size": 51848
+  },
+  "inventory": {
+    "inventories": {
+      "objcCategories": [
+        {
+          "address": 4295000712,
+          "class": "NSString",
+          "name": "OracleExtras"
+        }
+      ],
+      "objcClasses": [
+        {
+          "address": 4295000992,
+          "name": "Widget",
+          "superclass": "NSObject"
+        },
+        {
+          "address": 4295001072,
+          "name": "Child",
+          "superclass": "Widget"
+        }
+      ],
+      "objcProtocols": [
+        {
+          "address": 4295001112,
+          "name": "NSObject"
+        },
+        {
+          "address": 4295001208,
+          "name": "Pinger"
+        }
+      ],
+      "swiftConformances": [],
+      "swiftProtocols": [],
+      "swiftTypes": []
+    },
+    "status": "parsed"
+  },
+  "schema": "macscope.type-inventory-golden.v1"
+}

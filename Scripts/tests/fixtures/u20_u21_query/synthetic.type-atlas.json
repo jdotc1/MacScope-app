@@ -1,0 +1,213 @@
+{
+ "imageOwner": "0F2B6C1E-7E0A-4C7B-9C55-3A2D3B6E9A10",
+ "imageSlot": 0,
+ "total": 9,
+ "types": [
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8000",
+    "kind": "objcClass",
+    "slot": 0
+   },
+   "kind": "objcClass",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x1000",
+     "isClassMethod": false,
+     "name": "readPassword",
+     "selectorUsers": []
+    },
+    {
+     "implementation": "0x1100",
+     "isClassMethod": false,
+     "name": "render:",
+     "selectorUsers": [
+      "0x1310",
+      "0x1508"
+     ]
+    },
+    {
+     "implementation": "0x1200",
+     "isClassMethod": true,
+     "name": "render:",
+     "selectorUsers": [
+      "0x1310",
+      "0x1508"
+     ]
+    }
+   ],
+   "name": "Vault",
+   "superclass": "NSObject",
+   "users": [
+    "0x130c"
+   ]
+  },
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8100",
+    "kind": "objcClass",
+    "slot": 0
+   },
+   "kind": "objcClass",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x1100",
+     "isClassMethod": false,
+     "name": "render:",
+     "selectorUsers": [
+      "0x1310",
+      "0x1508"
+     ]
+    },
+    {
+     "implementation": null,
+     "isClassMethod": false,
+     "name": "close",
+     "selectorUsers": []
+    }
+   ],
+   "name": "Gadget",
+   "superclass": "NSObject",
+   "users": []
+  },
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8200",
+    "kind": "objcCategory",
+    "slot": 0
+   },
+   "kind": "objcCategory",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x9999",
+     "isClassMethod": false,
+     "name": "close",
+     "selectorUsers": []
+    }
+   ],
+   "name": "Vault (Debug)",
+   "superclass": "Vault",
+   "users": []
+  },
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8300",
+    "kind": "objcProtocol",
+    "slot": 0
+   },
+   "kind": "objcProtocol",
+   "members": [],
+   "methods": [
+    {
+     "implementation": null,
+     "isClassMethod": false,
+     "name": "render:",
+     "selectorUsers": [
+      "0x1310",
+      "0x1508"
+     ]
+    }
+   ],
+   "name": "Renderable",
+   "superclass": null,
+   "users": []
+  },
+  {
+   "conformances": [],
+   "evidence": "unknown",
+   "id": {
+    "kind": "objcProtocol",
+    "name": "NSCopying",
+    "slot": 0
+   },
+   "kind": "objcProtocol",
+   "members": [],
+   "methods": [],
+   "name": "NSCopying",
+   "superclass": null,
+   "users": []
+  },
+  {
+   "conformances": [
+    "Sendable"
+   ],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8400",
+    "kind": "swiftClass",
+    "slot": 0
+   },
+   "kind": "swiftClass",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x1900",
+     "isClassMethod": false,
+     "name": "vtable #0 (name unknown)",
+     "selectorUsers": []
+    },
+    {
+     "implementation": null,
+     "isClassMethod": false,
+     "name": "vtable #1 (name unknown)",
+     "selectorUsers": []
+    }
+   ],
+   "name": "Vault",
+   "superclass": null,
+   "users": []
+  },
+  {
+   "conformances": [
+    "Hashable"
+   ],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8500",
+    "kind": "swiftStruct",
+    "slot": 0
+   },
+   "kind": "swiftStruct",
+   "members": [],
+   "methods": [],
+   "name": "Token",
+   "superclass": null,
+   "users": []
+  },
+  {
+   "conformances": [],
+   "evidence": "authored",
+   "id": {
+    "kind": "userType",
+    "name": "Foo",
+    "slot": 0
+   },
+   "kind": "userType",
+   "members": [],
+   "methods": [],
+   "name": "Foo",
+   "superclass": null,
+   "users": []
+  },
+  {
+   "id": {
+    "address": "0x8600",
+    "kind": "objcFutureKind",
+    "slot": 0
+   },
+   "kind": "objcFutureKind",
+   "name": "Future"
+  }
+ ]
+}

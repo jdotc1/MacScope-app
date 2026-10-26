@@ -1,0 +1,4 @@
+module MacScopeChildProcessC {
+    header "MacScopeChildProcessC.h"
+    export *
+}

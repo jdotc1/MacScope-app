@@ -1,0 +1,113 @@
+{
+ "App/MacScopeApp.swift": {
+  "frame": 1
+ },
+ "Bridges/HexViewRepresentable.swift": {
+  "color": 2
+ },
+ "Features/Assistant/Phase2AssistantSheet.swift": {
+  "frame": 8
+ },
+ "Features/Browsers/BrowsersView.swift": {
+  "frame": 5
+ },
+ "Features/Debugger/DebuggerPanelView.swift": {
+  "frame": 16
+ },
+ "Features/Debugger/LogicalBreakpointEditorSheet.swift": {
+  "frame": 5
+ },
+ "Features/Debugger/LogicalBreakpointsDeckView.swift": {
+  "frame": 3
+ },
+ "Features/Editor/AssembleSheet.swift": {
+  "frame": 1
+ },
+ "Features/Editor/DecompilerComparisonView.swift": {
+  "frame": 4
+ },
+ "Features/Editor/EditorSurfaceView.swift": {
+  "frame": 5
+ },
+ "Features/Editor/MakeDataSheet.swift": {
+  "frame": 2
+ },
+ "Features/Editor/NativePseudocodeActions.swift": {
+  "frame": 1
+ },
+ "Features/Editor/PatchBytesSheet.swift": {
+  "frame": 1
+ },
+ "Features/Editor/PseudocodeSourceSelector.swift": {
+  "frame": 1
+ },
+ "Features/Editor/RegisterRenameSheet.swift": {
+  "frame": 3
+ },
+ "Features/History/NavigationHistoryView.swift": {
+  "frame": 2
+ },
+ "Features/Inspector/SourceLinksView.swift": {
+  "frame": 3,
+  "opacity": 1
+ },
+ "Features/Loader/LoaderOptionsSheet.swift": {
+  "frame": 3
+ },
+ "Features/MachOMetadata/EntitlementComparisonView.swift": {
+  "frame": 1
+ },
+ "Features/MachOMetadata/MachOMetadataView.swift": {
+  "frame": 2
+ },
+ "Features/Problems/ProblemsView.swift": {
+  "frame": 2
+ },
+ "Features/REA/REAWorkbenchView.swift": {
+  "frame": 5,
+  "padding": 1,
+  "spacing": 8
+ },
+ "Features/Reconstruction/ReconstructionDashboardView.swift": {
+  "frame": 1
+ },
+ "Features/Reconstruction/ReconstructionJobCreationSheet.swift": {
+  "color": 1,
+  "frame": 1
+ },
+ "Features/Search/FindSheet.swift": {
+  "frame": 3
+ },
+ "Features/Search/GoToSheet.swift": {
+  "frame": 1
+ },
+ "Features/Settings/ColorTagManagerView.swift": {
+  "frame": 1
+ },
+ "Features/Settings/KeyBindingEditorView.swift": {
+  "frame": 2
+ },
+ "Features/Shell/Phase2ShellAffordanceView.swift": {
+  "frame": 1
+ },
+ "Features/Sidebar/SidebarView.swift": {
+  "frame": 3
+ },
+ "Features/Types/CHeaderImportSheet.swift": {
+  "frame": 2
+ },
+ "Features/Types/TypeEditorSheet.swift": {
+  "frame": 4
+ },
+ "Features/VersionCompare/VersionCompareDetailView.swift": {
+  "frame": 3,
+  "padding": 1,
+  "spacing": 3
+ },
+ "Features/VersionCompare/VersionCompareSheet.swift": {
+  "frame": 5
+ },
+ "Features/Workspace/WorkspaceRootView.swift": {
+  "frame": 14
+ }
+}

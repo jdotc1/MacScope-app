@@ -1,0 +1,65 @@
+[
+  {
+    "argv": [
+      "/workspace/scratch/ddf488c1ad42/program2/swift62/usr/bin/swiftc",
+      "-O",
+      "-j",
+      "4",
+      "-enable-testing",
+      "-emit-library",
+      "-emit-module",
+      "-module-name",
+      "MacScope",
+      "-module-cache-path",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/module-cache",
+      "-emit-module-path",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/build/MacScope.swiftmodule",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/handback/harness/probe/Sources/ReaderProbe/DWARFReader.swift",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/handback/harness/probe/Sources/ReaderProbe/DWARFDIETree.swift",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/handback/harness/probe/Sources/ReaderProbe/DWARFLineProgram.swift",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/handback/harness/probe/Sources/ReaderProbe/SourcePathDTOs.swift",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/handback/harness/probe/supplement/LittleEndianReader.swift",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/handback/harness/probe/supplement/StringLiteralSummary.swift",
+      "-o",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/build/libMacScope.so"
+    ],
+    "exit": 0,
+    "seconds": 8.644096766991424,
+    "stdout": "build-module.stdout",
+    "stderr": "build-module.stderr"
+  },
+  {
+    "argv": [
+      "/workspace/scratch/ddf488c1ad42/program2/swift62/usr/bin/swiftc",
+      "-O",
+      "-j",
+      "4",
+      "-module-name",
+      "CP17SavedWitnessTests",
+      "-module-cache-path",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/module-cache",
+      "-I",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/build",
+      "-L",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/build",
+      "-lMacScope",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-supplement-v1/staging/MacScope/Tests/CoreTests/DWARFCompilerConformanceOracleTests.swift",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/main.swift",
+      "-o",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/build/CP17SavedWitnessTests"
+    ],
+    "exit": 0,
+    "seconds": 0.800035817999742,
+    "stdout": "build-consumer.stdout",
+    "stderr": "build-consumer.stderr"
+  },
+  {
+    "argv": [
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-validation-v1.1/build/CP17SavedWitnessTests"
+    ],
+    "exit": 1,
+    "seconds": 0.016796287993201986,
+    "stdout": "run-two-selectors.stdout",
+    "stderr": "run-two-selectors.stderr"
+  }
+]

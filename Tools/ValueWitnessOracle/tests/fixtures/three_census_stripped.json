@@ -1,0 +1,53 @@
+{
+ "diagnosticCounts": {
+  "valueWitness": 1
+ },
+ "input": "/images/sample",
+ "valueWitnesses": [
+  {
+   "alignment": 8,
+   "descriptorAddress": 4032,
+   "extraInhabitantCount": 0,
+   "flags": 7,
+   "hasEnumWitnesses": false,
+   "isBitwiseTakable": true,
+   "isIncomplete": false,
+   "isPOD": true,
+   "metadataAddress": 4096,
+   "size": 8,
+   "stride": 8,
+   "tableAddress": 4088,
+   "typeName": "A"
+  },
+  {
+   "alignment": 8,
+   "descriptorAddress": 8128,
+   "extraInhabitantCount": 0,
+   "flags": 7,
+   "hasEnumWitnesses": false,
+   "isBitwiseTakable": true,
+   "isIncomplete": false,
+   "isPOD": true,
+   "metadataAddress": 8192,
+   "size": 15,
+   "stride": 16,
+   "tableAddress": 8184,
+   "typeName": "B"
+  },
+  {
+   "alignment": 1,
+   "descriptorAddress": 12224,
+   "extraInhabitantCount": 0,
+   "flags": 4194304,
+   "hasEnumWitnesses": false,
+   "isBitwiseTakable": true,
+   "isIncomplete": true,
+   "isPOD": true,
+   "metadataAddress": 12288,
+   "size": 0,
+   "stride": 0,
+   "tableAddress": 12280,
+   "typeName": "C"
+  }
+ ]
+}

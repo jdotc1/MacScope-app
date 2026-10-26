@@ -1,0 +1,45 @@
+{
+  "fixture_id": "cu-root-indexed-before-bases",
+  "raw_witness_id": "compile.log",
+  "identity_correction": "Directory identity; raw id compile.log is known loop-shadowing error",
+  "revision": "c5017731d7f23bbe37559e3d61eaf0c1bb04178b",
+  "existing_reduced_elf_sha256": "30a296a91fe78c8093806faed69591d66f998dd5e2f8e325a7b4856ba5c22e4e",
+  "expected": {
+    "name": "entry.c",
+    "low_pc": 4198448
+  },
+  "saved_product_classification": "WRONG_RECOVERY",
+  "files": [
+    {
+      "source_section": ".debug_info",
+      "consumer_filename": "debug_info.bin",
+      "bytes": 23,
+      "sha256": "f12a747a24354a5b0ff4f84ad67008126bfc0cf44c294b935cf2e8c0981364a9"
+    },
+    {
+      "source_section": ".debug_abbrev",
+      "consumer_filename": "debug_abbrev.bin",
+      "bytes": 14,
+      "sha256": "1f181541002f3e33fe6d583b4b4246b6a6e5f4bfa7bdae8642db3585596c3e6c"
+    },
+    {
+      "source_section": ".debug_str",
+      "consumer_filename": "debug_str.bin",
+      "bytes": 251,
+      "sha256": "7eab771817ec6614b8ae06e7ec1d23bd336c0498ef7859bdabb717644237ffcb"
+    },
+    {
+      "source_section": ".debug_str_offsets",
+      "consumer_filename": "debug_str_offsets.bin",
+      "bytes": 104,
+      "sha256": "cb07b40efa1ae084478752f9b3f879ee88f7b00c434a9e0b63975e8397f191aa"
+    },
+    {
+      "source_section": ".debug_addr",
+      "consumer_filename": "debug_addr.bin",
+      "bytes": 56,
+      "sha256": "d804d4f5ecb0fe566427f5e4d15b0e3fb3a746adb3c6ba4058c7783b754422f3"
+    }
+  ],
+  "byte_origin": "Unmodified copies of previously admitted and executed section reductions; no new binary fixture generated"
+}

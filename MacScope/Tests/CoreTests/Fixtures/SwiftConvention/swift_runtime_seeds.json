@@ -1,0 +1,2159 @@
+{
+  "source": {
+    "file": "include/swift/Runtime/RuntimeFunctions.def",
+    "tag": "swift-6.3-RELEASE",
+    "sha256": "28383d66da9d55f47b99041b05f4d9b5f06e8afd6d3861f683107e40400ccb85"
+  },
+  "dropped": {
+    "C_CC": "already seeded by RuntimeSignatureSeeds.swift",
+    "SwiftDirectRR_CC": "not exported by libswiftCore.tbd; compiler-internal"
+  },
+  "entries": [
+    {
+      "id": "AllocBox",
+      "module": "Swift",
+      "name": "swift_allocBox",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "RefCountedPtrTy",
+        "OpaquePtrTy"
+      ],
+      "args": [
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "pair(x0,x1)"
+      }
+    },
+    {
+      "id": "MakeBoxUnique",
+      "module": "Swift",
+      "name": "swift_makeBoxUnique",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "RefCountedPtrTy",
+        "OpaquePtrTy"
+      ],
+      "args": [
+        "OpaquePtrTy",
+        "TypeMetadataPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "OpaquePtrTy",
+          "TypeMetadataPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "pair(x0,x1)"
+      }
+    },
+    {
+      "id": "WillThrow",
+      "module": "Swift",
+      "name": "swift_willThrow",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [],
+      "args": [
+        "Int8PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [
+          "x20"
+        ],
+        "errorOut": "x21",
+        "asyncContextIn": null,
+        "positionalArgs": [],
+        "note": "error pointer passed in x21 (SWIFT_ERROR_RESULT), context in x20",
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "ErrorInMain",
+      "module": "Swift",
+      "name": "swift_errorInMain",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [],
+      "args": [
+        "ErrorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "ErrorPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "UnexpectedError",
+      "module": "Swift",
+      "name": "swift_unexpectedError",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [],
+      "args": [
+        "ErrorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "ErrorPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "GetForeignTypeMetadata",
+      "module": "Swift",
+      "name": "swift_getForeignTypeMetadata",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "CompareTypeContextDescriptors",
+      "module": "Swift",
+      "name": "swift_compareTypeContextDescriptors",
+      "cc": "SwiftCC",
+      "availability": "CompareTypeContextDescriptorsAvailability",
+      "returns": [
+        "Int1Ty"
+      ],
+      "args": [
+        "TypeContextDescriptorPtrTy",
+        "TypeContextDescriptorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeContextDescriptorPtrTy",
+          "TypeContextDescriptorPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetSingletonMetadata",
+      "module": "Swift",
+      "name": "swift_getSingletonMetadata",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "TypeContextDescriptorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "TypeContextDescriptorPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetGenericMetadata",
+      "module": "Swift",
+      "name": "swift_getGenericMetadata",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "TypeContextDescriptorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "TypeContextDescriptorPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetCanonicalSpecializedMetadata",
+      "module": "Swift",
+      "name": "swift_getCanonicalSpecializedMetadata",
+      "cc": "SwiftCC",
+      "availability": "GetCanonicalSpecializedMetadataAvailability",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "TypeMetadataPtrTy",
+        "TypeMetadataPtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "TypeMetadataPtrTy",
+          "TypeMetadataPtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetCanonicalPrespecializedGenericMetadata",
+      "module": "Swift",
+      "name": "swift_getCanonicalPrespecializedGenericMetadata",
+      "cc": "SwiftCC",
+      "availability": "GetCanonicalPrespecializedGenericMetadataAvailability",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "TypeContextDescriptorPtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "TypeContextDescriptorPtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetOpaqueTypeMetadata",
+      "module": "Swift",
+      "name": "swift_getOpaqueTypeMetadata",
+      "cc": "SwiftCC",
+      "availability": "OpaqueTypeAvailability",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "OpaqueTypeDescriptorPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "OpaqueTypeDescriptorPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetOpaqueTypeMetadata2",
+      "module": "Swift",
+      "name": "swift_getOpaqueTypeMetadata2",
+      "cc": "SwiftCC",
+      "availability": "SignedDescriptorAvailability",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "OpaqueTypeDescriptorPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "OpaqueTypeDescriptorPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetOpaqueTypeConformance",
+      "module": "Swift",
+      "name": "swift_getOpaqueTypeConformance",
+      "cc": "SwiftCC",
+      "availability": "OpaqueTypeAvailability",
+      "returns": [
+        "WitnessTablePtrTy"
+      ],
+      "args": [
+        "Int8PtrTy",
+        "OpaqueTypeDescriptorPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "OpaqueTypeDescriptorPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetOpaqueTypeConformance2",
+      "module": "Swift",
+      "name": "swift_getOpaqueTypeConformance2",
+      "cc": "SwiftCC",
+      "availability": "SignedDescriptorAvailability",
+      "returns": [
+        "WitnessTablePtrTy"
+      ],
+      "args": [
+        "Int8PtrTy",
+        "OpaqueTypeDescriptorPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "OpaqueTypeDescriptorPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "CheckMetadataState",
+      "module": "Swift",
+      "name": "swift_checkMetadataState",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetAssociatedTypeWitness",
+      "module": "Swift",
+      "name": "swift_getAssociatedTypeWitness",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "WitnessTablePtrTy",
+        "TypeMetadataPtrTy",
+        "PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "WitnessTablePtrTy",
+          "TypeMetadataPtrTy",
+          "PtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetAssociatedTypeWitnessRelative",
+      "module": "Swift",
+      "name": "swift_getAssociatedTypeWitnessRelative",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "WitnessTablePtrTy",
+        "TypeMetadataPtrTy",
+        "PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "WitnessTablePtrTy",
+          "TypeMetadataPtrTy",
+          "PtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetAssociatedConformanceWitness",
+      "module": "Swift",
+      "name": "swift_getAssociatedConformanceWitness",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "WitnessTablePtrTy"
+      ],
+      "args": [
+        "WitnessTablePtrTy",
+        "TypeMetadataPtrTy",
+        "TypeMetadataPtrTy",
+        "PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "WitnessTablePtrTy",
+          "TypeMetadataPtrTy",
+          "TypeMetadataPtrTy",
+          "PtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetAssociatedConformanceWitnessRelative",
+      "module": "Swift",
+      "name": "swift_getAssociatedConformanceWitnessRelative",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "WitnessTablePtrTy"
+      ],
+      "args": [
+        "WitnessTablePtrTy",
+        "TypeMetadataPtrTy",
+        "TypeMetadataPtrTy",
+        "PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "WitnessTablePtrTy",
+          "TypeMetadataPtrTy",
+          "TypeMetadataPtrTy",
+          "PtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "CompareProtocolConformanceDescriptors",
+      "module": "Swift",
+      "name": "swift_compareProtocolConformanceDescriptors",
+      "cc": "SwiftCC",
+      "availability": "CompareProtocolConformanceDescriptorsAvailability",
+      "returns": [
+        "Int1Ty"
+      ],
+      "args": [
+        "ProtocolConformanceDescriptorPtrTy",
+        "ProtocolConformanceDescriptorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "ProtocolConformanceDescriptorPtrTy",
+          "ProtocolConformanceDescriptorPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "AllocateMetadataPack",
+      "module": "Swift",
+      "name": "swift_allocateMetadataPack",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataPtrPtrTy"
+      ],
+      "args": [
+        "TypeMetadataPtrPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "AllocateWitnessTablePack",
+      "module": "Swift",
+      "name": "swift_allocateWitnessTablePack",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "WitnessTablePtrPtrTy"
+      ],
+      "args": [
+        "WitnessTablePtrPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "WitnessTablePtrPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTupleMetadata",
+      "module": "Swift",
+      "name": "swift_getTupleTypeMetadata",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "SizeTy",
+        "PtrTy",
+        "Int8PtrTy",
+        "WitnessTablePtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "SizeTy",
+          "PtrTy",
+          "Int8PtrTy",
+          "WitnessTablePtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTupleMetadata2",
+      "module": "Swift",
+      "name": "swift_getTupleTypeMetadata2",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "TypeMetadataPtrTy",
+        "TypeMetadataPtrTy",
+        "Int8PtrTy",
+        "WitnessTablePtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "TypeMetadataPtrTy",
+          "TypeMetadataPtrTy",
+          "Int8PtrTy",
+          "WitnessTablePtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTupleMetadata3",
+      "module": "Swift",
+      "name": "swift_getTupleTypeMetadata3",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "TypeMetadataPtrTy",
+        "TypeMetadataPtrTy",
+        "TypeMetadataPtrTy",
+        "Int8PtrTy",
+        "WitnessTablePtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "TypeMetadataPtrTy",
+          "TypeMetadataPtrTy",
+          "TypeMetadataPtrTy",
+          "Int8PtrTy",
+          "WitnessTablePtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTupleLayout",
+      "module": "Swift",
+      "name": "swift_getTupleTypeLayout",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [],
+      "args": [
+        "PtrTy",
+        "PtrTy",
+        "SizeTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "PtrTy",
+          "PtrTy",
+          "SizeTy",
+          "PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "GetTupleLayout2",
+      "module": "Swift",
+      "name": "swift_getTupleTypeLayout2",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "SizeTy"
+      ],
+      "args": [
+        "PtrTy",
+        "Int8PtrPtrTy",
+        "Int8PtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "PtrTy",
+          "Int8PtrPtrTy",
+          "Int8PtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTupleLayout3",
+      "module": "Swift",
+      "name": "swift_getTupleTypeLayout3",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "OffsetPairTy"
+      ],
+      "args": [
+        "PtrTy",
+        "Int8PtrPtrTy",
+        "Int8PtrPtrTy",
+        "Int8PtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "PtrTy",
+          "Int8PtrPtrTy",
+          "Int8PtrPtrTy",
+          "Int8PtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetFixedArrayTypeMetadata",
+      "module": "Swift",
+      "name": "swift_getFixedArrayTypeMetadata",
+      "cc": "SwiftCC",
+      "availability": "ValueGenericTypeAvailability",
+      "returns": [
+        "TypeMetadataResponseTy"
+      ],
+      "args": [
+        "SizeTy",
+        "SizeTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "SizeTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "InitClassMetadata2",
+      "module": "Swift",
+      "name": "swift_initClassMetadata2",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataDependencyTy"
+      ],
+      "args": [
+        "TypeMetadataPtrTy",
+        "SizeTy",
+        "SizeTy",
+        "PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrTy",
+          "SizeTy",
+          "SizeTy",
+          "PtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "UpdateClassMetadata2",
+      "module": "Swift",
+      "name": "swift_updateClassMetadata2",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataDependencyTy"
+      ],
+      "args": [
+        "TypeMetadataPtrTy",
+        "SizeTy",
+        "SizeTy",
+        "PtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrTy",
+          "SizeTy",
+          "SizeTy",
+          "PtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "UpdatePureObjCClassMetadata",
+      "module": "Swift",
+      "name": "swift_updatePureObjCClassMetadata",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "ObjCClassPtrTy"
+      ],
+      "args": [
+        "ObjCClassPtrTy",
+        "SizeTy",
+        "SizeTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "ObjCClassPtrTy",
+          "SizeTy",
+          "SizeTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetEnumTagSinglePayloadGeneric",
+      "module": "Swift",
+      "name": "swift_getEnumTagSinglePayloadGeneric",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "Int32Ty"
+      ],
+      "args": [
+        "OpaquePtrTy",
+        "Int32Ty",
+        "TypeMetadataPtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "OpaquePtrTy",
+          "Int32Ty",
+          "TypeMetadataPtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "StoreEnumTagSinglePayloadGeneric",
+      "module": "Swift",
+      "name": "swift_storeEnumTagSinglePayloadGeneric",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [],
+      "args": [
+        "OpaquePtrTy",
+        "Int32Ty",
+        "Int32Ty",
+        "TypeMetadataPtrTy",
+        "PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "OpaquePtrTy",
+          "Int32Ty",
+          "Int32Ty",
+          "TypeMetadataPtrTy",
+          "PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DeletedAsyncMethodError",
+      "module": "_Concurrency",
+      "name": "swift_deletedAsyncMethodError",
+      "cc": "SwiftAsyncCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [],
+      "roles": {
+        "convention": "swiftasynccall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [],
+        "note": "first argument is not an async context type; roles unverified",
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "AllocError",
+      "module": "Swift",
+      "name": "swift_allocError",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "ErrorPtrTy",
+        "OpaquePtrTy"
+      ],
+      "args": [
+        "TypeMetadataPtrTy",
+        "WitnessTablePtrTy",
+        "OpaquePtrTy",
+        "Int1Ty"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrTy",
+          "WitnessTablePtrTy",
+          "OpaquePtrTy",
+          "Int1Ty"
+        ],
+        "returnShape": "pair(x0,x1)"
+      }
+    },
+    {
+      "id": "IntToFloat32",
+      "module": "Swift",
+      "name": "swift_intToFloat32",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "FloatTy"
+      ],
+      "args": [
+        "PtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "PtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "IntToFloat64",
+      "module": "Swift",
+      "name": "swift_intToFloat64",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "DoubleTy"
+      ],
+      "args": [
+        "PtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "PtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTypeByMangledNameInContext",
+      "module": "Swift",
+      "name": "swift_getTypeByMangledNameInContext",
+      "cc": "SwiftCC",
+      "availability": "AlwaysAvailable",
+      "returns": [
+        "TypeMetadataPtrTy"
+      ],
+      "args": [
+        "Int8PtrTy",
+        "SizeTy",
+        "TypeContextDescriptorPtrTy",
+        "Int8PtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "SizeTy",
+          "TypeContextDescriptorPtrTy",
+          "Int8PtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTypeByMangledNameInContext2",
+      "module": "Swift",
+      "name": "swift_getTypeByMangledNameInContext2",
+      "cc": "SwiftCC",
+      "availability": "SignedDescriptorAvailability",
+      "returns": [
+        "TypeMetadataPtrTy"
+      ],
+      "args": [
+        "Int8PtrTy",
+        "SizeTy",
+        "TypeContextDescriptorPtrTy",
+        "Int8PtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "SizeTy",
+          "TypeContextDescriptorPtrTy",
+          "Int8PtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTypeByMangledNameInContextInMetadataState",
+      "module": "Swift",
+      "name": "swift_getTypeByMangledNameInContextInMetadataState",
+      "cc": "SwiftCC",
+      "availability": "GetTypesInAbstractMetadataStateAvailability",
+      "returns": [
+        "TypeMetadataPtrTy"
+      ],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "SizeTy",
+        "TypeContextDescriptorPtrTy",
+        "Int8PtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "SizeTy",
+          "TypeContextDescriptorPtrTy",
+          "Int8PtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetTypeByMangledNameInContextInMetadataState2",
+      "module": "Swift",
+      "name": "swift_getTypeByMangledNameInContextInMetadataState2",
+      "cc": "SwiftCC",
+      "availability": "SignedDescriptorAvailability",
+      "returns": [
+        "TypeMetadataPtrTy"
+      ],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "SizeTy",
+        "TypeContextDescriptorPtrTy",
+        "Int8PtrPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "SizeTy",
+          "TypeContextDescriptorPtrTy",
+          "Int8PtrPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "GetCurrentTask",
+      "module": "_Concurrency",
+      "name": "swift_task_getCurrent",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "SwiftTaskPtrTy"
+      ],
+      "args": [],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "TaskAlloc",
+      "module": "_Concurrency",
+      "name": "swift_task_alloc",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "Int8PtrTy"
+      ],
+      "args": [
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "TaskDealloc",
+      "module": "_Concurrency",
+      "name": "swift_task_dealloc",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskDeallocThrough",
+      "module": "_Concurrency",
+      "name": "swift_task_dealloc_through",
+      "cc": "SwiftCC",
+      "availability": "CoroutineAccessorsAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskCancel",
+      "module": "_Concurrency",
+      "name": "swift_task_cancel",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftTaskPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SwiftTaskPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskCreate",
+      "module": "_Concurrency",
+      "name": "swift_task_create",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "AsyncTaskAndContextTy"
+      ],
+      "args": [
+        "SizeTy",
+        "SwiftTaskOptionRecordPtrTy",
+        "TypeMetadataPtrTy",
+        "Int8PtrTy",
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "SwiftTaskOptionRecordPtrTy",
+          "TypeMetadataPtrTy",
+          "Int8PtrTy",
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "TaskSwitchFunc",
+      "module": "_Concurrency",
+      "name": "swift_task_switch",
+      "cc": "SwiftAsyncCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftContextPtrTy",
+        "Int8PtrTy",
+        "ExecutorFirstTy",
+        "ExecutorSecondTy"
+      ],
+      "roles": {
+        "convention": "swiftasynccall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": "x22",
+        "positionalArgs": [
+          "Int8PtrTy",
+          "ExecutorFirstTy",
+          "ExecutorSecondTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DeinitOnExecutorFunc",
+      "module": "_Concurrency",
+      "name": "swift_task_deinitOnExecutor",
+      "cc": "SwiftCC",
+      "availability": "IsolatedDeinitAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy",
+        "Int8PtrTy",
+        "ExecutorFirstTy",
+        "ExecutorSecondTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "Int8PtrTy",
+          "ExecutorFirstTy",
+          "ExecutorSecondTy",
+          "SizeTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DeinitOnExecutorMainActorBackDeployFunc",
+      "module": "_Concurrency",
+      "name": "deinitOnExecutorMainActorBackDeploy",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy",
+        "Int8PtrTy",
+        "ExecutorFirstTy",
+        "ExecutorSecondTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "Int8PtrTy",
+          "ExecutorFirstTy",
+          "ExecutorSecondTy",
+          "SizeTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "ContinuationInit",
+      "module": "_Concurrency",
+      "name": "swift_continuation_init",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "SwiftTaskPtrTy"
+      ],
+      "args": [
+        "ContinuationAsyncContextPtrTy",
+        "SizeTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "ContinuationAsyncContextPtrTy",
+          "SizeTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "ContinuationAwait",
+      "module": "_Concurrency",
+      "name": "swift_continuation_await",
+      "cc": "SwiftAsyncCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "ContinuationAsyncContextPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftasynccall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": "x22",
+        "positionalArgs": [],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "ContinuationResume",
+      "module": "_Concurrency",
+      "name": "swift_continuation_resume",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftTaskPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SwiftTaskPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "ContinuationThrowingResume",
+      "module": "_Concurrency",
+      "name": "swift_continuation_throwingResume",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftTaskPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SwiftTaskPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "ContinuationThrowingResumeWithError",
+      "module": "_Concurrency",
+      "name": "swift_continuation_throwingResumeWithError",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftTaskPtrTy",
+        "ErrorPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SwiftTaskPtrTy",
+          "ErrorPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskGetCurrentExecutor",
+      "module": "_Concurrency",
+      "name": "swift_task_getCurrentExecutor",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "SwiftExecutorTy"
+      ],
+      "args": [],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "TaskGetMainExecutor",
+      "module": "_Concurrency",
+      "name": "swift_task_getMainExecutor",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "SwiftExecutorTy"
+      ],
+      "args": [],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "DefaultActorInitialize",
+      "module": "_Concurrency",
+      "name": "swift_defaultActor_initialize",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DefaultActorDestroy",
+      "module": "_Concurrency",
+      "name": "swift_defaultActor_destroy",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DefaultActorDeallocate",
+      "module": "_Concurrency",
+      "name": "swift_defaultActor_deallocate",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DefaultActorDeallocateResilient",
+      "module": "_Concurrency",
+      "name": "swift_defaultActor_deallocateResilient",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "NonDefaultDistributedActorInitialize",
+      "module": "_Concurrency",
+      "name": "swift_nonDefaultDistributedActor_initialize",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "DistributedActorInitializeRemote",
+      "module": "_Concurrency",
+      "name": "swift_distributedActor_remote_initialize",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "OpaquePtrTy"
+      ],
+      "args": [
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "AsyncLetBegin",
+      "module": "_Concurrency",
+      "name": "swift_asyncLet_begin",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftAsyncLetPtrTy",
+        "SwiftTaskOptionRecordPtrTy",
+        "TypeMetadataPtrTy",
+        "Int8PtrTy",
+        "OpaquePtrTy",
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SwiftAsyncLetPtrTy",
+          "SwiftTaskOptionRecordPtrTy",
+          "TypeMetadataPtrTy",
+          "Int8PtrTy",
+          "OpaquePtrTy",
+          "Int8PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "AsyncLetFinish",
+      "module": "_Concurrency",
+      "name": "swift_asyncLet_finish",
+      "cc": "SwiftAsyncCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "SwiftContextPtrTy",
+        "SwiftAsyncLetPtrTy",
+        "Int8PtrTy",
+        "TaskContinuationFunctionPtrTy",
+        "SwiftContextPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftasynccall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": "x22",
+        "positionalArgs": [
+          "SwiftAsyncLetPtrTy",
+          "Int8PtrTy",
+          "TaskContinuationFunctionPtrTy",
+          "SwiftContextPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskRunInline",
+      "module": "_Concurrency",
+      "name": "swift_task_run_inline",
+      "cc": "SwiftCC",
+      "availability": "TaskRunInlineAvailability",
+      "returns": [],
+      "args": [
+        "OpaquePtrTy",
+        "Int8PtrTy",
+        "OpaquePtrTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "OpaquePtrTy",
+          "Int8PtrTy",
+          "OpaquePtrTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskGroupInitialize",
+      "module": "_Concurrency",
+      "name": "swift_taskGroup_initialize",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskGroupInitializeWithFlags",
+      "module": "_Concurrency",
+      "name": "swift_taskGroup_initializeWithFlags",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyDiscardingTaskGroupAvailability",
+      "returns": [],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskGroupInitializeWithOptions",
+      "module": "_Concurrency",
+      "name": "swift_taskGroup_initializeWithOptions",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyDiscardingTaskGroupAvailability",
+      "returns": [],
+      "args": [
+        "SizeTy",
+        "Int8PtrTy",
+        "TypeMetadataPtrTy",
+        "SwiftTaskOptionRecordPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "SizeTy",
+          "Int8PtrTy",
+          "TypeMetadataPtrTy",
+          "SwiftTaskOptionRecordPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskGroupDestroy",
+      "module": "_Concurrency",
+      "name": "swift_taskGroup_destroy",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskAddCancellationHandler",
+      "module": "_Concurrency",
+      "name": "swift_task_addCancellationHandler",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "Int8PtrTy"
+      ],
+      "args": [
+        "Int8PtrTy",
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "Int8PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "TaskRemoveCancellationHandler",
+      "module": "_Concurrency",
+      "name": "swift_task_removeCancellationHandler",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskAddPriorityEscalationHandler",
+      "module": "_Concurrency",
+      "name": "swift_task_addPriorityEscalationHandler",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [
+        "Int8PtrTy"
+      ],
+      "args": [
+        "Int8PtrTy",
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy",
+          "Int8PtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "TaskRemovePriorityEscalationHandler",
+      "module": "_Concurrency",
+      "name": "swift_task_removePriorityEscalationHandler",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "Int8PtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "Int8PtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskLocalValuePush",
+      "module": "_Concurrency",
+      "name": "swift_task_localValuePush",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [
+        "RefCountedPtrTy",
+        "OpaquePtrTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy",
+          "OpaquePtrTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "TaskLocalValuePop",
+      "module": "_Concurrency",
+      "name": "swift_task_localValuePop",
+      "cc": "SwiftCC",
+      "availability": "ConcurrencyAvailability",
+      "returns": [],
+      "args": [],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [],
+        "returnShape": "void"
+      }
+    },
+    {
+      "id": "AutoDiffCreateLinearMapContextWithType",
+      "module": "Swift",
+      "name": "swift_autoDiffCreateLinearMapContextWithType",
+      "cc": "SwiftCC",
+      "availability": "DifferentiationAvailability",
+      "returns": [
+        "RefCountedPtrTy"
+      ],
+      "args": [
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "AutoDiffProjectTopLevelSubcontext",
+      "module": "Swift",
+      "name": "swift_autoDiffProjectTopLevelSubcontext",
+      "cc": "SwiftCC",
+      "availability": "DifferentiationAvailability",
+      "returns": [
+        "Int8PtrTy"
+      ],
+      "args": [
+        "RefCountedPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    },
+    {
+      "id": "AutoDiffAllocateSubcontextWithType",
+      "module": "Swift",
+      "name": "swift_autoDiffAllocateSubcontextWithType",
+      "cc": "SwiftCC",
+      "availability": "DifferentiationAvailability",
+      "returns": [
+        "Int8PtrTy"
+      ],
+      "args": [
+        "RefCountedPtrTy",
+        "TypeMetadataPtrTy"
+      ],
+      "roles": {
+        "convention": "swiftcall",
+        "indirectResult": null,
+        "contextIn": [],
+        "errorOut": null,
+        "asyncContextIn": null,
+        "positionalArgs": [
+          "RefCountedPtrTy",
+          "TypeMetadataPtrTy"
+        ],
+        "returnShape": "x0"
+      }
+    }
+  ]
+}

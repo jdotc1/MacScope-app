@@ -1,5 +1,79 @@
-.build/
-.swiftpm/
-*.xcodeproj/
-DerivedData/
 .DS_Store
+DerivedData/
+MacScope/DerivedData/
+MacScope/DerivedData*/
+MacScope/.build/
+MacScope/build/
+/.build/
+MacScope/.build-local/DerivedData*/
+MacScope/.build-local/xcode27/
+MacScope/MacScope.xcodeproj/
+.build-local/xcode27/
+.build-local/DerivedData*/
+
+# User-supplied Ghostty checkout/archive used as a local terminal-engine input.
+# The build artifact is consumed from this checkout but is not vendored here.
+/ghostty-main/
+/ghostty-main.zip
+/ghostty-surface-f64f4aca/
+
+# User-provided project brief, kept out of source commits.
+/Custom macOS Analysis App Blueprint for Xcode 27 on Apple Silicon.docx
+
+# Generated visual proof artifacts; current GUI proof is intentionally blocked
+# until deterministic display placement is approved.
+MacScope/Design/Screenshots/*.png
+
+# Extracted app bundle artifacts kept out of source commits.
+/CodeResources
+/Frameworks/
+/Info.plist
+/MacOS/
+/PkgInfo
+/Resources/
+/XPCServices/
+/_CodeSignature/
+
+# Local build products and logs.
+*.xcresult
+*.dSYM
+*.app
+*.ipa
+*.log
+
+
+# Private legal-review archive — non-distributable review material kept locally, not tracked.
+/_legal_archive/
+# Superseded historical design docs kept locally, not tracked.
+/_archive/
+
+# Python bytecode caches are generated local artifacts, never source inputs.
+__pycache__/
+
+# Licensed reference-tool bundle components (copyright) — never commit or push.
+# Matched by a name-free glob: the retired tool's name must not appear in ANY tracked
+# file, and .gitignore is tracked. See docs/brand/Nomenclature.md.
+*_Disassembler_component_files/
+
+# Explicit DCP-03A native SLEIGH proof environment
+/pypcode-dcp03/
+
+# Explicit DCP-03B3 native libghidra pilot environment
+/libghidra-dcp03b3/
+
+# Explicit DCP-03B4 native SLEIGH/Ghidra decompiler qualification package
+/sleigh-native-dcp03b4/
+
+# Machine-local dependency roots written by Scripts/bootstrap.sh (MS-36).
+MacScope/DependencyRoots.local.xcconfig
+
+# Verified direct-source Swift package materializations are machine-local inputs.
+# bootstrap.sh links this ignored path only after independent identity verification.
+MacScope/LocalPackages
+
+# Build-station claim (Scripts/station.sh, D12)
+.station-claim
+
+# Local machine configuration (work root); never commit
+.env.local
+*.pyc

@@ -1,0 +1,1176 @@
+{
+  "agreement": [
+    {
+      "agreed": [
+        "entry_point_va",
+        "exports",
+        "format",
+        "image_base",
+        "import_count",
+        "machine",
+        "number_of_sections",
+        "sections"
+      ],
+      "disagreed": {
+        "imports": {
+          "lief": [
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+              "module": "lib.dll"
+            }
+          ],
+          "pe-parse": [
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            },
+            {
+              "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+              "module": "lib.dll"
+            }
+          ]
+        }
+      },
+      "selection": null,
+      "single_oracle_facts": [],
+      "status_agree": true,
+      "statuses": {
+        "lief": "parsed",
+        "pe-parse": "parsed"
+      }
+    }
+  ],
+  "fixture": {
+    "classification": "boundary",
+    "consumers": [
+      "MS-14 aggregate string budget (scaled-down amplification shape)"
+    ],
+    "format": "pe",
+    "id": "pe-import-name-amplification",
+    "provenance": "synthesized by Scripts/parser-oracles/specimens.py; 64 thunks share one 4096-byte hint/name entry",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "host_bound": false,
+    "path": "Scripts/parser-oracles/specimens/pe-import-name-amplification.bin",
+    "sha256": "48297869a1982f4e4c8d46cf5c047a75f60447c7a18f040b8d3584d3794afd99",
+    "size": 6656
+  },
+  "results": [
+    {
+      "command": [
+        "<macscope-parser-dump>",
+        "lief",
+        "pe",
+        "<specimen>"
+      ],
+      "error": null,
+      "facts": {
+        "entry_point_va": 5368713216,
+        "exports": [],
+        "format": "pe32+",
+        "image_base": 5368709120,
+        "import_count": 64,
+        "imports": [
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4095 sha256=ec3a61bfe4f74b1db3d423f57c491060dd0e57a2392591f82c44323b0fd3410c>",
+            "module": "lib.dll"
+          }
+        ],
+        "machine": "amd64",
+        "number_of_sections": 2,
+        "sections": [
+          {
+            "characteristics": 1610612768,
+            "name": ".text",
+            "raw_pointer": 512,
+            "raw_size": 512,
+            "va": 5368713216,
+            "virtual_size": 3
+          },
+          {
+            "characteristics": 1073741888,
+            "name": ".idata",
+            "raw_pointer": 1024,
+            "raw_size": 5632,
+            "va": 5368717312,
+            "virtual_size": 5188
+          }
+        ]
+      },
+      "oracle": "lief",
+      "selection": null,
+      "status": "parsed"
+    },
+    {
+      "command": [
+        "<macscope-parser-dump>",
+        "pe-parse",
+        "pe",
+        "<specimen>"
+      ],
+      "error": null,
+      "facts": {
+        "entry_point_va": 5368713216,
+        "exports": [],
+        "format": "pe32+",
+        "image_base": 5368709120,
+        "import_count": 64,
+        "imports": [
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          },
+          {
+            "function": "<bounded length=4096 sha256=6896d9ea3f73a4434f5832bc65714e7d066f177373f36f34dc8a6f735daa41b1>",
+            "module": "lib.dll"
+          }
+        ],
+        "machine": "amd64",
+        "number_of_sections": 2,
+        "sections": [
+          {
+            "characteristics": 1610612768,
+            "name": ".text",
+            "raw_pointer": 512,
+            "raw_size": 512,
+            "va": 5368713216,
+            "virtual_size": 3
+          },
+          {
+            "characteristics": 1073741888,
+            "name": ".idata",
+            "raw_pointer": 1024,
+            "raw_size": 5632,
+            "va": 5368717312,
+            "virtual_size": 5188
+          }
+        ]
+      },
+      "oracle": "pe-parse",
+      "selection": null,
+      "status": "parsed"
+    }
+  ],
+  "schema": "macscope.parser-oracle-golden.v2",
+  "tools": [
+    {
+      "bridge_source_tree_sha256": "0dd2a9b19790bc0527c86af1dba7e23843c6cb4e32bd62bfe35a973cf4ea3d66",
+      "git_revision": "d05b3499b6934137e917c009a4df0a9dc8cb11c5",
+      "kind": "linked-engine",
+      "oracle": "lief",
+      "source_tree_sha256": "9a4c4d0530ba062f721b9355e863be3f0d4d1f1c23ed7ff021a70a15e4e67243",
+      "version": "1.0.0"
+    },
+    {
+      "bridge_source_tree_sha256": "0dd2a9b19790bc0527c86af1dba7e23843c6cb4e32bd62bfe35a973cf4ea3d66",
+      "git_revision": "7888f1f8de2f6bc302c291a5b4519fad926c0133",
+      "kind": "linked-engine",
+      "oracle": "pe-parse",
+      "source_tree_sha256": "536df18046ac098fba0724096da0a4f867dc7a44109d94cab64fc74fea4e2dc1",
+      "version": "2.1.1"
+    }
+  ]
+}

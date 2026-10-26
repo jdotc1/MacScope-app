@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+here=$(cd "$(dirname "$0")" && pwd)
+export PORTABLE_REPO=${PORTABLE_REPO:-$(cd "$here/../.." && pwd)}
+export LC_ALL=C.UTF-8 TZ=UTC SWIFT_DETERMINISTIC_HASHING=1
+unset MACSCOPE_DYNAMIC_TILING MACSCOPE_GOTOLEAF_DIAGNOSTICS MACSCOPE_REGIONTREE_DIAGNOSTICS
+home=$(mktemp -d)
+trap 'rmdir "$home" 2>/dev/null || true' EXIT
+HOME="$home" XDG_CONFIG_HOME="$home" "${PORTABLE_BUILD_PATH:-$here/.build}/debug/render-all" "$@"

@@ -1,0 +1,64 @@
+[
+  {
+    "argv": [
+      "objcopy",
+      "--update-section",
+      ".debug_info=/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/reduced.debug_info",
+      "--update-section",
+      ".debug_abbrev=/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/reduced.debug_abbrev",
+      "--remove-section",
+      ".debug_line",
+      "--remove-section",
+      ".debug_frame",
+      "--remove-section",
+      ".debug_line_str",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/artifact.elf"
+    ],
+    "exit": 0,
+    "seconds": 0.0038957670039962977,
+    "timeout_seconds": 15,
+    "stdout": "objcopy.stdout",
+    "stderr": "objcopy.stderr"
+  },
+  {
+    "argv": [
+      "/workspace/scratch/ddf488c1ad42/program2/llvm/usr/bin/llvm-dwarfdump-19",
+      "--verify",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/artifact.elf"
+    ],
+    "exit": 0,
+    "seconds": 0.015551964010228403,
+    "timeout_seconds": 15,
+    "stdout": "verify.stdout",
+    "stderr": "verify.stderr"
+  },
+  {
+    "argv": [
+      "/workspace/scratch/ddf488c1ad42/program2/llvm/usr/bin/llvm-dwarfdump-19",
+      "--debug-info",
+      "--debug-abbrev",
+      "--debug-str-offsets",
+      "--debug-addr",
+      "--debug-rnglists",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/artifact.elf"
+    ],
+    "exit": 0,
+    "seconds": 0.01521729699743446,
+    "timeout_seconds": 15,
+    "stdout": "dwarfdump.stdout",
+    "stderr": "dwarfdump.stderr"
+  },
+  {
+    "argv": [
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/bin/macscope-dwarf-reader-four",
+      "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/sections",
+      "--only",
+      "dieTree"
+    ],
+    "exit": 0,
+    "seconds": 0.008353753000847064,
+    "timeout_seconds": 15,
+    "stdout": "probe.stdout",
+    "stderr": "probe.stderr"
+  }
+]

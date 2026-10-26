@@ -1,0 +1,15 @@
+Test Suite 'All tests' started at 2026-10-13 16:13:01.650
+Test Suite 'build.xctest' started at 2026-10-13 16:13:01.652
+Test Suite 'DWARFCompilerConformanceOracleTests' started at 2026-10-13 16:13:01.652
+Test Case 'DWARFCompilerConformanceOracleTests.testIndexedCURootAttributesUseTheirOwnLateBases' started at 2026-10-13 16:13:01.652
+/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-supplement-v1/staging/MacScope/Tests/CoreTests/DWARFCompilerConformanceOracleTests.swift:13: error: DWARFCompilerConformanceOracleTests.testIndexedCURootAttributesUseTheirOwnLateBases : XCTAssertEqual failed: ("Optional(MacScope.DWARFAttributeValue.string("left/unit.c"))") is not equal to ("Optional(MacScope.DWARFAttributeValue.string("entry.c"))") - 
+/workspace/scratch/ddf488c1ad42/dwarf-1833/consumer-supplement-v1/staging/MacScope/Tests/CoreTests/DWARFCompilerConformanceOracleTests.swift:13: error: DWARFCompilerConformanceOracleTests.testIndexedCURootAttributesUseTheirOwnLateBases : XCTAssertEqual failed: ("Optional(MacScope.DWARFAttributeValue.address(4202496))") is not equal to ("Optional(MacScope.DWARFAttributeValue.address(4198448))") - 
+Test Case 'DWARFCompilerConformanceOracleTests.testIndexedCURootAttributesUseTheirOwnLateBases' failed (0.002 seconds)
+Test Case 'DWARFCompilerConformanceOracleTests.testBaseFirstCURootControl' started at 2026-10-13 16:13:01.655
+Test Case 'DWARFCompilerConformanceOracleTests.testBaseFirstCURootControl' passed (0.0 seconds)
+Test Suite 'DWARFCompilerConformanceOracleTests' failed at 2026-10-13 16:13:01.655
+	 Executed 2 tests, with 2 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'build.xctest' failed at 2026-10-13 16:13:01.655
+	 Executed 2 tests, with 2 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'All tests' failed at 2026-10-13 16:13:01.655
+	 Executed 2 tests, with 2 failures (0 unexpected) in 0.003 (0.003) seconds

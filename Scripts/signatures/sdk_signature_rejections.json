@@ -1,0 +1,4589 @@
+{
+  "rejections": [
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h"
+      ],
+      "name": "CFAbsoluteTimeAddGregorianUnits",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h"
+      ],
+      "name": "CFAbsoluteTimeGetDifferenceAsGregorianUnits",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h"
+      ],
+      "name": "CFAbsoluteTimeGetGregorianDate",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayAppendArray",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayApplyFunction",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayBSearchValues",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayContainsValue",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayGetCountOfValue",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayGetFirstIndexOfValue",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayGetLastIndexOfValue",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayGetValues",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArrayReplaceValues",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFArray.h"
+      ],
+      "name": "CFArraySortValues",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringCreateWithSubstring",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringGetAttributeAndLongestEffectiveRange",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringGetAttributesAndLongestEffectiveRange",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringGetBidiLevelsAndResolvedDirections",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringGetStatisticalWritingDirections",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringRemoveAttribute",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringReplaceAttributedString",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringReplaceString",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringSetAttribute",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFAttributedString.h"
+      ],
+      "name": "CFAttributedStringSetAttributes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorContainsBit",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorFlipBits",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorGetBits",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorGetCountOfBit",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorGetFirstIndexOfBit",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorGetLastIndexOfBit",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBitVector.h"
+      ],
+      "name": "CFBitVectorSetBits",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFByteOrderGetCurrent",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFCalendar.h"
+      ],
+      "name": "CFCalendarGetMaximumRangeOfUnit",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFCalendar.h"
+      ],
+      "name": "CFCalendarGetMinimumRangeOfUnit",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFCalendar.h"
+      ],
+      "name": "CFCalendarGetRangeOfUnit",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFCharacterSet.h"
+      ],
+      "name": "CFCharacterSetAddCharactersInRange",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFCharacterSet.h"
+      ],
+      "name": "CFCharacterSetCreateWithCharactersInRange",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFCharacterSet.h"
+      ],
+      "name": "CFCharacterSetRemoveCharactersInRange",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertDoubleHostToSwapped",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertDoubleSwappedToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertFloat32HostToSwapped",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertFloat32SwappedToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertFloat64HostToSwapped",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertFloat64SwappedToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertFloatHostToSwapped",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFConvertFloatSwappedToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h"
+      ],
+      "name": "CFDataDeleteBytes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h"
+      ],
+      "name": "CFDataFind",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h"
+      ],
+      "name": "CFDataGetBytes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFData.h"
+      ],
+      "name": "CFDataReplaceBytes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h"
+      ],
+      "name": "CFGregorianDateGetAbsoluteTime",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFDate.h"
+      ],
+      "name": "CFGregorianDateIsValid",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h"
+      ],
+      "name": "CFRangeMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h"
+      ],
+      "name": "CFReadStreamGetError",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringCompareWithOptions",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringCompareWithOptionsAndLocale",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringCreateArrayWithFindResults",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringCreateWithSubstring",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringDelete",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringFind",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringFindAndReplace",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringFindCharacterFromSet",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringFindWithOptions",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringFindWithOptionsAndLocale",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetBytes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetCharacterFromInlineBuffer",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetCharacters",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetHyphenationLocationBeforeIndex",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetLineBounds",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetLongCharacterForSurrogatePair",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetParagraphBounds",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetRangeOfComposedCharactersAtIndex",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringGetSurrogatePairForLongCharacter",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringInitInlineBuffer",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringIsSurrogateHighCharacter",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringIsSurrogateLowCharacter",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h"
+      ],
+      "name": "CFStringReplace",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h"
+      ],
+      "name": "CFStringTokenizerCopyBestStringLanguage",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h"
+      ],
+      "name": "CFStringTokenizerCreate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h"
+      ],
+      "name": "CFStringTokenizerGetCurrentTokenRange",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringTokenizer.h"
+      ],
+      "name": "CFStringTokenizerSetString",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt16",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt16BigToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt16HostToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt16HostToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt16LittleToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt32",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt32BigToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt32HostToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt32HostToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt32LittleToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt64",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt64BigToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt64HostToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt64HostToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFByteOrder.h"
+      ],
+      "name": "CFSwapInt64LittleToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFURL.h"
+      ],
+      "name": "CFURLGetByteRangeForComponent",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h"
+      ],
+      "name": "CFUUIDCreateFromUUIDBytes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h"
+      ],
+      "name": "CFUUIDCreateWithBytes",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h"
+      ],
+      "name": "CFUUIDGetConstantUUIDWithBytes",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUUID.h"
+      ],
+      "name": "CFUUIDGetUUIDBytes",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h"
+      ],
+      "name": "CFUserNotificationCheckBoxChecked",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h"
+      ],
+      "name": "CFUserNotificationDisplayAlert",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h"
+      ],
+      "name": "CFUserNotificationPopUpSelection",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFUserNotification.h"
+      ],
+      "name": "CFUserNotificationSecureTextField",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFStream.h"
+      ],
+      "name": "CFWriteStreamGetError",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "corefoundation",
+      "headers": [
+        "System/Library/Frameworks/CoreFoundation.framework/Headers/CFBase.h"
+      ],
+      "name": "__CFRangeMake",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformConcat",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformDecompose",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformEqualToTransform",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformInvert",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformIsIdentity",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformMake",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformMakeRotation",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformMakeScale",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformMakeTranslation",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformMakeWithComponents",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformRotate",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformScale",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGAffineTransformTranslate",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGBitmapContext.h"
+      ],
+      "name": "CGBitmapContextCreateWithData",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h"
+      ],
+      "name": "CGBitmapInfoMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGColorConversionInfo.h"
+      ],
+      "name": "CGColorConversionInfoConvertData",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGColorSpace.h"
+      ],
+      "name": "CGColorSpaceRelease",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextAddEllipseInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextAddRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextBeginTransparencyLayerWithRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextClearRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextClipToMask",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextClipToRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConcatCTM",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConvertPointToDeviceSpace",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConvertPointToUserSpace",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConvertRectToDeviceSpace",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConvertRectToUserSpace",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConvertSizeToDeviceSpace",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextConvertSizeToUserSpace",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawConicGradient",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawImage",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawImageApplyingToneMapping",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGLayer.h"
+      ],
+      "name": "CGContextDrawLayerAtPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGLayer.h"
+      ],
+      "name": "CGContextDrawLayerInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawLinearGradient",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawPDFDocument",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawRadialGradient",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextDrawTiledImage",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextFillEllipseInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextFillRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetCTM",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetClipBoundingBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetContentToneMappingInfo",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetPathBoundingBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetPathCurrentPoint",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetTextMatrix",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetTextPosition",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextGetUserSpaceToDeviceSpaceTransform",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextPathContainsPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextSetContentToneMappingInfo",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextSetPatternPhase",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextSetShadow",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextSetShadowWithColor",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextSetTextMatrix",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextStrokeEllipseInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextStrokeRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGContext.h"
+      ],
+      "name": "CGContextStrokeRectWithWidth",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGConvertColorDataWithFormat.h"
+      ],
+      "name": "CGConvertColorDataWithFormat",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplayMetal.h"
+      ],
+      "name": "CGDirectDisplayCopyCurrentMetalDevice",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGDisplayBounds",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGDisplayCreateImageForRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGDisplayMoveCursorToPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDisplayConfiguration.h"
+      ],
+      "name": "CGDisplayScreenSize",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGEvent.h"
+      ],
+      "name": "CGEventCreateMouseEvent",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGEvent.h"
+      ],
+      "name": "CGEventGetLocation",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGEvent.h"
+      ],
+      "name": "CGEventGetUnflippedLocation",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGEvent.h"
+      ],
+      "name": "CGEventSetLocation",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGFont.h"
+      ],
+      "name": "CGFontGetFontBBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGGetDisplayTransferByFormula",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGGetDisplaysWithPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGGetDisplaysWithRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h"
+      ],
+      "name": "CGImageCreate",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h"
+      ],
+      "name": "CGImageCreateWithContentHeadroom",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGImage.h"
+      ],
+      "name": "CGImageCreateWithImageInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGLayer.h"
+      ],
+      "name": "CGLayerCreateWithContext",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGLayer.h"
+      ],
+      "name": "CGLayerGetSize",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContext.h"
+      ],
+      "name": "CGPDFContextAddDestinationAtPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContext.h"
+      ],
+      "name": "CGPDFContextSetDestinationForRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContext.h"
+      ],
+      "name": "CGPDFContextSetURLForRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h"
+      ],
+      "name": "CGPDFDocumentGetArtBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h"
+      ],
+      "name": "CGPDFDocumentGetBleedBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h"
+      ],
+      "name": "CGPDFDocumentGetCropBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h"
+      ],
+      "name": "CGPDFDocumentGetMediaBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFDocument.h"
+      ],
+      "name": "CGPDFDocumentGetTrimBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFPage.h"
+      ],
+      "name": "CGPDFPageGetBoxRect",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFPage.h"
+      ],
+      "name": "CGPDFPageGetDrawingTransform",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathAddEllipseInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathAddRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathAddRoundedRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathContainsPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathCreateWithEllipseInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathCreateWithRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathCreateWithRoundedRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathGetBoundingBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathGetCurrentPoint",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPath.h"
+      ],
+      "name": "CGPathGetPathBoundingBox",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGPattern.h"
+      ],
+      "name": "CGPatternCreate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGPointApplyAffineTransform",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGPointCreateDictionaryRepresentation",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGPointEqualToPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGPointMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGRemoteOperation.h"
+      ],
+      "name": "CGPostMouseEvent",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGRectApplyAffineTransform",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectContainsPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectContainsRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectCreateDictionaryRepresentation",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectDivide",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectEqualToRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetHeight",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetMaxX",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetMaxY",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetMidX",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetMidY",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetMinX",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetMinY",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectGetWidth",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectInset",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectIntegral",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectIntersection",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectIntersectsRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectIsEmpty",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectIsInfinite",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectIsNull",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectOffset",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectStandardize",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGRectUnion",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGDirectDisplay.h"
+      ],
+      "name": "CGSetDisplayTransferByFormula",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h"
+      ],
+      "name": "CGShadingCreateAxial",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h"
+      ],
+      "name": "CGShadingCreateAxialWithContentHeadroom",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h"
+      ],
+      "name": "CGShadingCreateRadial",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGShading.h"
+      ],
+      "name": "CGShadingCreateRadialWithContentHeadroom",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "CGSizeApplyAffineTransform",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGSizeCreateDictionaryRepresentation",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGSizeEqualToSize",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGSizeMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "CGVectorMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGRemoteOperation.h"
+      ],
+      "name": "CGWarpMouseCursorPosition",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h"
+      ],
+      "name": "CGWindowListCreateImage",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h"
+      ],
+      "name": "CGWindowListCreateImageFromArray",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "__CGAffineTransformMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "__CGPointApplyAffineTransform",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "__CGPointEqualToPoint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h"
+      ],
+      "name": "__CGSizeApplyAffineTransform",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "coregraphics",
+      "headers": [
+        "System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h"
+      ],
+      "name": "__CGSizeEqualToSize",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/once.h"
+      ],
+      "name": "_dispatch_once",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/once.h"
+      ],
+      "name": "_dispatch_once_f",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_activate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/block.h"
+      ],
+      "name": "dispatch_block_create",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/block.h"
+      ],
+      "name": "dispatch_block_create_with_qos_class",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_cancel",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_debug",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_debugv",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_get_context",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/queue.h"
+      ],
+      "name": "dispatch_get_main_queue",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_notify",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_release",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_resume",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_retain",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_set_context",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_set_finalizer_f",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_set_qos_class_floor",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/queue.h"
+      ],
+      "name": "dispatch_set_target_queue",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_suspend",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_testcancel",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "dispatch",
+      "headers": [
+        "usr/include/dispatch/object.h"
+      ],
+      "name": "dispatch_wait",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSObject.h"
+      ],
+      "name": "CFBridgingRelease",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSObject.h"
+      ],
+      "name": "CFBridgingRetain",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSContainsRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSConvertHostDoubleToSwapped",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSConvertHostFloatToSwapped",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSConvertSwappedDoubleToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSConvertSwappedFloatToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSHashTable.h"
+      ],
+      "name": "NSCreateHashTable",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSHashTable.h"
+      ],
+      "name": "NSCreateHashTableWithZone",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSMapTable.h"
+      ],
+      "name": "NSCreateMapTable",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSMapTable.h"
+      ],
+      "name": "NSCreateMapTableWithZone",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSDecimal.h"
+      ],
+      "name": "NSDecimalIsNotANumber",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSDivideRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSEdgeInsetsEqual",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSEdgeInsetsMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSHashTable.h"
+      ],
+      "name": "NSEnumerateHashTable",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSMapTable.h"
+      ],
+      "name": "NSEnumerateMapTable",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSEqualPoints",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSEqualRanges",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSEqualRects",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSEqualSizes",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSHeight",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSHostByteOrder",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSInsetRect",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSIntegralRect",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSIntegralRectWithOptions",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSIntersectionRange",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSIntersectionRect",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSIntersectsRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSIsEmptyRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSLocationInRange",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSZone.h"
+      ],
+      "name": "NSMakeCollectable",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMakePoint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSMakeRange",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMakeRect",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMakeSize",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSMaxRange",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMaxX",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMaxY",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMidX",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMidY",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMinX",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMinY",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSMouseInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSOffsetRect",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSPointFromCGPoint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSPointFromString",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSPointInRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSPointToCGPoint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSRangeFromString",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSRectFromCGRect",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSRectFromString",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSRectToCGRect",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSSizeFromCGSize",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSSizeFromString",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSSizeToCGSize",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSStringFromPoint",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSStringFromRange",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSStringFromRect",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSStringFromSize",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapBigDoubleToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapBigFloatToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapBigIntToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapBigLongLongToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapBigLongToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapBigShortToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapDouble",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapFloat",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostDoubleToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostDoubleToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostFloatToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostFloatToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostIntToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostIntToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostLongLongToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostLongLongToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostLongToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostLongToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostShortToBig",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapHostShortToLittle",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapInt",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLittleDoubleToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLittleFloatToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLittleIntToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLittleLongLongToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLittleLongToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLittleShortToHost",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLong",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapLongLong",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSByteOrder.h"
+      ],
+      "name": "NSSwapShort",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSRange.h"
+      ],
+      "name": "NSUnionRange",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSUnionRect",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "foundation",
+      "headers": [
+        "System/Library/Frameworks/Foundation.framework/Headers/NSGeometry.h"
+      ],
+      "name": "NSWidth",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h"
+      ],
+      "name": "IOConnectCallAsyncMethod",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h"
+      ],
+      "name": "IOConnectCallAsyncScalarMethod",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h"
+      ],
+      "name": "IOConnectCallAsyncStructMethod",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h"
+      ],
+      "name": "IOConnectCallMethod",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/hid/IOHIDDevice.h"
+      ],
+      "name": "IOHIDDeviceGetReport",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/hid/IOHIDDevice.h"
+      ],
+      "name": "IOHIDDeviceGetReportWithCallback",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/hid/IOHIDDevice.h"
+      ],
+      "name": "IOHIDDeviceSetReport",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/hid/IOHIDDevice.h"
+      ],
+      "name": "IOHIDDeviceSetReportWithCallback",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/hid/IOHIDElement.h"
+      ],
+      "name": "IOHIDElementGetCollectionType",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/hid/IOHIDElement.h"
+      ],
+      "name": "IOHIDElementGetType",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/pwr_mgt/IOPMLib.h"
+      ],
+      "name": "IOPMAssertionDeclareUserActivity",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "iokit",
+      "headers": [
+        "System/Library/Frameworks/IOKit.framework/Headers/ps/IOPowerSources.h"
+      ],
+      "name": "IOPSGetBatteryWarningLevel",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/mig_errors.h"
+      ],
+      "name": "__NDR_convert__mig_reply_error_t",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__ceilf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__copysignf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__fabsf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__floorf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__fmaf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__fmaxf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__fminf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__hypotf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isfinited",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isfinitef",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isfinitel",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isinfd",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isinff",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isinfl",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isnand",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isnanf",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isnanl",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isnormald",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isnormalf",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_isnormall",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_signbitd",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_signbitf",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__inline_signbitl",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "__isctype",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "__istype",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__nextafterf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__rintf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__roundf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/signal.h"
+      ],
+      "name": "__sigbits",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincos",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincos_stret",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincosf",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincosf_stret",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincospi",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincospi_stret",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincospif",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sincospif_stret",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_stdio.h"
+      ],
+      "name": "__sputc",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__sqrtf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/math.h"
+      ],
+      "name": "__truncf16",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "__wcwidth",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/os/activity.h"
+      ],
+      "name": "_os_activity_initiate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/signal.h"
+      ],
+      "name": "bsd_signal",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_time.h"
+      ],
+      "name": "clock_getres",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_time.h"
+      ],
+      "name": "clock_gettime",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_time.h"
+      ],
+      "name": "clock_gettime_nsec_np",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/clock_priv.h"
+      ],
+      "name": "clock_set_time",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_time.h"
+      ],
+      "name": "clock_settime",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/mach.h"
+      ],
+      "name": "clock_sleep",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "digittoint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_stdlib.h"
+      ],
+      "name": "div",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/sys/fcntl.h"
+      ],
+      "name": "filesec_get_property",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/sys/fcntl.h"
+      ],
+      "name": "filesec_query_property",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/sys/fcntl.h"
+      ],
+      "name": "filesec_set_property",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/sys/fcntl.h"
+      ],
+      "name": "filesec_unset_property",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/host_security.h"
+      ],
+      "name": "host_security_create_task_token",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/host_security.h"
+      ],
+      "name": "host_security_set_task_token",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/host_priv.h"
+      ],
+      "name": "host_swap_exception_ports",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/arpa/inet.h"
+      ],
+      "name": "inet_lnaof",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/arpa/inet.h"
+      ],
+      "name": "inet_makeaddr",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/arpa/inet.h"
+      ],
+      "name": "inet_netof",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/arpa/inet.h"
+      ],
+      "name": "inet_ntoa",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isalnum",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isalpha",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isascii",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isblank",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "iscntrl",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isdigit",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isgraph",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "ishexnumber",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isideogram",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "islower",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isnumber",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isphonogram",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isprint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "ispunct",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isrune",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isspace",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isspecial",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isupper",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswalnum",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswalpha",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswascii",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswblank",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswcntrl",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswctype",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswdigit",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswgraph",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswhexnumber",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswideogram",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswlower",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswnumber",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswphonogram",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswprint",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswpunct",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswrune",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswspace",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_wctype.h"
+      ],
+      "name": "iswspecial",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswupper",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "iswxdigit",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "isxdigit",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/host_priv.h"
+      ],
+      "name": "kext_request",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_stdlib.h"
+      ],
+      "name": "ldiv",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_stdlib.h"
+      ],
+      "name": "lldiv",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/message.h"
+      ],
+      "name": "mach_msg_overwrite",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/mach_host.h"
+      ],
+      "name": "mach_zone_info_for_zone",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/malloc/malloc.h"
+      ],
+      "name": "mstats",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/os/activity.h"
+      ],
+      "name": "os_activity_apply",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/libproc.h"
+      ],
+      "name": "proc_signal_delegate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/libproc.h"
+      ],
+      "name": "proc_terminate_delegate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/semaphore.h"
+      ],
+      "name": "semaphore_timedwait",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/semaphore.h"
+      ],
+      "name": "semaphore_timedwait_signal",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/signal.h"
+      ],
+      "name": "sigset",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/task.h"
+      ],
+      "name": "task_register_dyld_shared_cache_image_info",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/task.h"
+      ],
+      "name": "task_swap_exception_ports",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/thread_act.h"
+      ],
+      "name": "thread_swap_exception_ports",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "toascii",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "tolower",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/_ctype.h"
+      ],
+      "name": "toupper",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "towlower",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/___wctype.h"
+      ],
+      "name": "towupper",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/vm_map.h"
+      ],
+      "name": "vm_map",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/vm_map.h"
+      ],
+      "name": "vm_map_64",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/vm_map.h"
+      ],
+      "name": "vm_remap",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/mach/vm_map.h"
+      ],
+      "name": "vm_remap_new",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "libc",
+      "headers": [
+        "usr/include/sys/wait.h"
+      ],
+      "name": "waitid",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTL4BufferRange.h"
+      ],
+      "name": "MTL4BufferRangeMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLRenderPass.h"
+      ],
+      "name": "MTLClearColorMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLCoordinate2DMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLDevice.h"
+      ],
+      "name": "MTLCreateSystemDefaultDevice",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLIndirectCommandBuffer.h"
+      ],
+      "name": "MTLIndirectCommandBufferExecutionRangeMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLOriginMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLAccelerationStructureTypes.h"
+      ],
+      "name": "MTLPackedFloat3Make",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLAccelerationStructureTypes.h"
+      ],
+      "name": "MTLPackedFloatQuaternionMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLRegionMake1D",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLRegionMake2D",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLRegionMake3D",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLSamplePositionMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTypes.h"
+      ],
+      "name": "MTLSizeMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "metal",
+      "headers": [
+        "System/Library/Frameworks/Metal.framework/Headers/MTLTexture.h"
+      ],
+      "name": "MTLTextureSwizzleChannelsMake",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "objc-runtime",
+      "headers": [
+        "usr/include/objc/runtime.h"
+      ],
+      "name": "class_createInstance",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "objc-runtime",
+      "headers": [
+        "usr/include/objc/message.h"
+      ],
+      "name": "objc_msgSend_fp2ret",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "objc-runtime",
+      "headers": [
+        "usr/include/objc/objc.h"
+      ],
+      "name": "objc_retainedObject",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "objc-runtime",
+      "headers": [
+        "usr/include/objc/objc.h"
+      ],
+      "name": "objc_unretainedObject",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "objc-runtime",
+      "headers": [
+        "usr/include/objc/objc.h"
+      ],
+      "name": "objc_unretainedPointer",
+      "reason": "unavailable-on-target"
+    },
+    {
+      "family": "objc-runtime",
+      "headers": [
+        "usr/include/objc/runtime.h"
+      ],
+      "name": "protocol_getMethodDescription",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "oslog",
+      "headers": [
+        "usr/include/os/log.h"
+      ],
+      "name": "_os_log_sensitive_deprecated",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "oslog",
+      "headers": [
+        "usr/include/os/trace.h"
+      ],
+      "name": "_os_trace_verify_printf",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "oslog",
+      "headers": [
+        "usr/include/os/trace.h"
+      ],
+      "name": "os_trace_type_enabled",
+      "reason": "not-an-external-import"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_CSP_CreateDeriveKeyContext",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_CSP_CreateKeyGenContext",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_CSP_CreateSymmetricContext",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_Authenticate",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_ChangeDbAcl",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_ChangeDbOwner",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_CreateRelation",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataAbortQuery",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataDelete",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataGetFirst",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataGetFromUniqueRecordId",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataGetNext",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataInsert",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DataModify",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DbClose",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_DestroyRelation",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_FreeUniqueRecord",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_GetDbAcl",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_GetDbNameFromHandle",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_GetDbOwner",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_DL_PassThrough",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_GenerateKeyPair",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_GenerateKeyPairP",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_ModuleAttach",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_TP_CertRemoveFromCrlTemplate",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_TP_CertRevoke",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_UnwrapKey",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/cssmapi.h"
+      ],
+      "name": "CSSM_UnwrapKeyP",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecCertificate.h"
+      ],
+      "name": "SecCertificateCopyKey",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecIdentity.h"
+      ],
+      "name": "SecIdentityCreate",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecKey.h"
+      ],
+      "name": "SecKeyCreatePair",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecKey.h"
+      ],
+      "name": "SecKeyDeriveFromPassword",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecKey.h"
+      ],
+      "name": "SecKeyGenerateSymmetric",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecKeychain.h"
+      ],
+      "name": "SecKeychainAddInternetPassword",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecKeychain.h"
+      ],
+      "name": "SecKeychainFindInternetPassword",
+      "reason": "stack-parameters-not-supported-by-catalog"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecTask.h"
+      ],
+      "name": "SecTaskCreateWithAuditToken",
+      "reason": "unsupported-parameter-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecCustomTransform.h"
+      ],
+      "name": "SecTransformCustomGetAttribute",
+      "reason": "conflicting-symbol-declarations"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecTrust.h"
+      ],
+      "name": "SecTrustCopyCertificateChain",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolTypes.h"
+      ],
+      "name": "sec_certificate_create",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolTypes.h"
+      ],
+      "name": "sec_identity_create",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolTypes.h"
+      ],
+      "name": "sec_identity_create_with_certificates",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolMetadata.h"
+      ],
+      "name": "sec_protocol_metadata_copy_peer_public_key",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolMetadata.h"
+      ],
+      "name": "sec_protocol_metadata_create_secret",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolMetadata.h"
+      ],
+      "name": "sec_protocol_metadata_create_secret_with_context",
+      "reason": "unsupported-return-ABI"
+    },
+    {
+      "family": "security",
+      "headers": [
+        "System/Library/Frameworks/Security.framework/Headers/SecProtocolTypes.h"
+      ],
+      "name": "sec_trust_create",
+      "reason": "unsupported-return-ABI"
+    }
+  ],
+  "schemaVersion": 1
+}

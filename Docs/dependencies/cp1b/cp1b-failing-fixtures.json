@@ -1,0 +1,305 @@
+{
+ "schema": "macscope-cp1b-failing-fixtures-v1",
+ "producedBy": "MacScope contributors, 2026-10-13",
+ "sla": "ThirdParty/SleighNative/AARCH64/AARCH64_AppleSilicon.sla (CP1, as committed on the branch)",
+ "observedWith": "Scripts/dependencies/build_cp1_sleigh_lift.sh frontend (raw p-code, disassembly) and the package-backed native bridge (wire status)",
+ "scope": "Constructor-level CP1 defects for the CP1b cloud package. Validator/wire defects are fixed on the branch and are not listed here.",
+ "fixtures": [
+  {
+   "id": "cp1b-mova-vertical-output-budget-c000ffef",
+   "word": "c000ffef",
+   "class": "pcode-inflation",
+   "expected": {
+    "status": "native_admission",
+    "basis": "lane 21 admitted it inside _t21_rx18_allocated_move under the pre-CP1 SLA"
+   },
+   "observed": {
+    "status": "native-provider-output-budget-exceeded",
+    "disassembly": "mov za0x0v.b[cp1tmp_w0xf, #0xf], p0x7/m, z0x1f.b",
+    "rawPcodeOps": 3500,
+    "note": "product budget native-product-budget-v1 maxOutputBytes 1,048,576; the horizontal forms (e.g. c0007fef, 180 raw ops) are admitted at ~750 KB estimated V2 bytes"
+   },
+   "constructor": {
+    "form": "MOVA_ZA_P_RZ_B (vertical, B1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 4811
+   },
+   "ask": "Lower the vertical-slice (strided) vector-to-tile p-code to a size comparable to the horizontal form (no per-element unrolled scatter), keeping the CP1 VM vectors green."
+  },
+  {
+   "id": "cp1b-mova-vertical-output-budget-c040ffef",
+   "word": "c040ffef",
+   "class": "pcode-inflation",
+   "expected": {
+    "status": "native_admission",
+    "basis": "lane 21 admitted it inside _t21_rx18_allocated_move under the pre-CP1 SLA"
+   },
+   "observed": {
+    "status": "native-provider-output-budget-exceeded",
+    "disassembly": "mov za0x1v.h[cp1tmp_w0xf, #0x7], p0x7/m, z0x1f.h",
+    "rawPcodeOps": 1966,
+    "note": "product budget native-product-budget-v1 maxOutputBytes 1,048,576; the horizontal forms (e.g. c0007fef, 180 raw ops) are admitted at ~750 KB estimated V2 bytes"
+   },
+   "constructor": {
+    "form": "MOVA_ZA_P_RZ_H (vertical, H1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 9465
+   },
+   "ask": "Lower the vertical-slice (strided) vector-to-tile p-code to a size comparable to the horizontal form (no per-element unrolled scatter), keeping the CP1 VM vectors green."
+  },
+  {
+   "id": "cp1b-mova-vertical-output-budget-c080ffef",
+   "word": "c080ffef",
+   "class": "pcode-inflation",
+   "expected": {
+    "status": "native_admission",
+    "basis": "lane 21 admitted it inside _t21_rx18_allocated_move under the pre-CP1 SLA"
+   },
+   "observed": {
+    "status": "native-provider-output-budget-exceeded",
+    "disassembly": "mov za0x3v.s[cp1tmp_w0xf, #0x3], p0x7/m, z0x1f.s",
+    "rawPcodeOps": 1070,
+    "note": "product budget native-product-budget-v1 maxOutputBytes 1,048,576; the horizontal forms (e.g. c0007fef, 180 raw ops) are admitted at ~750 KB estimated V2 bytes"
+   },
+   "constructor": {
+    "form": "MOVA_ZA_P_RZ_W (vertical, W1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 11815
+   },
+   "ask": "Lower the vertical-slice (strided) vector-to-tile p-code to a size comparable to the horizontal form (no per-element unrolled scatter), keeping the CP1 VM vectors green."
+  },
+  {
+   "id": "cp1b-mova-vertical-output-budget-c0c0ffef",
+   "word": "c0c0ffef",
+   "class": "pcode-inflation",
+   "expected": {
+    "status": "native_admission",
+    "basis": "lane 21 admitted it inside _t21_rx18_allocated_move under the pre-CP1 SLA"
+   },
+   "observed": {
+    "status": "native-provider-output-budget-exceeded",
+    "disassembly": "mov za0x7v.d[cp1tmp_w0xf, #0x1], p0x7/m, z0x1f.d",
+    "rawPcodeOps": 622,
+    "note": "product budget native-product-budget-v1 maxOutputBytes 1,048,576; the horizontal forms (e.g. c0007fef, 180 raw ops) are admitted at ~750 KB estimated V2 bytes"
+   },
+   "constructor": {
+    "form": "MOVA_ZA_P_RZ_D (vertical, D1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 13013
+   },
+   "ask": "Lower the vertical-slice (strided) vector-to-tile p-code to a size comparable to the horizontal form (no per-element unrolled scatter), keeping the CP1 VM vectors green."
+  },
+  {
+   "id": "cp1b-mova-vertical-output-budget-c0c1ffef",
+   "word": "c0c1ffef",
+   "class": "pcode-inflation",
+   "expected": {
+    "status": "native_admission",
+    "basis": "lane 21 admitted it inside _t21_rx18_allocated_move under the pre-CP1 SLA"
+   },
+   "observed": {
+    "status": "native-provider-output-budget-exceeded",
+    "disassembly": "mov za0xfv.q[cp1tmp_w0xf, #0x0], p0x7/m, z0x1f.q",
+    "rawPcodeOps": 398,
+    "note": "product budget native-product-budget-v1 maxOutputBytes 1,048,576; the horizontal forms (e.g. c0007fef, 180 raw ops) are admitted at ~750 KB estimated V2 bytes"
+   },
+   "constructor": {
+    "form": "MOVA_ZA_P_RZ_Q (vertical, Q1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 13635
+   },
+   "ask": "Lower the vertical-slice (strided) vector-to-tile p-code to a size comparable to the horizontal form (no per-element unrolled scatter), keeping the CP1 VM vectors green."
+  },
+  {
+   "id": "cp1b-display-hex-register-c0cfc3df",
+   "word": "c0cfc3df",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "luti2 z31.b, zt0, z30[0xf]"
+   },
+   "observed": {
+    "disassembly": "luti2 z0x1f.b, zt0, z0x1e[0xf]"
+   },
+   "constructor": {
+    "form": "LUTI2_Z_ZTZ__",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 85710,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  },
+  {
+   "id": "cp1b-display-hex-register-c0020000",
+   "word": "c0020000",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "mov z0.b, p0/m, za0h.b[w12, 0x0]"
+   },
+   "observed": {
+    "disassembly": "mov z0x0.b, p0x0/m, za0x0h.b[cp1tmp_w0xc, #0x0]"
+   },
+   "constructor": {
+    "form": "MOVA_Z_P_RZA_B (horizontal, B0)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 13944,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  },
+  {
+   "id": "cp1b-display-hex-register-c0028000",
+   "word": "c0028000",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "mov z0.b, p0/m, za0v.b[w12, 0x0]"
+   },
+   "observed": {
+    "disassembly": "mov z0x0.b, p0x0/m, za0x0v.b[cp1tmp_w0xc, #0x0]"
+   },
+   "constructor": {
+    "form": "MOVA_Z_P_RZA_B (vertical, B1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 13968,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  },
+  {
+   "id": "cp1b-display-hex-register-c090f7e3",
+   "word": "c090f7e3",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "addha za3.s, p5/m, p7/m, z31.s"
+   },
+   "observed": {
+    "disassembly": "addha za0x3.s, p0x5/m, p0x7/m, z0x1f.s"
+   },
+   "constructor": {
+    "form": "ADDHA_ZA_PP_Z_32",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 83230,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  },
+  {
+   "id": "cp1b-display-hex-register-c000ffef",
+   "word": "c000ffef",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "mov za0v.b[w15, 0xf], p7/m, z31.b"
+   },
+   "observed": {
+    "disassembly": "mov za0x0v.b[cp1tmp_w0xf, #0xf], p0x7/m, z0x1f.b"
+   },
+   "constructor": {
+    "form": "MOVA_ZA_P_RZ_B (vertical, B1)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 4811,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  },
+  {
+   "id": "cp1b-display-hex-register-25231057",
+   "word": "25231057",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "whilegt p7.b, x2, x3"
+   },
+   "observed": {
+    "disassembly": "whilegt p0x7.b, x2, x3"
+   },
+   "constructor": {
+    "form": "WHILEGT_P_P_RR__ (64-bit)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 162,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  },
+  {
+   "id": "cp1b-display-hex-register-c0020200",
+   "word": "c0020200",
+   "class": "display-text",
+   "expected": {
+    "disassembly": "movaz z0.b, za0h.b[w12, 0x0]"
+   },
+   "observed": {
+    "disassembly": "movaz z0x0.b, za0x0h.b[cp1tmp_w0xc, #0x0]"
+   },
+   "constructor": {
+    "form": "MOVAZ_Z_RZA_B (B0)",
+    "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+    "line": 118184,
+    "also": [
+     {
+      "file": "ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc",
+      "line": 35,
+      "what": "CP1Ws13 prints \"cp1tmp_w\"^n instead of w12..w15"
+     }
+    ]
+   },
+   "ask": "Register operands built as \"z\"^field / \"p\"^field / \"za\"^field print the field in hex (z0x1f, p0x7, za0x3) and slice selectors print cp1tmp_w0xc; emit decimal register numbers and wN names (generator-level: dec fields or attach names). Display only; p-code unaffected."
+  }
+ ],
+ "ledgerExpectationGaps": [
+  {
+   "word": "c0020200",
+   "verdict": "ledger expectation gap, not a constructor defect",
+   "decodesAs": "movaz z0x0.b, za0x0h.b[cp1tmp_w0xc, #0x0]",
+   "form": "MOVAZ_Z_RZA_B (FEAT_SME2p1), ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc:118184",
+   "spec": "Arm A64 ISA XML 2025-03 movaz_z_rza.xml: base 0xc0020200, mask 0xffff1e00 (CP1 sme-decoder-vectors.json catalogue; research/third-pass/23-movaz.md)",
+   "staleLedgers": [
+    "ThirdParty/SleighNative/RX18_VALIDATION.json (status still_fail_closed)",
+    "ThirdParty/SleighNative/tests/rx18_feature_vectors.json (reserved list)",
+    "ThirdParty/SleighNative/T21_NATIVE_VALIDATION.json (_t21_rx18_guards_a_c0020200, expected provider_rejection)"
+   ],
+   "ask": "Retire c0020200 from the RX18/T21 reserved guard lists (pre-SME2p1 view); pick a genuinely reserved MOVAZ neighbour (e.g. a nonzero bit in the 0xffff1e00-fixed field) if a guard is still wanted."
+  },
+  {
+   "word": "25231057",
+   "verdict": "expected-still-fail-closed note is stale",
+   "decodesAs": "whilegt p0x7.b, x2, x3",
+   "form": "WHILEGT_P_P_RR__ ThirdParty/SleighNative/AARCH64/AARCH64sme_cp1.sinc:162",
+   "detail": "RX18 ledger expectedStillFailClosed (WHILEGT streaming-SVE gap). CP1 now decodes it with full p-code; with the validator fix it is admitted (single-word harness: only the return survives dead-code elimination).",
+   "ask": "Move 25231057 from expectedStillFailClosed to the allocated set in the next ledger."
+  }
+ ]
+}

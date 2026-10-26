@@ -1,0 +1,443 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared_not_native_executed",
+  "scope": "Fixed provider acceptance inputs derived from checked-in RX17 harnesses; includes eight RX-17b scalar FRINT forms; not native-executed",
+  "register_byte_order": "least significant byte first, independent of target endian storage",
+  "native_adapter": "Build root owns provider scenarios and SSA-aware assertions; no generic FP effect flag exists in current DTO",
+  "no_corpus_passes": true,
+  "cases": [
+    {
+      "id": "bfdot_index3",
+      "word_hex": "4f62f820",
+      "instruction_bytes_le": "20f8624f",
+      "fixture_source": "rx17_dataflow.py:cases/check",
+      "family": "bfdot",
+      "form": "indexed",
+      "rd": 0,
+      "rn": 1,
+      "rm": 2,
+      "active": 16,
+      "pairbytes": 4,
+      "index": 3,
+      "initial_z_register_bytes_lsb_first": {
+        "0": "121920272e353c434a51585f666d747b828990979ea5acb3bac1c8cfd6dde4eb",
+        "1": "2f363d444b525960676e757c838a91989fa6adb4bbc2c9d0d7dee5ecf3fa0209",
+        "2": "4c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb030a11181f26"
+      },
+      "raw_helper_argument_bytes_lsb_first": [
+        "121920272e353c434a51585f666d747b",
+        "2f363d444b525960676e757c838a9198",
+        "a0a7aeb5"
+      ],
+      "raw_helper_argument_widths": [
+        16,
+        16,
+        4
+      ],
+      "raw_helper_output_width": 16,
+      "native_obligations": [
+        "successful provider result",
+        "retained named helper and accumulator dependency",
+        "selected source group/pair provenance through SSA"
+      ],
+      "numeric_helper_result_qualified": false
+    },
+    {
+      "id": "sudot_index3",
+      "word_hex": "4f22f820",
+      "instruction_bytes_le": "20f8224f",
+      "fixture_source": "rx17_dataflow.py:cases/check",
+      "family": "sudot",
+      "form": "indexed",
+      "rd": 0,
+      "rn": 1,
+      "rm": 2,
+      "active": 16,
+      "pairbytes": 4,
+      "index": 3,
+      "initial_z_register_bytes_lsb_first": {
+        "0": "121920272e353c434a51585f666d747b828990979ea5acb3bac1c8cfd6dde4eb",
+        "1": "2f363d444b525960676e757c838a91989fa6adb4bbc2c9d0d7dee5ecf3fa0209",
+        "2": "4c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb030a11181f26"
+      },
+      "raw_helper_argument_bytes_lsb_first": [
+        "121920272e353c434a51585f666d747b",
+        "2f363d444b525960676e757c838a9198",
+        "a0a7aeb5"
+      ],
+      "raw_helper_argument_widths": [
+        16,
+        16,
+        4
+      ],
+      "raw_helper_output_width": 16,
+      "native_obligations": [
+        "successful provider result",
+        "retained named helper and accumulator dependency",
+        "selected source group/pair provenance through SSA"
+      ],
+      "numeric_helper_result_qualified": false
+    },
+    {
+      "id": "usdot_index3_alias",
+      "word_hex": "4fa2f822",
+      "instruction_bytes_le": "22f8a24f",
+      "fixture_source": "rx17_dataflow.py:cases/check",
+      "family": "usdot",
+      "form": "indexed",
+      "rd": 2,
+      "rn": 1,
+      "rm": 2,
+      "active": 16,
+      "pairbytes": 4,
+      "index": 3,
+      "initial_z_register_bytes_lsb_first": {
+        "1": "2f363d444b525960676e757c838a91989fa6adb4bbc2c9d0d7dee5ecf3fa0209",
+        "2": "4c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb030a11181f26"
+      },
+      "raw_helper_argument_bytes_lsb_first": [
+        "4c535a61686f767d848b9299a0a7aeb5",
+        "2f363d444b525960676e757c838a9198",
+        "a0a7aeb5"
+      ],
+      "raw_helper_argument_widths": [
+        16,
+        16,
+        4
+      ],
+      "raw_helper_output_width": 16,
+      "native_obligations": [
+        "successful provider result",
+        "retained named helper and accumulator dependency",
+        "selected source group/pair provenance through SSA"
+      ],
+      "numeric_helper_result_qualified": false
+    },
+    {
+      "id": "fcmla_half_index3",
+      "word_hex": "6f627820",
+      "instruction_bytes_le": "2078626f",
+      "fixture_source": "rx17_dataflow.py:cases/check",
+      "family": "fcmla",
+      "form": "indexed",
+      "rd": 0,
+      "rn": 1,
+      "rm": 2,
+      "active": 16,
+      "pairbytes": 4,
+      "index": 3,
+      "initial_z_register_bytes_lsb_first": {
+        "0": "121920272e353c434a51585f666d747b828990979ea5acb3bac1c8cfd6dde4eb",
+        "1": "2f363d444b525960676e757c838a91989fa6adb4bbc2c9d0d7dee5ecf3fa0209",
+        "2": "4c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb030a11181f26"
+      },
+      "raw_helper_argument_bytes_lsb_first": [
+        "121920272e353c434a51585f666d747b",
+        "2f363d444b525960676e757c838a9198",
+        "a0a7aeb5",
+        "0e01",
+        "02"
+      ],
+      "raw_helper_argument_widths": [
+        16,
+        16,
+        4,
+        2,
+        1
+      ],
+      "raw_helper_output_width": 16,
+      "native_obligations": [
+        "successful provider result",
+        "retained named helper and accumulator dependency",
+        "selected source group/pair provenance through SSA"
+      ],
+      "numeric_helper_result_qualified": false,
+      "element": 2,
+      "rotation": 270
+    },
+    {
+      "id": "fcmla_single_index1",
+      "word_hex": "6f823820",
+      "instruction_bytes_le": "2038826f",
+      "fixture_source": "rx17_dataflow.py:cases/check",
+      "family": "fcmla",
+      "form": "indexed",
+      "rd": 0,
+      "rn": 1,
+      "rm": 2,
+      "active": 16,
+      "pairbytes": 8,
+      "index": 1,
+      "initial_z_register_bytes_lsb_first": {
+        "0": "121920272e353c434a51585f666d747b828990979ea5acb3bac1c8cfd6dde4eb",
+        "1": "2f363d444b525960676e757c838a91989fa6adb4bbc2c9d0d7dee5ecf3fa0209",
+        "2": "4c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb030a11181f26"
+      },
+      "raw_helper_argument_bytes_lsb_first": [
+        "121920272e353c434a51585f666d747b",
+        "2f363d444b525960676e757c838a9198",
+        "848b9299a0a7aeb5",
+        "5a00",
+        "04"
+      ],
+      "raw_helper_argument_widths": [
+        16,
+        16,
+        8,
+        2,
+        1
+      ],
+      "raw_helper_output_width": 16,
+      "native_obligations": [
+        "successful provider result",
+        "retained named helper and accumulator dependency",
+        "selected source group/pair provenance through SSA"
+      ],
+      "numeric_helper_result_qualified": false,
+      "element": 4,
+      "rotation": 90
+    },
+    {
+      "id": "fcmla_double_vector",
+      "word_hex": "6ec2dc20",
+      "instruction_bytes_le": "20dcc26e",
+      "fixture_source": "rx17_dataflow.py:cases/check",
+      "family": "fcmla",
+      "form": "vector",
+      "rd": 0,
+      "rn": 1,
+      "rm": 2,
+      "active": 16,
+      "pairbytes": 16,
+      "index": null,
+      "initial_z_register_bytes_lsb_first": {
+        "0": "121920272e353c434a51585f666d747b828990979ea5acb3bac1c8cfd6dde4eb",
+        "1": "2f363d444b525960676e757c838a91989fa6adb4bbc2c9d0d7dee5ecf3fa0209",
+        "2": "4c535a61686f767d848b9299a0a7aeb5bcc3cad1d8dfe6edf4fb030a11181f26"
+      },
+      "raw_helper_argument_bytes_lsb_first": [
+        "121920272e353c434a51585f666d747b",
+        "2f363d444b525960676e757c838a9198",
+        "4c535a61686f767d848b9299a0a7aeb5",
+        "0e01",
+        "08"
+      ],
+      "raw_helper_argument_widths": [
+        16,
+        16,
+        16,
+        2,
+        1
+      ],
+      "raw_helper_output_width": 16,
+      "native_obligations": [
+        "successful provider result",
+        "retained named helper and accumulator dependency",
+        "selected source group/pair provenance through SSA"
+      ],
+      "numeric_helper_result_qualified": false,
+      "element": 8,
+      "rotation": 270
+    },
+    {
+      "id": "fjcvtzs_exception",
+      "word_hex": "1e7e0020",
+      "instruction_bytes_le": "20007e1e",
+      "fixture_source": "rx17_semantics.py:test_fj",
+      "helper_name": "ARM64FPProcessExceptions",
+      "raw_helper_argument_widths": [
+        8,
+        8,
+        8
+      ],
+      "raw_helper_output_width": 8,
+      "argument_roles": [
+        "exception_bits",
+        "fpcr",
+        "old_fpsr"
+      ],
+      "native_obligations": [
+        "conversion arithmetic retained",
+        "named exception call retained",
+        "FPCR and FPSR structural dependencies retained"
+      ],
+      "hardware_traps_qualified": false
+    },
+    {
+      "id": "bfcvt_exception",
+      "word_hex": "1e634020",
+      "instruction_bytes_le": "2040631e",
+      "fixture_source": "rx17_semantics.py:test_bf16",
+      "helper_name": "ARM64FPProcessExceptions",
+      "raw_helper_argument_widths": [
+        8,
+        8,
+        8
+      ],
+      "raw_helper_output_width": 8,
+      "argument_roles": [
+        "exception_bits",
+        "fpcr",
+        "old_fpsr"
+      ],
+      "native_obligations": [
+        "conversion arithmetic retained",
+        "named exception call retained",
+        "FPCR and FPSR structural dependencies retained"
+      ],
+      "hardware_traps_qualified": false
+    },
+    {
+      "id": "frint32x_s",
+      "word_hex": "1e28c020",
+      "instruction_bytes_le": "20c0281e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint32x",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 4,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint32x_d",
+      "word_hex": "1e68c020",
+      "instruction_bytes_le": "20c0681e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint32x",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 8,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint32z_s",
+      "word_hex": "1e284020",
+      "instruction_bytes_le": "2040281e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint32z",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 4,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint32z_d",
+      "word_hex": "1e684020",
+      "instruction_bytes_le": "2040681e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint32z",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 8,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint64x_s",
+      "word_hex": "1e29c020",
+      "instruction_bytes_le": "20c0291e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint64x",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 4,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint64x_d",
+      "word_hex": "1e69c020",
+      "instruction_bytes_le": "20c0691e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint64x",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 8,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint64z_s",
+      "word_hex": "1e294020",
+      "instruction_bytes_le": "2040291e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint64z",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 4,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    },
+    {
+      "id": "frint64z_d",
+      "word_hex": "1e694020",
+      "instruction_bytes_le": "2040691e",
+      "fixture_source": "rx17_semantics.py:test_frint",
+      "family": "frint64z",
+      "form": "scalar",
+      "rd": 0,
+      "rn": 1,
+      "element_bytes": 8,
+      "status": "prepared_not_native_executed",
+      "native_obligations": [
+        "successful provider result",
+        "integral floating-point result retains S/D width",
+        "FPCR rounding dependency for X; toward-zero for Z",
+        "range and nonfinite return FP-encoded minimum signed integer",
+        "retained named exception effect on invalid/inexact path"
+      ]
+    }
+  ]
+}

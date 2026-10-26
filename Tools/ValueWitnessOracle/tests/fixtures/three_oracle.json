@@ -1,0 +1,177 @@
+{
+ "image": "/images/sample",
+ "status": "ok",
+ "summary": {
+  "answered": 7,
+  "askable": 8,
+  "dependent": 0,
+  "rate": 0.875
+ },
+ "types": [
+  {
+   "fields": [
+    {
+     "name": "x",
+     "source": "mangled",
+     "vwt": {
+      "alignment": 8,
+      "extraInhabitants": 0,
+      "flags": 7,
+      "hasEnumWitnesses": false,
+      "incomplete": false,
+      "isBitwiseTakable": true,
+      "isPOD": true,
+      "size": 8,
+      "stride": 8
+     }
+    }
+   ],
+   "kind": "struct",
+   "mangled": "6Sample1AV",
+   "metadataVA": 4096,
+   "qualifiedName": "Sample.A",
+   "source": "name",
+   "vwt": {
+    "alignment": 8,
+    "extraInhabitants": 0,
+    "flags": 7,
+    "hasEnumWitnesses": false,
+    "incomplete": false,
+    "isBitwiseTakable": true,
+    "isPOD": true,
+    "size": 8,
+    "stride": 8
+   }
+  },
+  {
+   "fields": [
+    {
+     "name": "x",
+     "source": "mangled",
+     "vwt": {
+      "alignment": 8,
+      "extraInhabitants": 0,
+      "flags": 7,
+      "hasEnumWitnesses": false,
+      "incomplete": false,
+      "isBitwiseTakable": true,
+      "isPOD": true,
+      "size": 8,
+      "stride": 8
+     }
+    },
+    {
+     "name": "y",
+     "source": "mangled",
+     "vwt": {
+      "alignment": 8,
+      "extraInhabitants": 0,
+      "flags": 7,
+      "hasEnumWitnesses": false,
+      "incomplete": false,
+      "isBitwiseTakable": true,
+      "isPOD": true,
+      "size": 8,
+      "stride": 8
+     }
+    }
+   ],
+   "kind": "struct",
+   "mangled": "6Sample1BV",
+   "metadataVA": 8192,
+   "qualifiedName": "Sample.B",
+   "source": "name",
+   "vwt": {
+    "alignment": 8,
+    "extraInhabitants": 0,
+    "flags": 7,
+    "hasEnumWitnesses": false,
+    "incomplete": false,
+    "isBitwiseTakable": true,
+    "isPOD": true,
+    "size": 16,
+    "stride": 16
+   }
+  },
+  {
+   "kind": "struct",
+   "mangled": "6Sample1CV",
+   "metadataVA": 12288,
+   "qualifiedName": "Sample.C",
+   "source": "name",
+   "vwt": {
+    "alignment": 1,
+    "extraInhabitants": 0,
+    "flags": 0,
+    "hasEnumWitnesses": false,
+    "incomplete": false,
+    "isBitwiseTakable": true,
+    "isPOD": true,
+    "size": 1,
+    "stride": 1
+   }
+  },
+  {
+   "kind": "struct",
+   "mangled": "6Sample1DV",
+   "metadataVA": 16384,
+   "qualifiedName": "Sample.D",
+   "source": "name",
+   "vwt": {
+    "alignment": 8,
+    "extraInhabitants": 0,
+    "flags": 7,
+    "hasEnumWitnesses": false,
+    "incomplete": false,
+    "isBitwiseTakable": true,
+    "isPOD": true,
+    "size": 8,
+    "stride": 8
+   }
+  },
+  {
+   "kind": "enum",
+   "mangled": "6Sample1EO",
+   "metadataVA": 20480,
+   "qualifiedName": "Sample.E",
+   "source": "name",
+   "vwt": {
+    "alignment": 1,
+    "extraInhabitants": 0,
+    "flags": 2097152,
+    "hasEnumWitnesses": false,
+    "incomplete": false,
+    "isBitwiseTakable": true,
+    "isPOD": true,
+    "size": 1,
+    "stride": 1
+   }
+  },
+  {
+   "external": true,
+   "kind": "struct",
+   "mangled": "s5Int64V",
+   "metadataVA": null,
+   "qualifiedName": "Sample.Int64",
+   "source": "name",
+   "vwt": {
+    "alignment": 8,
+    "extraInhabitants": 0,
+    "flags": 7,
+    "hasEnumWitnesses": false,
+    "incomplete": false,
+    "isBitwiseTakable": true,
+    "isPOD": true,
+    "size": 8,
+    "stride": 8
+   }
+  }
+ ],
+ "unanswered": [
+  {
+   "descriptorKind": 17,
+   "mangled": "6Sample1GV",
+   "reason": "generic"
+  }
+ ]
+}

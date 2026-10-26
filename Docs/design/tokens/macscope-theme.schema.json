@@ -1,0 +1,505 @@
+{
+  "$defs" : {
+    "color" : {
+      "description" : "#RRGGBB or #RRGGBBAA",
+      "pattern" : "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "type" : "string"
+    },
+    "palette" : {
+      "additionalProperties" : {
+        "$ref" : "#/$defs/color"
+      },
+      "properties" : {
+        "accent.default" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "accent.soft" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "accent.subtle" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.canvas" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "bg.elevated" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.gutter" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "bg.hover" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.inset" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.selected" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.selectedInactive" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.sidebar" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "bg.window" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.default" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.focus" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.strong" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "border.subtle" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "code.currentLine" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default at 10% over bg.canvas. Drawn by the code canvas (editor theme)."
+        },
+        "debug.breakpoint" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "debug.patched" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "debug.programCounter" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "deck.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.inset."
+        },
+        "deck.rowBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.elevated."
+        },
+        "evidence.inferred" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "evidence.missing" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "evidence.proven" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "evidence.unknown" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.disabled" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.link" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.onAccent" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.primary" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.secondary" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "fg.tertiary" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "graph.lane.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.inset. Drawn by the code canvas (editor theme)."
+        },
+        "graph.node.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.elevated. Drawn by the code canvas (editor theme)."
+        },
+        "inspector.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar."
+        },
+        "kind.debug" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to debug.breakpoint."
+        },
+        "kind.function" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.function."
+        },
+        "kind.image" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default."
+        },
+        "kind.import" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.keyword."
+        },
+        "kind.section" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.type."
+        },
+        "kind.security" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.success."
+        },
+        "kind.segment" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.mnemonicArithmetic."
+        },
+        "kind.string" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.string."
+        },
+        "kind.symbol" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.address."
+        },
+        "kind.type" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.mnemonicGeneral."
+        },
+        "listing.alternateRow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.hover at 35% over bg.canvas. Drawn by the code canvas (editor theme)."
+        },
+        "listing.currentLine" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to code.currentLine. Drawn by the code canvas (editor theme)."
+        },
+        "listing.patchedRow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to debug.patched at 18% over bg.canvas. Drawn by the code canvas (editor theme)."
+        },
+        "listing.programCounterRow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to debug.programCounter at 16% over bg.canvas. Drawn by the code canvas (editor theme)."
+        },
+        "listing.secondaryText" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.tertiary. Drawn by the code canvas (editor theme)."
+        },
+        "listing.selection" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.selected. Drawn by the code canvas (editor theme)."
+        },
+        "sidebar.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar."
+        },
+        "sidebar.rowHover" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.hover."
+        },
+        "sidebar.rowSelected" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.selected."
+        },
+        "status.danger" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.dangerBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.info" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.infoBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.neutral" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.neutralBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.success" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.successBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.warning" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "status.warningBackground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it."
+        },
+        "statusbar.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.gutter. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.address" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.comment" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.function" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.immediate" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.keyword" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.mnemonicArithmetic" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.mnemonicBranch" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.mnemonicGeneral" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.mnemonicMemory" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.modifier" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.number" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.operator" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.punctuation" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.register" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.string" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.type" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "syntax.variable" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Semantic role; every complete variant defines it. Drawn by the code canvas (editor theme)."
+        },
+        "tab.accentBar" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default."
+        },
+        "tab.activeFill" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.canvas."
+        },
+        "terminal.ansi.black" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.inset. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.blue" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.info. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightBlack" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.tertiary. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightBlue" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.info. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightCyan" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.type. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightGreen" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.success. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightMagenta" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.keyword. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightRed" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.danger. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightWhite" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.primary. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.brightYellow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.warning. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.cyan" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.type. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.green" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.success. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.magenta" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to syntax.keyword. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.red" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.danger. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.white" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.secondary. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.ansi.yellow" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to status.warning. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.canvas. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.cursor" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to accent.default. Drawn by the code canvas (editor theme)."
+        },
+        "terminal.foreground" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to fg.primary. Drawn by the code canvas (editor theme)."
+        },
+        "toolbar.background" : {
+          "$ref" : "#/$defs/color",
+          "description" : "Component role; defaults to bg.sidebar."
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "$id" : "https://macscope.app/schemas/theme-v1.json",
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "anyOf" : [
+    {
+      "required" : [
+        "inherits"
+      ]
+    },
+    {
+      "required" : [
+        "light"
+      ]
+    },
+    {
+      "required" : [
+        "dark"
+      ]
+    }
+  ],
+  "description" : "A MacScope theme file (~/Library/Application Support/MacScope/Themes/*.json). Only id and name are required when the theme inherits from another theme.",
+  "properties" : {
+    "colorSpace" : {
+      "enum" : [
+        "srgb",
+        "display-p3"
+      ]
+    },
+    "dark" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "darkHighContrast" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "id" : {
+      "description" : "Unique, reverse-DNS style; built-in ids are reserved.",
+      "minLength" : 1,
+      "type" : "string"
+    },
+    "inherits" : {
+      "description" : "Parent theme id; omitted colors come from the parent chain.",
+      "examples" : [
+        "com.macscope.theme.scope",
+        "com.macscope.theme.midnight",
+        "com.macscope.theme.contrast"
+      ],
+      "type" : "string"
+    },
+    "light" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "lightHighContrast" : {
+      "$ref" : "#/$defs/palette"
+    },
+    "name" : {
+      "minLength" : 1,
+      "type" : "string"
+    },
+    "schemaVersion" : {
+      "maximum" : 1,
+      "minimum" : 1,
+      "type" : "integer"
+    },
+    "summary" : {
+      "type" : "string"
+    }
+  },
+  "required" : [
+    "id",
+    "name"
+  ],
+  "title" : "MacScope theme",
+  "type" : "object"
+}

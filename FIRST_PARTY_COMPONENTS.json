@@ -1,0 +1,1 @@
+{"components":[{"canonical_repository":"https://github.com/jdotc1/Lumen.git","git_revision":"9a8b6e0efd22881afc3c48f307b05afb15669dea","id":"lumen","materialization_script":"Scripts/dependencies/materialize_lumen_submodule.py","path":"ThirdParty/Lumen"}],"schema_version":1}

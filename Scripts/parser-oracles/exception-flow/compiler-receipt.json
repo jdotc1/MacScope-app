@@ -1,0 +1,32 @@
+{
+  "schema": "macscope.fixture-build.v1",
+  "compiler_version": "clang version 19.1.7 (https://github.com/ziglang/zig-bootstrap de1b01a8c1dddf75a560123ac1c2ab182b4830da)",
+  "target": "aarch64-macos.13.0",
+  "source": "exception_cases.cpp",
+  "source_sha256": "c8320a3c4a048eac6d3d8ced5212dbb15895a18f9a2c65c8d4f55e172bf2f3f5",
+  "target_executed": false,
+  "optimization": "1",
+  "command": [
+    "zig",
+    "c++",
+    "-target",
+    "aarch64-macos.13.0",
+    "-std=c++17",
+    "-O1",
+    "-g0",
+    "-fexceptions",
+    "-fno-stack-protector",
+    "-nostdlib",
+    "-nostdinc++",
+    "-shared",
+    "-Wl,-undefined,dynamic_lookup",
+    "exception_cases.cpp",
+    "-o",
+    "exception_cases_O1.dylib"
+  ],
+  "returncode": 0,
+  "size_bytes": 50952,
+  "sha256": "985ae45d224a70d237b0705a126897ddfb647d307e7bf5d020810f11232455f5",
+  "llvm_inspect_returncode": 0,
+  "receipt_status": "Retained compiler result; paths normalized, no rebuild or digest verification performed."
+}

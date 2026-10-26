@@ -1,0 +1,1372 @@
+From 14b21efecbb766aa3d947d780bd5ea7b8bcfd6f4 Mon Sep 17 00:00:00 2001
+From: MacScope contributors <contributors@macscope.invalid>
+Date: Sun, 16 Aug 2026 09:03:48 -0400
+Subject: [PATCH 1/3] test(gst): define external termio ABI and backend
+ contract
+
+Add the private external-I/O ABI v1 for host-fed terminal surfaces:
+versioned size-prefixed C structs, fail-closed validation, result and
+lifecycle enums, and callback typedefs in include/ghostty.h mirrored by
+src/termio/External.zig.
+
+The contract core is implemented and unit tested ahead of the backend
+integration: the refcounted shared state with a bounded all-or-nothing
+inbound mailbox (explicit byte and chunk capacities, atomic
+backpressure), the validated host process-state machine (terminal
+states latch, never regress, idempotent repeats), the latched
+single-shot close request, and the fixed-size surface registry that
+lets C entry points race safely with surface destruction (pin/drain
+gate). Tests cover ABI validation fail-closed cases, forward-compatible
+larger structs, byte-for-byte C header layout equality via the
+translated ghostty.h module, feed copy/bound/atomicity semantics, the
+process state machine, and registry bounds.
+
+No backend integration yet: nothing constructs the external backend and
+existing exec behavior is untouched.
+
+---
+ include/ghostty.h       |  146 +++++
+ src/termio.zig          |    1 +
+ src/termio/External.zig | 1154 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 1301 insertions(+)
+ create mode 100644 src/termio/External.zig
+
+diff --git a/include/ghostty.h b/include/ghostty.h
+index ac7df2b37..bed533a3e 100644
+--- a/include/ghostty.h
++++ b/include/ghostty.h
+@@ -1037,6 +1037,134 @@ typedef struct {
+   ghostty_runtime_close_surface_cb close_surface_cb;
+ } ghostty_runtime_config_s;
+ 
++//-------------------------------------------------------------------
++// Private external-I/O ABI (v1). MacScope host-fed surfaces.
++//
++// An external surface is fed already-authorized terminal output bytes by
++// the embedding host and returns terminal-generated input bytes, resize
++// proposals, and lifecycle notifications through the callbacks below.
++// Ghostty never launches, owns, resizes, signals, or waits for a child
++// process or PTY for an external surface.
++//
++// Contract summary (authoritative documentation: src/termio/External.zig
++// and ABI_CONTRACT_V1.md in the integration return):
++//
++//   - Versioning: every struct is size-prefixed. struct_size must be at
++//     least the v1 size and abi_version must be
++//     GHOSTTY_EXTERNAL_IO_ABI_VERSION; larger future structs are read
++//     only through their v1 prefix. Unknown versions, undersized
++//     structs, null required callbacks, and invalid enum values fail
++//     closed (surface creation returns NULL; calls return INVALID).
++//   - Threading: feed/set_process_state/is_external_io may be called
++//     from any host thread and may safely race with
++//     ghostty_surface_free (they return CLOSED once destruction
++//     begins). Every callback is invoked on Ghostty's termio io thread,
++//     with no internal lock held. No callback occurs after
++//     ghostty_surface_free returns.
++//   - Buffers: feed copies any bytes it retains before returning; a
++//     callback buffer is valid only for the duration of the callback.
++//     Feeds are all-or-nothing: ACCEPTED consumed the whole buffer,
++//     every other result consumed nothing.
++//   - Queues: the inbound mailbox and pending-output buffer are bounded
++//     (1 MiB / 1024 chunks inbound, 256 KiB pending output). A feed
++//     that cannot fit right now returns BACKPRESSURED; after the
++//     mailbox drains, the optional health callback reports FEED_READY
++//     and a retry will succeed. A feed larger than the total capacity
++//     returns INVALID.
++//   - Reentrancy: callbacks must not call ghostty_surface_free (or
++//     block on a thread calling it); calling feed/set_process_state
++//     from a callback is allowed.
++//   - Lifecycle: set_process_state transitions are validated; terminal
++//     states (EXITED/SIGNALED/CLOSED) latch, never regress to RUNNING,
++//     and preserve the final screen and scrollback. After a terminal
++//     state, feed returns CLOSED and generated output/resize callbacks
++//     are suppressed (reported once via OUTPUT_SUPPRESSED). The close
++//     callback fires at most once per surface: either echoing the
++//     host-reported terminal state or requesting a close on Ghostty's
++//     behalf (CLOSE_SURFACE_REQUEST).
++
++#define GHOSTTY_EXTERNAL_IO_ABI_VERSION 1
++
++// termio.External.Result
++typedef enum {
++  GHOSTTY_EXTERNAL_IO_ACCEPTED = 0,
++  GHOSTTY_EXTERNAL_IO_BACKPRESSURED = 1,
++  GHOSTTY_EXTERNAL_IO_CLOSED = 2,
++  GHOSTTY_EXTERNAL_IO_INVALID = 3,
++  GHOSTTY_EXTERNAL_IO_INTERNAL_ERROR = 4,
++} ghostty_external_io_result_e;
++
++// termio.External.ProcessStateKind
++typedef enum {
++  GHOSTTY_EXTERNAL_PROCESS_RUNNING = 0,
++  GHOSTTY_EXTERNAL_PROCESS_EXITED = 1,
++  GHOSTTY_EXTERNAL_PROCESS_SIGNALED = 2,
++  GHOSTTY_EXTERNAL_PROCESS_CLOSED = 3,
++} ghostty_external_process_state_e;
++
++// termio.External.CloseReason
++typedef enum {
++  GHOSTTY_EXTERNAL_CLOSE_HOST_EXITED = 0,
++  GHOSTTY_EXTERNAL_CLOSE_HOST_SIGNALED = 1,
++  GHOSTTY_EXTERNAL_CLOSE_HOST_CLOSED = 2,
++  GHOSTTY_EXTERNAL_CLOSE_SURFACE_REQUEST = 3,
++} ghostty_external_close_reason_e;
++
++// termio.External.HealthEvent
++typedef enum {
++  GHOSTTY_EXTERNAL_HEALTH_FEED_READY = 0,
++  GHOSTTY_EXTERNAL_HEALTH_OUTPUT_BACKPRESSURED = 1,
++  GHOSTTY_EXTERNAL_HEALTH_OUTPUT_OVERFLOW = 2,
++  GHOSTTY_EXTERNAL_HEALTH_OUTPUT_SUPPRESSED = 3,
++} ghostty_external_health_event_e;
++
++// Terminal-generated bytes for the host to deliver to its session. The
++// buffer is valid only during the call. Return ACCEPTED (all bytes
++// consumed), BACKPRESSURED (nothing consumed; Ghostty retains the bytes
++// in a bounded buffer and retries), or CLOSED (output channel is
++// permanently unavailable). Out-of-range returns are treated as CLOSED.
++typedef ghostty_external_io_result_e (*ghostty_external_write_cb)(void*,
++                                                                  const uint8_t*,
++                                                                  size_t);
++
++// Proposed geometry: columns, rows, pixel width, pixel height. Identical
++// consecutive proposals are coalesced; a proposal precedes the terminal
++// grid applying the new size.
++typedef void (*ghostty_external_resize_cb)(void*,
++                                           uint16_t,
++                                           uint16_t,
++                                           uint32_t,
++                                           uint32_t);
++
++// Session close notification/request. Invoked at most once per surface.
++typedef void (*ghostty_external_close_cb)(void*,
++                                          ghostty_external_close_reason_e);
++
++// Optional bounded diagnostics. detail is the byte count associated with
++// the event. Events are edge-triggered and latched (one callback per
++// condition, never per byte).
++typedef void (*ghostty_external_health_cb)(void*,
++                                           ghostty_external_health_event_e,
++                                           uint64_t);
++
++typedef struct {
++  size_t struct_size;    // sizeof(ghostty_external_io_config_s)
++  uint32_t abi_version;  // GHOSTTY_EXTERNAL_IO_ABI_VERSION
++  void* userdata;
++  ghostty_external_write_cb write_cb;    // required
++  ghostty_external_resize_cb resize_cb;  // required
++  ghostty_external_close_cb close_cb;    // required
++  ghostty_external_health_cb health_cb;  // optional, may be NULL
++} ghostty_external_io_config_s;
++
++typedef struct {
++  size_t struct_size;    // sizeof(ghostty_external_process_state_s)
++  uint32_t abi_version;  // GHOSTTY_EXTERNAL_IO_ABI_VERSION
++  int32_t state;         // ghostty_external_process_state_e
++  uint32_t exit_code;    // valid when state == EXITED
++  uint32_t signal;       // valid when state == SIGNALED
++} ghostty_external_process_state_s;
++
+ // apprt.ipc.Target.Key
+ typedef enum {
+   GHOSTTY_IPC_TARGET_CLASS,
+@@ -1114,6 +1242,24 @@ GHOSTTY_API ghostty_surface_t ghostty_surface_new(ghostty_app_t,
+                                                      const ghostty_surface_config_s*);
+ GHOSTTY_API void ghostty_surface_free(ghostty_surface_t);
+ GHOSTTY_API void* ghostty_surface_userdata(ghostty_surface_t);
++
++// Private external-I/O ABI v1 (see the typedef block above for the
++// contract). ghostty_surface_new_external fails closed (returns NULL)
++// on any invalid config. feed/set_process_state/is_external_io are
++// callable from any host thread and safe against surface destruction.
++GHOSTTY_API ghostty_surface_t ghostty_surface_new_external(
++    ghostty_app_t,
++    const ghostty_surface_config_s*,
++    const ghostty_external_io_config_s*);
++GHOSTTY_API ghostty_external_io_result_e ghostty_surface_external_feed(
++    ghostty_surface_t,
++    const uint8_t*,
++    size_t);
++GHOSTTY_API ghostty_external_io_result_e
++ghostty_surface_external_set_process_state(
++    ghostty_surface_t,
++    const ghostty_external_process_state_s*);
++GHOSTTY_API bool ghostty_surface_is_external_io(ghostty_surface_t);
+ GHOSTTY_API ghostty_app_t ghostty_surface_app(ghostty_surface_t);
+ GHOSTTY_API ghostty_surface_config_s ghostty_surface_inherited_config(ghostty_surface_t, ghostty_surface_context_e);
+ GHOSTTY_API void ghostty_surface_update_config(ghostty_surface_t, ghostty_config_t);
+diff --git a/src/termio.zig b/src/termio.zig
+index b16885109..f0dab45bb 100644
+--- a/src/termio.zig
++++ b/src/termio.zig
+@@ -23,6 +23,7 @@ const message = @import("termio/message.zig");
+ pub const backend = @import("termio/backend.zig");
+ pub const mailbox = @import("termio/mailbox.zig");
+ pub const Exec = @import("termio/Exec.zig");
++pub const External = @import("termio/External.zig");
+ pub const Options = @import("termio/Options.zig");
+ pub const Termio = @import("termio/Termio.zig");
+ pub const Thread = @import("termio/Thread.zig");
+diff --git a/src/termio/External.zig b/src/termio/External.zig
+new file mode 100644
+index 000000000..5832b081b
+--- /dev/null
++++ b/src/termio/External.zig
+@@ -0,0 +1,1154 @@
++//! External is a termio backend that is fed already-authorized terminal
++//! output bytes by an embedding host and that returns terminal-generated
++//! input bytes, grid/pixel resize proposals, and session lifecycle
++//! notifications to the host through versioned C ABI callbacks.
++//!
++//! In this mode Ghostty owns terminal emulation and rendering only. The
++//! host owns the process: this backend never launches, owns, resizes,
++//! reads from, writes to, signals, or waits for a child process or PTY.
++//! In particular there is no use of fork/exec/posix_spawn, no openpty,
++//! no ioctl(TIOCSWINSZ), no direct PTY writes, no child signaling and no
++//! child waiting anywhere in this file, and no `Exec` state is ever
++//! constructed for an external surface.
++//!
++//! ## Data flow
++//!
++//!   host --(feed: copied bytes)--> bounded inbound mailbox --(io thread)-->
++//!     Termio.processOutput --> terminal state
++//!
++//!   terminal --(queueWrite on io thread)--> host write callback
++//!   surface resize --(io thread)--> host resize callback
++//!   host process state / surface close --> host close callback (io thread)
++//!
++//! ## Threading contract (ABI v1)
++//!
++//!   - `feed`, `setProcessState`, and `isExternal` may be called from any
++//!     host thread. They only touch the shared state object, never the
++//!     surface, so they are safe to race with surface destruction.
++//!   - Every host callback (write, resize, close, health) is invoked on
++//!     Ghostty's termio io thread, never while any internal lock is held.
++//!   - Callback buffers are valid only for the duration of the callback;
++//!     the receiver must copy anything it retains.
++//!   - No callback is invoked after surface destruction has completed:
++//!     destruction joins the io thread before the shared state is released.
++//!   - Callbacks must not call `ghostty_surface_free` or block on a thread
++//!     that does. Calling `feed`/`setProcessState` from within a callback
++//!     is allowed (they only enqueue work).
++pub const External = @This();
++
++const std = @import("std");
++const builtin = @import("builtin");
++const assert = @import("../quirks.zig").inlineAssert;
++const Allocator = std.mem.Allocator;
++const global = @import("../global.zig");
++const xev = global.xev;
++const renderer = @import("../renderer.zig");
++const terminal = @import("../terminal/main.zig");
++const termio = @import("../termio.zig");
++const ProcessInfo = @import("../pty.zig").ProcessInfo;
++
++const log = std.log.scoped(.io_external);
++
++/// The refcounted state shared with the C ABI entry points. Owned
++/// references: this backend, the surface registry entry, and the io
++/// thread data while the thread runs.
++shared: *Shared,
++
++/// The last geometry proposed to the host (or the construction geometry
++/// before any proposal). Identical consecutive proposals are coalesced;
++/// this never suppresses a geometry change. Only touched during init and
++/// then from the io thread, so it needs no lock.
++last_grid: ?renderer.GridSize = null,
++last_screen: ?renderer.ScreenSize = null,
++
++/// The private external-I/O ABI version implemented by this file. This
++/// must match `GHOSTTY_EXTERNAL_IO_ABI_VERSION` in include/ghostty.h.
++pub const abi_version: u32 = 1;
++
++/// Result codes returned across the C ABI.
++/// C type: ghostty_external_io_result_e
++pub const Result = enum(c_int) {
++    /// The full input was accepted. Feeds are all-or-nothing; there is
++    /// no partial consumption.
++    accepted = 0,
++    /// Nothing was consumed because a bounded queue is full. The call may
++    /// be retried after capacity is released (see HealthEvent.feed_ready).
++    backpressured = 1,
++    /// Nothing was consumed because the session is closed (host reported a
++    /// terminal process state, or the surface is being destroyed).
++    closed = 2,
++    /// Invalid arguments: bad version, undersized struct, null required
++    /// pointer, invalid enum value, or an impossible pointer/length
++    /// combination. Nothing was consumed.
++    invalid = 3,
++    /// An internal failure (e.g. allocation failure). Nothing was consumed.
++    internal_error = 4,
++};
++
++/// Host-reported process lifecycle states.
++/// C type: ghostty_external_process_state_e
++pub const ProcessStateKind = enum(c_int) {
++    running = 0,
++    exited = 1,
++    signaled = 2,
++    closed = 3,
++};
++
++/// The reason for a close callback.
++/// C type: ghostty_external_close_reason_e
++pub const CloseReason = enum(c_int) {
++    /// The host reported a normal exit via setProcessState.
++    host_exited = 0,
++    /// The host reported a signaled/abnormal exit via setProcessState.
++    host_signaled = 1,
++    /// The host reported the session closed/unavailable via setProcessState.
++    host_closed = 2,
++    /// Ghostty requests that the host close this surface/session (e.g. a
++    /// close keybind or surface close request inside Ghostty).
++    surface_request = 3,
++};
++
++/// Bounded health/diagnostic events. Each event is edge-triggered and
++/// latched so a single condition produces a single callback, never a
++/// per-byte or per-call stream.
++/// C type: ghostty_external_health_event_e
++pub const HealthEvent = enum(c_int) {
++    /// The inbound mailbox fully drained after a feed had been rejected
++    /// with `backpressured`. A retry is likely to succeed now.
++    feed_ready = 0,
++    /// The host write callback reported backpressure; the bytes are held
++    /// in the bounded pending-output buffer and will be retried.
++    output_backpressured = 1,
++    /// The pending-output buffer overflowed; the output channel has
++    /// failed permanently and subsequent generated output is discarded
++    /// (reported once via output_suppressed).
++    output_overflow = 2,
++    /// Terminal-generated output was discarded because the session is
++    /// closed or the output channel failed. Reported once.
++    output_suppressed = 3,
++};
++
++/// Host write callback: terminal-generated bytes for the host to deliver
++/// to its session. The buffer is only valid during the call. The host
++/// returns a `Result` value: `accepted`, `backpressured` (nothing
++/// consumed, Ghostty retains the bytes in a bounded buffer and retries),
++/// or `closed` (output channel permanently unavailable). The return is
++/// typed as the raw C integer so an out-of-range value from the host
++/// fails closed (treated as `closed`) instead of being undefined.
++pub const WriteFn = *const fn (
++    ?*anyopaque,
++    [*]const u8,
++    usize,
++) callconv(.c) c_int;
++
++/// Host resize callback: proposed grid size (columns, rows) and pixel
++/// size (width, height) whenever the surface computes a new geometry.
++/// Ghostty never resizes a PTY itself in external mode.
++pub const ResizeFn = *const fn (
++    ?*anyopaque,
++    u16,
++    u16,
++    u32,
++    u32,
++) callconv(.c) void;
++
++/// Host close callback: a session lifecycle notification (host-reported
++/// terminal state echoed back after processing) or a Ghostty-originated
++/// surface close request. Invoked at most once per surface.
++pub const CloseFn = *const fn (
++    ?*anyopaque,
++    CloseReason,
++) callconv(.c) void;
++
++/// Optional host health callback. `detail` is the byte count associated
++/// with the event (free capacity for feed_ready, pending/dropped bytes
++/// for output events).
++pub const HealthFn = *const fn (
++    ?*anyopaque,
++    HealthEvent,
++    u64,
++) callconv(.c) void;
++
++/// C ABI: ghostty_external_io_config_s (ABI v1).
++///
++/// Size-prefixed and versioned. `struct_size` must be at least
++/// `@sizeOf(CConfig)`; larger values are allowed for forward
++/// compatibility and only the v1 prefix is read.
++pub const CConfig = extern struct {
++    struct_size: usize,
++    abi_version: u32,
++    userdata: ?*anyopaque,
++    write_cb: ?WriteFn,
++    resize_cb: ?ResizeFn,
++    close_cb: ?CloseFn,
++    health_cb: ?HealthFn,
++};
++
++/// C ABI: ghostty_external_process_state_s (ABI v1).
++///
++/// Size-prefixed and versioned like CConfig. `state` is validated
++/// against ProcessStateKind and invalid values fail closed.
++pub const CProcessState = extern struct {
++    struct_size: usize,
++    abi_version: u32,
++    state: c_int,
++    exit_code: u32,
++    signal: u32,
++};
++
++/// The validated host callback configuration. Constructing this from the
++/// C struct is the fail-closed ABI boundary: unknown versions, undersized
++/// structs, and null required callbacks are all rejected here before any
++/// surface state exists.
++pub const HostConfig = struct {
++    userdata: ?*anyopaque = null,
++    write_cb: WriteFn,
++    resize_cb: ResizeFn,
++    close_cb: CloseFn,
++    health_cb: ?HealthFn = null,
++
++    pub fn fromC(ptr_: ?*const CConfig) error{Invalid}!HostConfig {
++        const ptr = ptr_ orelse return error.Invalid;
++
++        // The struct must cover at least the v1 prefix. A larger struct
++        // from a future revision is accepted and only the v1 prefix is
++        // read; a smaller struct is rejected.
++        if (ptr.struct_size < @sizeOf(CConfig)) return error.Invalid;
++        if (ptr.abi_version != abi_version) return error.Invalid;
++
++        return .{
++            .userdata = ptr.userdata,
++            .write_cb = ptr.write_cb orelse return error.Invalid,
++            .resize_cb = ptr.resize_cb orelse return error.Invalid,
++            .close_cb = ptr.close_cb orelse return error.Invalid,
++            .health_cb = ptr.health_cb,
++        };
++    }
++};
++
++/// The validated host-reported process state.
++pub const ProcessState = union(ProcessStateKind) {
++    running: void,
++    /// Normal exit with the host-supplied exit code.
++    exited: u32,
++    /// Signaled/abnormal exit with the host-supplied signal number.
++    signaled: u32,
++    /// The session is closed or unavailable without further detail.
++    closed: void,
++
++    pub fn fromC(ptr_: ?*const CProcessState) error{Invalid}!ProcessState {
++        const ptr = ptr_ orelse return error.Invalid;
++        if (ptr.struct_size < @sizeOf(CProcessState)) return error.Invalid;
++        if (ptr.abi_version != abi_version) return error.Invalid;
++        const kind = std.enums.fromInt(
++            ProcessStateKind,
++            ptr.state,
++        ) orelse return error.Invalid;
++        return switch (kind) {
++            .running => .{ .running = {} },
++            .exited => .{ .exited = ptr.exit_code },
++            .signaled => .{ .signaled = ptr.signal },
++            .closed => .{ .closed = {} },
++        };
++    }
++};
++
++/// Explicit, finite queue limits for one external surface. These are the
++/// documented ABI v1 capacities; tests may construct smaller limits.
++pub const Limits = struct {
++    /// Maximum total bytes buffered in the inbound (host -> terminal)
++    /// mailbox. A single feed larger than this can never be accepted and
++    /// returns `invalid`; a feed that does not fit the current free space
++    /// returns `backpressured` and consumes nothing.
++    inbound_capacity_bytes: usize = 1024 * 1024,
++
++    /// Maximum number of buffered inbound chunks. Bounds queue metadata
++    /// independently of byte capacity.
++    inbound_capacity_chunks: usize = 1024,
++
++    /// Maximum bytes of terminal-generated output retained while the host
++    /// write callback reports backpressure. Overflow fails the output
++    /// channel permanently (health: output_overflow).
++    pending_output_capacity_bytes: usize = 256 * 1024,
++};
++
++/// The refcounted state shared between the termio backend, the C ABI
++/// surface registry, and transient host calls. Host-callable entry points
++/// operate only on this object so that they can safely race with surface
++/// destruction.
++pub const Shared = struct {
++    alloc: Allocator,
++    limits: Limits,
++    callbacks: HostConfig,
++
++    /// Protects every mutable field below. Never held while a host
++    /// callback is invoked.
++    mutex: std.Io.Mutex = .init,
++
++    /// Signaled when `pins` drops to zero (destruction gate).
++    cond: std.Io.Condition = .init,
++
++    /// Ownership references: termio backend, registry entry, io thread
++    /// data, and one per transient pinned host call.
++    refs: usize = 1,
++
++    /// Transient host calls currently executing against this object.
++    pins: usize = 0,
++
++    /// Wakes the termio io thread to drain the inbound mailbox and
++    /// deliver pending lifecycle events.
++    wakeup: xev.Async,
++
++    /// Bounded inbound mailbox: copied chunks in feed order.
++    inbound: std.ArrayListUnmanaged([]u8) = .empty,
++    inbound_bytes: usize = 0,
++
++    /// Set when a feed was rejected for capacity; produces one
++    /// feed_ready health event after the mailbox next fully drains.
++    feed_backpressured: bool = false,
++
++    /// Host-reported process lifecycle state.
++    process: ProcessState = .running,
++
++    /// Close notification latched for io-thread delivery, and whether the
++    /// (at most one) close callback was already delivered.
++    close_pending: ?CloseReason = null,
++    close_delivered: bool = false,
++
++    /// Once true, feeds are rejected with `closed`. Set by a terminal
++    /// process state or by the start of surface destruction.
++    feed_closed: bool = false,
++
++    /// True while the termio io thread is attached (between threadEnter
++    /// and threadExit). After detach no further callbacks are made.
++    attached: bool = false,
++    detached: bool = false,
++
++    pub fn create(
++        alloc: Allocator,
++        callbacks: HostConfig,
++        limits: Limits,
++    ) !*Shared {
++        const self = try alloc.create(Shared);
++        errdefer alloc.destroy(self);
++
++        var wakeup = try xev.Async.init();
++        errdefer wakeup.deinit();
++
++        self.* = .{
++            .alloc = alloc,
++            .limits = limits,
++            .callbacks = callbacks,
++            .wakeup = wakeup,
++        };
++        return self;
++    }
++
++    pub fn retain(self: *Shared) void {
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        self.refs += 1;
++    }
++
++    pub fn release(self: *Shared) void {
++        const io = global.io();
++        const remaining = remaining: {
++            self.mutex.lockUncancelable(io);
++            defer self.mutex.unlock(io);
++            assert(self.refs > 0);
++            self.refs -= 1;
++            break :remaining self.refs;
++        };
++        if (remaining == 0) self.destroy();
++    }
++
++    fn destroy(self: *Shared) void {
++        for (self.inbound.items) |chunk| self.alloc.free(chunk);
++        self.inbound.deinit(self.alloc);
++        self.wakeup.deinit();
++        const alloc = self.alloc;
++        self.* = undefined;
++        alloc.destroy(self);
++    }
++
++    /// Feed host-supplied bytes into the bounded inbound mailbox. The
++    /// bytes are copied before this returns; the caller's buffer is never
++    /// retained. The feed is all-or-nothing: either the entire buffer is
++    /// enqueued (`accepted`) or nothing is consumed.
++    pub fn feed(self: *Shared, bytes: []const u8) Result {
++        const io = global.io();
++
++        // Zero-length feeds are deterministically harmless. They still
++        // report closure so a host can observe session state.
++        if (bytes.len == 0) {
++            self.mutex.lockUncancelable(io);
++            defer self.mutex.unlock(io);
++            return if (self.feed_closed) .closed else .accepted;
++        }
++
++        // A feed larger than total capacity can never succeed; reject it
++        // as invalid (not backpressured) so the host does not retry
++        // forever. This also bounds the arithmetic below.
++        if (bytes.len > self.limits.inbound_capacity_bytes) return .invalid;
++
++        // Copy before taking the lock so lock hold time stays small.
++        const copy = self.alloc.dupe(u8, bytes) catch return .internal_error;
++
++        const result: Result = result: {
++            self.mutex.lockUncancelable(io);
++            defer self.mutex.unlock(io);
++
++            if (self.feed_closed) break :result .closed;
++
++            // Both operands are <= capacity so this sum cannot overflow.
++            if (self.inbound_bytes + bytes.len > self.limits.inbound_capacity_bytes or
++                self.inbound.items.len >= self.limits.inbound_capacity_chunks)
++            {
++                self.feed_backpressured = true;
++                break :result .backpressured;
++            }
++
++            self.inbound.append(self.alloc, copy) catch
++                break :result .internal_error;
++            self.inbound_bytes += bytes.len;
++            break :result .accepted;
++        };
++
++        if (result != .accepted) {
++            self.alloc.free(copy);
++            return result;
++        }
++
++        // Wake the io thread. If the notify fails the bytes remain safely
++        // queued and are drained on the next successful wakeup; nothing
++        // is dropped.
++        self.wakeup.notify() catch |err| log.warn(
++            "external wakeup failed, queued bytes drain on next wakeup err={}",
++            .{err},
++        );
++        return .accepted;
++    }
++
++    /// Apply a validated host process state. Transitions are validated:
++    /// terminal states latch, never regress to running, and repeated
++    /// identical reports are idempotent.
++    pub fn setProcessState(self: *Shared, state: ProcessState) Result {
++        const io = global.io();
++        var wake = false;
++        const result: Result = result: {
++            self.mutex.lockUncancelable(io);
++            defer self.mutex.unlock(io);
++
++            switch (self.process) {
++                .running => switch (state) {
++                    // running -> running is an idempotent no-op.
++                    .running => break :result .accepted,
++
++                    // First terminal transition: latch the state, close
++                    // the feed channel, and queue the close notification
++                    // for io-thread delivery. The terminal screen and
++                    // scrollback are intentionally left untouched.
++                    .exited, .signaled, .closed => {
++                        self.process = state;
++                        self.feed_closed = true;
++                        self.close_pending = switch (state) {
++                            .running => unreachable,
++                            .exited => .host_exited,
++                            .signaled => .host_signaled,
++                            .closed => .host_closed,
++                        };
++                        wake = true;
++                        break :result .accepted;
++                    },
++                },
++
++                .exited, .signaled, .closed => {
++                    // Terminal states never regress to running.
++                    if (state == .running) break :result .invalid;
++
++                    // Identical repeated reports are idempotent.
++                    if (std.meta.eql(self.process, state)) break :result .accepted;
++
++                    // Escalation to closed/unavailable is accepted as a
++                    // no-op; the first terminal state stays authoritative.
++                    if (state == .closed) break :result .accepted;
++
++                    // Contradictory terminal information fails closed.
++                    break :result .invalid;
++                },
++            }
++        };
++
++        if (wake) self.wakeup.notify() catch |err| log.warn(
++            "external wakeup failed, close delivery waits for next wakeup err={}",
++            .{err},
++        );
++        return result;
++    }
++
++    /// Request that the host close this session (Ghostty-originated).
++    /// Delivered at most once, on the io thread, like all callbacks.
++    pub fn requestClose(self: *Shared) void {
++        const io = global.io();
++        {
++            self.mutex.lockUncancelable(io);
++            defer self.mutex.unlock(io);
++            if (self.close_delivered or self.close_pending != null) return;
++            self.close_pending = .surface_request;
++        }
++        self.wakeup.notify() catch |err| log.warn(
++            "external wakeup failed, close delivery waits for next wakeup err={}",
++            .{err},
++        );
++    }
++
++    /// Deliver a health event outside any lock. No-op without a callback.
++    fn healthEvent(self: *Shared, event: HealthEvent, detail: u64) void {
++        const cb = self.callbacks.health_cb orelse return;
++        cb(self.callbacks.userdata, event, detail);
++    }
++};
++
++//-------------------------------------------------------------------
++// Surface registry
++//
++// The C ABI entry points look surface handles up here instead of
++// dereferencing them, which is what makes feed/setProcessState safe to
++// race with ghostty_surface_free: a pinned entry keeps the Shared state
++// alive, and beginDestroy waits for pins to drain after unregistering.
++
++/// Maximum simultaneously registered external surfaces. Fixed so the
++/// registry itself performs no allocation.
++pub const registry_max_surfaces = 64;
++
++const RegistryEntry = struct {
++    key: *const anyopaque,
++    shared: *Shared,
++};
++
++var registry_mutex: std.Io.Mutex = .init;
++var registry_entries: [registry_max_surfaces]?RegistryEntry =
++    @splat(null);
++
++/// Register a surface handle. Retains `shared` until beginDestroy.
++pub fn registryRegister(
++    key: *const anyopaque,
++    shared: *Shared,
++) error{RegistryFull}!void {
++    const io = global.io();
++    shared.retain();
++    errdefer shared.release();
++
++    registry_mutex.lockUncancelable(io);
++    defer registry_mutex.unlock(io);
++    for (&registry_entries) |*slot| {
++        if (slot.* == null) {
++            slot.* = .{ .key = key, .shared = shared };
++            return;
++        }
++    }
++    return error.RegistryFull;
++}
++
++/// Look up and pin the shared state for a surface handle. The caller
++/// must call `unpin` when done. Returns null if the handle is not a
++/// (live) external surface.
++fn registryPin(key: *const anyopaque) ?*Shared {
++    const io = global.io();
++    registry_mutex.lockUncancelable(io);
++    defer registry_mutex.unlock(io);
++    for (registry_entries) |slot| {
++        const entry = slot orelse continue;
++        if (entry.key == key) {
++            entry.shared.mutex.lockUncancelable(io);
++            defer entry.shared.mutex.unlock(io);
++            entry.shared.refs += 1;
++            entry.shared.pins += 1;
++            return entry.shared;
++        }
++    }
++    return null;
++}
++
++fn unpin(shared: *Shared) void {
++    const io = global.io();
++    {
++        shared.mutex.lockUncancelable(io);
++        defer shared.mutex.unlock(io);
++        assert(shared.pins > 0);
++        shared.pins -= 1;
++        if (shared.pins == 0) shared.cond.broadcast(io);
++    }
++    shared.release();
++}
++
++/// True if the surface handle refers to a live external-I/O surface.
++pub fn registryContains(key: *const anyopaque) bool {
++    const io = global.io();
++    registry_mutex.lockUncancelable(io);
++    defer registry_mutex.unlock(io);
++    for (registry_entries) |slot| {
++        const entry = slot orelse continue;
++        if (entry.key == key) return true;
++    }
++    return false;
++}
++
++/// Begin surface destruction: unregister the handle so no new host call
++/// can pin it, close the feed channel, and wait for in-flight pinned
++/// calls to drain. After this returns, feed/setProcessState on the handle
++/// return `closed` and never touch surface memory. Safe to call for
++/// non-external surfaces (no-op). Callers must not invoke this from a
++/// host callback (it would deadlock the io thread join that follows).
++pub fn registryBeginDestroy(key: *const anyopaque) void {
++    const io = global.io();
++
++    const shared: *Shared = found: {
++        registry_mutex.lockUncancelable(io);
++        defer registry_mutex.unlock(io);
++        for (&registry_entries) |*slot| {
++            const entry = slot.* orelse continue;
++            if (entry.key == key) {
++                slot.* = null;
++                break :found entry.shared;
++            }
++        }
++        return;
++    };
++
++    {
++        shared.mutex.lockUncancelable(io);
++        defer shared.mutex.unlock(io);
++        shared.feed_closed = true;
++
++        // Pinned calls never block, so this wait is bounded by the
++        // longest in-flight feed/setProcessState call.
++        while (shared.pins > 0) shared.cond.waitUncancelable(io, &shared.mutex);
++    }
++
++    // Release the registry's ownership reference.
++    shared.release();
++}
++
++//-------------------------------------------------------------------
++// C ABI entry points (called from apprt CAPI wrappers)
++
++/// Feed host bytes to the surface identified by `key`. See Shared.feed.
++pub fn feedSurface(
++    key: ?*const anyopaque,
++    bytes: ?[*]const u8,
++    len: usize,
++) Result {
++    const k = key orelse return .invalid;
++
++    // An impossible pointer/length combination is invalid before any
++    // queue state is examined.
++    const slice: []const u8 = if (len > 0) slice: {
++        const ptr = bytes orelse return .invalid;
++        break :slice ptr[0..len];
++    } else &.{};
++
++    const shared = registryPin(k) orelse return .closed;
++    defer unpin(shared);
++    return shared.feed(slice);
++}
++
++/// Apply a host-reported process state to the surface identified by `key`.
++pub fn setProcessStateSurface(
++    key: ?*const anyopaque,
++    state: ?*const CProcessState,
++) Result {
++    const k = key orelse return .invalid;
++    const validated = ProcessState.fromC(state) catch return .invalid;
++    const shared = registryPin(k) orelse return .closed;
++    defer unpin(shared);
++    return shared.setProcessState(validated);
++}
++
++/// True if `key` refers to a live external-I/O surface.
++pub fn isExternalSurface(key: ?*const anyopaque) bool {
++    const k = key orelse return false;
++    return registryContains(k);
++}
++
++//-------------------------------------------------------------------
++// Tests
++//
++// The deterministic core: everything below runs single-threaded unless a
++// test explicitly spawns producers, uses no wall-clock sleeps, and uses
++// std.testing.allocator so leaks fail the test.
++
++const testing = std.testing;
++const configpkg = @import("../config.zig");
++const apprt = @import("../apprt.zig");
++const CoreApp = @import("../App.zig");
++
++/// Ensure the dynamic xev backend is selected (mirrors global.init).
++fn testEnsureXev() void {
++    if (comptime xev.dynamic) xev.detect() catch {};
++}
++
++/// Captures every host callback with scripted write results. Guarded by
++/// a mutex so threaded tests can share it; single-threaded tests just
++/// take the lock uncontended.
++const TestCapture = struct {
++    alloc: Allocator,
++    mutex: std.Io.Mutex = .init,
++    cond: std.Io.Condition = .init,
++
++    writes: std.ArrayListUnmanaged(u8) = .empty,
++    write_calls: usize = 0,
++
++    /// Return backpressured for this many write calls before accepting.
++    write_backpressure_remaining: usize = 0,
++    /// If set, every write returns this raw result value.
++    write_forced_result: ?c_int = null,
++
++    resizes: std.ArrayListUnmanaged([4]u64) = .empty,
++    closes: std.ArrayListUnmanaged(CloseReason) = .empty,
++    healths: std.ArrayListUnmanaged(HealthRecord) = .empty,
++
++    const HealthRecord = struct {
++        event: HealthEvent,
++        detail: u64,
++    };
++
++    fn init(alloc: Allocator) TestCapture {
++        return .{ .alloc = alloc };
++    }
++
++    fn deinit(self: *TestCapture) void {
++        self.writes.deinit(self.alloc);
++        self.resizes.deinit(self.alloc);
++        self.closes.deinit(self.alloc);
++        self.healths.deinit(self.alloc);
++    }
++
++    fn hostConfig(self: *TestCapture) HostConfig {
++        return .{
++            .userdata = self,
++            .write_cb = writeCb,
++            .resize_cb = resizeCb,
++            .close_cb = closeCb,
++            .health_cb = healthCb,
++        };
++    }
++
++    fn cConfig(self: *TestCapture) CConfig {
++        return .{
++            .struct_size = @sizeOf(CConfig),
++            .abi_version = abi_version,
++            .userdata = self,
++            .write_cb = writeCb,
++            .resize_cb = resizeCb,
++            .close_cb = closeCb,
++            .health_cb = healthCb,
++        };
++    }
++
++    fn fromUd(ud: ?*anyopaque) *TestCapture {
++        return @ptrCast(@alignCast(ud.?));
++    }
++
++    fn writeCb(ud: ?*anyopaque, ptr: [*]const u8, len: usize) callconv(.c) c_int {
++        const self = fromUd(ud);
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        defer self.cond.broadcast(io);
++        self.write_calls += 1;
++        if (self.write_forced_result) |forced| return forced;
++        if (self.write_backpressure_remaining > 0) {
++            self.write_backpressure_remaining -= 1;
++            return @intFromEnum(Result.backpressured);
++        }
++        self.writes.appendSlice(self.alloc, ptr[0..len]) catch
++            return @intFromEnum(Result.internal_error);
++        return @intFromEnum(Result.accepted);
++    }
++
++    fn resizeCb(ud: ?*anyopaque, cols: u16, rows: u16, w: u32, h: u32) callconv(.c) void {
++        const self = fromUd(ud);
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        defer self.cond.broadcast(io);
++        self.resizes.append(self.alloc, .{ cols, rows, w, h }) catch {};
++    }
++
++    fn closeCb(ud: ?*anyopaque, reason: CloseReason) callconv(.c) void {
++        const self = fromUd(ud);
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        defer self.cond.broadcast(io);
++        self.closes.append(self.alloc, reason) catch {};
++    }
++
++    fn healthCb(ud: ?*anyopaque, event: HealthEvent, detail: u64) callconv(.c) void {
++        const self = fromUd(ud);
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        defer self.cond.broadcast(io);
++        self.healths.append(self.alloc, .{ .event = event, .detail = detail }) catch {};
++    }
++
++    fn writesString(self: *TestCapture) []const u8 {
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        return self.writes.items;
++    }
++
++    /// Block until `pred(self)` is true. Event-driven (condition
++    /// variable), never a wall-clock sleep.
++    fn waitUntil(self: *TestCapture, ctx: anytype, pred: fn (@TypeOf(ctx), *TestCapture) bool) void {
++        const io = global.io();
++        self.mutex.lockUncancelable(io);
++        defer self.mutex.unlock(io);
++        while (!pred(ctx, self)) self.cond.waitUncancelable(io, &self.mutex);
++    }
++};
++
++//-------------------------------------------------------------------
++// ABI validation tests (fail closed)
++
++test "external: HostConfig accepts a valid v1 config" {
++    var capture = TestCapture.init(testing.allocator);
++    defer capture.deinit();
++    var c = capture.cConfig();
++    const host = try HostConfig.fromC(&c);
++    try testing.expect(host.write_cb == &TestCapture.writeCb);
++    try testing.expect(host.health_cb != null);
++    try testing.expect(host.userdata == @as(?*anyopaque, &capture));
++}
++
++test "external: HostConfig accepts a larger future struct via v1 prefix" {
++    var capture = TestCapture.init(testing.allocator);
++    defer capture.deinit();
++    var c = capture.cConfig();
++    c.struct_size = @sizeOf(CConfig) + 64;
++    _ = try HostConfig.fromC(&c);
++}
++
++test "external: HostConfig fails closed on invalid input" {
++    var capture = TestCapture.init(testing.allocator);
++    defer capture.deinit();
++
++    // Null pointer
++    try testing.expectError(error.Invalid, HostConfig.fromC(null));
++
++    // Undersized struct
++    var c = capture.cConfig();
++    c.struct_size = @sizeOf(CConfig) - 1;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++    c = capture.cConfig();
++    c.struct_size = 0;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++
++    // Wrong ABI version
++    c = capture.cConfig();
++    c.abi_version = 0;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++    c = capture.cConfig();
++    c.abi_version = 2;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++
++    // Null required callbacks
++    c = capture.cConfig();
++    c.write_cb = null;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++    c = capture.cConfig();
++    c.resize_cb = null;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++    c = capture.cConfig();
++    c.close_cb = null;
++    try testing.expectError(error.Invalid, HostConfig.fromC(&c));
++
++    // Optional health callback may be null
++    c = capture.cConfig();
++    c.health_cb = null;
++    _ = try HostConfig.fromC(&c);
++}
++
++test "external: CProcessState validates fail closed" {
++    const valid: CProcessState = .{
++        .struct_size = @sizeOf(CProcessState),
++        .abi_version = abi_version,
++        .state = @intFromEnum(ProcessStateKind.exited),
++        .exit_code = 3,
++        .signal = 0,
++    };
++    {
++        const ps = try ProcessState.fromC(&valid);
++        try testing.expectEqual(ProcessState{ .exited = 3 }, ps);
++    }
++
++    try testing.expectError(error.Invalid, ProcessState.fromC(null));
++
++    var c = valid;
++    c.struct_size = @sizeOf(CProcessState) - 1;
++    try testing.expectError(error.Invalid, ProcessState.fromC(&c));
++
++    c = valid;
++    c.abi_version = 99;
++    try testing.expectError(error.Invalid, ProcessState.fromC(&c));
++
++    c = valid;
++    c.state = 99;
++    try testing.expectError(error.Invalid, ProcessState.fromC(&c));
++    c.state = -1;
++    try testing.expectError(error.Invalid, ProcessState.fromC(&c));
++
++    // Larger future struct is read via its v1 prefix.
++    c = valid;
++    c.struct_size = @sizeOf(CProcessState) + 32;
++    _ = try ProcessState.fromC(&c);
++
++    // Signaled maps the signal field.
++    c = valid;
++    c.state = @intFromEnum(ProcessStateKind.signaled);
++    c.signal = 9;
++    try testing.expectEqual(ProcessState{ .signaled = 9 }, try ProcessState.fromC(&c));
++}
++
++test "external: ABI layout matches include/ghostty.h" {
++    const ch = @import("ghostty.h");
++
++    try testing.expectEqual(
++        @as(usize, @sizeOf(ch.ghostty_external_io_config_s)),
++        @sizeOf(CConfig),
++    );
++    try testing.expectEqual(
++        @as(usize, @sizeOf(ch.ghostty_external_process_state_s)),
++        @sizeOf(CProcessState),
++    );
++
++    inline for (.{
++        "struct_size", "abi_version", "userdata",
++        "write_cb",    "resize_cb",   "close_cb",
++        "health_cb",
++    }) |field| {
++        try testing.expectEqual(
++            @offsetOf(ch.ghostty_external_io_config_s, field),
++            @offsetOf(CConfig, field),
++        );
++    }
++    inline for (.{
++        "struct_size", "abi_version", "state",
++        "exit_code",   "signal",
++    }) |field| {
++        try testing.expectEqual(
++            @offsetOf(ch.ghostty_external_process_state_s, field),
++            @offsetOf(CProcessState, field),
++        );
++    }
++
++    try testing.expectEqual(
++        @as(u32, ch.GHOSTTY_EXTERNAL_IO_ABI_VERSION),
++        abi_version,
++    );
++
++    const pairs = .{
++        .{ ch.GHOSTTY_EXTERNAL_IO_ACCEPTED, Result.accepted },
++        .{ ch.GHOSTTY_EXTERNAL_IO_BACKPRESSURED, Result.backpressured },
++        .{ ch.GHOSTTY_EXTERNAL_IO_CLOSED, Result.closed },
++        .{ ch.GHOSTTY_EXTERNAL_IO_INVALID, Result.invalid },
++        .{ ch.GHOSTTY_EXTERNAL_IO_INTERNAL_ERROR, Result.internal_error },
++        .{ ch.GHOSTTY_EXTERNAL_PROCESS_RUNNING, ProcessStateKind.running },
++        .{ ch.GHOSTTY_EXTERNAL_PROCESS_EXITED, ProcessStateKind.exited },
++        .{ ch.GHOSTTY_EXTERNAL_PROCESS_SIGNALED, ProcessStateKind.signaled },
++        .{ ch.GHOSTTY_EXTERNAL_PROCESS_CLOSED, ProcessStateKind.closed },
++        .{ ch.GHOSTTY_EXTERNAL_CLOSE_HOST_EXITED, CloseReason.host_exited },
++        .{ ch.GHOSTTY_EXTERNAL_CLOSE_HOST_SIGNALED, CloseReason.host_signaled },
++        .{ ch.GHOSTTY_EXTERNAL_CLOSE_HOST_CLOSED, CloseReason.host_closed },
++        .{ ch.GHOSTTY_EXTERNAL_CLOSE_SURFACE_REQUEST, CloseReason.surface_request },
++        .{ ch.GHOSTTY_EXTERNAL_HEALTH_FEED_READY, HealthEvent.feed_ready },
++        .{ ch.GHOSTTY_EXTERNAL_HEALTH_OUTPUT_BACKPRESSURED, HealthEvent.output_backpressured },
++        .{ ch.GHOSTTY_EXTERNAL_HEALTH_OUTPUT_OVERFLOW, HealthEvent.output_overflow },
++        .{ ch.GHOSTTY_EXTERNAL_HEALTH_OUTPUT_SUPPRESSED, HealthEvent.output_suppressed },
++    };
++    inline for (pairs) |pair| {
++        const c_val: i64 = switch (@typeInfo(@TypeOf(pair[0]))) {
++            .@"enum" => @intFromEnum(pair[0]),
++            else => @intCast(pair[0]),
++        };
++        try testing.expectEqual(c_val, @as(i64, @intFromEnum(pair[1])));
++    }
++}
++
++//-------------------------------------------------------------------
++// Shared state unit tests
++
++test "external: feed copies, bounds, and rejects atomically" {
++    testEnsureXev();
++    const alloc = testing.allocator;
++    var capture = TestCapture.init(alloc);
++    defer capture.deinit();
++
++    const shared = try Shared.create(alloc, capture.hostConfig(), .{
++        .inbound_capacity_bytes = 8,
++        .inbound_capacity_chunks = 2,
++    });
++    defer shared.release();
++
++    // Zero-length is harmless and consumes nothing.
++    try testing.expectEqual(Result.accepted, shared.feed(""));
++    try testing.expectEqual(@as(usize, 0), shared.inbound.items.len);
++
++    // A feed larger than total capacity is invalid, not backpressured.
++    try testing.expectEqual(Result.invalid, shared.feed("123456789"));
++    try testing.expectEqual(@as(usize, 0), shared.inbound.items.len);
++
++    // Accepted feeds are copied: mutate the source afterwards.
++    var src = "abcd".*;
++    try testing.expectEqual(Result.accepted, shared.feed(&src));
++    src[0] = 'X';
++    try testing.expectEqualStrings("abcd", shared.inbound.items[0]);
++
++    // Byte capacity: 5 more would exceed 8; nothing is consumed.
++    try testing.expectEqual(Result.backpressured, shared.feed("12345"));
++    try testing.expectEqual(@as(usize, 1), shared.inbound.items.len);
++    try testing.expectEqual(@as(usize, 4), shared.inbound_bytes);
++    try testing.expect(shared.feed_backpressured);
++
++    // A fitting feed is still accepted after a rejection.
++    try testing.expectEqual(Result.accepted, shared.feed("efgh"));
++
++    // Chunk capacity: two chunks queued, third rejected atomically.
++    try testing.expectEqual(Result.backpressured, shared.feed("x"));
++    try testing.expectEqual(@as(usize, 2), shared.inbound.items.len);
++    try testing.expectEqual(@as(usize, 8), shared.inbound_bytes);
++}
++
++test "external: process state machine validates transitions" {
++    testEnsureXev();
++    const alloc = testing.allocator;
++    var capture = TestCapture.init(alloc);
++    defer capture.deinit();
++
++    const shared = try Shared.create(alloc, capture.hostConfig(), .{});
++    defer shared.release();
++
++    // running -> running is idempotent.
++    try testing.expectEqual(Result.accepted, shared.setProcessState(.running));
++    try testing.expect(!shared.feed_closed);
++
++    // running -> exited latches, closes feeds, queues one close.
++    try testing.expectEqual(Result.accepted, shared.setProcessState(.{ .exited = 0 }));
++    try testing.expect(shared.feed_closed);
++    try testing.expectEqual(CloseReason.host_exited, shared.close_pending.?);
++
++    // Feed after terminal closure returns closed (also for zero-length).
++    try testing.expectEqual(Result.closed, shared.feed("x"));
++    try testing.expectEqual(Result.closed, shared.feed(""));
++
++    // Identical repeat is idempotent and does not queue a second close.
++    shared.close_pending = null;
++    try testing.expectEqual(Result.accepted, shared.setProcessState(.{ .exited = 0 }));
++    try testing.expect(shared.close_pending == null);
++
++    // Terminal state never regresses to running.
++    try testing.expectEqual(Result.invalid, shared.setProcessState(.running));
++
++    // Contradictory terminal info fails closed.
++    try testing.expectEqual(Result.invalid, shared.setProcessState(.{ .exited = 5 }));
++    try testing.expectEqual(Result.invalid, shared.setProcessState(.{ .signaled = 9 }));
++
++    // Escalation to closed is an accepted no-op.
++    try testing.expectEqual(Result.accepted, shared.setProcessState(.closed));
++    try testing.expectEqual(ProcessState{ .exited = 0 }, shared.process);
++}
++
++test "external: requestClose latches a single close" {
++    testEnsureXev();
++    const alloc = testing.allocator;
++    var capture = TestCapture.init(alloc);
++    defer capture.deinit();
++
++    const shared = try Shared.create(alloc, capture.hostConfig(), .{});
++    defer shared.release();
++
++    shared.requestClose();
++    try testing.expectEqual(CloseReason.surface_request, shared.close_pending.?);
++    shared.requestClose();
++    try testing.expectEqual(CloseReason.surface_request, shared.close_pending.?);
++
++    // Once delivered, no further close is ever queued.
++    shared.close_pending = null;
++    shared.close_delivered = true;
++    shared.requestClose();
++    try testing.expect(shared.close_pending == null);
++}
++
++//-------------------------------------------------------------------
++// Registry tests
++
++test "external: registry pin, contains, and destroy gate" {
++    testEnsureXev();
++    const alloc = testing.allocator;
++    var capture = TestCapture.init(alloc);
++    defer capture.deinit();
++
++    const shared = try Shared.create(alloc, capture.hostConfig(), .{});
++    defer shared.release();
++
++    var key_storage: u8 = 0;
++    const key: *const anyopaque = &key_storage;
++
++    // Unknown handles: closed/invalid/false, never a crash.
++    try testing.expectEqual(Result.closed, feedSurface(key, "x", 1));
++    try testing.expect(!isExternalSurface(key));
++    try testing.expectEqual(Result.invalid, feedSurface(null, null, 0));
++    try testing.expect(!isExternalSurface(null));
++
++    try registryRegister(key, shared);
++    try testing.expect(isExternalSurface(key));
++
++    // Feed through the registry path, including invalid pointer/length.
++    try testing.expectEqual(Result.accepted, feedSurface(key, "ab", 2));
++    try testing.expectEqual(Result.invalid, feedSurface(key, null, 2));
++    try testing.expectEqual(@as(usize, 1), shared.inbound.items.len);
++
++    // Process state through the registry path.
++    const state: CProcessState = .{
++        .struct_size = @sizeOf(CProcessState),
++        .abi_version = abi_version,
++        .state = @intFromEnum(ProcessStateKind.exited),
++        .exit_code = 0,
++        .signal = 0,
++    };
++    try testing.expectEqual(Result.accepted, setProcessStateSurface(key, &state));
++
++    // Destroy gate: handle disappears, feeds return closed.
++    registryBeginDestroy(key);
++    try testing.expect(!isExternalSurface(key));
++    try testing.expectEqual(Result.closed, feedSurface(key, "x", 1));
++    // Idempotent for already-removed and never-registered keys.
++    registryBeginDestroy(key);
++}
++
++test "external: registry capacity is bounded and observable" {
++    testEnsureXev();
++    const alloc = testing.allocator;
++    var capture = TestCapture.init(alloc);
++    defer capture.deinit();
++
++    const shared = try Shared.create(alloc, capture.hostConfig(), .{});
++    defer shared.release();
++
++    var keys: [registry_max_surfaces + 1]u8 = undefined;
++    var registered: usize = 0;
++    defer for (0..registered) |i| registryBeginDestroy(&keys[i]);
++
++    for (0..registry_max_surfaces) |i| {
++        try registryRegister(&keys[i], shared);
++        registered += 1;
++    }
++    try testing.expectError(
++        error.RegistryFull,
++        registryRegister(&keys[registry_max_surfaces], shared),
++    );
++}
+-- 
+2.55.0
+

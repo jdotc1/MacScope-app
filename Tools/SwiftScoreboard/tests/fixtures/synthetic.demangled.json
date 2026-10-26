@@ -1,0 +1,18 @@
+{
+  "_main": "_main",
+  "_$s4Test3fooyyF": "Test.foo() -> ()",
+  "_$s4Test4TypeVMa": "type metadata accessor for Test.Type",
+  "_four": "_four",
+  "_five": "_five",
+  "_$s4Test3baryyFTg5Tm": "merged generic specialization <Swift.Int> of Test.bar() -> ()",
+  "_seven": "_seven",
+  "_eight": "_eight",
+  "_nine": "_nine",
+  "_ten": "_ten",
+  "_eleven": "_eleven",
+  "_twelve": "_twelve",
+  "_$s4Test5aliasyyF": "Test.alias() -> ()",
+  "_data_alias": "_data_alias",
+  "_outside": "_outside",
+  "_data_only": "_data_only"
+}

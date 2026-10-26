@@ -1,0 +1,78 @@
+From ec8324969f7e5bd77c4394e44d37ff0950197319 Mon Sep 17 00:00:00 2001
+From: MacScope <macscope@invalid>
+Date: Mon, 12 Oct 2026 00:00:00 +0000
+Subject: [PATCH 1/3] AARCH64: fix MOPS WT option field, SET mnemonic and size
+ field
+
+The CPY*/CPYF* "wt" option variants (wt, wtn, wtrn, wtwn) encoded the
+write-unprivileged option in bits[11:10] (0x03/0x33/0x23/0x13). The Arm
+ARM and LLVM place it in op2 bits[13:12] with bits[11:10] = 01, so the
+correct values are 0x05/0x35/0x25/0x15. Before this change every real
+*wt* encoding failed to decode and words with bits[11:10] = 11 decoded
+as MOPS copies.
+
+SETP/SETM/SETE printed as "setpp"/"setpm"/"setpe" because the mnemonic
+carried a literal "p" before the phase letter.
+
+All four MOPS constructors named size.ldstr without constraining it;
+the size field (bits[31:30]) must be 00.
+---
+ .../AARCH64/data/languages/AARCH64base.sinc    | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+index 2811de5..b957815 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+@@ -1836,22 +1836,22 @@ cpyType: "tn"	is b_1015=0x3d {export 0x3d:1; }
+ cpyType: "trn"	is b_1015=0x2d {export 0x2d:1; }
+ cpyType: "twn"	is b_1015=0x1d {export 0x1d:1; }
+ 
+-cpyType: "wt"	is b_1015=0x03 {export 0x03:1; }
+-cpyType: "wtn"	is b_1015=0x33 {export 0x33:1; }
+-cpyType: "wtrn"	is b_1015=0x23 {export 0x23:1; }
+-cpyType: "wtwn"	is b_1015=0x13 {export 0x13:1; }
++cpyType: "wt"	is b_1015=0x05 {export 0x05:1; }
++cpyType: "wtn"	is b_1015=0x35 {export 0x35:1; }
++cpyType: "wtrn"	is b_1015=0x25 {export 0x25:1; }
++cpyType: "wtwn"	is b_1015=0x15 {export 0x15:1; }
+ 
+ 
+ define pcodeop MemoryCopyForward;
+ # Memory Copy Forward-only
+ :cpyf^cpyPhase^cpyType [Rd_GPR64]!, [Rs_GPR64]!, Rn_GPR64^"!"
+-is size.ldstr & b_2429=0x19 & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
++is b_3031=0 & b_2429=0x19 & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
+ {
+ 	MemoryCopyForward(Rd_GPR64, Rs_GPR64, Rn_GPR64, cpyType, cpyPhase);
+ }
+ define pcodeop MemoryCopy;
+ :cpy^cpyPhase^cpyType [Rd_GPR64]!, [Rs_GPR64]!, Rn_GPR64^"!"
+-is size.ldstr & b_2429=0x1d & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
++is b_3031=0 & b_2429=0x1d & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
+ {
+ 	MemoryCopy(Rd_GPR64, Rs_GPR64, Rn_GPR64, cpyType, cpyPhase);
+ }
+@@ -5340,7 +5340,7 @@ setType: "tn"	is b_1013=0xd {export 13:1; }
+ 
+ define pcodeop memorySetTag;
+ :setg^setPhase^setType [Rd_GPR64]!, Rn_GPR64!, Rs_GPR64
+-is size.ldstr & b_2129=0xee & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
++is b_3031=0 & b_2129=0xee & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
+ 	memorySetTag(Rd_GPR64, Rn_GPR64, Rs_GPR64, setPhase, setType);
+ }
+ 
+@@ -5348,8 +5348,8 @@ is size.ldstr & b_2129=0xee & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR
+ # C6.2.276 SETP, SETM, SETE page C6-1780 line 105072 MATCH x19c00400/mask=x3fe03c00
+ # CONSTRUCT x19c00400/mask=x3fe03c00 MATCHED 5 DOCUMENTED OPCODES
+ define pcodeop memorySet;
+-:setp^setPhase^setType [Rd_GPR64]!, Rn_GPR64!, Rs_GPR64
+-is size.ldstr & b_2129=0xce & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
++:set^setPhase^setType [Rd_GPR64]!, Rn_GPR64!, Rs_GPR64
++is b_3031=0 & b_2129=0xce & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
+ 	memorySet(Rd_GPR64, Rn_GPR64, Rs_GPR64, setPhase, setType);
+ }
+ 
+-- 
+2.56.0
+

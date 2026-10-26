@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "user.midnight-violet",
+  "name": "Midnight Violet",
+  "summary": "Midnight with a violet accent instead of pink. Always dark.",
+  "inherits": "com.macscope.theme.midnight",
+  "colorSpace": "display-p3",
+  "dark": {
+    "accent.default": "#B49CFF",
+    "accent.subtle": "#22174A",
+    "accent.soft": "#D2C4FF",
+    "border.focus": "#B49CFF",
+    "fg.onAccent": "#0B0620"
+  }
+}

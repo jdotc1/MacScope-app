@@ -1,0 +1,296 @@
+[
+  {
+    "id": "d06109",
+    "mangled": "$s12OracleMacros11MacroRecordV04$s12a8Macros11C36Record0A6MemberfMm_11memberLocalfMu_SiyF",
+    "expected": "OracleMacros.MacroRecord.$s12OracleMacros11MacroRecord0A6MemberfMm_11memberLocalfMu_() -> Swift.Int",
+    "group": "Function"
+  },
+  {
+    "id": "d06121",
+    "mangled": "$s12OracleMacros11macroGlobalSiyFSiyXEfU_04$s12A76Macros0017Macrosswift_yEEFcfMX3_32_14oracleIdentityfMf_15expressionLocalfMu_L_SiyF",
+    "expected": "$s12OracleMacros0017Macrosswift_yEEFcfMX3_32_14oracleIdentityfMf_15expressionLocalfMu_ #1 () -> Swift.Int in closure #1 () -> Swift.Int in OracleMacros.macroGlobal() -> Swift.Int",
+    "group": "Function"
+  },
+  {
+    "id": "d06124",
+    "mangled": "$s12OracleMacros12MacroContextV8expandedSiyFSiyXEfU0_04$s12A76Macros0017Macrosswift_yEEFcfMX4_73_14oracleIdentityfMf_15expressionLocalfMu_L_SiyF",
+    "expected": "$s12OracleMacros0017Macrosswift_yEEFcfMX4_73_14oracleIdentityfMf_15expressionLocalfMu_ #1 () -> Swift.Int in closure #2 () -> Swift.Int in OracleMacros.MacroContext.expanded() -> Swift.Int",
+    "group": "Function"
+  },
+  {
+    "id": "d09776",
+    "mangled": "$s13OraclePackLib0B0VACyxxQp_QPGycfC",
+    "expected": "OraclePackLib.Pack.init() -> OraclePackLib.Pack<Pack{repeat A}>",
+    "group": "Allocator"
+  },
+  {
+    "id": "d09790",
+    "mangled": "$s13OraclePackLib4ItemVAA1P0aB4UserMc",
+    "expected": "protocol conformance descriptor for OraclePackLib.Item : OraclePackLib.P in OraclePackUser",
+    "group": "ProtocolConformanceDescriptor"
+  },
+  {
+    "id": "d09791",
+    "mangled": "$s13OraclePackLib4ItemVAA1P0aB4UserMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for OraclePackLib.Item : OraclePackLib.P in OraclePackUser",
+    "group": "MetadataInstantiationCache"
+  },
+  {
+    "id": "d09802",
+    "mangled": "$s14OracleFeatures10actorValueySiAA9WorkActorCYiF",
+    "expected": "OracleFeatures.actorValue(isolated OracleFeatures.WorkActor) -> Swift.Int",
+    "group": "Function"
+  },
+  {
+    "id": "d09803",
+    "mangled": "$s14OracleFeatures10asyncTypedyS2iYaAA7FailureOYKF",
+    "expected": "OracleFeatures.asyncTyped(Swift.Int) async throws(OracleFeatures.Failure) -> Swift.Int",
+    "group": "Function"
+  },
+  {
+    "id": "d09804",
+    "mangled": "$s14OracleFeatures10asyncTypedyS2iYaAA7FailureOYKFTu",
+    "expected": "async function pointer to OracleFeatures.asyncTyped(Swift.Int) async throws(OracleFeatures.Failure) -> Swift.Int",
+    "group": "AsyncFunctionPointer"
+  },
+  {
+    "id": "d09836",
+    "mangled": "$s14OracleFeatures14closureContextyS2icSiF5localL_yS2iF",
+    "expected": "local #1 (Swift.Int) -> Swift.Int in OracleFeatures.closureContext(Swift.Int) -> (Swift.Int) -> Swift.Int",
+    "group": "Function"
+  },
+  {
+    "id": "d09837",
+    "mangled": "$s14OracleFeatures14closureContextyS2icSiF5localL_yS2iFTA",
+    "expected": "partial apply forwarder for local #1 (Swift.Int) -> Swift.Int in OracleFeatures.closureContext(Swift.Int) -> (Swift.Int) -> Swift.Int",
+    "group": "PartialApplyForwarder"
+  },
+  {
+    "id": "d09838",
+    "mangled": "$s14OracleFeatures15functionPointerys5Int32VA2DXCF",
+    "expected": "OracleFeatures.functionPointer(@convention(c) (Swift.Int32) -> Swift.Int32) -> Swift.Int32",
+    "group": "Function"
+  },
+  {
+    "id": "d09847",
+    "mangled": "$s14OracleFeatures3BoxVAASHRzlE4hash4intoys6HasherVz_tF",
+    "expected": "(extension in OracleFeatures):OracleFeatures.Box<A where A: Swift.Hashable>.hash(into: inout Swift.Hasher) -> ()",
+    "group": "Function"
+  },
+  {
+    "id": "d09848",
+    "mangled": "$s14OracleFeatures3BoxVAASHRzlE9hashValueSivg",
+    "expected": "(extension in OracleFeatures):OracleFeatures.Box<A where A: Swift.Hashable>.hashValue.getter : Swift.Int",
+    "group": "Getter"
+  },
+  {
+    "id": "d09849",
+    "mangled": "$s14OracleFeatures3BoxVAASHRzlE9hashValueSivpMV",
+    "expected": "property descriptor for (extension in OracleFeatures):OracleFeatures.Box<A where A: Swift.Hashable>.hashValue : Swift.Int",
+    "group": "PropertyDescriptor"
+  },
+  {
+    "id": "d09850",
+    "mangled": "$s14OracleFeatures3BoxVAASQRzlE2eeoiySbACyxG_AEtFZ",
+    "expected": "static (extension in OracleFeatures):OracleFeatures.Box<A where A: Swift.Equatable>.== infix(OracleFeatures.Box<A>, OracleFeatures.Box<A>) -> Swift.Bool",
+    "group": "Static"
+  },
+  {
+    "id": "d09873",
+    "mangled": "$s14OracleFeatures3BoxVyxGSHAASHRzlMc",
+    "expected": "protocol conformance descriptor for <A where A: Swift.Hashable> OracleFeatures.Box<A> : Swift.Hashable in OracleFeatures",
+    "group": "ProtocolConformanceDescriptor"
+  },
+  {
+    "id": "d09874",
+    "mangled": "$s14OracleFeatures3BoxVyxGSHAASHRzlMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for <A where A: Swift.Hashable> OracleFeatures.Box<A> : Swift.Hashable in OracleFeatures",
+    "group": "MetadataInstantiationCache"
+  },
+  {
+    "id": "d09875",
+    "mangled": "$s14OracleFeatures3BoxVyxGSHAASHRzlSH13_rawHashValue4seedS2i_tFTW",
+    "expected": "protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance <A where A: Swift.Hashable> OracleFeatures.Box<A> : Swift.Hashable in OracleFeatures",
+    "group": "ProtocolWitness"
+  },
+  {
+    "id": "d09876",
+    "mangled": "$s14OracleFeatures3BoxVyxGSHAASHRzlSH4hash4intoys6HasherVz_tFTW",
+    "expected": "protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance <A where A: Swift.Hashable> OracleFeatures.Box<A> : Swift.Hashable in OracleFeatures",
+    "group": "ProtocolWitness"
+  },
+  {
+    "id": "d09877",
+    "mangled": "$s14OracleFeatures3BoxVyxGSHAASHRzlSH9hashValueSivgTW",
+    "expected": "protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance <A where A: Swift.Hashable> OracleFeatures.Box<A> : Swift.Hashable in OracleFeatures",
+    "group": "ProtocolWitness"
+  },
+  {
+    "id": "d09878",
+    "mangled": "$s14OracleFeatures3BoxVyxGSHAASHRzlSQWb",
+    "expected": "base witness table accessor for Swift.Equatable in <A where A: Swift.Hashable> OracleFeatures.Box<A> : Swift.Hashable in OracleFeatures",
+    "group": "BaseWitnessTableAccessor"
+  },
+  {
+    "id": "d09879",
+    "mangled": "$s14OracleFeatures3BoxVyxGSQAASQRzlMc",
+    "expected": "protocol conformance descriptor for <A where A: Swift.Equatable> OracleFeatures.Box<A> : Swift.Equatable in OracleFeatures",
+    "group": "ProtocolConformanceDescriptor"
+  },
+  {
+    "id": "d09880",
+    "mangled": "$s14OracleFeatures3BoxVyxGSQAASQRzlMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for <A where A: Swift.Equatable> OracleFeatures.Box<A> : Swift.Equatable in OracleFeatures",
+    "group": "MetadataInstantiationCache"
+  },
+  {
+    "id": "d09881",
+    "mangled": "$s14OracleFeatures3BoxVyxGSQAASQRzlSQ2eeoiySbx_xtFZTW",
+    "expected": "protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance <A where A: Swift.Equatable> OracleFeatures.Box<A> : Swift.Equatable in OracleFeatures",
+    "group": "ProtocolWitness"
+  },
+  {
+    "id": "d09952",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ContainerP_SHTn",
+    "expected": "associated conformance descriptor for OracleFeatures.Refined.OracleFeatures.Container.Element: Swift.Hashable",
+    "group": "AssociatedConformanceDescriptor"
+  },
+  {
+    "id": "d10034",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_V5valueADSi_tcfC",
+    "expected": "init(value: Swift.Int) -> Local #1 in OracleFeatures.localType(Swift.Int) -> Any in Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "Allocator"
+  },
+  {
+    "id": "d10035",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_V5valueSivg",
+    "expected": "value.getter : Swift.Int in Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "Getter"
+  },
+  {
+    "id": "d10036",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_V5valueSivs",
+    "expected": "value.setter : Swift.Int in Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "Setter"
+  },
+  {
+    "id": "d10037",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_VMF",
+    "expected": "reflection metadata field descriptor Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "ReflectionMetadataFieldDescriptor"
+  },
+  {
+    "id": "d10038",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_VMXX",
+    "expected": "anonymous descriptor Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "AnonymousDescriptor"
+  },
+  {
+    "id": "d10039",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_VMa",
+    "expected": "type metadata accessor for Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "TypeMetadataAccessFunction"
+  },
+  {
+    "id": "d10040",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_VMf",
+    "expected": "full type metadata for Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "FullTypeMetadata"
+  },
+  {
+    "id": "d10041",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_VMn",
+    "expected": "nominal type descriptor for Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "NominalTypeDescriptor"
+  },
+  {
+    "id": "d10042",
+    "mangled": "$s14OracleFeatures9localTypeyypSiF5LocalL_VN",
+    "expected": "type metadata for Local #1 in OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "TypeMetadata"
+  },
+  {
+    "id": "d10043",
+    "mangled": "$s14OracleFeatures9localTypeyypSiFMXX",
+    "expected": "anonymous descriptor OracleFeatures.localType(Swift.Int) -> Any",
+    "group": "AnonymousDescriptor"
+  },
+  {
+    "id": "d25044",
+    "mangled": "$s2cn6nestedyyS3iXEXEF",
+    "expected": "cn.nested(((Swift.Int) -> Swift.Int) -> Swift.Int) -> ()",
+    "group": "Function"
+  },
+  {
+    "id": "d25051",
+    "mangled": "$s2ix2i1yyx_3MidQzAdC_4LeafQZtAA2N1RzlF",
+    "expected": "ix.i1<A where A: ix.N1>(A, A.Mid, A.Mid, A.Mid.Leaf) -> ()",
+    "group": "Function"
+  },
+  {
+    "id": "d25088",
+    "mangled": "$s3foo3bar3bazV1fyS2iF",
+    "expected": "foobar.baz.f(Swift.Int) -> Swift.Int",
+    "group": "Identifier"
+  },
+  {
+    "id": "d25091",
+    "mangled": "$s3foo3barV3baz1fyS2iF",
+    "expected": "foo.barbaz.f(Swift.Int) -> Swift.Int",
+    "group": "Structure"
+  },
+  {
+    "id": "d25102",
+    "mangled": "$s4clo22t3yyySiXCF",
+    "expected": "clo2.t3(@convention(c) (Swift.Int) -> ()) -> ()",
+    "group": "Function"
+  },
+  {
+    "id": "d25127",
+    "mangled": "$s5clean5conf2yyx_q_tAA1PRzAaCR_r0_lF",
+    "expected": "clean.conf2<A, B where A: clean.P, B: clean.P>(A, B) -> ()",
+    "group": "Function"
+  },
+  {
+    "id": "d25212",
+    "mangled": "$sSlsE3mapySayqd__Gqd__7ElementQzqd_0_YKXEqd_0_YKs5ErrorRd_0_r0_lF",
+    "expected": "(extension in Swift):Swift.Collection.map<A, B where B1: Swift.Error>((A.Element) throws(B1) -> A1) throws(B1) -> [A1]",
+    "group": "Function"
+  },
+  {
+    "id": "d25237",
+    "mangled": "$sxSgSHRzs8SendableRzSHRd__sABRd__r__lWOh",
+    "expected": "outlined destroy of A?",
+    "group": "OutlinedDestroy"
+  },
+  {
+    "id": "d25242",
+    "mangled": "$sxSg_AAtSHRzs8SendableRzlWOh",
+    "expected": "outlined destroy of (A?, A?)",
+    "group": "OutlinedDestroy"
+  },
+  {
+    "id": "d25573",
+    "mangled": "_TtC04Test3Foo",
+    "expected": "Test.Foo",
+    "group": "TypeMangling"
+  },
+  {
+    "id": "d25575",
+    "mangled": "_TtC4Test03Foo",
+    "expected": "Test.Foo",
+    "group": "TypeMangling"
+  },
+  {
+    "id": "d25576",
+    "mangled": "_TtC4Test3FooJunk",
+    "expected": "Test.Foo with unmangled suffix \"Junk\"",
+    "group": "TypeMangling"
+  },
+  {
+    "id": "d25579",
+    "mangled": "_TtV4Test3Foo",
+    "expected": "Test.Foo",
+    "group": "TypeMangling"
+  }
+]

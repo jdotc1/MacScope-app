@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "measuredAtLocalDate": "2026-08-31",
+  "host": {
+    "architecture": "arm64",
+    "macOSVersion": "27.0",
+    "xcodeVersion": "27.0",
+    "xcodeBuild": "27A5252f"
+  },
+  "revisions": {
+    "baseline": "027a10b812e6a64a53f8ff3e4203d573e6c092b4",
+    "postChange": "ec282dfa9b179f507fff481d64d653641f00ad94"
+  },
+  "xcodeBuild": {
+    "commonArguments": [
+      "-project MacScope/MacScope.xcodeproj",
+      "-scheme MacScopeApp",
+      "-configuration Debug",
+      "-destination platform=macOS,arch=arm64",
+      "-parallelizeTargets",
+      "-jobs 10",
+      "-showBuildTimingSummary",
+      "COMPILER_INDEX_STORE_ENABLE=NO",
+      "build"
+    ],
+    "freshDerivedData": {
+      "baselineSeconds": 320.38,
+      "postChangeSeconds": 265.09,
+      "absoluteReductionSeconds": 55.29,
+      "percentReduction": 17.26,
+      "claimStatus": "observational-only",
+      "caveat": "Both runs used fresh DerivedData, but the later run inherited warmer host and Zig caches. Do not attribute the full difference to the code change."
+    },
+    "noOp": {
+      "baselineSamplesSeconds": [18.65, 10.45, 10.28],
+      "postChangeSamplesSeconds": [10.67, 8.04, 7.60],
+      "baselineMedianSeconds": 10.45,
+      "postChangeMedianSeconds": 8.04,
+      "absoluteReductionSeconds": 2.41,
+      "percentReduction": 23.06
+    },
+    "oneFileIncremental": {
+      "trigger": "timestamp-only touch of MacScope/Features/Settings/AppearancePreferences.swift",
+      "baselineSeconds": 38.97,
+      "postChangeSeconds": 33.98,
+      "absoluteReductionSeconds": 4.99,
+      "percentReduction": 12.80,
+      "baselinePhaseScriptSeconds": 7.086,
+      "postChangePhaseScriptSeconds": 5.015
+    }
+  },
+  "debugOptimizationCorrection": {
+    "setting": "SWIFT_OPTIMIZATION_LEVEL=-Onone",
+    "scope": "XcodeGen-owned Debug targets only; Release remains unchanged",
+    "derivedDataPath": "~/Library/Developer/Xcode/DerivedData/MacScopeRun-a1382896e1420512",
+    "trigger": "timestamp-only touch of MacScope/Features/Settings/AppearancePreferences.swift",
+    "baselineSeconds": 34.41,
+    "postChangeSeconds": 26.33,
+    "absoluteReductionSeconds": 8.08,
+    "percentReduction": 23.48,
+    "baselineSwiftEmitModuleSeconds": 23.101,
+    "postChangeSwiftEmitModuleSeconds": 15.192,
+    "swiftEmitModuleAbsoluteReductionSeconds": 7.909,
+    "swiftEmitModulePercentReduction": 34.24,
+    "proof": "Equivalent successful incremental builds; compiler invocation changed from -O to -Onone for module MacScope",
+    "noOpCaveat": "The optimization setting removes compiler work only when Swift compilation runs; no-op latency is governed by build planning and mandatory script phases."
+  },
+  "workflow": {
+    "canonicalWarmBootstrapSeconds": 56.83,
+    "freshnessFastPathSeconds": 0.09,
+    "absoluteReductionSeconds": 56.74,
+    "percentReduction": 99.84,
+    "scope": "project-readiness work before a routine focused test when the generated project is already fresh"
+  },
+  "qualificationSourceStaging": {
+    "treeFileCount": 77242,
+    "treeKiB": 1789428,
+    "baselineSeconds": 62.00,
+    "postChangeSeconds": 19.39,
+    "absoluteReductionSeconds": 42.61,
+    "percentReduction": 68.73,
+    "mechanism": "macOS clonefile source staging with copyfile fallback followed by the unchanged complete manifest verification"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "swift": "6.4.1 (swift-6.4.1-RELEASE), x86_64-unknown-linux-gnu",
+  "swift_crypto": {
+    "version": "3.12.3",
+    "source": "https://github.com/apple/swift-crypto/archive/refs/tags/3.12.3.tar.gz",
+    "archive_sha256": "fde819d80592cb341080c73ceb6532b961e4ed0ce266a4cfd04e030a1b749eb1"
+  },
+  "swift_asn1": {
+    "version": "1.3.1",
+    "source": "https://github.com/apple/swift-asn1/archive/refs/tags/1.3.1.tar.gz",
+    "archive_sha256": "c8db74fe60a9b68e1eeadcf22acce08e7cfeb3a426a1e9b67380b650214188cc"
+  },
+  "system_library": "zlib"
+}

@@ -1,0 +1,7 @@
+ThirdParty/GhosttySurface/patches/*.patch whitespace=-blank-at-eol,-blank-at-eof
+ThirdParty/GhosttySurface/Source/** whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab conflict-marker-size=64
+ThirdParty/GhosttySurface/zig-pkg/** whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab conflict-marker-size=64
+ThirdParty/GhosttyVT/Source/zig-pkg/** whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab conflict-marker-size=64
+ThirdParty/Zig/** whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab conflict-marker-size=64
+ThirdParty/SleighNative/package/lib/libdecomp.a filter=lfs diff=lfs merge=lfs -text
+ThirdParty/Zig/zig-0.16.0/zig filter=lfs diff=lfs merge=lfs -text

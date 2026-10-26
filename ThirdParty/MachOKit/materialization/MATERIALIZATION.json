@@ -1,0 +1,41 @@
+{
+  "compiled_build_marker": "MACSCOPE_MACHOKIT_BUILD_ID:773e10797abc53914b94c2ee8c6f40f5da0b06eb:b2f928cfc635b3a539129d1dbd50464c9d218c4a815553bc4b710ac813a790ea",
+  "components": [
+    {
+      "acquisition": "local-clean-git-checkout",
+      "git_tree": "71314646e1831c21a9480f566396c6a77b7b6d32",
+      "name": "swift-fileio",
+      "repository": "https://github.com/p-x9/swift-fileio.git",
+      "revision": "d589ff3966f9f064574780f527449a946736b989",
+      "tree_sha256": "07d7a1b2821566423aee3677c7f1fc066621dcd0dbe4c9b608c092040a304da4"
+    },
+    {
+      "acquisition": "local-clean-git-checkout",
+      "git_tree": "95164a7178898951a246c4ce618de91989f8da7a",
+      "name": "swift-fileio-extra",
+      "repository": "https://github.com/p-x9/swift-fileio-extra.git",
+      "revision": "8d83506dd4dff737807d90dbf2264096ed98c7a7",
+      "tree_sha256": "3556201836c8410c92f069c8212e1429b83d37b165f8db9aa6e7289dca7f9c5b"
+    },
+    {
+      "acquisition": "local-clean-git-checkout",
+      "git_tree": "5815e8dafb8899121841b11451502773a9a8fa96",
+      "name": "swift-binary-parse-support",
+      "repository": "https://github.com/p-x9/swift-binary-parse-support.git",
+      "revision": "5fb96b503672ea4752eded6b4e301fd87214b03b",
+      "tree_sha256": "202d95c8aaca323d1f47db470e7a451a66f1d125711cd13c5a928da0f474eeb3"
+    }
+  ],
+  "governed_source_identity": "b2f928cfc635b3a539129d1dbd50464c9d218c4a815553bc4b710ac813a790ea",
+  "integration_form": "direct-source",
+  "local_manifest_patch": "ThirdParty/MachOKit/PATCHES.md",
+  "provider": {
+    "id": "p-x9/MachOKit",
+    "revision": "773e10797abc53914b94c2ee8c6f40f5da0b06eb",
+    "source_archive_sha256": "2e6d429f248ac3f01b896379c3c77518858a2213ef3da0d89939d112de9fd945",
+    "upstream_tree_sha256": "0a0bdc104b7f20c3f34ef595e113152cfc78ec496e96e14cb4957cf4d81dd038",
+    "version": "0.52.2"
+  },
+  "schema_version": 3,
+  "tree_sha256": "e6796548485d32a183c3e1641989d637f5f6344c9e5af5a9cfbb83f549007950"
+}

@@ -1,0 +1,75 @@
+{
+  "engineKey": "6a025ace8b541dce35883feb5bde21d08824da42905c6399e591d65491264f47",
+  "fixture": {
+    "classification": "valid",
+    "consumers": [
+      "K1 ImageTypeCatalog independent metadata inventory"
+    ],
+    "format": "type-inventory",
+    "id": "type-atlas-swift-app",
+    "oracles": [
+      "go-macho"
+    ],
+    "path": "Scripts/parser-oracles/type-atlas/swift-app.bin",
+    "provenance": "Authored compile-once specimen; adjacent source; arm64 macOS 27.0, Xcode 27",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "sha256": "422c0bfb57c52726736c424cde1d1b0430626819294146235248ae95b3256297",
+    "size": 57136
+  },
+  "inventory": {
+    "inventories": {
+      "objcCategories": [],
+      "objcClasses": [],
+      "objcProtocols": [],
+      "swiftConformances": [
+        {
+          "address": 4294973744,
+          "name": "Point",
+          "protocol": "TypeAtlasSwift.Shape",
+          "typeAddress": 4294974104
+        },
+        {
+          "address": 4294973760,
+          "name": "Color",
+          "protocol": "_$sSQMp",
+          "typeAddress": 4294974180
+        },
+        {
+          "address": 4294973800,
+          "name": "Color",
+          "protocol": "_$sSHMp",
+          "typeAddress": 4294974180
+        }
+      ],
+      "swiftProtocols": [
+        {
+          "address": 4294974072,
+          "name": "Shape"
+        }
+      ],
+      "swiftTypes": [
+        {
+          "address": 4294974104,
+          "kind": "struct",
+          "name": "Point"
+        },
+        {
+          "address": 4294974132,
+          "kind": "struct",
+          "name": "Generic"
+        },
+        {
+          "address": 4294974180,
+          "kind": "enum",
+          "name": "Color"
+        }
+      ]
+    },
+    "status": "parsed"
+  },
+  "schema": "macscope.type-inventory-golden.v1"
+}

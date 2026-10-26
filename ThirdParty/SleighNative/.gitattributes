@@ -1,0 +1,2 @@
+# Compiled SLEIGH specifications are binary; never normalize or text-diff them.
+AARCH64/*.sla binary

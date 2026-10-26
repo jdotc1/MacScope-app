@@ -1,0 +1,99 @@
+{
+ "imageOwner": "6B1C0C1A-2E9F-4A55-8E0B-7D3B1E0F4C21",
+ "imageSlot": 0,
+ "total": 3,
+ "types": [
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x82b8",
+    "kind": "objcClass",
+    "slot": 0
+   },
+   "kind": "objcClass",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x18c8",
+     "isClassMethod": false,
+     "name": "init",
+     "selectorUsers": []
+    },
+    {
+     "implementation": "0x18c0",
+     "isClassMethod": true,
+     "name": "alloc",
+     "selectorUsers": []
+    }
+   ],
+   "name": "Root",
+   "superclass": null,
+   "users": []
+  },
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8308",
+    "kind": "objcClass",
+    "slot": 0
+   },
+   "kind": "objcClass",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x18d8",
+     "isClassMethod": false,
+     "name": "render:",
+     "selectorUsers": [
+      "0x1938"
+     ]
+    },
+    {
+     "implementation": "0x1904",
+     "isClassMethod": false,
+     "name": "close",
+     "selectorUsers": [
+      "0x192c"
+     ]
+    },
+    {
+     "implementation": "0x18cc",
+     "isClassMethod": true,
+     "name": "sharedWidget",
+     "selectorUsers": []
+    }
+   ],
+   "name": "Widget",
+   "superclass": "Root",
+   "users": [
+    "0x18d0"
+   ]
+  },
+  {
+   "conformances": [],
+   "evidence": "descriptor",
+   "id": {
+    "address": "0x8380",
+    "kind": "objcClass",
+    "slot": 0
+   },
+   "kind": "objcClass",
+   "members": [],
+   "methods": [
+    {
+     "implementation": "0x1910",
+     "isClassMethod": false,
+     "name": "render:",
+     "selectorUsers": [
+      "0x1938"
+     ]
+    }
+   ],
+   "name": "Gadget",
+   "superclass": "Root",
+   "users": []
+  }
+ ]
+}

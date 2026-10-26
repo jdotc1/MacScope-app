@@ -1,0 +1,53 @@
+printf_tail start cursor=0
+printf_tail int cursor=8
+printf_tail double cursor=16
+printf_tail ptr cursor=24
+printf_tail longdouble cursor=32
+printf_tail double cursor=40
+printf_tail values 7 2.5 s 4.5 1.125
+named_int128 start cursor=40
+named_int128 int cursor=48
+named_int128 values 5 6 7
+int128_tail start cursor=0
+int128_tail int cursor=8
+int128_tail int128 cursor=32
+int128_tail int cursor=40
+int128_tail int128 cursor=64
+int128_tail values 11 12 13 14
+records start cursor=0
+records int cursor=8
+records A32 cursor=16
+records int cursor=24
+records HFA4D cursor=56
+records int cursor=64
+records values 21 40 22 4.5 23
+promotions start cursor=0
+promotions int cursor=8
+promotions int cursor=16
+promotions double cursor=24
+promotions unsigned cursor=32
+promotions values -128 65535 1.1000000 4294967295
+five_named start cursor=0
+five_named int128 cursor=16
+five_named long cursor=24
+five_named int128 cursor=48
+five_named values 31 32 33
+nine_doubles start cursor=0
+nine_doubles double cursor=8
+nine_doubles double cursor=16
+nine_doubles double cursor=24
+nine_doubles double cursor=32
+nine_doubles double cursor=40
+nine_doubles double cursor=48
+nine_doubles double cursor=56
+nine_doubles double cursor=64
+nine_doubles double cursor=72
+nine_doubles values 45.0
+seven_named start cursor=0
+seven_named int cursor=8
+seven_named longdouble cursor=16
+seven_named int cursor=24
+seven_named values 77 41 42.5 43
+named_double start cursor=0
+named_double int cursor=8
+named_double values 1.5 9

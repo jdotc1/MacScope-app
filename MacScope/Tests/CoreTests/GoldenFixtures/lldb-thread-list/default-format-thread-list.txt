@@ -1,0 +1,3 @@
+Process 70373 stopped
+* thread #1: tid = 0x3415c5, 0x0000000100000418 two`parse_header(x=3) at two.c:4:59, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
+  thread #2: tid = 0x3415dd, 0x0000000191833308 libsystem_kernel.dylib`__semwait_signal + 8

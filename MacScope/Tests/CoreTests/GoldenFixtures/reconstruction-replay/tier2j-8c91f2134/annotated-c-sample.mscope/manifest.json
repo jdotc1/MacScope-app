@@ -1,0 +1,520 @@
+{
+  "analysis" : {
+    "addressOverrides" : [
+      {
+        "address" : 4294968416,
+        "override" : {
+          "customName" : "saturating_increment"
+        }
+      },
+      {
+        "address" : 4294968480,
+        "override" : {
+          "customComment" : "T27 old-writer fixture (Tier 2j 8c91f2134)"
+        }
+      }
+    ],
+    "analysisInputFingerprint" : {
+      "artifactIdentity" : {
+        "architectureVariant" : "arm64",
+        "rawCPUSubtype" : 0,
+        "rawCPUType" : 16777228,
+        "selectedSliceByteCount" : 33656,
+        "selectedSliceSHA256" : "e4aaf1e887ae299011a9b1611a29aebd5bd48054c1d0c6d7145230dd89263ff0",
+        "uuid" : "62D08735-5AD2-4A7D-AFE9-C25569BD23C5"
+      },
+      "binaryID" : "B403DD00-93F9-4EE3-B2C7-84D683EEE82F",
+      "binaryName" : "original-arm64",
+      "binaryPath" : "\/fixtures\/reconstruction-c-sample\/original-arm64",
+      "facets" : [
+        {
+          "itemCount" : 0,
+          "kind" : "codeDataRanges",
+          "schemaVersion" : 1,
+          "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "itemCount" : 24,
+          "kind" : "controlFlow",
+          "schemaVersion" : 1,
+          "sha256" : "55ab5b45a20da66a561104ac4ba858d4dc4905b1bd9a2d13a441a4c7358e3e1f"
+        },
+        {
+          "itemCount" : 0,
+          "kind" : "debugSourceLines",
+          "schemaVersion" : 1,
+          "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "itemCount" : 87,
+          "kind" : "decodedInstructions",
+          "schemaVersion" : 1,
+          "sha256" : "4165c08642a43f587a4d5774834c28b3260be2a3e2ed082160f874581cccfe58"
+        },
+        {
+          "itemCount" : 2,
+          "kind" : "functions",
+          "schemaVersion" : 1,
+          "sha256" : "59b0ebbc61beae636f70289138e530d337b36616011a4d87fcc2e431fbcc4dce"
+        },
+        {
+          "itemCount" : 5,
+          "kind" : "loaderSections",
+          "schemaVersion" : 1,
+          "sha256" : "f1efd5f50f672bd6af79f55171a67c9ebfb15735c410d689fac554fc0ee2df48"
+        },
+        {
+          "itemCount" : 1,
+          "kind" : "machOLoadMetadata",
+          "schemaVersion" : 1,
+          "sha256" : "85ef26a6cc329e1bbdd7ce43b0a057a93a3fc70d050e7501871fd3b201928a24"
+        },
+        {
+          "itemCount" : 1,
+          "kind" : "relocations",
+          "schemaVersion" : 1,
+          "sha256" : "a51c9a1948560db6cfddeb807449a03ada7651cff97c2211458919d3daeffb4d"
+        },
+        {
+          "byteCount" : 33656,
+          "itemCount" : 1,
+          "kind" : "selectedSliceBytes",
+          "schemaVersion" : 1,
+          "sha256" : "12af005d00f13398dae4177c164ecdc5bf140cb17d6c85d9f42f5e6b1fb72deb"
+        },
+        {
+          "itemCount" : 11,
+          "kind" : "xrefs",
+          "schemaVersion" : 1,
+          "sha256" : "2fd53da65c2540a0fa2447ab172d07aab1aafe7b2ffcd57e0c4375c86b2589c3"
+        }
+      ],
+      "imageByteCount" : 33656,
+      "imageBytesSHA256" : "e4aaf1e887ae299011a9b1611a29aebd5bd48054c1d0c6d7145230dd89263ff0",
+      "imageSlot" : 0,
+      "overallSHA256" : "933bc0981a462cd273cbc23984a69e55b2d70adee7e6fc49308f0a8fe11a8c3d",
+      "schemaVersion" : 1
+    },
+    "basicBlocks" : [
+
+    ],
+    "bookmarks" : [
+
+    ],
+    "controlFlowEdges" : [
+
+    ],
+    "exports" : [
+      {
+        "address" : 4294967296,
+        "id" : "5D871324-A488-4E29-BAAD-E1C99C417E2C",
+        "name" : "__mh_execute_header",
+        "source" : "LC_SYMTAB"
+      },
+      {
+        "address" : 4294968480,
+        "id" : "91D97ACC-6733-4852-A2F4-163C4289425E",
+        "name" : "_main",
+        "source" : "LC_SYMTAB"
+      },
+      {
+        "address" : 4294968416,
+        "id" : "03D07415-D4A1-422E-BBAF-280D7DDE2B40",
+        "name" : "_reconstructed",
+        "source" : "LC_SYMTAB"
+      }
+    ],
+    "functions" : [
+      {
+        "confidence" : 0.74,
+        "endAddress" : 4294968480,
+        "id" : "6E107921-7F17-826B-BDA6-CD4AB32F1D05",
+        "name" : "_reconstructed",
+        "startAddress" : 4294968416
+      },
+      {
+        "confidence" : 0.74,
+        "endAddress" : 4294968728,
+        "id" : "74D38B23-989D-871F-A031-FDD914742A8B",
+        "name" : "_main",
+        "startAddress" : 4294968480
+      }
+    ],
+    "imports" : [
+      {
+        "id" : "2900E0B3-1136-4B04-AD97-BB3190552340",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "___stack_chk_fail"
+      },
+      {
+        "id" : "E1716633-C295-41AA-A10F-1A3EF858324E",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "___stack_chk_guard"
+      },
+      {
+        "id" : "27EB2204-E017-4989-96DA-E6BDA278C88F",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "_memcpy"
+      },
+      {
+        "id" : "A15B461E-AC11-49E6-A993-D982E6F5CFF7",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "_printf"
+      }
+    ],
+    "indirectSymbols" : [
+      {
+        "address" : 4294968728,
+        "entrySize" : 12,
+        "id" : "335A435D-BFF3-4D7F-963B-CE244A5E5BBF",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "symbolStub",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 5,
+        "sourceSection" : "__TEXT,__stubs",
+        "symbolIndex" : 5,
+        "symbolName" : "_memcpy",
+        "tableIndex" : 0
+      },
+      {
+        "address" : 4294968740,
+        "entrySize" : 12,
+        "id" : "BF5B88BA-DA5B-41ED-8496-22B5839B3C80",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "symbolStub",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 6,
+        "sourceSection" : "__TEXT,__stubs",
+        "symbolIndex" : 6,
+        "symbolName" : "_printf",
+        "tableIndex" : 1
+      },
+      {
+        "address" : 4294968752,
+        "entrySize" : 12,
+        "id" : "AAB317EB-5F5E-47C5-AC5D-488552573058",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "symbolStub",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 3,
+        "sourceSection" : "__TEXT,__stubs",
+        "symbolIndex" : 3,
+        "symbolName" : "___stack_chk_fail",
+        "tableIndex" : 2
+      },
+      {
+        "address" : 4294983680,
+        "entrySize" : 8,
+        "id" : "B72CB75E-3A25-4475-805D-645385A34AA5",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 4,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 4,
+        "symbolName" : "___stack_chk_guard",
+        "tableIndex" : 3
+      },
+      {
+        "address" : 4294983688,
+        "entrySize" : 8,
+        "id" : "9EF62EEF-8254-4D97-A625-9184B45D3DD6",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 5,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 5,
+        "symbolName" : "_memcpy",
+        "tableIndex" : 4
+      },
+      {
+        "address" : 4294983696,
+        "entrySize" : 8,
+        "id" : "D337B4EC-35DB-4755-99BD-CFC2FD2939A3",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 6,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 6,
+        "symbolName" : "_printf",
+        "tableIndex" : 5
+      },
+      {
+        "address" : 4294983704,
+        "entrySize" : 8,
+        "id" : "6C5204C4-FFF5-4643-B128-BD59CC8F3C8C",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 3,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 3,
+        "symbolName" : "___stack_chk_fail",
+        "tableIndex" : 6
+      }
+    ],
+    "instructions" : [
+
+    ],
+    "manualXRefs" : [
+
+    ],
+    "segmentOverrides" : [
+
+    ],
+    "stringLiterals" : [
+      {
+        "address" : 4294968912,
+        "byteLength" : 6,
+        "id" : "B98B060E-76ED-4D96-9C80-27A50434F1DD",
+        "sourceSection" : "__TEXT,__cstring",
+        "value" : "%u:%u\n"
+      }
+    ],
+    "symbols" : [
+      {
+        "address" : 4294967296,
+        "id" : "26EDBC6F-DCD4-8E52-BE6F-11B3A6D0CC8B",
+        "kind" : "export",
+        "name" : "__mh_execute_header",
+        "rawLinkageName" : "__mh_execute_header"
+      },
+      {
+        "address" : 4294968480,
+        "id" : "914BA2F0-E7B1-886A-9BB2-F80BCE989C2D",
+        "kind" : "export",
+        "name" : "_main",
+        "rawLinkageName" : "_main"
+      },
+      {
+        "address" : 4294968416,
+        "id" : "55D2ABCD-4AFF-8B24-ABB2-F1162FE81421",
+        "kind" : "export",
+        "name" : "_reconstructed",
+        "rawLinkageName" : "_reconstructed"
+      },
+      {
+        "id" : "EEAEFF38-A2A7-8237-AB5B-F3E0CFD4C9AA",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "___stack_chk_fail",
+        "rawLinkageName" : "___stack_chk_fail"
+      },
+      {
+        "id" : "75757417-6259-88F5-AF95-B1357415F464",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "___stack_chk_guard",
+        "rawLinkageName" : "___stack_chk_guard"
+      },
+      {
+        "id" : "B0508A43-3B78-862E-B4AA-0C0FEB65A1F1",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "_memcpy",
+        "rawLinkageName" : "_memcpy"
+      },
+      {
+        "id" : "77034D83-4A60-8E34-89EC-8BB681E5508A",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "_printf",
+        "rawLinkageName" : "_printf"
+      },
+      {
+        "address" : 4294968728,
+        "id" : "AA529A36-7F1E-89BA-9BCE-8D3ED7D69BC0",
+        "kind" : "stub",
+        "name" : "_memcpy"
+      },
+      {
+        "address" : 4294968740,
+        "id" : "9A26D4F4-BA32-8A9E-81E6-FA00EA05018B",
+        "kind" : "stub",
+        "name" : "_printf"
+      },
+      {
+        "address" : 4294968752,
+        "id" : "210DCEE3-D425-8D59-BB68-73467A44F929",
+        "kind" : "stub",
+        "name" : "___stack_chk_fail"
+      },
+      {
+        "address" : 4294983680,
+        "id" : "63728A5D-2810-82D8-9543-BEEF44DCD111",
+        "kind" : "stub",
+        "name" : "___stack_chk_guard"
+      },
+      {
+        "address" : 4294983688,
+        "id" : "0BDEFB5E-9F6D-80D5-8CA1-7DA281BC4D02",
+        "kind" : "stub",
+        "name" : "_memcpy"
+      },
+      {
+        "address" : 4294983696,
+        "id" : "68C8C7CB-765D-8F68-8788-7E927E4172AA",
+        "kind" : "stub",
+        "name" : "_printf"
+      },
+      {
+        "address" : 4294983704,
+        "id" : "644FE74D-E15B-833B-B4CE-A227F926372C",
+        "kind" : "stub",
+        "name" : "___stack_chk_fail"
+      }
+    ],
+    "typeDefinitions" : [
+
+    ],
+    "xrefs" : [
+      {
+        "from" : 4294968496,
+        "id" : "664EDAAF-2B7E-4805-818E-8F6D29568DDF",
+        "kind" : "data",
+        "to" : 4294983680
+      },
+      {
+        "from" : 4294968520,
+        "id" : "1779824D-08E3-4528-B9C0-4D3E07FA79EC",
+        "kind" : "data",
+        "to" : 4294968764
+      },
+      {
+        "from" : 4294968524,
+        "id" : "CD434FF2-B01B-4633-92D2-53DED60A09BE",
+        "kind" : "call",
+        "to" : 4294968728
+      },
+      {
+        "from" : 4294968572,
+        "id" : "2A1198F1-2AA9-44BB-8138-FED33C090817",
+        "kind" : "call",
+        "to" : 4294968416
+      },
+      {
+        "from" : 4294968616,
+        "id" : "5BDBD53C-3EAB-410E-8569-34668EE1B2AD",
+        "kind" : "string",
+        "to" : 4294968912
+      },
+      {
+        "from" : 4294968620,
+        "id" : "12C1E28B-C00A-4854-BFB5-FA845CF5B231",
+        "kind" : "call",
+        "to" : 4294968740
+      },
+      {
+        "from" : 4294968688,
+        "id" : "9C866E16-25C4-421B-B19B-5A490F3BD88D",
+        "kind" : "data",
+        "to" : 4294983680
+      },
+      {
+        "from" : 4294968708,
+        "id" : "991EBFF9-1AFE-471A-9585-DA440506A694",
+        "kind" : "call",
+        "to" : 4294968752
+      },
+      {
+        "from" : 4294968732,
+        "id" : "03E5C0B6-6D98-41FB-ACB0-4143D06F4ABB",
+        "kind" : "data",
+        "to" : 4294983688
+      },
+      {
+        "from" : 4294968744,
+        "id" : "3C437CDD-DB21-4E4E-B23C-682F5643E119",
+        "kind" : "data",
+        "to" : 4294983696
+      },
+      {
+        "from" : 4294968756,
+        "id" : "077EF985-A844-4F3A-80C9-EA60D0ACBE23",
+        "kind" : "data",
+        "to" : 4294983704
+      }
+    ]
+  },
+  "analyzer" : {
+    "features" : [
+      {
+        "name" : "analyzer-version stamp and load-time analysis repair",
+        "version" : 1
+      }
+    ],
+    "version" : 1
+  },
+  "binaries" : [
+    {
+      "architecture" : "arm64",
+      "attachmentRelativePath" : "attachments\/b403dd00-93f9-4ee3-b2c7-84d683eee82f\/original-arm64",
+      "displayName" : "original-arm64",
+      "fileHash" : "e4aaf1e887ae299011a9b1611a29aebd5bd48054c1d0c6d7145230dd89263ff0",
+      "fileSize" : 33656,
+      "id" : "B403DD00-93F9-4EE3-B2C7-84D683EEE82F",
+      "kind" : "Mach-O executable",
+      "metadata" : {
+        "buildTools" : [
+          "ld 27037.1"
+        ],
+        "minimumOSVersion" : "27.0",
+        "platformName" : "macOS",
+        "sdkVersion" : "27.2",
+        "uuid" : "62d08735-5ad2-4a7d-afe9-c25569bd23c5"
+      },
+      "originalPath" : "\/fixtures\/reconstruction-c-sample\/original-arm64"
+    }
+  ],
+  "bookmarkResolutionDecision" : "resolve_stored_bookmarks",
+  "createdAt" : "2026-10-13T07:14:47.583Z",
+  "documentID" : "A16F0BC5-6F03-49D4-9D33-73FBC8C064EB",
+  "formatIdentifier" : "org.macscope.workspace-package",
+  "formatVersion" : 4,
+  "inputCopyingDecision" : "copy_inputs_into_package",
+  "instructionSidecar" : {
+    "analysisFormatVersion" : 1,
+    "byteCount" : 6857,
+    "groups" : [
+      {
+        "basicBlockCount" : 18,
+        "controlFlowEdgeCount" : 24,
+        "rowCount" : 87
+      }
+    ],
+    "path" : "instructions.bin",
+    "sha256" : "53bc870ea1b181b206ea149676835514f0bd37791833b2da9bff4927f7d9cd42"
+  },
+  "modifiedAt" : "2026-10-13T07:14:47.583Z",
+  "session" : {
+    "editorMode" : "Disassembly",
+    "isInspectorPresented" : true,
+    "selectedAddress" : 4294968416,
+    "selectedSidebarItemID" : "binary:B403DD00-93F9-4EE3-B2C7-84D683EEE82F",
+    "selectedTool" : "Project",
+    "sidebarSearchText" : "",
+    "updatedAt" : "2026-10-13T07:14:47.583Z"
+  },
+  "workspaceName" : "original-arm64",
+  "workspaceUUID" : "80164580-DEDC-4297-B4ED-C453928E8FDF"
+}

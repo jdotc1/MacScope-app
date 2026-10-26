@@ -1,0 +1,260 @@
+{
+  "analysis" : {
+    "addressOverrides" : [
+
+    ],
+    "basicBlocks" : [
+
+    ],
+    "bookmarks" : [
+
+    ],
+    "controlFlowEdges" : [
+
+    ],
+    "exports" : [
+
+    ],
+    "functions" : [
+
+    ],
+    "imports" : [
+
+    ],
+    "indirectSymbols" : [
+
+    ],
+    "instructions" : [
+
+    ],
+    "manualXRefs" : [
+
+    ],
+    "segmentOverrides" : [
+
+    ],
+    "stringLiterals" : [
+
+    ],
+    "symbols" : [
+
+    ],
+    "typeDefinitions" : [
+
+    ],
+    "xrefs" : [
+
+    ]
+  },
+  "assistantSessionRecords" : [
+
+  ],
+  "binaries" : [
+    {
+      "architecture" : "arm64",
+      "attachmentRelativePath" : "attachments\/10000000-0000-0000-0000-000000000003\/task10-installed.bin",
+      "displayName" : "Installed fixture",
+      "fileHash" : "6eca5cc86a53c80d74e777fffd48ee46b98f06a8b448d18106af49ac0862b875",
+      "fileSize" : 8,
+      "id" : "10000000-0000-0000-0000-000000000003",
+      "kind" : "Raw data",
+      "originalPath" : "\/fixtures\/task10-installed.bin"
+    },
+    {
+      "architecture" : "arm64",
+      "attachmentRelativePath" : "attachments\/10000000-0000-0000-0000-000000000031\/task10-installed-start.bin",
+      "displayName" : "Installed starting fixture",
+      "fileHash" : "1490ca3af74fcf893b9fb1f34d38d75d45e276e05d3d25297dd9bd261a6cb425",
+      "fileSize" : 8,
+      "id" : "10000000-0000-0000-0000-000000000031",
+      "kind" : "Raw data",
+      "originalPath" : "\/fixtures\/task10-installed-start.bin",
+      "slot" : 1
+    }
+  ],
+  "bookmarkResolutionDecision" : "resolve_stored_bookmarks",
+  "createdAt" : "2024-08-30T06:40:00.000Z",
+  "documentID" : "10000000-0000-0000-0000-000000000001",
+  "formatIdentifier" : "org.macscope.workspace-package",
+  "formatVersion" : 3,
+  "imageAnalyses" : [
+    {
+      "analysis" : {
+        "addressOverrides" : [
+
+        ],
+        "analysisInputFingerprint" : {
+          "binaryID" : "10000000-0000-0000-0000-000000000003",
+          "binaryName" : "Installed fixture",
+          "binaryPath" : "\/fixtures\/task10-installed.bin",
+          "facets" : [
+
+          ],
+          "imageByteCount" : 8,
+          "imageBytesSHA256" : "6eca5cc86a53c80d74e777fffd48ee46b98f06a8b448d18106af49ac0862b875",
+          "imageSlot" : 0,
+          "overallSHA256" : "3333333333333333333333333333333333333333333333333333333333333333",
+          "schemaVersion" : 1
+        },
+        "basicBlocks" : [
+
+        ],
+        "bookmarks" : [
+
+        ],
+        "controlFlowEdges" : [
+
+        ],
+        "exports" : [
+
+        ],
+        "functions" : [
+          {
+            "confidence" : 1,
+            "endAddress" : 4294967304,
+            "id" : "D24DE924-1336-8DFB-852F-9FC626ADE744",
+            "name" : "task10_fixture_entry",
+            "startAddress" : 4294967296
+          }
+        ],
+        "imports" : [
+
+        ],
+        "indirectSymbols" : [
+
+        ],
+        "instructions" : [
+          {
+            "address" : 4294967296,
+            "bytes" : "c0 03 5f d6",
+            "hasBreakpoint" : false,
+            "mnemonic" : "ret",
+            "operands" : ""
+          }
+        ],
+        "manualXRefs" : [
+
+        ],
+        "segmentOverrides" : [
+
+        ],
+        "stringLiterals" : [
+
+        ],
+        "symbols" : [
+
+        ],
+        "typeDefinitions" : [
+
+        ],
+        "xrefs" : [
+
+        ]
+      },
+      "binaryID" : "10000000-0000-0000-0000-000000000003",
+      "imageSlot" : 0
+    },
+    {
+      "analysis" : {
+        "addressOverrides" : [
+
+        ],
+        "analysisInputFingerprint" : {
+          "binaryID" : "10000000-0000-0000-0000-000000000031",
+          "binaryName" : "Installed starting fixture",
+          "binaryPath" : "\/fixtures\/task10-installed-start.bin",
+          "facets" : [
+
+          ],
+          "imageByteCount" : 8,
+          "imageBytesSHA256" : "1490ca3af74fcf893b9fb1f34d38d75d45e276e05d3d25297dd9bd261a6cb425",
+          "imageSlot" : 1,
+          "overallSHA256" : "c986d6aa32246a825be0b7156672c720245d27d1d91de07975c4864358025dfb",
+          "schemaVersion" : 1
+        },
+        "basicBlocks" : [
+
+        ],
+        "bookmarks" : [
+
+        ],
+        "controlFlowEdges" : [
+
+        ],
+        "exports" : [
+
+        ],
+        "functions" : [
+          {
+            "confidence" : 1,
+            "endAddress" : 4294971400,
+            "id" : "10000000-0000-0000-0000-000000000032",
+            "name" : "task10_starting_fixture_entry",
+            "startAddress" : 4294971392
+          }
+        ],
+        "imports" : [
+
+        ],
+        "indirectSymbols" : [
+
+        ],
+        "instructions" : [
+          {
+            "address" : 4294971392,
+            "bytes" : "c0 03 5f d6",
+            "hasBreakpoint" : false,
+            "mnemonic" : "ret",
+            "operands" : ""
+          }
+        ],
+        "manualXRefs" : [
+
+        ],
+        "segmentOverrides" : [
+
+        ],
+        "stringLiterals" : [
+
+        ],
+        "symbols" : [
+
+        ],
+        "typeDefinitions" : [
+
+        ],
+        "xrefs" : [
+
+        ]
+      },
+      "binaryID" : "10000000-0000-0000-0000-000000000031",
+      "imageSlot" : 1
+    }
+  ],
+  "inputCopyingDecision" : "copy_inputs_into_package",
+  "modifiedAt" : "2024-08-30T06:40:00.000Z",
+  "reconstruction" : {
+    "checkpointManifestPath" : "Reconstruction\/checkpoint-manifest.json",
+    "checkpointManifestSHA256" : "03d52c4a624512e572d49606d39a1fa95a8b2a3485c17108c978f48fe0bc165b",
+    "corpusManifestPath" : "Reconstruction\/corpus-manifest.json",
+    "corpusManifestSHA256" : "fc1e44d4381c49be092df964182b86c6807cf1535dbe438028f6fb90af6300df",
+    "evidenceManifestPath" : "Reconstruction\/evidence-manifest.json",
+    "evidenceManifestSHA256" : "37a629bdd88517162702e444c38ec579e43287b19ab84a3df0dece6466e8d313",
+    "schemaVersion" : 1
+  },
+  "runtimeAuthorityRecords" : [
+
+  ],
+  "session" : {
+    "editorMode" : "Disassembly",
+    "focusedImageSlot" : 1,
+    "isInspectorPresented" : true,
+    "selectedAddress" : 4294971392,
+    "selectedSidebarItemID" : "function:10000000-0000-0000-0000-000000000032",
+    "selectedTool" : "Project",
+    "sidebarSearchText" : "",
+    "updatedAt" : "2024-08-30T06:40:00.000Z"
+  },
+  "workspaceName" : "Task 10 navigation-current",
+  "workspaceUUID" : "10000000-0000-0000-0000-000000000002"
+}

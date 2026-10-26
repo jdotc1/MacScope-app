@@ -1,0 +1,11 @@
+{
+  "scope": "Exact files shipped in the CP1 attachment; synthetic local baseline is not the Mac repository HEAD",
+  "syntheticCommit": "04896c8adafbfce3dbd74438f766251a1942bee2",
+  "inputZIP_SHA256": "96866a99fd687cb2a4e539d241965225069fa3aec489fcff48028a06d947948d",
+  "shippedFiles": {
+    "AARCH64sve.sinc": "a1697a874d0c4f85ec425b9aec5632f94d2cd24433343ebdf77e1b948f0b7e87",
+    "AARCH64base.sinc": "b1651607cf8cb84462af7e8b2a5cd555780b63529912eaf5fe32ce0aa8a5b167",
+    "AARCH64instructions.sinc": "70bbf9444c458528136d277a792e040623ee54816dfbc19091a28b130ca0ec14",
+    "AARCH64sme.sinc": "e22d3c9928c85b6126d638cd23242eaeed502e493165277d811c0d345b8f3470"
+  }
+}

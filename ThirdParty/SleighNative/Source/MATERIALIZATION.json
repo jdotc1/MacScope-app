@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "componentId": "sleigh-native-source-dcp03b4",
+  "sleigh": {
+    "repository": "https://github.com/lifting-bits/sleigh",
+    "revision": "bfd38a983b4aa53dd386365e1df5ed5499b7e2fb",
+    "gitTree": "20043e94b5933466b0861ad68f07f591f70c0050",
+    "relativeRoot": "sleigh",
+    "treeSha256": "2af879c8587ba6b0913ee53b220f1580c92dd521de7671dc3ece8a750b47e622",
+    "fileCount": 41,
+    "totalBytes": 131300,
+    "license": "sleigh/LICENSE"
+  },
+  "ghidra": {
+    "repository": "https://github.com/NationalSecurityAgency/ghidra",
+    "revision": "c0f584bf229fffba61b36431f3ce30c0c3e4e682",
+    "gitTree": "2dfe30eddeefcd3efc9e49ea58bd725de5bbc4bb",
+    "relativeRoot": "ghidra",
+    "treeSha256": "fdcb64b623e3c881a95f16a29750e83fd124cc08149c347d3e56f58352cbe321",
+    "fileCount": 238,
+    "totalBytes": 6942501,
+    "license": "ghidra/LICENSE",
+    "notice": "ghidra/NOTICE",
+    "disclaimer": "ghidra/DISCLAIMER.md",
+    "excludedOptionalPaths": [
+      "Ghidra/Features/Decompiler/src/decompile/cpp/bfd_arch.cc",
+      "Ghidra/Features/Decompiler/src/decompile/cpp/bfd_arch.hh",
+      "Ghidra/Features/Decompiler/src/decompile/cpp/codedata.cc",
+      "Ghidra/Features/Decompiler/src/decompile/cpp/consolemain.cc",
+      "Ghidra/Features/Decompiler/src/decompile/cpp/loadimage_bfd.cc",
+      "Ghidra/Features/Decompiler/src/decompile/cpp/loadimage_bfd.hh"
+    ]
+  },
+  "patches": [
+    {
+      "path": "0001-Fix-UBSAN-errors-in-decompiler.patch",
+      "sha256": "7f83a4bd158490c5aa58d789b6f655ced6a9b309f4e43a4870cd893b3d36f2e5"
+    },
+    {
+      "path": "0002-Use-stroull-instead-of-stroul-to-parse-address-offse.patch",
+      "sha256": "8c5ca9c13c87ca4bd456643912205efb26684ccb19055ac60ebe742300a68f39"
+    },
+    {
+      "path": "0003-Ignore-floating-point-test-due-to-compilation-differ.patch",
+      "sha256": "b4dddb53f41fda93ae9acc633ce1886d2eaa4e8a5328361064633b6733a42a99"
+    },
+    {
+      "path": "0004-Allow-positive-or-negative-NAN-in-decompiler-floatin.patch",
+      "sha256": "ea78812681b8f1dbede305cc7bde716b7cee16a30005bc90e8304fbfb3df80dd"
+    },
+    {
+      "path": "0005-decompiler-Fix-strict-weak-ordering-TypePartialEnum.patch",
+      "sha256": "9dbe5ffc7a105e6c199f4027087b553e619691e2402f43a9357ffdec7f55fc11"
+    },
+    {
+      "path": "0006-decompiler-Fix-strict-weak-ordering-PullRecord.patch",
+      "sha256": "fe52595fc8a2843006f771880e3d49782564770295b4b0a7475ab7d1be435731"
+    },
+    {
+      "path": "0007-decompiler-Fix-strict-weak-ordering-compareFinalOrde.patch",
+      "sha256": "e4b5581e4513e6a76f1ac07999d5c5e42343e125efdbdc753afbda11d1f13c3f"
+    },
+    {
+      "path": "0008-Fix-UBSAN-signed-left-shift-errors.patch",
+      "sha256": "2b8a93f1dbf25c9855a85807e0d0c2cd0836789118e3a2a154e24d4a9c20426d"
+    }
+  ],
+  "build": {
+    "system": "CMake and Ninja",
+    "network": "disabled",
+    "ghidraPatchesAppliedOutsideRepository": true,
+    "output": "caller-supplied absolute external work root"
+  }
+}

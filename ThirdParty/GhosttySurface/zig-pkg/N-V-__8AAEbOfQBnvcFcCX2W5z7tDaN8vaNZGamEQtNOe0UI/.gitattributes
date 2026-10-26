@@ -1,0 +1,37 @@
+* text=auto
+
+*.c text
+*.cpp text
+*.h text
+*.m text
+*.mm text
+*.md text
+*.txt text
+*.html text
+*.bat text
+*.frag text
+*.vert text
+*.mkb text
+*.icf text
+
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.vcxproj.filters text eol=crlf
+*.natvis text eol=crlf
+
+# MacScope snapshots this package inside a byte-exact closed Zig package store.
+# Preserve the reviewed CRLF metadata bytes in Git instead of normalizing them.
+*.sln -text
+*.vcxproj -text
+*.vcxproj.filters -text
+*.natvis -text
+
+Makefile text eol=lf
+*.sh text eol=lf
+*.pbxproj text eol=lf
+*.storyboard text eol=lf
+*.plist text eol=lf
+
+*.png binary
+*.ttf binary
+*.lib binary

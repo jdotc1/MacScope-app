@@ -1,0 +1,11 @@
+# FEAT_PAuth_LR, FEAT_MOPS and FEAT_THE constructors that are not part of the
+# upstream base specification.
+
+# PACM page pacm.html (Arm A-profile 2026-03) MATCH xd50324ff/mask=xffffffff
+# PACM is HINT #39. It sets PSTATE.PACM so that the next PAC instruction uses its
+# second modifier; without FEAT_PAuth_LR it executes as a NOP. No p-code is
+# emitted here.
+:pacm
+is b_0031=0xd50324ff
+{
+}

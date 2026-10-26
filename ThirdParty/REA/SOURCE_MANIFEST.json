@@ -1,0 +1,167 @@
+{
+  "repository": "https://github.com/morluto/rea",
+  "commit": "c29931ce81dc530d2623ec992714a70b1f3e50e4",
+  "files": [
+    {
+      "path": "src/artifacts/apple/InterfaceBuilderAnalysis.ts",
+      "blob": "f47c5c56c9911533e9e2cee9c5cdea7891c2784d",
+      "sha256": "1c6bf59a3b7689b8485b97de79a57861e9f662b9dbef77d739f2b68b53d572ca",
+      "role": "referenceOnly-pure-projection-extraction"
+    },
+    {
+      "path": "src/artifacts/apple/InterfaceBuilderDecodeBudget.ts",
+      "blob": "d8b6f3a9322669821f2d0d3d2c89d0bb7489a4c9",
+      "sha256": "b431a3ffdf47c9b3081bc034d3d04d396e8377f3d165bc63249ed44c0d9eb520"
+    },
+    {
+      "path": "src/artifacts/apple/NibArchive.fixture.ts",
+      "blob": "09f2d6e2c51161699b2da8e3f7100ec7ad533bdc",
+      "sha256": "a4ff8d50de249afe9431f6aa1353a97aeb7055fd8c46c8e9d5cfa983ed2ece47"
+    },
+    {
+      "path": "src/artifacts/apple/NibArchive.ts",
+      "blob": "79b8a0d055ddf76e32f161dee5fe2c08b281a2e4",
+      "sha256": "b0b497a13fa8157e37533bac244dec8305eefe3b115c2109b41ee8ef5773d8ae"
+    },
+    {
+      "path": "src/artifacts/apple/NibViewHierarchy.ts",
+      "blob": "0d5aef0f6fd8d828c00c2b6896de6f7aebe2b795",
+      "sha256": "5734e7f6b7551eb72115a233a7f55ce7041ff1c65099fd44208435248a0ec8f1"
+    },
+    {
+      "path": "src/domain/analysisErrorBase.ts",
+      "blob": "a8449146e078773174a98b480ea626b144f35e82",
+      "sha256": "7bbdd4504f55c65e84e98ceeba267ba52f91f6cc19f27f7edbd939bf00da889e"
+    },
+    {
+      "path": "src/domain/analysisErrorCore.ts",
+      "blob": "c13ba891d6b6581966d1ccf8a27f2f101fb8e231",
+      "sha256": "e90a3250623441c4a7dd11a09bab6e04f862beadad4b8ae04f8253b1afefb25e"
+    },
+    {
+      "path": "src/domain/apple/appleAssetCatalog.ts",
+      "blob": "2954ebda8e7e1491a5e587f114045d06a13d5022",
+      "sha256": "f807408f493b05315bc2533976c67e98bf31d5875f1ea0fb6fd83f8c66d09b83"
+    },
+    {
+      "path": "src/domain/apple/appleBundleAnatomy.ts",
+      "blob": "224c5ff49e930e4ffd26ed378c601a1fdddc5402",
+      "sha256": "550d34d85f594c1cd6025743c5d877ca4ea5748402da25fb26132144400e8ec6"
+    },
+    {
+      "path": "src/domain/apple/dyldEnvironment.ts",
+      "blob": "a2f109b0abba55c5bf3f37dc6c83a6de6e98ab43",
+      "sha256": "fd06a1ec02cb88e79e1d693abb303d92338f4ac67b03d6d8a6f259affa27bbe9"
+    },
+    {
+      "path": "src/domain/apple/dyldPaths.ts",
+      "blob": "765bb15d1410e43c28a5ab426d2d9036ff9cee76",
+      "sha256": "388a3bbb5907b8f3af0de88499f39a6a443bccc52b16e308309ca9f63811382d"
+    },
+    {
+      "path": "src/domain/apple/dylibResolution.ts",
+      "blob": "86dc4902e74f7ea8a8ffbc4e1b8303a768626dd5",
+      "sha256": "ea0fcebc56625926c911a277e49ed551f38ed68f1d81c32b45eb473c7c9906a1"
+    },
+    {
+      "path": "src/domain/apple/dylibResolutionFindings.ts",
+      "blob": "e4cc1ddf2e01050e2f7ba8675b1af6ef81bab8bf",
+      "sha256": "ff6c216b960d67df0c341fe50f41db7daadc4d1963044b89fa6e8996ca65456a"
+    },
+    {
+      "path": "src/domain/apple/interfaceBuilderGraph.ts",
+      "blob": "17e94d584fddfe3643c2bb8393485468784848ce",
+      "sha256": "41cfdf9d70c46e994865c4c25d1d40aeab0fc4e7e4b9102fc96a631669ece7df"
+    },
+    {
+      "path": "src/domain/apple/interfaceBuilderKeyedArchive.ts",
+      "blob": "51b446b52bf524cbe9577f91a35ca02276ba966d",
+      "sha256": "df88e9ef8e1b118e8211e361badebca68acebad0b11da7ce141a354f8c12d5fd"
+    },
+    {
+      "path": "src/domain/apple/keyedArchive.ts",
+      "blob": "52a52a1073a2e87b391601b5402f8d402bef5e55",
+      "sha256": "f2cbfdf1b0818a53f7d476b794509e49ba80483b0836fd8eb120226e3795af3e"
+    },
+    {
+      "path": "src/domain/digests.ts",
+      "blob": "0c1eee88696ac6b095b9be1b1e5cdf576460320f",
+      "sha256": "94e86b9d1c4488cd5fa94cf80121fb3a21bbc0dc9ce0cef38bd1113ec2ac5f40"
+    },
+    {
+      "path": "src/domain/immutableJson.ts",
+      "blob": "0b68b4e2b6eabac5f31732d9c24319d962978cc6",
+      "sha256": "ca9f7a274917aa632762be4cbbfe4ed2ea496bcb408e90042dc0ad4498358cc9"
+    },
+    {
+      "path": "src/domain/jsonValue.ts",
+      "blob": "a6111a6c56f1cb7fa91ac46bea425f9fba88b68f",
+      "sha256": "5721a3b8b2d27e625df8a91c9529434f3f6f559273b68adcb15c3843c87dad8b"
+    },
+    {
+      "path": "src/domain/native/nativeInvestigationGraph.ts",
+      "blob": "cc5073d798c272ca61509b77fe5521632ea3d6f8",
+      "sha256": "09cc9180d77bf39e44778ad33ee6cb46176209d95d69d0638e14161da991b02e"
+    },
+    {
+      "path": "src/domain/native/objcSwiftMetadata.ts",
+      "blob": "5778e5dd7896085640327e342de7b86e25425871",
+      "sha256": "9b965d0c2b3434b75db2d1972c4f2457499a755c138598576148fd5a27e5e5a2"
+    },
+    {
+      "path": "src/domain/process/processCaptureCoverage.ts",
+      "blob": "72bbb9fb1ce1457921a87a7709eb8ce6756a9fdb",
+      "sha256": "945f6495f5e02c7ec272a4fab4e266a1a69b6568bac0c694d6bf108e07be621a"
+    },
+    {
+      "path": "src/domain/process/processComparison.ts",
+      "blob": "9db90cfb751b41a9848280130780a5ec5efd7194",
+      "sha256": "46263ad8eb0241668b73fc03a15e96c949e92e70f7c20fab812457e56ae2beb0"
+    },
+    {
+      "path": "src/domain/process/processObservation.ts",
+      "blob": "f8ad26130711100ed236383689e836f99cad1364",
+      "sha256": "2fb575bf68716c4eb1ee2e3db3a125a851abbd4957bdcc26ec80105488883bcb"
+    },
+    {
+      "path": "src/domain/process/processTraceComparison.ts",
+      "blob": "08a36a030b47594109fdc0e2c62de910f1f07021",
+      "sha256": "c88d1975b4a2ab437b0a349e0a4c07bbe9b482ab167c3d19581feb2b7866212c"
+    },
+    {
+      "path": "src/domain/process/processTraceDimensionProjection.ts",
+      "blob": "8e8208d0ab99452ba3e8f149a3b354595b19f064",
+      "sha256": "3dac1205e69ba21c8c30355159bded51d1b301e75a809bad7dd6f1c3f89217c5"
+    },
+    {
+      "path": "src/domain/process/processTraceEvaluation.ts",
+      "blob": "51a2a15f8a12b3b939b9f12ca35b61be04123494",
+      "sha256": "e7e7abb92276c1379e030ea1e45913770e02c04e75f8b2f04b61e9ec1e3f4d5a"
+    },
+    {
+      "path": "src/domain/process/processTraceSpecification.ts",
+      "blob": "0f121c42bb74f2be0ae6c3d09616a3f7fb13fbb6",
+      "sha256": "164fa036c7af7410531826e78255c188980f0aa229d9dc896e54e8938fd25bfc"
+    },
+    {
+      "path": "src/domain/propertyListXmlText.ts",
+      "blob": "2d6820120f667375b196ffde548cdc754a250581",
+      "sha256": "6353956b02171a48189db982b991fc242652a1a5b1b6a294830053528c91f172"
+    },
+    {
+      "path": "src/domain/stringPatterns.ts",
+      "blob": "8aa65cb75cbac8ceaae26e939bf3df9378b37ed0",
+      "sha256": "5c7dfd218efc8be0a1f0b2a5a7ad63db293472d0e31c85909ced3982de3f5111"
+    },
+    {
+      "path": "src/domain/unicodeCodePointOrder.ts",
+      "blob": "4f635048d1f58dbec7cac1ffafff01704b0ad16a",
+      "sha256": "fdff9c493eec0fbca808c7975cd88abd9f1cb9398c333a3981f185c3eaee8cb5"
+    }
+  ],
+  "license": {
+    "path": "LICENSE",
+    "sha256": "798f9e4d18e49b30bf2f12696c8ced73dc4e1413da375a333d01281543a1ea8b",
+    "blob": "2d476d24fa5a9ae2ab35e5fd121494049eb2ee5d"
+  }
+}

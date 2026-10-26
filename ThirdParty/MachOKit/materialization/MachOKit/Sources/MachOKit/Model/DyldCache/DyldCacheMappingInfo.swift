@@ -1,0 +1,35 @@
+//
+//  DyldCacheMappingInfo.swift
+//
+//
+//  Created by p-x9 on 2024/01/15.
+//
+//
+
+import Foundation
+
+public struct DyldCacheMappingInfo: LayoutWrapper, Sendable {
+    public typealias Layout = dyld_cache_mapping_info
+
+    public var layout: Layout
+}
+
+extension DyldCacheMappingInfo {
+    /// Max vm protection of this mapping
+    public var maxProtection: VMProtection {
+        .init(rawValue: VMProtection.RawValue(bitPattern: layout.maxProt))
+    }
+
+    /// Initial vm protection of this mapping
+    public var initialProtection: VMProtection {
+        .init(rawValue: VMProtection.RawValue(bitPattern: layout.maxProt))
+    }
+}
+
+extension DyldCacheMappingInfo {
+    internal func withFileOffset(_ value: UInt64) -> Self {
+        var layout = layout
+        layout.fileOffset = value
+        return .init(layout: layout)
+    }
+}

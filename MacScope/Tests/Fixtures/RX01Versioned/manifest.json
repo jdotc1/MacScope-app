@@ -1,0 +1,93 @@
+{
+  "generator": {
+    "path": "Scripts/version-matching/generate_rx01_versioned_fixture.py",
+    "sha256": "af6b70e03e8957d2211fcaf6914d2592fae95a3c56b394984cb9ed7cda024042"
+  },
+  "schema": "macscope.rx01-versioned-fixture.v1",
+  "source": {
+    "path": "rx01_versioned.c",
+    "sha256": "9a35d0be926a8c37a01d7b359820df770524e505039f837241cfa02d856af37c"
+  },
+  "toolchain": {
+    "clang": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "ld": "@(#)PROGRAM:ld PROJECT:ld-27037.1",
+    "sdk": "27.2"
+  },
+  "variants": [
+    {
+      "flags": [
+        "-arch",
+        "arm64",
+        "-mmacosx-version-min=27.0",
+        "-O1",
+        "-fno-inline",
+        "-fno-optimize-sibling-calls"
+      ],
+      "name": "rx01_v1",
+      "sha256": "1a410a62adab7f107cf1216e925f4d3e74f7b0a584740906256a17183e8b17b0",
+      "size": 17192
+    },
+    {
+      "flags": [
+        "-arch",
+        "arm64",
+        "-mmacosx-version-min=27.0",
+        "-O1",
+        "-fno-inline",
+        "-fno-optimize-sibling-calls",
+        "-DRX01_V2"
+      ],
+      "name": "rx01_v2",
+      "sha256": "ed4518025fecfe1e92a3f60d47a9bda8a57d612ae3b8fe66d9774f4795cb6da9",
+      "size": 17176
+    },
+    {
+      "name": "rx01_v1_stripped",
+      "sha256": "9b0855e450a604ae4e0d3c4c55138533dd29f085f15c7a76fa11bfcd6be9f964",
+      "size": 16944,
+      "strip_of": "rx01_v1"
+    },
+    {
+      "name": "rx01_v2_stripped",
+      "sha256": "35b5f76a35af382f4b545b62a1a39ae62fd599c0a8f5ea3b3a15d859a9f1bbe1",
+      "size": 16944,
+      "strip_of": "rx01_v2"
+    },
+    {
+      "flags": [
+        "-arch",
+        "arm64",
+        "-mmacosx-version-min=27.0",
+        "-O1",
+        "-fno-inline",
+        "-fno-optimize-sibling-calls",
+        "-DRX01_V2",
+        "-DRX01_LEAF_ATTR=static inline __attribute__((always_inline))"
+      ],
+      "name": "rx01_v2_inlined",
+      "sha256": "f703d71240efb4494f3c4862e786fb7dcc5f8c690ae67863131a4523249fac6f",
+      "size": 17120
+    },
+    {
+      "flags": [
+        "-arch",
+        "arm64",
+        "-mmacosx-version-min=27.0",
+        "-O1",
+        "-fno-inline",
+        "-fno-optimize-sibling-calls",
+        "-DRX01_V2",
+        "-Wl,-deduplicate"
+      ],
+      "name": "rx01_v2_merged",
+      "sha256": "823f817aec5e72c395277ea5bad521069a6787ee231d8e8dd934e337592935f6",
+      "size": 17184
+    },
+    {
+      "name": "rx01_v2_merged_stripped",
+      "sha256": "ee1b1e042eeef3796a8b093dd3873cf7add7735589eb983bab9ee04f8be35ed3",
+      "size": 16952,
+      "strip_of": "rx01_v2_merged"
+    }
+  ]
+}

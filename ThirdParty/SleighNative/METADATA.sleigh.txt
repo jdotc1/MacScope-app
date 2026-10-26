@@ -1,0 +1,63 @@
+MacScope DCP-03B4 native SLEIGH package metadata
+================================================
+
+Component: lifting-bits/sleigh standalone native SLEIGH and Ghidra decompiler
+Upstream repository: https://github.com/lifting-bits/sleigh
+Release: v12.1.2
+Release Git revision: bfd38a983b4aa53dd386365e1df5ed5499b7e2fb
+Ghidra release: 12.1.2
+Ghidra source tag: Ghidra_12.1.2_build
+Ghidra Git revision: c0f584bf229fffba61b36431f3ce30c0c3e4e682
+
+Immutable archive AArch64 resource closure (baseline):
+
+- Source path: ThirdParty/SleighNative/AARCH64
+- File count: 25
+- Total bytes: 4244715
+- Closure tree SHA-256: 5d4ed653137cd15a26413818b0e96debeebd691bc2a20a9614b7691521e86d4f
+- AppleSilicon.ldefs SHA-256: c55fd46217888d07e5ff2068a0c2ccf09b2ff9bd37e62b2c02fd60acfc87b3df
+- AARCH64_AppleSilicon.sla SHA-256: 5ac26c9f5e13554d2347c82632fd901c5d830054782a3cdc5078787e2bdda1ae
+- AARCH64.pspec SHA-256: 45784c3d7374bc84aacba3707c5e21fc9b5ac36cce485167a22d72d96dde82c9
+- AARCH64_apple.cspec SHA-256: d5f8cb95358ba17be6af51e41ba117bbda470eb057805aad4198b5e4f9a1d2ed
+
+`Scripts/dependencies/internalize_sleigh_aarch64_resources.py` is the
+repository-owned, offline copier for this closure. It writes only to an
+explicit external work root and emits a digest-bound MATERIALIZATION.json;
+it does not download, compile, invoke Xcode, or modify the source checkout.
+
+Approved immutable release artifacts:
+
+- macOS arm64
+  Name: macOS-sleigh-12.1.2-1.arm64.tar.gz
+  URL: https://github.com/lifting-bits/sleigh/releases/download/v12.1.2/macOS-sleigh-12.1.2-1.arm64.tar.gz
+  SHA-256: e1391c811de7b2d79c9e8a1f6f74cd9ade23baf55deebd75c626a3152e5e451a
+
+- Linux x86_64 qualification host
+  Name: Linux-sleigh-12.1.2-1.x86_64.tar.gz
+  URL: https://github.com/lifting-bits/sleigh/releases/download/v12.1.2/Linux-sleigh-12.1.2-1.x86_64.tar.gz
+  SHA-256: 7539dd630b7069b372d8fbe9be8e29ef4ca9c7ce2945c2a3009d43ab98b12ea4
+
+The release package is not committed to this repository. It may be acquired
+only through Scripts/dependencies/materialize_sleigh_native_dcp03b4.sh. The
+materializer verifies the selected archive before extraction, rejects links and
+unsafe archive members, verifies the installed CMake targets, native libraries,
+public headers, and AArch64 processor resources, and writes a deterministic
+MATERIALIZATION.json record.
+
+Normal bootstrap, build, test, Xcode generation, and application execution do
+not acquire or load this package. DCP-03B4 does not enable the native backend in
+MacScope and does not claim that a direct Ghidra provider has been executed on
+an environment where the approved package was not materialized.
+
+MacScope RX-17 patched resource closure (2026-10-12):
+
+- resourceFileCount: 26
+- resourceTotalBytes: 4272963
+- resourceClosureTreeSha256: 794d16aad47c64261f0f7e484fdd681014a7e1a4d0a1fae075bf24dd69faa2e5
+- packageTreeSha256WithResourceOverlay: 963450289cc2a96f7fb625aa466ab45f5f8005d68a6724358a385b0d0242158c
+
+Patch series: 0001-0012. See PATCHES.md and RX17_SEMANTICS.md.
+The separate PATCHED_RESOURCES.json is authoritative for modified resources.
+The release package and MATERIALIZATION.json remain immutable. Native provider
+scenarios and Gate F are pending with the integration owner; source-level
+verification does not establish installed app acceptance.

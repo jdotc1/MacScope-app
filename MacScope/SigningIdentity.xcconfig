@@ -1,0 +1,9 @@
+// MacScope's permanent, exactly-one local development signing identity.
+//
+// This declaration is the build-side source of the stable certificate identity
+// that keeps macOS TCC approvals attached across rebuilds. The signing-policy
+// verifier deliberately retains an independent hard-coded copy: deriving both
+// build and verification values from this file would make drift self-approving.
+
+MACSCOPE_SIGNING_IDENTITY = Apple Development: MacScope Developer (CERT000000)
+MACSCOPE_SIGNING_TEAM = TEAM000000

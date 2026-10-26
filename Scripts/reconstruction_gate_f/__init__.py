@@ -1,0 +1,41 @@
+"""Deterministic, host-independent Reconstruction Gate F compiler primitives."""
+
+from .schema import (
+    CANDIDATE_SCHEMA_VERSION,
+    DECISION_STATUSES,
+    EVIDENCE_LAYER_IDS,
+    ArtifactKind,
+    CandidateIdentity,
+    CandidateSubjectKind,
+    DecisionStatus,
+    EvidenceLayer,
+    EvidenceStatus,
+    ExecutorArchitecture,
+    ExecutorPlatform,
+    QualificationPhase,
+    ReceiptType,
+    SelectorStatus,
+    ValidationIssue,
+    candidate_identity_sha256,
+    validate_candidate_identity,
+)
+
+__all__ = [
+    "ArtifactKind",
+    "CANDIDATE_SCHEMA_VERSION",
+    "CandidateIdentity",
+    "CandidateSubjectKind",
+    "DECISION_STATUSES",
+    "DecisionStatus",
+    "EVIDENCE_LAYER_IDS",
+    "EvidenceLayer",
+    "EvidenceStatus",
+    "ExecutorArchitecture",
+    "ExecutorPlatform",
+    "QualificationPhase",
+    "ReceiptType",
+    "SelectorStatus",
+    "ValidationIssue",
+    "candidate_identity_sha256",
+    "validate_candidate_identity",
+]

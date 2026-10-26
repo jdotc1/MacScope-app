@@ -1,0 +1,26 @@
+0x0024f3fa:     DW_TAG_structure_type
+                  DW_AT_name [DW_FORM_strp] ("AccentColorController")
+                  DW_AT_linkage_name [DW_FORM_strp] ("$s4Loop21AccentColorControllerCD")
+                  DW_AT_byte_size [DW_FORM_data1] (0x08)
+                  DW_AT_APPLE_runtime_class [DW_FORM_data1] (DW_LANG_Swift)
+
+0x0024fcc4:     DW_TAG_structure_type
+                  DW_AT_name [DW_FORM_strp] ("Color")
+                  DW_AT_linkage_name [DW_FORM_strp] ("$s7SwiftUI5ColorVD")
+                  DW_AT_byte_size [DW_FORM_data1] (0x08)
+                  DW_AT_APPLE_runtime_class [DW_FORM_data1] (DW_LANG_Swift)
+
+0x002500fb:     DW_TAG_structure_type
+                  DW_AT_name [DW_FORM_strp] ("Never")
+                  DW_AT_linkage_name [DW_FORM_strp] ("$ss5NeverOD")
+                  DW_AT_byte_size [DW_FORM_data1] (0x00)
+                  DW_AT_APPLE_runtime_class [DW_FORM_data1] (DW_LANG_Swift)
+
+0x00250140:     DW_TAG_structure_type
+                  DW_AT_name [DW_FORM_strp] ("Anonymous")
+                  DW_AT_byte_size [DW_FORM_data1] (0x10)
+                  DW_AT_APPLE_runtime_class [DW_FORM_data1] (DW_LANG_Swift)
+
+0x0000002d:     DW_TAG_imported_declaration
+                  DW_AT_decl_line [DW_FORM_data2] (556)
+                  DW_AT_import [DW_FORM_ref_addr] (0x000000000000001c "_AvailabilityInternal")

@@ -1,0 +1,3128 @@
+# address	word	mnemonic	operands
+# single-bit flips of 56 representatives + register-edge sweep; llvm-objdump --mattr=+pauth-lr,+mops,+the,+d128,+mte,+rcpc-immo; `<unknown>` = rejected by objdump
+0x0	09000020	<unknown>	
+0x4	09010440	<unknown>	
+0x8	09200841	<unknown>	
+0xc	09200c82	<unknown>	
+0x10	09219040	<unknown>	
+0x14	0921a040	<unknown>	
+0x18	0921b040	<unknown>	
+0x1c	09400020	<unknown>	
+0x20	09410440	<unknown>	
+0x24	09810440	<unknown>	
+0x28	09c20420	<unknown>	
+0x2c	09c21420	<unknown>	
+0x30	09c22420	<unknown>	
+0x34	09c24420	<unknown>	
+0x38	09c25420	<unknown>	
+0x3c	09c26420	<unknown>	
+0x40	09c28420	<unknown>	
+0x44	09c29420	<unknown>	
+0x48	09c2a420	<unknown>	
+0x4c	0d010440	<unknown>	
+0x50	0d013440	<unknown>	
+0x54	0d014440	<unknown>	
+0x58	0d018440	<unknown>	
+0x5c	0d01c440	<unknown>	
+0x60	0d410440	<unknown>	
+0x64	0d413440	<unknown>	
+0x68	0d414440	<unknown>	
+0x6c	0d418440	<unknown>	
+0x70	0d41c440	<unknown>	
+0x74	0d810440	st1.b	{ v0 }[1], [x2], x1
+0x78	0d813440	st3.b	{ v0, v1, v2 }[5], [x2], x1
+0x7c	0d814440	<unknown>	
+0x80	0d818440	st1.d	{ v0 }[0], [x2], x1
+0x84	0d81c440	<unknown>	
+0x88	0dc20420	ld1.b	{ v0 }[1], [x1], x2
+0x8c	0dc24420	<unknown>	
+0x90	0dc28420	ld1.d	{ v0 }[0], [x1], x2
+0x94	11000020	add	w0, w1, #0x0
+0x98	11010440	add	w0, w2, #0x41
+0x9c	11200841	add	w1, w2, #0x802
+0xa0	11200c82	add	w2, w4, #0x803
+0xa4	11219040	add	w0, w2, #0x864
+0xa8	1121a040	add	w0, w2, #0x868
+0xac	1121b040	add	w0, w2, #0x86c
+0xb0	11400020	add	w0, w1, #0x0, lsl #12   ; =0x0
+0xb4	11410440	add	w0, w2, #0x41, lsl #12  ; =0x41000
+0xb8	11810440	<unknown>	
+0xbc	11c20420	<unknown>	
+0xc0	11c21420	<unknown>	
+0xc4	11c22420	<unknown>	
+0xc8	11c24420	<unknown>	
+0xcc	11c25420	<unknown>	
+0xd0	11c26420	<unknown>	
+0xd4	11c28420	<unknown>	
+0xd8	11c29420	<unknown>	
+0xdc	11c2a420	<unknown>	
+0xe0	15010440	b	0x40411e0
+0xe4	15013440	b	0x404d1e4
+0xe8	15014440	b	0x40511e8
+0xec	15018440	b	0x40611ec
+0xf0	1501c440	b	0x40711f0
+0xf4	15410440	b	0x50411f4
+0xf8	15413440	b	0x504d1f8
+0xfc	15414440	b	0x50511fc
+0x100	15418440	b	0x5061200
+0x104	1541c440	b	0x5071204
+0x108	15810440	b	0x6041208
+0x10c	15813440	b	0x604d20c
+0x110	15814440	b	0x6051210
+0x114	15818440	b	0x6061214
+0x118	1581c440	b	0x6071218
+0x11c	15c20420	b	0x708119c
+0x120	15c24420	b	0x70911a0
+0x124	15c28420	b	0x70a11a4
+0x128	18000020	ldr	w0, 0x12c
+0x12c	18010440	ldr	w0, 0x21b4
+0x130	18200841	ldr	w1, 0x40238
+0x134	18200c82	ldr	w2, 0x402c4
+0x138	18209041	ldr	w1, 0x41340
+0x13c	1820a041	ldr	w1, 0x41544
+0x140	1820b041	ldr	w1, 0x41748
+0x144	18219040	ldr	w0, 0x4334c
+0x148	1821a040	ldr	w0, 0x43550
+0x14c	1821b040	ldr	w0, 0x43754
+0x150	18400020	ldr	w0, 0x80154
+0x154	18410440	ldr	w0, 0x821dc
+0x158	18810440	ldr	w0, 0xfffffffffff021e0
+0x15c	18c20420	ldr	w0, 0xfffffffffff841e0
+0x160	18c21420	ldr	w0, 0xfffffffffff843e4
+0x164	18c22420	ldr	w0, 0xfffffffffff845e8
+0x168	18c24420	ldr	w0, 0xfffffffffff849ec
+0x16c	18c25420	ldr	w0, 0xfffffffffff84bf0
+0x170	18c26420	ldr	w0, 0xfffffffffff84df4
+0x174	18c28420	ldr	w0, 0xfffffffffff851f8
+0x178	18c29420	ldr	w0, 0xfffffffffff853fc
+0x17c	18c2a420	ldr	w0, 0xfffffffffff85600
+0x180	19000000	stlurb	w0, [x0]
+0x184	19000020	stlurb	w0, [x1]
+0x188	19000021	stlurb	w1, [x1]
+0x18c	19000022	stlurb	w2, [x1]
+0x190	19000024	stlurb	w4, [x1]
+0x194	19000028	stlurb	w8, [x1]
+0x198	19000030	stlurb	w16, [x1]
+0x19c	19000060	stlurb	w0, [x3]
+0x1a0	190000a0	stlurb	w0, [x5]
+0x1a4	19000120	stlurb	w0, [x9]
+0x1a8	19000220	stlurb	w0, [x17]
+0x1ac	19000400	<unknown>	
+0x1b0	19000401	<unknown>	
+0x1b4	19000402	<unknown>	
+0x1b8	1900041e	<unknown>	
+0x1bc	1900041f	<unknown>	
+0x1c0	19000420	<unknown>	
+0x1c4	19000421	<unknown>	
+0x1c8	19000422	cpyfp	[x2]!, [x0]!, x1!
+0x1cc	1900043e	cpyfp	[x30]!, [x0]!, x1!
+0x1d0	1900043f	<unknown>	
+0x1d4	19000440	<unknown>	
+0x1d8	19000441	cpyfp	[x1]!, [x0]!, x2!
+0x1dc	19000442	<unknown>	
+0x1e0	1900045e	cpyfp	[x30]!, [x0]!, x2!
+0x1e4	1900045f	<unknown>	
+0x1e8	190007c0	<unknown>	
+0x1ec	190007c1	cpyfp	[x1]!, [x0]!, x30!
+0x1f0	190007c2	cpyfp	[x2]!, [x0]!, x30!
+0x1f4	190007de	<unknown>	
+0x1f8	190007df	<unknown>	
+0x1fc	190007e0	<unknown>	
+0x200	190007e1	cpyfp	[x1]!, [x0]!, xzr!
+0x204	190007e2	cpyfp	[x2]!, [x0]!, xzr!
+0x208	190007fe	cpyfp	[x30]!, [x0]!, xzr!
+0x20c	190007ff	<unknown>	
+0x210	19000820	<unknown>	
+0x214	19000841	<unknown>	
+0x218	19000c82	<unknown>	
+0x21c	19001020	stlurb	w0, [x1, #0x1]
+0x220	19002020	stlurb	w0, [x1, #0x2]
+0x224	19004020	stlurb	w0, [x1, #0x4]
+0x228	19008020	stlurb	w0, [x1, #0x8]
+0x22c	19010020	stlurb	w0, [x1, #0x10]
+0x230	19010040	stlurb	w0, [x2, #0x10]
+0x234	19010400	<unknown>	
+0x238	19010401	<unknown>	
+0x23c	19010402	cpyfp	[x2]!, [x1]!, x0!
+0x240	1901041e	cpyfp	[x30]!, [x1]!, x0!
+0x244	1901041f	<unknown>	
+0x248	19010420	<unknown>	
+0x24c	19010421	<unknown>	
+0x250	19010422	<unknown>	
+0x254	1901043e	<unknown>	
+0x258	1901043f	<unknown>	
+0x25c	19010440	cpyfp	[x0]!, [x1]!, x2!
+0x260	19010441	<unknown>	
+0x264	19010442	<unknown>	
+0x268	19010444	cpyfp	[x4]!, [x1]!, x2!
+0x26c	19010448	cpyfp	[x8]!, [x1]!, x2!
+0x270	19010450	cpyfp	[x16]!, [x1]!, x2!
+0x274	1901045e	cpyfp	[x30]!, [x1]!, x2!
+0x278	1901045f	<unknown>	
+0x27c	19010460	cpyfp	[x0]!, [x1]!, x3!
+0x280	190104c0	cpyfp	[x0]!, [x1]!, x6!
+0x284	19010540	cpyfp	[x0]!, [x1]!, x10!
+0x288	19010640	cpyfp	[x0]!, [x1]!, x18!
+0x28c	190107c0	cpyfp	[x0]!, [x1]!, x30!
+0x290	190107c1	<unknown>	
+0x294	190107c2	cpyfp	[x2]!, [x1]!, x30!
+0x298	190107de	<unknown>	
+0x29c	190107df	<unknown>	
+0x2a0	190107e0	cpyfp	[x0]!, [x1]!, xzr!
+0x2a4	190107e1	<unknown>	
+0x2a8	190107e2	cpyfp	[x2]!, [x1]!, xzr!
+0x2ac	190107fe	cpyfp	[x30]!, [x1]!, xzr!
+0x2b0	190107ff	<unknown>	
+0x2b4	19010c40	<unknown>	
+0x2b8	19011440	cpyfpwt	[x0]!, [x1]!, x2!
+0x2bc	19012440	cpyfprt	[x0]!, [x1]!, x2!
+0x2c0	19013440	cpyfpt	[x0]!, [x1]!, x2!
+0x2c4	19014440	cpyfpwn	[x0]!, [x1]!, x2!
+0x2c8	19018440	cpyfprn	[x0]!, [x1]!, x2!
+0x2cc	19019040	stlurb	w0, [x2, #0x19]
+0x2d0	1901a040	stlurb	w0, [x2, #0x1a]
+0x2d4	1901b040	stlurb	w0, [x2, #0x1b]
+0x2d8	1901c440	cpyfpn	[x0]!, [x1]!, x2!
+0x2dc	19020020	stlurb	w0, [x1, #0x20]
+0x2e0	19020400	<unknown>	
+0x2e4	19020401	cpyfp	[x1]!, [x2]!, x0!
+0x2e8	19020402	<unknown>	
+0x2ec	1902041e	cpyfp	[x30]!, [x2]!, x0!
+0x2f0	1902041f	<unknown>	
+0x2f4	19020420	cpyfp	[x0]!, [x2]!, x1!
+0x2f8	19020421	<unknown>	
+0x2fc	19020422	<unknown>	
+0x300	1902043e	cpyfp	[x30]!, [x2]!, x1!
+0x304	1902043f	<unknown>	
+0x308	19020440	<unknown>	
+0x30c	19020441	<unknown>	
+0x310	19020442	<unknown>	
+0x314	1902045e	<unknown>	
+0x318	1902045f	<unknown>	
+0x31c	190207c0	cpyfp	[x0]!, [x2]!, x30!
+0x320	190207c1	cpyfp	[x1]!, [x2]!, x30!
+0x324	190207c2	<unknown>	
+0x328	190207de	<unknown>	
+0x32c	190207df	<unknown>	
+0x330	190207e0	cpyfp	[x0]!, [x2]!, xzr!
+0x334	190207e1	cpyfp	[x1]!, [x2]!, xzr!
+0x338	190207e2	<unknown>	
+0x33c	190207fe	cpyfp	[x30]!, [x2]!, xzr!
+0x340	190207ff	<unknown>	
+0x344	19030440	cpyfp	[x0]!, [x3]!, x2!
+0x348	19040020	stlurb	w0, [x1, #0x40]
+0x34c	19050440	cpyfp	[x0]!, [x5]!, x2!
+0x350	19080020	stlurb	w0, [x1, #0x80]
+0x354	19090440	cpyfp	[x0]!, [x9]!, x2!
+0x358	19100020	stlurb	w0, [x1, #-0x100]
+0x35c	19110440	cpyfp	[x0]!, [x17]!, x2!
+0x360	191e0400	<unknown>	
+0x364	191e0401	cpyfp	[x1]!, [x30]!, x0!
+0x368	191e0402	cpyfp	[x2]!, [x30]!, x0!
+0x36c	191e041e	<unknown>	
+0x370	191e041f	<unknown>	
+0x374	191e0420	cpyfp	[x0]!, [x30]!, x1!
+0x378	191e0421	<unknown>	
+0x37c	191e0422	cpyfp	[x2]!, [x30]!, x1!
+0x380	191e043e	<unknown>	
+0x384	191e043f	<unknown>	
+0x388	191e0440	cpyfp	[x0]!, [x30]!, x2!
+0x38c	191e0441	cpyfp	[x1]!, [x30]!, x2!
+0x390	191e0442	<unknown>	
+0x394	191e045e	<unknown>	
+0x398	191e045f	<unknown>	
+0x39c	191e07c0	<unknown>	
+0x3a0	191e07c1	<unknown>	
+0x3a4	191e07c2	<unknown>	
+0x3a8	191e07de	<unknown>	
+0x3ac	191e07df	<unknown>	
+0x3b0	191e07e0	cpyfp	[x0]!, [x30]!, xzr!
+0x3b4	191e07e1	cpyfp	[x1]!, [x30]!, xzr!
+0x3b8	191e07e2	cpyfp	[x2]!, [x30]!, xzr!
+0x3bc	191e07fe	<unknown>	
+0x3c0	191e07ff	<unknown>	
+0x3c4	191f0400	<unknown>	
+0x3c8	191f0401	<unknown>	
+0x3cc	191f0402	<unknown>	
+0x3d0	191f041e	<unknown>	
+0x3d4	191f041f	<unknown>	
+0x3d8	191f0420	<unknown>	
+0x3dc	191f0421	<unknown>	
+0x3e0	191f0422	<unknown>	
+0x3e4	191f043e	<unknown>	
+0x3e8	191f043f	<unknown>	
+0x3ec	191f0440	<unknown>	
+0x3f0	191f0441	<unknown>	
+0x3f4	191f0442	<unknown>	
+0x3f8	191f045e	<unknown>	
+0x3fc	191f045f	<unknown>	
+0x400	191f07c0	<unknown>	
+0x404	191f07c1	<unknown>	
+0x408	191f07c2	<unknown>	
+0x40c	191f07de	<unknown>	
+0x410	191f07df	<unknown>	
+0x414	191f07e0	<unknown>	
+0x418	191f07e1	<unknown>	
+0x41c	191f07e2	<unknown>	
+0x420	191f07fe	<unknown>	
+0x424	191f07ff	<unknown>	
+0x428	19200020	<unknown>	
+0x42c	19200041	<unknown>	
+0x430	19200482	<unknown>	
+0x434	19200800	rcwcas	x0, x0, [x0]
+0x438	19200801	rcwcas	x0, x1, [x0]
+0x43c	19200802	rcwcas	x0, x2, [x0]
+0x440	1920081e	rcwcas	x0, x30, [x0]
+0x444	1920081f	rcwcas	x0, xzr, [x0]
+0x448	19200820	rcwcas	x0, x0, [x1]
+0x44c	19200821	rcwcas	x0, x1, [x1]
+0x450	19200822	rcwcas	x0, x2, [x1]
+0x454	1920083e	rcwcas	x0, x30, [x1]
+0x458	1920083f	rcwcas	x0, xzr, [x1]
+0x45c	19200840	rcwcas	x0, x0, [x2]
+0x460	19200841	rcwcas	x0, x1, [x2]
+0x464	19200842	rcwcas	x0, x2, [x2]
+0x468	19200843	rcwcas	x0, x3, [x2]
+0x46c	19200845	rcwcas	x0, x5, [x2]
+0x470	19200849	rcwcas	x0, x9, [x2]
+0x474	19200851	rcwcas	x0, x17, [x2]
+0x478	1920085e	rcwcas	x0, x30, [x2]
+0x47c	1920085f	rcwcas	x0, xzr, [x2]
+0x480	19200861	rcwcas	x0, x1, [x3]
+0x484	19200882	rcwcas	x0, x2, [x4]
+0x488	192008c1	rcwcas	x0, x1, [x6]
+0x48c	19200941	rcwcas	x0, x1, [x10]
+0x490	19200a41	rcwcas	x0, x1, [x18]
+0x494	19200bc0	rcwcas	x0, x0, [x30]
+0x498	19200bc1	rcwcas	x0, x1, [x30]
+0x49c	19200bc2	rcwcas	x0, x2, [x30]
+0x4a0	19200bde	rcwcas	x0, x30, [x30]
+0x4a4	19200bdf	rcwcas	x0, xzr, [x30]
+0x4a8	19200be0	rcwcas	x0, x0, [sp]
+0x4ac	19200be1	rcwcas	x0, x1, [sp]
+0x4b0	19200be2	rcwcas	x0, x2, [sp]
+0x4b4	19200bfe	rcwcas	x0, x30, [sp]
+0x4b8	19200bff	rcwcas	x0, xzr, [sp]
+0x4bc	19200c00	rcwcasp	x0, x1, x0, x1, [x0]
+0x4c0	19200c01	<unknown>	
+0x4c4	19200c02	rcwcasp	x0, x1, x2, x3, [x0]
+0x4c8	19200c1e	rcwcasp	x0, x1, x30, xzr, [x0]
+0x4cc	19200c1f	<unknown>	
+0x4d0	19200c20	rcwcasp	x0, x1, x0, x1, [x1]
+0x4d4	19200c21	<unknown>	
+0x4d8	19200c22	rcwcasp	x0, x1, x2, x3, [x1]
+0x4dc	19200c3e	rcwcasp	x0, x1, x30, xzr, [x1]
+0x4e0	19200c3f	<unknown>	
+0x4e4	19200c40	rcwcasp	x0, x1, x0, x1, [x2]
+0x4e8	19200c41	<unknown>	
+0x4ec	19200c42	rcwcasp	x0, x1, x2, x3, [x2]
+0x4f0	19200c5e	rcwcasp	x0, x1, x30, xzr, [x2]
+0x4f4	19200c5f	<unknown>	
+0x4f8	19200c80	rcwcasp	x0, x1, x0, x1, [x4]
+0x4fc	19200c82	rcwcasp	x0, x1, x2, x3, [x4]
+0x500	19200c83	<unknown>	
+0x504	19200c86	rcwcasp	x0, x1, x6, x7, [x4]
+0x508	19200c8a	rcwcasp	x0, x1, x10, x11, [x4]
+0x50c	19200c92	rcwcasp	x0, x1, x18, x19, [x4]
+0x510	19200ca2	rcwcasp	x0, x1, x2, x3, [x5]
+0x514	19200cc2	rcwcasp	x0, x1, x2, x3, [x6]
+0x518	19200d82	rcwcasp	x0, x1, x2, x3, [x12]
+0x51c	19200e82	rcwcasp	x0, x1, x2, x3, [x20]
+0x520	19200fc0	rcwcasp	x0, x1, x0, x1, [x30]
+0x524	19200fc1	<unknown>	
+0x528	19200fc2	rcwcasp	x0, x1, x2, x3, [x30]
+0x52c	19200fde	rcwcasp	x0, x1, x30, xzr, [x30]
+0x530	19200fdf	<unknown>	
+0x534	19200fe0	rcwcasp	x0, x1, x0, x1, [sp]
+0x538	19200fe1	<unknown>	
+0x53c	19200fe2	rcwcasp	x0, x1, x2, x3, [sp]
+0x540	19200ffe	rcwcasp	x0, x1, x30, xzr, [sp]
+0x544	19200fff	<unknown>	
+0x548	19201841	<unknown>	
+0x54c	19201c82	<unknown>	
+0x550	19202841	<unknown>	
+0x554	19202c82	<unknown>	
+0x558	19204841	<unknown>	
+0x55c	19204c82	<unknown>	
+0x560	19208841	<unknown>	
+0x564	19208c82	<unknown>	
+0x568	19209040	rcwclrp	x0, x0, [x2]
+0x56c	1920a040	rcwswpp	x0, x0, [x2]
+0x570	1920b040	rcwsetp	x0, x0, [x2]
+0x574	19210440	<unknown>	
+0x578	19210800	rcwcas	x1, x0, [x0]
+0x57c	19210801	rcwcas	x1, x1, [x0]
+0x580	19210802	rcwcas	x1, x2, [x0]
+0x584	1921081e	rcwcas	x1, x30, [x0]
+0x588	1921081f	rcwcas	x1, xzr, [x0]
+0x58c	19210820	rcwcas	x1, x0, [x1]
+0x590	19210821	rcwcas	x1, x1, [x1]
+0x594	19210822	rcwcas	x1, x2, [x1]
+0x598	1921083e	rcwcas	x1, x30, [x1]
+0x59c	1921083f	rcwcas	x1, xzr, [x1]
+0x5a0	19210840	rcwcas	x1, x0, [x2]
+0x5a4	19210841	rcwcas	x1, x1, [x2]
+0x5a8	19210842	rcwcas	x1, x2, [x2]
+0x5ac	1921085e	rcwcas	x1, x30, [x2]
+0x5b0	1921085f	rcwcas	x1, xzr, [x2]
+0x5b4	19210bc0	rcwcas	x1, x0, [x30]
+0x5b8	19210bc1	rcwcas	x1, x1, [x30]
+0x5bc	19210bc2	rcwcas	x1, x2, [x30]
+0x5c0	19210bde	rcwcas	x1, x30, [x30]
+0x5c4	19210bdf	rcwcas	x1, xzr, [x30]
+0x5c8	19210be0	rcwcas	x1, x0, [sp]
+0x5cc	19210be1	rcwcas	x1, x1, [sp]
+0x5d0	19210be2	rcwcas	x1, x2, [sp]
+0x5d4	19210bfe	rcwcas	x1, x30, [sp]
+0x5d8	19210bff	rcwcas	x1, xzr, [sp]
+0x5dc	19210c00	<unknown>	
+0x5e0	19210c01	<unknown>	
+0x5e4	19210c02	<unknown>	
+0x5e8	19210c1e	<unknown>	
+0x5ec	19210c1f	<unknown>	
+0x5f0	19210c20	<unknown>	
+0x5f4	19210c21	<unknown>	
+0x5f8	19210c22	<unknown>	
+0x5fc	19210c3e	<unknown>	
+0x600	19210c3f	<unknown>	
+0x604	19210c40	<unknown>	
+0x608	19210c41	<unknown>	
+0x60c	19210c42	<unknown>	
+0x610	19210c5e	<unknown>	
+0x614	19210c5f	<unknown>	
+0x618	19210c82	<unknown>	
+0x61c	19210fc0	<unknown>	
+0x620	19210fc1	<unknown>	
+0x624	19210fc2	<unknown>	
+0x628	19210fde	<unknown>	
+0x62c	19210fdf	<unknown>	
+0x630	19210fe0	<unknown>	
+0x634	19210fe1	<unknown>	
+0x638	19210fe2	<unknown>	
+0x63c	19210ffe	<unknown>	
+0x640	19210fff	<unknown>	
+0x644	19211040	ldclrp	x0, x1, [x2]
+0x648	19212040	<unknown>	
+0x64c	19213040	ldsetp	x0, x1, [x2]
+0x650	19218040	swpp	x0, x1, [x2]
+0x654	19219000	rcwclrp	x0, x1, [x0]
+0x658	19219040	rcwclrp	x0, x1, [x2]
+0x65c	19219041	rcwclrp	x1, x1, [x2]
+0x660	19219042	rcwclrp	x2, x1, [x2]
+0x664	19219044	rcwclrp	x4, x1, [x2]
+0x668	19219048	rcwclrp	x8, x1, [x2]
+0x66c	19219050	rcwclrp	x16, x1, [x2]
+0x670	19219060	rcwclrp	x0, x1, [x3]
+0x674	192190c0	rcwclrp	x0, x1, [x6]
+0x678	19219140	rcwclrp	x0, x1, [x10]
+0x67c	19219240	rcwclrp	x0, x1, [x18]
+0x680	19219440	<unknown>	
+0x684	19219840	<unknown>	
+0x688	1921a000	rcwswpp	x0, x1, [x0]
+0x68c	1921a040	rcwswpp	x0, x1, [x2]
+0x690	1921a041	rcwswpp	x1, x1, [x2]
+0x694	1921a042	rcwswpp	x2, x1, [x2]
+0x698	1921a044	rcwswpp	x4, x1, [x2]
+0x69c	1921a048	rcwswpp	x8, x1, [x2]
+0x6a0	1921a050	rcwswpp	x16, x1, [x2]
+0x6a4	1921a060	rcwswpp	x0, x1, [x3]
+0x6a8	1921a0c0	rcwswpp	x0, x1, [x6]
+0x6ac	1921a140	rcwswpp	x0, x1, [x10]
+0x6b0	1921a240	rcwswpp	x0, x1, [x18]
+0x6b4	1921a440	<unknown>	
+0x6b8	1921a840	<unknown>	
+0x6bc	1921b000	rcwsetp	x0, x1, [x0]
+0x6c0	1921b040	rcwsetp	x0, x1, [x2]
+0x6c4	1921b041	rcwsetp	x1, x1, [x2]
+0x6c8	1921b042	rcwsetp	x2, x1, [x2]
+0x6cc	1921b044	rcwsetp	x4, x1, [x2]
+0x6d0	1921b048	rcwsetp	x8, x1, [x2]
+0x6d4	1921b050	rcwsetp	x16, x1, [x2]
+0x6d8	1921b060	rcwsetp	x0, x1, [x3]
+0x6dc	1921b0c0	rcwsetp	x0, x1, [x6]
+0x6e0	1921b140	rcwsetp	x0, x1, [x10]
+0x6e4	1921b240	rcwsetp	x0, x1, [x18]
+0x6e8	1921b440	<unknown>	
+0x6ec	1921b840	<unknown>	
+0x6f0	1921d040	<unknown>	
+0x6f4	1921e040	<unknown>	
+0x6f8	1921f040	<unknown>	
+0x6fc	19220800	rcwcas	x2, x0, [x0]
+0x700	19220801	rcwcas	x2, x1, [x0]
+0x704	19220802	rcwcas	x2, x2, [x0]
+0x708	1922081e	rcwcas	x2, x30, [x0]
+0x70c	1922081f	rcwcas	x2, xzr, [x0]
+0x710	19220820	rcwcas	x2, x0, [x1]
+0x714	19220821	rcwcas	x2, x1, [x1]
+0x718	19220822	rcwcas	x2, x2, [x1]
+0x71c	1922083e	rcwcas	x2, x30, [x1]
+0x720	1922083f	rcwcas	x2, xzr, [x1]
+0x724	19220840	rcwcas	x2, x0, [x2]
+0x728	19220841	rcwcas	x2, x1, [x2]
+0x72c	19220842	rcwcas	x2, x2, [x2]
+0x730	1922085e	rcwcas	x2, x30, [x2]
+0x734	1922085f	rcwcas	x2, xzr, [x2]
+0x738	19220bc0	rcwcas	x2, x0, [x30]
+0x73c	19220bc1	rcwcas	x2, x1, [x30]
+0x740	19220bc2	rcwcas	x2, x2, [x30]
+0x744	19220bde	rcwcas	x2, x30, [x30]
+0x748	19220bdf	rcwcas	x2, xzr, [x30]
+0x74c	19220be0	rcwcas	x2, x0, [sp]
+0x750	19220be1	rcwcas	x2, x1, [sp]
+0x754	19220be2	rcwcas	x2, x2, [sp]
+0x758	19220bfe	rcwcas	x2, x30, [sp]
+0x75c	19220bff	rcwcas	x2, xzr, [sp]
+0x760	19220c00	rcwcasp	x2, x3, x0, x1, [x0]
+0x764	19220c01	<unknown>	
+0x768	19220c02	rcwcasp	x2, x3, x2, x3, [x0]
+0x76c	19220c1e	rcwcasp	x2, x3, x30, xzr, [x0]
+0x770	19220c1f	<unknown>	
+0x774	19220c20	rcwcasp	x2, x3, x0, x1, [x1]
+0x778	19220c21	<unknown>	
+0x77c	19220c22	rcwcasp	x2, x3, x2, x3, [x1]
+0x780	19220c3e	rcwcasp	x2, x3, x30, xzr, [x1]
+0x784	19220c3f	<unknown>	
+0x788	19220c40	rcwcasp	x2, x3, x0, x1, [x2]
+0x78c	19220c41	<unknown>	
+0x790	19220c42	rcwcasp	x2, x3, x2, x3, [x2]
+0x794	19220c5e	rcwcasp	x2, x3, x30, xzr, [x2]
+0x798	19220c5f	<unknown>	
+0x79c	19220c82	rcwcasp	x2, x3, x2, x3, [x4]
+0x7a0	19220fc0	rcwcasp	x2, x3, x0, x1, [x30]
+0x7a4	19220fc1	<unknown>	
+0x7a8	19220fc2	rcwcasp	x2, x3, x2, x3, [x30]
+0x7ac	19220fde	rcwcasp	x2, x3, x30, xzr, [x30]
+0x7b0	19220fdf	<unknown>	
+0x7b4	19220fe0	rcwcasp	x2, x3, x0, x1, [sp]
+0x7b8	19220fe1	<unknown>	
+0x7bc	19220fe2	rcwcasp	x2, x3, x2, x3, [sp]
+0x7c0	19220ffe	rcwcasp	x2, x3, x30, xzr, [sp]
+0x7c4	19220fff	<unknown>	
+0x7c8	19239040	rcwclrp	x0, x3, [x2]
+0x7cc	1923a040	rcwswpp	x0, x3, [x2]
+0x7d0	1923b040	rcwsetp	x0, x3, [x2]
+0x7d4	19240841	rcwcas	x4, x1, [x2]
+0x7d8	19240c82	rcwcasp	x4, x5, x2, x3, [x4]
+0x7dc	19259040	rcwclrp	x0, x5, [x2]
+0x7e0	1925a040	rcwswpp	x0, x5, [x2]
+0x7e4	1925b040	rcwsetp	x0, x5, [x2]
+0x7e8	19280841	rcwcas	x8, x1, [x2]
+0x7ec	19280c82	rcwcasp	x8, x9, x2, x3, [x4]
+0x7f0	19299040	rcwclrp	x0, x9, [x2]
+0x7f4	1929a040	rcwswpp	x0, x9, [x2]
+0x7f8	1929b040	rcwsetp	x0, x9, [x2]
+0x7fc	19300841	rcwcas	x16, x1, [x2]
+0x800	19300c82	rcwcasp	x16, x17, x2, x3, [x4]
+0x804	19319040	rcwclrp	x0, x17, [x2]
+0x808	1931a040	rcwswpp	x0, x17, [x2]
+0x80c	1931b040	rcwsetp	x0, x17, [x2]
+0x810	193e0800	rcwcas	x30, x0, [x0]
+0x814	193e0801	rcwcas	x30, x1, [x0]
+0x818	193e0802	rcwcas	x30, x2, [x0]
+0x81c	193e081e	rcwcas	x30, x30, [x0]
+0x820	193e081f	rcwcas	x30, xzr, [x0]
+0x824	193e0820	rcwcas	x30, x0, [x1]
+0x828	193e0821	rcwcas	x30, x1, [x1]
+0x82c	193e0822	rcwcas	x30, x2, [x1]
+0x830	193e083e	rcwcas	x30, x30, [x1]
+0x834	193e083f	rcwcas	x30, xzr, [x1]
+0x838	193e0840	rcwcas	x30, x0, [x2]
+0x83c	193e0841	rcwcas	x30, x1, [x2]
+0x840	193e0842	rcwcas	x30, x2, [x2]
+0x844	193e085e	rcwcas	x30, x30, [x2]
+0x848	193e085f	rcwcas	x30, xzr, [x2]
+0x84c	193e0bc0	rcwcas	x30, x0, [x30]
+0x850	193e0bc1	rcwcas	x30, x1, [x30]
+0x854	193e0bc2	rcwcas	x30, x2, [x30]
+0x858	193e0bde	rcwcas	x30, x30, [x30]
+0x85c	193e0bdf	rcwcas	x30, xzr, [x30]
+0x860	193e0be0	rcwcas	x30, x0, [sp]
+0x864	193e0be1	rcwcas	x30, x1, [sp]
+0x868	193e0be2	rcwcas	x30, x2, [sp]
+0x86c	193e0bfe	rcwcas	x30, x30, [sp]
+0x870	193e0bff	rcwcas	x30, xzr, [sp]
+0x874	193e0c00	rcwcasp	x30, xzr, x0, x1, [x0]
+0x878	193e0c01	<unknown>	
+0x87c	193e0c02	rcwcasp	x30, xzr, x2, x3, [x0]
+0x880	193e0c1e	rcwcasp	x30, xzr, x30, xzr, [x0]
+0x884	193e0c1f	<unknown>	
+0x888	193e0c20	rcwcasp	x30, xzr, x0, x1, [x1]
+0x88c	193e0c21	<unknown>	
+0x890	193e0c22	rcwcasp	x30, xzr, x2, x3, [x1]
+0x894	193e0c3e	rcwcasp	x30, xzr, x30, xzr, [x1]
+0x898	193e0c3f	<unknown>	
+0x89c	193e0c40	rcwcasp	x30, xzr, x0, x1, [x2]
+0x8a0	193e0c41	<unknown>	
+0x8a4	193e0c42	rcwcasp	x30, xzr, x2, x3, [x2]
+0x8a8	193e0c5e	rcwcasp	x30, xzr, x30, xzr, [x2]
+0x8ac	193e0c5f	<unknown>	
+0x8b0	193e0fc0	rcwcasp	x30, xzr, x0, x1, [x30]
+0x8b4	193e0fc1	<unknown>	
+0x8b8	193e0fc2	rcwcasp	x30, xzr, x2, x3, [x30]
+0x8bc	193e0fde	rcwcasp	x30, xzr, x30, xzr, [x30]
+0x8c0	193e0fdf	<unknown>	
+0x8c4	193e0fe0	rcwcasp	x30, xzr, x0, x1, [sp]
+0x8c8	193e0fe1	<unknown>	
+0x8cc	193e0fe2	rcwcasp	x30, xzr, x2, x3, [sp]
+0x8d0	193e0ffe	rcwcasp	x30, xzr, x30, xzr, [sp]
+0x8d4	193e0fff	<unknown>	
+0x8d8	193f0800	rcwcas	xzr, x0, [x0]
+0x8dc	193f0801	rcwcas	xzr, x1, [x0]
+0x8e0	193f0802	rcwcas	xzr, x2, [x0]
+0x8e4	193f081e	rcwcas	xzr, x30, [x0]
+0x8e8	193f081f	rcwcas	xzr, xzr, [x0]
+0x8ec	193f0820	rcwcas	xzr, x0, [x1]
+0x8f0	193f0821	rcwcas	xzr, x1, [x1]
+0x8f4	193f0822	rcwcas	xzr, x2, [x1]
+0x8f8	193f083e	rcwcas	xzr, x30, [x1]
+0x8fc	193f083f	rcwcas	xzr, xzr, [x1]
+0x900	193f0840	rcwcas	xzr, x0, [x2]
+0x904	193f0841	rcwcas	xzr, x1, [x2]
+0x908	193f0842	rcwcas	xzr, x2, [x2]
+0x90c	193f085e	rcwcas	xzr, x30, [x2]
+0x910	193f085f	rcwcas	xzr, xzr, [x2]
+0x914	193f0bc0	rcwcas	xzr, x0, [x30]
+0x918	193f0bc1	rcwcas	xzr, x1, [x30]
+0x91c	193f0bc2	rcwcas	xzr, x2, [x30]
+0x920	193f0bde	rcwcas	xzr, x30, [x30]
+0x924	193f0bdf	rcwcas	xzr, xzr, [x30]
+0x928	193f0be0	rcwcas	xzr, x0, [sp]
+0x92c	193f0be1	rcwcas	xzr, x1, [sp]
+0x930	193f0be2	rcwcas	xzr, x2, [sp]
+0x934	193f0bfe	rcwcas	xzr, x30, [sp]
+0x938	193f0bff	rcwcas	xzr, xzr, [sp]
+0x93c	193f0c00	<unknown>	
+0x940	193f0c01	<unknown>	
+0x944	193f0c02	<unknown>	
+0x948	193f0c1e	<unknown>	
+0x94c	193f0c1f	<unknown>	
+0x950	193f0c20	<unknown>	
+0x954	193f0c21	<unknown>	
+0x958	193f0c22	<unknown>	
+0x95c	193f0c3e	<unknown>	
+0x960	193f0c3f	<unknown>	
+0x964	193f0c40	<unknown>	
+0x968	193f0c41	<unknown>	
+0x96c	193f0c42	<unknown>	
+0x970	193f0c5e	<unknown>	
+0x974	193f0c5f	<unknown>	
+0x978	193f0fc0	<unknown>	
+0x97c	193f0fc1	<unknown>	
+0x980	193f0fc2	<unknown>	
+0x984	193f0fde	<unknown>	
+0x988	193f0fdf	<unknown>	
+0x98c	193f0fe0	<unknown>	
+0x990	193f0fe1	<unknown>	
+0x994	193f0fe2	<unknown>	
+0x998	193f0ffe	<unknown>	
+0x99c	193f0fff	<unknown>	
+0x9a0	19400000	ldapurb	w0, [x0]
+0x9a4	19400020	ldapurb	w0, [x1]
+0x9a8	19400021	ldapurb	w1, [x1]
+0x9ac	19400022	ldapurb	w2, [x1]
+0x9b0	19400024	ldapurb	w4, [x1]
+0x9b4	19400028	ldapurb	w8, [x1]
+0x9b8	19400030	ldapurb	w16, [x1]
+0x9bc	19400060	ldapurb	w0, [x3]
+0x9c0	194000a0	ldapurb	w0, [x5]
+0x9c4	19400120	ldapurb	w0, [x9]
+0x9c8	19400220	ldapurb	w0, [x17]
+0x9cc	19400420	<unknown>	
+0x9d0	19400440	<unknown>	
+0x9d4	19400820	<unknown>	
+0x9d8	19401020	ldapurb	w0, [x1, #0x1]
+0x9dc	19402020	ldapurb	w0, [x1, #0x2]
+0x9e0	19404020	ldapurb	w0, [x1, #0x4]
+0x9e4	19408020	ldapurb	w0, [x1, #0x8]
+0x9e8	19410020	ldapurb	w0, [x1, #0x10]
+0x9ec	19410040	ldapurb	w0, [x2, #0x10]
+0x9f0	19410400	<unknown>	
+0x9f4	19410440	cpyfm	[x0]!, [x1]!, x2!
+0x9f8	19410441	<unknown>	
+0x9fc	19410442	<unknown>	
+0xa00	19410444	cpyfm	[x4]!, [x1]!, x2!
+0xa04	19410448	cpyfm	[x8]!, [x1]!, x2!
+0xa08	19410450	cpyfm	[x16]!, [x1]!, x2!
+0xa0c	19410460	cpyfm	[x0]!, [x1]!, x3!
+0xa10	194104c0	cpyfm	[x0]!, [x1]!, x6!
+0xa14	19410540	cpyfm	[x0]!, [x1]!, x10!
+0xa18	19410640	cpyfm	[x0]!, [x1]!, x18!
+0xa1c	19410c40	<unknown>	
+0xa20	19411440	cpyfmwt	[x0]!, [x1]!, x2!
+0xa24	19412440	cpyfmrt	[x0]!, [x1]!, x2!
+0xa28	19413440	cpyfmt	[x0]!, [x1]!, x2!
+0xa2c	19414440	cpyfmwn	[x0]!, [x1]!, x2!
+0xa30	19418440	cpyfmrn	[x0]!, [x1]!, x2!
+0xa34	1941c440	cpyfmn	[x0]!, [x1]!, x2!
+0xa38	19420020	ldapurb	w0, [x1, #0x20]
+0xa3c	19420420	cpyfm	[x0]!, [x2]!, x1!
+0xa40	19421420	cpyfmwt	[x0]!, [x2]!, x1!
+0xa44	19422420	cpyfmrt	[x0]!, [x2]!, x1!
+0xa48	19424420	cpyfmwn	[x0]!, [x2]!, x1!
+0xa4c	19425420	cpyfmwtwn	[x0]!, [x2]!, x1!
+0xa50	19426420	cpyfmrtwn	[x0]!, [x2]!, x1!
+0xa54	19428420	cpyfmrn	[x0]!, [x2]!, x1!
+0xa58	19429420	cpyfmwtrn	[x0]!, [x2]!, x1!
+0xa5c	1942a420	cpyfmrtrn	[x0]!, [x2]!, x1!
+0xa60	19430440	cpyfm	[x0]!, [x3]!, x2!
+0xa64	19440020	ldapurb	w0, [x1, #0x40]
+0xa68	19450440	cpyfm	[x0]!, [x5]!, x2!
+0xa6c	19480020	ldapurb	w0, [x1, #0x80]
+0xa70	19490440	cpyfm	[x0]!, [x9]!, x2!
+0xa74	19500020	ldapurb	w0, [x1, #-0x100]
+0xa78	19510440	cpyfm	[x0]!, [x17]!, x2!
+0xa7c	19600020	<unknown>	
+0xa80	19600841	rcwcasl	x0, x1, [x2]
+0xa84	19600c82	rcwcaspl	x0, x1, x2, x3, [x4]
+0xa88	19610440	<unknown>	
+0xa8c	19619040	rcwclrpl	x0, x1, [x2]
+0xa90	1961a040	rcwswppl	x0, x1, [x2]
+0xa94	1961b040	rcwsetpl	x0, x1, [x2]
+0xa98	19800020	ldapursb	x0, [x1]
+0xa9c	19800440	<unknown>	
+0xaa0	19810040	ldapursb	x0, [x2, #0x10]
+0xaa4	19810400	<unknown>	
+0xaa8	19810440	cpyfe	[x0]!, [x1]!, x2!
+0xaac	19810441	<unknown>	
+0xab0	19810442	<unknown>	
+0xab4	19810444	cpyfe	[x4]!, [x1]!, x2!
+0xab8	19810448	cpyfe	[x8]!, [x1]!, x2!
+0xabc	19810450	cpyfe	[x16]!, [x1]!, x2!
+0xac0	19810460	cpyfe	[x0]!, [x1]!, x3!
+0xac4	198104c0	cpyfe	[x0]!, [x1]!, x6!
+0xac8	19810540	cpyfe	[x0]!, [x1]!, x10!
+0xacc	19810640	cpyfe	[x0]!, [x1]!, x18!
+0xad0	19810c40	<unknown>	
+0xad4	19811440	cpyfewt	[x0]!, [x1]!, x2!
+0xad8	19812440	cpyfert	[x0]!, [x1]!, x2!
+0xadc	19813440	cpyfet	[x0]!, [x1]!, x2!
+0xae0	19814440	cpyfewn	[x0]!, [x1]!, x2!
+0xae4	19818440	cpyfern	[x0]!, [x1]!, x2!
+0xae8	1981c440	cpyfen	[x0]!, [x1]!, x2!
+0xaec	19820420	cpyfe	[x0]!, [x2]!, x1!
+0xaf0	19821420	cpyfewt	[x0]!, [x2]!, x1!
+0xaf4	19822420	cpyfert	[x0]!, [x2]!, x1!
+0xaf8	19824420	cpyfewn	[x0]!, [x2]!, x1!
+0xafc	19825420	cpyfewtwn	[x0]!, [x2]!, x1!
+0xb00	19826420	cpyfertwn	[x0]!, [x2]!, x1!
+0xb04	19828420	cpyfern	[x0]!, [x2]!, x1!
+0xb08	19829420	cpyfewtrn	[x0]!, [x2]!, x1!
+0xb0c	1982a420	cpyfertrn	[x0]!, [x2]!, x1!
+0xb10	19830440	cpyfe	[x0]!, [x3]!, x2!
+0xb14	19850440	cpyfe	[x0]!, [x5]!, x2!
+0xb18	19890440	cpyfe	[x0]!, [x9]!, x2!
+0xb1c	19910440	cpyfe	[x0]!, [x17]!, x2!
+0xb20	19a00841	rcwcasa	x0, x1, [x2]
+0xb24	19a00c82	rcwcaspa	x0, x1, x2, x3, [x4]
+0xb28	19a10440	<unknown>	
+0xb2c	19a19040	rcwclrpa	x0, x1, [x2]
+0xb30	19a1a040	rcwswppa	x0, x1, [x2]
+0xb34	19a1b040	rcwsetpa	x0, x1, [x2]
+0xb38	19c00020	ldapursb	w0, [x1]
+0xb3c	19c00400	<unknown>	
+0xb40	19c00401	<unknown>	
+0xb44	19c00402	<unknown>	
+0xb48	19c0041e	<unknown>	
+0xb4c	19c0041f	<unknown>	
+0xb50	19c00420	<unknown>	
+0xb54	19c00421	<unknown>	
+0xb58	19c00422	setp	[x2]!, x1!, x0
+0xb5c	19c0043e	setp	[x30]!, x1!, x0
+0xb60	19c0043f	<unknown>	
+0xb64	19c00440	<unknown>	
+0xb68	19c00441	setp	[x1]!, x2!, x0
+0xb6c	19c00442	<unknown>	
+0xb70	19c0045e	setp	[x30]!, x2!, x0
+0xb74	19c0045f	<unknown>	
+0xb78	19c007c0	<unknown>	
+0xb7c	19c007c1	setp	[x1]!, x30!, x0
+0xb80	19c007c2	setp	[x2]!, x30!, x0
+0xb84	19c007de	<unknown>	
+0xb88	19c007df	<unknown>	
+0xb8c	19c007e0	<unknown>	
+0xb90	19c007e1	setp	[x1]!, xzr!, x0
+0xb94	19c007e2	setp	[x2]!, xzr!, x0
+0xb98	19c007fe	setp	[x30]!, xzr!, x0
+0xb9c	19c007ff	<unknown>	
+0xba0	19c01420	<unknown>	
+0xba4	19c02420	<unknown>	
+0xba8	19c04420	<unknown>	
+0xbac	19c05420	<unknown>	
+0xbb0	19c06420	<unknown>	
+0xbb4	19c08420	<unknown>	
+0xbb8	19c09420	<unknown>	
+0xbbc	19c0a420	<unknown>	
+0xbc0	19c10400	<unknown>	
+0xbc4	19c10401	<unknown>	
+0xbc8	19c10402	setp	[x2]!, x0!, x1
+0xbcc	19c1041e	setp	[x30]!, x0!, x1
+0xbd0	19c1041f	<unknown>	
+0xbd4	19c10420	<unknown>	
+0xbd8	19c10421	<unknown>	
+0xbdc	19c10422	<unknown>	
+0xbe0	19c1043e	<unknown>	
+0xbe4	19c1043f	<unknown>	
+0xbe8	19c10440	setp	[x0]!, x2!, x1
+0xbec	19c10441	<unknown>	
+0xbf0	19c10442	<unknown>	
+0xbf4	19c1045e	setp	[x30]!, x2!, x1
+0xbf8	19c1045f	<unknown>	
+0xbfc	19c107c0	setp	[x0]!, x30!, x1
+0xc00	19c107c1	<unknown>	
+0xc04	19c107c2	setp	[x2]!, x30!, x1
+0xc08	19c107de	<unknown>	
+0xc0c	19c107df	<unknown>	
+0xc10	19c107e0	setp	[x0]!, xzr!, x1
+0xc14	19c107e1	<unknown>	
+0xc18	19c107e2	setp	[x2]!, xzr!, x1
+0xc1c	19c107fe	setp	[x30]!, xzr!, x1
+0xc20	19c107ff	<unknown>	
+0xc24	19c20020	ldapursb	w0, [x1, #0x20]
+0xc28	19c20400	<unknown>	
+0xc2c	19c20401	setp	[x1]!, x0!, x2
+0xc30	19c20402	<unknown>	
+0xc34	19c2041e	setp	[x30]!, x0!, x2
+0xc38	19c2041f	<unknown>	
+0xc3c	19c20420	setp	[x0]!, x1!, x2
+0xc40	19c20421	<unknown>	
+0xc44	19c20422	<unknown>	
+0xc48	19c20424	setp	[x4]!, x1!, x2
+0xc4c	19c20428	setp	[x8]!, x1!, x2
+0xc50	19c20430	setp	[x16]!, x1!, x2
+0xc54	19c2043e	setp	[x30]!, x1!, x2
+0xc58	19c2043f	<unknown>	
+0xc5c	19c20440	<unknown>	
+0xc60	19c20441	<unknown>	
+0xc64	19c20442	<unknown>	
+0xc68	19c2045e	<unknown>	
+0xc6c	19c2045f	<unknown>	
+0xc70	19c20460	setp	[x0]!, x3!, x2
+0xc74	19c204a0	setp	[x0]!, x5!, x2
+0xc78	19c20520	setp	[x0]!, x9!, x2
+0xc7c	19c20620	setp	[x0]!, x17!, x2
+0xc80	19c207c0	setp	[x0]!, x30!, x2
+0xc84	19c207c1	setp	[x1]!, x30!, x2
+0xc88	19c207c2	<unknown>	
+0xc8c	19c207de	<unknown>	
+0xc90	19c207df	<unknown>	
+0xc94	19c207e0	setp	[x0]!, xzr!, x2
+0xc98	19c207e1	setp	[x1]!, xzr!, x2
+0xc9c	19c207e2	<unknown>	
+0xca0	19c207fe	setp	[x30]!, xzr!, x2
+0xca4	19c207ff	<unknown>	
+0xca8	19c20c20	<unknown>	
+0xcac	19c21020	ldapursb	w0, [x1, #0x21]
+0xcb0	19c21400	<unknown>	
+0xcb4	19c21420	setpt	[x0]!, x1!, x2
+0xcb8	19c21421	<unknown>	
+0xcbc	19c21422	<unknown>	
+0xcc0	19c21424	setpt	[x4]!, x1!, x2
+0xcc4	19c21428	setpt	[x8]!, x1!, x2
+0xcc8	19c21430	setpt	[x16]!, x1!, x2
+0xccc	19c21460	setpt	[x0]!, x3!, x2
+0xcd0	19c214a0	setpt	[x0]!, x5!, x2
+0xcd4	19c21520	setpt	[x0]!, x9!, x2
+0xcd8	19c21620	setpt	[x0]!, x17!, x2
+0xcdc	19c21c20	<unknown>	
+0xce0	19c22020	ldapursb	w0, [x1, #0x22]
+0xce4	19c22400	<unknown>	
+0xce8	19c22420	setpn	[x0]!, x1!, x2
+0xcec	19c22421	<unknown>	
+0xcf0	19c22422	<unknown>	
+0xcf4	19c22424	setpn	[x4]!, x1!, x2
+0xcf8	19c22428	setpn	[x8]!, x1!, x2
+0xcfc	19c22430	setpn	[x16]!, x1!, x2
+0xd00	19c22460	setpn	[x0]!, x3!, x2
+0xd04	19c224a0	setpn	[x0]!, x5!, x2
+0xd08	19c22520	setpn	[x0]!, x9!, x2
+0xd0c	19c22620	setpn	[x0]!, x17!, x2
+0xd10	19c22c20	<unknown>	
+0xd14	19c23420	setptn	[x0]!, x1!, x2
+0xd18	19c24020	ldapursb	w0, [x1, #0x24]
+0xd1c	19c24400	<unknown>	
+0xd20	19c24420	setm	[x0]!, x1!, x2
+0xd24	19c24421	<unknown>	
+0xd28	19c24422	<unknown>	
+0xd2c	19c24424	setm	[x4]!, x1!, x2
+0xd30	19c24428	setm	[x8]!, x1!, x2
+0xd34	19c24430	setm	[x16]!, x1!, x2
+0xd38	19c24460	setm	[x0]!, x3!, x2
+0xd3c	19c244a0	setm	[x0]!, x5!, x2
+0xd40	19c24520	setm	[x0]!, x9!, x2
+0xd44	19c24620	setm	[x0]!, x17!, x2
+0xd48	19c24c20	<unknown>	
+0xd4c	19c25020	ldapursb	w0, [x1, #0x25]
+0xd50	19c25400	<unknown>	
+0xd54	19c25420	setmt	[x0]!, x1!, x2
+0xd58	19c25421	<unknown>	
+0xd5c	19c25422	<unknown>	
+0xd60	19c25424	setmt	[x4]!, x1!, x2
+0xd64	19c25428	setmt	[x8]!, x1!, x2
+0xd68	19c25430	setmt	[x16]!, x1!, x2
+0xd6c	19c25460	setmt	[x0]!, x3!, x2
+0xd70	19c254a0	setmt	[x0]!, x5!, x2
+0xd74	19c25520	setmt	[x0]!, x9!, x2
+0xd78	19c25620	setmt	[x0]!, x17!, x2
+0xd7c	19c25c20	<unknown>	
+0xd80	19c26020	ldapursb	w0, [x1, #0x26]
+0xd84	19c26400	<unknown>	
+0xd88	19c26420	setmn	[x0]!, x1!, x2
+0xd8c	19c26421	<unknown>	
+0xd90	19c26422	<unknown>	
+0xd94	19c26424	setmn	[x4]!, x1!, x2
+0xd98	19c26428	setmn	[x8]!, x1!, x2
+0xd9c	19c26430	setmn	[x16]!, x1!, x2
+0xda0	19c26460	setmn	[x0]!, x3!, x2
+0xda4	19c264a0	setmn	[x0]!, x5!, x2
+0xda8	19c26520	setmn	[x0]!, x9!, x2
+0xdac	19c26620	setmn	[x0]!, x17!, x2
+0xdb0	19c26c20	<unknown>	
+0xdb4	19c27420	setmtn	[x0]!, x1!, x2
+0xdb8	19c28020	ldapursb	w0, [x1, #0x28]
+0xdbc	19c28400	<unknown>	
+0xdc0	19c28420	sete	[x0]!, x1!, x2
+0xdc4	19c28421	<unknown>	
+0xdc8	19c28422	<unknown>	
+0xdcc	19c28424	sete	[x4]!, x1!, x2
+0xdd0	19c28428	sete	[x8]!, x1!, x2
+0xdd4	19c28430	sete	[x16]!, x1!, x2
+0xdd8	19c28460	sete	[x0]!, x3!, x2
+0xddc	19c284a0	sete	[x0]!, x5!, x2
+0xde0	19c28520	sete	[x0]!, x9!, x2
+0xde4	19c28620	sete	[x0]!, x17!, x2
+0xde8	19c28c20	<unknown>	
+0xdec	19c29020	ldapursb	w0, [x1, #0x29]
+0xdf0	19c29400	<unknown>	
+0xdf4	19c29420	setet	[x0]!, x1!, x2
+0xdf8	19c29421	<unknown>	
+0xdfc	19c29422	<unknown>	
+0xe00	19c29424	setet	[x4]!, x1!, x2
+0xe04	19c29428	setet	[x8]!, x1!, x2
+0xe08	19c29430	setet	[x16]!, x1!, x2
+0xe0c	19c29460	setet	[x0]!, x3!, x2
+0xe10	19c294a0	setet	[x0]!, x5!, x2
+0xe14	19c29520	setet	[x0]!, x9!, x2
+0xe18	19c29620	setet	[x0]!, x17!, x2
+0xe1c	19c29c20	<unknown>	
+0xe20	19c2a020	ldapursb	w0, [x1, #0x2a]
+0xe24	19c2a400	<unknown>	
+0xe28	19c2a420	seten	[x0]!, x1!, x2
+0xe2c	19c2a421	<unknown>	
+0xe30	19c2a422	<unknown>	
+0xe34	19c2a424	seten	[x4]!, x1!, x2
+0xe38	19c2a428	seten	[x8]!, x1!, x2
+0xe3c	19c2a430	seten	[x16]!, x1!, x2
+0xe40	19c2a460	seten	[x0]!, x3!, x2
+0xe44	19c2a4a0	seten	[x0]!, x5!, x2
+0xe48	19c2a520	seten	[x0]!, x9!, x2
+0xe4c	19c2a620	seten	[x0]!, x17!, x2
+0xe50	19c2ac20	<unknown>	
+0xe54	19c2b420	setetn	[x0]!, x1!, x2
+0xe58	19c2c420	<unknown>	
+0xe5c	19c2d420	<unknown>	
+0xe60	19c2e420	<unknown>	
+0xe64	19c30420	setp	[x0]!, x1!, x3
+0xe68	19c31420	setpt	[x0]!, x1!, x3
+0xe6c	19c32420	setpn	[x0]!, x1!, x3
+0xe70	19c34420	setm	[x0]!, x1!, x3
+0xe74	19c35420	setmt	[x0]!, x1!, x3
+0xe78	19c36420	setmn	[x0]!, x1!, x3
+0xe7c	19c38420	sete	[x0]!, x1!, x3
+0xe80	19c39420	setet	[x0]!, x1!, x3
+0xe84	19c3a420	seten	[x0]!, x1!, x3
+0xe88	19c60420	setp	[x0]!, x1!, x6
+0xe8c	19c61420	setpt	[x0]!, x1!, x6
+0xe90	19c62420	setpn	[x0]!, x1!, x6
+0xe94	19c64420	setm	[x0]!, x1!, x6
+0xe98	19c65420	setmt	[x0]!, x1!, x6
+0xe9c	19c66420	setmn	[x0]!, x1!, x6
+0xea0	19c68420	sete	[x0]!, x1!, x6
+0xea4	19c69420	setet	[x0]!, x1!, x6
+0xea8	19c6a420	seten	[x0]!, x1!, x6
+0xeac	19ca0420	setp	[x0]!, x1!, x10
+0xeb0	19ca1420	setpt	[x0]!, x1!, x10
+0xeb4	19ca2420	setpn	[x0]!, x1!, x10
+0xeb8	19ca4420	setm	[x0]!, x1!, x10
+0xebc	19ca5420	setmt	[x0]!, x1!, x10
+0xec0	19ca6420	setmn	[x0]!, x1!, x10
+0xec4	19ca8420	sete	[x0]!, x1!, x10
+0xec8	19ca9420	setet	[x0]!, x1!, x10
+0xecc	19caa420	seten	[x0]!, x1!, x10
+0xed0	19d20420	setp	[x0]!, x1!, x18
+0xed4	19d21420	setpt	[x0]!, x1!, x18
+0xed8	19d22420	setpn	[x0]!, x1!, x18
+0xedc	19d24420	setm	[x0]!, x1!, x18
+0xee0	19d25420	setmt	[x0]!, x1!, x18
+0xee4	19d26420	setmn	[x0]!, x1!, x18
+0xee8	19d28420	sete	[x0]!, x1!, x18
+0xeec	19d29420	setet	[x0]!, x1!, x18
+0xef0	19d2a420	seten	[x0]!, x1!, x18
+0xef4	19de0400	<unknown>	
+0xef8	19de0401	setp	[x1]!, x0!, x30
+0xefc	19de0402	setp	[x2]!, x0!, x30
+0xf00	19de041e	<unknown>	
+0xf04	19de041f	<unknown>	
+0xf08	19de0420	setp	[x0]!, x1!, x30
+0xf0c	19de0421	<unknown>	
+0xf10	19de0422	setp	[x2]!, x1!, x30
+0xf14	19de043e	<unknown>	
+0xf18	19de043f	<unknown>	
+0xf1c	19de0440	setp	[x0]!, x2!, x30
+0xf20	19de0441	setp	[x1]!, x2!, x30
+0xf24	19de0442	<unknown>	
+0xf28	19de045e	<unknown>	
+0xf2c	19de045f	<unknown>	
+0xf30	19de07c0	<unknown>	
+0xf34	19de07c1	<unknown>	
+0xf38	19de07c2	<unknown>	
+0xf3c	19de07de	<unknown>	
+0xf40	19de07df	<unknown>	
+0xf44	19de07e0	setp	[x0]!, xzr!, x30
+0xf48	19de07e1	setp	[x1]!, xzr!, x30
+0xf4c	19de07e2	setp	[x2]!, xzr!, x30
+0xf50	19de07fe	<unknown>	
+0xf54	19de07ff	<unknown>	
+0xf58	19df0400	<unknown>	
+0xf5c	19df0401	setp	[x1]!, x0!, xzr
+0xf60	19df0402	setp	[x2]!, x0!, xzr
+0xf64	19df041e	setp	[x30]!, x0!, xzr
+0xf68	19df041f	<unknown>	
+0xf6c	19df0420	setp	[x0]!, x1!, xzr
+0xf70	19df0421	<unknown>	
+0xf74	19df0422	setp	[x2]!, x1!, xzr
+0xf78	19df043e	setp	[x30]!, x1!, xzr
+0xf7c	19df043f	<unknown>	
+0xf80	19df0440	setp	[x0]!, x2!, xzr
+0xf84	19df0441	setp	[x1]!, x2!, xzr
+0xf88	19df0442	<unknown>	
+0xf8c	19df045e	setp	[x30]!, x2!, xzr
+0xf90	19df045f	<unknown>	
+0xf94	19df07c0	setp	[x0]!, x30!, xzr
+0xf98	19df07c1	setp	[x1]!, x30!, xzr
+0xf9c	19df07c2	setp	[x2]!, x30!, xzr
+0xfa0	19df07de	<unknown>	
+0xfa4	19df07df	<unknown>	
+0xfa8	19df07e0	<unknown>	
+0xfac	19df07e1	<unknown>	
+0xfb0	19df07e2	<unknown>	
+0xfb4	19df07fe	<unknown>	
+0xfb8	19df07ff	<unknown>	
+0xfbc	19e20420	<unknown>	
+0xfc0	19e21420	<unknown>	
+0xfc4	19e22420	<unknown>	
+0xfc8	19e24420	<unknown>	
+0xfcc	19e25420	<unknown>	
+0xfd0	19e26420	<unknown>	
+0xfd4	19e28420	<unknown>	
+0xfd8	19e29420	<unknown>	
+0xfdc	19e2a420	<unknown>	
+0xfe0	1b000020	madd	w0, w1, w0, w0
+0xfe4	1b010440	madd	w0, w2, w1, w1
+0xfe8	1b200841	<unknown>	
+0xfec	1b200c82	<unknown>	
+0xff0	1b219040	<unknown>	
+0xff4	1b21a040	<unknown>	
+0xff8	1b21b040	<unknown>	
+0xffc	1b400020	<unknown>	
+0x1000	1b410440	<unknown>	
+0x1004	1b810440	<unknown>	
+0x1008	1bc20420	<unknown>	
+0x100c	1bc21420	<unknown>	
+0x1010	1bc22420	<unknown>	
+0x1014	1bc24420	<unknown>	
+0x1018	1bc25420	<unknown>	
+0x101c	1bc26420	<unknown>	
+0x1020	1bc28420	<unknown>	
+0x1024	1bc29420	<unknown>	
+0x1028	1bc2a420	<unknown>	
+0x102c	1c010440	ldr	s0, 0x30b4
+0x1030	1c013440	ldr	s0, 0x36b8
+0x1034	1c014440	ldr	s0, 0x38bc
+0x1038	1c018440	ldr	s0, 0x40c0
+0x103c	1c01c440	ldr	s0, 0x48c4
+0x1040	1c410440	ldr	s0, 0x830c8
+0x1044	1c413440	ldr	s0, 0x836cc
+0x1048	1c414440	ldr	s0, 0x838d0
+0x104c	1c418440	ldr	s0, 0x840d4
+0x1050	1c41c440	ldr	s0, 0x848d8
+0x1054	1c810440	ldr	s0, 0xfffffffffff030dc
+0x1058	1c813440	ldr	s0, 0xfffffffffff036e0
+0x105c	1c814440	ldr	s0, 0xfffffffffff038e4
+0x1060	1c818440	ldr	s0, 0xfffffffffff040e8
+0x1064	1c81c440	ldr	s0, 0xfffffffffff048ec
+0x1068	1cc20420	ldr	s0, 0xfffffffffff850ec
+0x106c	1cc24420	ldr	s0, 0xfffffffffff858f0
+0x1070	1cc28420	ldr	s0, 0xfffffffffff860f4
+0x1074	1d000020	<unknown>	
+0x1078	1d000400	<unknown>	
+0x107c	1d000401	<unknown>	
+0x1080	1d000402	<unknown>	
+0x1084	1d00041e	<unknown>	
+0x1088	1d00041f	<unknown>	
+0x108c	1d000420	<unknown>	
+0x1090	1d000421	<unknown>	
+0x1094	1d000422	cpyp	[x2]!, [x0]!, x1!
+0x1098	1d00043e	cpyp	[x30]!, [x0]!, x1!
+0x109c	1d00043f	<unknown>	
+0x10a0	1d000440	<unknown>	
+0x10a4	1d000441	cpyp	[x1]!, [x0]!, x2!
+0x10a8	1d000442	<unknown>	
+0x10ac	1d00045e	cpyp	[x30]!, [x0]!, x2!
+0x10b0	1d00045f	<unknown>	
+0x10b4	1d0007c0	<unknown>	
+0x10b8	1d0007c1	cpyp	[x1]!, [x0]!, x30!
+0x10bc	1d0007c2	cpyp	[x2]!, [x0]!, x30!
+0x10c0	1d0007de	<unknown>	
+0x10c4	1d0007df	<unknown>	
+0x10c8	1d0007e0	<unknown>	
+0x10cc	1d0007e1	cpyp	[x1]!, [x0]!, xzr!
+0x10d0	1d0007e2	cpyp	[x2]!, [x0]!, xzr!
+0x10d4	1d0007fe	cpyp	[x30]!, [x0]!, xzr!
+0x10d8	1d0007ff	<unknown>	
+0x10dc	1d003440	<unknown>	
+0x10e0	1d004440	<unknown>	
+0x10e4	1d008440	<unknown>	
+0x10e8	1d00c440	<unknown>	
+0x10ec	1d010040	<unknown>	
+0x10f0	1d010400	<unknown>	
+0x10f4	1d010401	<unknown>	
+0x10f8	1d010402	cpyp	[x2]!, [x1]!, x0!
+0x10fc	1d01041e	cpyp	[x30]!, [x1]!, x0!
+0x1100	1d01041f	<unknown>	
+0x1104	1d010420	<unknown>	
+0x1108	1d010421	<unknown>	
+0x110c	1d010422	<unknown>	
+0x1110	1d01043e	<unknown>	
+0x1114	1d01043f	<unknown>	
+0x1118	1d010440	cpyp	[x0]!, [x1]!, x2!
+0x111c	1d010441	<unknown>	
+0x1120	1d010442	<unknown>	
+0x1124	1d010444	cpyp	[x4]!, [x1]!, x2!
+0x1128	1d010448	cpyp	[x8]!, [x1]!, x2!
+0x112c	1d010450	cpyp	[x16]!, [x1]!, x2!
+0x1130	1d01045e	cpyp	[x30]!, [x1]!, x2!
+0x1134	1d01045f	<unknown>	
+0x1138	1d010460	cpyp	[x0]!, [x1]!, x3!
+0x113c	1d0104c0	cpyp	[x0]!, [x1]!, x6!
+0x1140	1d010540	cpyp	[x0]!, [x1]!, x10!
+0x1144	1d010640	cpyp	[x0]!, [x1]!, x18!
+0x1148	1d0107c0	cpyp	[x0]!, [x1]!, x30!
+0x114c	1d0107c1	<unknown>	
+0x1150	1d0107c2	cpyp	[x2]!, [x1]!, x30!
+0x1154	1d0107de	<unknown>	
+0x1158	1d0107df	<unknown>	
+0x115c	1d0107e0	cpyp	[x0]!, [x1]!, xzr!
+0x1160	1d0107e1	<unknown>	
+0x1164	1d0107e2	cpyp	[x2]!, [x1]!, xzr!
+0x1168	1d0107fe	cpyp	[x30]!, [x1]!, xzr!
+0x116c	1d0107ff	<unknown>	
+0x1170	1d010c40	<unknown>	
+0x1174	1d011440	cpypwt	[x0]!, [x1]!, x2!
+0x1178	1d012440	cpyprt	[x0]!, [x1]!, x2!
+0x117c	1d013040	<unknown>	
+0x1180	1d013400	<unknown>	
+0x1184	1d013440	cpypt	[x0]!, [x1]!, x2!
+0x1188	1d013441	<unknown>	
+0x118c	1d013442	<unknown>	
+0x1190	1d013444	cpypt	[x4]!, [x1]!, x2!
+0x1194	1d013448	cpypt	[x8]!, [x1]!, x2!
+0x1198	1d013450	cpypt	[x16]!, [x1]!, x2!
+0x119c	1d013460	cpypt	[x0]!, [x1]!, x3!
+0x11a0	1d0134c0	cpypt	[x0]!, [x1]!, x6!
+0x11a4	1d013540	cpypt	[x0]!, [x1]!, x10!
+0x11a8	1d013640	cpypt	[x0]!, [x1]!, x18!
+0x11ac	1d013c40	<unknown>	
+0x11b0	1d014040	<unknown>	
+0x11b4	1d014400	<unknown>	
+0x11b8	1d014440	cpypwn	[x0]!, [x1]!, x2!
+0x11bc	1d014441	<unknown>	
+0x11c0	1d014442	<unknown>	
+0x11c4	1d014444	cpypwn	[x4]!, [x1]!, x2!
+0x11c8	1d014448	cpypwn	[x8]!, [x1]!, x2!
+0x11cc	1d014450	cpypwn	[x16]!, [x1]!, x2!
+0x11d0	1d014460	cpypwn	[x0]!, [x1]!, x3!
+0x11d4	1d0144c0	cpypwn	[x0]!, [x1]!, x6!
+0x11d8	1d014540	cpypwn	[x0]!, [x1]!, x10!
+0x11dc	1d014640	cpypwn	[x0]!, [x1]!, x18!
+0x11e0	1d014c40	<unknown>	
+0x11e4	1d015440	cpypwtwn	[x0]!, [x1]!, x2!
+0x11e8	1d016440	cpyprtwn	[x0]!, [x1]!, x2!
+0x11ec	1d017440	cpyptwn	[x0]!, [x1]!, x2!
+0x11f0	1d018040	<unknown>	
+0x11f4	1d018400	<unknown>	
+0x11f8	1d018440	cpyprn	[x0]!, [x1]!, x2!
+0x11fc	1d018441	<unknown>	
+0x1200	1d018442	<unknown>	
+0x1204	1d018444	cpyprn	[x4]!, [x1]!, x2!
+0x1208	1d018448	cpyprn	[x8]!, [x1]!, x2!
+0x120c	1d018450	cpyprn	[x16]!, [x1]!, x2!
+0x1210	1d018460	cpyprn	[x0]!, [x1]!, x3!
+0x1214	1d0184c0	cpyprn	[x0]!, [x1]!, x6!
+0x1218	1d018540	cpyprn	[x0]!, [x1]!, x10!
+0x121c	1d018640	cpyprn	[x0]!, [x1]!, x18!
+0x1220	1d018c40	<unknown>	
+0x1224	1d019440	cpypwtrn	[x0]!, [x1]!, x2!
+0x1228	1d01a440	cpyprtrn	[x0]!, [x1]!, x2!
+0x122c	1d01b440	cpyptrn	[x0]!, [x1]!, x2!
+0x1230	1d01c040	<unknown>	
+0x1234	1d01c400	<unknown>	
+0x1238	1d01c440	cpypn	[x0]!, [x1]!, x2!
+0x123c	1d01c441	<unknown>	
+0x1240	1d01c442	<unknown>	
+0x1244	1d01c444	cpypn	[x4]!, [x1]!, x2!
+0x1248	1d01c448	cpypn	[x8]!, [x1]!, x2!
+0x124c	1d01c450	cpypn	[x16]!, [x1]!, x2!
+0x1250	1d01c460	cpypn	[x0]!, [x1]!, x3!
+0x1254	1d01c4c0	cpypn	[x0]!, [x1]!, x6!
+0x1258	1d01c540	cpypn	[x0]!, [x1]!, x10!
+0x125c	1d01c640	cpypn	[x0]!, [x1]!, x18!
+0x1260	1d01cc40	<unknown>	
+0x1264	1d01d440	cpypwtn	[x0]!, [x1]!, x2!
+0x1268	1d01e440	cpyprtn	[x0]!, [x1]!, x2!
+0x126c	1d020400	<unknown>	
+0x1270	1d020401	cpyp	[x1]!, [x2]!, x0!
+0x1274	1d020402	<unknown>	
+0x1278	1d02041e	cpyp	[x30]!, [x2]!, x0!
+0x127c	1d02041f	<unknown>	
+0x1280	1d020420	cpyp	[x0]!, [x2]!, x1!
+0x1284	1d020421	<unknown>	
+0x1288	1d020422	<unknown>	
+0x128c	1d02043e	cpyp	[x30]!, [x2]!, x1!
+0x1290	1d02043f	<unknown>	
+0x1294	1d020440	<unknown>	
+0x1298	1d020441	<unknown>	
+0x129c	1d020442	<unknown>	
+0x12a0	1d02045e	<unknown>	
+0x12a4	1d02045f	<unknown>	
+0x12a8	1d0207c0	cpyp	[x0]!, [x2]!, x30!
+0x12ac	1d0207c1	cpyp	[x1]!, [x2]!, x30!
+0x12b0	1d0207c2	<unknown>	
+0x12b4	1d0207de	<unknown>	
+0x12b8	1d0207df	<unknown>	
+0x12bc	1d0207e0	cpyp	[x0]!, [x2]!, xzr!
+0x12c0	1d0207e1	cpyp	[x1]!, [x2]!, xzr!
+0x12c4	1d0207e2	<unknown>	
+0x12c8	1d0207fe	cpyp	[x30]!, [x2]!, xzr!
+0x12cc	1d0207ff	<unknown>	
+0x12d0	1d030440	cpyp	[x0]!, [x3]!, x2!
+0x12d4	1d033440	cpypt	[x0]!, [x3]!, x2!
+0x12d8	1d034440	cpypwn	[x0]!, [x3]!, x2!
+0x12dc	1d038440	cpyprn	[x0]!, [x3]!, x2!
+0x12e0	1d03c440	cpypn	[x0]!, [x3]!, x2!
+0x12e4	1d050440	cpyp	[x0]!, [x5]!, x2!
+0x12e8	1d053440	cpypt	[x0]!, [x5]!, x2!
+0x12ec	1d054440	cpypwn	[x0]!, [x5]!, x2!
+0x12f0	1d058440	cpyprn	[x0]!, [x5]!, x2!
+0x12f4	1d05c440	cpypn	[x0]!, [x5]!, x2!
+0x12f8	1d090440	cpyp	[x0]!, [x9]!, x2!
+0x12fc	1d093440	cpypt	[x0]!, [x9]!, x2!
+0x1300	1d094440	cpypwn	[x0]!, [x9]!, x2!
+0x1304	1d098440	cpyprn	[x0]!, [x9]!, x2!
+0x1308	1d09c440	cpypn	[x0]!, [x9]!, x2!
+0x130c	1d110440	cpyp	[x0]!, [x17]!, x2!
+0x1310	1d113440	cpypt	[x0]!, [x17]!, x2!
+0x1314	1d114440	cpypwn	[x0]!, [x17]!, x2!
+0x1318	1d118440	cpyprn	[x0]!, [x17]!, x2!
+0x131c	1d11c440	cpypn	[x0]!, [x17]!, x2!
+0x1320	1d1e0400	<unknown>	
+0x1324	1d1e0401	cpyp	[x1]!, [x30]!, x0!
+0x1328	1d1e0402	cpyp	[x2]!, [x30]!, x0!
+0x132c	1d1e041e	<unknown>	
+0x1330	1d1e041f	<unknown>	
+0x1334	1d1e0420	cpyp	[x0]!, [x30]!, x1!
+0x1338	1d1e0421	<unknown>	
+0x133c	1d1e0422	cpyp	[x2]!, [x30]!, x1!
+0x1340	1d1e043e	<unknown>	
+0x1344	1d1e043f	<unknown>	
+0x1348	1d1e0440	cpyp	[x0]!, [x30]!, x2!
+0x134c	1d1e0441	cpyp	[x1]!, [x30]!, x2!
+0x1350	1d1e0442	<unknown>	
+0x1354	1d1e045e	<unknown>	
+0x1358	1d1e045f	<unknown>	
+0x135c	1d1e07c0	<unknown>	
+0x1360	1d1e07c1	<unknown>	
+0x1364	1d1e07c2	<unknown>	
+0x1368	1d1e07de	<unknown>	
+0x136c	1d1e07df	<unknown>	
+0x1370	1d1e07e0	cpyp	[x0]!, [x30]!, xzr!
+0x1374	1d1e07e1	cpyp	[x1]!, [x30]!, xzr!
+0x1378	1d1e07e2	cpyp	[x2]!, [x30]!, xzr!
+0x137c	1d1e07fe	<unknown>	
+0x1380	1d1e07ff	<unknown>	
+0x1384	1d1f0400	<unknown>	
+0x1388	1d1f0401	<unknown>	
+0x138c	1d1f0402	<unknown>	
+0x1390	1d1f041e	<unknown>	
+0x1394	1d1f041f	<unknown>	
+0x1398	1d1f0420	<unknown>	
+0x139c	1d1f0421	<unknown>	
+0x13a0	1d1f0422	<unknown>	
+0x13a4	1d1f043e	<unknown>	
+0x13a8	1d1f043f	<unknown>	
+0x13ac	1d1f0440	<unknown>	
+0x13b0	1d1f0441	<unknown>	
+0x13b4	1d1f0442	<unknown>	
+0x13b8	1d1f045e	<unknown>	
+0x13bc	1d1f045f	<unknown>	
+0x13c0	1d1f07c0	<unknown>	
+0x13c4	1d1f07c1	<unknown>	
+0x13c8	1d1f07c2	<unknown>	
+0x13cc	1d1f07de	<unknown>	
+0x13d0	1d1f07df	<unknown>	
+0x13d4	1d1f07e0	<unknown>	
+0x13d8	1d1f07e1	<unknown>	
+0x13dc	1d1f07e2	<unknown>	
+0x13e0	1d1f07fe	<unknown>	
+0x13e4	1d1f07ff	<unknown>	
+0x13e8	1d200841	<unknown>	
+0x13ec	1d200c82	<unknown>	
+0x13f0	1d210440	<unknown>	
+0x13f4	1d213440	<unknown>	
+0x13f8	1d214440	<unknown>	
+0x13fc	1d218440	<unknown>	
+0x1400	1d219040	<unknown>	
+0x1404	1d21a040	<unknown>	
+0x1408	1d21b040	<unknown>	
+0x140c	1d21c440	<unknown>	
+0x1410	1d400020	<unknown>	
+0x1414	1d400440	<unknown>	
+0x1418	1d403440	<unknown>	
+0x141c	1d404440	<unknown>	
+0x1420	1d408440	<unknown>	
+0x1424	1d40c440	<unknown>	
+0x1428	1d410040	<unknown>	
+0x142c	1d410400	<unknown>	
+0x1430	1d410440	cpym	[x0]!, [x1]!, x2!
+0x1434	1d410441	<unknown>	
+0x1438	1d410442	<unknown>	
+0x143c	1d410444	cpym	[x4]!, [x1]!, x2!
+0x1440	1d410448	cpym	[x8]!, [x1]!, x2!
+0x1444	1d410450	cpym	[x16]!, [x1]!, x2!
+0x1448	1d410460	cpym	[x0]!, [x1]!, x3!
+0x144c	1d4104c0	cpym	[x0]!, [x1]!, x6!
+0x1450	1d410540	cpym	[x0]!, [x1]!, x10!
+0x1454	1d410640	cpym	[x0]!, [x1]!, x18!
+0x1458	1d410c40	<unknown>	
+0x145c	1d411440	cpymwt	[x0]!, [x1]!, x2!
+0x1460	1d412440	cpymrt	[x0]!, [x1]!, x2!
+0x1464	1d413040	<unknown>	
+0x1468	1d413400	<unknown>	
+0x146c	1d413440	cpymt	[x0]!, [x1]!, x2!
+0x1470	1d413441	<unknown>	
+0x1474	1d413442	<unknown>	
+0x1478	1d413444	cpymt	[x4]!, [x1]!, x2!
+0x147c	1d413448	cpymt	[x8]!, [x1]!, x2!
+0x1480	1d413450	cpymt	[x16]!, [x1]!, x2!
+0x1484	1d413460	cpymt	[x0]!, [x1]!, x3!
+0x1488	1d4134c0	cpymt	[x0]!, [x1]!, x6!
+0x148c	1d413540	cpymt	[x0]!, [x1]!, x10!
+0x1490	1d413640	cpymt	[x0]!, [x1]!, x18!
+0x1494	1d413c40	<unknown>	
+0x1498	1d414040	<unknown>	
+0x149c	1d414400	<unknown>	
+0x14a0	1d414440	cpymwn	[x0]!, [x1]!, x2!
+0x14a4	1d414441	<unknown>	
+0x14a8	1d414442	<unknown>	
+0x14ac	1d414444	cpymwn	[x4]!, [x1]!, x2!
+0x14b0	1d414448	cpymwn	[x8]!, [x1]!, x2!
+0x14b4	1d414450	cpymwn	[x16]!, [x1]!, x2!
+0x14b8	1d414460	cpymwn	[x0]!, [x1]!, x3!
+0x14bc	1d4144c0	cpymwn	[x0]!, [x1]!, x6!
+0x14c0	1d414540	cpymwn	[x0]!, [x1]!, x10!
+0x14c4	1d414640	cpymwn	[x0]!, [x1]!, x18!
+0x14c8	1d414c40	<unknown>	
+0x14cc	1d415440	cpymwtwn	[x0]!, [x1]!, x2!
+0x14d0	1d416440	cpymrtwn	[x0]!, [x1]!, x2!
+0x14d4	1d417440	cpymtwn	[x0]!, [x1]!, x2!
+0x14d8	1d418040	<unknown>	
+0x14dc	1d418400	<unknown>	
+0x14e0	1d418440	cpymrn	[x0]!, [x1]!, x2!
+0x14e4	1d418441	<unknown>	
+0x14e8	1d418442	<unknown>	
+0x14ec	1d418444	cpymrn	[x4]!, [x1]!, x2!
+0x14f0	1d418448	cpymrn	[x8]!, [x1]!, x2!
+0x14f4	1d418450	cpymrn	[x16]!, [x1]!, x2!
+0x14f8	1d418460	cpymrn	[x0]!, [x1]!, x3!
+0x14fc	1d4184c0	cpymrn	[x0]!, [x1]!, x6!
+0x1500	1d418540	cpymrn	[x0]!, [x1]!, x10!
+0x1504	1d418640	cpymrn	[x0]!, [x1]!, x18!
+0x1508	1d418c40	<unknown>	
+0x150c	1d419440	cpymwtrn	[x0]!, [x1]!, x2!
+0x1510	1d41a440	cpymrtrn	[x0]!, [x1]!, x2!
+0x1514	1d41b440	cpymtrn	[x0]!, [x1]!, x2!
+0x1518	1d41c040	<unknown>	
+0x151c	1d41c400	<unknown>	
+0x1520	1d41c440	cpymn	[x0]!, [x1]!, x2!
+0x1524	1d41c441	<unknown>	
+0x1528	1d41c442	<unknown>	
+0x152c	1d41c444	cpymn	[x4]!, [x1]!, x2!
+0x1530	1d41c448	cpymn	[x8]!, [x1]!, x2!
+0x1534	1d41c450	cpymn	[x16]!, [x1]!, x2!
+0x1538	1d41c460	cpymn	[x0]!, [x1]!, x3!
+0x153c	1d41c4c0	cpymn	[x0]!, [x1]!, x6!
+0x1540	1d41c540	cpymn	[x0]!, [x1]!, x10!
+0x1544	1d41c640	cpymn	[x0]!, [x1]!, x18!
+0x1548	1d41cc40	<unknown>	
+0x154c	1d41d440	cpymwtn	[x0]!, [x1]!, x2!
+0x1550	1d41e440	cpymrtn	[x0]!, [x1]!, x2!
+0x1554	1d420420	cpym	[x0]!, [x2]!, x1!
+0x1558	1d424420	cpymwn	[x0]!, [x2]!, x1!
+0x155c	1d428420	cpymrn	[x0]!, [x2]!, x1!
+0x1560	1d430440	cpym	[x0]!, [x3]!, x2!
+0x1564	1d433440	cpymt	[x0]!, [x3]!, x2!
+0x1568	1d434440	cpymwn	[x0]!, [x3]!, x2!
+0x156c	1d438440	cpymrn	[x0]!, [x3]!, x2!
+0x1570	1d43c440	cpymn	[x0]!, [x3]!, x2!
+0x1574	1d450440	cpym	[x0]!, [x5]!, x2!
+0x1578	1d453440	cpymt	[x0]!, [x5]!, x2!
+0x157c	1d454440	cpymwn	[x0]!, [x5]!, x2!
+0x1580	1d458440	cpymrn	[x0]!, [x5]!, x2!
+0x1584	1d45c440	cpymn	[x0]!, [x5]!, x2!
+0x1588	1d490440	cpym	[x0]!, [x9]!, x2!
+0x158c	1d493440	cpymt	[x0]!, [x9]!, x2!
+0x1590	1d494440	cpymwn	[x0]!, [x9]!, x2!
+0x1594	1d498440	cpymrn	[x0]!, [x9]!, x2!
+0x1598	1d49c440	cpymn	[x0]!, [x9]!, x2!
+0x159c	1d510440	cpym	[x0]!, [x17]!, x2!
+0x15a0	1d513440	cpymt	[x0]!, [x17]!, x2!
+0x15a4	1d514440	cpymwn	[x0]!, [x17]!, x2!
+0x15a8	1d518440	cpymrn	[x0]!, [x17]!, x2!
+0x15ac	1d51c440	cpymn	[x0]!, [x17]!, x2!
+0x15b0	1d610440	<unknown>	
+0x15b4	1d613440	<unknown>	
+0x15b8	1d614440	<unknown>	
+0x15bc	1d618440	<unknown>	
+0x15c0	1d61c440	<unknown>	
+0x15c4	1d800440	<unknown>	
+0x15c8	1d803440	<unknown>	
+0x15cc	1d804440	<unknown>	
+0x15d0	1d808440	<unknown>	
+0x15d4	1d80c440	<unknown>	
+0x15d8	1d810040	<unknown>	
+0x15dc	1d810400	<unknown>	
+0x15e0	1d810440	cpye	[x0]!, [x1]!, x2!
+0x15e4	1d810441	<unknown>	
+0x15e8	1d810442	<unknown>	
+0x15ec	1d810444	cpye	[x4]!, [x1]!, x2!
+0x15f0	1d810448	cpye	[x8]!, [x1]!, x2!
+0x15f4	1d810450	cpye	[x16]!, [x1]!, x2!
+0x15f8	1d810460	cpye	[x0]!, [x1]!, x3!
+0x15fc	1d8104c0	cpye	[x0]!, [x1]!, x6!
+0x1600	1d810540	cpye	[x0]!, [x1]!, x10!
+0x1604	1d810640	cpye	[x0]!, [x1]!, x18!
+0x1608	1d810c40	<unknown>	
+0x160c	1d811440	cpyewt	[x0]!, [x1]!, x2!
+0x1610	1d812440	cpyert	[x0]!, [x1]!, x2!
+0x1614	1d813040	<unknown>	
+0x1618	1d813400	<unknown>	
+0x161c	1d813440	cpyet	[x0]!, [x1]!, x2!
+0x1620	1d813441	<unknown>	
+0x1624	1d813442	<unknown>	
+0x1628	1d813444	cpyet	[x4]!, [x1]!, x2!
+0x162c	1d813448	cpyet	[x8]!, [x1]!, x2!
+0x1630	1d813450	cpyet	[x16]!, [x1]!, x2!
+0x1634	1d813460	cpyet	[x0]!, [x1]!, x3!
+0x1638	1d8134c0	cpyet	[x0]!, [x1]!, x6!
+0x163c	1d813540	cpyet	[x0]!, [x1]!, x10!
+0x1640	1d813640	cpyet	[x0]!, [x1]!, x18!
+0x1644	1d813c40	<unknown>	
+0x1648	1d814040	<unknown>	
+0x164c	1d814400	<unknown>	
+0x1650	1d814440	cpyewn	[x0]!, [x1]!, x2!
+0x1654	1d814441	<unknown>	
+0x1658	1d814442	<unknown>	
+0x165c	1d814444	cpyewn	[x4]!, [x1]!, x2!
+0x1660	1d814448	cpyewn	[x8]!, [x1]!, x2!
+0x1664	1d814450	cpyewn	[x16]!, [x1]!, x2!
+0x1668	1d814460	cpyewn	[x0]!, [x1]!, x3!
+0x166c	1d8144c0	cpyewn	[x0]!, [x1]!, x6!
+0x1670	1d814540	cpyewn	[x0]!, [x1]!, x10!
+0x1674	1d814640	cpyewn	[x0]!, [x1]!, x18!
+0x1678	1d814c40	<unknown>	
+0x167c	1d815440	cpyewtwn	[x0]!, [x1]!, x2!
+0x1680	1d816440	cpyertwn	[x0]!, [x1]!, x2!
+0x1684	1d817440	cpyetwn	[x0]!, [x1]!, x2!
+0x1688	1d818040	<unknown>	
+0x168c	1d818400	<unknown>	
+0x1690	1d818440	cpyern	[x0]!, [x1]!, x2!
+0x1694	1d818441	<unknown>	
+0x1698	1d818442	<unknown>	
+0x169c	1d818444	cpyern	[x4]!, [x1]!, x2!
+0x16a0	1d818448	cpyern	[x8]!, [x1]!, x2!
+0x16a4	1d818450	cpyern	[x16]!, [x1]!, x2!
+0x16a8	1d818460	cpyern	[x0]!, [x1]!, x3!
+0x16ac	1d8184c0	cpyern	[x0]!, [x1]!, x6!
+0x16b0	1d818540	cpyern	[x0]!, [x1]!, x10!
+0x16b4	1d818640	cpyern	[x0]!, [x1]!, x18!
+0x16b8	1d818c40	<unknown>	
+0x16bc	1d819440	cpyewtrn	[x0]!, [x1]!, x2!
+0x16c0	1d81a440	cpyertrn	[x0]!, [x1]!, x2!
+0x16c4	1d81b440	cpyetrn	[x0]!, [x1]!, x2!
+0x16c8	1d81c040	<unknown>	
+0x16cc	1d81c400	<unknown>	
+0x16d0	1d81c440	cpyen	[x0]!, [x1]!, x2!
+0x16d4	1d81c441	<unknown>	
+0x16d8	1d81c442	<unknown>	
+0x16dc	1d81c444	cpyen	[x4]!, [x1]!, x2!
+0x16e0	1d81c448	cpyen	[x8]!, [x1]!, x2!
+0x16e4	1d81c450	cpyen	[x16]!, [x1]!, x2!
+0x16e8	1d81c460	cpyen	[x0]!, [x1]!, x3!
+0x16ec	1d81c4c0	cpyen	[x0]!, [x1]!, x6!
+0x16f0	1d81c540	cpyen	[x0]!, [x1]!, x10!
+0x16f4	1d81c640	cpyen	[x0]!, [x1]!, x18!
+0x16f8	1d81cc40	<unknown>	
+0x16fc	1d81d440	cpyewtn	[x0]!, [x1]!, x2!
+0x1700	1d81e440	cpyertn	[x0]!, [x1]!, x2!
+0x1704	1d820420	cpye	[x0]!, [x2]!, x1!
+0x1708	1d824420	cpyewn	[x0]!, [x2]!, x1!
+0x170c	1d828420	cpyern	[x0]!, [x2]!, x1!
+0x1710	1d830440	cpye	[x0]!, [x3]!, x2!
+0x1714	1d833440	cpyet	[x0]!, [x3]!, x2!
+0x1718	1d834440	cpyewn	[x0]!, [x3]!, x2!
+0x171c	1d838440	cpyern	[x0]!, [x3]!, x2!
+0x1720	1d83c440	cpyen	[x0]!, [x3]!, x2!
+0x1724	1d850440	cpye	[x0]!, [x5]!, x2!
+0x1728	1d853440	cpyet	[x0]!, [x5]!, x2!
+0x172c	1d854440	cpyewn	[x0]!, [x5]!, x2!
+0x1730	1d858440	cpyern	[x0]!, [x5]!, x2!
+0x1734	1d85c440	cpyen	[x0]!, [x5]!, x2!
+0x1738	1d890440	cpye	[x0]!, [x9]!, x2!
+0x173c	1d893440	cpyet	[x0]!, [x9]!, x2!
+0x1740	1d894440	cpyewn	[x0]!, [x9]!, x2!
+0x1744	1d898440	cpyern	[x0]!, [x9]!, x2!
+0x1748	1d89c440	cpyen	[x0]!, [x9]!, x2!
+0x174c	1d910440	cpye	[x0]!, [x17]!, x2!
+0x1750	1d913440	cpyet	[x0]!, [x17]!, x2!
+0x1754	1d914440	cpyewn	[x0]!, [x17]!, x2!
+0x1758	1d918440	cpyern	[x0]!, [x17]!, x2!
+0x175c	1d91c440	cpyen	[x0]!, [x17]!, x2!
+0x1760	1da10440	<unknown>	
+0x1764	1da13440	<unknown>	
+0x1768	1da14440	<unknown>	
+0x176c	1da18440	<unknown>	
+0x1770	1da1c440	<unknown>	
+0x1774	1dc00400	<unknown>	
+0x1778	1dc00401	<unknown>	
+0x177c	1dc00402	<unknown>	
+0x1780	1dc0041e	<unknown>	
+0x1784	1dc0041f	<unknown>	
+0x1788	1dc00420	<unknown>	
+0x178c	1dc00421	<unknown>	
+0x1790	1dc00422	setgp	[x2]!, x1!, x0
+0x1794	1dc0043e	setgp	[x30]!, x1!, x0
+0x1798	1dc0043f	<unknown>	
+0x179c	1dc00440	<unknown>	
+0x17a0	1dc00441	setgp	[x1]!, x2!, x0
+0x17a4	1dc00442	<unknown>	
+0x17a8	1dc0045e	setgp	[x30]!, x2!, x0
+0x17ac	1dc0045f	<unknown>	
+0x17b0	1dc007c0	<unknown>	
+0x17b4	1dc007c1	setgp	[x1]!, x30!, x0
+0x17b8	1dc007c2	setgp	[x2]!, x30!, x0
+0x17bc	1dc007de	<unknown>	
+0x17c0	1dc007df	<unknown>	
+0x17c4	1dc007e0	<unknown>	
+0x17c8	1dc007e1	setgp	[x1]!, xzr!, x0
+0x17cc	1dc007e2	setgp	[x2]!, xzr!, x0
+0x17d0	1dc007fe	setgp	[x30]!, xzr!, x0
+0x17d4	1dc007ff	<unknown>	
+0x17d8	1dc04420	<unknown>	
+0x17dc	1dc08420	<unknown>	
+0x17e0	1dc10400	<unknown>	
+0x17e4	1dc10401	<unknown>	
+0x17e8	1dc10402	setgp	[x2]!, x0!, x1
+0x17ec	1dc1041e	setgp	[x30]!, x0!, x1
+0x17f0	1dc1041f	<unknown>	
+0x17f4	1dc10420	<unknown>	
+0x17f8	1dc10421	<unknown>	
+0x17fc	1dc10422	<unknown>	
+0x1800	1dc1043e	<unknown>	
+0x1804	1dc1043f	<unknown>	
+0x1808	1dc10440	setgp	[x0]!, x2!, x1
+0x180c	1dc10441	<unknown>	
+0x1810	1dc10442	<unknown>	
+0x1814	1dc1045e	setgp	[x30]!, x2!, x1
+0x1818	1dc1045f	<unknown>	
+0x181c	1dc107c0	setgp	[x0]!, x30!, x1
+0x1820	1dc107c1	<unknown>	
+0x1824	1dc107c2	setgp	[x2]!, x30!, x1
+0x1828	1dc107de	<unknown>	
+0x182c	1dc107df	<unknown>	
+0x1830	1dc107e0	setgp	[x0]!, xzr!, x1
+0x1834	1dc107e1	<unknown>	
+0x1838	1dc107e2	setgp	[x2]!, xzr!, x1
+0x183c	1dc107fe	setgp	[x30]!, xzr!, x1
+0x1840	1dc107ff	<unknown>	
+0x1844	1dc13440	setgptn	[x0]!, x2!, x1
+0x1848	1dc14440	setgm	[x0]!, x2!, x1
+0x184c	1dc18440	setge	[x0]!, x2!, x1
+0x1850	1dc1c440	<unknown>	
+0x1854	1dc20020	<unknown>	
+0x1858	1dc20400	<unknown>	
+0x185c	1dc20401	setgp	[x1]!, x0!, x2
+0x1860	1dc20402	<unknown>	
+0x1864	1dc2041e	setgp	[x30]!, x0!, x2
+0x1868	1dc2041f	<unknown>	
+0x186c	1dc20420	setgp	[x0]!, x1!, x2
+0x1870	1dc20421	<unknown>	
+0x1874	1dc20422	<unknown>	
+0x1878	1dc20424	setgp	[x4]!, x1!, x2
+0x187c	1dc20428	setgp	[x8]!, x1!, x2
+0x1880	1dc20430	setgp	[x16]!, x1!, x2
+0x1884	1dc2043e	setgp	[x30]!, x1!, x2
+0x1888	1dc2043f	<unknown>	
+0x188c	1dc20440	<unknown>	
+0x1890	1dc20441	<unknown>	
+0x1894	1dc20442	<unknown>	
+0x1898	1dc2045e	<unknown>	
+0x189c	1dc2045f	<unknown>	
+0x18a0	1dc20460	setgp	[x0]!, x3!, x2
+0x18a4	1dc204a0	setgp	[x0]!, x5!, x2
+0x18a8	1dc20520	setgp	[x0]!, x9!, x2
+0x18ac	1dc20620	setgp	[x0]!, x17!, x2
+0x18b0	1dc207c0	setgp	[x0]!, x30!, x2
+0x18b4	1dc207c1	setgp	[x1]!, x30!, x2
+0x18b8	1dc207c2	<unknown>	
+0x18bc	1dc207de	<unknown>	
+0x18c0	1dc207df	<unknown>	
+0x18c4	1dc207e0	setgp	[x0]!, xzr!, x2
+0x18c8	1dc207e1	setgp	[x1]!, xzr!, x2
+0x18cc	1dc207e2	<unknown>	
+0x18d0	1dc207fe	setgp	[x30]!, xzr!, x2
+0x18d4	1dc207ff	<unknown>	
+0x18d8	1dc20c20	<unknown>	
+0x18dc	1dc21420	setgpt	[x0]!, x1!, x2
+0x18e0	1dc22420	setgpn	[x0]!, x1!, x2
+0x18e4	1dc24020	<unknown>	
+0x18e8	1dc24400	<unknown>	
+0x18ec	1dc24420	setgm	[x0]!, x1!, x2
+0x18f0	1dc24421	<unknown>	
+0x18f4	1dc24422	<unknown>	
+0x18f8	1dc24424	setgm	[x4]!, x1!, x2
+0x18fc	1dc24428	setgm	[x8]!, x1!, x2
+0x1900	1dc24430	setgm	[x16]!, x1!, x2
+0x1904	1dc24460	setgm	[x0]!, x3!, x2
+0x1908	1dc244a0	setgm	[x0]!, x5!, x2
+0x190c	1dc24520	setgm	[x0]!, x9!, x2
+0x1910	1dc24620	setgm	[x0]!, x17!, x2
+0x1914	1dc24c20	<unknown>	
+0x1918	1dc25420	setgmt	[x0]!, x1!, x2
+0x191c	1dc26420	setgmn	[x0]!, x1!, x2
+0x1920	1dc28020	<unknown>	
+0x1924	1dc28400	<unknown>	
+0x1928	1dc28420	setge	[x0]!, x1!, x2
+0x192c	1dc28421	<unknown>	
+0x1930	1dc28422	<unknown>	
+0x1934	1dc28424	setge	[x4]!, x1!, x2
+0x1938	1dc28428	setge	[x8]!, x1!, x2
+0x193c	1dc28430	setge	[x16]!, x1!, x2
+0x1940	1dc28460	setge	[x0]!, x3!, x2
+0x1944	1dc284a0	setge	[x0]!, x5!, x2
+0x1948	1dc28520	setge	[x0]!, x9!, x2
+0x194c	1dc28620	setge	[x0]!, x17!, x2
+0x1950	1dc28c20	<unknown>	
+0x1954	1dc29420	setget	[x0]!, x1!, x2
+0x1958	1dc2a420	setgen	[x0]!, x1!, x2
+0x195c	1dc2c420	<unknown>	
+0x1960	1dc30420	setgp	[x0]!, x1!, x3
+0x1964	1dc34420	setgm	[x0]!, x1!, x3
+0x1968	1dc38420	setge	[x0]!, x1!, x3
+0x196c	1dc60420	setgp	[x0]!, x1!, x6
+0x1970	1dc64420	setgm	[x0]!, x1!, x6
+0x1974	1dc68420	setge	[x0]!, x1!, x6
+0x1978	1dca0420	setgp	[x0]!, x1!, x10
+0x197c	1dca4420	setgm	[x0]!, x1!, x10
+0x1980	1dca8420	setge	[x0]!, x1!, x10
+0x1984	1dd20420	setgp	[x0]!, x1!, x18
+0x1988	1dd24420	setgm	[x0]!, x1!, x18
+0x198c	1dd28420	setge	[x0]!, x1!, x18
+0x1990	1dde0400	<unknown>	
+0x1994	1dde0401	setgp	[x1]!, x0!, x30
+0x1998	1dde0402	setgp	[x2]!, x0!, x30
+0x199c	1dde041e	<unknown>	
+0x19a0	1dde041f	<unknown>	
+0x19a4	1dde0420	setgp	[x0]!, x1!, x30
+0x19a8	1dde0421	<unknown>	
+0x19ac	1dde0422	setgp	[x2]!, x1!, x30
+0x19b0	1dde043e	<unknown>	
+0x19b4	1dde043f	<unknown>	
+0x19b8	1dde0440	setgp	[x0]!, x2!, x30
+0x19bc	1dde0441	setgp	[x1]!, x2!, x30
+0x19c0	1dde0442	<unknown>	
+0x19c4	1dde045e	<unknown>	
+0x19c8	1dde045f	<unknown>	
+0x19cc	1dde07c0	<unknown>	
+0x19d0	1dde07c1	<unknown>	
+0x19d4	1dde07c2	<unknown>	
+0x19d8	1dde07de	<unknown>	
+0x19dc	1dde07df	<unknown>	
+0x19e0	1dde07e0	setgp	[x0]!, xzr!, x30
+0x19e4	1dde07e1	setgp	[x1]!, xzr!, x30
+0x19e8	1dde07e2	setgp	[x2]!, xzr!, x30
+0x19ec	1dde07fe	<unknown>	
+0x19f0	1dde07ff	<unknown>	
+0x19f4	1ddf0400	<unknown>	
+0x19f8	1ddf0401	setgp	[x1]!, x0!, xzr
+0x19fc	1ddf0402	setgp	[x2]!, x0!, xzr
+0x1a00	1ddf041e	setgp	[x30]!, x0!, xzr
+0x1a04	1ddf041f	<unknown>	
+0x1a08	1ddf0420	setgp	[x0]!, x1!, xzr
+0x1a0c	1ddf0421	<unknown>	
+0x1a10	1ddf0422	setgp	[x2]!, x1!, xzr
+0x1a14	1ddf043e	setgp	[x30]!, x1!, xzr
+0x1a18	1ddf043f	<unknown>	
+0x1a1c	1ddf0440	setgp	[x0]!, x2!, xzr
+0x1a20	1ddf0441	setgp	[x1]!, x2!, xzr
+0x1a24	1ddf0442	<unknown>	
+0x1a28	1ddf045e	setgp	[x30]!, x2!, xzr
+0x1a2c	1ddf045f	<unknown>	
+0x1a30	1ddf07c0	setgp	[x0]!, x30!, xzr
+0x1a34	1ddf07c1	setgp	[x1]!, x30!, xzr
+0x1a38	1ddf07c2	setgp	[x2]!, x30!, xzr
+0x1a3c	1ddf07de	<unknown>	
+0x1a40	1ddf07df	<unknown>	
+0x1a44	1ddf07e0	<unknown>	
+0x1a48	1ddf07e1	<unknown>	
+0x1a4c	1ddf07e2	<unknown>	
+0x1a50	1ddf07fe	<unknown>	
+0x1a54	1ddf07ff	<unknown>	
+0x1a58	1de20420	<unknown>	
+0x1a5c	1de24420	<unknown>	
+0x1a60	1de28420	<unknown>	
+0x1a64	1f010440	fmadd	s0, s2, s1, s1
+0x1a68	1f013440	fmadd	s0, s2, s1, s13
+0x1a6c	1f014440	fmadd	s0, s2, s1, s17
+0x1a70	1f018440	fmsub	s0, s2, s1, s1
+0x1a74	1f01c440	fmsub	s0, s2, s1, s17
+0x1a78	1f410440	fmadd	d0, d2, d1, d1
+0x1a7c	1f413440	fmadd	d0, d2, d1, d13
+0x1a80	1f414440	fmadd	d0, d2, d1, d17
+0x1a84	1f418440	fmsub	d0, d2, d1, d1
+0x1a88	1f41c440	fmsub	d0, d2, d1, d17
+0x1a8c	1f810440	<unknown>	
+0x1a90	1f813440	<unknown>	
+0x1a94	1f814440	<unknown>	
+0x1a98	1f818440	<unknown>	
+0x1a9c	1f81c440	<unknown>	
+0x1aa0	1fc20420	<unknown>	
+0x1aa4	1fc24420	<unknown>	
+0x1aa8	1fc28420	<unknown>	
+0x1aac	28209041	stnp	w1, w4, [x2, #-0xfc]
+0x1ab0	2820a041	stnp	w1, w8, [x2, #-0xfc]
+0x1ab4	2820b041	stnp	w1, w12, [x2, #-0xfc]
+0x1ab8	30209041	adr	x1, 0x42cc1
+0x1abc	3020a041	adr	x1, 0x42ec5
+0x1ac0	3020b041	adr	x1, 0x430c9
+0x1ac4	38009041	sturb	w1, [x2, #0x9]
+0x1ac8	3800a041	sturb	w1, [x2, #0xa]
+0x1acc	3800b041	sturb	w1, [x2, #0xb]
+0x1ad0	38201041	ldclrb	w0, w1, [x2]
+0x1ad4	38202041	ldeorb	w0, w1, [x2]
+0x1ad8	38203041	ldsetb	w0, w1, [x2]
+0x1adc	38208041	swpb	w0, w1, [x2]
+0x1ae0	38209001	rcwclr	x0, x1, [x0]
+0x1ae4	38209040	rcwclr	x0, x0, [x2]
+0x1ae8	38209041	rcwclr	x0, x1, [x2]
+0x1aec	38209043	rcwclr	x0, x3, [x2]
+0x1af0	38209045	rcwclr	x0, x5, [x2]
+0x1af4	38209049	rcwclr	x0, x9, [x2]
+0x1af8	38209051	rcwclr	x0, x17, [x2]
+0x1afc	38209061	rcwclr	x0, x1, [x3]
+0x1b00	382090c1	rcwclr	x0, x1, [x6]
+0x1b04	38209141	rcwclr	x0, x1, [x10]
+0x1b08	38209241	rcwclr	x0, x1, [x18]
+0x1b0c	38209441	<unknown>	
+0x1b10	38209841	<unknown>	
+0x1b14	3820a000	rcwswp	x0, x0, [x0]
+0x1b18	3820a001	rcwswp	x0, x1, [x0]
+0x1b1c	3820a002	rcwswp	x0, x2, [x0]
+0x1b20	3820a01e	rcwswp	x0, x30, [x0]
+0x1b24	3820a01f	rcwswp	x0, xzr, [x0]
+0x1b28	3820a020	rcwswp	x0, x0, [x1]
+0x1b2c	3820a021	rcwswp	x0, x1, [x1]
+0x1b30	3820a022	rcwswp	x0, x2, [x1]
+0x1b34	3820a03e	rcwswp	x0, x30, [x1]
+0x1b38	3820a03f	rcwswp	x0, xzr, [x1]
+0x1b3c	3820a040	rcwswp	x0, x0, [x2]
+0x1b40	3820a041	rcwswp	x0, x1, [x2]
+0x1b44	3820a042	rcwswp	x0, x2, [x2]
+0x1b48	3820a043	rcwswp	x0, x3, [x2]
+0x1b4c	3820a045	rcwswp	x0, x5, [x2]
+0x1b50	3820a049	rcwswp	x0, x9, [x2]
+0x1b54	3820a051	rcwswp	x0, x17, [x2]
+0x1b58	3820a05e	rcwswp	x0, x30, [x2]
+0x1b5c	3820a05f	rcwswp	x0, xzr, [x2]
+0x1b60	3820a061	rcwswp	x0, x1, [x3]
+0x1b64	3820a0c1	rcwswp	x0, x1, [x6]
+0x1b68	3820a141	rcwswp	x0, x1, [x10]
+0x1b6c	3820a241	rcwswp	x0, x1, [x18]
+0x1b70	3820a3c0	rcwswp	x0, x0, [x30]
+0x1b74	3820a3c1	rcwswp	x0, x1, [x30]
+0x1b78	3820a3c2	rcwswp	x0, x2, [x30]
+0x1b7c	3820a3de	rcwswp	x0, x30, [x30]
+0x1b80	3820a3df	rcwswp	x0, xzr, [x30]
+0x1b84	3820a3e0	rcwswp	x0, x0, [sp]
+0x1b88	3820a3e1	rcwswp	x0, x1, [sp]
+0x1b8c	3820a3e2	rcwswp	x0, x2, [sp]
+0x1b90	3820a3fe	rcwswp	x0, x30, [sp]
+0x1b94	3820a3ff	rcwswp	x0, xzr, [sp]
+0x1b98	3820a441	<unknown>	
+0x1b9c	3820a841	<unknown>	
+0x1ba0	3820b001	rcwset	x0, x1, [x0]
+0x1ba4	3820b040	rcwset	x0, x0, [x2]
+0x1ba8	3820b041	rcwset	x0, x1, [x2]
+0x1bac	3820b043	rcwset	x0, x3, [x2]
+0x1bb0	3820b045	rcwset	x0, x5, [x2]
+0x1bb4	3820b049	rcwset	x0, x9, [x2]
+0x1bb8	3820b051	rcwset	x0, x17, [x2]
+0x1bbc	3820b061	rcwset	x0, x1, [x3]
+0x1bc0	3820b0c1	rcwset	x0, x1, [x6]
+0x1bc4	3820b141	rcwset	x0, x1, [x10]
+0x1bc8	3820b241	rcwset	x0, x1, [x18]
+0x1bcc	3820b441	<unknown>	
+0x1bd0	3820b841	<unknown>	
+0x1bd4	3820d041	<unknown>	
+0x1bd8	3820e041	<unknown>	
+0x1bdc	3820f041	<unknown>	
+0x1be0	38219041	rcwclr	x1, x1, [x2]
+0x1be4	3821a000	rcwswp	x1, x0, [x0]
+0x1be8	3821a001	rcwswp	x1, x1, [x0]
+0x1bec	3821a002	rcwswp	x1, x2, [x0]
+0x1bf0	3821a01e	rcwswp	x1, x30, [x0]
+0x1bf4	3821a01f	rcwswp	x1, xzr, [x0]
+0x1bf8	3821a020	rcwswp	x1, x0, [x1]
+0x1bfc	3821a021	rcwswp	x1, x1, [x1]
+0x1c00	3821a022	rcwswp	x1, x2, [x1]
+0x1c04	3821a03e	rcwswp	x1, x30, [x1]
+0x1c08	3821a03f	rcwswp	x1, xzr, [x1]
+0x1c0c	3821a040	rcwswp	x1, x0, [x2]
+0x1c10	3821a041	rcwswp	x1, x1, [x2]
+0x1c14	3821a042	rcwswp	x1, x2, [x2]
+0x1c18	3821a05e	rcwswp	x1, x30, [x2]
+0x1c1c	3821a05f	rcwswp	x1, xzr, [x2]
+0x1c20	3821a3c0	rcwswp	x1, x0, [x30]
+0x1c24	3821a3c1	rcwswp	x1, x1, [x30]
+0x1c28	3821a3c2	rcwswp	x1, x2, [x30]
+0x1c2c	3821a3de	rcwswp	x1, x30, [x30]
+0x1c30	3821a3df	rcwswp	x1, xzr, [x30]
+0x1c34	3821a3e0	rcwswp	x1, x0, [sp]
+0x1c38	3821a3e1	rcwswp	x1, x1, [sp]
+0x1c3c	3821a3e2	rcwswp	x1, x2, [sp]
+0x1c40	3821a3fe	rcwswp	x1, x30, [sp]
+0x1c44	3821a3ff	rcwswp	x1, xzr, [sp]
+0x1c48	3821b041	rcwset	x1, x1, [x2]
+0x1c4c	38229041	rcwclr	x2, x1, [x2]
+0x1c50	3822a000	rcwswp	x2, x0, [x0]
+0x1c54	3822a001	rcwswp	x2, x1, [x0]
+0x1c58	3822a002	rcwswp	x2, x2, [x0]
+0x1c5c	3822a01e	rcwswp	x2, x30, [x0]
+0x1c60	3822a01f	rcwswp	x2, xzr, [x0]
+0x1c64	3822a020	rcwswp	x2, x0, [x1]
+0x1c68	3822a021	rcwswp	x2, x1, [x1]
+0x1c6c	3822a022	rcwswp	x2, x2, [x1]
+0x1c70	3822a03e	rcwswp	x2, x30, [x1]
+0x1c74	3822a03f	rcwswp	x2, xzr, [x1]
+0x1c78	3822a040	rcwswp	x2, x0, [x2]
+0x1c7c	3822a041	rcwswp	x2, x1, [x2]
+0x1c80	3822a042	rcwswp	x2, x2, [x2]
+0x1c84	3822a05e	rcwswp	x2, x30, [x2]
+0x1c88	3822a05f	rcwswp	x2, xzr, [x2]
+0x1c8c	3822a3c0	rcwswp	x2, x0, [x30]
+0x1c90	3822a3c1	rcwswp	x2, x1, [x30]
+0x1c94	3822a3c2	rcwswp	x2, x2, [x30]
+0x1c98	3822a3de	rcwswp	x2, x30, [x30]
+0x1c9c	3822a3df	rcwswp	x2, xzr, [x30]
+0x1ca0	3822a3e0	rcwswp	x2, x0, [sp]
+0x1ca4	3822a3e1	rcwswp	x2, x1, [sp]
+0x1ca8	3822a3e2	rcwswp	x2, x2, [sp]
+0x1cac	3822a3fe	rcwswp	x2, x30, [sp]
+0x1cb0	3822a3ff	rcwswp	x2, xzr, [sp]
+0x1cb4	3822b041	rcwset	x2, x1, [x2]
+0x1cb8	38249041	rcwclr	x4, x1, [x2]
+0x1cbc	3824a041	rcwswp	x4, x1, [x2]
+0x1cc0	3824b041	rcwset	x4, x1, [x2]
+0x1cc4	38289041	rcwclr	x8, x1, [x2]
+0x1cc8	3828a041	rcwswp	x8, x1, [x2]
+0x1ccc	3828b041	rcwset	x8, x1, [x2]
+0x1cd0	38309041	rcwclr	x16, x1, [x2]
+0x1cd4	3830a041	rcwswp	x16, x1, [x2]
+0x1cd8	3830b041	rcwset	x16, x1, [x2]
+0x1cdc	383ea000	rcwswp	x30, x0, [x0]
+0x1ce0	383ea001	rcwswp	x30, x1, [x0]
+0x1ce4	383ea002	rcwswp	x30, x2, [x0]
+0x1ce8	383ea01e	rcwswp	x30, x30, [x0]
+0x1cec	383ea01f	rcwswp	x30, xzr, [x0]
+0x1cf0	383ea020	rcwswp	x30, x0, [x1]
+0x1cf4	383ea021	rcwswp	x30, x1, [x1]
+0x1cf8	383ea022	rcwswp	x30, x2, [x1]
+0x1cfc	383ea03e	rcwswp	x30, x30, [x1]
+0x1d00	383ea03f	rcwswp	x30, xzr, [x1]
+0x1d04	383ea040	rcwswp	x30, x0, [x2]
+0x1d08	383ea041	rcwswp	x30, x1, [x2]
+0x1d0c	383ea042	rcwswp	x30, x2, [x2]
+0x1d10	383ea05e	rcwswp	x30, x30, [x2]
+0x1d14	383ea05f	rcwswp	x30, xzr, [x2]
+0x1d18	383ea3c0	rcwswp	x30, x0, [x30]
+0x1d1c	383ea3c1	rcwswp	x30, x1, [x30]
+0x1d20	383ea3c2	rcwswp	x30, x2, [x30]
+0x1d24	383ea3de	rcwswp	x30, x30, [x30]
+0x1d28	383ea3df	rcwswp	x30, xzr, [x30]
+0x1d2c	383ea3e0	rcwswp	x30, x0, [sp]
+0x1d30	383ea3e1	rcwswp	x30, x1, [sp]
+0x1d34	383ea3e2	rcwswp	x30, x2, [sp]
+0x1d38	383ea3fe	rcwswp	x30, x30, [sp]
+0x1d3c	383ea3ff	rcwswp	x30, xzr, [sp]
+0x1d40	383fa000	rcwswp	xzr, x0, [x0]
+0x1d44	383fa001	rcwswp	xzr, x1, [x0]
+0x1d48	383fa002	rcwswp	xzr, x2, [x0]
+0x1d4c	383fa01e	rcwswp	xzr, x30, [x0]
+0x1d50	383fa01f	rcwswp	xzr, xzr, [x0]
+0x1d54	383fa020	rcwswp	xzr, x0, [x1]
+0x1d58	383fa021	rcwswp	xzr, x1, [x1]
+0x1d5c	383fa022	rcwswp	xzr, x2, [x1]
+0x1d60	383fa03e	rcwswp	xzr, x30, [x1]
+0x1d64	383fa03f	rcwswp	xzr, xzr, [x1]
+0x1d68	383fa040	rcwswp	xzr, x0, [x2]
+0x1d6c	383fa041	rcwswp	xzr, x1, [x2]
+0x1d70	383fa042	rcwswp	xzr, x2, [x2]
+0x1d74	383fa05e	rcwswp	xzr, x30, [x2]
+0x1d78	383fa05f	rcwswp	xzr, xzr, [x2]
+0x1d7c	383fa3c0	rcwswp	xzr, x0, [x30]
+0x1d80	383fa3c1	rcwswp	xzr, x1, [x30]
+0x1d84	383fa3c2	rcwswp	xzr, x2, [x30]
+0x1d88	383fa3de	rcwswp	xzr, x30, [x30]
+0x1d8c	383fa3df	rcwswp	xzr, xzr, [x30]
+0x1d90	383fa3e0	rcwswp	xzr, x0, [sp]
+0x1d94	383fa3e1	rcwswp	xzr, x1, [sp]
+0x1d98	383fa3e2	rcwswp	xzr, x2, [sp]
+0x1d9c	383fa3fe	rcwswp	xzr, x30, [sp]
+0x1da0	383fa3ff	rcwswp	xzr, xzr, [sp]
+0x1da4	38609041	rcwclrl	x0, x1, [x2]
+0x1da8	3860a041	rcwswpl	x0, x1, [x2]
+0x1dac	3860b041	rcwsetl	x0, x1, [x2]
+0x1db0	38a09041	rcwclra	x0, x1, [x2]
+0x1db4	38a0a041	rcwswpa	x0, x1, [x2]
+0x1db8	38a0b041	rcwseta	x0, x1, [x2]
+0x1dbc	39000020	strb	w0, [x1]
+0x1dc0	39010440	strb	w0, [x2, #0x41]
+0x1dc4	39200841	strb	w1, [x2, #0x802]
+0x1dc8	39200c82	strb	w2, [x4, #0x803]
+0x1dcc	39209041	strb	w1, [x2, #0x824]
+0x1dd0	3920a041	strb	w1, [x2, #0x828]
+0x1dd4	3920b041	strb	w1, [x2, #0x82c]
+0x1dd8	39219040	strb	w0, [x2, #0x864]
+0x1ddc	3921a040	strb	w0, [x2, #0x868]
+0x1de0	3921b040	strb	w0, [x2, #0x86c]
+0x1de4	39400020	ldrb	w0, [x1]
+0x1de8	39410440	ldrb	w0, [x2, #0x41]
+0x1dec	39810440	ldrsb	x0, [x2, #0x41]
+0x1df0	39c20420	ldrsb	w0, [x1, #0x81]
+0x1df4	39c21420	ldrsb	w0, [x1, #0x85]
+0x1df8	39c22420	ldrsb	w0, [x1, #0x89]
+0x1dfc	39c24420	ldrsb	w0, [x1, #0x91]
+0x1e00	39c25420	ldrsb	w0, [x1, #0x95]
+0x1e04	39c26420	ldrsb	w0, [x1, #0x99]
+0x1e08	39c28420	ldrsb	w0, [x1, #0xa1]
+0x1e0c	39c29420	ldrsb	w0, [x1, #0xa5]
+0x1e10	39c2a420	ldrsb	w0, [x1, #0xa9]
+0x1e14	3a209041	<unknown>	
+0x1e18	3a20a041	<unknown>	
+0x1e1c	3a20b041	<unknown>	
+0x1e20	3c209041	<unknown>	
+0x1e24	3c20a041	<unknown>	
+0x1e28	3c20b041	<unknown>	
+0x1e2c	3d010440	str	b0, [x2, #0x41]
+0x1e30	3d013440	str	b0, [x2, #0x4d]
+0x1e34	3d014440	str	b0, [x2, #0x51]
+0x1e38	3d018440	str	b0, [x2, #0x61]
+0x1e3c	3d01c440	str	b0, [x2, #0x71]
+0x1e40	3d410440	ldr	b0, [x2, #0x41]
+0x1e44	3d413440	ldr	b0, [x2, #0x4d]
+0x1e48	3d414440	ldr	b0, [x2, #0x51]
+0x1e4c	3d418440	ldr	b0, [x2, #0x61]
+0x1e50	3d41c440	ldr	b0, [x2, #0x71]
+0x1e54	3d810440	str	q0, [x2, #0x410]
+0x1e58	3d813440	str	q0, [x2, #0x4d0]
+0x1e5c	3d814440	str	q0, [x2, #0x510]
+0x1e60	3d818440	str	q0, [x2, #0x610]
+0x1e64	3d81c440	str	q0, [x2, #0x710]
+0x1e68	3dc20420	ldr	q0, [x1, #0x810]
+0x1e6c	3dc24420	ldr	q0, [x1, #0x910]
+0x1e70	3dc28420	ldr	q0, [x1, #0xa10]
+0x1e74	49200841	<unknown>	
+0x1e78	49200c82	<unknown>	
+0x1e7c	49219040	<unknown>	
+0x1e80	4921a040	<unknown>	
+0x1e84	4921b040	<unknown>	
+0x1e88	51200841	sub	w1, w2, #0x802
+0x1e8c	51200c82	sub	w2, w4, #0x803
+0x1e90	51219040	sub	w0, w2, #0x864
+0x1e94	5121a040	sub	w0, w2, #0x868
+0x1e98	5121b040	sub	w0, w2, #0x86c
+0x1e9c	550324ff	retaasppc	0xffffffffffffba00
+0x1ea0	565f0be0	<unknown>	
+0x1ea4	565f0fe0	<unknown>	
+0x1ea8	58200841	ldr	x1, 0x41fb0
+0x1eac	58200c82	ldr	x2, 0x4203c
+0x1eb0	58209041	ldr	x1, 0x430b8
+0x1eb4	5820a041	ldr	x1, 0x432bc
+0x1eb8	5820b041	ldr	x1, 0x434c0
+0x1ebc	58219040	ldr	x0, 0x450c4
+0x1ec0	5821a040	ldr	x0, 0x452c8
+0x1ec4	5821b040	ldr	x0, 0x454cc
+0x1ec8	59000020	stlurh	w0, [x1]
+0x1ecc	59000841	<unknown>	
+0x1ed0	59000c82	<unknown>	
+0x1ed4	59010440	<unknown>	
+0x1ed8	59019040	stlurh	w0, [x2, #0x19]
+0x1edc	5901a040	stlurh	w0, [x2, #0x1a]
+0x1ee0	5901b040	stlurh	w0, [x2, #0x1b]
+0x1ee4	59200041	<unknown>	
+0x1ee8	59200482	<unknown>	
+0x1eec	59200801	rcwscas	x0, x1, [x0]
+0x1ef0	59200840	rcwscas	x0, x0, [x2]
+0x1ef4	59200841	rcwscas	x0, x1, [x2]
+0x1ef8	59200843	rcwscas	x0, x3, [x2]
+0x1efc	59200845	rcwscas	x0, x5, [x2]
+0x1f00	59200849	rcwscas	x0, x9, [x2]
+0x1f04	59200851	rcwscas	x0, x17, [x2]
+0x1f08	59200861	rcwscas	x0, x1, [x3]
+0x1f0c	59200882	rcwscas	x0, x2, [x4]
+0x1f10	592008c1	rcwscas	x0, x1, [x6]
+0x1f14	59200941	rcwscas	x0, x1, [x10]
+0x1f18	59200a41	rcwscas	x0, x1, [x18]
+0x1f1c	59200c00	rcwscasp	x0, x1, x0, x1, [x0]
+0x1f20	59200c01	<unknown>	
+0x1f24	59200c02	rcwscasp	x0, x1, x2, x3, [x0]
+0x1f28	59200c1e	rcwscasp	x0, x1, x30, xzr, [x0]
+0x1f2c	59200c1f	<unknown>	
+0x1f30	59200c20	rcwscasp	x0, x1, x0, x1, [x1]
+0x1f34	59200c21	<unknown>	
+0x1f38	59200c22	rcwscasp	x0, x1, x2, x3, [x1]
+0x1f3c	59200c3e	rcwscasp	x0, x1, x30, xzr, [x1]
+0x1f40	59200c3f	<unknown>	
+0x1f44	59200c40	rcwscasp	x0, x1, x0, x1, [x2]
+0x1f48	59200c41	<unknown>	
+0x1f4c	59200c42	rcwscasp	x0, x1, x2, x3, [x2]
+0x1f50	59200c5e	rcwscasp	x0, x1, x30, xzr, [x2]
+0x1f54	59200c5f	<unknown>	
+0x1f58	59200c80	rcwscasp	x0, x1, x0, x1, [x4]
+0x1f5c	59200c82	rcwscasp	x0, x1, x2, x3, [x4]
+0x1f60	59200c83	<unknown>	
+0x1f64	59200c86	rcwscasp	x0, x1, x6, x7, [x4]
+0x1f68	59200c8a	rcwscasp	x0, x1, x10, x11, [x4]
+0x1f6c	59200c92	rcwscasp	x0, x1, x18, x19, [x4]
+0x1f70	59200ca2	rcwscasp	x0, x1, x2, x3, [x5]
+0x1f74	59200cc2	rcwscasp	x0, x1, x2, x3, [x6]
+0x1f78	59200d82	rcwscasp	x0, x1, x2, x3, [x12]
+0x1f7c	59200e82	rcwscasp	x0, x1, x2, x3, [x20]
+0x1f80	59200fc0	rcwscasp	x0, x1, x0, x1, [x30]
+0x1f84	59200fc1	<unknown>	
+0x1f88	59200fc2	rcwscasp	x0, x1, x2, x3, [x30]
+0x1f8c	59200fde	rcwscasp	x0, x1, x30, xzr, [x30]
+0x1f90	59200fdf	<unknown>	
+0x1f94	59200fe0	rcwscasp	x0, x1, x0, x1, [sp]
+0x1f98	59200fe1	<unknown>	
+0x1f9c	59200fe2	rcwscasp	x0, x1, x2, x3, [sp]
+0x1fa0	59200ffe	rcwscasp	x0, x1, x30, xzr, [sp]
+0x1fa4	59200fff	<unknown>	
+0x1fa8	59201841	<unknown>	
+0x1fac	59201c82	<unknown>	
+0x1fb0	59202841	<unknown>	
+0x1fb4	59202c82	<unknown>	
+0x1fb8	59204841	<unknown>	
+0x1fbc	59204c82	<unknown>	
+0x1fc0	59208841	<unknown>	
+0x1fc4	59208c82	<unknown>	
+0x1fc8	59209040	rcwsclrp	x0, x0, [x2]
+0x1fcc	5920a000	rcwsswpp	x0, x0, [x0]
+0x1fd0	5920a001	rcwsswpp	x1, x0, [x0]
+0x1fd4	5920a002	rcwsswpp	x2, x0, [x0]
+0x1fd8	5920a01e	rcwsswpp	x30, x0, [x0]
+0x1fdc	5920a01f	<unknown>	
+0x1fe0	5920a020	rcwsswpp	x0, x0, [x1]
+0x1fe4	5920a021	rcwsswpp	x1, x0, [x1]
+0x1fe8	5920a022	rcwsswpp	x2, x0, [x1]
+0x1fec	5920a03e	rcwsswpp	x30, x0, [x1]
+0x1ff0	5920a03f	<unknown>	
+0x1ff4	5920a040	rcwsswpp	x0, x0, [x2]
+0x1ff8	5920a041	rcwsswpp	x1, x0, [x2]
+0x1ffc	5920a042	rcwsswpp	x2, x0, [x2]
+0x2000	5920a05e	rcwsswpp	x30, x0, [x2]
+0x2004	5920a05f	<unknown>	
+0x2008	5920a3c0	rcwsswpp	x0, x0, [x30]
+0x200c	5920a3c1	rcwsswpp	x1, x0, [x30]
+0x2010	5920a3c2	rcwsswpp	x2, x0, [x30]
+0x2014	5920a3de	rcwsswpp	x30, x0, [x30]
+0x2018	5920a3df	<unknown>	
+0x201c	5920a3e0	rcwsswpp	x0, x0, [sp]
+0x2020	5920a3e1	rcwsswpp	x1, x0, [sp]
+0x2024	5920a3e2	rcwsswpp	x2, x0, [sp]
+0x2028	5920a3fe	rcwsswpp	x30, x0, [sp]
+0x202c	5920a3ff	<unknown>	
+0x2030	5920b040	rcwssetp	x0, x0, [x2]
+0x2034	59210841	rcwscas	x1, x1, [x2]
+0x2038	59210c00	<unknown>	
+0x203c	59210c01	<unknown>	
+0x2040	59210c02	<unknown>	
+0x2044	59210c1e	<unknown>	
+0x2048	59210c1f	<unknown>	
+0x204c	59210c20	<unknown>	
+0x2050	59210c21	<unknown>	
+0x2054	59210c22	<unknown>	
+0x2058	59210c3e	<unknown>	
+0x205c	59210c3f	<unknown>	
+0x2060	59210c40	<unknown>	
+0x2064	59210c41	<unknown>	
+0x2068	59210c42	<unknown>	
+0x206c	59210c5e	<unknown>	
+0x2070	59210c5f	<unknown>	
+0x2074	59210c82	<unknown>	
+0x2078	59210fc0	<unknown>	
+0x207c	59210fc1	<unknown>	
+0x2080	59210fc2	<unknown>	
+0x2084	59210fde	<unknown>	
+0x2088	59210fdf	<unknown>	
+0x208c	59210fe0	<unknown>	
+0x2090	59210fe1	<unknown>	
+0x2094	59210fe2	<unknown>	
+0x2098	59210ffe	<unknown>	
+0x209c	59210fff	<unknown>	
+0x20a0	59211040	<unknown>	
+0x20a4	59212040	<unknown>	
+0x20a8	59213040	<unknown>	
+0x20ac	59218040	<unknown>	
+0x20b0	59219000	rcwsclrp	x0, x1, [x0]
+0x20b4	59219040	rcwsclrp	x0, x1, [x2]
+0x20b8	59219041	rcwsclrp	x1, x1, [x2]
+0x20bc	59219042	rcwsclrp	x2, x1, [x2]
+0x20c0	59219044	rcwsclrp	x4, x1, [x2]
+0x20c4	59219048	rcwsclrp	x8, x1, [x2]
+0x20c8	59219050	rcwsclrp	x16, x1, [x2]
+0x20cc	59219060	rcwsclrp	x0, x1, [x3]
+0x20d0	592190c0	rcwsclrp	x0, x1, [x6]
+0x20d4	59219140	rcwsclrp	x0, x1, [x10]
+0x20d8	59219240	rcwsclrp	x0, x1, [x18]
+0x20dc	59219440	<unknown>	
+0x20e0	59219840	<unknown>	
+0x20e4	5921a000	rcwsswpp	x0, x1, [x0]
+0x20e8	5921a001	rcwsswpp	x1, x1, [x0]
+0x20ec	5921a002	rcwsswpp	x2, x1, [x0]
+0x20f0	5921a01e	rcwsswpp	x30, x1, [x0]
+0x20f4	5921a01f	<unknown>	
+0x20f8	5921a020	rcwsswpp	x0, x1, [x1]
+0x20fc	5921a021	rcwsswpp	x1, x1, [x1]
+0x2100	5921a022	rcwsswpp	x2, x1, [x1]
+0x2104	5921a03e	rcwsswpp	x30, x1, [x1]
+0x2108	5921a03f	<unknown>	
+0x210c	5921a040	rcwsswpp	x0, x1, [x2]
+0x2110	5921a041	rcwsswpp	x1, x1, [x2]
+0x2114	5921a042	rcwsswpp	x2, x1, [x2]
+0x2118	5921a044	rcwsswpp	x4, x1, [x2]
+0x211c	5921a048	rcwsswpp	x8, x1, [x2]
+0x2120	5921a050	rcwsswpp	x16, x1, [x2]
+0x2124	5921a05e	rcwsswpp	x30, x1, [x2]
+0x2128	5921a05f	<unknown>	
+0x212c	5921a060	rcwsswpp	x0, x1, [x3]
+0x2130	5921a0c0	rcwsswpp	x0, x1, [x6]
+0x2134	5921a140	rcwsswpp	x0, x1, [x10]
+0x2138	5921a240	rcwsswpp	x0, x1, [x18]
+0x213c	5921a3c0	rcwsswpp	x0, x1, [x30]
+0x2140	5921a3c1	rcwsswpp	x1, x1, [x30]
+0x2144	5921a3c2	rcwsswpp	x2, x1, [x30]
+0x2148	5921a3de	rcwsswpp	x30, x1, [x30]
+0x214c	5921a3df	<unknown>	
+0x2150	5921a3e0	rcwsswpp	x0, x1, [sp]
+0x2154	5921a3e1	rcwsswpp	x1, x1, [sp]
+0x2158	5921a3e2	rcwsswpp	x2, x1, [sp]
+0x215c	5921a3fe	rcwsswpp	x30, x1, [sp]
+0x2160	5921a3ff	<unknown>	
+0x2164	5921a440	<unknown>	
+0x2168	5921a840	<unknown>	
+0x216c	5921b000	rcwssetp	x0, x1, [x0]
+0x2170	5921b040	rcwssetp	x0, x1, [x2]
+0x2174	5921b041	rcwssetp	x1, x1, [x2]
+0x2178	5921b042	rcwssetp	x2, x1, [x2]
+0x217c	5921b044	rcwssetp	x4, x1, [x2]
+0x2180	5921b048	rcwssetp	x8, x1, [x2]
+0x2184	5921b050	rcwssetp	x16, x1, [x2]
+0x2188	5921b060	rcwssetp	x0, x1, [x3]
+0x218c	5921b0c0	rcwssetp	x0, x1, [x6]
+0x2190	5921b140	rcwssetp	x0, x1, [x10]
+0x2194	5921b240	rcwssetp	x0, x1, [x18]
+0x2198	5921b440	<unknown>	
+0x219c	5921b840	<unknown>	
+0x21a0	5921d040	<unknown>	
+0x21a4	5921e040	<unknown>	
+0x21a8	5921f040	<unknown>	
+0x21ac	59220841	rcwscas	x2, x1, [x2]
+0x21b0	59220c00	rcwscasp	x2, x3, x0, x1, [x0]
+0x21b4	59220c01	<unknown>	
+0x21b8	59220c02	rcwscasp	x2, x3, x2, x3, [x0]
+0x21bc	59220c1e	rcwscasp	x2, x3, x30, xzr, [x0]
+0x21c0	59220c1f	<unknown>	
+0x21c4	59220c20	rcwscasp	x2, x3, x0, x1, [x1]
+0x21c8	59220c21	<unknown>	
+0x21cc	59220c22	rcwscasp	x2, x3, x2, x3, [x1]
+0x21d0	59220c3e	rcwscasp	x2, x3, x30, xzr, [x1]
+0x21d4	59220c3f	<unknown>	
+0x21d8	59220c40	rcwscasp	x2, x3, x0, x1, [x2]
+0x21dc	59220c41	<unknown>	
+0x21e0	59220c42	rcwscasp	x2, x3, x2, x3, [x2]
+0x21e4	59220c5e	rcwscasp	x2, x3, x30, xzr, [x2]
+0x21e8	59220c5f	<unknown>	
+0x21ec	59220c82	rcwscasp	x2, x3, x2, x3, [x4]
+0x21f0	59220fc0	rcwscasp	x2, x3, x0, x1, [x30]
+0x21f4	59220fc1	<unknown>	
+0x21f8	59220fc2	rcwscasp	x2, x3, x2, x3, [x30]
+0x21fc	59220fde	rcwscasp	x2, x3, x30, xzr, [x30]
+0x2200	59220fdf	<unknown>	
+0x2204	59220fe0	rcwscasp	x2, x3, x0, x1, [sp]
+0x2208	59220fe1	<unknown>	
+0x220c	59220fe2	rcwscasp	x2, x3, x2, x3, [sp]
+0x2210	59220ffe	rcwscasp	x2, x3, x30, xzr, [sp]
+0x2214	59220fff	<unknown>	
+0x2218	5922a000	rcwsswpp	x0, x2, [x0]
+0x221c	5922a001	rcwsswpp	x1, x2, [x0]
+0x2220	5922a002	rcwsswpp	x2, x2, [x0]
+0x2224	5922a01e	rcwsswpp	x30, x2, [x0]
+0x2228	5922a01f	<unknown>	
+0x222c	5922a020	rcwsswpp	x0, x2, [x1]
+0x2230	5922a021	rcwsswpp	x1, x2, [x1]
+0x2234	5922a022	rcwsswpp	x2, x2, [x1]
+0x2238	5922a03e	rcwsswpp	x30, x2, [x1]
+0x223c	5922a03f	<unknown>	
+0x2240	5922a040	rcwsswpp	x0, x2, [x2]
+0x2244	5922a041	rcwsswpp	x1, x2, [x2]
+0x2248	5922a042	rcwsswpp	x2, x2, [x2]
+0x224c	5922a05e	rcwsswpp	x30, x2, [x2]
+0x2250	5922a05f	<unknown>	
+0x2254	5922a3c0	rcwsswpp	x0, x2, [x30]
+0x2258	5922a3c1	rcwsswpp	x1, x2, [x30]
+0x225c	5922a3c2	rcwsswpp	x2, x2, [x30]
+0x2260	5922a3de	rcwsswpp	x30, x2, [x30]
+0x2264	5922a3df	<unknown>	
+0x2268	5922a3e0	rcwsswpp	x0, x2, [sp]
+0x226c	5922a3e1	rcwsswpp	x1, x2, [sp]
+0x2270	5922a3e2	rcwsswpp	x2, x2, [sp]
+0x2274	5922a3fe	rcwsswpp	x30, x2, [sp]
+0x2278	5922a3ff	<unknown>	
+0x227c	59239040	rcwsclrp	x0, x3, [x2]
+0x2280	5923a040	rcwsswpp	x0, x3, [x2]
+0x2284	5923b040	rcwssetp	x0, x3, [x2]
+0x2288	59240841	rcwscas	x4, x1, [x2]
+0x228c	59240c82	rcwscasp	x4, x5, x2, x3, [x4]
+0x2290	59259040	rcwsclrp	x0, x5, [x2]
+0x2294	5925a040	rcwsswpp	x0, x5, [x2]
+0x2298	5925b040	rcwssetp	x0, x5, [x2]
+0x229c	59280841	rcwscas	x8, x1, [x2]
+0x22a0	59280c82	rcwscasp	x8, x9, x2, x3, [x4]
+0x22a4	59299040	rcwsclrp	x0, x9, [x2]
+0x22a8	5929a040	rcwsswpp	x0, x9, [x2]
+0x22ac	5929b040	rcwssetp	x0, x9, [x2]
+0x22b0	59300841	rcwscas	x16, x1, [x2]
+0x22b4	59300c82	rcwscasp	x16, x17, x2, x3, [x4]
+0x22b8	59319040	rcwsclrp	x0, x17, [x2]
+0x22bc	5931a040	rcwsswpp	x0, x17, [x2]
+0x22c0	5931b040	rcwssetp	x0, x17, [x2]
+0x22c4	593e0c00	rcwscasp	x30, xzr, x0, x1, [x0]
+0x22c8	593e0c01	<unknown>	
+0x22cc	593e0c02	rcwscasp	x30, xzr, x2, x3, [x0]
+0x22d0	593e0c1e	rcwscasp	x30, xzr, x30, xzr, [x0]
+0x22d4	593e0c1f	<unknown>	
+0x22d8	593e0c20	rcwscasp	x30, xzr, x0, x1, [x1]
+0x22dc	593e0c21	<unknown>	
+0x22e0	593e0c22	rcwscasp	x30, xzr, x2, x3, [x1]
+0x22e4	593e0c3e	rcwscasp	x30, xzr, x30, xzr, [x1]
+0x22e8	593e0c3f	<unknown>	
+0x22ec	593e0c40	rcwscasp	x30, xzr, x0, x1, [x2]
+0x22f0	593e0c41	<unknown>	
+0x22f4	593e0c42	rcwscasp	x30, xzr, x2, x3, [x2]
+0x22f8	593e0c5e	rcwscasp	x30, xzr, x30, xzr, [x2]
+0x22fc	593e0c5f	<unknown>	
+0x2300	593e0fc0	rcwscasp	x30, xzr, x0, x1, [x30]
+0x2304	593e0fc1	<unknown>	
+0x2308	593e0fc2	rcwscasp	x30, xzr, x2, x3, [x30]
+0x230c	593e0fde	rcwscasp	x30, xzr, x30, xzr, [x30]
+0x2310	593e0fdf	<unknown>	
+0x2314	593e0fe0	rcwscasp	x30, xzr, x0, x1, [sp]
+0x2318	593e0fe1	<unknown>	
+0x231c	593e0fe2	rcwscasp	x30, xzr, x2, x3, [sp]
+0x2320	593e0ffe	rcwscasp	x30, xzr, x30, xzr, [sp]
+0x2324	593e0fff	<unknown>	
+0x2328	593ea000	rcwsswpp	x0, x30, [x0]
+0x232c	593ea001	rcwsswpp	x1, x30, [x0]
+0x2330	593ea002	rcwsswpp	x2, x30, [x0]
+0x2334	593ea01e	rcwsswpp	x30, x30, [x0]
+0x2338	593ea01f	<unknown>	
+0x233c	593ea020	rcwsswpp	x0, x30, [x1]
+0x2340	593ea021	rcwsswpp	x1, x30, [x1]
+0x2344	593ea022	rcwsswpp	x2, x30, [x1]
+0x2348	593ea03e	rcwsswpp	x30, x30, [x1]
+0x234c	593ea03f	<unknown>	
+0x2350	593ea040	rcwsswpp	x0, x30, [x2]
+0x2354	593ea041	rcwsswpp	x1, x30, [x2]
+0x2358	593ea042	rcwsswpp	x2, x30, [x2]
+0x235c	593ea05e	rcwsswpp	x30, x30, [x2]
+0x2360	593ea05f	<unknown>	
+0x2364	593ea3c0	rcwsswpp	x0, x30, [x30]
+0x2368	593ea3c1	rcwsswpp	x1, x30, [x30]
+0x236c	593ea3c2	rcwsswpp	x2, x30, [x30]
+0x2370	593ea3de	rcwsswpp	x30, x30, [x30]
+0x2374	593ea3df	<unknown>	
+0x2378	593ea3e0	rcwsswpp	x0, x30, [sp]
+0x237c	593ea3e1	rcwsswpp	x1, x30, [sp]
+0x2380	593ea3e2	rcwsswpp	x2, x30, [sp]
+0x2384	593ea3fe	rcwsswpp	x30, x30, [sp]
+0x2388	593ea3ff	<unknown>	
+0x238c	593f0c00	<unknown>	
+0x2390	593f0c01	<unknown>	
+0x2394	593f0c02	<unknown>	
+0x2398	593f0c1e	<unknown>	
+0x239c	593f0c1f	<unknown>	
+0x23a0	593f0c20	<unknown>	
+0x23a4	593f0c21	<unknown>	
+0x23a8	593f0c22	<unknown>	
+0x23ac	593f0c3e	<unknown>	
+0x23b0	593f0c3f	<unknown>	
+0x23b4	593f0c40	<unknown>	
+0x23b8	593f0c41	<unknown>	
+0x23bc	593f0c42	<unknown>	
+0x23c0	593f0c5e	<unknown>	
+0x23c4	593f0c5f	<unknown>	
+0x23c8	593f0fc0	<unknown>	
+0x23cc	593f0fc1	<unknown>	
+0x23d0	593f0fc2	<unknown>	
+0x23d4	593f0fde	<unknown>	
+0x23d8	593f0fdf	<unknown>	
+0x23dc	593f0fe0	<unknown>	
+0x23e0	593f0fe1	<unknown>	
+0x23e4	593f0fe2	<unknown>	
+0x23e8	593f0ffe	<unknown>	
+0x23ec	593f0fff	<unknown>	
+0x23f0	593fa000	<unknown>	
+0x23f4	593fa001	<unknown>	
+0x23f8	593fa002	<unknown>	
+0x23fc	593fa01e	<unknown>	
+0x2400	593fa01f	<unknown>	
+0x2404	593fa020	<unknown>	
+0x2408	593fa021	<unknown>	
+0x240c	593fa022	<unknown>	
+0x2410	593fa03e	<unknown>	
+0x2414	593fa03f	<unknown>	
+0x2418	593fa040	<unknown>	
+0x241c	593fa041	<unknown>	
+0x2420	593fa042	<unknown>	
+0x2424	593fa05e	<unknown>	
+0x2428	593fa05f	<unknown>	
+0x242c	593fa3c0	<unknown>	
+0x2430	593fa3c1	<unknown>	
+0x2434	593fa3c2	<unknown>	
+0x2438	593fa3de	<unknown>	
+0x243c	593fa3df	<unknown>	
+0x2440	593fa3e0	<unknown>	
+0x2444	593fa3e1	<unknown>	
+0x2448	593fa3e2	<unknown>	
+0x244c	593fa3fe	<unknown>	
+0x2450	593fa3ff	<unknown>	
+0x2454	59400020	ldapurh	w0, [x1]
+0x2458	59410440	<unknown>	
+0x245c	59600841	rcwscasl	x0, x1, [x2]
+0x2460	59600c82	rcwscaspl	x0, x1, x2, x3, [x4]
+0x2464	59619040	rcwsclrpl	x0, x1, [x2]
+0x2468	5961a040	rcwsswppl	x0, x1, [x2]
+0x246c	5961b040	rcwssetpl	x0, x1, [x2]
+0x2470	59810440	<unknown>	
+0x2474	59a00841	rcwscasa	x0, x1, [x2]
+0x2478	59a00c82	rcwscaspa	x0, x1, x2, x3, [x4]
+0x247c	59a19040	rcwsclrpa	x0, x1, [x2]
+0x2480	59a1a040	rcwsswppa	x0, x1, [x2]
+0x2484	59a1b040	rcwssetpa	x0, x1, [x2]
+0x2488	59c20420	<unknown>	
+0x248c	59c21420	<unknown>	
+0x2490	59c22420	<unknown>	
+0x2494	59c24420	<unknown>	
+0x2498	59c25420	<unknown>	
+0x249c	59c26420	<unknown>	
+0x24a0	59c28420	<unknown>	
+0x24a4	59c29420	<unknown>	
+0x24a8	59c2a420	<unknown>	
+0x24ac	5ac183fe	<unknown>	
+0x24b0	5ac1a3fe	<unknown>	
+0x24b4	5ac1a7fe	<unknown>	
+0x24b8	5ac1bbfe	<unknown>	
+0x24bc	5ac1bffe	<unknown>	
+0x24c0	5b200841	<unknown>	
+0x24c4	5b200c82	<unknown>	
+0x24c8	5b219040	<unknown>	
+0x24cc	5b21a040	<unknown>	
+0x24d0	5b21b040	<unknown>	
+0x24d4	5d010440	<unknown>	
+0x24d8	5d013440	<unknown>	
+0x24dc	5d014440	<unknown>	
+0x24e0	5d018440	<unknown>	
+0x24e4	5d01c440	<unknown>	
+0x24e8	5d200841	<unknown>	
+0x24ec	5d200c82	<unknown>	
+0x24f0	5d219040	<unknown>	
+0x24f4	5d21a040	<unknown>	
+0x24f8	5d21b040	<unknown>	
+0x24fc	5d410440	<unknown>	
+0x2500	5d413440	<unknown>	
+0x2504	5d414440	<unknown>	
+0x2508	5d418440	<unknown>	
+0x250c	5d41c440	<unknown>	
+0x2510	5d810440	<unknown>	
+0x2514	5d813440	<unknown>	
+0x2518	5d814440	<unknown>	
+0x251c	5d818440	<unknown>	
+0x2520	5d81c440	<unknown>	
+0x2524	5dc20420	<unknown>	
+0x2528	5dc24420	<unknown>	
+0x252c	5dc28420	<unknown>	
+0x2530	68209041	<unknown>	
+0x2534	6820a041	<unknown>	
+0x2538	6820b041	<unknown>	
+0x253c	70209041	adr	x1, 0x43747
+0x2540	7020a041	adr	x1, 0x4394b
+0x2544	7020b041	adr	x1, 0x43b4f
+0x2548	78009041	sturh	w1, [x2, #0x9]
+0x254c	7800a041	sturh	w1, [x2, #0xa]
+0x2550	7800b041	sturh	w1, [x2, #0xb]
+0x2554	78201041	ldclrh	w0, w1, [x2]
+0x2558	78202041	ldeorh	w0, w1, [x2]
+0x255c	78203041	ldseth	w0, w1, [x2]
+0x2560	78208041	swph	w0, w1, [x2]
+0x2564	78209001	rcwsclr	x0, x1, [x0]
+0x2568	78209040	rcwsclr	x0, x0, [x2]
+0x256c	78209041	rcwsclr	x0, x1, [x2]
+0x2570	78209043	rcwsclr	x0, x3, [x2]
+0x2574	78209045	rcwsclr	x0, x5, [x2]
+0x2578	78209049	rcwsclr	x0, x9, [x2]
+0x257c	78209051	rcwsclr	x0, x17, [x2]
+0x2580	78209061	rcwsclr	x0, x1, [x3]
+0x2584	782090c1	rcwsclr	x0, x1, [x6]
+0x2588	78209141	rcwsclr	x0, x1, [x10]
+0x258c	78209241	rcwsclr	x0, x1, [x18]
+0x2590	78209441	<unknown>	
+0x2594	78209841	<unknown>	
+0x2598	7820a001	rcwsswp	x0, x1, [x0]
+0x259c	7820a040	rcwsswp	x0, x0, [x2]
+0x25a0	7820a041	rcwsswp	x0, x1, [x2]
+0x25a4	7820a043	rcwsswp	x0, x3, [x2]
+0x25a8	7820a045	rcwsswp	x0, x5, [x2]
+0x25ac	7820a049	rcwsswp	x0, x9, [x2]
+0x25b0	7820a051	rcwsswp	x0, x17, [x2]
+0x25b4	7820a061	rcwsswp	x0, x1, [x3]
+0x25b8	7820a0c1	rcwsswp	x0, x1, [x6]
+0x25bc	7820a141	rcwsswp	x0, x1, [x10]
+0x25c0	7820a241	rcwsswp	x0, x1, [x18]
+0x25c4	7820a441	<unknown>	
+0x25c8	7820a841	<unknown>	
+0x25cc	7820b001	rcwsset	x0, x1, [x0]
+0x25d0	7820b040	rcwsset	x0, x0, [x2]
+0x25d4	7820b041	rcwsset	x0, x1, [x2]
+0x25d8	7820b043	rcwsset	x0, x3, [x2]
+0x25dc	7820b045	rcwsset	x0, x5, [x2]
+0x25e0	7820b049	rcwsset	x0, x9, [x2]
+0x25e4	7820b051	rcwsset	x0, x17, [x2]
+0x25e8	7820b061	rcwsset	x0, x1, [x3]
+0x25ec	7820b0c1	rcwsset	x0, x1, [x6]
+0x25f0	7820b141	rcwsset	x0, x1, [x10]
+0x25f4	7820b241	rcwsset	x0, x1, [x18]
+0x25f8	7820b441	<unknown>	
+0x25fc	7820b841	<unknown>	
+0x2600	7820d041	<unknown>	
+0x2604	7820e041	<unknown>	
+0x2608	7820f041	<unknown>	
+0x260c	78219041	rcwsclr	x1, x1, [x2]
+0x2610	7821a041	rcwsswp	x1, x1, [x2]
+0x2614	7821b041	rcwsset	x1, x1, [x2]
+0x2618	78229041	rcwsclr	x2, x1, [x2]
+0x261c	7822a041	rcwsswp	x2, x1, [x2]
+0x2620	7822b041	rcwsset	x2, x1, [x2]
+0x2624	78249041	rcwsclr	x4, x1, [x2]
+0x2628	7824a041	rcwsswp	x4, x1, [x2]
+0x262c	7824b041	rcwsset	x4, x1, [x2]
+0x2630	78289041	rcwsclr	x8, x1, [x2]
+0x2634	7828a041	rcwsswp	x8, x1, [x2]
+0x2638	7828b041	rcwsset	x8, x1, [x2]
+0x263c	78309041	rcwsclr	x16, x1, [x2]
+0x2640	7830a041	rcwsswp	x16, x1, [x2]
+0x2644	7830b041	rcwsset	x16, x1, [x2]
+0x2648	78609041	rcwsclrl	x0, x1, [x2]
+0x264c	7860a041	rcwsswpl	x0, x1, [x2]
+0x2650	7860b041	rcwssetl	x0, x1, [x2]
+0x2654	78a09041	rcwsclra	x0, x1, [x2]
+0x2658	78a0a041	rcwsswpa	x0, x1, [x2]
+0x265c	78a0b041	rcwsseta	x0, x1, [x2]
+0x2660	79200841	strh	w1, [x2, #0x1004]
+0x2664	79200c82	strh	w2, [x4, #0x1006]
+0x2668	79209041	strh	w1, [x2, #0x1048]
+0x266c	7920a041	strh	w1, [x2, #0x1050]
+0x2670	7920b041	strh	w1, [x2, #0x1058]
+0x2674	79219040	strh	w0, [x2, #0x10c8]
+0x2678	7921a040	strh	w0, [x2, #0x10d0]
+0x267c	7921b040	strh	w0, [x2, #0x10d8]
+0x2680	7a209041	<unknown>	
+0x2684	7a20a041	<unknown>	
+0x2688	7a20b041	<unknown>	
+0x268c	7c209041	<unknown>	
+0x2690	7c20a041	<unknown>	
+0x2694	7c20b041	<unknown>	
+0x2698	950324ff	bl	0x40cba94
+0x269c	965f0be0	bl	0xfffffffff97c561c
+0x26a0	965f0fe0	bl	0xfffffffff97c6620
+0x26a4	99000020	stlur	w0, [x1]
+0x26a8	99010440	<unknown>	
+0x26ac	99200841	<unknown>	
+0x26b0	99200c82	<unknown>	
+0x26b4	99219040	<unknown>	
+0x26b8	9921a040	<unknown>	
+0x26bc	9921b040	<unknown>	
+0x26c0	99400020	ldapur	w0, [x1]
+0x26c4	99410440	<unknown>	
+0x26c8	99810440	<unknown>	
+0x26cc	99c20420	<unknown>	
+0x26d0	99c21420	<unknown>	
+0x26d4	99c22420	<unknown>	
+0x26d8	99c24420	<unknown>	
+0x26dc	99c25420	<unknown>	
+0x26e0	99c26420	<unknown>	
+0x26e4	99c28420	<unknown>	
+0x26e8	99c29420	<unknown>	
+0x26ec	99c2a420	<unknown>	
+0x26f0	9ac183fe	<unknown>	
+0x26f4	9ac1a3fe	<unknown>	
+0x26f8	9ac1a7fe	<unknown>	
+0x26fc	9ac1bbfe	<unknown>	
+0x2700	9ac1bffe	<unknown>	
+0x2704	9d010440	<unknown>	
+0x2708	9d013440	<unknown>	
+0x270c	9d014440	<unknown>	
+0x2710	9d018440	<unknown>	
+0x2714	9d01c440	<unknown>	
+0x2718	9d410440	<unknown>	
+0x271c	9d413440	<unknown>	
+0x2720	9d414440	<unknown>	
+0x2724	9d418440	<unknown>	
+0x2728	9d41c440	<unknown>	
+0x272c	9d810440	<unknown>	
+0x2730	9d813440	<unknown>	
+0x2734	9d814440	<unknown>	
+0x2738	9d818440	<unknown>	
+0x273c	9d81c440	<unknown>	
+0x2740	9dc20420	<unknown>	
+0x2744	9dc24420	<unknown>	
+0x2748	9dc28420	<unknown>	
+0x274c	b8209041	<unknown>	
+0x2750	b820a041	<unknown>	
+0x2754	b820b041	<unknown>	
+0x2758	c50324ff	<unknown>	
+0x275c	c65f0be0	<unknown>	
+0x2760	c65f0fe0	<unknown>	
+0x2764	cac183fe	eor	x30, xzr, x1, ror #32
+0x2768	cac1a3fe	eor	x30, xzr, x1, ror #40
+0x276c	cac1a7fe	eor	x30, xzr, x1, ror #41
+0x2770	cac1bbfe	eor	x30, xzr, x1, ror #46
+0x2774	cac1bffe	eor	x30, xzr, x1, ror #47
+0x2778	d10324ff	sub	sp, x7, #0xc9
+0x277c	d25f0be0	eor	x0, xzr, #0xe00000000
+0x2780	d25f0fe0	eor	x0, xzr, #0x1e00000000
+0x2784	d2c183fe	mov	x30, #0xc1f00000000     ; =13327283519488
+0x2788	d2c1a3fe	mov	x30, #0xd1f00000000     ; =14426795147264
+0x278c	d2c1a7fe	mov	x30, #0xd3f00000000     ; =14564234100736
+0x2790	d2c1bbfe	mov	x30, #0xddf00000000     ; =15251428868096
+0x2794	d2c1bffe	mov	x30, #0xdff00000000     ; =15388867821568
+0x2798	d40324ff	<unknown>	
+0x279c	d45f0be0	hlt	#0xf85f
+0x27a0	d45f0fe0	hlt	#0xf87f
+0x27a4	d50124ff	msr	S0_1_C2_C4_7, xzr
+0x27a8	d50224ff	msr	S0_2_C2_C4_7, xzr
+0x27ac	d50304ff	msr	S0_3_C0_C4_7, xzr
+0x27b0	d50320ff	hint	#7
+0x27b4	d503247f	hint	#0x23
+0x27b8	d50324bf	hint	#0x25
+0x27bc	d50324df	hint	#0x26
+0x27c0	d50324ef	msr	S0_3_C2_C4_7, x15
+0x27c4	d50324f7	msr	S0_3_C2_C4_7, x23
+0x27c8	d50324fb	msr	S0_3_C2_C4_7, x27
+0x27cc	d50324fd	msr	S0_3_C2_C4_7, x29
+0x27d0	d50324fe	msr	S0_3_C2_C4_7, x30
+0x27d4	d50324ff	pacm	
+0x27d8	d50325ff	hint	#0x2f
+0x27dc	d50326ff	hint	#0x37
+0x27e0	d5032cff	hint	#0x67
+0x27e4	d50334ff	msr	S0_3_C3_C4_7, xzr
+0x27e8	d50364ff	msr	S0_3_C6_C4_7, xzr
+0x27ec	d503a4ff	msr	S0_3_C10_C4_7, xzr
+0x27f0	d50724ff	msr	S0_7_C2_C4_7, xzr
+0x27f4	d50b24ff	sys	#0x3, c2, c4, #0x7
+0x27f8	d51324ff	msr	S2_3_C2_C4_7, xzr
+0x27fc	d52324ff	mrs	xzr, S0_3_C2_C4_7
+0x2800	d54324ff	<unknown>	
+0x2804	d58324ff	<unknown>	
+0x2808	d61f0be0	<unknown>	
+0x280c	d61f0fe0	<unknown>	
+0x2810	d6400800	<unknown>	
+0x2814	d6400801	<unknown>	
+0x2818	d6400802	<unknown>	
+0x281c	d640081e	<unknown>	
+0x2820	d640081f	<unknown>	
+0x2824	d6400820	<unknown>	
+0x2828	d6400821	<unknown>	
+0x282c	d6400822	<unknown>	
+0x2830	d640083e	<unknown>	
+0x2834	d640083f	<unknown>	
+0x2838	d6400840	<unknown>	
+0x283c	d6400841	<unknown>	
+0x2840	d6400842	<unknown>	
+0x2844	d640085e	<unknown>	
+0x2848	d640085f	<unknown>	
+0x284c	d6400bc0	<unknown>	
+0x2850	d6400bc1	<unknown>	
+0x2854	d6400bc2	<unknown>	
+0x2858	d6400bde	<unknown>	
+0x285c	d6400bdf	<unknown>	
+0x2860	d6400be0	<unknown>	
+0x2864	d6400be1	<unknown>	
+0x2868	d6400be2	<unknown>	
+0x286c	d6400bfe	<unknown>	
+0x2870	d6400bff	<unknown>	
+0x2874	d6410800	<unknown>	
+0x2878	d6410801	<unknown>	
+0x287c	d6410802	<unknown>	
+0x2880	d641081e	<unknown>	
+0x2884	d641081f	<unknown>	
+0x2888	d6410820	<unknown>	
+0x288c	d6410821	<unknown>	
+0x2890	d6410822	<unknown>	
+0x2894	d641083e	<unknown>	
+0x2898	d641083f	<unknown>	
+0x289c	d6410840	<unknown>	
+0x28a0	d6410841	<unknown>	
+0x28a4	d6410842	<unknown>	
+0x28a8	d641085e	<unknown>	
+0x28ac	d641085f	<unknown>	
+0x28b0	d6410bc0	<unknown>	
+0x28b4	d6410bc1	<unknown>	
+0x28b8	d6410bc2	<unknown>	
+0x28bc	d6410bde	<unknown>	
+0x28c0	d6410bdf	<unknown>	
+0x28c4	d6410be0	<unknown>	
+0x28c8	d6410be1	<unknown>	
+0x28cc	d6410be2	<unknown>	
+0x28d0	d6410bfe	<unknown>	
+0x28d4	d6410bff	<unknown>	
+0x28d8	d6420800	<unknown>	
+0x28dc	d6420801	<unknown>	
+0x28e0	d6420802	<unknown>	
+0x28e4	d642081e	<unknown>	
+0x28e8	d642081f	<unknown>	
+0x28ec	d6420820	<unknown>	
+0x28f0	d6420821	<unknown>	
+0x28f4	d6420822	<unknown>	
+0x28f8	d642083e	<unknown>	
+0x28fc	d642083f	<unknown>	
+0x2900	d6420840	<unknown>	
+0x2904	d6420841	<unknown>	
+0x2908	d6420842	<unknown>	
+0x290c	d642085e	<unknown>	
+0x2910	d642085f	<unknown>	
+0x2914	d6420bc0	<unknown>	
+0x2918	d6420bc1	<unknown>	
+0x291c	d6420bc2	<unknown>	
+0x2920	d6420bde	<unknown>	
+0x2924	d6420bdf	<unknown>	
+0x2928	d6420be0	<unknown>	
+0x292c	d6420be1	<unknown>	
+0x2930	d6420be2	<unknown>	
+0x2934	d6420bfe	<unknown>	
+0x2938	d6420bff	<unknown>	
+0x293c	d64f0be0	<unknown>	
+0x2940	d64f0fe0	<unknown>	
+0x2944	d6570be0	<unknown>	
+0x2948	d6570fe0	<unknown>	
+0x294c	d65b0be0	<unknown>	
+0x2950	d65b0fe0	<unknown>	
+0x2954	d65d0be0	<unknown>	
+0x2958	d65d0fe0	<unknown>	
+0x295c	d65e0800	<unknown>	
+0x2960	d65e0801	<unknown>	
+0x2964	d65e0802	<unknown>	
+0x2968	d65e081e	<unknown>	
+0x296c	d65e081f	<unknown>	
+0x2970	d65e0820	<unknown>	
+0x2974	d65e0821	<unknown>	
+0x2978	d65e0822	<unknown>	
+0x297c	d65e083e	<unknown>	
+0x2980	d65e083f	<unknown>	
+0x2984	d65e0840	<unknown>	
+0x2988	d65e0841	<unknown>	
+0x298c	d65e0842	<unknown>	
+0x2990	d65e085e	<unknown>	
+0x2994	d65e085f	<unknown>	
+0x2998	d65e0bc0	<unknown>	
+0x299c	d65e0bc1	<unknown>	
+0x29a0	d65e0bc2	<unknown>	
+0x29a4	d65e0bde	<unknown>	
+0x29a8	d65e0bdf	<unknown>	
+0x29ac	d65e0be0	<unknown>	
+0x29b0	d65e0be1	<unknown>	
+0x29b4	d65e0be2	<unknown>	
+0x29b8	d65e0bfe	<unknown>	
+0x29bc	d65e0bff	<unknown>	
+0x29c0	d65e0fe0	<unknown>	
+0x29c4	d65f03e0	ret	xzr
+0x29c8	d65f07e0	<unknown>	
+0x29cc	d65f0800	<unknown>	
+0x29d0	d65f0801	<unknown>	
+0x29d4	d65f0802	<unknown>	
+0x29d8	d65f081e	<unknown>	
+0x29dc	d65f081f	<unknown>	
+0x29e0	d65f0820	<unknown>	
+0x29e4	d65f0821	<unknown>	
+0x29e8	d65f0822	<unknown>	
+0x29ec	d65f083e	<unknown>	
+0x29f0	d65f083f	<unknown>	
+0x29f4	d65f0840	<unknown>	
+0x29f8	d65f0841	<unknown>	
+0x29fc	d65f0842	<unknown>	
+0x2a00	d65f085e	<unknown>	
+0x2a04	d65f085f	<unknown>	
+0x2a08	d65f09e0	<unknown>	
+0x2a0c	d65f0ae0	<unknown>	
+0x2a10	d65f0b60	<unknown>	
+0x2a14	d65f0ba0	<unknown>	
+0x2a18	d65f0bc0	<unknown>	
+0x2a1c	d65f0bc1	<unknown>	
+0x2a20	d65f0bc2	<unknown>	
+0x2a24	d65f0bde	<unknown>	
+0x2a28	d65f0bdf	<unknown>	
+0x2a2c	d65f0be0	retaasppcr	x0
+0x2a30	d65f0be1	retaasppcr	x1
+0x2a34	d65f0be2	retaasppcr	x2
+0x2a38	d65f0be4	retaasppcr	x4
+0x2a3c	d65f0be8	retaasppcr	x8
+0x2a40	d65f0bf0	retaasppcr	x16
+0x2a44	d65f0bfe	retaasppcr	x30
+0x2a48	d65f0bff	<unknown>	
+0x2a4c	d65f0de0	<unknown>	
+0x2a50	d65f0ee0	<unknown>	
+0x2a54	d65f0f60	<unknown>	
+0x2a58	d65f0fa0	<unknown>	
+0x2a5c	d65f0fc0	<unknown>	
+0x2a60	d65f0fe0	retabsppcr	x0
+0x2a64	d65f0fe1	retabsppcr	x1
+0x2a68	d65f0fe2	retabsppcr	x2
+0x2a6c	d65f0fe4	retabsppcr	x4
+0x2a70	d65f0fe8	retabsppcr	x8
+0x2a74	d65f0ff0	retabsppcr	x16
+0x2a78	d65f1be0	<unknown>	
+0x2a7c	d65f1fe0	<unknown>	
+0x2a80	d65f2be0	<unknown>	
+0x2a84	d65f2fe0	<unknown>	
+0x2a88	d65f4be0	<unknown>	
+0x2a8c	d65f4fe0	<unknown>	
+0x2a90	d65f8be0	<unknown>	
+0x2a94	d65f8fe0	<unknown>	
+0x2a98	d67f0be0	<unknown>	
+0x2a9c	d67f0fe0	<unknown>	
+0x2aa0	d6df0be0	<unknown>	
+0x2aa4	d6df0fe0	<unknown>	
+0x2aa8	d70324ff	<unknown>	
+0x2aac	d75f0be0	<unknown>	
+0x2ab0	d75f0fe0	<unknown>	
+0x2ab4	d8c183fe	prfm	#0x1e, 0xfffffffffff85b30
+0x2ab8	d8c1a3fe	prfm	#0x1e, 0xfffffffffff85f34
+0x2abc	d8c1a7fe	prfm	#0x1e, 0xfffffffffff85fb8
+0x2ac0	d8c1bbfe	prfm	#0x1e, 0xfffffffffff8623c
+0x2ac4	d8c1bffe	prfm	#0x1e, 0xfffffffffff862c0
+0x2ac8	d9200841	stg	x1, [x2]
+0x2acc	d9200c82	stg	x2, [x4, #0x0]!
+0x2ad0	d9219040	<unknown>	
+0x2ad4	d921a040	<unknown>	
+0x2ad8	d921b040	<unknown>	
+0x2adc	da4183fe	<unknown>	
+0x2ae0	da41a3fe	<unknown>	
+0x2ae4	da41a7fe	<unknown>	
+0x2ae8	da41bbfe	<unknown>	
+0x2aec	da41bffe	<unknown>	
+0x2af0	da8183fe	csinv	x30, xzr, x1, hi
+0x2af4	da81a3fe	csinv	x30, xzr, x1, ge
+0x2af8	da81a7fe	csneg	x30, xzr, x1, ge
+0x2afc	da81bbfe	<unknown>	
+0x2b00	da81bffe	<unknown>	
+0x2b04	dac083fe	<unknown>	
+0x2b08	dac09000	<unknown>	
+0x2b0c	dac09001	<unknown>	
+0x2b10	dac09002	<unknown>	
+0x2b14	dac0901e	<unknown>	
+0x2b18	dac0901f	<unknown>	
+0x2b1c	dac09020	<unknown>	
+0x2b20	dac09021	<unknown>	
+0x2b24	dac09022	<unknown>	
+0x2b28	dac0903e	<unknown>	
+0x2b2c	dac0903f	<unknown>	
+0x2b30	dac09040	<unknown>	
+0x2b34	dac09041	<unknown>	
+0x2b38	dac09042	<unknown>	
+0x2b3c	dac0905e	<unknown>	
+0x2b40	dac0905f	<unknown>	
+0x2b44	dac093c0	<unknown>	
+0x2b48	dac093c1	<unknown>	
+0x2b4c	dac093c2	<unknown>	
+0x2b50	dac093de	<unknown>	
+0x2b54	dac093df	<unknown>	
+0x2b58	dac093e0	<unknown>	
+0x2b5c	dac093e1	<unknown>	
+0x2b60	dac093e2	<unknown>	
+0x2b64	dac093fe	<unknown>	
+0x2b68	dac093ff	<unknown>	
+0x2b6c	dac0a000	<unknown>	
+0x2b70	dac0a001	<unknown>	
+0x2b74	dac0a002	<unknown>	
+0x2b78	dac0a01e	<unknown>	
+0x2b7c	dac0a01f	<unknown>	
+0x2b80	dac0a020	<unknown>	
+0x2b84	dac0a021	<unknown>	
+0x2b88	dac0a022	<unknown>	
+0x2b8c	dac0a03e	<unknown>	
+0x2b90	dac0a03f	<unknown>	
+0x2b94	dac0a040	<unknown>	
+0x2b98	dac0a041	<unknown>	
+0x2b9c	dac0a042	<unknown>	
+0x2ba0	dac0a05e	<unknown>	
+0x2ba4	dac0a05f	<unknown>	
+0x2ba8	dac0a3c0	<unknown>	
+0x2bac	dac0a3c1	<unknown>	
+0x2bb0	dac0a3c2	<unknown>	
+0x2bb4	dac0a3de	<unknown>	
+0x2bb8	dac0a3df	<unknown>	
+0x2bbc	dac0a3e0	<unknown>	
+0x2bc0	dac0a3e1	<unknown>	
+0x2bc4	dac0a3e2	<unknown>	
+0x2bc8	dac0a3fe	<unknown>	
+0x2bcc	dac0a3ff	<unknown>	
+0x2bd0	dac0a7fe	<unknown>	
+0x2bd4	dac0bbfe	<unknown>	
+0x2bd8	dac0bffe	<unknown>	
+0x2bdc	dac103fe	<unknown>	
+0x2be0	dac123fe	<unknown>	
+0x2be4	dac127fe	<unknown>	
+0x2be8	dac13bfe	<unknown>	
+0x2bec	dac13ffe	<unknown>	
+0x2bf0	dac181fe	<unknown>	
+0x2bf4	dac182fe	<unknown>	
+0x2bf8	dac1837e	<unknown>	
+0x2bfc	dac183be	<unknown>	
+0x2c00	dac183de	<unknown>	
+0x2c04	dac183ee	<unknown>	
+0x2c08	dac183f6	<unknown>	
+0x2c0c	dac183fa	<unknown>	
+0x2c10	dac183fc	<unknown>	
+0x2c14	dac183fe	pacnbiasppc	
+0x2c18	dac183ff	<unknown>	
+0x2c1c	dac187fe	pacnbibsppc	
+0x2c20	dac18bfe	pacia171615	
+0x2c24	dac19000	<unknown>	
+0x2c28	dac19001	<unknown>	
+0x2c2c	dac19002	<unknown>	
+0x2c30	dac1901e	autiasppcr	x0
+0x2c34	dac1901f	<unknown>	
+0x2c38	dac19020	<unknown>	
+0x2c3c	dac19021	<unknown>	
+0x2c40	dac19022	<unknown>	
+0x2c44	dac1903e	autiasppcr	x1
+0x2c48	dac1903f	<unknown>	
+0x2c4c	dac19040	<unknown>	
+0x2c50	dac19041	<unknown>	
+0x2c54	dac19042	<unknown>	
+0x2c58	dac1905e	autiasppcr	x2
+0x2c5c	dac1905f	<unknown>	
+0x2c60	dac193c0	<unknown>	
+0x2c64	dac193c1	<unknown>	
+0x2c68	dac193c2	<unknown>	
+0x2c6c	dac193de	autiasppcr	x30
+0x2c70	dac193df	<unknown>	
+0x2c74	dac193e0	<unknown>	
+0x2c78	dac193e1	<unknown>	
+0x2c7c	dac193e2	<unknown>	
+0x2c80	dac193fe	autiasppcr	xzr
+0x2c84	dac193ff	<unknown>	
+0x2c88	dac19bfe	<unknown>	
+0x2c8c	dac19ffe	<unknown>	
+0x2c90	dac1a000	<unknown>	
+0x2c94	dac1a001	<unknown>	
+0x2c98	dac1a002	<unknown>	
+0x2c9c	dac1a01e	<unknown>	
+0x2ca0	dac1a01f	<unknown>	
+0x2ca4	dac1a020	<unknown>	
+0x2ca8	dac1a021	<unknown>	
+0x2cac	dac1a022	<unknown>	
+0x2cb0	dac1a03e	<unknown>	
+0x2cb4	dac1a03f	<unknown>	
+0x2cb8	dac1a040	<unknown>	
+0x2cbc	dac1a041	<unknown>	
+0x2cc0	dac1a042	<unknown>	
+0x2cc4	dac1a05e	<unknown>	
+0x2cc8	dac1a05f	<unknown>	
+0x2ccc	dac1a1fe	<unknown>	
+0x2cd0	dac1a2fe	<unknown>	
+0x2cd4	dac1a37e	<unknown>	
+0x2cd8	dac1a3be	<unknown>	
+0x2cdc	dac1a3c0	<unknown>	
+0x2ce0	dac1a3c1	<unknown>	
+0x2ce4	dac1a3c2	<unknown>	
+0x2ce8	dac1a3de	<unknown>	
+0x2cec	dac1a3df	<unknown>	
+0x2cf0	dac1a3e0	<unknown>	
+0x2cf4	dac1a3e1	<unknown>	
+0x2cf8	dac1a3e2	<unknown>	
+0x2cfc	dac1a3ee	<unknown>	
+0x2d00	dac1a3f6	<unknown>	
+0x2d04	dac1a3fa	<unknown>	
+0x2d08	dac1a3fc	<unknown>	
+0x2d0c	dac1a3fe	paciasppc	
+0x2d10	dac1a3ff	<unknown>	
+0x2d14	dac1a5fe	<unknown>	
+0x2d18	dac1a6fe	<unknown>	
+0x2d1c	dac1a77e	<unknown>	
+0x2d20	dac1a7be	<unknown>	
+0x2d24	dac1a7de	<unknown>	
+0x2d28	dac1a7ee	<unknown>	
+0x2d2c	dac1a7f6	<unknown>	
+0x2d30	dac1a7fa	<unknown>	
+0x2d34	dac1a7fc	<unknown>	
+0x2d38	dac1a7fe	pacibsppc	
+0x2d3c	dac1a7ff	<unknown>	
+0x2d40	dac1abfe	<unknown>	
+0x2d44	dac1affe	<unknown>	
+0x2d48	dac1b3fe	<unknown>	
+0x2d4c	dac1b7fe	<unknown>	
+0x2d50	dac1b9fe	<unknown>	
+0x2d54	dac1bafe	<unknown>	
+0x2d58	dac1bb7e	<unknown>	
+0x2d5c	dac1bbbe	<unknown>	
+0x2d60	dac1bbde	<unknown>	
+0x2d64	dac1bbee	<unknown>	
+0x2d68	dac1bbf6	<unknown>	
+0x2d6c	dac1bbfa	<unknown>	
+0x2d70	dac1bbfc	<unknown>	
+0x2d74	dac1bbfe	autia171615	
+0x2d78	dac1bbff	<unknown>	
+0x2d7c	dac1bdfe	<unknown>	
+0x2d80	dac1befe	<unknown>	
+0x2d84	dac1bf7e	<unknown>	
+0x2d88	dac1bfbe	<unknown>	
+0x2d8c	dac1bfde	<unknown>	
+0x2d90	dac1bfee	<unknown>	
+0x2d94	dac1bff6	<unknown>	
+0x2d98	dac1bffa	<unknown>	
+0x2d9c	dac1bffc	<unknown>	
+0x2da0	dac1bffe	autib171615	
+0x2da4	dac1bfff	<unknown>	
+0x2da8	dac1c3fe	<unknown>	
+0x2dac	dac1e3fe	<unknown>	
+0x2db0	dac1e7fe	<unknown>	
+0x2db4	dac1fbfe	<unknown>	
+0x2db8	dac1fffe	<unknown>	
+0x2dbc	dac29000	<unknown>	
+0x2dc0	dac29001	<unknown>	
+0x2dc4	dac29002	<unknown>	
+0x2dc8	dac2901e	<unknown>	
+0x2dcc	dac2901f	<unknown>	
+0x2dd0	dac29020	<unknown>	
+0x2dd4	dac29021	<unknown>	
+0x2dd8	dac29022	<unknown>	
+0x2ddc	dac2903e	<unknown>	
+0x2de0	dac2903f	<unknown>	
+0x2de4	dac29040	<unknown>	
+0x2de8	dac29041	<unknown>	
+0x2dec	dac29042	<unknown>	
+0x2df0	dac2905e	<unknown>	
+0x2df4	dac2905f	<unknown>	
+0x2df8	dac293c0	<unknown>	
+0x2dfc	dac293c1	<unknown>	
+0x2e00	dac293c2	<unknown>	
+0x2e04	dac293de	<unknown>	
+0x2e08	dac293df	<unknown>	
+0x2e0c	dac293e0	<unknown>	
+0x2e10	dac293e1	<unknown>	
+0x2e14	dac293e2	<unknown>	
+0x2e18	dac293fe	<unknown>	
+0x2e1c	dac293ff	<unknown>	
+0x2e20	dac2a000	<unknown>	
+0x2e24	dac2a001	<unknown>	
+0x2e28	dac2a002	<unknown>	
+0x2e2c	dac2a01e	<unknown>	
+0x2e30	dac2a01f	<unknown>	
+0x2e34	dac2a020	<unknown>	
+0x2e38	dac2a021	<unknown>	
+0x2e3c	dac2a022	<unknown>	
+0x2e40	dac2a03e	<unknown>	
+0x2e44	dac2a03f	<unknown>	
+0x2e48	dac2a040	<unknown>	
+0x2e4c	dac2a041	<unknown>	
+0x2e50	dac2a042	<unknown>	
+0x2e54	dac2a05e	<unknown>	
+0x2e58	dac2a05f	<unknown>	
+0x2e5c	dac2a3c0	<unknown>	
+0x2e60	dac2a3c1	<unknown>	
+0x2e64	dac2a3c2	<unknown>	
+0x2e68	dac2a3de	<unknown>	
+0x2e6c	dac2a3df	<unknown>	
+0x2e70	dac2a3e0	<unknown>	
+0x2e74	dac2a3e1	<unknown>	
+0x2e78	dac2a3e2	<unknown>	
+0x2e7c	dac2a3fe	<unknown>	
+0x2e80	dac2a3ff	<unknown>	
+0x2e84	dac383fe	<unknown>	
+0x2e88	dac3a3fe	<unknown>	
+0x2e8c	dac3a7fe	<unknown>	
+0x2e90	dac3bbfe	<unknown>	
+0x2e94	dac3bffe	<unknown>	
+0x2e98	dac583fe	<unknown>	
+0x2e9c	dac5a3fe	<unknown>	
+0x2ea0	dac5a7fe	<unknown>	
+0x2ea4	dac5bbfe	<unknown>	
+0x2ea8	dac5bffe	<unknown>	
+0x2eac	dac983fe	<unknown>	
+0x2eb0	dac9a3fe	<unknown>	
+0x2eb4	dac9a7fe	<unknown>	
+0x2eb8	dac9bbfe	<unknown>	
+0x2ebc	dac9bffe	<unknown>	
+0x2ec0	dad183fe	<unknown>	
+0x2ec4	dad1a3fe	<unknown>	
+0x2ec8	dad1a7fe	<unknown>	
+0x2ecc	dad1bbfe	<unknown>	
+0x2ed0	dad1bffe	<unknown>	
+0x2ed4	dade9000	<unknown>	
+0x2ed8	dade9001	<unknown>	
+0x2edc	dade9002	<unknown>	
+0x2ee0	dade901e	<unknown>	
+0x2ee4	dade901f	<unknown>	
+0x2ee8	dade9020	<unknown>	
+0x2eec	dade9021	<unknown>	
+0x2ef0	dade9022	<unknown>	
+0x2ef4	dade903e	<unknown>	
+0x2ef8	dade903f	<unknown>	
+0x2efc	dade9040	<unknown>	
+0x2f00	dade9041	<unknown>	
+0x2f04	dade9042	<unknown>	
+0x2f08	dade905e	<unknown>	
+0x2f0c	dade905f	<unknown>	
+0x2f10	dade93c0	<unknown>	
+0x2f14	dade93c1	<unknown>	
+0x2f18	dade93c2	<unknown>	
+0x2f1c	dade93de	<unknown>	
+0x2f20	dade93df	<unknown>	
+0x2f24	dade93e0	<unknown>	
+0x2f28	dade93e1	<unknown>	
+0x2f2c	dade93e2	<unknown>	
+0x2f30	dade93fe	<unknown>	
+0x2f34	dade93ff	<unknown>	
+0x2f38	dadea000	<unknown>	
+0x2f3c	dadea001	<unknown>	
+0x2f40	dadea002	<unknown>	
+0x2f44	dadea01e	<unknown>	
+0x2f48	dadea01f	<unknown>	
+0x2f4c	dadea020	<unknown>	
+0x2f50	dadea021	<unknown>	
+0x2f54	dadea022	<unknown>	
+0x2f58	dadea03e	<unknown>	
+0x2f5c	dadea03f	<unknown>	
+0x2f60	dadea040	<unknown>	
+0x2f64	dadea041	<unknown>	
+0x2f68	dadea042	<unknown>	
+0x2f6c	dadea05e	<unknown>	
+0x2f70	dadea05f	<unknown>	
+0x2f74	dadea3c0	<unknown>	
+0x2f78	dadea3c1	<unknown>	
+0x2f7c	dadea3c2	<unknown>	
+0x2f80	dadea3de	<unknown>	
+0x2f84	dadea3df	<unknown>	
+0x2f88	dadea3e0	<unknown>	
+0x2f8c	dadea3e1	<unknown>	
+0x2f90	dadea3e2	<unknown>	
+0x2f94	dadea3fe	<unknown>	
+0x2f98	dadea3ff	<unknown>	
+0x2f9c	dadf9000	<unknown>	
+0x2fa0	dadf9001	<unknown>	
+0x2fa4	dadf9002	<unknown>	
+0x2fa8	dadf901e	<unknown>	
+0x2fac	dadf901f	<unknown>	
+0x2fb0	dadf9020	<unknown>	
+0x2fb4	dadf9021	<unknown>	
+0x2fb8	dadf9022	<unknown>	
+0x2fbc	dadf903e	<unknown>	
+0x2fc0	dadf903f	<unknown>	
+0x2fc4	dadf9040	<unknown>	
+0x2fc8	dadf9041	<unknown>	
+0x2fcc	dadf9042	<unknown>	
+0x2fd0	dadf905e	<unknown>	
+0x2fd4	dadf905f	<unknown>	
+0x2fd8	dadf93c0	<unknown>	
+0x2fdc	dadf93c1	<unknown>	
+0x2fe0	dadf93c2	<unknown>	
+0x2fe4	dadf93de	<unknown>	
+0x2fe8	dadf93df	<unknown>	
+0x2fec	dadf93e0	<unknown>	
+0x2ff0	dadf93e1	<unknown>	
+0x2ff4	dadf93e2	<unknown>	
+0x2ff8	dadf93fe	<unknown>	
+0x2ffc	dadf93ff	<unknown>	
+0x3000	dadfa000	<unknown>	
+0x3004	dadfa001	<unknown>	
+0x3008	dadfa002	<unknown>	
+0x300c	dadfa01e	<unknown>	
+0x3010	dadfa01f	<unknown>	
+0x3014	dadfa020	<unknown>	
+0x3018	dadfa021	<unknown>	
+0x301c	dadfa022	<unknown>	
+0x3020	dadfa03e	<unknown>	
+0x3024	dadfa03f	<unknown>	
+0x3028	dadfa040	<unknown>	
+0x302c	dadfa041	<unknown>	
+0x3030	dadfa042	<unknown>	
+0x3034	dadfa05e	<unknown>	
+0x3038	dadfa05f	<unknown>	
+0x303c	dadfa3c0	<unknown>	
+0x3040	dadfa3c1	<unknown>	
+0x3044	dadfa3c2	<unknown>	
+0x3048	dadfa3de	<unknown>	
+0x304c	dadfa3df	<unknown>	
+0x3050	dadfa3e0	<unknown>	
+0x3054	dadfa3e1	<unknown>	
+0x3058	dadfa3e2	<unknown>	
+0x305c	dadfa3fe	<unknown>	
+0x3060	dadfa3ff	<unknown>	
+0x3064	dae183fe	<unknown>	
+0x3068	dae1a3fe	<unknown>	
+0x306c	dae1a7fe	<unknown>	
+0x3070	dae1bbfe	<unknown>	
+0x3074	dae1bffe	<unknown>	
+0x3078	dbc183fe	<unknown>	
+0x307c	dbc1a3fe	<unknown>	
+0x3080	dbc1a7fe	<unknown>	
+0x3084	dbc1bbfe	<unknown>	
+0x3088	dbc1bffe	<unknown>	
+0x308c	dd0324ff	<unknown>	
+0x3090	de5f0be0	<unknown>	
+0x3094	de5f0fe0	<unknown>	
+0x3098	dec183fe	<unknown>	
+0x309c	dec1a3fe	<unknown>	
+0x30a0	dec1a7fe	<unknown>	
+0x30a4	dec1bbfe	<unknown>	
+0x30a8	dec1bffe	<unknown>	
+0x30ac	f50324ff	<unknown>	
+0x30b0	f65f0be0	<unknown>	
+0x30b4	f65f0fe0	<unknown>	
+0x30b8	f8209041	<unknown>	
+0x30bc	f820a041	<unknown>	
+0x30c0	f820b041	<unknown>	
+0x30c4	fac183fe	<unknown>	
+0x30c8	fac1a3fe	<unknown>	
+0x30cc	fac1a7fe	<unknown>	
+0x30d0	fac1bbfe	<unknown>	
+0x30d4	fac1bffe	<unknown>	

@@ -1,0 +1,45 @@
+/workspace/scratch/ddf488c1ad42/dwarf-1833/package/fourth-pass/minimized/cu-root-bases-before-indexed-control/artifact.elf:	file format elf64-x86-64
+
+.debug_abbrev contents:
+Abbrev table for offset: 0x00000000
+[1] DW_TAG_compile_unit	DW_CHILDREN_no
+	DW_AT_str_offsets_base	DW_FORM_sec_offset
+	DW_AT_addr_base	DW_FORM_sec_offset
+	DW_AT_name	DW_FORM_strx1
+	DW_AT_low_pc	DW_FORM_addrx
+
+
+.debug_info contents:
+0x00000000: Compile Unit: length = 0x00000013, format = DWARF32, version = 0x0005, unit_type = DW_UT_compile, abbr_offset = 0x0000, addr_size = 0x08 (next unit at 0x00000017)
+
+0x0000000c: DW_TAG_compile_unit
+              DW_AT_str_offsets_base	(0x00000038)
+              DW_AT_addr_base	(0x00000020)
+              DW_AT_name	("entry.c")
+              DW_AT_low_pc	(0x0000000000401030)
+
+.debug_addr contents:
+Address table header: length = 0x00000014, format = DWARF32, version = 0x0005, addr_size = 0x08, seg_size = 0x00
+Addrs: [
+0x0000000000402000
+0x0000000000401000
+]
+Address table header: length = 0x0000000c, format = DWARF32, version = 0x0005, addr_size = 0x08, seg_size = 0x00
+Addrs: [
+0x0000000000401030
+]
+Address table header: length = 0x0000000c, format = DWARF32, version = 0x0005, addr_size = 0x08, seg_size = 0x00
+Addrs: [
+0x0000000000401050
+]
+
+.debug_rnglists contents:
+
+.debug_str_offsets contents:
+0x00000000: Gap, length = 48
+0x00000030: Contribution size = 20, Format = DWARF32, Version = 5
+0x00000038: 00000000 "Debian clang version 19.1.7 (++20250114103228+cd708029e0b2-1~exp1~20250114103334.78)"
+0x0000003c: 000000d8 "entry.c"
+0x00000040: 00000061 "/workspace/scratch/ddf488c1ad42/dwarf-1833/package/work/oracle/clang-d5-O0-multiple-f00"
+0x00000044: 000000e0 "_start"
+0x00000048: Gap, length = 32

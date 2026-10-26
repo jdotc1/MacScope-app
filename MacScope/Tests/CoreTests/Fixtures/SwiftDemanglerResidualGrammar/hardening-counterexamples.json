@@ -1,0 +1,142 @@
+[
+  {
+    "id": "a06776",
+    "mangled": "$s14OracleFeatures10asyncTypedyS2iYaAA7FailureOYKFTuMK",
+    "expected": "OracleFeatures.asyncTyped(Swift.Int) async throws(OracleFeatures.Failure) -> Swift.Intmetadata instantiation cache for async function pointer to "
+  },
+  {
+    "id": "a07348",
+    "mangled": "$s14OracleFeatures14closureContextyS2icSiF5localL_yS2iFTAMK",
+    "expected": "local #1 (Swift.Int) -> Swift.Int in OracleFeatures.closureContext(Swift.Int) -> (Swift.Int) -> Swift.Intmetadata instantiation cache for partial apply forwarder"
+  },
+  {
+    "id": "a08497",
+    "mangled": "$s14OracleFeatures3BoxVAASHRzlE9hashValueSivMV",
+    "expected": null
+  },
+  {
+    "id": "a10879",
+    "mangled": "$s14OracleFeatures7RefiedP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a10887",
+    "mangled": "$s14OracleFeatures7RefindP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a10893",
+    "mangled": "$s14OracleFeatures7RefineP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a10898",
+    "mangled": "$s14OracleFeatures7Refined7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a10969",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9CntainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a10984",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ConainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11006",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ContaierP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11019",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ContaineP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11080",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9Container_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11084",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ContainrP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11087",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ContanerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11089",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ContinerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11092",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9CotainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11098",
+    "mangled": "$s14OracleFeatures7RefinedP7ElementAA9ontainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11132",
+    "mangled": "$s14OracleFeatures7RefnedP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11134",
+    "mangled": "$s14OracleFeatures7ReinedP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11136",
+    "mangled": "$s14OracleFeatures7RfinedP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a11140",
+    "mangled": "$s14OracleFeatures7efinedP7ElementAA9ContainerP_SHTn",
+    "expected": null
+  },
+  {
+    "id": "a14880",
+    "mangled": "$s3foo3bar3bazV1fyS2iFTA",
+    "expected": "partial apply forwarder for foobar.baz.f(Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14881",
+    "mangled": "$s3foo3bar3bazV1fyS2iFTu",
+    "expected": "async function pointer to foobar.baz.f(Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14942",
+    "mangled": "$s3foo3barV3baz1fS2iF",
+    "expected": "foo.bar.baz(Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14968",
+    "mangled": "$s3foo3barV3baz1fyS2iFTA",
+    "expected": "partial apply forwarder for foo.barbaz.f(Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14969",
+    "mangled": "$s3foo3barV3baz1fyS2iFTu",
+    "expected": "async function pointer to foo.barbaz.f(Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14977",
+    "mangled": "$s3foo3barV3baz1fySiF",
+    "expected": "foo.bar.baz(Swift.Int) -> ()"
+  },
+  {
+    "id": "a14981",
+    "mangled": "$s3foo3barV3baz1yS2iF",
+    "expected": "foo.bar.baz(Swift.Int) -> Swift.Int"
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "gitTree": "69fde307d20e1e8c73261cffffbf5a11f526a94c",
+  "integrationMode": "direct-source",
+  "license": {
+    "path": "LICENSE",
+    "sha256": "00511a028804276eb97fcc0cdba28ce973bcaf37cfa555d3cf934d9cec08f7cb",
+    "spdx": "MIT"
+  },
+  "provider": "swiftbin/swift-assembly",
+  "repository": "https://github.com/swiftbin/swift-assembly.git",
+  "revision": "b6798dbd0081ec989d25b5a0676ab8cbd36bd9b1",
+  "schemaVersion": 1,
+  "sourceFiles": [
+    {
+      "gitBlobSHA1": "22dda6b16d7707f901d1825e2bca385a51085560",
+      "sha256": "135d73a6ff8d5873878e2678822c14941212218c835591187c15a481ff820f2d",
+      "size": 2882,
+      "upstreamPath": "Sources/Assembly/ARM64/A64BitmaskImmediate.swift",
+      "vendorPath": "Sources/ARM64/A64BitmaskImmediate.swift"
+    },
+    {
+      "gitBlobSHA1": "b419ba54b77ca6c47bbcffe0fab44b88855658ec",
+      "sha256": "e06dd55c3a11db9e3b6af175b06dcac0f0e61f62f444ead21cbf565ba44bcc97",
+      "size": 162630,
+      "upstreamPath": "Sources/Assembly/ARM64/A64Decoder.swift",
+      "vendorPath": "Sources/ARM64/A64Decoder.swift"
+    },
+    {
+      "gitBlobSHA1": "36a09ba7d6cd7f84852a9ff325255d139e6a0bed",
+      "sha256": "246c2bb18be5d29eeef831f2a7d275ff8f1645128a105ebceca85c8fa9983298",
+      "size": 95333,
+      "upstreamPath": "Sources/Assembly/ARM64/A64Encoder.swift",
+      "vendorPath": "Sources/ARM64/A64Encoder.swift"
+    },
+    {
+      "gitBlobSHA1": "1900b06c010c7ef8c0be99d022e0d85cc311661d",
+      "sha256": "548f0de4f351defc8e1145554fa021abdfca094cf5342720f939a54a310b79f6",
+      "size": 13024,
+      "upstreamPath": "Sources/Assembly/ARM64/A64FloatingPointEncoder.swift",
+      "vendorPath": "Sources/ARM64/A64FloatingPointEncoder.swift"
+    },
+    {
+      "gitBlobSHA1": "dd1fcf133094147b4b35b430b070434cda553f2c",
+      "sha256": "2afc01f7f2b720a1ffec8294277e708d99af708ae334777c8313d7820498181f",
+      "size": 48794,
+      "upstreamPath": "Sources/Assembly/ARM64/A64Formatter.swift",
+      "vendorPath": "Sources/ARM64/A64Formatter.swift"
+    },
+    {
+      "gitBlobSHA1": "4ff5f36b2eac86170bc9bae10f32ab1f249ccfff",
+      "sha256": "3defbf7a11e3ca577cfcac3d244c77048320f05aaf7e6e78b5f73a2a5bfbb826",
+      "size": 43291,
+      "upstreamPath": "Sources/Assembly/ARM64/A64InstructionFormats.swift",
+      "vendorPath": "Sources/ARM64/A64InstructionFormats.swift"
+    },
+    {
+      "gitBlobSHA1": "45516061207153dd2e514c2c3fe00f82ae4269ec",
+      "sha256": "b30103cc17cf9591889744be61b40618e76d789a3298c89ff34e94d4655afd97",
+      "size": 151513,
+      "upstreamPath": "Sources/Assembly/ARM64/A64InstructionParser.swift",
+      "vendorPath": "Sources/ARM64/A64InstructionParser.swift"
+    },
+    {
+      "gitBlobSHA1": "c3b5670bc00421de8e995e6aff69e00b23adc591",
+      "sha256": "13164db2e7f8f46c4e9b72c33c7128b6a8b99f9f82e1939637cf018317c3d49e",
+      "size": 141736,
+      "upstreamPath": "Sources/Assembly/ARM64/A64Model.swift",
+      "vendorPath": "Sources/ARM64/A64Model.swift"
+    },
+    {
+      "gitBlobSHA1": "a229135af464f2b26b267bc0cd05b5adcfc582ba",
+      "sha256": "979b3e71bad039929e54685a9ec12aff416bbf1e748da55e58b224f4e6192f3f",
+      "size": 2245,
+      "upstreamPath": "Sources/Assembly/ARM64/A64Support.swift",
+      "vendorPath": "Sources/ARM64/A64Support.swift"
+    },
+    {
+      "gitBlobSHA1": "48a7363d97d2f66a8e7a8d1db63b6fe268117f98",
+      "sha256": "e9cd4aeab65be63bbcd60b8238e627fbf284bcb68214ced32c9d4ed9b5b549b5",
+      "size": 69022,
+      "upstreamPath": "Sources/Assembly/ARM64/A64VectorEncoder.swift",
+      "vendorPath": "Sources/ARM64/A64VectorEncoder.swift"
+    },
+    {
+      "gitBlobSHA1": "027a04ccabac51ff98fcaa12ef7df90211d8437a",
+      "sha256": "4e584fb8c345e44cc8ab133909d4cdd4294682ee20d389df21828413d0872d65",
+      "size": 3116,
+      "upstreamPath": "Sources/Assembly/ARM64/ARM64Assembler.swift",
+      "vendorPath": "Sources/ARM64/ARM64Assembler.swift"
+    },
+    {
+      "gitBlobSHA1": "111534dc98f6704c527df1786ab46b89539b1d26",
+      "sha256": "16b4df3cb0d9371330af8201522a97b7167ce00faf4a494595dcd04f5b2721bd",
+      "size": 2654,
+      "upstreamPath": "Sources/Assembly/Core/AssemblerError.swift",
+      "vendorPath": "Sources/Core/AssemblerError.swift"
+    },
+    {
+      "gitBlobSHA1": "f835084e917979299d5f6bce9d47165a3e10592f",
+      "sha256": "1f446c5a03536bdb511e2a098d0fc33c551e2e21ea620e9365f12a552adf2ce5",
+      "size": 77,
+      "upstreamPath": "Sources/Assembly/Core/Endianness.swift",
+      "vendorPath": "Sources/Core/Endianness.swift"
+    },
+    {
+      "gitBlobSHA1": "128de828fa248443c8e66d407094fde6ad1a765d",
+      "sha256": "9a3e0b97652da7518f1dd4f5bf3e2038240682db9bb929410d9fd4b2d49cbae3",
+      "size": 246,
+      "upstreamPath": "Sources/Assembly/Core/ParsedInstruction.swift",
+      "vendorPath": "Sources/Core/ParsedInstruction.swift"
+    },
+    {
+      "gitBlobSHA1": "8011aa90bebd18cd2f3241096fdbe8919ef3a13e",
+      "sha256": "220145311620adca2f0fc24149976040f254f00fd4c81a25f942abbd9ea1924e",
+      "size": 3332,
+      "upstreamPath": "Sources/Assembly/Core/SourceParser.swift",
+      "vendorPath": "Sources/Core/SourceParser.swift"
+    }
+  ]
+}

@@ -1,0 +1,1874 @@
+{
+ "annotations": [],
+ "facts": [
+  {
+   "id": "f-006d3e0cb1db5342f579f4d2c582ffba",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[19]@0x852c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-006d3e0cb1db5342f579f4d2c582ffba",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Equatable"
+  },
+  {
+   "id": "f-096602cd544791a3b1553e91bf9149f6",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[14]@0x8518",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-096602cd544791a3b1553e91bf9149f6",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "N1Fixture.N1Named"
+  },
+  {
+   "id": "f-0cc2fb3f6b20605c79df2110f4ac286d",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[6]@0x854c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-0cc2fb3f6b20605c79df2110f4ac286d",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "inner",
+    "type": "{N1Fixture.N1Outer.Inner}",
+    "var": true
+   }
+  },
+  {
+   "id": "f-0d717d44ada814921163b2140903a6aa",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[4]@0x8544",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-0d717d44ada814921163b2140903a6aa",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Node"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-158d217921df4db1ea30cbdf6bfefe9b",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[1]@0x8538",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-158d217921df4db1ea30cbdf6bfefe9b",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Box"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": true
+  },
+  {
+   "id": "f-19ee45a2e0f1011237c0f70bd7009bdc",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-19ee45a2e0f1011237c0f70bd7009bdc",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "pause",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-1d8ca7a0d344c0b0f106e858d2100692",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[1]@0x8538",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-1d8ca7a0d344c0b0f106e858d2100692",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Box"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "struct"
+  },
+  {
+   "id": "f-21e087a9220e27834ff91b0e88328b9a",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[8]@0x8554",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-21e087a9220e27834ff91b0e88328b9a",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner.Mode"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "on",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-2a5ddb693c3dc3f71506d1ecd65c42e5",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[5]@0x8548",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-2a5ddb693c3dc3f71506d1ecd65c42e5",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Leaf"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "class"
+  },
+  {
+   "id": "f-2a77bb3fc7306900bb56bae202ea251d",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[9]@0x8504",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-2a77bb3fc7306900bb56bae202ea251d",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.CaseIterable"
+  },
+  {
+   "id": "f-2d8c1dc9d969c514dc4a00a4dd142e08",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[7]@0x8550",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-2d8c1dc9d969c514dc4a00a4dd142e08",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-2dd8803ad1be788b2aca108f29da8611",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[3]@0x8540",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-2dd8803ad1be788b2aca108f29da8611",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-33c981454466f8c164a0c6d64d38cc24",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[9]@0x8558",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-33c981454466f8c164a0c6d64d38cc24",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Generic2"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "order",
+    "type": "SayxG",
+    "var": true
+   }
+  },
+  {
+   "id": "f-34851493cd565da2c0266248d6184e4f",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[6]@0x854c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-34851493cd565da2c0266248d6184e4f",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-39456a07fbc2f2dc52dbbf421cd25c5d",
+   "kind": "Fact",
+   "predicate": "isPrivateOrLocal",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[10]@0x855c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-39456a07fbc2f2dc52dbbf421cd25c5d",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": true
+  },
+  {
+   "id": "f-3af23cf9d78e08c3c4e45fe0f42a8571",
+   "kind": "Fact",
+   "predicate": "isProtocol",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "protocols[0]@0x84d8",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-3af23cf9d78e08c3c4e45fe0f42a8571",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Shape"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": true
+  },
+  {
+   "id": "f-3ddeda2c3afafded87baa4bd0b2a9623",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[1]@0x8538",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-3ddeda2c3afafded87baa4bd0b2a9623",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Box"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "payload",
+    "type": "SayxG",
+    "var": true
+   }
+  },
+  {
+   "id": "f-3f13ba738cbf692ecac9572d3f24df4c",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[3]@0x8540",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-3f13ba738cbf692ecac9572d3f24df4c",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "enum"
+  },
+  {
+   "id": "f-4c5952fca9d45e2b66b3dd96ffacc690",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[4]@0x8544",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-4c5952fca9d45e2b66b3dd96ffacc690",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Node"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "children",
+    "type": "Say{N1Fixture.N1Node}G",
+    "var": true
+   }
+  },
+  {
+   "id": "f-4d16052f4fa3e431853cff218a4628af",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[1]@0x8538",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-4d16052f4fa3e431853cff218a4628af",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Box"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "size",
+    "type": "Sd_Sdt",
+    "var": true
+   }
+  },
+  {
+   "id": "f-55eae5348ce8b5d7b160e16b18bae454",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[17]@0x8524",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-55eae5348ce8b5d7b160e16b18bae454",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.CustomStringConvertible"
+  },
+  {
+   "id": "f-59400f96ee5a96548002cf230e740019",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[4]@0x8544",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-59400f96ee5a96548002cf230e740019",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Node"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "class"
+  },
+  {
+   "id": "f-5ae7f566ed2dbd6044f63e6ae59f9cf0",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[9]@0x8558",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-5ae7f566ed2dbd6044f63e6ae59f9cf0",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Generic2"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "struct"
+  },
+  {
+   "id": "f-5b0cd8f76c8b5c5dd4d2b761e6499cca",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[8]@0x8500",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-5b0cd8f76c8b5c5dd4d2b761e6499cca",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.RawRepresentable"
+  },
+  {
+   "id": "f-5c3af1e4364532dcca1a7586be9ff454",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[18]@0x8528",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-5c3af1e4364532dcca1a7586be9ff454",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Hashable"
+  },
+  {
+   "id": "f-6422dbe6731007e8f68144e73cb0d54a",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[20]@0x8530",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-6422dbe6731007e8f68144e73cb0d54a",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.CodingKey"
+  },
+  {
+   "id": "f-65a7ba4e96b7e52435a952310e020e4c",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[7]@0x84fc",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-65a7ba4e96b7e52435a952310e020e4c",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Hashable"
+  },
+  {
+   "id": "f-66de29ff6affce7b3c280e3ef6deaf14",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[8]@0x8554",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-66de29ff6affce7b3c280e3ef6deaf14",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner.Mode"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "off",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-6bd1ff37ef508c41c0057998ebd5fffa",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[10]@0x855c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-6bd1ff37ef508c41c0057998ebd5fffa",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "tag",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-6db38fdca20fa71770b31b50d1e63eef",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[7]@0x8550",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-6db38fdca20fa71770b31b50d1e63eef",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "label",
+    "type": "SS",
+    "var": true
+   }
+  },
+  {
+   "id": "f-7182ac675b70c0830ae51d0e6bc023d2",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[0]@0x8534",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-7182ac675b70c0830ae51d0e6bc023d2",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-72b31199541a794e046ac8101985967d",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[6]@0x84f8",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-72b31199541a794e046ac8101985967d",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Equatable"
+  },
+  {
+   "id": "f-76d94c3966ef8cc349975254abc003f9",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[8]@0x8554",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-76d94c3966ef8cc349975254abc003f9",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner.Mode"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "enum"
+  },
+  {
+   "id": "f-779e3aa9f591f866149685a49e53c2f9",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[7]@0x8550",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-779e3aa9f591f866149685a49e53c2f9",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "struct"
+  },
+  {
+   "id": "f-7841e331efded882e7dbbe969c724f65",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-7841e331efded882e7dbbe969c724f65",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "stop",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-7b2d94dc0b657ae7379d76fb267b7ce8",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[10]@0x855c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-7b2d94dc0b657ae7379d76fb267b7ce8",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "y",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-7bef19164e156bef425fd220b4ccb76f",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[5]@0x8548",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-7bef19164e156bef425fd220b4ccb76f",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Leaf"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "label",
+    "type": "SS",
+    "var": true
+   }
+  },
+  {
+   "id": "f-83370c4528504b30e8b5db5996a553a0",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[9]@0x8558",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-83370c4528504b30e8b5db5996a553a0",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Generic2"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": true
+  },
+  {
+   "id": "f-89b9b38b1bf4cc4a910f17b9f55e4331",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[15]@0x851c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-89b9b38b1bf4cc4a910f17b9f55e4331",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Generic2"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Equatable"
+  },
+  {
+   "id": "f-8acdbff9be9255efc402d5a8ae71435e",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[5]@0x84f4",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-8acdbff9be9255efc402d5a8ae71435e",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Equatable"
+  },
+  {
+   "id": "f-8fd382381fac117410a4444c577878d7",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[0]@0x8534",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-8fd382381fac117410a4444c577878d7",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "struct"
+  },
+  {
+   "id": "f-9260918c01733e850a2c82e4211bf31b",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[0]@0x84e0",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-9260918c01733e850a2c82e4211bf31b",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Hashable"
+  },
+  {
+   "id": "f-939991e2aba0c96aacc8ddf392cf8f75",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-939991e2aba0c96aacc8ddf392cf8f75",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": true,
+    "name": "sequence",
+    "payload": "{N1Fixture.N1Command}_AAt"
+   }
+  },
+  {
+   "id": "f-9aa66910fae1b2596a7ba5854777bf2b",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[1]@0x8538",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-9aa66910fae1b2596a7ba5854777bf2b",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Box"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "origin",
+    "type": "{N1Fixture.N1Point}",
+    "var": true
+   }
+  },
+  {
+   "id": "f-9e3f28149b19fb0b380cc1c4f78cab0a",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[4]@0x8544",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-9e3f28149b19fb0b380cc1c4f78cab0a",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Node"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "parent",
+    "type": "{N1Fixture.N1Node}SgXw",
+    "var": true
+   }
+  },
+  {
+   "id": "f-9e8c3161458ea6bcface04928f479389",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[3]@0x8540",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-9e8c3161458ea6bcface04928f479389",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "gamma",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-a0789a047fef36d85094b17d4ddae488",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[13]@0x8514",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-a0789a047fef36d85094b17d4ddae488",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "N1Fixture.N1Named"
+  },
+  {
+   "id": "f-a3cd27b50d717a18f2150e878c161483",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[6]@0x854c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-a3cd27b50d717a18f2150e878c161483",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "struct"
+  },
+  {
+   "id": "f-a5deb1fe599fc1ca2a00dde77c4ccfdc",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[11]@0x850c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-a5deb1fe599fc1ca2a00dde77c4ccfdc",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner.Mode"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Equatable"
+  },
+  {
+   "id": "f-a8405830a45088acda40edc387711b27",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[10]@0x855c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-a8405830a45088acda40edc387711b27",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "enum"
+  },
+  {
+   "id": "f-aa19d18f3dcffb708064e6ec90ae6b91",
+   "kind": "Fact",
+   "predicate": "superclass",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[5]@0x8548",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-aa19d18f3dcffb708064e6ec90ae6b91",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Leaf"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "{N1Fixture.N1Node}"
+  },
+  {
+   "id": "f-ab5973dd6516a1deee34bf1feaedffe8",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[7]@0x8550",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-ab5973dd6516a1deee34bf1feaedffe8",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "mode",
+    "type": "{N1Fixture.N1Outer.Inner.Mode}",
+    "var": true
+   }
+  },
+  {
+   "id": "f-af9420e1defe1269c5bdda930ef02d09",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[8]@0x8554",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-af9420e1defe1269c5bdda930ef02d09",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner.Mode"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-b0d22914bce6c2e805a9e98a291d1a0c",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[10]@0x8508",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-b0d22914bce6c2e805a9e98a291d1a0c",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Leaf"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "N1Fixture.N1Named"
+  },
+  {
+   "id": "f-b64119e2884f68c4d2d1b0daec634c7a",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[0]@0x8534",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-b64119e2884f68c4d2d1b0daec634c7a",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "y",
+    "type": "Sd",
+    "var": true
+   }
+  },
+  {
+   "id": "f-ba5909c749152d4c142e037fab261cde",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[1]@0x84e4",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-ba5909c749152d4c142e037fab261cde",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Decodable"
+  },
+  {
+   "id": "f-c1ac22d66ca34399861c9390fffa8b53",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[10]@0x855c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-c1ac22d66ca34399861c9390fffa8b53",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-c59940e4816bac6338e50a67292177d8",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-c59940e4816bac6338e50a67292177d8",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-d0a2fc71eec8548b0e3af7f388cbded9",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[3]@0x8540",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-d0a2fc71eec8548b0e3af7f388cbded9",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "beta",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-d186724c85b21ef7776a84ead429ac82",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[3]@0x8540",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-d186724c85b21ef7776a84ead429ac82",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Flag"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "alpha",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-d5a9f96d0e776b49912ab5ed2c2b2de3",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[16]@0x8520",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-d5a9f96d0e776b49912ab5ed2c2b2de3",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.CustomDebugStringConvertible"
+  },
+  {
+   "id": "f-d6b3457974f309b23958228ad574cfba",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-d6b3457974f309b23958228ad574cfba",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "move",
+    "payload": "Si2dx_Si2dyt"
+   }
+  },
+  {
+   "id": "f-d990ac42f50930a460ec3e02585b6fa5",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[5]@0x8548",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-d990ac42f50930a460ec3e02585b6fa5",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Leaf"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "$__lazy_storage_$_cached",
+    "type": "SDySSSiGSg",
+    "var": true
+   }
+  },
+  {
+   "id": "f-dadb7a593fdb3bed297cf4c1c1373daf",
+   "kind": "Fact",
+   "predicate": "nominalKind",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-dadb7a593fdb3bed297cf4c1c1373daf",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "enum"
+  },
+  {
+   "id": "f-dc2cb0a8c3f293f84cae1d79dbe5540e",
+   "kind": "Fact",
+   "predicate": "isProtocol",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "protocols[1]@0x84dc",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-dc2cb0a8c3f293f84cae1d79dbe5540e",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Named"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": true
+  },
+  {
+   "id": "f-de4d42b4177cfe2b144878625e790a53",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[2]@0x84e8",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-de4d42b4177cfe2b144878625e790a53",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Encodable"
+  },
+  {
+   "id": "f-e34c427a3c82508814af16f64179a01e",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[3]@0x84ec",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-e34c427a3c82508814af16f64179a01e",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Equatable"
+  },
+  {
+   "id": "f-e8e102532e6c1fa7d5d0b4b269234aaa",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[9]@0x8558",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-e8e102532e6c1fa7d5d0b4b269234aaa",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Generic2"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "storage",
+    "type": "SDyxq_G",
+    "var": true
+   }
+  },
+  {
+   "id": "f-ecc57caa42fd9c2979cd828ba68f7f67",
+   "kind": "Fact",
+   "predicate": "isGeneric",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[5]@0x8548",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-ecc57caa42fd9c2979cd828ba68f7f67",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Leaf"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": false
+  },
+  {
+   "id": "f-edf9d49545274064492dab98657d485b",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[12]@0x8510",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-edf9d49545274064492dab98657d485b",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Outer.Inner.Mode"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "Swift.Hashable"
+  },
+  {
+   "id": "f-f0473c26f3b2aabb3bdc69fcb094d19a",
+   "kind": "Fact",
+   "predicate": "conformsTo",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "conformances[4]@0x84f0",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-f0473c26f3b2aabb3bdc69fcb094d19a",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Box"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": "N1Fixture.N1Shape"
+  },
+  {
+   "id": "f-f32d5df61768aeec73593b35f7009ab6",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[0]@0x8534",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-f32d5df61768aeec73593b35f7009ab6",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "tag",
+    "type": "{Swift.Int8}",
+    "var": true
+   }
+  },
+  {
+   "id": "f-f6eca1ce5c2012bb2a803fd4f8e06db4",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[10]@0x855c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-f6eca1ce5c2012bb2a803fd4f8e06db4",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point.CodingKeys"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "x",
+    "payload": null
+   }
+  },
+  {
+   "id": "f-f8140f951a8b163b0913127b8a5c0730",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[0]@0x8534",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-f8140f951a8b163b0913127b8a5c0730",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Point"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "x",
+    "type": "Sd",
+    "var": true
+   }
+  },
+  {
+   "id": "f-fa75350551affa9bd6dcb89bf81a8954",
+   "kind": "Fact",
+   "predicate": "storedField",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[4]@0x8544",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-fa75350551affa9bd6dcb89bf81a8954",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Node"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "name": "identifier",
+    "type": "Si",
+    "var": false
+   }
+  },
+  {
+   "id": "f-ff0af0ac7c943b1fb758b63ca65439ab",
+   "kind": "Fact",
+   "predicate": "enumCase",
+   "provenance": [
+    {
+     "kind": "metadataRecord",
+     "ref": "types[2]@0x853c",
+     "rule": "n1.swift-metadata",
+     "ruleVersion": "1"
+    }
+   ],
+   "revert": "revert:f-ff0af0ac7c943b1fb758b63ca65439ab",
+   "schemaVersion": 1,
+   "status": "authoritative",
+   "subject": {
+    "image": "libN1Fixture.so",
+    "kind": "type",
+    "ref": "N1Fixture.N1Command"
+   },
+   "toolchain": "swift-5.10.1-linux-x86_64",
+   "value": {
+    "indirect": false,
+    "name": "say",
+    "payload": "SS"
+   }
+  }
+ ],
+ "frontier": [],
+ "kind": "NavigatorEngineState",
+ "reverted": [],
+ "schemaVersion": 1,
+ "toolchain": "swift-5.10.1-linux-x86_64"
+}

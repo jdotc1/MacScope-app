@@ -1,0 +1,3 @@
+[submodule "ThirdParty/Lumen"]
+	path = ThirdParty/Lumen
+	url = https://github.com/jdotc1/Lumen.git

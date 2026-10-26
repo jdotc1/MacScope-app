@@ -1,0 +1,7 @@
+Process 70412 stopped
+* thread #1: tid = 0x341736, 0x0000000100000418, stop reason = breakpoint 1.1
+  thread #2: tid = 0x341747, 0x0000000191833308
+* thread #1: tid = 0x341736, stop reason = breakpoint 1.1
+  * frame #0: 0x0000000100000418 two`parse_header(x=3) at two.c:4:59
+    frame #1: 0x0000000100000464 two`main at two.c:5:84
+    frame #2: 0x00000001917a0d7c dyld`start + 6652

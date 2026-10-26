@@ -1,0 +1,5399 @@
+{
+  "comparison": "Exact canonical final line from swift-demangle --expand; the tree is retained in the external capture. No whitespace normalization or guessed expectations.",
+  "compiler": "swift-driver version: 1.168.6 Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.2.0",
+  "otherObjectRecords": {
+    "embedded-symbol-reference": [
+      {
+        "name": "_objc_classes_$s18ConformanceSamples5ModelCN",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_classes_$s18ConformanceSamples6BridgeCN",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_classes_$s18ConformanceSamples6RemoteCN",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_classes_$s18ConformanceSamples7CounterCN",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.45.$s18ConformanceSamples6RemoteC4echoyS2SYaKFTE",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11ActorSystem11Distributed0cA0PTl",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorP0B6SystemAC_AA0abC0Tn",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorP11actorSystem0bD0QzvgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorP15unownedExecutorScevgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorP7resolve2id5usingx2IDQz_0B6SystemQztKFZTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorPSHTb",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Distributed0A5ActorPs12IdentifiableTb",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s11Observation10ObservableMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s24SerializationRequirement11Distributed0C5ActorPTl",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$s2IDs12IdentifiablePTl",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSE6encode2toys7Encoder_p_tKFTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSEMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSH13_rawHashValue4seedS2i_tFTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSH4hash4intoys6HasherVz_tFTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSH9hashValueSivgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSHMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSHSQTb",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSQ2eeoiySbx_xtFZTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSQMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sScA15unownedExecutorScevgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sScAMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSe4fromxs7Decoder_p_tKcfCTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$sSeMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss12IdentifiableMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss12IdentifiableP2IDAB_SHTn",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss12IdentifiableP2id2IDQzvgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss5ErrorMp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss5ErrorP19_getEmbeddedNSErroryXlSgyFTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss5ErrorP5_codeSivgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss5ErrorP7_domainSSvgTq",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_got.$ss5ErrorP9_userInfoyXlSgvgTq",
+        "object": "Samples.o"
+      }
+    ],
+    "objc-runtime-record": [
+      {
+        "name": "_OBJC_CLASS_$_NSObject",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_OBJC_CLASS_$__TtC18ConformanceSamples6Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_OBJC_CLASS_$__TtCs12_SwiftObject",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_OBJC_METACLASS_$_NSObject",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_OBJC_METACLASS_$__TtC18ConformanceSamples6Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_OBJC_METACLASS_$__TtCs12_SwiftObject",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__DATA__TtC18ConformanceSamples5Model",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__DATA__TtC18ConformanceSamples6Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__DATA__TtC18ConformanceSamples6Remote",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__DATA__TtC18ConformanceSamples7Counter",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__INSTANCE_METHODS__TtC18ConformanceSamples6Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__IVARS__TtC18ConformanceSamples5Model",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__IVARS__TtC18ConformanceSamples6Remote",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__IVARS__TtC18ConformanceSamples7Counter",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__METACLASS_DATA__TtC18ConformanceSamples5Model",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__METACLASS_DATA__TtC18ConformanceSamples6Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__METACLASS_DATA__TtC18ConformanceSamples6Remote",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__METACLASS_DATA__TtC18ConformanceSamples7Counter",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.30._TtC18ConformanceSamples5Model",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.31._TtC18ConformanceSamples6Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.31._TtC18ConformanceSamples6Remote",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.32._TtC18ConformanceSamples7Counter",
+        "object": "Samples.o"
+      }
+    ],
+    "symbolic-metadata-label": [
+      {
+        "name": "_symbolic $s11Distributed0A5ActorP",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic $s18ConformanceSamples6SourceP",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic $ss12IdentifiableP",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic 7Element_____Qz 18ConformanceSamples6SourceP",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic BD",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic SS_____SS______pIetMHgTgozo_ 18ConformanceSamples6RemoteC s5ErrorP",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic Se_SEp",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic Si",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic So8NSObjectC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 11Distributed012LocalTestingA11ActorSystemC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 11Distributed19LocalTestingActorIDV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 11Observation0A9RegistrarV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples3BoxV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples5ModelC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples6BridgeC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples6RemoteC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples7CounterC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples7FailureO",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples7NumbersO",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples7WrappedV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ 18ConformanceSamples8SettingsV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ySSG 11Distributed18RemoteCallArgumentV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ySiG 18ConformanceSamples3BoxV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic _____ySiG 18ConformanceSamples7WrappedV",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_symbolic x",
+        "object": "Samples.o"
+      }
+    ],
+    "unmangled-runtime-or-local-label": [
+      {
+        "name": "L_selector(dealloc)",
+        "object": "Samples.o"
+      },
+      {
+        "name": "L_selector(init)",
+        "object": "Samples.o"
+      },
+      {
+        "name": "L_selector_data(dealloc)",
+        "object": "Samples.o"
+      },
+      {
+        "name": "L_selector_data(echo:)",
+        "object": "Samples.o"
+      },
+      {
+        "name": "L_selector_data(init)",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___chkstk_darwin",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_async_cont_functlets",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_async_entry_functlets",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_async_ret_functlets",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_closure_destructor",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_instantiateConcreteTypeFromMangledNameAbstractV2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_instantiateConcreteTypeFromMangledNameV2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_instantiateGenericMetadata",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_memcpy0_1",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_noop_void_return",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_project_boxed_opaque_existential_1",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_reflection_version",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__objc_empty_cache",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftCoreFoundation",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftCoreFoundation_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftDispatch",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftDispatch_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftFoundation",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftFoundation_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftIOKit",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftIOKit_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftObjectiveC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftObjectiveC_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftXPC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swiftXPC_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swift_Builtin_float",
+        "object": "Samples.o"
+      },
+      {
+        "name": "__swift_FORCE_LOAD_$_swift_Builtin_float_$_ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_associated conformance 18ConformanceSamples6RemoteC11Distributed0D5ActorAA0E6SystemAdEP_AD0deF0",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_associated conformance 18ConformanceSamples6RemoteC11Distributed0D5ActorAASH",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_associated conformance 18ConformanceSamples6RemoteC11Distributed0D5ActorAAs12Identifiable",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_associated conformance 18ConformanceSamples6RemoteCSHAASQ",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_associated conformance 18ConformanceSamples6RemoteCs12IdentifiableAA2IDsADP_SH",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_associated conformance 18ConformanceSamples7FailureOSHAASQ",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_free",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_get_witness_table 18ConformanceSamples3BoxVySiGAA6SourceHPyHC.10",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_allocWithZone",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_autoreleaseReturnValue",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_msgSend$init",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_msgSendSuper2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_opt_self",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_release",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_objc_retain",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_allocObject",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_allocateGenericValueMetadata",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_beginAccess",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_bridgeObjectRelease",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_bridgeObjectRetain",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_checkMetadataState",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_conformsToProtocol2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_coroFrameAlloc",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_deallocClassInstance",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_deallocObject",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_defaultActor_deallocate",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_defaultActor_destroy",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_defaultActor_initialize",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_distributedActor_remote_initialize",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_distributed_actor_is_remote",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_endAccess",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getEnumTagSinglePayloadGeneric",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getGenericMetadata",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getKeyPath",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getSingletonMetadata",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getTypeByMangledNameInContext2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getTypeByMangledNameInContextInMetadataState2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_getWitnessTable",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_initStructMetadata",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_release",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_retain",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_storeEnumTagSinglePayloadGeneric",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_task_alloc",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_task_dealloc",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_task_switch",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_unknownObjectRelease",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_unknownObjectRetain",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_updateClassMetadata2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_willThrowTyped",
+        "object": "Samples.o"
+      },
+      {
+        "name": "_swift_willThrowTypedImpl",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.0.",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.10.@24@0:8@16",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.11.actorSystem",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.13.$defaultActor",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.18.ConformanceSamples",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.2.id",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.22._$observationRegistrar",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.3.Box",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.5.Model",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.5.value",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.5.value.9",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.6.Bridge",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.6.Remote",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.6.Source",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.6._value",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.7.@16@0:8",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.7.Counter",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.7.Element",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.7.Failure",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.7.Numbers",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.7.Wrapped",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_.str.8.Settings",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___swift_get_extra_inhabitant_index",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___swift_get_extra_inhabitant_index.7",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___swift_store_extra_inhabitant_index",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___swift_store_extra_inhabitant_index.8",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_1",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_10",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_11",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_12",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_13",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_3",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_4",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_5",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_6",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_7",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_8",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l___unnamed_9",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l__swift5_reflection_descriptor",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_get_witness_table 18ConformanceSamples3BoxVySiGAA6SourceHPyHC",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_keypath",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_keypath_once",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_llvm.swift_module_hash",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_metadata",
+        "object": "Samples.o"
+      },
+      {
+        "name": "l_type_layout_96_16_0_pod",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp0",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp1",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp10",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp11",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp12",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp13",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp14",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp15",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp16",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp17",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp18",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp19",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp2",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp20",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp21",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp22",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp23",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp24",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp25",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp26",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp27",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp28",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp29",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp3",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp30",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp4",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp5",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp6",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp7",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp8",
+        "object": "Samples.o"
+      },
+      {
+        "name": "ltmp9",
+        "object": "Samples.o"
+      },
+      {
+        "name": "___swift_reflection_version",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "l_llvm.swift_module_hash",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "ltmp0",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "ltmp1",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "ltmp2",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "ltmp3",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "ltmp4",
+        "object": "WeakLibrary.o"
+      },
+      {
+        "name": "___swift_reflection_version",
+        "object": "WeakUse.o"
+      },
+      {
+        "name": "l_llvm.swift_module_hash",
+        "object": "WeakUse.o"
+      },
+      {
+        "name": "ltmp0",
+        "object": "WeakUse.o"
+      },
+      {
+        "name": "ltmp1",
+        "object": "WeakUse.o"
+      },
+      {
+        "name": "ltmp2",
+        "object": "WeakUse.o"
+      },
+      {
+        "name": "ltmp3",
+        "object": "WeakUse.o"
+      },
+      {
+        "name": "ltmp4",
+        "object": "WeakUse.o"
+      }
+    ]
+  },
+  "sampleKinds": [
+    "generics",
+    "associated-types",
+    "primary-associated-types",
+    "existentials",
+    "closures-and-captures",
+    "async",
+    "throws",
+    "typed-throws",
+    "property-wrappers",
+    "result-builders",
+    "macro-expansions",
+    "parameter-packs",
+    "opaque-types",
+    "actors",
+    "distributed-actors",
+    "objc-bridging",
+    "has-symbol"
+  ],
+  "schemaVersion": 1,
+  "scope": "Every global and local stable Swift symbol in the three sample object symbol tables, including undefined references. No system binary input.",
+  "symbols": [
+    {
+      "expected": "associated type descriptor for Distributed.DistributedActor.ActorSystem",
+      "mangled": "$s11ActorSystem11Distributed0cA0PTl",
+      "origins": [
+        {
+          "nmName": "_$s11ActorSystem11Distributed0cA0PTl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.LocalTestingDistributedActorSystem.remoteCall<A, B, C where A: Distributed.DistributedActor, B: Swift.Error, C: Swift.Decodable, C: Swift.Encodable, A.ID == Distributed.LocalTestingActorID>(on: A, target: Distributed.RemoteCallTarget, invocation: inout Distributed.LocalTestingInvocationEncoder, throwing: B.Type, returning: C.Type) async throws -> C",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemC10remoteCall2on6target10invocation8throwing9returningq0_x_AA06RemoteG6TargetVAA0bC17InvocationEncoderVzq_mq0_mtYaKAA0aD0Rzs5ErrorR_SeR0_SER0_AA0bcD2IDV0R0Rtzr1_lF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemC10remoteCall2on6target10invocation8throwing9returningq0_x_AA06RemoteG6TargetVAA0bC17InvocationEncoderVzq_mq0_mtYaKAA0aD0Rzs5ErrorR_SeR0_SER0_AA0bcD2IDV0R0Rtzr1_lF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "async function pointer to Distributed.LocalTestingDistributedActorSystem.remoteCall<A, B, C where A: Distributed.DistributedActor, B: Swift.Error, C: Swift.Decodable, C: Swift.Encodable, A.ID == Distributed.LocalTestingActorID>(on: A, target: Distributed.RemoteCallTarget, invocation: inout Distributed.LocalTestingInvocationEncoder, throwing: B.Type, returning: C.Type) async throws -> C",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemC10remoteCall2on6target10invocation8throwing9returningq0_x_AA06RemoteG6TargetVAA0bC17InvocationEncoderVzq_mq0_mtYaKAA0aD0Rzs5ErrorR_SeR0_SER0_AA0bcD2IDV0R0Rtzr1_lFTu",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemC10remoteCall2on6target10invocation8throwing9returningq0_x_AA06RemoteG6TargetVAA0bC17InvocationEncoderVzq_mq0_mtYaKAA0aD0Rzs5ErrorR_SeR0_SER0_AA0bcD2IDV0R0Rtzr1_lFTu",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.LocalTestingDistributedActorSystem.makeInvocationEncoder() -> Distributed.LocalTestingInvocationEncoder",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemC21makeInvocationEncoderAA0bcgH0VyF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemC21makeInvocationEncoderAA0bcgH0VyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for Distributed.LocalTestingDistributedActorSystem : Distributed.DistributedActorSystem in Distributed",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemCAA0adE0AAMc",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemCAA0adE0AAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type Distributed.LocalTestingDistributedActorSystem and conformance Distributed.LocalTestingDistributedActorSystem : Distributed.DistributedActorSystem in Distributed",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemCAcA0adE0AAWL",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemCAcA0adE0AAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type Distributed.LocalTestingDistributedActorSystem and conformance Distributed.LocalTestingDistributedActorSystem : Distributed.DistributedActorSystem in Distributed",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemCAcA0adE0AAWl",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemCAcA0adE0AAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for Distributed.LocalTestingDistributedActorSystem",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemCMa",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemCMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for Distributed.LocalTestingDistributedActorSystem",
+      "mangled": "$s11Distributed012LocalTestingA11ActorSystemCMn",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012LocalTestingA11ActorSystemCMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.buildDefaultDistributedRemoteActorExecutor<A where A: Distributed.DistributedActor>(A) -> Swift.UnownedSerialExecutor",
+      "mangled": "$s11Distributed012buildDefaultA19RemoteActorExecutoryScexAA0aE0RzlF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed012buildDefaultA19RemoteActorExecutoryScexAA0aE0RzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "dispatch thunk of Distributed.DistributedActorSystem.actorReady<A where A1: Distributed.DistributedActor, A.ActorID == A1.ID>(A1) -> ()",
+      "mangled": "$s11Distributed0A11ActorSystemP10actorReadyyyqd__AA0aB0Rd__2IDQyd__0bF0RtzlFTj",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A11ActorSystemP10actorReadyyyqd__AA0aB0Rd__2IDQyd__0bF0RtzlFTj",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "dispatch thunk of Distributed.DistributedActorSystem.resolve<A where A1: Distributed.DistributedActor, A.ActorID == A1.ID>(id: A.ActorID, as: A1.Type) throws -> A1?",
+      "mangled": "$s11Distributed0A11ActorSystemP7resolve2id2asqd__Sg0B2IDQz_qd__mtKAA0aB0Rd__0G0Qyd__AIRSlFTj",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A11ActorSystemP7resolve2id2asqd__Sg0B2IDQz_qd__mtKAA0aB0Rd__0G0Qyd__AIRSlFTj",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "dispatch thunk of Distributed.DistributedActorSystem.assignID<A where A1: Distributed.DistributedActor, A.ActorID == A1.ID>(A1.Type) -> A.ActorID",
+      "mangled": "$s11Distributed0A11ActorSystemP8assignIDy0bE0Qzqd__mAA0aB0Rd__0E0Qyd__AFRSlFTj",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A11ActorSystemP8assignIDy0bE0Qzqd__mAA0aB0Rd__0E0Qyd__AFRSlFTj",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "dispatch thunk of Distributed.DistributedActorSystem.resignID(A.ActorID) -> ()",
+      "mangled": "$s11Distributed0A11ActorSystemP8resignIDyy0bE0QzFTj",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A11ActorSystemP8resignIDyy0bE0QzFTj",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Distributed.DistributedActor",
+      "mangled": "$s11Distributed0A5ActorMp",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated conformance descriptor for Distributed.DistributedActor.Distributed.DistributedActor.ActorSystem: Distributed.DistributedActorSystem",
+      "mangled": "$s11Distributed0A5ActorP0B6SystemAC_AA0abC0Tn",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorP0B6SystemAC_AA0abC0Tn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Distributed.DistributedActor.actorSystem.getter : A.ActorSystem",
+      "mangled": "$s11Distributed0A5ActorP11actorSystem0bD0QzvgTq",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorP11actorSystem0bD0QzvgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Distributed.DistributedActor.unownedExecutor.getter : Swift.UnownedSerialExecutor",
+      "mangled": "$s11Distributed0A5ActorP15unownedExecutorScevgTq",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorP15unownedExecutorScevgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for static Distributed.DistributedActor.resolve(id: A.ID, using: A.ActorSystem) throws -> A",
+      "mangled": "$s11Distributed0A5ActorP7resolve2id5usingx2IDQz_0B6SystemQztKFZTq",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorP7resolve2id5usingx2IDQz_0B6SystemQztKFZTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "static (extension in Distributed):Distributed.DistributedActor.== infix(A, A) -> Swift.Bool",
+      "mangled": "$s11Distributed0A5ActorPAAE2eeoiySbx_xtFZ",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorPAAE2eeoiySbx_xtFZ",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Distributed):Distributed.DistributedActor.hash(into: inout Swift.Hasher) -> ()",
+      "mangled": "$s11Distributed0A5ActorPAAE4hash4intoys6HasherVz_tF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorPAAE4hash4intoys6HasherVz_tF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Distributed):Distributed.DistributedActor< where A.ID: Swift.Encodable>.encode(to: Swift.Encoder) throws -> ()",
+      "mangled": "$s11Distributed0A5ActorPAASE2IDRpzrlE6encode2toys7Encoder_p_tKF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorPAASE2IDRpzrlE6encode2toys7Encoder_p_tKF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Distributed):Distributed.DistributedActor< where A.ID: Swift.Decodable>.init(from: Swift.Decoder) throws -> A",
+      "mangled": "$s11Distributed0A5ActorPAASe2IDRpzrlE4fromxs7Decoder_p_tKcfC",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorPAASe2IDRpzrlE4fromxs7Decoder_p_tKcfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base conformance descriptor for Distributed.DistributedActor: Swift.Hashable",
+      "mangled": "$s11Distributed0A5ActorPSHTb",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorPSHTb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base conformance descriptor for Distributed.DistributedActor: Swift.Identifiable",
+      "mangled": "$s11Distributed0A5ActorPs12IdentifiableTb",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed0A5ActorPs12IdentifiableTb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.__isLocalActor(Swift.AnyObject) -> Swift.Bool",
+      "mangled": "$s11Distributed14__isLocalActorySbyXlF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed14__isLocalActorySbyXlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for Distributed.RemoteCallTarget",
+      "mangled": "$s11Distributed16RemoteCallTargetVMa",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed16RemoteCallTargetVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.RemoteCallTarget.init(Swift.String) -> Distributed.RemoteCallTarget",
+      "mangled": "$s11Distributed16RemoteCallTargetVyACSScfC",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed16RemoteCallTargetVyACSScfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.RemoteCallArgument.init(label: Swift.String?, name: Swift.String, value: A) -> Distributed.RemoteCallArgument<A>",
+      "mangled": "$s11Distributed18RemoteCallArgumentV5label4name5valueACyxGSSSg_SSxtcfC",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed18RemoteCallArgumentV5label4name5valueACyxGSSSg_SSxtcfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for Distributed.RemoteCallArgument",
+      "mangled": "$s11Distributed18RemoteCallArgumentVMn",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed18RemoteCallArgumentVMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "mangled name ref for type metadata for Distributed.RemoteCallArgument<Swift.String>",
+      "mangled": "$s11Distributed18RemoteCallArgumentVySSGMR",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed18RemoteCallArgumentVySSGMR",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "demangling cache variable for type metadata for Distributed.RemoteCallArgument<Swift.String>",
+      "mangled": "$s11Distributed18RemoteCallArgumentVySSGMd",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed18RemoteCallArgumentVySSGMd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type Distributed.LocalTestingActorID and conformance Distributed.LocalTestingActorID : Swift.Encodable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVACSEAAWL",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVACSEAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type Distributed.LocalTestingActorID and conformance Distributed.LocalTestingActorID : Swift.Encodable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVACSEAAWl",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVACSEAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type Distributed.LocalTestingActorID and conformance Distributed.LocalTestingActorID : Swift.Hashable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVACSHAAWL",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVACSHAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type Distributed.LocalTestingActorID and conformance Distributed.LocalTestingActorID : Swift.Hashable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVACSHAAWl",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVACSHAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type Distributed.LocalTestingActorID and conformance Distributed.LocalTestingActorID : Swift.Decodable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVACSeAAWL",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVACSeAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type Distributed.LocalTestingActorID and conformance Distributed.LocalTestingActorID : Swift.Decodable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVACSeAAWl",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVACSeAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for Distributed.LocalTestingActorID",
+      "mangled": "$s11Distributed19LocalTestingActorIDVMa",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for Distributed.LocalTestingActorID",
+      "mangled": "$s11Distributed19LocalTestingActorIDVMn",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for Distributed.LocalTestingActorID : Swift.Encodable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVSEAAMc",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVSEAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for Distributed.LocalTestingActorID : Swift.Hashable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVSHAAMc",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVSHAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for Distributed.LocalTestingActorID : Swift.Decodable in Distributed",
+      "mangled": "$s11Distributed19LocalTestingActorIDVSeAAMc",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed19LocalTestingActorIDVSeAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.LocalTestingInvocationDecoder.decodeNextArgument<A where A: Swift.Decodable, A: Swift.Encodable>() throws -> A",
+      "mangled": "$s11Distributed29LocalTestingInvocationDecoderC18decodeNextArgumentxyKSeRzSERzlF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed29LocalTestingInvocationDecoderC18decodeNextArgumentxyKSeRzSERzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.LocalTestingInvocationEncoder.doneRecording() throws -> ()",
+      "mangled": "$s11Distributed29LocalTestingInvocationEncoderV13doneRecordingyyKF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed29LocalTestingInvocationEncoderV13doneRecordingyyKF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.LocalTestingInvocationEncoder.recordArgument<A where A: Swift.Decodable, A: Swift.Encodable>(Distributed.RemoteCallArgument<A>) throws -> ()",
+      "mangled": "$s11Distributed29LocalTestingInvocationEncoderV14recordArgumentyyAA010RemoteCallG0VyxGKSeRzSERzlF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed29LocalTestingInvocationEncoderV14recordArgumentyyAA010RemoteCallG0VyxGKSeRzSERzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Distributed.LocalTestingInvocationEncoder.recordReturnType<A where A: Swift.Decodable, A: Swift.Encodable>(A.Type) throws -> ()",
+      "mangled": "$s11Distributed29LocalTestingInvocationEncoderV16recordReturnTypeyyxmKSeRzSERzlF",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed29LocalTestingInvocationEncoderV16recordReturnTypeyyxmKSeRzSERzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for Distributed.LocalTestingInvocationEncoder",
+      "mangled": "$s11Distributed29LocalTestingInvocationEncoderVMa",
+      "origins": [
+        {
+          "nmName": "_$s11Distributed29LocalTestingInvocationEncoderVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Observation.ObservationRegistrar.withMutation<A, B, C where A: Observation.Observable>(of: A, keyPath: Swift.KeyPath<A, B>, _: () throws -> C) throws -> C",
+      "mangled": "$s11Observation0A9RegistrarV12withMutation2of7keyPath_q0_x_s03KeyG0Cyxq_Gq0_yKXEtKAA10ObservableRzr1_lF",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarV12withMutation2of7keyPath_q0_x_s03KeyG0Cyxq_Gq0_yKXEtKAA10ObservableRzr1_lF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Observation.ObservationRegistrar.access<A, B where A: Observation.Observable>(_: A, keyPath: Swift.KeyPath<A, B>) -> ()",
+      "mangled": "$s11Observation0A9RegistrarV6access_7keyPathyx_s03KeyE0Cyxq_GtAA10ObservableRzr0_lF",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarV6access_7keyPathyx_s03KeyE0Cyxq_GtAA10ObservableRzr0_lF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Observation.ObservationRegistrar.didSet<A, B where A: Observation.Observable>(_: A, keyPath: Swift.KeyPath<A, B>) -> ()",
+      "mangled": "$s11Observation0A9RegistrarV6didSet_7keyPathyx_s03KeyF0Cyxq_GtAA10ObservableRzr0_lF",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarV6didSet_7keyPathyx_s03KeyF0Cyxq_GtAA10ObservableRzr0_lF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Observation.ObservationRegistrar.willSet<A, B where A: Observation.Observable>(_: A, keyPath: Swift.KeyPath<A, B>) -> ()",
+      "mangled": "$s11Observation0A9RegistrarV7willSet_7keyPathyx_s03KeyF0Cyxq_GtAA10ObservableRzr0_lF",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarV7willSet_7keyPathyx_s03KeyF0Cyxq_GtAA10ObservableRzr0_lF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Observation.ObservationRegistrar.init() -> Observation.ObservationRegistrar",
+      "mangled": "$s11Observation0A9RegistrarVACycfC",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarVACycfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for Observation.ObservationRegistrar",
+      "mangled": "$s11Observation0A9RegistrarVMa",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for Observation.ObservationRegistrar",
+      "mangled": "$s11Observation0A9RegistrarVMn",
+      "origins": [
+        {
+          "nmName": "_$s11Observation0A9RegistrarVMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Observation.Observable",
+      "mangled": "$s11Observation10ObservableMp",
+      "origins": [
+        {
+          "nmName": "_$s11Observation10ObservableMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "WeakLibrary.optionalFeature() -> ()",
+      "mangled": "$s11WeakLibrary15optionalFeatureyyF",
+      "origins": [
+        {
+          "nmName": "_$s11WeakLibrary15optionalFeatureyyF",
+          "object": "WeakLibrary.o"
+        },
+        {
+          "nmName": "_$s11WeakLibrary15optionalFeatureyyF",
+          "object": "WeakUse.o"
+        }
+      ]
+    },
+    {
+      "expected": "#_hasSymbol query for WeakLibrary.optionalFeature() -> ()",
+      "mangled": "$s11WeakLibrary15optionalFeatureyyFTwS",
+      "origins": [
+        {
+          "nmName": "_$s11WeakLibrary15optionalFeatureyyFTwS",
+          "object": "WeakUse.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.hasFeature() -> Swift.Bool",
+      "mangled": "$s18ConformanceSamples10hasFeatureSbyF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples10hasFeatureSbyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.existential(any ConformanceSamples.Source<Self.ConformanceSamples.Source.Element == Swift.Int>) -> Swift.Int",
+      "mangled": "$s18ConformanceSamples11existentialySiAA6Source_pSi7ElementAaCPRts_XPF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples11existentialySiAA6Source_pSi7ElementAaCPRts_XPF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.asynchronous(@Sendable () async throws -> Swift.Int) async throws -> Swift.Int",
+      "mangled": "$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(1) await resume partial function for ConformanceSamples.asynchronous(@Sendable () async throws -> Swift.Int) async throws -> Swift.Int",
+      "mangled": "$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTQ0_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTQ0_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(2) suspend resume partial function for ConformanceSamples.asynchronous(@Sendable () async throws -> Swift.Int) async throws -> Swift.Int",
+      "mangled": "$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTY1_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTY1_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(3) suspend resume partial function for ConformanceSamples.asynchronous(@Sendable () async throws -> Swift.Int) async throws -> Swift.Int",
+      "mangled": "$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTY2_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTY2_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "async function pointer to ConformanceSamples.asynchronous(@Sendable () async throws -> Swift.Int) async throws -> Swift.Int",
+      "mangled": "$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTu",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples12asynchronousyS2iyYaYbKXEYaKFTu",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.optionalFeature() -> ()",
+      "mangled": "$s18ConformanceSamples15optionalFeatureyyF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples15optionalFeatureyyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.map<A>((A) throws -> A1) throws -> ConformanceSamples.Box<A1>",
+      "mangled": "$s18ConformanceSamples3BoxV3mapyACyqd__Gqd__xKXEKlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV3mapyACyqd__Gqd__xKXEKlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.read() -> A",
+      "mangled": "$s18ConformanceSamples3BoxV4readxyF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV4readxyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.value.modify : A",
+      "mangled": "$s18ConformanceSamples3BoxV5valuexvM",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV5valuexvM",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.value.modify : A with unmangled suffix \".resume.0\"",
+      "mangled": "$s18ConformanceSamples3BoxV5valuexvM.resume.0",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV5valuexvM.resume.0",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.value.getter : A",
+      "mangled": "$s18ConformanceSamples3BoxV5valuexvg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV5valuexvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Box.value : A",
+      "mangled": "$s18ConformanceSamples3BoxV5valuexvpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV5valuexvpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.value.setter : A",
+      "mangled": "$s18ConformanceSamples3BoxV5valuexvs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxV5valuexvs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples3BoxVHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata instantiation cache for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMI",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMI",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "generic type metadata pattern for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMP",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata instantiation function for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata completion function for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVMr",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVMr",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVWV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVWV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "initializeBufferWithCopyOfBuffer value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwCP",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwCP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "assignWithCopy value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwca",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwca",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "initializeWithCopy value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwcp",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwcp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "getEnumTagSinglePayload value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwet",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwet",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "storeEnumTagSinglePayload value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwst",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwst",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "assignWithTake value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwta",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwta",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "initializeWithTake value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwtk",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwtk",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "destroy value witness for ConformanceSamples.Box",
+      "mangled": "$s18ConformanceSamples3BoxVwxx",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVwxx",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Box.init(A) -> ConformanceSamples.Box<A>",
+      "mangled": "$s18ConformanceSamples3BoxVyACyxGxcfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyACyxGxcfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Box<Swift.Int> and conformance ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVySiGACyxGAA6SourceAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVySiGACyxGAA6SourceAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Box<Swift.Int> and conformance ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVySiGACyxGAA6SourceAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVySiGACyxGAA6SourceAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "mangled name ref for type metadata for ConformanceSamples.Box<Swift.Int>",
+      "mangled": "$s18ConformanceSamples3BoxVySiGMR",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVySiGMR",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "demangling cache variable for type metadata for ConformanceSamples.Box<Swift.Int>",
+      "mangled": "$s18ConformanceSamples3BoxVySiGMd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVySiGMd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for ConformanceSamples.Source.read() -> A.Element in conformance ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVyxGAA6SourceA2aEP4read7ElementQzyFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGAA6SourceA2aEP4read7ElementQzyFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVyxGAA6SourceAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples3BoxVyxGAA6SourceAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata associated type descriptor ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVyxGAA6SourceAAMA",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGAA6SourceAAMA",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVyxGAA6SourceAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGAA6SourceAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVyxGAA6SourceAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGAA6SourceAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness table pattern for ConformanceSamples.Box<A> : ConformanceSamples.Source in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples3BoxVyxGAA6SourceAAWp",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGAA6SourceAAWp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "outlined init with copy of ConformanceSamples.Box<A>",
+      "mangled": "$s18ConformanceSamples3BoxVyxGlWOc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGlWOc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "outlined destroy of ConformanceSamples.Box<A>",
+      "mangled": "$s18ConformanceSamples3BoxVyxGlWOh",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples3BoxVyxGlWOh",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.pack<each A>(repeat A) -> (repeat A)",
+      "mangled": "$s18ConformanceSamples4packyxxQp_txxQpRvzlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples4packyxxQp_txxQpRvzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.read<A where A: ConformanceSamples.Source>(A) -> A.Element",
+      "mangled": "$s18ConformanceSamples4ready7ElementQzxAA6SourceRzlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples4ready7ElementQzxAA6SourceRzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Model : Observation.Observable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples5ModelC11Observation10ObservableAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples5ModelC11Observation10ObservableAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Model : Observation.Observable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples5ModelC11Observation10ObservableAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC11Observation10ObservableAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Model : Observation.Observable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples5ModelC11Observation10ObservableAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC11Observation10ObservableAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.withMutation<A, B>(keyPath: Swift.KeyPath<ConformanceSamples.Model, A>, _: () throws -> B) throws -> B",
+      "mangled": "$s18ConformanceSamples5ModelC12withMutation7keyPath_q_s03KeyG0CyACxG_q_yKXEtKr0_lF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC12withMutation7keyPath_q_s03KeyG0CyACxG_q_yKXEtKr0_lF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(shouldNotifyObservers in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C)<A where A: AnyObject, A: Swift.Equatable>(A, A) -> Swift.Bool",
+      "mangled": "$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtRlzCSQRzlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtRlzCSQRzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(shouldNotifyObservers in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C)<A where A: AnyObject>(A, A) -> Swift.Bool",
+      "mangled": "$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtRlzClF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtRlzClF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(shouldNotifyObservers in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C)<A where A: Swift.Equatable>(A, A) -> Swift.Bool",
+      "mangled": "$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtSQRzlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtSQRzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(shouldNotifyObservers in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C)<A>(A, A) -> Swift.Bool",
+      "mangled": "$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC21shouldNotifyObservers33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLySbx_xtlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(_$observationRegistrar in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C).getter : Observation.ObservationRegistrar",
+      "mangled": "$s18ConformanceSamples5ModelC22_$observationRegistrar33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLL11Observation0qE0Vvg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC22_$observationRegistrar33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLL11Observation0qE0Vvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "direct field offset for ConformanceSamples.Model.(_$observationRegistrar in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C) : Observation.ObservationRegistrar",
+      "mangled": "$s18ConformanceSamples5ModelC22_$observationRegistrar33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLL11Observation0qE0VvpWvd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC22_$observationRegistrar33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLL11Observation0qE0VvpWvd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "variable initialization expression of ConformanceSamples.Model.(_$observationRegistrar in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C) : Observation.ObservationRegistrar",
+      "mangled": "$s18ConformanceSamples5ModelC22_$observationRegistrar33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLL11Observation0qE0Vvpfi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC22_$observationRegistrar33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLL11Observation0qE0Vvpfi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.value.modify : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivM",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivM",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.value.modify : Swift.Int with unmangled suffix \".resume.0\"",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivM.resume.0",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivM.resume.0",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "$defer #1 () -> () in ConformanceSamples.Model.value.modify : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivM6$deferL_yyF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivM6$deferL_yyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.value.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.value.init : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "key path getter for ConformanceSamples.Model.value : Swift.Int : ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivpACTK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivpACTK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "key path setter for ConformanceSamples.Model.value : Swift.Int : ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivpACTk",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivpACTk",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Model.value : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "variable initialization expression of ConformanceSamples.Model.value : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivpfi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivpfi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.value.setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "closure #1 () -> () in ConformanceSamples.Model.value.setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivsyyXEfU_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivsyyXEfU_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "partial apply forwarder for closure #1 () -> () in ConformanceSamples.Model.value.setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC5valueSivsyyXEfU_TA",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC5valueSivsyyXEfU_TA",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(_value in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C).getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC6_value33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLSivg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC6_value33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "direct field offset for ConformanceSamples.Model.(_value in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C) : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC6_value33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLSivpWvd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC6_value33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLSivpWvd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.(_value in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C).setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples5ModelC6_value33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLSivs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC6_value33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLSivs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.access<A>(keyPath: Swift.KeyPath<ConformanceSamples.Model, A>) -> ()",
+      "mangled": "$s18ConformanceSamples5ModelC6access7keyPathys03KeyF0CyACxG_tlF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelC6access7keyPathys03KeyF0CyACxG_tlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Model and conformance ConformanceSamples.Model : Observation.Observable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples5ModelCAC11Observation10ObservableAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCAC11Observation10ObservableAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Model and conformance ConformanceSamples.Model : Observation.Observable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples5ModelCAC11Observation10ObservableAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCAC11Observation10ObservableAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.__allocating_init() -> ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCACycfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCACycfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Model.__allocating_init() -> ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCACycfCTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCACycfCTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.init() -> ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCACycfc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCACycfc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples5ModelCHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ObjC metadata update function for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMU",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMU",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata singleton initialization cache for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metaclass for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMm",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMm",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata completion function for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCMr",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCMr",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Model",
+      "mangled": "$s18ConformanceSamples5ModelCN",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.__deallocating_deinit",
+      "mangled": "$s18ConformanceSamples5ModelCfD",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCfD",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Model.deinit",
+      "mangled": "$s18ConformanceSamples5ModelCfd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5ModelCfd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.build(() -> [Swift.Int]) -> [Swift.Int]",
+      "mangled": "$s18ConformanceSamples5buildySaySiGACyXEF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5buildySaySiGACyXEF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.built() -> [Swift.Int]",
+      "mangled": "$s18ConformanceSamples5builtSaySiGyF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5builtSaySiGyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "closure #1 () -> [Swift.Int] in ConformanceSamples.built() -> [Swift.Int]",
+      "mangled": "$s18ConformanceSamples5builtSaySiGyFACyXEfU_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5builtSaySiGyFACyXEfU_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.typed(Swift.Int) throws(ConformanceSamples.Failure) -> Swift.Int",
+      "mangled": "$s18ConformanceSamples5typedyS2iAA7FailureOYKF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples5typedyS2iAA7FailureOYKF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Bridge.echo(__C.NSString) -> __C.NSString",
+      "mangled": "$s18ConformanceSamples6BridgeC4echoySo8NSStringCAFF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeC4echoySo8NSStringCAFF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "@objc ConformanceSamples.Bridge.echo(__C.NSString) -> __C.NSString",
+      "mangled": "$s18ConformanceSamples6BridgeC4echoySo8NSStringCAFFTo",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeC4echoySo8NSStringCAFFTo",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Bridge.echo(__C.NSString) -> __C.NSString",
+      "mangled": "$s18ConformanceSamples6BridgeC4echoySo8NSStringCAFFTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeC4echoySo8NSStringCAFFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Bridge.__allocating_init() -> ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCACycfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCACycfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Bridge.init() -> ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCACycfc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCACycfc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "@objc ConformanceSamples.Bridge.init() -> ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCACycfcTo",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCACycfcTo",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6BridgeCHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Bridge",
+      "mangled": "$s18ConformanceSamples6BridgeCN",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Bridge.__deallocating_deinit",
+      "mangled": "$s18ConformanceSamples6BridgeCfD",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6BridgeCfD",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated type witness table accessor for Distributed.DistributedActor.ActorSystem : Distributed.DistributedActorSystem in ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAA0E6SystemAdEP_AD0deF0PWT",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAA0E6SystemAdEP_AD0deF0PWT",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata associated type descriptor ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAMA",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAMA",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base witness table accessor for Swift.Hashable in ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAASHWb",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAASHWb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base witness table accessor for Swift.Identifiable in ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAs12IdentifiablePWb",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAAs12IdentifiablePWb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Distributed.DistributedActor.actorSystem.getter : A.ActorSystem in conformance ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAadEP11actorSystem0eG0QzvgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAadEP11actorSystem0eG0QzvgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Distributed.DistributedActor.unownedExecutor.getter : Swift.UnownedSerialExecutor in conformance ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAadEP15unownedExecutorScevgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAadEP15unownedExecutorScevgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for static Distributed.DistributedActor.resolve(id: A.ID, using: A.ActorSystem) throws -> A in conformance ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteC11Distributed0D5ActorAadEP7resolve2id5usingx2IDQz_0E6SystemQztKFZTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11Distributed0D5ActorAadEP7resolve2id5usingx2IDQz_0E6SystemQztKFZTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.actorSystem.getter : Distributed.LocalTestingDistributedActorSystem",
+      "mangled": "$s18ConformanceSamples6RemoteC11actorSystem11Distributed012LocalTestingf5ActorE0Cvg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11actorSystem11Distributed012LocalTestingf5ActorE0Cvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Remote.actorSystem : Distributed.LocalTestingDistributedActorSystem",
+      "mangled": "$s18ConformanceSamples6RemoteC11actorSystem11Distributed012LocalTestingf5ActorE0CvpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11actorSystem11Distributed012LocalTestingf5ActorE0CvpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "direct field offset for ConformanceSamples.Remote.actorSystem : Distributed.LocalTestingDistributedActorSystem",
+      "mangled": "$s18ConformanceSamples6RemoteC11actorSystem11Distributed012LocalTestingf5ActorE0CvpWvd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11actorSystem11Distributed012LocalTestingf5ActorE0CvpWvd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.__allocating_init(actorSystem: Distributed.LocalTestingDistributedActorSystem) -> ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteC11actorSystemAC11Distributed012LocalTestingf5ActorE0C_tcfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11actorSystemAC11Distributed012LocalTestingf5ActorE0C_tcfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Remote.__allocating_init(actorSystem: Distributed.LocalTestingDistributedActorSystem) -> ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteC11actorSystemAC11Distributed012LocalTestingf5ActorE0C_tcfCTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11actorSystemAC11Distributed012LocalTestingf5ActorE0C_tcfCTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.init(actorSystem: Distributed.LocalTestingDistributedActorSystem) -> ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteC11actorSystemAC11Distributed012LocalTestingf5ActorE0C_tcfc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC11actorSystemAC11Distributed012LocalTestingf5ActorE0C_tcfc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.unownedExecutor.getter : Swift.UnownedSerialExecutor",
+      "mangled": "$s18ConformanceSamples6RemoteC15unownedExecutorScevg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC15unownedExecutorScevg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Remote.unownedExecutor : Swift.UnownedSerialExecutor",
+      "mangled": "$s18ConformanceSamples6RemoteC15unownedExecutorScevpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC15unownedExecutorScevpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.id.getter : Distributed.LocalTestingActorID",
+      "mangled": "$s18ConformanceSamples6RemoteC2id11Distributed19LocalTestingActorIDVvg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC2id11Distributed19LocalTestingActorIDVvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Remote.id : Distributed.LocalTestingActorID",
+      "mangled": "$s18ConformanceSamples6RemoteC2id11Distributed19LocalTestingActorIDVvpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC2id11Distributed19LocalTestingActorIDVvpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "direct field offset for ConformanceSamples.Remote.id : Distributed.LocalTestingActorID",
+      "mangled": "$s18ConformanceSamples6RemoteC2id11Distributed19LocalTestingActorIDVvpWvd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC2id11Distributed19LocalTestingActorIDVvpWvd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.echo(Swift.String) -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Remote.echo(Swift.String) -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SFTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTE",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTE",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "accessible function runtime record for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTEHF",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTEHF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "distributed accessor for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(1) await resume partial function for distributed accessor for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETFTQ0_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETFTQ0_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "async function pointer to distributed accessor for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETFTu",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETFTu",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(2) await resume partial function for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETQ1_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETQ1_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(1) suspend resume partial function for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY0_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY0_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(3) suspend resume partial function for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY2_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY2_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(4) suspend resume partial function for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY3_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY3_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(5) suspend resume partial function for distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY4_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETY4_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "async function pointer to distributed thunk ConformanceSamples.Remote.echo(Swift.String) async throws -> Swift.String",
+      "mangled": "$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETu",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC4echoyS2SYaKFTETu",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "static ConformanceSamples.Remote.resolve(id: Distributed.LocalTestingActorID, using: Distributed.LocalTestingDistributedActorSystem) throws -> ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteC7resolve2id5usingAC11Distributed19LocalTestingActorIDV_AG0higJ6SystemCtKFZ",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC7resolve2id5usingAC11Distributed19LocalTestingActorIDV_AG0higJ6SystemCtKFZ",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.hashValue.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples6RemoteC9hashValueSivg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC9hashValueSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Remote.hashValue.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples6RemoteC9hashValueSivgTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC9hashValueSivgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Remote.hashValue : Swift.Int",
+      "mangled": "$s18ConformanceSamples6RemoteC9hashValueSivpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteC9hashValueSivpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCAC11Distributed0D5ActorAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCAC11Distributed0D5ActorAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Distributed.DistributedActor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCAC11Distributed0D5ActorAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCAC11Distributed0D5ActorAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCACSHAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCACSHAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCACSHAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCACSHAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCACSQAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCACSQAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCACSQAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCACSQAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCACs12IdentifiableAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCACs12IdentifiableAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Remote and conformance ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCACs12IdentifiableAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCACs12IdentifiableAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteCHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ObjC metadata update function for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMU",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMU",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata singleton initialization cache for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metaclass for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMm",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMm",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata completion function for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCMr",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCMr",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Remote",
+      "mangled": "$s18ConformanceSamples6RemoteCN",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Remote : Swift.Encodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSEAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteCSEAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Remote : Swift.Encodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSEAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSEAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Remote : Swift.Encodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSEAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSEAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Encodable.encode(to: Swift.Encoder) throws -> () in conformance ConformanceSamples.Remote : Swift.Encodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSEAASE6encode2toys7Encoder_p_tKFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSEAASE6encode2toys7Encoder_p_tKFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteCSHAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSHAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSHAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAASH13_rawHashValue4seedS2i_tFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSHAASH13_rawHashValue4seedS2i_tFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAASH4hash4intoys6HasherVz_tFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSHAASH4hash4intoys6HasherVz_tFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAASH9hashValueSivgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSHAASH9hashValueSivgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base witness table accessor for Swift.Equatable in ConformanceSamples.Remote : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSHAASQWb",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSHAASQWb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Remote : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSQAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteCSQAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Remote : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSQAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSQAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Remote : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSQAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSQAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ConformanceSamples.Remote : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSQAASQ2eeoiySbx_xtFZTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSQAASQ2eeoiySbx_xtFZTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Remote : Swift.Decodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSeAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteCSeAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Remote : Swift.Decodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSeAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSeAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Remote : Swift.Decodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSeAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSeAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Decodable.init(from: Swift.Decoder) throws -> A in conformance ConformanceSamples.Remote : Swift.Decodable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCSeAASe4fromxs7Decoder_p_tKcfCTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCSeAASe4fromxs7Decoder_p_tKcfCTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.__deallocating_deinit",
+      "mangled": "$s18ConformanceSamples6RemoteCfD",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCfD",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Remote.deinit",
+      "mangled": "$s18ConformanceSamples6RemoteCfd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCfd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated type witness table accessor for Swift.Identifiable.ID : Swift.Hashable in ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCs12IdentifiableAA2IDsADP_SHWT",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCs12IdentifiableAA2IDsADP_SHWT",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCs12IdentifiableAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6RemoteCs12IdentifiableAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata associated type descriptor ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCs12IdentifiableAAMA",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCs12IdentifiableAAMA",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCs12IdentifiableAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCs12IdentifiableAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCs12IdentifiableAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCs12IdentifiableAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Identifiable.id.getter : A.ID in conformance ConformanceSamples.Remote : Swift.Identifiable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples6RemoteCs12IdentifiableAAsADP2id2IDQzvgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6RemoteCs12IdentifiableAAsADP2id2IDQzvgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor runtime record for ConformanceSamples.Source",
+      "mangled": "$s18ConformanceSamples6SourceHr",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples6SourceHr",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for ConformanceSamples.Source",
+      "mangled": "$s18ConformanceSamples6SourceMp",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6SourceMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol requirements base descriptor for ConformanceSamples.Source",
+      "mangled": "$s18ConformanceSamples6SourceTL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6SourceTL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Source",
+      "mangled": "$s18ConformanceSamples6Source_pMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6Source_pMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.opaque(Swift.Int) -> some",
+      "mangled": "$s18ConformanceSamples6opaqueyQrSiF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6opaqueyQrSiF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "opaque type descriptor for <<opaque return type of ConformanceSamples.opaque(Swift.Int) -> some>>",
+      "mangled": "$s18ConformanceSamples6opaqueyQrSiFQOMQ",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples6opaqueyQrSiFQOMQ",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.unownedExecutor.getter : Swift.UnownedSerialExecutor",
+      "mangled": "$s18ConformanceSamples7CounterC15unownedExecutorScevg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC15unownedExecutorScevg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Counter.unownedExecutor : Swift.UnownedSerialExecutor",
+      "mangled": "$s18ConformanceSamples7CounterC15unownedExecutorScevpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC15unownedExecutorScevpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.next() -> Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC4nextSiyF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC4nextSiyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Counter.next() -> Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC4nextSiyFTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC4nextSiyFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.value.modify : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivM",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivM",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.value.modify : Swift.Int with unmangled suffix \".resume.0\"",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivM.resume.0",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivM.resume.0",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Counter.value.modify : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivMTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivMTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.value.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Counter.value.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivgTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Counter.value : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "direct field offset for ConformanceSamples.Counter.value : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivpWvd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivpWvd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "variable initialization expression of ConformanceSamples.Counter.value : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivpfi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivpfi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.value.setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Counter.value.setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples7CounterC5valueSivsTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterC5valueSivsTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.__allocating_init() -> ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCACycfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCACycfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for ConformanceSamples.Counter.__allocating_init() -> ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCACycfCTq",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCACycfCTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.init() -> ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCACycfc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCACycfc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7CounterCHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metaclass for ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCMm",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCMm",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Counter",
+      "mangled": "$s18ConformanceSamples7CounterCN",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Counter : Swift.Actor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7CounterCScAAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7CounterCScAAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Counter : Swift.Actor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7CounterCScAAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCScAAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Counter : Swift.Actor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7CounterCScAAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCScAAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Actor.unownedExecutor.getter : Swift.UnownedSerialExecutor in conformance ConformanceSamples.Counter : Swift.Actor in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7CounterCScAAAScA15unownedExecutorScevgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCScAAAScA15unownedExecutorScevgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.__deallocating_deinit",
+      "mangled": "$s18ConformanceSamples7CounterCfD",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCfD",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Counter.deinit",
+      "mangled": "$s18ConformanceSamples7CounterCfd",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7CounterCfd",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "static ConformanceSamples.Failure.__derived_enum_equals(ConformanceSamples.Failure, ConformanceSamples.Failure) -> Swift.Bool",
+      "mangled": "$s18ConformanceSamples7FailureO21__derived_enum_equalsySbAC_ACtFZ",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureO21__derived_enum_equalsySbAC_ACtFZ",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Failure.hash(into: inout Swift.Hasher) -> ()",
+      "mangled": "$s18ConformanceSamples7FailureO4hash4intoys6HasherVz_tF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureO4hash4intoys6HasherVz_tF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Failure.hashValue.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples7FailureO9hashValueSivg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureO9hashValueSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Failure.hashValue : Swift.Int",
+      "mangled": "$s18ConformanceSamples7FailureO9hashValueSivpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureO9hashValueSivpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Failure and conformance ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOACSHAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOACSHAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Failure and conformance ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOACSHAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOACSHAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Failure and conformance ConformanceSamples.Failure : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOACSQAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOACSQAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Failure and conformance ConformanceSamples.Failure : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOACSQAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOACSQAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table cache variable for type ConformanceSamples.Failure and conformance ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOACs5ErrorAAWL",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOACs5ErrorAAWL",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "lazy protocol witness table accessor for type ConformanceSamples.Failure and conformance ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOACs5ErrorAAWl",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOACs5ErrorAAWl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7FailureOHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureON",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureON",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7FailureOSHAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSHAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSHAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAASH13_rawHashValue4seedS2i_tFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSHAASH13_rawHashValue4seedS2i_tFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAASH4hash4intoys6HasherVz_tFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSHAASH4hash4intoys6HasherVz_tFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAASH9hashValueSivgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSHAASH9hashValueSivgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base witness table accessor for Swift.Equatable in ConformanceSamples.Failure : Swift.Hashable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSHAASQWb",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSHAASQWb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Failure : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSQAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7FailureOSQAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Failure : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSQAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSQAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Failure : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSQAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSQAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ConformanceSamples.Failure : Swift.Equatable in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOSQAASQ2eeoiySbx_xtFZTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOSQAASQ2eeoiySbx_xtFZTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOWV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOWV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor runtime record for ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAHc",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7FailureOs5ErrorAAHc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol conformance descriptor for ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAMc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOs5ErrorAAMc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "metadata instantiation cache for protocol conformance descriptor for ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAMcMK",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOs5ErrorAAMcMK",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Error._getEmbeddedNSError() -> Swift.AnyObject? in conformance ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAsADP19_getEmbeddedNSErroryXlSgyFTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOs5ErrorAAsADP19_getEmbeddedNSErroryXlSgyFTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Error._code.getter : Swift.Int in conformance ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAsADP5_codeSivgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOs5ErrorAAsADP5_codeSivgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Error._domain.getter : Swift.String in conformance ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAsADP7_domainSSvgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOs5ErrorAAsADP7_domainSSvgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness for Swift.Error._userInfo.getter : Swift.AnyObject? in conformance ConformanceSamples.Failure : Swift.Error in ConformanceSamples",
+      "mangled": "$s18ConformanceSamples7FailureOs5ErrorAAsADP9_userInfoyXlSgvgTW",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOs5ErrorAAsADP9_userInfoyXlSgvgTW",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "getEnumTagSinglePayload value witness for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOwet",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOwet",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "storeEnumTagSinglePayload value witness for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOwst",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOwst",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "getEnumTag value witness for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOwug",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOwug",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "destructiveInjectEnumTag value witness for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOwui",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOwui",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "destructiveProjectEnumData value witness for ConformanceSamples.Failure",
+      "mangled": "$s18ConformanceSamples7FailureOwup",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7FailureOwup",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "static ConformanceSamples.Numbers.buildBlock(Swift.Int...) -> [Swift.Int]",
+      "mangled": "$s18ConformanceSamples7NumbersO10buildBlockySaySiGSid_tFZ",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7NumbersO10buildBlockySaySiGSid_tFZ",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Numbers",
+      "mangled": "$s18ConformanceSamples7NumbersOHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7NumbersOHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Numbers",
+      "mangled": "$s18ConformanceSamples7NumbersOMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7NumbersOMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Numbers",
+      "mangled": "$s18ConformanceSamples7NumbersOMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7NumbersOMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Numbers",
+      "mangled": "$s18ConformanceSamples7NumbersOMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7NumbersOMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Numbers",
+      "mangled": "$s18ConformanceSamples7NumbersOMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7NumbersOMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Numbers",
+      "mangled": "$s18ConformanceSamples7NumbersON",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7NumbersON",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Wrapped.init(wrappedValue: A) -> ConformanceSamples.Wrapped<A>",
+      "mangled": "$s18ConformanceSamples7WrappedV12wrappedValueACyxGx_tcfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedV12wrappedValueACyxGx_tcfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Wrapped.wrappedValue.modify : A",
+      "mangled": "$s18ConformanceSamples7WrappedV12wrappedValuexvM",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedV12wrappedValuexvM",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Wrapped.wrappedValue.modify : A with unmangled suffix \".resume.0\"",
+      "mangled": "$s18ConformanceSamples7WrappedV12wrappedValuexvM.resume.0",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedV12wrappedValuexvM.resume.0",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Wrapped.wrappedValue.getter : A",
+      "mangled": "$s18ConformanceSamples7WrappedV12wrappedValuexvg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedV12wrappedValuexvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Wrapped.wrappedValue : A",
+      "mangled": "$s18ConformanceSamples7WrappedV12wrappedValuexvpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedV12wrappedValuexvpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Wrapped.wrappedValue.setter : A",
+      "mangled": "$s18ConformanceSamples7WrappedV12wrappedValuexvs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedV12wrappedValuexvs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples7WrappedVHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata instantiation cache for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMI",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMI",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "generic type metadata pattern for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMP",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata instantiation function for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata completion function for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVMr",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVMr",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVWV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVWV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "initializeBufferWithCopyOfBuffer value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwCP",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwCP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "assignWithCopy value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwca",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwca",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "initializeWithCopy value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwcp",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwcp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "getEnumTagSinglePayload value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwet",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwet",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "storeEnumTagSinglePayload value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwst",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwst",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "assignWithTake value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwta",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwta",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "initializeWithTake value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwtk",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwtk",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "destroy value witness for ConformanceSamples.Wrapped",
+      "mangled": "$s18ConformanceSamples7WrappedVwxx",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVwxx",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "outlined init with copy of ConformanceSamples.Wrapped<A>",
+      "mangled": "$s18ConformanceSamples7WrappedVyxGlWOc",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVyxGlWOc",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "outlined destroy of ConformanceSamples.Wrapped<A>",
+      "mangled": "$s18ConformanceSamples7WrappedVyxGlWOh",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7WrappedVyxGlWOh",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.closure(Swift.Int) -> (Swift.Int) -> Swift.Int",
+      "mangled": "$s18ConformanceSamples7closureyS2icSiF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7closureyS2icSiF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "closure #1 (Swift.Int) -> Swift.Int in ConformanceSamples.closure(Swift.Int) -> (Swift.Int) -> Swift.Int",
+      "mangled": "$s18ConformanceSamples7closureyS2icSiFS2icfU_",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7closureyS2icSiFS2icfU_",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "partial apply forwarder for closure #1 (Swift.Int) -> Swift.Int in ConformanceSamples.closure(Swift.Int) -> (Swift.Int) -> Swift.Int",
+      "mangled": "$s18ConformanceSamples7closureyS2icSiFS2icfU_TA",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples7closureyS2icSiFS2icfU_TA",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.count.modify : Swift.Int",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivM",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivM",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.count.modify : Swift.Int with unmangled suffix \".resume.0\"",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivM.resume.0",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivM.resume.0",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.count.getter : Swift.Int",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property descriptor for ConformanceSamples.Settings.count : Swift.Int",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivpMV",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivpMV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property wrapped field init accessor of ConformanceSamples.Settings.count : Swift.Int",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivpfF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivpfF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "property wrapper backing initializer of ConformanceSamples.Settings.count : Swift.Int",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivpfP",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivpfP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.count.setter : Swift.Int",
+      "mangled": "$s18ConformanceSamples8SettingsV5countSivs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV5countSivs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.(_count in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C).getter : ConformanceSamples.Wrapped<Swift.Int>",
+      "mangled": "$s18ConformanceSamples8SettingsV6_count33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLAA7WrappedVySiGvg",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV6_count33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLAA7WrappedVySiGvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "variable initialization expression of ConformanceSamples.Settings.(_count in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C) : ConformanceSamples.Wrapped<Swift.Int>",
+      "mangled": "$s18ConformanceSamples8SettingsV6_count33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLAA7WrappedVySiGvpfi",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV6_count33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLAA7WrappedVySiGvpfi",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.(_count in _AA4CC9D128F93F9D2D19F3B7DC4CDA4C).setter : ConformanceSamples.Wrapped<Swift.Int>",
+      "mangled": "$s18ConformanceSamples8SettingsV6_count33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLAA7WrappedVySiGvs",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsV6_count33_AA4CC9D128F93F9D2D19F3B7DC4CDA4CLLAA7WrappedVySiGvs",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "ConformanceSamples.Settings.init() -> ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVACycfC",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsVACycfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor runtime record for ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVHn",
+      "origins": [
+        {
+          "nmName": "l_$s18ConformanceSamples8SettingsVHn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "reflection metadata field descriptor ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVMF",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsVMF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVMa",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsVMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "full type metadata for ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVMf",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsVMf",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "nominal type descriptor for ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVMn",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsVMn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ConformanceSamples.Settings",
+      "mangled": "$s18ConformanceSamples8SettingsVN",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamples8SettingsVN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "module descriptor ConformanceSamples",
+      "mangled": "$s18ConformanceSamplesMXM",
+      "origins": [
+        {
+          "nmName": "_$s18ConformanceSamplesMXM",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated type descriptor for Distributed.DistributedActor.SerializationRequirement",
+      "mangled": "$s24SerializationRequirement11Distributed0C5ActorPTl",
+      "origins": [
+        {
+          "nmName": "_$s24SerializationRequirement11Distributed0C5ActorPTl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated type descriptor for Swift.Identifiable.ID",
+      "mangled": "$s2IDs12IdentifiablePTl",
+      "origins": [
+        {
+          "nmName": "_$s2IDs12IdentifiablePTl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated type descriptor for ConformanceSamples.Source.Element",
+      "mangled": "$s7Element18ConformanceSamples6SourcePTl",
+      "origins": [
+        {
+          "nmName": "_$s7Element18ConformanceSamples6SourcePTl",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "WeakUse.importedFeatureAvailable() -> Swift.Bool",
+      "mangled": "$s7WeakUse24importedFeatureAvailableSbyF",
+      "origins": [
+        {
+          "nmName": "_$s7WeakUse24importedFeatureAvailableSbyF",
+          "object": "WeakUse.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for Builtin.UnknownObject",
+      "mangled": "$sBOWV",
+      "origins": [
+        {
+          "nmName": "_$sBOWV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for Builtin.Int64",
+      "mangled": "$sBi64_WV",
+      "origins": [
+        {
+          "nmName": "_$sBi64_WV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for Builtin.NativeObject",
+      "mangled": "$sBoWV",
+      "origins": [
+        {
+          "nmName": "_$sBoWV",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Encodable.encode(to: Swift.Encoder) throws -> ()",
+      "mangled": "$sSE6encode2toys7Encoder_p_tKFTq",
+      "origins": [
+        {
+          "nmName": "_$sSE6encode2toys7Encoder_p_tKFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Encodable",
+      "mangled": "$sSEMp",
+      "origins": [
+        {
+          "nmName": "_$sSEMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int",
+      "mangled": "$sSH13_rawHashValue4seedS2i_tFTq",
+      "origins": [
+        {
+          "nmName": "_$sSH13_rawHashValue4seedS2i_tFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Hashable.hash(into: inout Swift.Hasher) -> ()",
+      "mangled": "$sSH4hash4intoys6HasherVz_tFTq",
+      "origins": [
+        {
+          "nmName": "_$sSH4hash4intoys6HasherVz_tFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Hashable.hashValue.getter : Swift.Int",
+      "mangled": "$sSH9hashValueSivgTq",
+      "origins": [
+        {
+          "nmName": "_$sSH9hashValueSivgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Hashable",
+      "mangled": "$sSHMp",
+      "origins": [
+        {
+          "nmName": "_$sSHMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "base conformance descriptor for Swift.Hashable: Swift.Equatable",
+      "mangled": "$sSHSQTb",
+      "origins": [
+        {
+          "nmName": "_$sSHSQTb",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Swift):Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int",
+      "mangled": "$sSHsE13_rawHashValue4seedS2i_tF",
+      "origins": [
+        {
+          "nmName": "_$sSHsE13_rawHashValue4seedS2i_tF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "dispatch thunk of static Swift.Equatable.== infix(A, A) -> Swift.Bool",
+      "mangled": "$sSQ2eeoiySbx_xtFZTj",
+      "origins": [
+        {
+          "nmName": "_$sSQ2eeoiySbx_xtFZTj",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for static Swift.Equatable.== infix(A, A) -> Swift.Bool",
+      "mangled": "$sSQ2eeoiySbx_xtFZTq",
+      "origins": [
+        {
+          "nmName": "_$sSQ2eeoiySbx_xtFZTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Equatable",
+      "mangled": "$sSQMp",
+      "origins": [
+        {
+          "nmName": "_$sSQMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift.String.init(_builtinStringLiteral: Builtin.RawPointer, utf8CodeUnitCount: Builtin.Word, isASCII: Builtin.Int1) -> Swift.String",
+      "mangled": "$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC",
+      "origins": [
+        {
+          "nmName": "_$sSS21_builtinStringLiteral17utf8CodeUnitCount7isASCIISSBp_BwBi1_tcfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for Swift.String",
+      "mangled": "$sSSN",
+      "origins": [
+        {
+          "nmName": "_$sSSN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness table for Swift.String : Swift.Encodable in Swift",
+      "mangled": "$sSSSEsWP",
+      "origins": [
+        {
+          "nmName": "_$sSSSEsWP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness table for Swift.String : Swift.Decodable in Swift",
+      "mangled": "$sSSSesWP",
+      "origins": [
+        {
+          "nmName": "_$sSSSesWP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift.Array._endMutation() -> ()",
+      "mangled": "$sSa12_endMutationyyF",
+      "origins": [
+        {
+          "nmName": "_$sSa12_endMutationyyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata accessor for Swift.Array",
+      "mangled": "$sSaMa",
+      "origins": [
+        {
+          "nmName": "_$sSaMa",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Actor.unownedExecutor.getter : Swift.UnownedSerialExecutor",
+      "mangled": "$sScA15unownedExecutorScevgTq",
+      "origins": [
+        {
+          "nmName": "_$sScA15unownedExecutorScevgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Actor",
+      "mangled": "$sScAMp",
+      "origins": [
+        {
+          "nmName": "_$sScAMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift.UnownedSerialExecutor.init(Builtin.Executor) -> Swift.UnownedSerialExecutor",
+      "mangled": "$sSceySceBecfC",
+      "origins": [
+        {
+          "nmName": "_$sSceySceBecfC",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Decodable.init(from: Swift.Decoder) throws -> A",
+      "mangled": "$sSe4fromxs7Decoder_p_tKcfCTq",
+      "origins": [
+        {
+          "nmName": "_$sSe4fromxs7Decoder_p_tKcfCTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Decodable",
+      "mangled": "$sSeMp",
+      "origins": [
+        {
+          "nmName": "_$sSeMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for Swift.Int",
+      "mangled": "$sSiN",
+      "origins": [
+        {
+          "nmName": "_$sSiN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness table for Swift.Int : Swift.Hashable in Swift",
+      "mangled": "$sSiSHsWP",
+      "origins": [
+        {
+          "nmName": "_$sSiSHsWP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness table for Swift.Int : Swift.Equatable in Swift",
+      "mangled": "$sSiSQsWP",
+      "origins": [
+        {
+          "nmName": "_$sSiSQsWP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift._stdlib_isOSVersionAtLeastOrVariantVersionAtLeast(Builtin.Word, Builtin.Word, Builtin.Word, Builtin.Word, Builtin.Word, Builtin.Word) -> Builtin.Int1",
+      "mangled": "$ss042_stdlib_isOSVersionAtLeastOrVariantVersiondE0yBi1_Bw_BwBwBwBwBwtF",
+      "origins": [
+        {
+          "nmName": "_$ss042_stdlib_isOSVersionAtLeastOrVariantVersiondE0yBi1_Bw_BwBwBwBwBwtF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift._hashValue<A where A: Swift.Hashable>(for: A) -> Swift.Int",
+      "mangled": "$ss10_hashValue3forSix_tSHRzlF",
+      "origins": [
+        {
+          "nmName": "_$ss10_hashValue3forSix_tSHRzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Identifiable",
+      "mangled": "$ss12IdentifiableMp",
+      "origins": [
+        {
+          "nmName": "_$ss12IdentifiableMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "associated conformance descriptor for Swift.Identifiable.Swift.Identifiable.ID: Swift.Hashable",
+      "mangled": "$ss12IdentifiableP2IDAB_SHTn",
+      "origins": [
+        {
+          "nmName": "_$ss12IdentifiableP2IDAB_SHTn",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Identifiable.id.getter : A.ID",
+      "mangled": "$ss12IdentifiableP2id2IDQzvgTq",
+      "origins": [
+        {
+          "nmName": "_$ss12IdentifiableP2id2IDQzvgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift._allocateUninitializedArray<A>(Builtin.Word) -> ([A], Builtin.RawPointer)",
+      "mangled": "$ss27_allocateUninitializedArrayySayxG_BptBwlF",
+      "origins": [
+        {
+          "nmName": "_$ss27_allocateUninitializedArrayySayxG_BptBwlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift._finalizeUninitializedArray<A>(__owned [A]) -> [A]",
+      "mangled": "$ss27_finalizeUninitializedArrayySayxGABnlF",
+      "origins": [
+        {
+          "nmName": "_$ss27_finalizeUninitializedArrayySayxGABnlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift.!== infix(Swift.AnyObject?, Swift.AnyObject?) -> Swift.Bool",
+      "mangled": "$ss3neeoiySbyXlSg_ABtF",
+      "origins": [
+        {
+          "nmName": "_$ss3neeoiySbyXlSg_ABtF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol descriptor for Swift.Error",
+      "mangled": "$ss5ErrorMp",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorMp",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Error._getEmbeddedNSError() -> Swift.AnyObject?",
+      "mangled": "$ss5ErrorP19_getEmbeddedNSErroryXlSgyFTq",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorP19_getEmbeddedNSErroryXlSgyFTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Error._code.getter : Swift.Int",
+      "mangled": "$ss5ErrorP5_codeSivgTq",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorP5_codeSivgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Error._domain.getter : Swift.String",
+      "mangled": "$ss5ErrorP7_domainSSvgTq",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorP7_domainSSvgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "method descriptor for Swift.Error._userInfo.getter : Swift.AnyObject?",
+      "mangled": "$ss5ErrorP9_userInfoyXlSgvgTq",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorP9_userInfoyXlSgvgTq",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Swift):Swift.Error._getEmbeddedNSError() -> Swift.AnyObject?",
+      "mangled": "$ss5ErrorPsE19_getEmbeddedNSErroryXlSgyF",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorPsE19_getEmbeddedNSErroryXlSgyF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Swift):Swift.Error._code.getter : Swift.Int",
+      "mangled": "$ss5ErrorPsE5_codeSivg",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorPsE5_codeSivg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Swift):Swift.Error._domain.getter : Swift.String",
+      "mangled": "$ss5ErrorPsE7_domainSSvg",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorPsE7_domainSSvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "(extension in Swift):Swift.Error._userInfo.getter : Swift.AnyObject?",
+      "mangled": "$ss5ErrorPsE9_userInfoyXlSgvg",
+      "origins": [
+        {
+          "nmName": "_$ss5ErrorPsE9_userInfoyXlSgvg",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for Swift.Never",
+      "mangled": "$ss5NeverON",
+      "origins": [
+        {
+          "nmName": "_$ss5NeverON",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "protocol witness table for Swift.Never : Swift.Error in Swift",
+      "mangled": "$ss5NeverOs5ErrorsWP",
+      "origins": [
+        {
+          "nmName": "_$ss5NeverOs5ErrorsWP",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "Swift.Hasher.combine<A where A: Swift.Hashable>(A) -> ()",
+      "mangled": "$ss6HasherV7combineyyxSHRzlF",
+      "origins": [
+        {
+          "nmName": "_$ss6HasherV7combineyyxSHRzlF",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "class metadata base offset for Swift.KeyPath",
+      "mangled": "$ss7KeyPathCMo",
+      "origins": [
+        {
+          "nmName": "_$ss7KeyPathCMo",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "type metadata for ()",
+      "mangled": "$sytN",
+      "origins": [
+        {
+          "nmName": "_$sytN",
+          "object": "Samples.o"
+        }
+      ]
+    },
+    {
+      "expected": "value witness table for ()",
+      "mangled": "$sytWV",
+      "origins": [
+        {
+          "nmName": "_$sytWV",
+          "object": "Samples.o"
+        }
+      ]
+    }
+  ]
+}

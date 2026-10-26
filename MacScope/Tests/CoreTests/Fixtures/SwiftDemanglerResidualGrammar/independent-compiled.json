@@ -1,0 +1,642 @@
+[
+  {
+    "id": "a14114",
+    "mangled": "$s15CedarValidation10nestedHostyS2icSSF",
+    "expected": "CedarValidation.nestedHost(Swift.String) -> (Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14115",
+    "mangled": "$s15CedarValidation10nestedHostyS2icSSF9incrementL_yS2iF",
+    "expected": "increment #1 (Swift.Int) -> Swift.Int in CedarValidation.nestedHost(Swift.String) -> (Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14116",
+    "mangled": "$s15CedarValidation10nestedHostyS2icSSF9incrementL_yS2iFTA",
+    "expected": "partial apply forwarder for increment #1 (Swift.Int) -> Swift.Int in CedarValidation.nestedHost(Swift.String) -> (Swift.Int) -> Swift.Int"
+  },
+  {
+    "id": "a14117",
+    "mangled": "$s15CedarValidation4hostyypSiF",
+    "expected": "CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14118",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_V6amountADSi_tcfC",
+    "expected": "init(amount: Swift.Int) -> Hidden #1 in CedarValidation.host(Swift.Int) -> Any in Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14119",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_V6amountSivg",
+    "expected": "amount.getter : Swift.Int in Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14120",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_V6amountSivs",
+    "expected": "amount.setter : Swift.Int in Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14121",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_VMF",
+    "expected": "reflection metadata field descriptor Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14122",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_VMXX",
+    "expected": "anonymous descriptor Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14123",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_VMa",
+    "expected": "type metadata accessor for Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14124",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_VMf",
+    "expected": "full type metadata for Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14125",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_VMn",
+    "expected": "nominal type descriptor for Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14126",
+    "mangled": "$s15CedarValidation4hostyypSiF6HiddenL_VN",
+    "expected": "type metadata for Hidden #1 in CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14127",
+    "mangled": "$s15CedarValidation4hostyypSiFMXX",
+    "expected": "anonymous descriptor CedarValidation.host(Swift.Int) -> Any"
+  },
+  {
+    "id": "a14128",
+    "mangled": "$s15CedarValidation5typedyS2iYaAA7TroubleOYKF",
+    "expected": "CedarValidation.typed(Swift.Int) async throws(CedarValidation.Trouble) -> Swift.Int"
+  },
+  {
+    "id": "a14129",
+    "mangled": "$s15CedarValidation5typedyS2iYaAA7TroubleOYKFTu",
+    "expected": "async function pointer to CedarValidation.typed(Swift.Int) async throws(CedarValidation.Trouble) -> Swift.Int"
+  },
+  {
+    "id": "a14130",
+    "mangled": "$s15CedarValidation6BundleVACyxxQp_QPGycfC",
+    "expected": "CedarValidation.Bundle.init() -> CedarValidation.Bundle<Pack{repeat A}>"
+  },
+  {
+    "id": "a14131",
+    "mangled": "$s15CedarValidation6BundleVMF",
+    "expected": "reflection metadata field descriptor CedarValidation.Bundle"
+  },
+  {
+    "id": "a14132",
+    "mangled": "$s15CedarValidation6BundleVMI",
+    "expected": "type metadata instantiation cache for CedarValidation.Bundle"
+  },
+  {
+    "id": "a14133",
+    "mangled": "$s15CedarValidation6BundleVMP",
+    "expected": "generic type metadata pattern for CedarValidation.Bundle"
+  },
+  {
+    "id": "a14134",
+    "mangled": "$s15CedarValidation6BundleVMa",
+    "expected": "type metadata accessor for CedarValidation.Bundle"
+  },
+  {
+    "id": "a14135",
+    "mangled": "$s15CedarValidation6BundleVMi",
+    "expected": "type metadata instantiation function for CedarValidation.Bundle"
+  },
+  {
+    "id": "a14136",
+    "mangled": "$s15CedarValidation6BundleVMn",
+    "expected": "nominal type descriptor for CedarValidation.Bundle"
+  },
+  {
+    "id": "a14137",
+    "mangled": "$s15CedarValidation6MarkedMp",
+    "expected": "protocol descriptor for CedarValidation.Marked"
+  },
+  {
+    "id": "a14138",
+    "mangled": "$s15CedarValidation6MarkedP",
+    "expected": "CedarValidation.Marked"
+  },
+  {
+    "id": "a14139",
+    "mangled": "$s15CedarValidation6MarkedTL",
+    "expected": "protocol requirements base descriptor for CedarValidation.Marked"
+  },
+  {
+    "id": "a14140",
+    "mangled": "$s15CedarValidation6Marked_pMF",
+    "expected": "reflection metadata field descriptor CedarValidation.Marked"
+  },
+  {
+    "id": "a14141",
+    "mangled": "$s15CedarValidation6ParcelV7elementxvM",
+    "expected": "CedarValidation.Parcel.element.modify : A"
+  },
+  {
+    "id": "a14142",
+    "mangled": "$s15CedarValidation6ParcelV7elementxvM.resume.0",
+    "expected": "CedarValidation.Parcel.element.modify : A with unmangled suffix \".resume.0\""
+  },
+  {
+    "id": "a14143",
+    "mangled": "$s15CedarValidation6ParcelV7elementxvg",
+    "expected": "CedarValidation.Parcel.element.getter : A"
+  },
+  {
+    "id": "a14144",
+    "mangled": "$s15CedarValidation6ParcelV7elementxvpMV",
+    "expected": "property descriptor for CedarValidation.Parcel.element : A"
+  },
+  {
+    "id": "a14145",
+    "mangled": "$s15CedarValidation6ParcelV7elementxvs",
+    "expected": "CedarValidation.Parcel.element.setter : A"
+  },
+  {
+    "id": "a14146",
+    "mangled": "$s15CedarValidation6ParcelVAASHRzlE4hash4intoys6HasherVz_tF",
+    "expected": "(extension in CedarValidation):CedarValidation.Parcel<A where A: Swift.Hashable>.hash(into: inout Swift.Hasher) -> ()"
+  },
+  {
+    "id": "a14147",
+    "mangled": "$s15CedarValidation6ParcelVAASHRzlE9hashValueSivg",
+    "expected": "(extension in CedarValidation):CedarValidation.Parcel<A where A: Swift.Hashable>.hashValue.getter : Swift.Int"
+  },
+  {
+    "id": "a14148",
+    "mangled": "$s15CedarValidation6ParcelVAASHRzlE9hashValueSivpMV",
+    "expected": "property descriptor for (extension in CedarValidation):CedarValidation.Parcel<A where A: Swift.Hashable>.hashValue : Swift.Int"
+  },
+  {
+    "id": "a14149",
+    "mangled": "$s15CedarValidation6ParcelVAASQRzlE23__derived_struct_equalsySbACyxG_AEtFZ",
+    "expected": "static (extension in CedarValidation):CedarValidation.Parcel<A where A: Swift.Equatable>.__derived_struct_equals(CedarValidation.Parcel<A>, CedarValidation.Parcel<A>) -> Swift.Bool"
+  },
+  {
+    "id": "a14150",
+    "mangled": "$s15CedarValidation6ParcelVMF",
+    "expected": "reflection metadata field descriptor CedarValidation.Parcel"
+  },
+  {
+    "id": "a14151",
+    "mangled": "$s15CedarValidation6ParcelVMI",
+    "expected": "type metadata instantiation cache for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14152",
+    "mangled": "$s15CedarValidation6ParcelVMP",
+    "expected": "generic type metadata pattern for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14153",
+    "mangled": "$s15CedarValidation6ParcelVMa",
+    "expected": "type metadata accessor for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14154",
+    "mangled": "$s15CedarValidation6ParcelVMi",
+    "expected": "type metadata instantiation function for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14155",
+    "mangled": "$s15CedarValidation6ParcelVMn",
+    "expected": "nominal type descriptor for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14156",
+    "mangled": "$s15CedarValidation6ParcelVMr",
+    "expected": "type metadata completion function for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14157",
+    "mangled": "$s15CedarValidation6ParcelVWV",
+    "expected": "value witness table for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14158",
+    "mangled": "$s15CedarValidation6ParcelVwCP",
+    "expected": "initializeBufferWithCopyOfBuffer value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14159",
+    "mangled": "$s15CedarValidation6ParcelVwca",
+    "expected": "assignWithCopy value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14160",
+    "mangled": "$s15CedarValidation6ParcelVwcp",
+    "expected": "initializeWithCopy value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14161",
+    "mangled": "$s15CedarValidation6ParcelVwet",
+    "expected": "getEnumTagSinglePayload value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14162",
+    "mangled": "$s15CedarValidation6ParcelVwst",
+    "expected": "storeEnumTagSinglePayload value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14163",
+    "mangled": "$s15CedarValidation6ParcelVwta",
+    "expected": "assignWithTake value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14164",
+    "mangled": "$s15CedarValidation6ParcelVwtk",
+    "expected": "initializeWithTake value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14165",
+    "mangled": "$s15CedarValidation6ParcelVwxx",
+    "expected": "destroy value witness for CedarValidation.Parcel"
+  },
+  {
+    "id": "a14166",
+    "mangled": "$s15CedarValidation6ParcelVyACyxGxcfC",
+    "expected": "CedarValidation.Parcel.init(A) -> CedarValidation.Parcel<A>"
+  },
+  {
+    "id": "a14167",
+    "mangled": "$s15CedarValidation6ParcelVyxGSHAASHRzlMc",
+    "expected": "protocol conformance descriptor for <A where A: Swift.Hashable> CedarValidation.Parcel<A> : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14168",
+    "mangled": "$s15CedarValidation6ParcelVyxGSHAASHRzlMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for <A where A: Swift.Hashable> CedarValidation.Parcel<A> : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14169",
+    "mangled": "$s15CedarValidation6ParcelVyxGSHAASHRzlSH13_rawHashValue4seedS2i_tFTW",
+    "expected": "protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance <A where A: Swift.Hashable> CedarValidation.Parcel<A> : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14170",
+    "mangled": "$s15CedarValidation6ParcelVyxGSHAASHRzlSH4hash4intoys6HasherVz_tFTW",
+    "expected": "protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance <A where A: Swift.Hashable> CedarValidation.Parcel<A> : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14171",
+    "mangled": "$s15CedarValidation6ParcelVyxGSHAASHRzlSH9hashValueSivgTW",
+    "expected": "protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance <A where A: Swift.Hashable> CedarValidation.Parcel<A> : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14172",
+    "mangled": "$s15CedarValidation6ParcelVyxGSHAASHRzlSQWb",
+    "expected": "base witness table accessor for Swift.Equatable in <A where A: Swift.Hashable> CedarValidation.Parcel<A> : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14173",
+    "mangled": "$s15CedarValidation6ParcelVyxGSQAASQRzlMc",
+    "expected": "protocol conformance descriptor for <A where A: Swift.Equatable> CedarValidation.Parcel<A> : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14174",
+    "mangled": "$s15CedarValidation6ParcelVyxGSQAASQRzlMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for <A where A: Swift.Equatable> CedarValidation.Parcel<A> : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14175",
+    "mangled": "$s15CedarValidation6ParcelVyxGSQAASQRzlSQ2eeoiySbx_xtFZTW",
+    "expected": "protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance <A where A: Swift.Equatable> CedarValidation.Parcel<A> : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14176",
+    "mangled": "$s15CedarValidation6ParcelVyxGlWOc",
+    "expected": "outlined init with copy of CedarValidation.Parcel<A>"
+  },
+  {
+    "id": "a14177",
+    "mangled": "$s15CedarValidation6ParcelVyxGlWOh",
+    "expected": "outlined destroy of CedarValidation.Parcel<A>"
+  },
+  {
+    "id": "a14178",
+    "mangled": "$s15CedarValidation6WorkerC15unownedExecutorScevg",
+    "expected": "CedarValidation.Worker.unownedExecutor.getter : Swift.UnownedSerialExecutor"
+  },
+  {
+    "id": "a14179",
+    "mangled": "$s15CedarValidation6WorkerC15unownedExecutorScevpMV",
+    "expected": "property descriptor for CedarValidation.Worker.unownedExecutor : Swift.UnownedSerialExecutor"
+  },
+  {
+    "id": "a14180",
+    "mangled": "$s15CedarValidation6WorkerC5countSivM",
+    "expected": "CedarValidation.Worker.count.modify : Swift.Int"
+  },
+  {
+    "id": "a14181",
+    "mangled": "$s15CedarValidation6WorkerC5countSivM.resume.0",
+    "expected": "CedarValidation.Worker.count.modify : Swift.Int with unmangled suffix \".resume.0\""
+  },
+  {
+    "id": "a14182",
+    "mangled": "$s15CedarValidation6WorkerC5countSivMTq",
+    "expected": "method descriptor for CedarValidation.Worker.count.modify : Swift.Int"
+  },
+  {
+    "id": "a14183",
+    "mangled": "$s15CedarValidation6WorkerC5countSivg",
+    "expected": "CedarValidation.Worker.count.getter : Swift.Int"
+  },
+  {
+    "id": "a14184",
+    "mangled": "$s15CedarValidation6WorkerC5countSivgTq",
+    "expected": "method descriptor for CedarValidation.Worker.count.getter : Swift.Int"
+  },
+  {
+    "id": "a14185",
+    "mangled": "$s15CedarValidation6WorkerC5countSivpMV",
+    "expected": "property descriptor for CedarValidation.Worker.count : Swift.Int"
+  },
+  {
+    "id": "a14186",
+    "mangled": "$s15CedarValidation6WorkerC5countSivpWvd",
+    "expected": "direct field offset for CedarValidation.Worker.count : Swift.Int"
+  },
+  {
+    "id": "a14187",
+    "mangled": "$s15CedarValidation6WorkerC5countSivpfi",
+    "expected": "variable initialization expression of CedarValidation.Worker.count : Swift.Int"
+  },
+  {
+    "id": "a14188",
+    "mangled": "$s15CedarValidation6WorkerC5countSivs",
+    "expected": "CedarValidation.Worker.count.setter : Swift.Int"
+  },
+  {
+    "id": "a14189",
+    "mangled": "$s15CedarValidation6WorkerC5countSivsTq",
+    "expected": "method descriptor for CedarValidation.Worker.count.setter : Swift.Int"
+  },
+  {
+    "id": "a14190",
+    "mangled": "$s15CedarValidation6WorkerCACycfC",
+    "expected": "CedarValidation.Worker.__allocating_init() -> CedarValidation.Worker"
+  },
+  {
+    "id": "a14191",
+    "mangled": "$s15CedarValidation6WorkerCACycfCTq",
+    "expected": "method descriptor for CedarValidation.Worker.__allocating_init() -> CedarValidation.Worker"
+  },
+  {
+    "id": "a14192",
+    "mangled": "$s15CedarValidation6WorkerCACycfc",
+    "expected": "CedarValidation.Worker.init() -> CedarValidation.Worker"
+  },
+  {
+    "id": "a14193",
+    "mangled": "$s15CedarValidation6WorkerCMF",
+    "expected": "reflection metadata field descriptor CedarValidation.Worker"
+  },
+  {
+    "id": "a14194",
+    "mangled": "$s15CedarValidation6WorkerCMa",
+    "expected": "type metadata accessor for CedarValidation.Worker"
+  },
+  {
+    "id": "a14195",
+    "mangled": "$s15CedarValidation6WorkerCMf",
+    "expected": "full type metadata for CedarValidation.Worker"
+  },
+  {
+    "id": "a14196",
+    "mangled": "$s15CedarValidation6WorkerCMn",
+    "expected": "nominal type descriptor for CedarValidation.Worker"
+  },
+  {
+    "id": "a14197",
+    "mangled": "$s15CedarValidation6WorkerCN",
+    "expected": "type metadata for CedarValidation.Worker"
+  },
+  {
+    "id": "a14198",
+    "mangled": "$s15CedarValidation6WorkerCScAAAMc",
+    "expected": "protocol conformance descriptor for CedarValidation.Worker : Swift.Actor in CedarValidation"
+  },
+  {
+    "id": "a14199",
+    "mangled": "$s15CedarValidation6WorkerCScAAAMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for CedarValidation.Worker : Swift.Actor in CedarValidation"
+  },
+  {
+    "id": "a14200",
+    "mangled": "$s15CedarValidation6WorkerCScAAAScA15unownedExecutorScevgTW",
+    "expected": "protocol witness for Swift.Actor.unownedExecutor.getter : Swift.UnownedSerialExecutor in conformance CedarValidation.Worker : Swift.Actor in CedarValidation"
+  },
+  {
+    "id": "a14201",
+    "mangled": "$s15CedarValidation6WorkerCfD",
+    "expected": "CedarValidation.Worker.__deallocating_deinit"
+  },
+  {
+    "id": "a14202",
+    "mangled": "$s15CedarValidation6WorkerCfd",
+    "expected": "CedarValidation.Worker.deinit"
+  },
+  {
+    "id": "a14203",
+    "mangled": "$s15CedarValidation7TroubleO21__derived_enum_equalsySbAC_ACtFZ",
+    "expected": "static CedarValidation.Trouble.__derived_enum_equals(CedarValidation.Trouble, CedarValidation.Trouble) -> Swift.Bool"
+  },
+  {
+    "id": "a14204",
+    "mangled": "$s15CedarValidation7TroubleO4hash4intoys6HasherVz_tF",
+    "expected": "CedarValidation.Trouble.hash(into: inout Swift.Hasher) -> ()"
+  },
+  {
+    "id": "a14205",
+    "mangled": "$s15CedarValidation7TroubleO9hashValueSivg",
+    "expected": "CedarValidation.Trouble.hashValue.getter : Swift.Int"
+  },
+  {
+    "id": "a14206",
+    "mangled": "$s15CedarValidation7TroubleO9hashValueSivpMV",
+    "expected": "property descriptor for CedarValidation.Trouble.hashValue : Swift.Int"
+  },
+  {
+    "id": "a14207",
+    "mangled": "$s15CedarValidation7TroubleOACSHAAWL",
+    "expected": "lazy protocol witness table cache variable for type CedarValidation.Trouble and conformance CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14208",
+    "mangled": "$s15CedarValidation7TroubleOACSHAAWl",
+    "expected": "lazy protocol witness table accessor for type CedarValidation.Trouble and conformance CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14209",
+    "mangled": "$s15CedarValidation7TroubleOACSQAAWL",
+    "expected": "lazy protocol witness table cache variable for type CedarValidation.Trouble and conformance CedarValidation.Trouble : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14210",
+    "mangled": "$s15CedarValidation7TroubleOACSQAAWl",
+    "expected": "lazy protocol witness table accessor for type CedarValidation.Trouble and conformance CedarValidation.Trouble : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14211",
+    "mangled": "$s15CedarValidation7TroubleOMF",
+    "expected": "reflection metadata field descriptor CedarValidation.Trouble"
+  },
+  {
+    "id": "a14212",
+    "mangled": "$s15CedarValidation7TroubleOMa",
+    "expected": "type metadata accessor for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14213",
+    "mangled": "$s15CedarValidation7TroubleOMf",
+    "expected": "full type metadata for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14214",
+    "mangled": "$s15CedarValidation7TroubleOMn",
+    "expected": "nominal type descriptor for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14215",
+    "mangled": "$s15CedarValidation7TroubleON",
+    "expected": "type metadata for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14216",
+    "mangled": "$s15CedarValidation7TroubleOSHAAMc",
+    "expected": "protocol conformance descriptor for CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14217",
+    "mangled": "$s15CedarValidation7TroubleOSHAAMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14218",
+    "mangled": "$s15CedarValidation7TroubleOSHAASH13_rawHashValue4seedS2i_tFTW",
+    "expected": "protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14219",
+    "mangled": "$s15CedarValidation7TroubleOSHAASH4hash4intoys6HasherVz_tFTW",
+    "expected": "protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14220",
+    "mangled": "$s15CedarValidation7TroubleOSHAASH9hashValueSivgTW",
+    "expected": "protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14221",
+    "mangled": "$s15CedarValidation7TroubleOSHAASQWb",
+    "expected": "base witness table accessor for Swift.Equatable in CedarValidation.Trouble : Swift.Hashable in CedarValidation"
+  },
+  {
+    "id": "a14222",
+    "mangled": "$s15CedarValidation7TroubleOSQAAMc",
+    "expected": "protocol conformance descriptor for CedarValidation.Trouble : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14223",
+    "mangled": "$s15CedarValidation7TroubleOSQAAMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for CedarValidation.Trouble : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14224",
+    "mangled": "$s15CedarValidation7TroubleOSQAASQ2eeoiySbx_xtFZTW",
+    "expected": "protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance CedarValidation.Trouble : Swift.Equatable in CedarValidation"
+  },
+  {
+    "id": "a14225",
+    "mangled": "$s15CedarValidation7TroubleOWV",
+    "expected": "value witness table for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14226",
+    "mangled": "$s15CedarValidation7TroubleOs5ErrorAAMc",
+    "expected": "protocol conformance descriptor for CedarValidation.Trouble : Swift.Error in CedarValidation"
+  },
+  {
+    "id": "a14227",
+    "mangled": "$s15CedarValidation7TroubleOs5ErrorAAMcMK",
+    "expected": "metadata instantiation cache for protocol conformance descriptor for CedarValidation.Trouble : Swift.Error in CedarValidation"
+  },
+  {
+    "id": "a14228",
+    "mangled": "$s15CedarValidation7TroubleOs5ErrorAAsADP5_codeSivgTW",
+    "expected": "protocol witness for Swift.Error._code.getter : Swift.Int in conformance CedarValidation.Trouble : Swift.Error in CedarValidation"
+  },
+  {
+    "id": "a14229",
+    "mangled": "$s15CedarValidation7TroubleOs5ErrorAAsADP7_domainSSvgTW",
+    "expected": "protocol witness for Swift.Error._domain.getter : Swift.String in conformance CedarValidation.Trouble : Swift.Error in CedarValidation"
+  },
+  {
+    "id": "a14230",
+    "mangled": "$s15CedarValidation7TroubleOs5ErrorAAsADP9_userInfoyXlSgvgTW",
+    "expected": "protocol witness for Swift.Error._userInfo.getter : Swift.AnyObject? in conformance CedarValidation.Trouble : Swift.Error in CedarValidation"
+  },
+  {
+    "id": "a14231",
+    "mangled": "$s15CedarValidation7TroubleOwet",
+    "expected": "getEnumTagSinglePayload value witness for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14232",
+    "mangled": "$s15CedarValidation7TroubleOwst",
+    "expected": "storeEnumTagSinglePayload value witness for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14233",
+    "mangled": "$s15CedarValidation7TroubleOwug",
+    "expected": "getEnumTag value witness for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14234",
+    "mangled": "$s15CedarValidation7TroubleOwui",
+    "expected": "destructiveInjectEnumTag value witness for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14235",
+    "mangled": "$s15CedarValidation7TroubleOwup",
+    "expected": "destructiveProjectEnumData value witness for CedarValidation.Trouble"
+  },
+  {
+    "id": "a14236",
+    "mangled": "$s15CedarValidation7isolateySiAA6WorkerCYiF",
+    "expected": "CedarValidation.isolate(isolated CedarValidation.Worker) -> Swift.Int"
+  },
+  {
+    "id": "a14237",
+    "mangled": "$s15CedarValidation7pointerys5Int32VA2DXCF",
+    "expected": "CedarValidation.pointer(@convention(c) (Swift.Int32) -> Swift.Int32) -> Swift.Int32"
+  },
+  {
+    "id": "a14238",
+    "mangled": "$s15CedarValidation8closuresyyS3iXEXEF",
+    "expected": "CedarValidation.closures(((Swift.Int) -> Swift.Int) -> Swift.Int) -> ()"
+  },
+  {
+    "id": "a14239",
+    "mangled": "$s15CedarValidation8closuresyyS3iXEXEFS2iXEfU_",
+    "expected": "closure #1 (Swift.Int) -> Swift.Int in CedarValidation.closures(((Swift.Int) -> Swift.Int) -> Swift.Int) -> ()"
+  },
+  {
+    "id": "a14240",
+    "mangled": "$s15CedarValidation8repeatedyyx_q_tSHRzSHR_r0_lF",
+    "expected": "CedarValidation.repeated<A, B where A: Swift.Hashable, B: Swift.Hashable>(A, B) -> ()"
+  },
+  {
+    "id": "a14241",
+    "mangled": "$s15CedarValidationMXM",
+    "expected": "module descriptor CedarValidation"
+  }
+]

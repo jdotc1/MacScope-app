@@ -1,0 +1,82 @@
+{
+  "compileReceipt": {
+    "cache": "built",
+    "outputs": {
+      "AARCH64.sla": "9912619509451b8f78fcd44260a03089dbc3365f3e72a09ee827dd1b2dfc35e8",
+      "AARCH64BE.sla": "230b83f93d2f8e82740c10e35723026c2163b6c34f526f12aab0ce4436078bde",
+      "AARCH64_AppleSilicon.sla": "1bc0f833fafb1beb9748bf690930b9b368b59c0101c38032090b97cfcca42ef4"
+    },
+    "script": "Scripts/dependencies/compile_sleigh_aarch64_specs.sh"
+  },
+  "nativeAdmission": {
+    "admitted": 0,
+    "note": "Estimated encoded result 1.9-3.6 MB vs native-product-budget-v1 maxOutputBytes 1 MiB; see inbox rx17-branch-free note.",
+    "previousReason": "native-provider-basic-block-count-invalid",
+    "reason": "native-provider-output-budget-exceeded",
+    "words": 10
+  },
+  "pcodeBranchesPerInstruction": {
+    "1e284020": 0,
+    "1e28c020": 0,
+    "1e294020": 0,
+    "1e29c020": 0,
+    "1e634020": 0,
+    "1e684020": 0,
+    "1e68c020": 0,
+    "1e694020": 0,
+    "1e69c020": 0,
+    "1e7e0020": 0
+  },
+  "schemaVersion": 1,
+  "scope": "RX-17c branch-free FJCVTZS/BF16/scalar FRINT: vendored-lifter p-code execution once on the regenerated .sla; not hardware acceptance",
+  "status": "passed",
+  "suites": [
+    "fj",
+    "bf16",
+    "frint"
+  ],
+  "totalPassed": 18336,
+  "unverified": [
+    "enabled FP traps",
+    "hardware execution",
+    "native admission (blocked by output budget)"
+  ],
+  "variants": {
+    "apple": {
+      "bf16": {
+        "passed": 3456
+      },
+      "fj": {
+        "passed": 384
+      },
+      "frint": {
+        "passed": 2272
+      },
+      "sla_sha256": "1bc0f833fafb1beb9748bf690930b9b368b59c0101c38032090b97cfcca42ef4"
+    },
+    "be": {
+      "bf16": {
+        "passed": 3456
+      },
+      "fj": {
+        "passed": 384
+      },
+      "frint": {
+        "passed": 2272
+      },
+      "sla_sha256": "230b83f93d2f8e82740c10e35723026c2163b6c34f526f12aab0ce4436078bde"
+    },
+    "le": {
+      "bf16": {
+        "passed": 3456
+      },
+      "fj": {
+        "passed": 384
+      },
+      "frint": {
+        "passed": 2272
+      },
+      "sla_sha256": "9912619509451b8f78fcd44260a03089dbc3365f3e72a09ee827dd1b2dfc35e8"
+    }
+  }
+}

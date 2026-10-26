@@ -1,0 +1,35 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "reconstruction.replay.requiresNewerBuild" : {
+      "comment" : "An active reconstruction job uses replay data that this build cannot read.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This workspace was saved while a reconstruction job was running and needs a MacScope build that supports %@ (October 2026 or newer)."
+          }
+        }
+      }
+    },
+    "Contrast" : {
+      "comment" : "Built-in theme name: maximum legibility."
+    },
+    "Maximum legibility: pure grounds and strong lines." : {
+      "comment" : "Built-in Contrast theme description."
+    },
+    "Midnight" : {
+      "comment" : "Built-in theme name: deep navy, always dark."
+    },
+    "Deep navy with neon signals. Always dark." : {
+      "comment" : "Built-in Midnight theme description."
+    },
+    "Scope" : {
+      "comment" : "Built-in theme name: the default theme."
+    },
+    "Cool slate with a violet accent. Follows Light and Dark." : {
+      "comment" : "Built-in Scope theme description."
+    }
+  },
+  "version" : "1.0"
+}

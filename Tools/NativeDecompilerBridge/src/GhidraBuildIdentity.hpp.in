@@ -1,0 +1,41 @@
+#pragma once
+
+#include <string_view>
+
+namespace macscope::native_decompiler::detail::build_identity {
+
+inline constexpr bool kRelocatableMaterialization =
+    @MACSCOPE_ATTESTED_RELOCATABLE_MATERIALIZATION@;
+inline constexpr std::string_view kMaterializationRoot =
+    "@MACSCOPE_ATTESTED_MATERIALIZATION_ROOT@";
+inline constexpr std::string_view kPackageRoot =
+    "@MACSCOPE_ATTESTED_PACKAGE_ROOT@";
+inline constexpr std::string_view kGlobalSpecRoot =
+    "@MACSCOPE_ATTESTED_GLOBAL_SPEC_ROOT@";
+inline constexpr std::string_view kProcessorSpecRoot =
+    "@MACSCOPE_ATTESTED_PROCESSOR_SPEC_ROOT@";
+inline constexpr std::string_view kPackageRelativeRoot =
+    "@MACSCOPE_ATTESTED_PACKAGE_RELATIVE_ROOT@";
+inline constexpr std::string_view kGlobalSpecRelativeRoot =
+    "@MACSCOPE_ATTESTED_GLOBAL_SPEC_RELATIVE_ROOT@";
+inline constexpr std::string_view kProcessorSpecRelativeRoot =
+    "@MACSCOPE_ATTESTED_PROCESSOR_SPEC_RELATIVE_ROOT@";
+inline constexpr std::string_view kManifestSha256 =
+    "@MACSCOPE_ATTESTED_MANIFEST_SHA256@";
+inline constexpr std::string_view kClosedTreeSha256 =
+    "@MACSCOPE_ATTESTED_TREE_SHA256@";
+inline constexpr std::string_view kSleighVersion =
+    "@MACSCOPE_ATTESTED_SLEIGH_VERSION@";
+inline constexpr std::string_view kGhidraVersion =
+    "@MACSCOPE_ATTESTED_GHIDRA_VERSION@";
+inline constexpr std::string_view kGhidraGitRevision =
+    "@MACSCOPE_ATTESTED_GHIDRA_REVISION@";
+inline constexpr std::string_view kEngineVersion = kGhidraVersion;
+inline constexpr std::string_view kEngineRevision = kGhidraGitRevision;
+inline constexpr std::string_view kWrapperVersion =
+    "@MACSCOPE_ATTESTED_WRAPPER_VERSION@";
+inline constexpr std::string_view kWrapperGitRevision =
+    "@MACSCOPE_ATTESTED_WRAPPER_REVISION@";
+inline constexpr std::string_view kWrapperRevision = kWrapperGitRevision;
+
+} // namespace macscope::native_decompiler::detail::build_identity

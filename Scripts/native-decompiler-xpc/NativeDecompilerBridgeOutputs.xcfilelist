@@ -1,0 +1,5 @@
+$(MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT)/libmacscope_native_decompiler_contract.a
+$(MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT)/CMakeCache.txt
+$(MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT)/generated/MacScopeNativeDecompiler/GhidraBuildIdentity.hpp
+$(MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT)/macscope-native-decompiler-link-inputs.xcfilelist
+$(MACSCOPE_NATIVE_DECOMPILER_BUILD_ROOT)/macscope-native-decompiler-link-probe-inspection.txt

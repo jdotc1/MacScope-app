@@ -1,0 +1,49 @@
+{
+  "reference": "pyelftools 0.32",
+  "elf_type": "ET_EXEC",
+  "machine": "EM_X86_64",
+  "functions": [],
+  "types": [],
+  "variables": [],
+  "lines": [],
+  "dies": [
+    {
+      "offset": 12,
+      "cu": 0,
+      "tag": "DW_TAG_compile_unit",
+      "name": "entry.c",
+      "tag_code": 17,
+      "attributes": {
+        "3": {
+          "name": "DW_AT_name",
+          "form": "DW_FORM_strx1",
+          "value": "entry.c"
+        },
+        "114": {
+          "name": "DW_AT_str_offsets_base",
+          "form": "DW_FORM_sec_offset",
+          "value": 56
+        },
+        "17": {
+          "name": "DW_AT_low_pc",
+          "form": "DW_FORM_addrx",
+          "value": 4198448
+        },
+        "115": {
+          "name": "DW_AT_addr_base",
+          "form": "DW_FORM_sec_offset",
+          "value": 32
+        }
+      },
+      "forms": {
+        "DW_AT_name": "DW_FORM_strx1",
+        "DW_AT_str_offsets_base": "DW_FORM_sec_offset",
+        "DW_AT_low_pc": "DW_FORM_addrx",
+        "DW_AT_addr_base": "DW_FORM_sec_offset"
+      }
+    }
+  ],
+  "loclists": [],
+  "rnglists": [],
+  "globals": []
+}

@@ -1,0 +1,131 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+@@ -2657,7 +2657,7 @@
+ vIndexHLM: val is b_2223=0 & b_2121 & b_1111 & b_2020 [ val = b_1111 << 2 | b_2121 << 1 | b_2020; ] { export *[const]:8 val; }
+ 
+ vIndexHL: val is b_2223=0b01 & b_21 & b_11 [ val = b_11 << 1 | b_21; ] { export *[const]:8 val; }
+-vIndexHL: b_11 is b_2223=0b10 & b_11 { export *[const]:8 b_11; }
++vIndexHL: val is b_2223=0b10 & b_21 & b_11 [ val = b_11 << 1 | b_21; ] { export *[const]:8 val; }
+ 
+ @if DATA_ENDIAN == "little"
+ Re_VPR128.B.sel: Re_VPR128, val is Re_VPR128 & b_2222=0 & b_2121 & b_1111 [ val = 0x5000 + 32*Re_VPR128 + b_1111 * 2 + b_2121; ] { export *[register]:1 val; }
+@@ -2727,7 +2727,16 @@
+ Rn_VPR128.S.imm_neon_uimm2: Rn_VPR128.S^"["^imm_neon_uimm2^"]" is Rn_VPR128.S & imm_neon_uimm2 & Rn_VPR128.S.sel { export Rn_VPR128.S.sel; }
+ Rn_VPR128.D.imm_neon_uimm1: Rn_VPR128.D^"["^imm_neon_uimm1^"]" is Rn_VPR128.D & imm_neon_uimm1 & Rn_VPR128.D.sel { export Rn_VPR128.D.sel; }
+ 
+-Re_VPR128.H.vIndexHL: Re_VPR128.H^"["^vIndexHL^"]" is Re_VPR128.H & vIndexHL { }
++# MacScope RX-17 (2026-10-12): dot-product lane inputs are 32-bit groups.
++# The former operand exported no value and crashed native p-code generation.
++@if DATA_ENDIAN == "little"
++Re_VPR128.Dot.sel: val is Re_VPR128 & b_21 & b_11 [ val = 0x5000 + 32*Re_VPR128 + 4*(b_11*2+b_21); ] { export *[register]:4 val; }
++@else
++Re_VPR128.Dot.sel: val is Re_VPR128 & b_21 & b_11 [ val = 0x501c + 32*Re_VPR128 - 4*(b_11*2+b_21); ] { export *[register]:4 val; }
++@endif
++Re_VPR128.H.vIndexHL: Re_VPR128.H^"["^vIndexHL^"]" is Re_VPR128.H & vIndexHL & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
++Re_VPR128.2H.vIndexHL: vRe_VPR128^".2H["^vIndexHL^"]" is vRe_VPR128 & vIndexHL & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
++Re_VPR128.4B.vIndexHL: vRe_VPR128^".4B["^vIndexHL^"]" is vRe_VPR128 & vIndexHL & Re_VPR128.Dot.sel { export Re_VPR128.Dot.sel; }
+ 
+ @if DATA_ENDIAN == "little"
+ Re_VPR128Lo.H.sel: Re_VPR128Lo, val is Re_VPR128Lo & b_2223=2 & b_2121 & b_1111 [ val = 0x5000 + 32*Re_VPR128Lo + (b_1111 * 2 + b_2121)*2; ] { export *[register]:2 val; }
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+@@ -1,3 +1,4 @@
++# MacScope RX-17 (2026-10-12): BFDOT by-element retains its accumulator.
+ # C7.2.1 ABS page C7-1009 line 58362 KEEPWITH
+ #
+ # The semantics in this file are auto-generated with armit.py script
+@@ -31234,19 +31235,22 @@
+ # x0f40f000/mask=xbfc0f400 NOT MATCHED BY ANY CONSTRUCTOR
+ # b_0031=0.00111101......1111.0..........
+ 
+-:bfdot Rd_VPR128.2S, Rn_VPR128.4H, , Re_VPR128.H.vIndexHL
+-is b_3131=0b0 & Q=0 & b_2229=0b00111101 & Re_VPR128.H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.4H & Rd_VPR128.2S
+-{
+-	Rd_VPR128.2S = NEON_bfdot(Rn_VPR128.4H, Re_VPR128.H.vIndexHL);
++:bfdot Rd_VPR128.2S, Rn_VPR128.4H, Re_VPR128.2H.vIndexHL
++is b_3131=0b0 & Q=0 & b_2229=0b00111101 & Re_VPR128.2H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.4H & Rd_VPR128.2S & Zd
++{
++	local result:8 = NEON_bfdot(Rd_VPR128.2S:8, Rn_VPR128.4H:8, Re_VPR128.2H.vIndexHL);
++	Rd_VPR128.2S = zext(result);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.15 BFDOT (by element) page C7-2039 line 119080 MATCH x0f40f000/mask=xbfc0f400
+ # CONSTRUCT x4f40f000/mask=xffc0f400 MATCHED 1 DOCUMENTED OPCODES
+ 
+-:bfdot Rd_VPR128.4S, Rn_VPR128.8H, Re_VPR128.H.vIndexHL
+-is b_3131=0b0 & Q=1 & b_2229=0b00111101 & Re_VPR128.H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.8H & Rd_VPR128.4S
+-{
+-	Rd_VPR128.4S = NEON_bfdot(Rn_VPR128.8H, Re_VPR128.H.vIndexHL);
++:bfdot Rd_VPR128.4S, Rn_VPR128.8H, Re_VPR128.2H.vIndexHL
++is b_3131=0b0 & Q=1 & b_2229=0b00111101 & Re_VPR128.2H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.8H & Rd_VPR128.4S & Zd
++{
++	Rd_VPR128.4S = NEON_bfdot(Rd_VPR128.4S, Rn_VPR128.8H, Re_VPR128.2H.vIndexHL);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.16 BFDOT (vector) page C7-2041 line 119201 MATCH x2e40fc00/mask=xbfe0fc00
+@@ -31536,19 +31540,22 @@
+ # x0f00f000/mask=xbfc0f400 NOT MATCHED BY ANY CONSTRUCTOR
+ # b_0031=0.00111100......1111.0..........
+ 
+-:sudot Rd_VPR128.2S, Rn_VPR128.8B, Re_VPR128.H.vIndexHL
+-is b_3131=0b0 & Q=0 & b_2229=0b00111100 & Re_VPR128.H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.8B & Rd_VPR128.2S
+-{
+-	Rd_VPR128.2S = NEON_sudot(Rd_VPR128.2S, Rn_VPR128.8B, Re_VPR128.H.vIndexHL);
++:sudot Rd_VPR128.2S, Rn_VPR128.8B, Re_VPR128.4B.vIndexHL
++is b_3131=0b0 & Q=0 & b_2229=0b00111100 & Re_VPR128.4B.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.8B & Rd_VPR128.2S & Zd
++{
++	local result:8 = NEON_sudot(Rd_VPR128.2S:8, Rn_VPR128.8B:8, Re_VPR128.4B.vIndexHL);
++	Rd_VPR128.2S = zext(result);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.336 SUDOT (by element) page C7-2795 line 163341 MATCH x0f00f000/mask=xbfc0f400
+ # CONSTRUCT x4f00f000/mask=xffc0f400 MATCHED 1 DOCUMENTED OPCODES
+ 
+-:sudot Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.H.vIndexHL
+-is b_3131=0b0 & Q=1 & b_2229=0b00111100 & Re_VPR128.H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.16B & Rd_VPR128.4S
+-{
+-	Rd_VPR128.4S = NEON_sudot(Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.H.vIndexHL);
++:sudot Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.4B.vIndexHL
++is b_3131=0b0 & Q=1 & b_2229=0b00111100 & Re_VPR128.4B.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.16B & Rd_VPR128.4S & Zd
++{
++	Rd_VPR128.4S = NEON_sudot(Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.4B.vIndexHL);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.370 UMMLA (vector) page C7-2867 line 167357 MATCH x6e80a400/mask=xffe0fc00
+@@ -31587,19 +31594,22 @@
+ # x0f80f000/mask=xbfc0f400 NOT MATCHED BY ANY CONSTRUCTOR
+ # b_0031=0.00111110......1111.0..........
+ 
+-:usdot Rd_VPR128.2S, Rn_VPR128.8B, Re_VPR128.H.vIndexHL
+-is b_3131=0b0 & Q=0 & b_2229=0b00111110 & Re_VPR128.H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.8B & Rd_VPR128.2S
+-{
+-	Rd_VPR128.2S = NEON_usdot(Rd_VPR128.2S, Rn_VPR128.8B, Re_VPR128.H.vIndexHL);
++:usdot Rd_VPR128.2S, Rn_VPR128.8B, Re_VPR128.4B.vIndexHL
++is b_3131=0b0 & Q=0 & b_2229=0b00111110 & Re_VPR128.4B.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.8B & Rd_VPR128.2S & Zd
++{
++	local result:8 = NEON_usdot(Rd_VPR128.2S:8, Rn_VPR128.8B:8, Re_VPR128.4B.vIndexHL);
++	Rd_VPR128.2S = zext(result);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.389 USDOT (by element) page C7-2909 line 169795 MATCH x0f80f000/mask=xbfc0f400
+ # CONSTRUCT x4f80f000/mask=xffc0f400 MATCHED 1 DOCUMENTED OPCODES
+ 
+-:usdot Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.H.vIndexHL
+-is b_3131=0b0 & Q=1 & b_2229=0b00111110 & Re_VPR128.H.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.16B & Rd_VPR128.4S
+-{
+-	Rd_VPR128.4S = NEON_usdot(Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.H.vIndexHL);
++:usdot Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.4B.vIndexHL
++is b_3131=0b0 & Q=1 & b_2229=0b00111110 & Re_VPR128.4B.vIndexHL & b_1215=0b1111 & b_1010=0b0 & Rn_VPR128.16B & Rd_VPR128.4S & Zd
++{
++	Rd_VPR128.4S = NEON_usdot(Rd_VPR128.4S, Rn_VPR128.16B, Re_VPR128.4B.vIndexHL);
++	zext_zq(Zd);
+ }
+ 
+ # C7.2.393 USMMLA (vector) page C7-2919 line 170338 MATCH x4e80ac00/mask=xffe0fc00

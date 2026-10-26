@@ -1,0 +1,98 @@
+From 01e8a4797ab3835b4675298ce1a3463b15f4e36f Mon Sep 17 00:00:00 2001
+From: MacScope <macscope@invalid>
+Date: Mon, 12 Oct 2026 00:00:00 +0000
+Subject: [PATCH 3/3] AARCH64: reject MOPS encodings with aliased or invalid
+ registers
+
+The Arm ARM makes CPY*/CPYF*/SET*/SETG* with Xd == Xs, Xd == Xn or
+Xs == Xn CONSTRAINED UNPREDICTABLE, and Xd == 31 (and Xs == 31 for the
+copies) is not a valid encoding; LLVM rejects all of them. Two context
+bits computed in the root constructor, in the same way as the existing
+ImmS_* bits, record whether the register fields are valid, and the MOPS
+constructors require them. The size register Xn, and the SET* source
+Xs, may still be XZR.
+
+This patch is kept separate because Ghidra otherwise decodes CONSTRAINED
+UNPREDICTABLE encodings; it can be dropped without affecting the others.
+---
+ .../AARCH64/data/languages/AARCH64base.sinc           |  8 ++++----
+ .../AARCH64/data/languages/AARCH64instructions.sinc   | 11 ++++++++++-
+ 2 files changed, 14 insertions(+), 5 deletions(-)
+
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+index b1b2628..f82aa8e 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+@@ -1845,13 +1845,13 @@ cpyType: "wtwn"	is b_1015=0x15 {export 0x15:1; }
+ define pcodeop MemoryCopyForward;
+ # Memory Copy Forward-only
+ :cpyf^cpyPhase^cpyType [Rd_GPR64]!, [Rs_GPR64]!, Rn_GPR64^"!"
+-is b_3031=0 & b_2429=0x19 & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
++is MopsCpyRegsOK=1 & b_3031=0 & b_2429=0x19 & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
+ {
+ 	MemoryCopyForward(Rd_GPR64, Rs_GPR64, Rn_GPR64, cpyType, cpyPhase);
+ }
+ define pcodeop MemoryCopy;
+ :cpy^cpyPhase^cpyType [Rd_GPR64]!, [Rs_GPR64]!, Rn_GPR64^"!"
+-is b_3031=0 & b_2429=0x1d & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
++is MopsCpyRegsOK=1 & b_3031=0 & b_2429=0x1d & opt != 3 & cpyPhase & b_2121=0 & Rs_GPR64 & cpyType & Rn_GPR64 & Rd_GPR64
+ {
+ 	MemoryCopy(Rd_GPR64, Rs_GPR64, Rn_GPR64, cpyType, cpyPhase);
+ }
+@@ -5340,7 +5340,7 @@ setType: "tn"	is b_1013=0xd {export 13:1; }
+ 
+ define pcodeop memorySetTag;
+ :setg^setPhase^setType [Rd_GPR64]!, Rn_GPR64!, Rs_GPR64
+-is b_3031=0 & b_2129=0xee & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
++is MopsSetRegsOK=1 & b_3031=0 & b_2129=0xee & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
+ 	memorySetTag(Rd_GPR64, Rn_GPR64, Rs_GPR64, setPhase, setType);
+ }
+ 
+@@ -5349,7 +5349,7 @@ is b_3031=0 & b_2129=0xee & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64
+ # CONSTRUCT x19c00400/mask=x3fe03c00 MATCHED 5 DOCUMENTED OPCODES
+ define pcodeop memorySet;
+ :set^setPhase^setType [Rd_GPR64]!, Rn_GPR64!, Rs_GPR64
+-is b_3031=0 & b_2129=0xce & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
++is MopsSetRegsOK=1 & b_3031=0 & b_2129=0xce & Rs_GPR64 & b_1415 <3 & setPhase & setType & Rn_GPR64 & Rd_GPR64 {
+ 	memorySet(Rd_GPR64, Rn_GPR64, Rs_GPR64, setPhase, setType);
+ }
+ 
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+index da9390a..0d0cd31 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+@@ -1010,6 +1010,8 @@ define context contextreg
+ 	ImmS_LT_ImmR_minus_1 = (3,3)
+ 	ImmS_ne_1f = (4,4)
+ 	ImmS_ne_3f = (5,5)
++	MopsCpyRegsOK = (6,6)
++	MopsSetRegsOK = (7,7)
+ 	ShowPAC = (21,21) noflow
+ 	PAC_clobber = (22,22) noflow
+ 	ShowBTI = (23,23) noflow
+@@ -3961,7 +3963,7 @@ macro zext_rs(reg)
+ # SECTION instructions
+ 
+ :^instruction
+-is ImmS_ImmR_TestSet=0 & ImmR & ImmS & instruction
++is ImmS_ImmR_TestSet=0 & ImmR & ImmS & Rd & Rn & Rm & instruction
+ [
+ 	ImmS_LT_ImmR = (((ImmS - ImmR) >> 6) $and 1);
+ 	ImmS_EQ_ImmR = ~((((ImmS - ImmR) >> 6) $and 1) | (((ImmR - ImmS) >> 6) $and 1));
+@@ -3970,6 +3972,13 @@ is ImmS_ImmR_TestSet=0 & ImmR & ImmS & instruction
+ 	ImmS_LT_ImmR_minus_1 = (((ImmS - (ImmR - 1)) >> 6) & 0x1) & (((ImmS - (ImmR - 1)) >> 7) & 0x1);
+ 	ImmS_ne_1f = (((ImmS - 0x1f) >> 6) & 0x1) | (((0x1f - ImmS) >> 6) & 0x1);
+ 	ImmS_ne_3f = (((ImmS - 0x3f) >> 6) & 0x1) | (((0x3f - ImmS) >> 6) & 0x1);
++	# FEAT_MOPS register constraints (CONSTRAINED UNPREDICTABLE or UNDEFINED in the Arm ARM,
++	# rejected by LLVM): Xd, Xs and Xn must be distinct, and Xd (plus Xs for CPY*) must not be
++	# register 31. The size register Xn, and the SET* source Xs, may be XZR. For a 5-bit x, ((x + 31) >> 5) & 1 is 1 exactly when x != 0.
++	MopsCpyRegsOK = (((Rd $xor Rm) + 31) >> 5) & (((Rd $xor Rn) + 31) >> 5) & (((Rm $xor Rn) + 31) >> 5)
++		& (((Rd $xor 31) + 31) >> 5) & (((Rm $xor 31) + 31) >> 5) & 1;
++	MopsSetRegsOK = (((Rd $xor Rm) + 31) >> 5) & (((Rd $xor Rn) + 31) >> 5) & (((Rm $xor Rn) + 31) >> 5)
++		& (((Rd $xor 31) + 31) >> 5) & 1;
+ 	ImmS_ImmR_TestSet=1;
+ ]{}
+ 
+-- 
+2.56.0
+

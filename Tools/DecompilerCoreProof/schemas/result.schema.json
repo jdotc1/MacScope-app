@@ -1,0 +1,2632 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://macscope.invalid/schemas/dcp03-effective-load-image-darwin-register-dataflow-result-v4.json",
+  "title": "MacScope DCP-03 effective-load-image Darwin register data-flow result",
+  "description": "Closed successful-result contract for the non-shipping DCP-03B2 native SLEIGH proof with authority-preserving effective memory, bounded AArch64 Mach-O relocations, dyld pointer normalization, exact-storage SSA, MemorySSA, AArch64 GPR alias SSA, and Darwin base call effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "status",
+    "analysisLevel",
+    "contractCompleteness",
+    "requestId",
+    "requestSha256",
+    "engine",
+    "capabilities",
+    "analysisSemantics",
+    "image",
+    "loadImage",
+    "function",
+    "instructions",
+    "values",
+    "pcodeOps",
+    "basicBlocks",
+    "edges",
+    "calls",
+    "evidenceInputs",
+    "ssaValues",
+    "ssaBindings",
+    "phis",
+    "heritage",
+    "memoryVersions",
+    "memoryPhis",
+    "memoryEffects",
+    "registerAnalysis",
+    "recoveredVariables",
+    "recoveredTypes",
+    "structuredRegions",
+    "pseudocodeTokens",
+    "warnings",
+    "resourceUsage",
+    "contentHash"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 4
+    },
+    "status": {
+      "const": "ok"
+    },
+    "analysisLevel": {
+      "const": "native-sleigh-effective-load-image-darwin-register-dataflow-proof"
+    },
+    "contractCompleteness": {
+      "const": "partial-dcp03"
+    },
+    "requestId": {
+      "$ref": "#/$defs/identifier"
+    },
+    "requestSha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "engine": {
+      "$ref": "#/$defs/engine"
+    },
+    "capabilities": {
+      "$ref": "#/$defs/capabilities"
+    },
+    "analysisSemantics": {
+      "$ref": "#/$defs/analysisSemantics"
+    },
+    "image": {
+      "$ref": "#/$defs/image"
+    },
+    "loadImage": {
+      "$ref": "#/$defs/loadImage"
+    },
+    "function": {
+      "$ref": "#/$defs/function"
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/instruction"
+      },
+      "minItems": 1
+    },
+    "values": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/value"
+      }
+    },
+    "pcodeOps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pcodeOp"
+      },
+      "minItems": 1
+    },
+    "basicBlocks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/basicBlock"
+      },
+      "minItems": 1
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "calls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/call"
+      }
+    },
+    "evidenceInputs": {
+      "$ref": "#/$defs/evidenceInputs"
+    },
+    "ssaValues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ssaValue"
+      },
+      "minItems": 1
+    },
+    "ssaBindings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ssaBinding"
+      },
+      "minItems": 1
+    },
+    "phis": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/phi"
+      }
+    },
+    "heritage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/heritageUse"
+      }
+    },
+    "memoryVersions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/memoryVersion"
+      },
+      "minItems": 1
+    },
+    "memoryPhis": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/memoryPhi"
+      }
+    },
+    "memoryEffects": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/memoryEffect"
+      }
+    },
+    "registerAnalysis": {
+      "$ref": "#/$defs/registerAnalysis"
+    },
+    "recoveredVariables": {
+      "type": "array",
+      "maxItems": 0,
+      "items": false
+    },
+    "recoveredTypes": {
+      "type": "array",
+      "maxItems": 0,
+      "items": false
+    },
+    "structuredRegions": {
+      "type": "array",
+      "maxItems": 0,
+      "items": false
+    },
+    "pseudocodeTokens": {
+      "type": "array",
+      "maxItems": 0,
+      "items": false
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/warning"
+      }
+    },
+    "resourceUsage": {
+      "$ref": "#/$defs/resourceUsage"
+    },
+    "contentHash": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,255}$"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^(?:0x0|0x[1-9a-f][0-9a-f]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nullableAddress": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/address"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sourceRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imageId",
+        "startAddress",
+        "endAddressExclusive"
+      ],
+      "properties": {
+        "imageId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "startAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        }
+      }
+    },
+    "engineResource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "byteCount",
+        "sha256"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "byteCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "backend",
+        "componentId",
+        "version",
+        "gitRevision",
+        "languageId",
+        "compilerSpecId",
+        "resources"
+      ],
+      "properties": {
+        "backend": {
+          "const": "pypcode-native-sleigh"
+        },
+        "componentId": {
+          "const": "pypcode-dcp03-proof"
+        },
+        "version": {
+          "const": "4.0.0"
+        },
+        "gitRevision": {
+          "const": "2787546a83b42a62dde3a1905deea8b0906e85b5"
+        },
+        "languageId": {
+          "enum": [
+            "AARCH64:LE:64:AppleSilicon",
+            "AARCH64:LE:64:v8A"
+          ]
+        },
+        "compilerSpecId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/engineResource"
+          },
+          "minItems": 5
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "instructionDecoding",
+        "pcodeLifting",
+        "basicBlockRecovery",
+        "directCallRecovery",
+        "imageQualifiedSourceRanges",
+        "symbolInjection",
+        "storageHeritage",
+        "exactStorageSSA",
+        "memorySSA",
+        "aarch64GprAliasRecovery",
+        "aarch64GprSSA",
+        "darwinAapcs64BaseCallEffects",
+        "callRegisterInputs",
+        "relocationApplication",
+        "aarch64MachORelocationApplication",
+        "dyldChainedPointerNormalization",
+        "decompilerHeritage",
+        "registerSSA",
+        "registerAliasRecovery",
+        "callRegisterClobbers",
+        "recoveredVariables",
+        "genericTypeRecovery",
+        "controlFlowStructuring",
+        "tokenizedPseudocode"
+      ],
+      "properties": {
+        "instructionDecoding": {
+          "const": true
+        },
+        "pcodeLifting": {
+          "const": true
+        },
+        "basicBlockRecovery": {
+          "const": true
+        },
+        "directCallRecovery": {
+          "const": true
+        },
+        "imageQualifiedSourceRanges": {
+          "const": true
+        },
+        "symbolInjection": {
+          "const": true
+        },
+        "storageHeritage": {
+          "const": true
+        },
+        "exactStorageSSA": {
+          "const": true
+        },
+        "memorySSA": {
+          "const": true
+        },
+        "aarch64GprAliasRecovery": {
+          "const": true
+        },
+        "aarch64GprSSA": {
+          "const": true
+        },
+        "darwinAapcs64BaseCallEffects": {
+          "const": true
+        },
+        "callRegisterInputs": {
+          "const": true
+        },
+        "relocationApplication": {
+          "const": true
+        },
+        "aarch64MachORelocationApplication": {
+          "const": true
+        },
+        "dyldChainedPointerNormalization": {
+          "const": true
+        },
+        "decompilerHeritage": {
+          "const": false
+        },
+        "registerSSA": {
+          "const": false
+        },
+        "registerAliasRecovery": {
+          "const": false
+        },
+        "callRegisterClobbers": {
+          "const": true
+        },
+        "recoveredVariables": {
+          "const": false
+        },
+        "genericTypeRecovery": {
+          "const": false
+        },
+        "controlFlowStructuring": {
+          "const": false
+        },
+        "tokenizedPseudocode": {
+          "const": false
+        }
+      }
+    },
+    "analysisSemantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "heritageOrigin",
+        "storageIdentity",
+        "registerAliasModel",
+        "registerSsaModel",
+        "simdRegisterSsaModel",
+        "phiPlacement",
+        "temporaryScope",
+        "memoryPartitionModel",
+        "memoryCallModel",
+        "callRegisterInputModel",
+        "callRegisterClobberModel",
+        "callExcludedStateModel",
+        "loadImageAuthority",
+        "relocationApplicationModel",
+        "fixupApplicationModel",
+        "proofLevel"
+      ],
+      "properties": {
+        "heritageOrigin": {
+          "const": "macscope-raw-pcode"
+        },
+        "storageIdentity": {
+          "const": "space-offset-size-scope"
+        },
+        "registerAliasModel": {
+          "const": "aarch64-gpr-x-w-zero-extend"
+        },
+        "registerSsaModel": {
+          "const": "canonical-64-bit-gpr-only"
+        },
+        "simdRegisterSsaModel": {
+          "const": "none"
+        },
+        "phiPlacement": {
+          "const": "backward-liveness-multi-input"
+        },
+        "temporaryScope": {
+          "const": "instruction"
+        },
+        "memoryPartitionModel": {
+          "const": "single-unknown"
+        },
+        "memoryCallModel": {
+          "const": "all-memory-clobber"
+        },
+        "callRegisterInputModel": {
+          "const": "darwin-aapcs64-unknown-prototype-x0-x8-x30-sp-v0-v7"
+        },
+        "callRegisterClobberModel": {
+          "const": "darwin-aapcs64-base-x0-x18-x30-v0-v31-nzcv"
+        },
+        "callExcludedStateModel": {
+          "const": "sve-sme-fpsr-fpcr-fpmr-system-registers"
+        },
+        "loadImageAuthority": {
+          "const": "caller-supplied-memory-regions"
+        },
+        "relocationApplicationModel": {
+          "const": "bounded-mach-o-arm64-subset-fail-closed"
+        },
+        "fixupApplicationModel": {
+          "const": "dyld-chained-pointer-normalization-preserve-authentication-evidence"
+        },
+        "proofLevel": {
+          "const": "conservative"
+        }
+      }
+    },
+    "memoryRegion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "startAddress",
+        "endAddressExclusive",
+        "permissions",
+        "byteCount",
+        "sha256"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "startAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        },
+        "permissions": {
+          "type": "string",
+          "pattern": "^[r-][w-][x-]$"
+        },
+        "byteCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imageId",
+        "uuid",
+        "preferredLoadAddress",
+        "memoryRegions"
+      ],
+      "properties": {
+        "imageId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "uuid": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "preferredLoadAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "memoryRegions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/memoryRegion"
+          },
+          "minItems": 1,
+          "maxItems": 256
+        }
+      }
+    },
+    "function": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "functionId",
+        "name",
+        "entryAddress",
+        "endAddressExclusive",
+        "byteCount",
+        "sourceSha256",
+        "effectiveSha256",
+        "appliedPatchIds"
+      ],
+      "properties": {
+        "functionId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "entryAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        },
+        "byteCount": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 1048576
+        },
+        "sourceSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "effectiveSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "appliedPatchIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^patch[0-9]{6}$"
+          },
+          "maxItems": 4096
+        }
+      }
+    },
+    "instruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "index",
+        "address",
+        "size",
+        "bytesHex",
+        "mnemonic",
+        "body",
+        "pcodeOpIds",
+        "sourceRange"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "bytesHex": {
+          "type": "string",
+          "minLength": 2,
+          "pattern": "^(?:[0-9a-f]{2})+$"
+        },
+        "mnemonic": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "body": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "pcodeOpIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^op[0-9]{6}$"
+          }
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "space",
+        "offset",
+        "size",
+        "storageClass",
+        "registerName",
+        "scopeInstructionAddress"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "space": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "offset": {
+          "$ref": "#/$defs/address"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "storageClass": {
+          "enum": [
+            "register",
+            "constant",
+            "memory",
+            "temporary",
+            "internal",
+            "composite",
+            "other"
+          ]
+        },
+        "registerName": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 256
+        },
+        "scopeInstructionAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        }
+      }
+    },
+    "pcodeOp": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "instructionIndex",
+        "sequence",
+        "opcode",
+        "output",
+        "inputs",
+        "directTargetAddress",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "instructionIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "opcode": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "output": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^v[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^v[0-9]{6}$"
+          }
+        },
+        "directTargetAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "ssaValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "storageValueId",
+        "definingPcodeOpId",
+        "definingPhiId",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ssa[0-9]{6}$"
+        },
+        "kind": {
+          "enum": [
+            "entry",
+            "constant",
+            "address",
+            "internal",
+            "operationResult",
+            "phi"
+          ]
+        },
+        "storageValueId": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "definingPcodeOpId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^op[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "definingPhiId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^phi[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceRange": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sourceRange"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "ssaBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "pcodeOpId",
+        "inputSsaValueIds",
+        "outputSsaValueId"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^bind[0-9]{6}$"
+        },
+        "pcodeOpId": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "inputSsaValueIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^ssa[0-9]{6}$"
+          }
+        },
+        "outputSsaValueId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^ssa[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "phiIncoming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKind",
+        "sourceBlockId",
+        "edgeId",
+        "ssaValueId"
+      ],
+      "properties": {
+        "sourceKind": {
+          "enum": [
+            "functionEntry",
+            "block"
+          ]
+        },
+        "sourceBlockId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^bb_[0-9a-f]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "edgeId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^edge[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ssaValueId": {
+          "type": "string",
+          "pattern": "^ssa[0-9]{6}$"
+        }
+      }
+    },
+    "phi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "blockId",
+        "storageValueId",
+        "outputSsaValueId",
+        "incoming",
+        "isTrivial"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^phi[0-9]{6}$"
+        },
+        "blockId": {
+          "type": "string",
+          "pattern": "^bb_[0-9a-f]+$"
+        },
+        "storageValueId": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "outputSsaValueId": {
+          "type": "string",
+          "pattern": "^ssa[0-9]{6}$"
+        },
+        "incoming": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/phiIncoming"
+          }
+        },
+        "isTrivial": {
+          "type": "boolean"
+        }
+      }
+    },
+    "heritageUse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "pcodeOpId",
+        "operandIndex",
+        "storageValueId",
+        "ssaValueId",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^use[0-9]{6}$"
+        },
+        "pcodeOpId": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "operandIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "storageValueId": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "ssaValueId": {
+          "type": "string",
+          "pattern": "^ssa[0-9]{6}$"
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "memoryVersion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "partition",
+        "kind",
+        "definingPcodeOpId",
+        "definingMemoryPhiId",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^mem[0-9]{6}$"
+        },
+        "partition": {
+          "const": "unknown"
+        },
+        "kind": {
+          "enum": [
+            "functionEntry",
+            "operationResult",
+            "phi"
+          ]
+        },
+        "definingPcodeOpId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^op[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "definingMemoryPhiId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^mphi[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceRange": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sourceRange"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "memoryPhiIncoming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKind",
+        "sourceBlockId",
+        "edgeId",
+        "memoryVersionId"
+      ],
+      "properties": {
+        "sourceKind": {
+          "enum": [
+            "functionEntry",
+            "block"
+          ]
+        },
+        "sourceBlockId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^bb_[0-9a-f]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "edgeId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^edge[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "memoryVersionId": {
+          "type": "string",
+          "pattern": "^mem[0-9]{6}$"
+        }
+      }
+    },
+    "memoryPhi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "blockId",
+        "partition",
+        "outputMemoryVersionId",
+        "incoming",
+        "isTrivial"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^mphi[0-9]{6}$"
+        },
+        "blockId": {
+          "type": "string",
+          "pattern": "^bb_[0-9a-f]+$"
+        },
+        "partition": {
+          "const": "unknown"
+        },
+        "outputMemoryVersionId": {
+          "type": "string",
+          "pattern": "^mem[0-9]{6}$"
+        },
+        "incoming": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/memoryPhiIncoming"
+          }
+        },
+        "isTrivial": {
+          "type": "boolean"
+        }
+      }
+    },
+    "memoryEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "pcodeOpId",
+        "kind",
+        "partition",
+        "inputMemoryVersionId",
+        "outputMemoryVersionId",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^me[0-9]{6}$"
+        },
+        "pcodeOpId": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "kind": {
+          "enum": [
+            "read",
+            "write",
+            "callClobber",
+            "unknownClobber"
+          ]
+        },
+        "partition": {
+          "const": "unknown"
+        },
+        "inputMemoryVersionId": {
+          "type": "string",
+          "pattern": "^mem[0-9]{6}$"
+        },
+        "outputMemoryVersionId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^mem[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "terminator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "pcodeOpId",
+        "directTargetAddress"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "fallthrough",
+            "functionEnd",
+            "conditionalBranch",
+            "branch",
+            "indirectBranch",
+            "return"
+          ]
+        },
+        "pcodeOpId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^op[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "directTargetAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        }
+      }
+    },
+    "basicBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "startAddress",
+        "endAddressExclusive",
+        "instructionIndices",
+        "predecessorEdgeIds",
+        "successorEdgeIds",
+        "terminator"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^bb_[0-9a-f]+$"
+        },
+        "startAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        },
+        "instructionIndices": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "predecessorEdgeIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^edge[0-9]{6}$"
+          }
+        },
+        "successorEdgeIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^edge[0-9]{6}$"
+          }
+        },
+        "terminator": {
+          "$ref": "#/$defs/terminator"
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceBlockId",
+        "targetBlockId",
+        "targetAddress",
+        "kind",
+        "pcodeOpId"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^edge[0-9]{6}$"
+        },
+        "sourceBlockId": {
+          "type": "string",
+          "pattern": "^bb_[0-9a-f]+$"
+        },
+        "targetBlockId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^bb_[0-9a-f]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "targetAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        },
+        "kind": {
+          "enum": [
+            "branchTrue",
+            "branchFalse",
+            "branch",
+            "fallthrough",
+            "indirect"
+          ]
+        },
+        "pcodeOpId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^op[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "symbol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imageId",
+        "address",
+        "name",
+        "kind"
+      ],
+      "properties": {
+        "imageId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1024
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "call": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "pcodeOpId",
+        "kind",
+        "targetAddress",
+        "targetSymbol",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^call[0-9]{6}$"
+        },
+        "pcodeOpId": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "kind": {
+          "enum": [
+            "direct",
+            "indirect"
+          ]
+        },
+        "targetAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        },
+        "targetSymbol": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/symbol"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "relocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "address",
+        "kind",
+        "targetAddress",
+        "symbol",
+        "addend"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "targetAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        },
+        "symbol": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1024
+        },
+        "addend": {
+          "type": "integer",
+          "minimum": -9223372036854775808,
+          "maximum": 9223372036854775807
+        }
+      }
+    },
+    "fixup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "address",
+        "kind",
+        "targetAddress",
+        "authenticated",
+        "key",
+        "diversity"
+      ],
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "targetAddress": {
+          "$ref": "#/$defs/nullableAddress"
+        },
+        "authenticated": {
+          "type": "boolean"
+        },
+        "key": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/identifier"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "diversity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 65535
+        }
+      }
+    },
+    "typeHint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subjectKind",
+        "address",
+        "typeName",
+        "confidence",
+        "source"
+      ],
+      "properties": {
+        "subjectKind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "typeName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "confidence": {
+          "enum": [
+            "asserted",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/identifier"
+        }
+      }
+    },
+    "evidenceInputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "symbols",
+        "relocations",
+        "fixups",
+        "typeHints"
+      ],
+      "properties": {
+        "symbols": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/symbol"
+          },
+          "maxItems": 100000
+        },
+        "relocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relocation"
+          },
+          "maxItems": 100000
+        },
+        "fixups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fixup"
+          },
+          "maxItems": 100000
+        },
+        "typeHints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/typeHint"
+          },
+          "maxItems": 100000
+        }
+      }
+    },
+    "warning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/identifier"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      }
+    },
+    "resourceUsage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mappedByteCount",
+        "effectiveMappedByteCount",
+        "functionByteCount",
+        "effectiveFunctionByteCount",
+        "appliedPatchCount",
+        "unmappedAddressMetadataCount",
+        "instructionCount",
+        "valueCount",
+        "pcodeOpCount",
+        "basicBlockCount",
+        "edgeCount",
+        "callCount",
+        "ssaValueCount",
+        "ssaBindingCount",
+        "phiCount",
+        "heritageUseCount",
+        "memoryVersionCount",
+        "memoryPhiCount",
+        "memoryEffectCount",
+        "registerViewCount",
+        "registerVersionCount",
+        "registerBindingCount",
+        "registerPhiCount",
+        "callRegisterEffectCount",
+        "callRegisterInputSliceCount",
+        "callRegisterClobberSliceCount"
+      ],
+      "properties": {
+        "mappedByteCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "effectiveMappedByteCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "functionByteCount": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "effectiveFunctionByteCount": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "appliedPatchCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unmappedAddressMetadataCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "instructionCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "valueCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pcodeOpCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "basicBlockCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "edgeCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "callCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ssaValueCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ssaBindingCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phiCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "heritageUseCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "memoryVersionCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "memoryPhiCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "memoryEffectCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "registerViewCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "registerVersionCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "registerBindingCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "registerPhiCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "callRegisterEffectCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "callRegisterInputSliceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "callRegisterClobberSliceCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "registerModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "architecture",
+        "platform",
+        "callingConvention",
+        "abiSpecification",
+        "gprCanonicalWidthBits",
+        "gprAliasCoverage",
+        "simdSsaCoverage",
+        "conditionFlagSsaCoverage",
+        "callInputCoverage",
+        "callEffectCoverage",
+        "callExcludedState"
+      ],
+      "properties": {
+        "architecture": {
+          "const": "AArch64"
+        },
+        "platform": {
+          "const": "Apple"
+        },
+        "callingConvention": {
+          "const": "darwin-arm64-aapcs64"
+        },
+        "abiSpecification": {
+          "const": "aapcs64-2025q4"
+        },
+        "gprCanonicalWidthBits": {
+          "const": 64
+        },
+        "gprAliasCoverage": {
+          "const": "x0-x30-sp-and-32-bit-w-views"
+        },
+        "simdSsaCoverage": {
+          "const": "none"
+        },
+        "conditionFlagSsaCoverage": {
+          "const": "none"
+        },
+        "callInputCoverage": {
+          "const": "conservative-x0-x8-x30-sp-v0-v7"
+        },
+        "callEffectCoverage": {
+          "const": "base-gpr-simd-nzcv"
+        },
+        "callExcludedState": {
+          "const": "sve-sme-fpsr-fpcr-fpmr-system-registers"
+        }
+      }
+    },
+    "registerView": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "storageValueId",
+        "viewName",
+        "canonicalRegister",
+        "canonicalBitWidth",
+        "bitOffset",
+        "bitWidth",
+        "readTransform",
+        "writeTransform"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^rview[0-9]{6}$"
+        },
+        "storageValueId": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "viewName": {
+          "type": "string",
+          "pattern": "^(?:[xw](?:[0-9]|[12][0-9]|30)|sp|wsp)$"
+        },
+        "canonicalRegister": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-9]|[12][0-9]|30)|sp)$"
+        },
+        "canonicalBitWidth": {
+          "const": 64
+        },
+        "bitOffset": {
+          "const": 0
+        },
+        "bitWidth": {
+          "enum": [
+            32,
+            64
+          ]
+        },
+        "readTransform": {
+          "enum": [
+            "identity",
+            "lowBits"
+          ]
+        },
+        "writeTransform": {
+          "enum": [
+            "replace",
+            "zeroExtend"
+          ]
+        }
+      }
+    },
+    "registerVersion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "canonicalRegister",
+        "bitWidth",
+        "kind",
+        "definingPcodeOpId",
+        "definingRegisterPhiId",
+        "writeViewId",
+        "writeTransform",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^reg[0-9]{6}$"
+        },
+        "canonicalRegister": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-9]|[12][0-9]|30)|sp)$"
+        },
+        "bitWidth": {
+          "const": 64
+        },
+        "kind": {
+          "enum": [
+            "functionEntry",
+            "pcodeWrite",
+            "callClobber",
+            "phi"
+          ]
+        },
+        "definingPcodeOpId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^op[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "definingRegisterPhiId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^rphi[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "writeViewId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^rview[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "writeTransform": {
+          "oneOf": [
+            {
+              "enum": [
+                "replace",
+                "zeroExtend",
+                "unknown"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceRange": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sourceRange"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "registerRead": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operandIndex",
+        "storageValueId",
+        "registerViewId",
+        "canonicalRegister",
+        "inputRegisterVersionId",
+        "readTransform"
+      ],
+      "properties": {
+        "operandIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "storageValueId": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "registerViewId": {
+          "type": "string",
+          "pattern": "^rview[0-9]{6}$"
+        },
+        "canonicalRegister": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-9]|[12][0-9]|30)|sp)$"
+        },
+        "inputRegisterVersionId": {
+          "type": "string",
+          "pattern": "^reg[0-9]{6}$"
+        },
+        "readTransform": {
+          "enum": [
+            "identity",
+            "lowBits"
+          ]
+        }
+      }
+    },
+    "registerWrite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storageValueId",
+        "registerViewId",
+        "canonicalRegister",
+        "outputRegisterVersionId",
+        "writeTransform"
+      ],
+      "properties": {
+        "storageValueId": {
+          "type": "string",
+          "pattern": "^v[0-9]{6}$"
+        },
+        "registerViewId": {
+          "type": "string",
+          "pattern": "^rview[0-9]{6}$"
+        },
+        "canonicalRegister": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-9]|[12][0-9]|30)|sp)$"
+        },
+        "outputRegisterVersionId": {
+          "type": "string",
+          "pattern": "^reg[0-9]{6}$"
+        },
+        "writeTransform": {
+          "enum": [
+            "replace",
+            "zeroExtend"
+          ]
+        }
+      }
+    },
+    "registerBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "pcodeOpId",
+        "reads",
+        "write",
+        "callClobberRegisterVersionIds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^rbind[0-9]{6}$"
+        },
+        "pcodeOpId": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "reads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registerRead"
+          }
+        },
+        "write": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/registerWrite"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "callClobberRegisterVersionIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^reg[0-9]{6}$"
+          }
+        }
+      }
+    },
+    "registerPhiIncoming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKind",
+        "sourceBlockId",
+        "edgeId",
+        "registerVersionId"
+      ],
+      "properties": {
+        "sourceKind": {
+          "enum": [
+            "functionEntry",
+            "block"
+          ]
+        },
+        "sourceBlockId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^bb_[0-9a-f]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "edgeId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^edge[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "registerVersionId": {
+          "type": "string",
+          "pattern": "^reg[0-9]{6}$"
+        }
+      }
+    },
+    "registerPhi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "blockId",
+        "canonicalRegister",
+        "outputRegisterVersionId",
+        "incoming",
+        "isTrivial"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^rphi[0-9]{6}$"
+        },
+        "blockId": {
+          "type": "string",
+          "pattern": "^bb_[0-9a-f]+$"
+        },
+        "canonicalRegister": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-9]|[12][0-9]|30)|sp)$"
+        },
+        "outputRegisterVersionId": {
+          "type": "string",
+          "pattern": "^reg[0-9]{6}$"
+        },
+        "incoming": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/registerPhiIncoming"
+          }
+        },
+        "isTrivial": {
+          "type": "boolean"
+        }
+      }
+    },
+    "callRegisterInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registerName",
+        "registerClass",
+        "bitOffset",
+        "bitWidth",
+        "reason",
+        "access",
+        "inputRegisterVersionId"
+      ],
+      "properties": {
+        "registerName": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-8]|30)|sp|v[0-7])$"
+        },
+        "registerClass": {
+          "enum": [
+            "generalPurpose",
+            "simdFloatingPoint"
+          ]
+        },
+        "bitOffset": {
+          "const": 0
+        },
+        "bitWidth": {
+          "enum": [
+            64,
+            128
+          ]
+        },
+        "reason": {
+          "enum": [
+            "possibleParameter",
+            "possibleIndirectResultLocation",
+            "linkRegister",
+            "stackPointer"
+          ]
+        },
+        "access": {
+          "const": "conservativeMayRead"
+        },
+        "inputRegisterVersionId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^reg[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "callRegisterClobber": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registerName",
+        "registerClass",
+        "bitOffset",
+        "bitWidth",
+        "reason",
+        "outputRegisterVersionId"
+      ],
+      "properties": {
+        "registerName": {
+          "type": "string",
+          "pattern": "^(?:x(?:[0-9]|1[0-8]|30)|v(?:[0-9]|[12][0-9]|3[01])|N|Z|C|V)$"
+        },
+        "registerClass": {
+          "enum": [
+            "generalPurpose",
+            "simdFloatingPoint",
+            "conditionFlag"
+          ]
+        },
+        "bitOffset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 127
+        },
+        "bitWidth": {
+          "enum": [
+            1,
+            64,
+            128
+          ]
+        },
+        "reason": {
+          "enum": [
+            "callerSaved",
+            "platformReserved",
+            "linkRegisterCallerSaved",
+            "upperHalfCallerSaved",
+            "undefinedAcrossCall"
+          ]
+        },
+        "outputRegisterVersionId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^reg[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "callRegisterEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "pcodeOpId",
+        "callKind",
+        "callingConvention",
+        "coverage",
+        "inputs",
+        "clobbers",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ce[0-9]{6}$"
+        },
+        "pcodeOpId": {
+          "type": "string",
+          "pattern": "^op[0-9]{6}$"
+        },
+        "callKind": {
+          "enum": [
+            "direct",
+            "indirect"
+          ]
+        },
+        "callingConvention": {
+          "const": "darwin-arm64-aapcs64"
+        },
+        "coverage": {
+          "const": "base-gpr-simd-nzcv"
+        },
+        "inputs": {
+          "type": "array",
+          "minItems": 19,
+          "maxItems": 19,
+          "items": {
+            "$ref": "#/$defs/callRegisterInput"
+          }
+        },
+        "clobbers": {
+          "type": "array",
+          "minItems": 56,
+          "maxItems": 56,
+          "items": {
+            "$ref": "#/$defs/callRegisterClobber"
+          }
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "registerAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "views",
+        "versions",
+        "bindings",
+        "phis",
+        "callEffects"
+      ],
+      "properties": {
+        "model": {
+          "$ref": "#/$defs/registerModel"
+        },
+        "views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registerView"
+          }
+        },
+        "versions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registerVersion"
+          }
+        },
+        "bindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registerBinding"
+          }
+        },
+        "phis": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registerPhi"
+          }
+        },
+        "callEffects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/callRegisterEffect"
+          }
+        }
+      }
+    },
+    "schemaVersion": {
+      "const": 4
+    },
+    "analysisLevel": {
+      "const": "native-sleigh-effective-load-image-darwin-register-dataflow-proof"
+    },
+    "contractCompleteness": {
+      "const": "partial-dcp03"
+    },
+    "loadImageModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "architecture",
+        "byteOrder",
+        "pointerWidthBits",
+        "relocationModel",
+        "fixupModel",
+        "patchPolicy",
+        "authenticatedPointerTreatment",
+        "supportedRelocationKinds",
+        "supportedFixupKinds"
+      ],
+      "properties": {
+        "architecture": {
+          "const": "AArch64"
+        },
+        "byteOrder": {
+          "const": "little"
+        },
+        "pointerWidthBits": {
+          "const": 64
+        },
+        "relocationModel": {
+          "const": "mach-o-arm64-relocation-subset-v1"
+        },
+        "fixupModel": {
+          "const": "dyld-chained-pointer-normalization-v1"
+        },
+        "patchPolicy": {
+          "const": "fail-closed-mapped-preserve-unmapped"
+        },
+        "authenticatedPointerTreatment": {
+          "const": "materialize-unsigned-target-with-authentication-evidence"
+        },
+        "supportedRelocationKinds": {
+          "const": [
+            "ARM64_RELOC_UNSIGNED",
+            "ARM64_RELOC_BRANCH26",
+            "ARM64_RELOC_PAGE21",
+            "ARM64_RELOC_GOT_LOAD_PAGE21",
+            "ARM64_RELOC_TLVP_LOAD_PAGE21",
+            "ARM64_RELOC_PAGEOFF12",
+            "ARM64_RELOC_GOT_LOAD_PAGEOFF12",
+            "ARM64_RELOC_TLVP_LOAD_PAGEOFF12"
+          ]
+        },
+        "supportedFixupKinds": {
+          "const": [
+            "DYLD_CHAINED_REBASE64",
+            "DYLD_CHAINED_BIND64",
+            "DYLD_CHAINED_AUTH_REBASE64",
+            "DYLD_CHAINED_AUTH_BIND64"
+          ]
+        }
+      }
+    },
+    "effectiveMemoryRegion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "startAddress",
+        "endAddressExclusive",
+        "permissions",
+        "byteCount",
+        "rawSha256",
+        "effectiveSha256",
+        "appliedPatchIds"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "startAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        },
+        "permissions": {
+          "type": "string",
+          "pattern": "^[r-][w-][x-]$"
+        },
+        "byteCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "rawSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "effectiveSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "appliedPatchIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^patch[0-9]{6}$"
+          },
+          "maxItems": 4096
+        }
+      }
+    },
+    "loadImagePatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceKind",
+        "sourceIndex",
+        "address",
+        "width",
+        "kind",
+        "encoding",
+        "targetAddress",
+        "symbol",
+        "addend",
+        "authenticated",
+        "key",
+        "diversity",
+        "originalBytesHex",
+        "effectiveBytesHex",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^patch[0-9]{6}$"
+        },
+        "sourceKind": {
+          "enum": [
+            "relocation",
+            "fixup"
+          ]
+        },
+        "sourceIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4095
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "width": {
+          "enum": [
+            4,
+            8
+          ]
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "encoding": {
+          "enum": [
+            "littleEndianUnsigned64",
+            "aarch64Branch26",
+            "aarch64AdrpPage21",
+            "aarch64AddImmediatePageOffset12",
+            "aarch64UnsignedLoadStorePageOffset12",
+            "normalizedPointer64"
+          ]
+        },
+        "targetAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "symbol": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1024
+        },
+        "addend": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": -9223372036854775808,
+          "maximum": 9223372036854775807
+        },
+        "authenticated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "key": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            null,
+            "ia",
+            "ib",
+            "da",
+            "db"
+          ]
+        },
+        "diversity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "originalBytesHex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2}){4,8}$"
+        },
+        "effectiveBytesHex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2}){4,8}$"
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "unmappedAddressMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKind",
+        "sourceIndex",
+        "address",
+        "kind",
+        "reason"
+      ],
+      "properties": {
+        "sourceKind": {
+          "enum": [
+            "relocation",
+            "fixup"
+          ]
+        },
+        "sourceIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4095
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "reason": {
+          "const": "outsideSuppliedMemory"
+        }
+      }
+    },
+    "loadImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "memoryRegions",
+        "patches",
+        "unmappedEvidence"
+      ],
+      "properties": {
+        "model": {
+          "$ref": "#/$defs/loadImageModel"
+        },
+        "memoryRegions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effectiveMemoryRegion"
+          },
+          "minItems": 1,
+          "maxItems": 256
+        },
+        "patches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/loadImagePatch"
+          },
+          "maxItems": 4096
+        },
+        "unmappedEvidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unmappedAddressMetadata"
+          },
+          "maxItems": 8192
+        }
+      }
+    }
+  }
+}

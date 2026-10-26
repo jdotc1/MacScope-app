@@ -1,0 +1,1 @@
+{"ok":true,"suites":[{"suite":"native"},{"suite":"comparison","cases":17,"status":"passed"},{"suite":"ui","cases":18,"status":"passed"}],"checkpointCalls":546,"resourceSHA256":"09ff4e85e5722cd28b7dec3f06589a2489665d972ad59a4fdcfd68c296950108"}

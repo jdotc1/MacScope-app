@@ -1,0 +1,4 @@
+module MacScopeParserEngines {
+  header "MacScopeParserEngines.h"
+  export *
+}

@@ -1,0 +1,223 @@
+{
+  "agreement": [
+    {
+      "agreed": [
+        "arch",
+        "build_version",
+        "dylibs",
+        "entry_offset",
+        "fat_offset",
+        "filetype",
+        "flags",
+        "id_dylib",
+        "load_commands",
+        "ncmds",
+        "ptrauth_abi",
+        "sections",
+        "segments",
+        "sizeofcmds",
+        "uuid"
+      ],
+      "disagreed": {},
+      "selection": null,
+      "single_oracle_facts": [],
+      "status_agree": true,
+      "statuses": {
+        "go-macho": "parsed",
+        "lief": "parsed"
+      }
+    }
+  ],
+  "fixture": {
+    "classification": "valid",
+    "consumers": [
+      "MS-16 arm64e selected image",
+      "RX-02 gap audit"
+    ],
+    "format": "macho",
+    "id": "macho-arm64e-dylib",
+    "provenance": "synthesized by Scripts/parser-oracles/specimens.py",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "host_bound": false,
+    "path": "Scripts/parser-oracles/specimens/macho-arm64e-dylib.bin",
+    "sha256": "66f140593b16e1474b30a3473b8a9ba02da172ac3735f3312844a115dd7352c5",
+    "size": 2096
+  },
+  "results": [
+    {
+      "command": [
+        "<macscope-parser-dump>",
+        "lief",
+        "macho",
+        "<specimen>"
+      ],
+      "error": null,
+      "facts": {
+        "arch": "arm64e",
+        "build_version": {
+          "minos": "14.0.0",
+          "platform": "macos",
+          "sdk": "15.0.0"
+        },
+        "dylibs": [
+          "/usr/lib/libSystem.B.dylib"
+        ],
+        "entry_offset": null,
+        "fat_offset": 0,
+        "filetype": "dylib",
+        "flags": [
+          "dyldlink",
+          "no_reexported_dylibs",
+          "noundefs",
+          "twolevel"
+        ],
+        "id_dylib": "@rpath/libOracleFixture.dylib",
+        "load_commands": [
+          "LC_SEGMENT_64",
+          "LC_SEGMENT_64",
+          "LC_ID_DYLIB",
+          "LC_SYMTAB",
+          "LC_DYSYMTAB",
+          "LC_UUID",
+          "LC_BUILD_VERSION",
+          "LC_LOAD_DYLIB"
+        ],
+        "ncmds": 8,
+        "ptrauth_abi": true,
+        "sections": [
+          {
+            "addr": 1024,
+            "name": "__text",
+            "offset": 1024,
+            "segment": "__TEXT",
+            "size": 8
+          }
+        ],
+        "segments": [
+          {
+            "fileoff": 0,
+            "filesize": 1032,
+            "initprot": "r-x",
+            "maxprot": "r-x",
+            "name": "__TEXT",
+            "vmaddr": 0,
+            "vmsize": 16384
+          },
+          {
+            "fileoff": 2048,
+            "filesize": 48,
+            "initprot": "r--",
+            "maxprot": "r--",
+            "name": "__LINKEDIT",
+            "vmaddr": 16384,
+            "vmsize": 16384
+          }
+        ],
+        "sizeofcmds": 488,
+        "uuid": "0A1B2C3D-4E5F-4071-8293-A4B5C6D7E8F9"
+      },
+      "oracle": "lief",
+      "selection": null,
+      "status": "parsed"
+    },
+    {
+      "command": [
+        "<macscope-parser-dump>",
+        "go-macho",
+        "macho",
+        "<specimen>"
+      ],
+      "error": null,
+      "facts": {
+        "arch": "arm64e",
+        "build_version": {
+          "minos": "14.0.0",
+          "platform": "macos",
+          "sdk": "15.0.0"
+        },
+        "dylibs": [
+          "/usr/lib/libSystem.B.dylib"
+        ],
+        "entry_offset": null,
+        "fat_offset": 0,
+        "filetype": "dylib",
+        "flags": [
+          "dyldlink",
+          "no_reexported_dylibs",
+          "noundefs",
+          "twolevel"
+        ],
+        "id_dylib": "@rpath/libOracleFixture.dylib",
+        "load_commands": [
+          "LC_SEGMENT_64",
+          "LC_SEGMENT_64",
+          "LC_ID_DYLIB",
+          "LC_SYMTAB",
+          "LC_DYSYMTAB",
+          "LC_UUID",
+          "LC_BUILD_VERSION",
+          "LC_LOAD_DYLIB"
+        ],
+        "ncmds": 8,
+        "ptrauth_abi": true,
+        "sections": [
+          {
+            "addr": 1024,
+            "name": "__text",
+            "offset": 1024,
+            "segment": "__TEXT",
+            "size": 8
+          }
+        ],
+        "segments": [
+          {
+            "fileoff": 0,
+            "filesize": 1032,
+            "initprot": "r-x",
+            "maxprot": "r-x",
+            "name": "__TEXT",
+            "vmaddr": 0,
+            "vmsize": 16384
+          },
+          {
+            "fileoff": 2048,
+            "filesize": 48,
+            "initprot": "r--",
+            "maxprot": "r--",
+            "name": "__LINKEDIT",
+            "vmaddr": 16384,
+            "vmsize": 16384
+          }
+        ],
+        "sizeofcmds": 488,
+        "uuid": "0A1B2C3D-4E5F-4071-8293-A4B5C6D7E8F9"
+      },
+      "oracle": "go-macho",
+      "selection": null,
+      "status": "parsed"
+    }
+  ],
+  "schema": "macscope.parser-oracle-golden.v2",
+  "tools": [
+    {
+      "bridge_source_tree_sha256": "0dd2a9b19790bc0527c86af1dba7e23843c6cb4e32bd62bfe35a973cf4ea3d66",
+      "git_revision": "0b3c4a4cb4548a0d1284c1b5fc0de6f4422c0246",
+      "kind": "linked-engine",
+      "oracle": "go-macho",
+      "source_tree_sha256": "fa264e9e4a94de39e6507a1d465f706dd370a5776c8d1f586d8ec7c5082f386f",
+      "version": "1.1.283"
+    },
+    {
+      "bridge_source_tree_sha256": "0dd2a9b19790bc0527c86af1dba7e23843c6cb4e32bd62bfe35a973cf4ea3d66",
+      "git_revision": "d05b3499b6934137e917c009a4df0a9dc8cb11c5",
+      "kind": "linked-engine",
+      "oracle": "lief",
+      "source_tree_sha256": "9a4c4d0530ba062f721b9355e863be3f0d4d1f1c23ed7ff021a70a15e4e67243",
+      "version": "1.0.0"
+    }
+  ]
+}

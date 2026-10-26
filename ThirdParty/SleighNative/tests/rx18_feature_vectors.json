@@ -1,0 +1,1165 @@
+{
+  "schemaVersion": 1,
+  "source": "Arm A64 2026-03 XML encoding tables; Apple LLVM generic ELF independent printer",
+  "compiler": "Xcode clang -target aarch64-linux-gnu -march=armv9.4-a+sme2+sme-f64f64+sme-i16i64+sme-f16f16",
+  "wordListScope": "39 fixed words from checked-in ARM64ScalableDecodeTests.swift; no binary-derived word list",
+  "rows": [
+    {
+      "family": "state",
+      "assembly": "rdsvl x0, #1",
+      "arm_xml": "rdsvl_r_i.xml",
+      "word": "04bf5820",
+      "expected": "rdsvl x0, #0x1",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "rdsvl x30, #31",
+      "arm_xml": "rdsvl_r_i.xml",
+      "word": "04bf5bfe",
+      "expected": "rdsvl x30, #0x1f",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "rdsvl xzr, #-32",
+      "arm_xml": "rdsvl_r_i.xml",
+      "word": "04bf5c1f",
+      "expected": "rdsvl xzr, #-0x20",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "smstart",
+      "arm_xml": "smstart.xml",
+      "word": "d503477f",
+      "expected": "smstart",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "smstart sm",
+      "arm_xml": "smstart.xml",
+      "word": "d503437f",
+      "expected": "smstart sm",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "smstart za",
+      "arm_xml": "smstart.xml",
+      "word": "d503457f",
+      "expected": "smstart za",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "smstop",
+      "arm_xml": "smstop.xml",
+      "word": "d503467f",
+      "expected": "smstop",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "smstop sm",
+      "arm_xml": "smstop.xml",
+      "word": "d503427f",
+      "expected": "smstop sm",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "state",
+      "assembly": "smstop za",
+      "arm_xml": "smstop.xml",
+      "word": "d503447f",
+      "expected": "smstop za",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "zero",
+      "assembly": "zero {}",
+      "arm_xml": "zero_za_i.xml",
+      "word": "c0080000",
+      "expected": "zero {}",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "zero",
+      "assembly": "zero {za}",
+      "arm_xml": "zero_za_i.xml",
+      "word": "c00800ff",
+      "expected": "zero {za}",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "zero",
+      "assembly": "zero {za0.d, za7.d}",
+      "arm_xml": "zero_za_i.xml",
+      "word": "c0080081",
+      "expected": "zero {za0.d, za7.d}",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "zero",
+      "assembly": "zero {za0.s, za2.s}",
+      "arm_xml": "zero_za_i.xml",
+      "word": "c0080055",
+      "expected": "zero {za0.h}",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "zero",
+      "assembly": "zero {za1.h}",
+      "arm_xml": "zero_za_i.xml",
+      "word": "c00800aa",
+      "expected": "zero {za1.h}",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "memory",
+      "assembly": "ldr za[w12, 0], [x0]",
+      "arm_xml": "ldr_za_ri.xml",
+      "word": "e1000000",
+      "expected": "ldr za[w12, 0], [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "memory",
+      "assembly": "str za[w15, 15], [sp, #15, mul vl]",
+      "arm_xml": "str_za_ri.xml",
+      "word": "e12063ef",
+      "expected": "str za[w15, 15], [sp, #0xf, mul vl]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "memory",
+      "assembly": "ldr zt0, [x30]",
+      "arm_xml": "ldr_zt_br.xml",
+      "word": "e11f83c0",
+      "expected": "ldr zt0, [x30]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "memory",
+      "assembly": "str zt0, [sp]",
+      "arm_xml": "str_zt_br.xml",
+      "word": "e13f83e0",
+      "expected": "str zt0, [sp]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmopa za3.s, p5/m, p7/m, z9.s, z31.s",
+      "arm_xml": "fmopa_za_pp_zz.xml",
+      "word": "809ff523",
+      "expected": "fmopa za3.s, p5/m, p7/m, z9.s, z31.s",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmopa za7.d, p5/m, p7/m, z9.d, z31.d",
+      "arm_xml": "fmopa_za_pp_zz.xml",
+      "word": "80dff527",
+      "expected": "fmopa za7.d, p5/m, p7/m, z9.d, z31.d",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmopa za2.s, p5/m, p7/m, z9.h, z31.h",
+      "arm_xml": "fmopa_za32_pp_zz.xml",
+      "word": "81bff522",
+      "expected": "fmopa za2.s, p5/m, p7/m, z9.h, z31.h",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmopa za1.h, p5/m, p7/m, z9.h, z31.h",
+      "arm_xml": "fmopa_za_pp_zz.xml",
+      "word": "819ff529",
+      "expected": "fmopa za1.h, p5/m, p7/m, z9.h, z31.h",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmops za3.s, p5/m, p7/m, z9.s, z31.s",
+      "arm_xml": "fmops_za_pp_zz.xml",
+      "word": "809ff533",
+      "expected": "fmops za3.s, p5/m, p7/m, z9.s, z31.s",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmops za7.d, p5/m, p7/m, z9.d, z31.d",
+      "arm_xml": "fmops_za_pp_zz.xml",
+      "word": "80dff537",
+      "expected": "fmops za7.d, p5/m, p7/m, z9.d, z31.d",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmops za2.s, p5/m, p7/m, z9.h, z31.h",
+      "arm_xml": "fmops_za32_pp_zz.xml",
+      "word": "81bff532",
+      "expected": "fmops za2.s, p5/m, p7/m, z9.h, z31.h",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "outer",
+      "assembly": "fmops za1.h, p5/m, p7/m, z9.h, z31.h",
+      "arm_xml": "fmops_za_pp_zz.xml",
+      "word": "819ff539",
+      "expected": "fmops za1.h, p5/m, p7/m, z9.h, z31.h",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "lookup",
+      "assembly": "luti2 z31.b, zt0, z30[15]",
+      "arm_xml": "luti2_z_ztz.xml",
+      "word": "c0cfc3df",
+      "expected": "luti2 z31.b, zt0, z30[15]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "lookup",
+      "assembly": "luti2 z31.h, zt0, z30[15]",
+      "arm_xml": "luti2_z_ztz.xml",
+      "word": "c0cfd3df",
+      "expected": "luti2 z31.h, zt0, z30[15]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "lookup",
+      "assembly": "luti2 z31.s, zt0, z30[15]",
+      "arm_xml": "luti2_z_ztz.xml",
+      "word": "c0cfe3df",
+      "expected": "luti2 z31.s, zt0, z30[15]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za0h.b[w15, 15], p7/m, z31.b",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0007fef",
+      "expected": "mov za0h.b[w15, 15], p7/m, z31.b",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.b, p0/m, za0h.b[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0020000",
+      "expected": "mov z0.b, p0/m, za0h.b[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1b {za0h.b[w15, 15]}, p7/z, [sp, x30]",
+      "arm_xml": "ld1b_za_p_rrr.xml",
+      "word": "e01e7fef",
+      "expected": "ld1b {za0h.b[w15, 15]}, p7/z, [sp, x30]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1b {za0h.b[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1b_za_p_rrr.xml",
+      "word": "e01f1c00",
+      "expected": "ld1b {za0h.b[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1b {za0h.b[w15, 15]}, p7, [sp, x30]",
+      "arm_xml": "st1b_za_p_rrr.xml",
+      "word": "e03e7fef",
+      "expected": "st1b {za0h.b[w15, 15]}, p7, [sp, x30]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1b {za0h.b[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1b_za_p_rrr.xml",
+      "word": "e03f1c00",
+      "expected": "st1b {za0h.b[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za0v.b[w15, 15], p7/m, z31.b",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c000ffef",
+      "expected": "mov za0v.b[w15, 15], p7/m, z31.b",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.b, p0/m, za0v.b[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0028000",
+      "expected": "mov z0.b, p0/m, za0v.b[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1b {za0v.b[w15, 15]}, p7/z, [sp, x30]",
+      "arm_xml": "ld1b_za_p_rrr.xml",
+      "word": "e01effef",
+      "expected": "ld1b {za0v.b[w15, 15]}, p7/z, [sp, x30]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1b {za0v.b[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1b_za_p_rrr.xml",
+      "word": "e01f9c00",
+      "expected": "ld1b {za0v.b[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1b {za0v.b[w15, 15]}, p7, [sp, x30]",
+      "arm_xml": "st1b_za_p_rrr.xml",
+      "word": "e03effef",
+      "expected": "st1b {za0v.b[w15, 15]}, p7, [sp, x30]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1b {za0v.b[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1b_za_p_rrr.xml",
+      "word": "e03f9c00",
+      "expected": "st1b {za0v.b[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za1h.h[w15, 7], p7/m, z31.h",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0407fef",
+      "expected": "mov za1h.h[w15, 7], p7/m, z31.h",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.h, p0/m, za1h.h[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0420100",
+      "expected": "mov z0.h, p0/m, za1h.h[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1h {za1h.h[w15, 7]}, p7/z, [sp, x30, lsl #1]",
+      "arm_xml": "ld1h_za_p_rrr.xml",
+      "word": "e05e7fef",
+      "expected": "ld1h {za1h.h[w15, 7]}, p7/z, [sp, x30, lsl #1]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1h {za1h.h[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1h_za_p_rrr.xml",
+      "word": "e05f1c08",
+      "expected": "ld1h {za1h.h[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1h {za1h.h[w15, 7]}, p7, [sp, x30, lsl #1]",
+      "arm_xml": "st1h_za_p_rrr.xml",
+      "word": "e07e7fef",
+      "expected": "st1h {za1h.h[w15, 7]}, p7, [sp, x30, lsl #1]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1h {za1h.h[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1h_za_p_rrr.xml",
+      "word": "e07f1c08",
+      "expected": "st1h {za1h.h[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za1v.h[w15, 7], p7/m, z31.h",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c040ffef",
+      "expected": "mov za1v.h[w15, 7], p7/m, z31.h",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.h, p0/m, za1v.h[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0428100",
+      "expected": "mov z0.h, p0/m, za1v.h[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1h {za1v.h[w15, 7]}, p7/z, [sp, x30, lsl #1]",
+      "arm_xml": "ld1h_za_p_rrr.xml",
+      "word": "e05effef",
+      "expected": "ld1h {za1v.h[w15, 7]}, p7/z, [sp, x30, lsl #1]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1h {za1v.h[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1h_za_p_rrr.xml",
+      "word": "e05f9c08",
+      "expected": "ld1h {za1v.h[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1h {za1v.h[w15, 7]}, p7, [sp, x30, lsl #1]",
+      "arm_xml": "st1h_za_p_rrr.xml",
+      "word": "e07effef",
+      "expected": "st1h {za1v.h[w15, 7]}, p7, [sp, x30, lsl #1]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1h {za1v.h[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1h_za_p_rrr.xml",
+      "word": "e07f9c08",
+      "expected": "st1h {za1v.h[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za3h.s[w15, 3], p7/m, z31.s",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0807fef",
+      "expected": "mov za3h.s[w15, 3], p7/m, z31.s",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.s, p0/m, za3h.s[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0820180",
+      "expected": "mov z0.s, p0/m, za3h.s[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1w {za3h.s[w15, 3]}, p7/z, [sp, x30, lsl #2]",
+      "arm_xml": "ld1w_za_p_rrr.xml",
+      "word": "e09e7fef",
+      "expected": "ld1w {za3h.s[w15, 3]}, p7/z, [sp, x30, lsl #2]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1w {za3h.s[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1w_za_p_rrr.xml",
+      "word": "e09f1c0c",
+      "expected": "ld1w {za3h.s[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1w {za3h.s[w15, 3]}, p7, [sp, x30, lsl #2]",
+      "arm_xml": "st1w_za_p_rrr.xml",
+      "word": "e0be7fef",
+      "expected": "st1w {za3h.s[w15, 3]}, p7, [sp, x30, lsl #2]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1w {za3h.s[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1w_za_p_rrr.xml",
+      "word": "e0bf1c0c",
+      "expected": "st1w {za3h.s[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za3v.s[w15, 3], p7/m, z31.s",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c080ffef",
+      "expected": "mov za3v.s[w15, 3], p7/m, z31.s",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.s, p0/m, za3v.s[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0828180",
+      "expected": "mov z0.s, p0/m, za3v.s[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1w {za3v.s[w15, 3]}, p7/z, [sp, x30, lsl #2]",
+      "arm_xml": "ld1w_za_p_rrr.xml",
+      "word": "e09effef",
+      "expected": "ld1w {za3v.s[w15, 3]}, p7/z, [sp, x30, lsl #2]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1w {za3v.s[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1w_za_p_rrr.xml",
+      "word": "e09f9c0c",
+      "expected": "ld1w {za3v.s[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1w {za3v.s[w15, 3]}, p7, [sp, x30, lsl #2]",
+      "arm_xml": "st1w_za_p_rrr.xml",
+      "word": "e0beffef",
+      "expected": "st1w {za3v.s[w15, 3]}, p7, [sp, x30, lsl #2]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1w {za3v.s[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1w_za_p_rrr.xml",
+      "word": "e0bf9c0c",
+      "expected": "st1w {za3v.s[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za7h.d[w15, 1], p7/m, z31.d",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0c07fef",
+      "expected": "mov za7h.d[w15, 1], p7/m, z31.d",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.d, p0/m, za7h.d[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0c201c0",
+      "expected": "mov z0.d, p0/m, za7h.d[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1d {za7h.d[w15, 1]}, p7/z, [sp, x30, lsl #3]",
+      "arm_xml": "ld1d_za_p_rrr.xml",
+      "word": "e0de7fef",
+      "expected": "ld1d {za7h.d[w15, 1]}, p7/z, [sp, x30, lsl #3]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1d {za7h.d[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1d_za_p_rrr.xml",
+      "word": "e0df1c0e",
+      "expected": "ld1d {za7h.d[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1d {za7h.d[w15, 1]}, p7, [sp, x30, lsl #3]",
+      "arm_xml": "st1d_za_p_rrr.xml",
+      "word": "e0fe7fef",
+      "expected": "st1d {za7h.d[w15, 1]}, p7, [sp, x30, lsl #3]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1d {za7h.d[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1d_za_p_rrr.xml",
+      "word": "e0ff1c0e",
+      "expected": "st1d {za7h.d[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za7v.d[w15, 1], p7/m, z31.d",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0c0ffef",
+      "expected": "mov za7v.d[w15, 1], p7/m, z31.d",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.d, p0/m, za7v.d[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0c281c0",
+      "expected": "mov z0.d, p0/m, za7v.d[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1d {za7v.d[w15, 1]}, p7/z, [sp, x30, lsl #3]",
+      "arm_xml": "ld1d_za_p_rrr.xml",
+      "word": "e0deffef",
+      "expected": "ld1d {za7v.d[w15, 1]}, p7/z, [sp, x30, lsl #3]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1d {za7v.d[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1d_za_p_rrr.xml",
+      "word": "e0df9c0e",
+      "expected": "ld1d {za7v.d[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1d {za7v.d[w15, 1]}, p7, [sp, x30, lsl #3]",
+      "arm_xml": "st1d_za_p_rrr.xml",
+      "word": "e0feffef",
+      "expected": "st1d {za7v.d[w15, 1]}, p7, [sp, x30, lsl #3]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1d {za7v.d[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1d_za_p_rrr.xml",
+      "word": "e0ff9c0e",
+      "expected": "st1d {za7v.d[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za15h.q[w15, 0], p7/m, z31.q",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0c17fef",
+      "expected": "mov za15h.q[w15, 0], p7/m, z31.q",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.q, p0/m, za15h.q[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0c301e0",
+      "expected": "mov z0.q, p0/m, za15h.q[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1q {za15h.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "arm_xml": "ld1q_za_p_rrr.xml",
+      "word": "e1de7fef",
+      "expected": "ld1q {za15h.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1q {za15h.q[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1q_za_p_rrr.xml",
+      "word": "e1df1c0f",
+      "expected": "ld1q {za15h.q[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1q {za15h.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "arm_xml": "st1q_za_p_rrr.xml",
+      "word": "e1fe7fef",
+      "expected": "st1q {za15h.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1q {za15h.q[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1q_za_p_rrr.xml",
+      "word": "e1ff1c0f",
+      "expected": "st1q {za15h.q[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova za15v.q[w15, 0], p7/m, z31.q",
+      "arm_xml": "mova_za_p_rz.xml",
+      "word": "c0c1ffef",
+      "expected": "mov za15v.q[w15, 0], p7/m, z31.q",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "move",
+      "assembly": "mova z0.q, p0/m, za15v.q[w12, 0]",
+      "arm_xml": "mova_z_p_rza.xml",
+      "word": "c0c381e0",
+      "expected": "mov z0.q, p0/m, za15v.q[w12, 0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1q {za15v.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "arm_xml": "ld1q_za_p_rrr.xml",
+      "word": "e1deffef",
+      "expected": "ld1q {za15v.q[w15, 0]}, p7/z, [sp, x30, lsl #4]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "ld1q {za15v.q[w12, 0]}, p7/z, [x0]",
+      "arm_xml": "ld1q_za_p_rrr.xml",
+      "word": "e1df9c0f",
+      "expected": "ld1q {za15v.q[w12, 0]}, p7/z, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1q {za15v.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "arm_xml": "st1q_za_p_rrr.xml",
+      "word": "e1feffef",
+      "expected": "st1q {za15v.q[w15, 0]}, p7, [sp, x30, lsl #4]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_memory",
+      "assembly": "st1q {za15v.q[w12, 0]}, p7, [x0]",
+      "arm_xml": "st1q_za_p_rrr.xml",
+      "word": "e1ff9c0f",
+      "expected": "st1q {za15v.q[w12, 0]}, p7, [x0]",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_add",
+      "assembly": "addha za3.s, p5/m, p7/m, z31.s",
+      "arm_xml": "addha_za_pp_z.xml",
+      "word": "c090f7e3",
+      "expected": "addha za3.s, p5/m, p7/m, z31.s",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_add",
+      "assembly": "addha za7.d, p5/m, p7/m, z31.d",
+      "arm_xml": "addha_za_pp_z.xml",
+      "word": "c0d0f7e7",
+      "expected": "addha za7.d, p5/m, p7/m, z31.d",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_add",
+      "assembly": "addva za3.s, p5/m, p7/m, z31.s",
+      "arm_xml": "addva_za_pp_z.xml",
+      "word": "c091f7e3",
+      "expected": "addva za3.s, p5/m, p7/m, z31.s",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "family": "tile_add",
+      "assembly": "addva za7.d, p5/m, p7/m, z31.d",
+      "arm_xml": "addva_za_pp_z.xml",
+      "word": "c0d1f7e7",
+      "expected": "addva za7.d, p5/m, p7/m, z31.d",
+      "origin": "arm_feature_vector"
+    },
+    {
+      "word": "d503477f",
+      "expected": "smstart",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "d503437f",
+      "expected": "smstart sm",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "d503457f",
+      "expected": "smstart za",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "d503467f",
+      "expected": "smstop",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "d503427f",
+      "expected": "smstop sm",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "d503447f",
+      "expected": "smstop za",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "04bf5fff",
+      "expected": "rdsvl xzr, #-1",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "04bf5c15",
+      "expected": "rdsvl x21, #-32",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "e1000000",
+      "expected": "ldr za[w12, 0], [x0]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "e13f83e0",
+      "expected": "str zt0, [sp]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0080000",
+      "expected": "zero {}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0080001",
+      "expected": "zero {za0.d}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0080011",
+      "expected": "zero {za0.s}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0080033",
+      "expected": "zero {za0.s,za1.s}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0080055",
+      "expected": "zero {za0.h}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c00800aa",
+      "expected": "zero {za1.h}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c00800ff",
+      "expected": "zero {za}",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "2518e3e0",
+      "expected": "ptrue p0.b",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "2558e103",
+      "expected": "ptrue p3.h, vl8",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "25d8e3ef",
+      "expected": "ptrue p15.d",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "25a11400",
+      "expected": "whilelt p0.s, x0, x1",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "256704a3",
+      "expected": "whilelt p3.h, w5, w7",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "25eb1d42",
+      "expected": "whilelo p2.d, x10, x11",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "25231057",
+      "expected": "whilegt p7.b, x2, x3",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38",
+      "historicalExpectation": {
+        "word": "25231057",
+        "expected": "whilegt p7.b, x2, x3",
+        "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+        "origin": "rx18_checked_in",
+        "family": "rx18",
+        "arm_xml": null
+      }
+    },
+    {
+      "word": "65820020",
+      "expected": "fadd z0.s, z1.s, z2.s",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "65c50483",
+      "expected": "fsub z3.d, z4.d, z5.d",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "654808e6",
+      "expected": "fmul z6.h, z7.h, z8.h",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "05223020",
+      "expected": "tbl z0.b, { z1.b }, z2.b",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "25b8c000",
+      "expected": "mov z0.s, #0x0",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "a540bd52",
+      "expected": "ld1w { z18.s }, p7/z, [x10]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "e540eb78",
+      "expected": "st1w { z24.s }, p2, [x27]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "81a1f522",
+      "expected": "fmopa za2.s, p5/m, p7/m, z9.h, z1.h",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0cc0000",
+      "expected": "luti2 z0.b, zt0, z0[0]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0cc1000",
+      "expected": "luti2 z0.h, zt0, z0[0]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0cc2000",
+      "expected": "luti2 z0.s, zt0, z0[0]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "a547a054",
+      "expected": "ld1w { z20.s }, p0/z, [x2, #7, mul vl]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "a548a0ac",
+      "expected": "ld1w { z12.s }, p0/z, [x5, #-8, mul vl]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "e547e031",
+      "expected": "st1w { z17.s }, p0, [x1, #7, mul vl]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "e548e002",
+      "expected": "st1w { z2.s }, p0, [x0, #-8, mul vl]",
+      "source": "MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift",
+      "origin": "rx18_checked_in",
+      "family": "rx18",
+      "arm_xml": null
+    },
+    {
+      "word": "c0020200",
+      "family": "move",
+      "assembly": "movaz z0.b, za0h.b[w12, 0]",
+      "expected": "movaz z0.b, za0h.b[w12, 0]",
+      "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75",
+      "origin": "cp1b_spec_correction",
+      "featureAnyOf": [
+        "FEAT_SME2p1"
+      ],
+      "source": "Arm A64 XML 2025-03; existing CP1 MOVAZ_Z_RZA_B catalogue and horizontal-first vector"
+    }
+  ],
+  "reserved": [
+    "c0cc3000",
+    "c0cd3000",
+    "c0000010",
+    "c0900004",
+    "c0d00008",
+    "e0000010",
+    "e0400010",
+    "c0080100",
+    "81a00004",
+    "80800004",
+    "80c00008"
+  ],
+  "expectedStillFailClosed": {},
+  "cp1b": {
+    "sourceRevision": "910b72e19",
+    "originalFileSHA256": "394c0b25e519aa7c4543688e8dce40475c759c2e91b44d79240cc6643f3a16e0",
+    "originalReceipt": "receipts/ledgers-before/tests/rx18_feature_vectors.json",
+    "scope": "Current expectations for the two corrected words only. Unaffected historical fields, rows, counts, hashes, observations and diagnostics are retained; they are not new CP1b execution evidence.",
+    "nativeAcceptance": "not_executed_in_cp1b_linux",
+    "currentExpectations": {
+      "c0020200": {
+        "form": "MOVAZ_Z_RZA_B",
+        "assembly": "movaz z0.b, za0h.b[w12, 0]",
+        "encoding": {
+          "base": "0xc0020200",
+          "mask": "0xffff1e00"
+        },
+        "featureAnyOf": [
+          "FEAT_SME2p1"
+        ],
+        "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/movaz_z_rza.xml#L75",
+        "reason": "Allocated SME2p1 MOVAZ, not a reserved encoding; CP1 already has explicit normal-path p-code.",
+        "kind": "allocated",
+        "expectedNativeOutcome": "admitted",
+        "expectedPcodeStatus": "normal_path",
+        "nativeObservation": "pending_mac_governed_recompile_and_acceptance"
+      },
+      "25231057": {
+        "form": "WHILEGT_P_P_RR__",
+        "assembly": "whilegt p7.b, x2, x3",
+        "encoding": {
+          "base": "0x25200010",
+          "mask": "0xff20ec10"
+        },
+        "featureAnyOf": [
+          "FEAT_SVE2",
+          "FEAT_SME"
+        ],
+        "arm_xml": "https://github.com/fooptrvoid/arm-mrs-2025-03-isa-a64/blob/836d4cab97342d7eb22d51648757ae51608a5572/ISA_A64_xml_A_profile-2025-03/whilegt_p_p_rr.xml#L38",
+        "reason": "Allocated WHILEGT already has explicit normal-path p-code; the historical fail-closed exception is retired.",
+        "kind": "allocated",
+        "expectedNativeOutcome": "admitted",
+        "expectedPcodeStatus": "normal_path",
+        "nativeObservation": "pending_mac_governed_recompile_and_acceptance"
+      }
+    },
+    "historicalReserved": [
+      "c0cc3000",
+      "c0cd3000",
+      "c0000010",
+      "c0020200",
+      "c0900004",
+      "c0d00008",
+      "e0000010",
+      "e0400010",
+      "c0080100",
+      "81a00004",
+      "80800004",
+      "80c00008"
+    ],
+    "historicalExpectedStillFailClosed": {
+      "25231057": "Existing WHILEGT streaming-SVE gap; uncovered within the assigned streaming-SVE scope."
+    },
+    "currentCounts": {
+      "rows": 133,
+      "uniqueAllocatedWords": 121,
+      "reservedGuards": 11,
+      "uniqueWordUnion": 132
+    }
+  }
+}

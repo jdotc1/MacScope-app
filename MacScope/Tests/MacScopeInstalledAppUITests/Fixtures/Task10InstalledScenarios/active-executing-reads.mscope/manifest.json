@@ -1,0 +1,172 @@
+{
+  "analysis" : {
+    "addressOverrides" : [
+
+    ],
+    "basicBlocks" : [
+
+    ],
+    "bookmarks" : [
+
+    ],
+    "controlFlowEdges" : [
+
+    ],
+    "exports" : [
+
+    ],
+    "functions" : [
+
+    ],
+    "imports" : [
+
+    ],
+    "indirectSymbols" : [
+
+    ],
+    "instructions" : [
+
+    ],
+    "manualXRefs" : [
+
+    ],
+    "segmentOverrides" : [
+
+    ],
+    "stringLiterals" : [
+
+    ],
+    "symbols" : [
+
+    ],
+    "typeDefinitions" : [
+
+    ],
+    "xrefs" : [
+
+    ]
+  },
+  "assistantSessionRecords" : [
+
+  ],
+  "binaries" : [
+    {
+      "architecture" : "arm64",
+      "attachmentRelativePath" : "attachments\/10000000-0000-0000-0000-000000000003\/task10-installed.bin",
+      "displayName" : "Installed fixture",
+      "fileHash" : "6eca5cc86a53c80d74e777fffd48ee46b98f06a8b448d18106af49ac0862b875",
+      "fileSize" : 8,
+      "id" : "10000000-0000-0000-0000-000000000003",
+      "kind" : "Raw data",
+      "originalPath" : "\/fixtures\/task10-installed.bin"
+    }
+  ],
+  "bookmarkResolutionDecision" : "resolve_stored_bookmarks",
+  "createdAt" : "2024-08-30T06:40:00.000Z",
+  "documentID" : "10000000-0000-0000-0000-000000000001",
+  "formatIdentifier" : "org.macscope.workspace-package",
+  "formatVersion" : 3,
+  "imageAnalyses" : [
+    {
+      "analysis" : {
+        "addressOverrides" : [
+
+        ],
+        "analysisInputFingerprint" : {
+          "binaryID" : "10000000-0000-0000-0000-000000000003",
+          "binaryName" : "Installed fixture",
+          "binaryPath" : "\/fixtures\/task10-installed.bin",
+          "facets" : [
+
+          ],
+          "imageByteCount" : 8,
+          "imageBytesSHA256" : "6eca5cc86a53c80d74e777fffd48ee46b98f06a8b448d18106af49ac0862b875",
+          "imageSlot" : 0,
+          "overallSHA256" : "3333333333333333333333333333333333333333333333333333333333333333",
+          "schemaVersion" : 1
+        },
+        "basicBlocks" : [
+
+        ],
+        "bookmarks" : [
+
+        ],
+        "controlFlowEdges" : [
+
+        ],
+        "exports" : [
+
+        ],
+        "functions" : [
+          {
+            "confidence" : 1,
+            "endAddress" : 4294967304,
+            "id" : "D24DE924-1336-8DFB-852F-9FC626ADE744",
+            "name" : "task10_fixture_entry",
+            "startAddress" : 4294967296
+          }
+        ],
+        "imports" : [
+
+        ],
+        "indirectSymbols" : [
+
+        ],
+        "instructions" : [
+          {
+            "address" : 4294967296,
+            "bytes" : "c0 03 5f d6",
+            "hasBreakpoint" : false,
+            "mnemonic" : "ret",
+            "operands" : ""
+          }
+        ],
+        "manualXRefs" : [
+
+        ],
+        "segmentOverrides" : [
+
+        ],
+        "stringLiterals" : [
+
+        ],
+        "symbols" : [
+
+        ],
+        "typeDefinitions" : [
+
+        ],
+        "xrefs" : [
+
+        ]
+      },
+      "binaryID" : "10000000-0000-0000-0000-000000000003",
+      "imageSlot" : 0
+    }
+  ],
+  "inputCopyingDecision" : "copy_inputs_into_package",
+  "modifiedAt" : "2024-08-30T06:40:00.000Z",
+  "reconstruction" : {
+    "checkpointManifestPath" : "Reconstruction\/checkpoint-manifest.json",
+    "checkpointManifestSHA256" : "4fedbb49b339fc570cb16d6f57f4559fd0f10c6d4d6e0d71e781ab52fe76158e",
+    "corpusManifestPath" : "Reconstruction\/corpus-manifest.json",
+    "corpusManifestSHA256" : "fc1e44d4381c49be092df964182b86c6807cf1535dbe438028f6fb90af6300df",
+    "evidenceManifestPath" : "Reconstruction\/evidence-manifest.json",
+    "evidenceManifestSHA256" : "238ef4c25a60fa6ad5fd1b7544a349f6ad150262c33fb3e4db63507b93419dad",
+    "schemaVersion" : 1
+  },
+  "runtimeAuthorityRecords" : [
+
+  ],
+  "session" : {
+    "editorMode" : "Disassembly",
+    "isInspectorPresented" : true,
+    "selectedAddress" : 4294967296,
+    "selectedSidebarItemID" : "binary:10000000-0000-0000-0000-000000000003",
+    "selectedTool" : "Project",
+    "sidebarSearchText" : "",
+    "updatedAt" : "2024-08-30T06:40:00.000Z"
+  },
+  "workspaceName" : "Task 10 active-executing-reads",
+  "workspaceUUID" : "10000000-0000-0000-0000-000000000002"
+}

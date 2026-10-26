@@ -1,0 +1,64 @@
+{
+  "engineKey": "6a025ace8b541dce35883feb5bde21d08824da42905c6399e591d65491264f47",
+  "fixture": {
+    "classification": "valid",
+    "consumers": [
+      "K1 ImageTypeCatalog independent metadata inventory"
+    ],
+    "format": "type-inventory",
+    "id": "type-atlas-mixed",
+    "oracles": [
+      "go-macho"
+    ],
+    "path": "Scripts/parser-oracles/type-atlas/mixed.dylib",
+    "provenance": "Authored compile-once specimen; adjacent source; arm64 macOS 27.0, Xcode 27",
+    "selections": [
+      null
+    ]
+  },
+  "input": {
+    "sha256": "b57e0e1ee0c974f3e0e776c76b83f20abec2bae8736d5a60ebc030376b883cb8",
+    "size": 54360
+  },
+  "inventory": {
+    "inventories": {
+      "objcCategories": [],
+      "objcClasses": [
+        {
+          "address": 32960,
+          "name": "_TtC14TypeAtlasMixed6Bridge",
+          "superclass": "NSObject"
+        }
+      ],
+      "objcProtocols": [],
+      "swiftConformances": [
+        {
+          "address": 4756,
+          "name": "Pair",
+          "protocol": "TypeAtlasMixed.Runner",
+          "typeAddress": 4988
+        }
+      ],
+      "swiftProtocols": [
+        {
+          "address": 4956,
+          "name": "Runner"
+        }
+      ],
+      "swiftTypes": [
+        {
+          "address": 4988,
+          "kind": "struct",
+          "name": "Pair"
+        },
+        {
+          "address": 5016,
+          "kind": "class",
+          "name": "Bridge"
+        }
+      ]
+    },
+    "status": "parsed"
+  },
+  "schema": "macscope.type-inventory-golden.v1"
+}

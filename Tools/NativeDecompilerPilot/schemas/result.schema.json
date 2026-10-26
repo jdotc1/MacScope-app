@@ -1,0 +1,1362 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://macscope.invalid/schemas/dcp03b3-native-effective-image-decompiler-pilot-result-v2.json",
+  "title": "MacScope DCP-03B3 native effective-image decompiler pilot result",
+  "description": "Closed successful-result contract for the non-shipping DCP-03B3 libghidra v0.0.2 local-backend pilot. Native pseudocode and instruction records consume DCP-03B2 verified effective bytes while preserving raw-byte and relocation/fixup provenance. Rendered C is presentation-only.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "status": {
+      "const": "ok"
+    },
+    "analysisLevel": {
+      "const": "libghidra-native-effective-image-pseudocode-instruction-pilot"
+    },
+    "contractCompleteness": {
+      "const": "partial-dcp03b3"
+    },
+    "requestId": {
+      "$ref": "#/$defs/identifier"
+    },
+    "requestSha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "backendId": {
+          "const": "libghidra-local-native"
+        },
+        "componentId": {
+          "const": "libghidra-dcp03b3-pilot"
+        },
+        "version": {
+          "const": "0.0.2"
+        },
+        "gitRevision": {
+          "const": "61b37fa2d99aa5cf0da450b84f2abd797fb6a27c"
+        },
+        "serviceName": {
+          "const": "local-decompiler"
+        },
+        "serviceVersion": {
+          "const": "1.0.0"
+        },
+        "hostMode": {
+          "const": "local"
+        },
+        "programRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "languageId": {
+          "const": "AARCH64:LE:64:v8A"
+        },
+        "openProgram": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "programName": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 16384
+            },
+            "languageId": {
+              "const": "AARCH64:LE:64:v8A"
+            },
+            "compilerSpec": {
+              "const": "default"
+            },
+            "reportedImageBase": {
+              "$ref": "#/$defs/address"
+            },
+            "imageBaseDisposition": {
+              "enum": [
+                "unreported",
+                "matches-request"
+              ]
+            }
+          },
+          "required": [
+            "programName",
+            "languageId",
+            "compilerSpec",
+            "reportedImageBase",
+            "imageBaseDisposition"
+          ]
+        },
+        "wheelFilename": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16384
+        },
+        "wheelSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "wheelPlatform": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16384
+        },
+        "extensionSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "materializationSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "reportedCapabilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              },
+              "status": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1024
+              }
+            },
+            "required": [
+              "id",
+              "status"
+            ]
+          },
+          "minItems": 5,
+          "maxItems": 512
+        }
+      },
+      "required": [
+        "backendId",
+        "componentId",
+        "version",
+        "gitRevision",
+        "serviceName",
+        "serviceVersion",
+        "hostMode",
+        "programRevision",
+        "languageId",
+        "openProgram",
+        "wheelFilename",
+        "wheelSha256",
+        "wheelPlatform",
+        "extensionSha256",
+        "materializationSha256",
+        "reportedCapabilities"
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "const": "caller-owned-raw-memory-with-derived-effective-carrier"
+        },
+        "imageId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16384
+        },
+        "imageUUID": {
+          "type": "string"
+        },
+        "preferredLoadAddress": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{1,16}$"
+        },
+        "loadImage": {
+          "$ref": "#/$defs/loadImage"
+        },
+        "carrier": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schemaVersion": {
+              "const": 2
+            },
+            "format": {
+              "const": "macho64"
+            },
+            "architecture": {
+              "const": "arm64"
+            },
+            "byteAuthority": {
+              "const": "dcp03b2-effective-load-image"
+            },
+            "requestSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "imageId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 16384
+            },
+            "imageUUID": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            },
+            "preferredLoadAddress": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{1,16}$"
+            },
+            "functionEntryAddress": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{1,16}$"
+            },
+            "functionFileOffset": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{1,16}$"
+            },
+            "functionRawSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "functionEffectiveSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "effectiveLoadImageSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "appliedPatchCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            "unmappedEvidenceCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8192
+            },
+            "carrierSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "carrierByteCount": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "loadCommandCount": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "segmentCount": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 255
+            },
+            "sectionCount": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 255
+            },
+            "symbolCount": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "symbolTableSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "sourceMappings": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 255,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^map[0-9]{6}$"
+                  },
+                  "regionName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16384
+                  },
+                  "segmentName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16
+                  },
+                  "sectionName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 16
+                  },
+                  "vmStartAddress": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{1,16}$"
+                  },
+                  "vmEndAddressExclusive": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{1,16}$"
+                  },
+                  "fileOffset": {
+                    "type": "string",
+                    "pattern": "^0x[0-9a-f]{1,16}$"
+                  },
+                  "fileSize": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "permissions": {
+                    "type": "string",
+                    "pattern": "^[r-][w-][x-]$"
+                  },
+                  "rawSha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "effectiveSha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "appliedPatchIds": {
+                    "type": "array",
+                    "maxItems": 4096,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^patch[0-9]{6}$"
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "regionName",
+                  "segmentName",
+                  "sectionName",
+                  "vmStartAddress",
+                  "vmEndAddressExclusive",
+                  "fileOffset",
+                  "fileSize",
+                  "permissions",
+                  "rawSha256",
+                  "effectiveSha256",
+                  "appliedPatchIds"
+                ]
+              }
+            },
+            "manifestSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "functionAppliedPatchIds": {
+              "type": "array",
+              "maxItems": 4096,
+              "items": {
+                "type": "string",
+                "pattern": "^patch[0-9]{6}$"
+              }
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "format",
+            "architecture",
+            "byteAuthority",
+            "requestSha256",
+            "imageId",
+            "imageUUID",
+            "preferredLoadAddress",
+            "functionEntryAddress",
+            "functionFileOffset",
+            "functionRawSha256",
+            "functionEffectiveSha256",
+            "functionAppliedPatchIds",
+            "effectiveLoadImageSha256",
+            "appliedPatchCount",
+            "unmappedEvidenceCount",
+            "carrierSha256",
+            "carrierByteCount",
+            "loadCommandCount",
+            "segmentCount",
+            "sectionCount",
+            "symbolCount",
+            "symbolTableSha256",
+            "sourceMappings",
+            "manifestSha256"
+          ]
+        },
+        "effectiveLoadImageSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "model",
+        "imageId",
+        "imageUUID",
+        "preferredLoadAddress",
+        "effectiveLoadImageSha256",
+        "loadImage",
+        "carrier"
+      ]
+    },
+    "function": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "functionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16384
+        },
+        "requestedName": {
+          "type": "string",
+          "maxLength": 16384
+        },
+        "entryAddress": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{1,16}$"
+        },
+        "endAddressExclusive": {
+          "type": "string",
+          "pattern": "^0x[0-9a-f]{1,16}$"
+        },
+        "rawSourceSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "effectiveSourceSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "appliedPatchIds": {
+          "type": "array",
+          "maxItems": 4096,
+          "items": {
+            "type": "string",
+            "pattern": "^patch[0-9]{6}$"
+          }
+        },
+        "imageQualifiedSourceRange": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "imageId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 16384
+            },
+            "startAddress": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{1,16}$"
+            },
+            "endAddressExclusive": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{1,16}$"
+            }
+          },
+          "required": [
+            "imageId",
+            "startAddress",
+            "endAddressExclusive"
+          ]
+        },
+        "nativeName": {
+          "type": "string",
+          "maxLength": 16384
+        },
+        "nativePrototype": {
+          "type": "string",
+          "maxLength": 4194304
+        }
+      },
+      "required": [
+        "functionId",
+        "requestedName",
+        "entryAddress",
+        "endAddressExclusive",
+        "rawSourceSha256",
+        "effectiveSourceSha256",
+        "appliedPatchIds",
+        "imageQualifiedSourceRange",
+        "nativeName",
+        "nativePrototype"
+      ]
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nativeGhidraDecompiler": {
+          "const": true
+        },
+        "callerOwnedByteCarrier": {
+          "const": true
+        },
+        "effectiveLoadImageCarrier": {
+          "const": true
+        },
+        "deterministicMachOCarrier": {
+          "const": true
+        },
+        "carrierSymbolTable": {
+          "const": true
+        },
+        "nativeFunctionRecord": {
+          "const": true
+        },
+        "decompiledPseudocode": {
+          "const": true
+        },
+        "structuredInstructions": {
+          "const": true
+        },
+        "imageQualifiedFunctionSourceRange": {
+          "const": true
+        },
+        "imageQualifiedInstructionSourceRanges": {
+          "const": true
+        },
+        "tokenizedPseudocode": {
+          "const": false
+        },
+        "recoveredVariables": {
+          "const": false
+        },
+        "surfaceTypeCandidates": {
+          "const": false
+        },
+        "nativeBasicBlocks": {
+          "const": false
+        },
+        "nativeCFGEdges": {
+          "const": false
+        },
+        "imageQualifiedBasicBlockAddresses": {
+          "const": false
+        },
+        "imageQualifiedBasicBlockSourceRanges": {
+          "const": false
+        },
+        "imageQualifiedTokenSourceRanges": {
+          "const": false
+        },
+        "nativeHeritageExport": {
+          "const": false
+        },
+        "nativeSSAExport": {
+          "const": false
+        },
+        "nativeMemorySSAExport": {
+          "const": false
+        },
+        "structuredRegions": {
+          "const": false
+        },
+        "structuredCallSites": {
+          "const": false
+        },
+        "completeTypeRecovery": {
+          "const": false
+        },
+        "typeHintInjection": {
+          "const": false
+        },
+        "relocationApplication": {
+          "const": true
+        },
+        "aarch64MachORelocationApplication": {
+          "const": true
+        },
+        "fixupApplication": {
+          "const": true
+        },
+        "dyldChainedPointerNormalization": {
+          "const": true
+        },
+        "macIR2Import": {
+          "const": false
+        },
+        "signedXPCIntegration": {
+          "const": false
+        },
+        "applicationIntegration": {
+          "const": false
+        }
+      },
+      "required": [
+        "nativeGhidraDecompiler",
+        "callerOwnedByteCarrier",
+        "effectiveLoadImageCarrier",
+        "deterministicMachOCarrier",
+        "carrierSymbolTable",
+        "nativeFunctionRecord",
+        "decompiledPseudocode",
+        "structuredInstructions",
+        "imageQualifiedFunctionSourceRange",
+        "imageQualifiedInstructionSourceRanges",
+        "tokenizedPseudocode",
+        "recoveredVariables",
+        "surfaceTypeCandidates",
+        "nativeBasicBlocks",
+        "nativeCFGEdges",
+        "imageQualifiedBasicBlockAddresses",
+        "imageQualifiedBasicBlockSourceRanges",
+        "imageQualifiedTokenSourceRanges",
+        "nativeHeritageExport",
+        "nativeSSAExport",
+        "nativeMemorySSAExport",
+        "structuredRegions",
+        "structuredCallSites",
+        "completeTypeRecovery",
+        "typeHintInjection",
+        "relocationApplication",
+        "aarch64MachORelocationApplication",
+        "fixupApplication",
+        "dyldChainedPointerNormalization",
+        "macIR2Import",
+        "signedXPCIntegration",
+        "applicationIntegration"
+      ]
+    },
+    "analysisSemantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "binaryAuthority": {
+          "const": "caller-owned-memory-regions"
+        },
+        "effectiveByteModel": {
+          "const": "dcp03b2-bounded-relocation-fixup-view"
+        },
+        "carrierModel": {
+          "const": "deterministic-thin-macho64-arm64-effective-bytes-without-entrypoint-claim"
+        },
+        "semanticImport": {
+          "const": "structured-libghidra-function-and-instruction-records-only"
+        },
+        "pseudocodeRole": {
+          "const": "presentation-not-semantic-input"
+        },
+        "instructionModel": {
+          "const": "address-driven-native-listing-bound-to-effective-bytes"
+        },
+        "tokenModel": {
+          "const": "unavailable-libghidra-v0.0.2-local-client"
+        },
+        "variableModel": {
+          "const": "unavailable-libghidra-v0.0.2-local-client"
+        },
+        "typeCandidateModel": {
+          "const": "unavailable-without-structured-type-records"
+        },
+        "cfgModel": {
+          "const": "not-accepted-in-dcp03b3-address-driven-contract"
+        },
+        "timeoutModel": {
+          "const": "external-supervisor-hard-deadline"
+        },
+        "proofLevel": {
+          "const": "shadow-pilot"
+        }
+      },
+      "required": [
+        "binaryAuthority",
+        "effectiveByteModel",
+        "carrierModel",
+        "semanticImport",
+        "pseudocodeRole",
+        "instructionModel",
+        "tokenModel",
+        "variableModel",
+        "typeCandidateModel",
+        "cfgModel",
+        "timeoutModel",
+        "proofLevel"
+      ]
+    },
+    "presentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pseudocode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4194304
+        },
+        "completed": {
+          "const": true
+        },
+        "fallback": {
+          "const": false
+        },
+        "semanticInput": {
+          "const": false
+        }
+      },
+      "required": [
+        "pseudocode",
+        "completed",
+        "fallback",
+        "semanticInput"
+      ]
+    },
+    "backendRecords": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "decompilation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "functionEntryAddress": {
+              "$ref": "#/$defs/address"
+            },
+            "pseudocode": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4194304
+            },
+            "completed": {
+              "const": true
+            },
+            "fallback": {
+              "const": false
+            }
+          },
+          "required": [
+            "functionEntryAddress",
+            "pseudocode",
+            "completed",
+            "fallback"
+          ]
+        },
+        "function": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "entryAddress": {
+              "$ref": "#/$defs/address"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 16384
+            },
+            "startAddress": {
+              "$ref": "#/$defs/address"
+            },
+            "reportedEndAddress": {
+              "$ref": "#/$defs/address"
+            },
+            "normalizedEndAddressExclusive": {
+              "$ref": "#/$defs/address"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1048576
+            },
+            "namespace": {
+              "type": "string",
+              "maxLength": 16384
+            },
+            "prototype": {
+              "type": "string",
+              "maxLength": 4194304
+            },
+            "isThunk": {
+              "type": "boolean"
+            },
+            "parameterCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100000
+            },
+            "rawSourceSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "effectiveSourceSha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "appliedPatchIds": {
+              "type": "array",
+              "maxItems": 4096,
+              "items": {
+                "type": "string",
+                "pattern": "^patch[0-9]{6}$"
+              }
+            },
+            "imageQualifiedSourceRange": {
+              "$ref": "#/$defs/sourceRange"
+            }
+          },
+          "required": [
+            "entryAddress",
+            "name",
+            "startAddress",
+            "reportedEndAddress",
+            "normalizedEndAddressExclusive",
+            "size",
+            "namespace",
+            "prototype",
+            "isThunk",
+            "parameterCount",
+            "rawSourceSha256",
+            "effectiveSourceSha256",
+            "appliedPatchIds",
+            "imageQualifiedSourceRange"
+          ]
+        },
+        "instructions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^nativeinsn[0-9]{6}$"
+              },
+              "index": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 999999
+              },
+              "address": {
+                "$ref": "#/$defs/address"
+              },
+              "endAddressExclusive": {
+                "$ref": "#/$defs/address"
+              },
+              "length": {
+                "const": 4
+              },
+              "mnemonic": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16384
+              },
+              "operandText": {
+                "type": "string",
+                "maxLength": 16384
+              },
+              "disassembly": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 16384
+              },
+              "rawBytesHex": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}$"
+              },
+              "effectiveBytesHex": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{8}$"
+              },
+              "rawSourceSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "effectiveSourceSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "appliedPatchIds": {
+                "type": "array",
+                "maxItems": 4096,
+                "items": {
+                  "type": "string",
+                  "pattern": "^patch[0-9]{6}$"
+                }
+              },
+              "imageQualifiedSourceRange": {
+                "$ref": "#/$defs/sourceRange"
+              }
+            },
+            "required": [
+              "id",
+              "index",
+              "address",
+              "endAddressExclusive",
+              "length",
+              "mnemonic",
+              "operandText",
+              "disassembly",
+              "rawBytesHex",
+              "effectiveBytesHex",
+              "rawSourceSha256",
+              "effectiveSourceSha256",
+              "appliedPatchIds",
+              "imageQualifiedSourceRange"
+            ]
+          },
+          "minItems": 1,
+          "maxItems": 1000000
+        }
+      },
+      "required": [
+        "decompilation",
+        "function",
+        "instructions"
+      ]
+    },
+    "recoveredVariables": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "typeCandidates": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 16384
+      },
+      "uniqueItems": true,
+      "maxItems": 256
+    },
+    "resourceUsage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "carrierBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 314572800
+        },
+        "rawFunctionBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "effectiveFunctionBytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "appliedPatchCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unmappedEvidenceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pseudocodeBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4194304
+        },
+        "nativeInstructionCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "nativeInstructionBytes": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 4000000
+        },
+        "nativeFunctionRecordCount": {
+          "const": 1
+        },
+        "tokenCount": {
+          "const": 0
+        },
+        "localRecordCount": {
+          "const": 0
+        },
+        "nativeBasicBlockCount": {
+          "const": 0
+        },
+        "nativeCFGEdgeCount": {
+          "const": 0
+        },
+        "recoveredVariableCount": {
+          "const": 0
+        },
+        "typeCandidateCount": {
+          "const": 0
+        }
+      },
+      "required": [
+        "carrierBytes",
+        "rawFunctionBytes",
+        "effectiveFunctionBytes",
+        "appliedPatchCount",
+        "unmappedEvidenceCount",
+        "pseudocodeBytes",
+        "nativeInstructionCount",
+        "nativeInstructionBytes",
+        "nativeFunctionRecordCount",
+        "tokenCount",
+        "localRecordCount",
+        "nativeBasicBlockCount",
+        "nativeCFGEdgeCount",
+        "recoveredVariableCount",
+        "typeCandidateCount"
+      ]
+    },
+    "contentHash": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "status",
+    "analysisLevel",
+    "contractCompleteness",
+    "requestId",
+    "requestSha256",
+    "engine",
+    "authority",
+    "function",
+    "capabilities",
+    "analysisSemantics",
+    "presentation",
+    "backendRecords",
+    "recoveredVariables",
+    "typeCandidates",
+    "warnings",
+    "resourceUsage",
+    "contentHash"
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,255}$"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^(?:0x0|0x[1-9a-f][0-9a-f]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sourceRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "imageId",
+        "startAddress",
+        "endAddressExclusive"
+      ],
+      "properties": {
+        "imageId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "startAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        }
+      }
+    },
+    "loadImageModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "architecture",
+        "byteOrder",
+        "pointerWidthBits",
+        "relocationModel",
+        "fixupModel",
+        "patchPolicy",
+        "authenticatedPointerTreatment",
+        "supportedRelocationKinds",
+        "supportedFixupKinds"
+      ],
+      "properties": {
+        "architecture": {
+          "const": "AArch64"
+        },
+        "byteOrder": {
+          "const": "little"
+        },
+        "pointerWidthBits": {
+          "const": 64
+        },
+        "relocationModel": {
+          "const": "mach-o-arm64-relocation-subset-v1"
+        },
+        "fixupModel": {
+          "const": "dyld-chained-pointer-normalization-v1"
+        },
+        "patchPolicy": {
+          "const": "fail-closed-mapped-preserve-unmapped"
+        },
+        "authenticatedPointerTreatment": {
+          "const": "materialize-unsigned-target-with-authentication-evidence"
+        },
+        "supportedRelocationKinds": {
+          "const": [
+            "ARM64_RELOC_UNSIGNED",
+            "ARM64_RELOC_BRANCH26",
+            "ARM64_RELOC_PAGE21",
+            "ARM64_RELOC_GOT_LOAD_PAGE21",
+            "ARM64_RELOC_TLVP_LOAD_PAGE21",
+            "ARM64_RELOC_PAGEOFF12",
+            "ARM64_RELOC_GOT_LOAD_PAGEOFF12",
+            "ARM64_RELOC_TLVP_LOAD_PAGEOFF12"
+          ]
+        },
+        "supportedFixupKinds": {
+          "const": [
+            "DYLD_CHAINED_REBASE64",
+            "DYLD_CHAINED_BIND64",
+            "DYLD_CHAINED_AUTH_REBASE64",
+            "DYLD_CHAINED_AUTH_BIND64"
+          ]
+        }
+      }
+    },
+    "effectiveMemoryRegion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "startAddress",
+        "endAddressExclusive",
+        "permissions",
+        "byteCount",
+        "rawSha256",
+        "effectiveSha256",
+        "appliedPatchIds"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "startAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "endAddressExclusive": {
+          "$ref": "#/$defs/address"
+        },
+        "permissions": {
+          "type": "string",
+          "pattern": "^[r-][w-][x-]$"
+        },
+        "byteCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1048576
+        },
+        "rawSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "effectiveSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "appliedPatchIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^patch[0-9]{6}$"
+          },
+          "maxItems": 4096
+        }
+      }
+    },
+    "loadImagePatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sourceKind",
+        "sourceIndex",
+        "address",
+        "width",
+        "kind",
+        "encoding",
+        "targetAddress",
+        "symbol",
+        "addend",
+        "authenticated",
+        "key",
+        "diversity",
+        "originalBytesHex",
+        "effectiveBytesHex",
+        "sourceRange"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^patch[0-9]{6}$"
+        },
+        "sourceKind": {
+          "enum": [
+            "relocation",
+            "fixup"
+          ]
+        },
+        "sourceIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4095
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "width": {
+          "enum": [
+            4,
+            8
+          ]
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "encoding": {
+          "enum": [
+            "littleEndianUnsigned64",
+            "aarch64Branch26",
+            "aarch64AdrpPage21",
+            "aarch64AddImmediatePageOffset12",
+            "aarch64UnsignedLoadStorePageOffset12",
+            "normalizedPointer64"
+          ]
+        },
+        "targetAddress": {
+          "$ref": "#/$defs/address"
+        },
+        "symbol": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 1024
+        },
+        "addend": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": -9223372036854775808,
+          "maximum": 9223372036854775807
+        },
+        "authenticated": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "key": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            null,
+            "ia",
+            "ib",
+            "da",
+            "db"
+          ]
+        },
+        "diversity": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "originalBytesHex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2}){4,8}$"
+        },
+        "effectiveBytesHex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2}){4,8}$"
+        },
+        "sourceRange": {
+          "$ref": "#/$defs/sourceRange"
+        }
+      }
+    },
+    "unmappedAddressMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceKind",
+        "sourceIndex",
+        "address",
+        "kind",
+        "reason"
+      ],
+      "properties": {
+        "sourceKind": {
+          "enum": [
+            "relocation",
+            "fixup"
+          ]
+        },
+        "sourceIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4095
+        },
+        "address": {
+          "$ref": "#/$defs/address"
+        },
+        "kind": {
+          "$ref": "#/$defs/identifier"
+        },
+        "reason": {
+          "const": "outsideSuppliedMemory"
+        }
+      }
+    },
+    "loadImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "memoryRegions",
+        "patches",
+        "unmappedEvidence"
+      ],
+      "properties": {
+        "model": {
+          "$ref": "#/$defs/loadImageModel"
+        },
+        "memoryRegions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effectiveMemoryRegion"
+          },
+          "minItems": 1,
+          "maxItems": 256
+        },
+        "patches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/loadImagePatch"
+          },
+          "maxItems": 4096
+        },
+        "unmappedEvidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unmappedAddressMetadata"
+          },
+          "maxItems": 8192
+        }
+      }
+    }
+  }
+}

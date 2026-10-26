@@ -1,0 +1,297 @@
+{
+ "extractorVersion": "1",
+ "functions": [
+  {
+   "address": 6336,
+   "blocks": 1,
+   "end": 6344,
+   "exported": false,
+   "facts": [],
+   "instructionCount": 2,
+   "names": [
+    "+[Root alloc]"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6344,
+   "blocks": 1,
+   "end": 6348,
+   "exported": false,
+   "facts": [],
+   "instructionCount": 1,
+   "names": [
+    "-[Root init]"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6348,
+   "blocks": 1,
+   "end": 6360,
+   "exported": false,
+   "facts": [
+    {
+     "access": "load",
+     "at": 6352,
+     "kind": "ref.data",
+     "materializedAt": 6348,
+     "name": "_OBJC_CLASSLIST_REFERENCES_$_",
+     "offset": 0,
+     "resolution": "materialized_on_all_paths",
+     "section": "__objc_classrefs",
+     "target": 32800,
+     "via": "adrp+ldr"
+    },
+    {
+     "at": 6356,
+     "kind": "call.import",
+     "name": "_objc_alloc_init",
+     "resolution": "stub_indirect_symbol",
+     "tail": true,
+     "target": 6516
+    }
+   ],
+   "instructionCount": 3,
+   "names": [
+    "+[Widget sharedWidget]"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6360,
+   "blocks": 1,
+   "end": 6404,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6380,
+     "kind": "ref.string",
+     "materializedAt": 6376,
+     "resolution": "materialized_on_all_paths",
+     "target": 6612,
+     "value": "widget render",
+     "via": "adrp+add"
+    },
+    {
+     "at": 6384,
+     "kind": "call.import",
+     "name": "_puts",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 6540
+    }
+   ],
+   "instructionCount": 11,
+   "names": [
+    "-[Widget render:]"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6404,
+   "blocks": 1,
+   "end": 6416,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6408,
+     "kind": "ref.string",
+     "materializedAt": 6404,
+     "resolution": "materialized_on_all_paths",
+     "target": 6626,
+     "value": "closing",
+     "via": "adrp+add"
+    },
+    {
+     "at": 6412,
+     "kind": "call.import",
+     "name": "_puts",
+     "resolution": "stub_indirect_symbol",
+     "tail": true,
+     "target": 6540
+    }
+   ],
+   "instructionCount": 3,
+   "names": [
+    "-[Widget close]"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6416,
+   "blocks": 1,
+   "end": 6424,
+   "exported": false,
+   "facts": [],
+   "instructionCount": 2,
+   "names": [
+    "-[Gadget render:]"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6424,
+   "blocks": 1,
+   "end": 6480,
+   "exported": true,
+   "facts": [
+    {
+     "access": "load",
+     "at": 6444,
+     "kind": "ref.data",
+     "materializedAt": 6440,
+     "name": null,
+     "offset": null,
+     "resolution": "materialized_on_all_paths",
+     "section": "__objc_selrefs",
+     "target": 33712,
+     "via": "adrp+ldr"
+    },
+    {
+     "arguments": {
+      "x1": {
+       "loadAt": 6444,
+       "materializedAt": 6440,
+       "section": "__objc_selrefs",
+       "slot": 33712
+      }
+     },
+     "at": 6448,
+     "kind": "call.import",
+     "name": "_objc_msgSend",
+     "resolution": "stub_indirect_symbol",
+     "tail": false,
+     "target": 6528
+    },
+    {
+     "access": "load",
+     "at": 6456,
+     "kind": "ref.data",
+     "materializedAt": 6452,
+     "name": null,
+     "offset": null,
+     "resolution": "materialized_on_all_paths",
+     "section": "__objc_selrefs",
+     "target": 33720,
+     "via": "adrp+ldr"
+    },
+    {
+     "arguments": {
+      "x1": {
+       "loadAt": 6456,
+       "materializedAt": 6452,
+       "section": "__objc_selrefs",
+       "slot": 33720
+      }
+     },
+     "at": 6476,
+     "kind": "call.import",
+     "name": "_objc_msgSend",
+     "resolution": "stub_indirect_symbol",
+     "tail": true,
+     "target": 6528
+    }
+   ],
+   "instructionCount": 14,
+   "names": [
+    "_drive"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "function",
+   "undecoded": 0
+  },
+  {
+   "address": 6480,
+   "blocks": 1,
+   "end": 6492,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6488,
+     "form": "register",
+     "kind": "jump.indirect",
+     "name": "_objc_alloc_init",
+     "register": "x16",
+     "resolution": "register_holds_import_stub_address",
+     "stub": 6516
+    }
+   ],
+   "instructionCount": 3,
+   "names": [
+    "_objc_alloc_init__thunk"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "import_thunk",
+   "undecoded": 0
+  },
+  {
+   "address": 6492,
+   "blocks": 1,
+   "end": 6504,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6500,
+     "form": "register",
+     "kind": "jump.indirect",
+     "name": "_puts",
+     "register": "x16",
+     "resolution": "register_holds_import_stub_address",
+     "stub": 6540
+    }
+   ],
+   "instructionCount": 3,
+   "names": [
+    "_puts__thunk"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "import_thunk",
+   "undecoded": 0
+  },
+  {
+   "address": 6504,
+   "blocks": 1,
+   "end": 6516,
+   "exported": false,
+   "facts": [
+    {
+     "at": 6512,
+     "form": "register",
+     "kind": "jump.indirect",
+     "name": "_objc_msgSend",
+     "register": "x16",
+     "resolution": "register_holds_import_stub_address",
+     "stub": 6528
+    }
+   ],
+   "instructionCount": 3,
+   "names": [
+    "_objc_msgSend__thunk"
+   ],
+   "opaqueEntries": false,
+   "subjectKind": "import_thunk",
+   "undecoded": 0
+  }
+ ],
+ "image": {
+  "architecture": "arm64",
+  "mode": "symbol-boundaries",
+  "path": "libw.dylib",
+  "project": "libw",
+  "sha256": "39baefbc6340d5c9e334df4b7b1790cfd51f77cc475e8bc7e1d47068dd7464ff"
+ },
+ "schema": "u20_u21_query.research_facts/1"
+}

@@ -1,0 +1,60 @@
+{
+  "scope": "Vendored lifter p-code execution; not native app or hardware acceptance",
+  "variants": {
+    "le": {
+      "frint": {
+        "passed": 2272
+      },
+      "sla_sha256": "29ffafc4fdbb3aa8808439c1398e2e3de57912b7c77c46f8e190633931b7b4fc"
+    },
+    "be": {
+      "frint": {
+        "passed": 2272
+      },
+      "sla_sha256": "da78300849f5d554660b2de6f2b47f2edec993a7c9a55decdda86965be6cb057"
+    },
+    "apple": {
+      "frint": {
+        "passed": 2272
+      },
+      "sla_sha256": "af6554c6542a3b915548835d49e8b4757ee233886044b4964b8b24f0c9d9da03"
+    }
+  },
+  "schemaVersion": 1,
+  "suite": "frint",
+  "status": "passed",
+  "nativeAcceptance": "prepared_not_native_executed",
+  "totalPassed": 6816,
+  "workerSettings": {
+    "sleighCompiler": 1,
+    "heavyGateSharedSlots": 3,
+    "heavySlotWaitSeconds": 0,
+    "semanticVM": 1
+  },
+  "timingsSeconds": {
+    "successfulCompile": 1.11,
+    "appleSemanticTest": 1.08,
+    "leBeSemanticTest": 2.62
+  },
+  "selectors": [
+    "Scripts.tests.test_sleigh_aarch64_feature_vectors.SleighFRINTScalarSemanticTests",
+    "rx17_semantics.py --suite frint --variant le --variant be"
+  ],
+  "unverified": [
+    "native provider and installed app",
+    "enabled FP traps",
+    "vector FRINT32/64 forms (unchanged)"
+  ],
+  "immutableIdentityReuse": "baseline-package-file-index.json from isa-integration-20261012.noindex; existing PATCHED_RESOURCES.json identities reused for unchanged members",
+  "failedAttempts": [
+    {
+      "seconds": 0.22,
+      "reason": "SLEIGH reserved identifier shift; original script removed diagnostic staging"
+    },
+    {
+      "seconds": 0.15,
+      "reason": "same syntax failure recovered with retained diagnostics",
+      "log": "t2-frint-20261012.noindex/compile/.c1d7de557eae._yf614pt/AARCH64.log"
+    }
+  ]
+}

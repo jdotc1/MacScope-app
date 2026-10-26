@@ -1,0 +1,509 @@
+{
+  "analysis" : {
+    "addressOverrides" : [
+
+    ],
+    "analysisInputFingerprint" : {
+      "artifactIdentity" : {
+        "architectureVariant" : "arm64",
+        "rawCPUSubtype" : 0,
+        "rawCPUType" : 16777228,
+        "selectedSliceByteCount" : 33656,
+        "selectedSliceSHA256" : "e4aaf1e887ae299011a9b1611a29aebd5bd48054c1d0c6d7145230dd89263ff0",
+        "uuid" : "62D08735-5AD2-4A7D-AFE9-C25569BD23C5"
+      },
+      "binaryID" : "B45C6F3E-C084-479A-B9FA-DDCC53223E06",
+      "binaryName" : "original-arm64",
+      "binaryPath" : "\/fixtures\/reconstruction-c-sample\/original-arm64",
+      "facets" : [
+        {
+          "itemCount" : 0,
+          "kind" : "codeDataRanges",
+          "schemaVersion" : 1,
+          "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "itemCount" : 24,
+          "kind" : "controlFlow",
+          "schemaVersion" : 1,
+          "sha256" : "55ab5b45a20da66a561104ac4ba858d4dc4905b1bd9a2d13a441a4c7358e3e1f"
+        },
+        {
+          "itemCount" : 0,
+          "kind" : "debugSourceLines",
+          "schemaVersion" : 1,
+          "sha256" : "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "itemCount" : 87,
+          "kind" : "decodedInstructions",
+          "schemaVersion" : 1,
+          "sha256" : "4165c08642a43f587a4d5774834c28b3260be2a3e2ed082160f874581cccfe58"
+        },
+        {
+          "itemCount" : 2,
+          "kind" : "functions",
+          "schemaVersion" : 1,
+          "sha256" : "59b0ebbc61beae636f70289138e530d337b36616011a4d87fcc2e431fbcc4dce"
+        },
+        {
+          "itemCount" : 5,
+          "kind" : "loaderSections",
+          "schemaVersion" : 1,
+          "sha256" : "f1efd5f50f672bd6af79f55171a67c9ebfb15735c410d689fac554fc0ee2df48"
+        },
+        {
+          "itemCount" : 1,
+          "kind" : "machOLoadMetadata",
+          "schemaVersion" : 1,
+          "sha256" : "85ef26a6cc329e1bbdd7ce43b0a057a93a3fc70d050e7501871fd3b201928a24"
+        },
+        {
+          "itemCount" : 1,
+          "kind" : "relocations",
+          "schemaVersion" : 1,
+          "sha256" : "a51c9a1948560db6cfddeb807449a03ada7651cff97c2211458919d3daeffb4d"
+        },
+        {
+          "byteCount" : 33656,
+          "itemCount" : 1,
+          "kind" : "selectedSliceBytes",
+          "schemaVersion" : 1,
+          "sha256" : "12af005d00f13398dae4177c164ecdc5bf140cb17d6c85d9f42f5e6b1fb72deb"
+        },
+        {
+          "itemCount" : 11,
+          "kind" : "xrefs",
+          "schemaVersion" : 1,
+          "sha256" : "2fd53da65c2540a0fa2447ab172d07aab1aafe7b2ffcd57e0c4375c86b2589c3"
+        }
+      ],
+      "imageByteCount" : 33656,
+      "imageBytesSHA256" : "e4aaf1e887ae299011a9b1611a29aebd5bd48054c1d0c6d7145230dd89263ff0",
+      "imageSlot" : 0,
+      "overallSHA256" : "6ccbbeab8cfb387254928d7c4ca84e6a9da323f78e5c1dd180035ab172dcef27",
+      "schemaVersion" : 1
+    },
+    "basicBlocks" : [
+
+    ],
+    "bookmarks" : [
+
+    ],
+    "controlFlowEdges" : [
+
+    ],
+    "exports" : [
+      {
+        "address" : 4294967296,
+        "id" : "0CC3D6E2-22FD-4F00-AC30-2DAD22526AF8",
+        "name" : "__mh_execute_header",
+        "source" : "LC_SYMTAB"
+      },
+      {
+        "address" : 4294968480,
+        "id" : "19291B7C-524F-4E7C-8359-A61A51B40E9A",
+        "name" : "_main",
+        "source" : "LC_SYMTAB"
+      },
+      {
+        "address" : 4294968416,
+        "id" : "187E736B-A9FD-443A-A741-4EEED6FA5DDC",
+        "name" : "_reconstructed",
+        "source" : "LC_SYMTAB"
+      }
+    ],
+    "functions" : [
+      {
+        "confidence" : 0.74,
+        "endAddress" : 4294968480,
+        "id" : "6E107921-7F17-826B-BDA6-CD4AB32F1D05",
+        "name" : "_reconstructed",
+        "startAddress" : 4294968416
+      },
+      {
+        "confidence" : 0.74,
+        "endAddress" : 4294968728,
+        "id" : "74D38B23-989D-871F-A031-FDD914742A8B",
+        "name" : "_main",
+        "startAddress" : 4294968480
+      }
+    ],
+    "imports" : [
+      {
+        "id" : "7E41E261-CC68-457D-A0FF-A9969A7875F8",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "___stack_chk_fail"
+      },
+      {
+        "id" : "5C47DFFF-16AB-4C1F-93DE-662D8CEEDA48",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "___stack_chk_guard"
+      },
+      {
+        "id" : "78034DD0-3247-40B9-B106-CC9ABD8DC85B",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "_memcpy"
+      },
+      {
+        "id" : "EFD3CFB8-9F65-4A60-8067-474042F1B6FF",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "name" : "_printf"
+      }
+    ],
+    "indirectSymbols" : [
+      {
+        "address" : 4294968728,
+        "entrySize" : 12,
+        "id" : "10155DA9-406D-4011-810C-8A132B93D5C0",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "symbolStub",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 5,
+        "sourceSection" : "__TEXT,__stubs",
+        "symbolIndex" : 5,
+        "symbolName" : "_memcpy",
+        "tableIndex" : 0
+      },
+      {
+        "address" : 4294968740,
+        "entrySize" : 12,
+        "id" : "AAC1A1F6-3BE3-4C2C-8855-8C7A0475FFA4",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "symbolStub",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 6,
+        "sourceSection" : "__TEXT,__stubs",
+        "symbolIndex" : 6,
+        "symbolName" : "_printf",
+        "tableIndex" : 1
+      },
+      {
+        "address" : 4294968752,
+        "entrySize" : 12,
+        "id" : "003B473B-9B14-4E23-B44A-58443D7472EE",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "symbolStub",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 3,
+        "sourceSection" : "__TEXT,__stubs",
+        "symbolIndex" : 3,
+        "symbolName" : "___stack_chk_fail",
+        "tableIndex" : 2
+      },
+      {
+        "address" : 4294983680,
+        "entrySize" : 8,
+        "id" : "D7858345-646D-4D62-BC9D-C7B94945B4BE",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 4,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 4,
+        "symbolName" : "___stack_chk_guard",
+        "tableIndex" : 3
+      },
+      {
+        "address" : 4294983688,
+        "entrySize" : 8,
+        "id" : "4C72B185-580E-4BCA-981A-F6E7D145E11E",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 5,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 5,
+        "symbolName" : "_memcpy",
+        "tableIndex" : 4
+      },
+      {
+        "address" : 4294983696,
+        "entrySize" : 8,
+        "id" : "50B6B7AA-AF4A-4657-8CE8-9815CC6E3CF8",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 6,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 6,
+        "symbolName" : "_printf",
+        "tableIndex" : 5
+      },
+      {
+        "address" : 4294983704,
+        "entrySize" : 8,
+        "id" : "C8E9EC04-D2AA-4196-9EEB-5DC0C792DC3A",
+        "isAbsolute" : false,
+        "isLocal" : false,
+        "kind" : "nonLazySymbolPointer",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "libraryOrdinal" : 1,
+        "rawSymbolIndex" : 3,
+        "sourceSection" : "__DATA_CONST,__got",
+        "symbolIndex" : 3,
+        "symbolName" : "___stack_chk_fail",
+        "tableIndex" : 6
+      }
+    ],
+    "instructions" : [
+
+    ],
+    "manualXRefs" : [
+
+    ],
+    "segmentOverrides" : [
+
+    ],
+    "stringLiterals" : [
+      {
+        "address" : 4294968912,
+        "byteLength" : 6,
+        "id" : "D0C2A4C0-9095-488F-BF38-C058624D6A30",
+        "sourceSection" : "__TEXT,__cstring",
+        "value" : "%u:%u\n"
+      }
+    ],
+    "symbols" : [
+      {
+        "address" : 4294967296,
+        "id" : "26EDBC6F-DCD4-8E52-BE6F-11B3A6D0CC8B",
+        "kind" : "export",
+        "name" : "__mh_execute_header",
+        "rawLinkageName" : "__mh_execute_header"
+      },
+      {
+        "address" : 4294968480,
+        "id" : "914BA2F0-E7B1-886A-9BB2-F80BCE989C2D",
+        "kind" : "export",
+        "name" : "_main",
+        "rawLinkageName" : "_main"
+      },
+      {
+        "address" : 4294968416,
+        "id" : "55D2ABCD-4AFF-8B24-ABB2-F1162FE81421",
+        "kind" : "export",
+        "name" : "_reconstructed",
+        "rawLinkageName" : "_reconstructed"
+      },
+      {
+        "id" : "EEAEFF38-A2A7-8237-AB5B-F3E0CFD4C9AA",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "___stack_chk_fail",
+        "rawLinkageName" : "___stack_chk_fail"
+      },
+      {
+        "id" : "75757417-6259-88F5-AF95-B1357415F464",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "___stack_chk_guard",
+        "rawLinkageName" : "___stack_chk_guard"
+      },
+      {
+        "id" : "B0508A43-3B78-862E-B4AA-0C0FEB65A1F1",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "_memcpy",
+        "rawLinkageName" : "_memcpy"
+      },
+      {
+        "id" : "77034D83-4A60-8E34-89EC-8BB681E5508A",
+        "kind" : "import",
+        "libraryName" : "\/usr\/lib\/libSystem.B.dylib",
+        "name" : "_printf",
+        "rawLinkageName" : "_printf"
+      },
+      {
+        "address" : 4294968728,
+        "id" : "AA529A36-7F1E-89BA-9BCE-8D3ED7D69BC0",
+        "kind" : "stub",
+        "name" : "_memcpy"
+      },
+      {
+        "address" : 4294968740,
+        "id" : "9A26D4F4-BA32-8A9E-81E6-FA00EA05018B",
+        "kind" : "stub",
+        "name" : "_printf"
+      },
+      {
+        "address" : 4294968752,
+        "id" : "210DCEE3-D425-8D59-BB68-73467A44F929",
+        "kind" : "stub",
+        "name" : "___stack_chk_fail"
+      },
+      {
+        "address" : 4294983680,
+        "id" : "63728A5D-2810-82D8-9543-BEEF44DCD111",
+        "kind" : "stub",
+        "name" : "___stack_chk_guard"
+      },
+      {
+        "address" : 4294983688,
+        "id" : "0BDEFB5E-9F6D-80D5-8CA1-7DA281BC4D02",
+        "kind" : "stub",
+        "name" : "_memcpy"
+      },
+      {
+        "address" : 4294983696,
+        "id" : "68C8C7CB-765D-8F68-8788-7E927E4172AA",
+        "kind" : "stub",
+        "name" : "_printf"
+      },
+      {
+        "address" : 4294983704,
+        "id" : "644FE74D-E15B-833B-B4CE-A227F926372C",
+        "kind" : "stub",
+        "name" : "___stack_chk_fail"
+      }
+    ],
+    "typeDefinitions" : [
+
+    ],
+    "xrefs" : [
+      {
+        "from" : 4294968496,
+        "id" : "4ED9CCCF-B040-42C8-A30C-54E1BD7130E7",
+        "kind" : "data",
+        "to" : 4294983680
+      },
+      {
+        "from" : 4294968520,
+        "id" : "5A9E9145-ADF7-4EF4-B16D-DE7C2C931B84",
+        "kind" : "data",
+        "to" : 4294968764
+      },
+      {
+        "from" : 4294968524,
+        "id" : "665A92CD-6A59-4629-9200-1159F650BC7F",
+        "kind" : "call",
+        "to" : 4294968728
+      },
+      {
+        "from" : 4294968572,
+        "id" : "C41B0C27-27BC-4514-AAFE-AF18813D8DD0",
+        "kind" : "call",
+        "to" : 4294968416
+      },
+      {
+        "from" : 4294968616,
+        "id" : "62F63647-C27E-4087-A28B-F076F9F3B032",
+        "kind" : "string",
+        "to" : 4294968912
+      },
+      {
+        "from" : 4294968620,
+        "id" : "56449F29-0791-49B9-9EC7-5813CD9F0159",
+        "kind" : "call",
+        "to" : 4294968740
+      },
+      {
+        "from" : 4294968688,
+        "id" : "111B86BA-F97E-4CC9-9841-EEC0AF670E38",
+        "kind" : "data",
+        "to" : 4294983680
+      },
+      {
+        "from" : 4294968708,
+        "id" : "E2DDCB5B-2C38-45CF-B28D-3B67A5AD5071",
+        "kind" : "call",
+        "to" : 4294968752
+      },
+      {
+        "from" : 4294968732,
+        "id" : "2A63C7B6-872A-4A26-9AC3-98ACBE903E75",
+        "kind" : "data",
+        "to" : 4294983688
+      },
+      {
+        "from" : 4294968744,
+        "id" : "9DF61952-9E0F-40C3-837B-A80B7465DE87",
+        "kind" : "data",
+        "to" : 4294983696
+      },
+      {
+        "from" : 4294968756,
+        "id" : "540BEB5C-BF6D-42C3-8F28-C5D4FE584F93",
+        "kind" : "data",
+        "to" : 4294983704
+      }
+    ]
+  },
+  "analyzer" : {
+    "features" : [
+      {
+        "name" : "analyzer-version stamp and load-time analysis repair",
+        "version" : 1
+      }
+    ],
+    "version" : 1
+  },
+  "binaries" : [
+    {
+      "architecture" : "arm64",
+      "attachmentRelativePath" : "attachments\/b45c6f3e-c084-479a-b9fa-ddcc53223e06\/original-arm64",
+      "displayName" : "original-arm64",
+      "fileHash" : "e4aaf1e887ae299011a9b1611a29aebd5bd48054c1d0c6d7145230dd89263ff0",
+      "fileSize" : 33656,
+      "id" : "B45C6F3E-C084-479A-B9FA-DDCC53223E06",
+      "kind" : "Mach-O executable",
+      "metadata" : {
+        "buildTools" : [
+          "ld 27037.1"
+        ],
+        "minimumOSVersion" : "27.0",
+        "platformName" : "macOS",
+        "sdkVersion" : "27.2",
+        "uuid" : "62d08735-5ad2-4a7d-afe9-c25569bd23c5"
+      },
+      "originalPath" : "\/fixtures\/reconstruction-c-sample\/original-arm64"
+    }
+  ],
+  "bookmarkResolutionDecision" : "resolve_stored_bookmarks",
+  "createdAt" : "2026-10-13T07:14:47.449Z",
+  "documentID" : "96315F03-5600-4013-A7B3-4716180B2278",
+  "formatIdentifier" : "org.macscope.workspace-package",
+  "formatVersion" : 4,
+  "inputCopyingDecision" : "copy_inputs_into_package",
+  "instructionSidecar" : {
+    "analysisFormatVersion" : 1,
+    "byteCount" : 6857,
+    "groups" : [
+      {
+        "basicBlockCount" : 18,
+        "controlFlowEdgeCount" : 24,
+        "rowCount" : 87
+      }
+    ],
+    "path" : "instructions.bin",
+    "sha256" : "04845c87774903b3fe55b6954001282fe087d5ed31c01f6f7cd4932e6d3225e8"
+  },
+  "modifiedAt" : "2026-10-13T07:14:47.449Z",
+  "session" : {
+    "editorMode" : "Disassembly",
+    "isInspectorPresented" : true,
+    "selectedAddress" : 4294968416,
+    "selectedSidebarItemID" : "binary:B45C6F3E-C084-479A-B9FA-DDCC53223E06",
+    "selectedTool" : "Project",
+    "sidebarSearchText" : "",
+    "updatedAt" : "2026-10-13T07:14:47.449Z"
+  },
+  "workspaceName" : "original-arm64",
+  "workspaceUUID" : "381D56C0-11B7-4890-9FBA-5BC8F7D1F756"
+}

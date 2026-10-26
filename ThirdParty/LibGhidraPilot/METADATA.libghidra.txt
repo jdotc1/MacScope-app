@@ -1,0 +1,17 @@
+Component: libghidra
+Upstream: https://github.com/0xeb/libghidra
+Version: 0.0.2
+Git revision: 61b37fa2d99aa5cf0da450b84f2abd797fb6a27c
+Integration: developer-only native-extension shadow pilot
+Upstream license: MPL-2.0
+Embedded decompiler/resource licenses: Apache-2.0 and Zlib license records retained here
+Native service identity: local-decompiler 1.0.0
+Language: AARCH64:LE:64:v8A
+Compiler specification: default
+macOS arm64 abi3 wheel SHA-256: c96f2266c66d16302b917ce2645d5ba08ca90bac30f44d957a7e16ad40d40fee
+Linux x86_64 abi3 wheel SHA-256: aeb32952ad1ba30f87d480c3ab56eb0346f199470c2584ebe67e05d03d4e6c78
+Truthful local-mode output: pseudocode, one function record, and address-driven instruction records
+Unavailable local-mode output: tokens, locals, native basic blocks, CFG edges, heritage, SSA, MemorySSA, structured types, calls, and regions
+Normal build acquisition: prohibited
+Shipping integration: none
+Public distribution: blocked pending MPL-2.0 source-form and complete transitive-license review

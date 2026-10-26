@@ -1,0 +1,716 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+index f98d3ec4f..4b1d620b5 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64base.sinc
+@@ -5443,14 +5443,15 @@ is sf=1 & op.dp3_op54=0 & b_2428=0x1b & op.dp3_op31=1 & Rm_GPR32 & op.dp3_o0=1 &
+ define pcodeop sveStreamingModeStart;
+ define pcodeop sveStreamingModeStop;
+ 
+-SVAmodeOp: "SM" is b_0911=0x1 & b_08 { svcr[0,1] = b_08; }
+-SVAmodeOp: "ZA" is b_0911=0x2 & b_08 { svcr[1,1] = b_08; }
++SVAmodeOp: "sm" is b_0911=0x1 & b_08 { svcr[0,1] = b_08; }
++SVAmodeOp: "za" is b_0911=0x2 & b_08 { svcr[1,1] = b_08; }
+ SVAmodeOp: ""   is b_0911=0x3 & b_08 { svcr[0,1] = b_08; svcr[1,1] = b_08; }
+ 
+-:smstart "{"^SVAmodeOp^"}"
++:smstart SVAmodeOp
+ is b_1131=0x1aa068 & SVAmodeOp & b_08=1 & b_0507=0x3 & op4=0x1f {
+ 	build SVAmodeOp;
+ 	sveStreamingModeStart();
++	sme_za_state = SME_STREAMING_EffectsUnmodelled(sme_za_state, svcr, sme_svl_bytes);
+ }
+ 
+ 
+@@ -5460,9 +5461,11 @@ is b_1131=0x1aa068 & SVAmodeOp & b_08=1 & b_0507=0x3 & op4=0x1f {
+ # xd503407f/mask=xfffff9ff NOT MATCHED BY ANY CONSTRUCTOR
+ # b_0031=110101010000001101000..001111111
+ 
+-:smstop "{"^SVAmodeOp^"}"
++:smstop SVAmodeOp
+ is b_1131=0x1aa068 & SVAmodeOp & b_08=0 & b_0507=0x3 & op4=0x1f {
++	build SVAmodeOp;
+ 	sveStreamingModeStop();
++	sme_za_state = SME_STREAMING_EffectsUnmodelled(sme_za_state, svcr, sme_svl_bytes);
+ }
+ 
+ 
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+index d5c608e76..5883e6d2f 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64instructions.sinc
+@@ -1615,6 +1615,51 @@ define token instrAARCH64 (32) endian = little
+ 	sve_ztt_0004 = (0,4)
+ 	sve_zttt_0004 = (0,4)
+ 	sve_ztttt_0004 = (0,4)
++# RX18 SME fields share the existing little-endian instruction token.
++    sme_word=(0,31)
++    sme_imm6=(5,10) signed
++    sme_mask=(0,7)
++    sme_off4=(0,3)
++    sme_memoff4=(0,3)
++    sme_ws=(13,14)
++    sme_pn=(10,12)
++    sme_pm=(13,15)
++    sme_index=(14,17)
++    sme_tile1=(0,0)
++    sme_tile2=(0,1)
++    sme_tile3=(0,2)
++    sme_tile4=(0,3)
++    sme_hv=(15,15)
++    sme_b11_31=(11,31)
++    sme_b8_31=(8,31)
++    sme_b0_4=(0,4)
++    sme_b10_12=(10,12)
++    sme_b15_31=(15,31)
++    sme_b4_4=(4,4)
++    sme_b10_31=(10,31)
++    sme_b2_4=(2,4)
++    sme_b21_31=(21,31)
++    sme_b3_4=(3,4)
++    sme_b1_4=(1,4)
++    sme_b10_13=(10,13)
++    sme_b18_31=(18,31)
++    sme_b0_3=(0,3)
++    sme_b16_31=(16,31)
++    sme_b5_8=(5,8)
++    sme_b9_9=(9,9)
++    sme_b3_3=(3,3)
++    sme_b0_2=(0,2)
++    sme_b8_8=(8,8)
++    sme_b5_7=(5,7)
++    sme_b2_3=(2,3)
++    sme_b0_1=(0,1)
++    sme_b7_8=(7,8)
++    sme_b5_6=(5,6)
++    sme_b1_3=(1,3)
++    sme_b0_0=(0,0)
++    sme_b6_8=(6,8)
++    sme_b5_5=(5,5)
++
+ ;
+ 
+ # SECTION variables and variable names
+@@ -4028,6 +4073,7 @@ with : ImmS_ImmR_TestSet=1 {
+ @include "AARCH64_base_PACoptions.sinc"
+ @include "AARCH64_PAuthLR_MOPS_THE.sinc"
+ 
++@include "AARCH64sme.sinc"
+ @include "AARCH64base.sinc"
+ @include "AARCH64neon.sinc"
+ @include "AARCH64ldst.sinc"
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64sme.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64sme.sinc
+new file mode 100644
+index 000000000..50725ae09
+--- /dev/null
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64sme.sinc
+@@ -0,0 +1,610 @@
++# MacScope RX-18 Wave 3. Architectural encodings from Arm A64 XML tables.
++# SVL is symbolic; ZA is an opaque state token, NOT a fixed-size integer tile.
++# EffectsUnmodelled operations retain state dependencies/clobbers, never numeric
++# semantics. Existing Z/P registers have a fixed width; scalable execution and
++# native provider acceptance remain explicitly unqualified. ZT0 is exactly 512b.
++define register offset=0x7000 size=8 [ sme_svl_bytes sme_za_state ];
++define register offset=0x7040 size=64 [ zt0 ];
++define pcodeop SME_ZERO_EffectsUnmodelled;
++define pcodeop SME_ZA_LOAD_EffectsUnmodelled;
++define pcodeop SME_ZA_STORE_EffectsUnmodelled;
++define pcodeop SME_FMOPA_EffectsUnmodelled;
++define pcodeop SME_FPStatus_EffectsUnmodelled;
++define pcodeop SME_LUTI2_EffectsUnmodelled;
++define pcodeop SME_MOVA_FROM_ZA_EffectsUnmodelled;
++define pcodeop SME_MOVA_TO_ZA_EffectsUnmodelled;
++define pcodeop SME_ZA_ST1_EffectsUnmodelled;
++define pcodeop SME_ZA_LD1_EffectsUnmodelled;
++define pcodeop SME_ADD_EffectsUnmodelled;
++define pcodeop SME_STREAMING_EffectsUnmodelled;
++attach variables [sme_ws] [w12 w13 w14 w15];
++attach variables [sme_pn sme_pm] [p0 p1 p2 p3 p4 p5 p6 p7];
++
++SMEZeroMask: "{}" is sme_mask=0 { export 0:8; }
++SMEZeroMask: "{za0.d}" is sme_mask=1 { export 1:8; }
++SMEZeroMask: "{za1.d}" is sme_mask=2 { export 2:8; }
++SMEZeroMask: "{za0.d, za1.d}" is sme_mask=3 { export 3:8; }
++SMEZeroMask: "{za2.d}" is sme_mask=4 { export 4:8; }
++SMEZeroMask: "{za0.d, za2.d}" is sme_mask=5 { export 5:8; }
++SMEZeroMask: "{za1.d, za2.d}" is sme_mask=6 { export 6:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d}" is sme_mask=7 { export 7:8; }
++SMEZeroMask: "{za3.d}" is sme_mask=8 { export 8:8; }
++SMEZeroMask: "{za0.d, za3.d}" is sme_mask=9 { export 9:8; }
++SMEZeroMask: "{za1.d, za3.d}" is sme_mask=10 { export 10:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d}" is sme_mask=11 { export 11:8; }
++SMEZeroMask: "{za2.d, za3.d}" is sme_mask=12 { export 12:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d}" is sme_mask=13 { export 13:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d}" is sme_mask=14 { export 14:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d}" is sme_mask=15 { export 15:8; }
++SMEZeroMask: "{za4.d}" is sme_mask=16 { export 16:8; }
++SMEZeroMask: "{za0.s}" is sme_mask=17 { export 17:8; }
++SMEZeroMask: "{za1.d, za4.d}" is sme_mask=18 { export 18:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d}" is sme_mask=19 { export 19:8; }
++SMEZeroMask: "{za2.d, za4.d}" is sme_mask=20 { export 20:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d}" is sme_mask=21 { export 21:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d}" is sme_mask=22 { export 22:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d}" is sme_mask=23 { export 23:8; }
++SMEZeroMask: "{za3.d, za4.d}" is sme_mask=24 { export 24:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d}" is sme_mask=25 { export 25:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d}" is sme_mask=26 { export 26:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d}" is sme_mask=27 { export 27:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d}" is sme_mask=28 { export 28:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d}" is sme_mask=29 { export 29:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d}" is sme_mask=30 { export 30:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d}" is sme_mask=31 { export 31:8; }
++SMEZeroMask: "{za5.d}" is sme_mask=32 { export 32:8; }
++SMEZeroMask: "{za0.d, za5.d}" is sme_mask=33 { export 33:8; }
++SMEZeroMask: "{za1.s}" is sme_mask=34 { export 34:8; }
++SMEZeroMask: "{za0.d, za1.d, za5.d}" is sme_mask=35 { export 35:8; }
++SMEZeroMask: "{za2.d, za5.d}" is sme_mask=36 { export 36:8; }
++SMEZeroMask: "{za0.d, za2.d, za5.d}" is sme_mask=37 { export 37:8; }
++SMEZeroMask: "{za1.d, za2.d, za5.d}" is sme_mask=38 { export 38:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za5.d}" is sme_mask=39 { export 39:8; }
++SMEZeroMask: "{za3.d, za5.d}" is sme_mask=40 { export 40:8; }
++SMEZeroMask: "{za0.d, za3.d, za5.d}" is sme_mask=41 { export 41:8; }
++SMEZeroMask: "{za1.d, za3.d, za5.d}" is sme_mask=42 { export 42:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za5.d}" is sme_mask=43 { export 43:8; }
++SMEZeroMask: "{za2.d, za3.d, za5.d}" is sme_mask=44 { export 44:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za5.d}" is sme_mask=45 { export 45:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za5.d}" is sme_mask=46 { export 46:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za5.d}" is sme_mask=47 { export 47:8; }
++SMEZeroMask: "{za4.d, za5.d}" is sme_mask=48 { export 48:8; }
++SMEZeroMask: "{za0.d, za4.d, za5.d}" is sme_mask=49 { export 49:8; }
++SMEZeroMask: "{za1.d, za4.d, za5.d}" is sme_mask=50 { export 50:8; }
++SMEZeroMask: "{za0.s, za1.s}" is sme_mask=51 { export 51:8; }
++SMEZeroMask: "{za2.d, za4.d, za5.d}" is sme_mask=52 { export 52:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d, za5.d}" is sme_mask=53 { export 53:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za5.d}" is sme_mask=54 { export 54:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d, za5.d}" is sme_mask=55 { export 55:8; }
++SMEZeroMask: "{za3.d, za4.d, za5.d}" is sme_mask=56 { export 56:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d, za5.d}" is sme_mask=57 { export 57:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za5.d}" is sme_mask=58 { export 58:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d, za5.d}" is sme_mask=59 { export 59:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za5.d}" is sme_mask=60 { export 60:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d, za5.d}" is sme_mask=61 { export 61:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za5.d}" is sme_mask=62 { export 62:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d, za5.d}" is sme_mask=63 { export 63:8; }
++SMEZeroMask: "{za6.d}" is sme_mask=64 { export 64:8; }
++SMEZeroMask: "{za0.d, za6.d}" is sme_mask=65 { export 65:8; }
++SMEZeroMask: "{za1.d, za6.d}" is sme_mask=66 { export 66:8; }
++SMEZeroMask: "{za0.d, za1.d, za6.d}" is sme_mask=67 { export 67:8; }
++SMEZeroMask: "{za2.s}" is sme_mask=68 { export 68:8; }
++SMEZeroMask: "{za0.d, za2.d, za6.d}" is sme_mask=69 { export 69:8; }
++SMEZeroMask: "{za1.d, za2.d, za6.d}" is sme_mask=70 { export 70:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za6.d}" is sme_mask=71 { export 71:8; }
++SMEZeroMask: "{za3.d, za6.d}" is sme_mask=72 { export 72:8; }
++SMEZeroMask: "{za0.d, za3.d, za6.d}" is sme_mask=73 { export 73:8; }
++SMEZeroMask: "{za1.d, za3.d, za6.d}" is sme_mask=74 { export 74:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za6.d}" is sme_mask=75 { export 75:8; }
++SMEZeroMask: "{za2.d, za3.d, za6.d}" is sme_mask=76 { export 76:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za6.d}" is sme_mask=77 { export 77:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za6.d}" is sme_mask=78 { export 78:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za6.d}" is sme_mask=79 { export 79:8; }
++SMEZeroMask: "{za4.d, za6.d}" is sme_mask=80 { export 80:8; }
++SMEZeroMask: "{za0.d, za4.d, za6.d}" is sme_mask=81 { export 81:8; }
++SMEZeroMask: "{za1.d, za4.d, za6.d}" is sme_mask=82 { export 82:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d, za6.d}" is sme_mask=83 { export 83:8; }
++SMEZeroMask: "{za2.d, za4.d, za6.d}" is sme_mask=84 { export 84:8; }
++SMEZeroMask: "{za0.h}" is sme_mask=85 { export 85:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za6.d}" is sme_mask=86 { export 86:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d, za6.d}" is sme_mask=87 { export 87:8; }
++SMEZeroMask: "{za3.d, za4.d, za6.d}" is sme_mask=88 { export 88:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d, za6.d}" is sme_mask=89 { export 89:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za6.d}" is sme_mask=90 { export 90:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d, za6.d}" is sme_mask=91 { export 91:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za6.d}" is sme_mask=92 { export 92:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d, za6.d}" is sme_mask=93 { export 93:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za6.d}" is sme_mask=94 { export 94:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d, za6.d}" is sme_mask=95 { export 95:8; }
++SMEZeroMask: "{za5.d, za6.d}" is sme_mask=96 { export 96:8; }
++SMEZeroMask: "{za0.d, za5.d, za6.d}" is sme_mask=97 { export 97:8; }
++SMEZeroMask: "{za1.d, za5.d, za6.d}" is sme_mask=98 { export 98:8; }
++SMEZeroMask: "{za0.d, za1.d, za5.d, za6.d}" is sme_mask=99 { export 99:8; }
++SMEZeroMask: "{za2.d, za5.d, za6.d}" is sme_mask=100 { export 100:8; }
++SMEZeroMask: "{za0.d, za2.d, za5.d, za6.d}" is sme_mask=101 { export 101:8; }
++SMEZeroMask: "{za1.s, za2.s}" is sme_mask=102 { export 102:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za5.d, za6.d}" is sme_mask=103 { export 103:8; }
++SMEZeroMask: "{za3.d, za5.d, za6.d}" is sme_mask=104 { export 104:8; }
++SMEZeroMask: "{za0.d, za3.d, za5.d, za6.d}" is sme_mask=105 { export 105:8; }
++SMEZeroMask: "{za1.d, za3.d, za5.d, za6.d}" is sme_mask=106 { export 106:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za5.d, za6.d}" is sme_mask=107 { export 107:8; }
++SMEZeroMask: "{za2.d, za3.d, za5.d, za6.d}" is sme_mask=108 { export 108:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za5.d, za6.d}" is sme_mask=109 { export 109:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za5.d, za6.d}" is sme_mask=110 { export 110:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za5.d, za6.d}" is sme_mask=111 { export 111:8; }
++SMEZeroMask: "{za4.d, za5.d, za6.d}" is sme_mask=112 { export 112:8; }
++SMEZeroMask: "{za0.d, za4.d, za5.d, za6.d}" is sme_mask=113 { export 113:8; }
++SMEZeroMask: "{za1.d, za4.d, za5.d, za6.d}" is sme_mask=114 { export 114:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d, za5.d, za6.d}" is sme_mask=115 { export 115:8; }
++SMEZeroMask: "{za2.d, za4.d, za5.d, za6.d}" is sme_mask=116 { export 116:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d, za5.d, za6.d}" is sme_mask=117 { export 117:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za5.d, za6.d}" is sme_mask=118 { export 118:8; }
++SMEZeroMask: "{za0.s, za1.s, za2.s}" is sme_mask=119 { export 119:8; }
++SMEZeroMask: "{za3.d, za4.d, za5.d, za6.d}" is sme_mask=120 { export 120:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=121 { export 121:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=122 { export 122:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=123 { export 123:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=124 { export 124:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=125 { export 125:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=126 { export 126:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d, za5.d, za6.d}" is sme_mask=127 { export 127:8; }
++SMEZeroMask: "{za7.d}" is sme_mask=128 { export 128:8; }
++SMEZeroMask: "{za0.d, za7.d}" is sme_mask=129 { export 129:8; }
++SMEZeroMask: "{za1.d, za7.d}" is sme_mask=130 { export 130:8; }
++SMEZeroMask: "{za0.d, za1.d, za7.d}" is sme_mask=131 { export 131:8; }
++SMEZeroMask: "{za2.d, za7.d}" is sme_mask=132 { export 132:8; }
++SMEZeroMask: "{za0.d, za2.d, za7.d}" is sme_mask=133 { export 133:8; }
++SMEZeroMask: "{za1.d, za2.d, za7.d}" is sme_mask=134 { export 134:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za7.d}" is sme_mask=135 { export 135:8; }
++SMEZeroMask: "{za3.s}" is sme_mask=136 { export 136:8; }
++SMEZeroMask: "{za0.d, za3.d, za7.d}" is sme_mask=137 { export 137:8; }
++SMEZeroMask: "{za1.d, za3.d, za7.d}" is sme_mask=138 { export 138:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za7.d}" is sme_mask=139 { export 139:8; }
++SMEZeroMask: "{za2.d, za3.d, za7.d}" is sme_mask=140 { export 140:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za7.d}" is sme_mask=141 { export 141:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za7.d}" is sme_mask=142 { export 142:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za7.d}" is sme_mask=143 { export 143:8; }
++SMEZeroMask: "{za4.d, za7.d}" is sme_mask=144 { export 144:8; }
++SMEZeroMask: "{za0.d, za4.d, za7.d}" is sme_mask=145 { export 145:8; }
++SMEZeroMask: "{za1.d, za4.d, za7.d}" is sme_mask=146 { export 146:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d, za7.d}" is sme_mask=147 { export 147:8; }
++SMEZeroMask: "{za2.d, za4.d, za7.d}" is sme_mask=148 { export 148:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d, za7.d}" is sme_mask=149 { export 149:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za7.d}" is sme_mask=150 { export 150:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d, za7.d}" is sme_mask=151 { export 151:8; }
++SMEZeroMask: "{za3.d, za4.d, za7.d}" is sme_mask=152 { export 152:8; }
++SMEZeroMask: "{za0.s, za3.s}" is sme_mask=153 { export 153:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za7.d}" is sme_mask=154 { export 154:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d, za7.d}" is sme_mask=155 { export 155:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za7.d}" is sme_mask=156 { export 156:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d, za7.d}" is sme_mask=157 { export 157:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za7.d}" is sme_mask=158 { export 158:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d, za7.d}" is sme_mask=159 { export 159:8; }
++SMEZeroMask: "{za5.d, za7.d}" is sme_mask=160 { export 160:8; }
++SMEZeroMask: "{za0.d, za5.d, za7.d}" is sme_mask=161 { export 161:8; }
++SMEZeroMask: "{za1.d, za5.d, za7.d}" is sme_mask=162 { export 162:8; }
++SMEZeroMask: "{za0.d, za1.d, za5.d, za7.d}" is sme_mask=163 { export 163:8; }
++SMEZeroMask: "{za2.d, za5.d, za7.d}" is sme_mask=164 { export 164:8; }
++SMEZeroMask: "{za0.d, za2.d, za5.d, za7.d}" is sme_mask=165 { export 165:8; }
++SMEZeroMask: "{za1.d, za2.d, za5.d, za7.d}" is sme_mask=166 { export 166:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za5.d, za7.d}" is sme_mask=167 { export 167:8; }
++SMEZeroMask: "{za3.d, za5.d, za7.d}" is sme_mask=168 { export 168:8; }
++SMEZeroMask: "{za0.d, za3.d, za5.d, za7.d}" is sme_mask=169 { export 169:8; }
++SMEZeroMask: "{za1.h}" is sme_mask=170 { export 170:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za5.d, za7.d}" is sme_mask=171 { export 171:8; }
++SMEZeroMask: "{za2.d, za3.d, za5.d, za7.d}" is sme_mask=172 { export 172:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za5.d, za7.d}" is sme_mask=173 { export 173:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za5.d, za7.d}" is sme_mask=174 { export 174:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za5.d, za7.d}" is sme_mask=175 { export 175:8; }
++SMEZeroMask: "{za4.d, za5.d, za7.d}" is sme_mask=176 { export 176:8; }
++SMEZeroMask: "{za0.d, za4.d, za5.d, za7.d}" is sme_mask=177 { export 177:8; }
++SMEZeroMask: "{za1.d, za4.d, za5.d, za7.d}" is sme_mask=178 { export 178:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d, za5.d, za7.d}" is sme_mask=179 { export 179:8; }
++SMEZeroMask: "{za2.d, za4.d, za5.d, za7.d}" is sme_mask=180 { export 180:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d, za5.d, za7.d}" is sme_mask=181 { export 181:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za5.d, za7.d}" is sme_mask=182 { export 182:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d, za5.d, za7.d}" is sme_mask=183 { export 183:8; }
++SMEZeroMask: "{za3.d, za4.d, za5.d, za7.d}" is sme_mask=184 { export 184:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d, za5.d, za7.d}" is sme_mask=185 { export 185:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za5.d, za7.d}" is sme_mask=186 { export 186:8; }
++SMEZeroMask: "{za0.s, za1.s, za3.s}" is sme_mask=187 { export 187:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za5.d, za7.d}" is sme_mask=188 { export 188:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d, za5.d, za7.d}" is sme_mask=189 { export 189:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za5.d, za7.d}" is sme_mask=190 { export 190:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d, za5.d, za7.d}" is sme_mask=191 { export 191:8; }
++SMEZeroMask: "{za6.d, za7.d}" is sme_mask=192 { export 192:8; }
++SMEZeroMask: "{za0.d, za6.d, za7.d}" is sme_mask=193 { export 193:8; }
++SMEZeroMask: "{za1.d, za6.d, za7.d}" is sme_mask=194 { export 194:8; }
++SMEZeroMask: "{za0.d, za1.d, za6.d, za7.d}" is sme_mask=195 { export 195:8; }
++SMEZeroMask: "{za2.d, za6.d, za7.d}" is sme_mask=196 { export 196:8; }
++SMEZeroMask: "{za0.d, za2.d, za6.d, za7.d}" is sme_mask=197 { export 197:8; }
++SMEZeroMask: "{za1.d, za2.d, za6.d, za7.d}" is sme_mask=198 { export 198:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za6.d, za7.d}" is sme_mask=199 { export 199:8; }
++SMEZeroMask: "{za3.d, za6.d, za7.d}" is sme_mask=200 { export 200:8; }
++SMEZeroMask: "{za0.d, za3.d, za6.d, za7.d}" is sme_mask=201 { export 201:8; }
++SMEZeroMask: "{za1.d, za3.d, za6.d, za7.d}" is sme_mask=202 { export 202:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za6.d, za7.d}" is sme_mask=203 { export 203:8; }
++SMEZeroMask: "{za2.s, za3.s}" is sme_mask=204 { export 204:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za6.d, za7.d}" is sme_mask=205 { export 205:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za6.d, za7.d}" is sme_mask=206 { export 206:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za6.d, za7.d}" is sme_mask=207 { export 207:8; }
++SMEZeroMask: "{za4.d, za6.d, za7.d}" is sme_mask=208 { export 208:8; }
++SMEZeroMask: "{za0.d, za4.d, za6.d, za7.d}" is sme_mask=209 { export 209:8; }
++SMEZeroMask: "{za1.d, za4.d, za6.d, za7.d}" is sme_mask=210 { export 210:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d, za6.d, za7.d}" is sme_mask=211 { export 211:8; }
++SMEZeroMask: "{za2.d, za4.d, za6.d, za7.d}" is sme_mask=212 { export 212:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d, za6.d, za7.d}" is sme_mask=213 { export 213:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za6.d, za7.d}" is sme_mask=214 { export 214:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d, za6.d, za7.d}" is sme_mask=215 { export 215:8; }
++SMEZeroMask: "{za3.d, za4.d, za6.d, za7.d}" is sme_mask=216 { export 216:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d, za6.d, za7.d}" is sme_mask=217 { export 217:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za6.d, za7.d}" is sme_mask=218 { export 218:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d, za6.d, za7.d}" is sme_mask=219 { export 219:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za6.d, za7.d}" is sme_mask=220 { export 220:8; }
++SMEZeroMask: "{za0.s, za2.s, za3.s}" is sme_mask=221 { export 221:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za6.d, za7.d}" is sme_mask=222 { export 222:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za4.d, za6.d, za7.d}" is sme_mask=223 { export 223:8; }
++SMEZeroMask: "{za5.d, za6.d, za7.d}" is sme_mask=224 { export 224:8; }
++SMEZeroMask: "{za0.d, za5.d, za6.d, za7.d}" is sme_mask=225 { export 225:8; }
++SMEZeroMask: "{za1.d, za5.d, za6.d, za7.d}" is sme_mask=226 { export 226:8; }
++SMEZeroMask: "{za0.d, za1.d, za5.d, za6.d, za7.d}" is sme_mask=227 { export 227:8; }
++SMEZeroMask: "{za2.d, za5.d, za6.d, za7.d}" is sme_mask=228 { export 228:8; }
++SMEZeroMask: "{za0.d, za2.d, za5.d, za6.d, za7.d}" is sme_mask=229 { export 229:8; }
++SMEZeroMask: "{za1.d, za2.d, za5.d, za6.d, za7.d}" is sme_mask=230 { export 230:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za5.d, za6.d, za7.d}" is sme_mask=231 { export 231:8; }
++SMEZeroMask: "{za3.d, za5.d, za6.d, za7.d}" is sme_mask=232 { export 232:8; }
++SMEZeroMask: "{za0.d, za3.d, za5.d, za6.d, za7.d}" is sme_mask=233 { export 233:8; }
++SMEZeroMask: "{za1.d, za3.d, za5.d, za6.d, za7.d}" is sme_mask=234 { export 234:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za5.d, za6.d, za7.d}" is sme_mask=235 { export 235:8; }
++SMEZeroMask: "{za2.d, za3.d, za5.d, za6.d, za7.d}" is sme_mask=236 { export 236:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za5.d, za6.d, za7.d}" is sme_mask=237 { export 237:8; }
++SMEZeroMask: "{za1.s, za2.s, za3.s}" is sme_mask=238 { export 238:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za3.d, za5.d, za6.d, za7.d}" is sme_mask=239 { export 239:8; }
++SMEZeroMask: "{za4.d, za5.d, za6.d, za7.d}" is sme_mask=240 { export 240:8; }
++SMEZeroMask: "{za0.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=241 { export 241:8; }
++SMEZeroMask: "{za1.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=242 { export 242:8; }
++SMEZeroMask: "{za0.d, za1.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=243 { export 243:8; }
++SMEZeroMask: "{za2.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=244 { export 244:8; }
++SMEZeroMask: "{za0.d, za2.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=245 { export 245:8; }
++SMEZeroMask: "{za1.d, za2.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=246 { export 246:8; }
++SMEZeroMask: "{za0.d, za1.d, za2.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=247 { export 247:8; }
++SMEZeroMask: "{za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=248 { export 248:8; }
++SMEZeroMask: "{za0.d, za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=249 { export 249:8; }
++SMEZeroMask: "{za1.d, za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=250 { export 250:8; }
++SMEZeroMask: "{za0.d, za1.d, za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=251 { export 251:8; }
++SMEZeroMask: "{za2.d, za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=252 { export 252:8; }
++SMEZeroMask: "{za0.d, za2.d, za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=253 { export 253:8; }
++SMEZeroMask: "{za1.d, za2.d, za3.d, za4.d, za5.d, za6.d, za7.d}" is sme_mask=254 { export 254:8; }
++SMEZeroMask: "{za}" is sme_mask=255 { export 255:8; }
++SMEHV: "h" is sme_hv=0 {}
++SMEHV: "v" is sme_hv=1 {}
++
++:rdsvl Rd_GPR64, "#"^sme_imm6
++is sme_b11_31=0x97eb & Rd_GPR64 & sme_imm6
++{
++    Rd_GPR64 = sme_svl_bytes * sme_imm6;
++}
++
++:zero SMEZeroMask
++is sme_b8_31=0xc00800 & SMEZeroMask
++{
++    sme_za_state = SME_ZERO_EffectsUnmodelled(sme_za_state, SMEZeroMask, sme_svl_bytes);
++}
++
++:ldr "za["^sme_ws, sme_off4^"], "[Rn_GPR64xsp]
++is sme_b0_4=0x0 & sme_b10_12=0x0 & sme_b15_31=0x1c200 & Rn_GPR64xsp & sme_ws & sme_off4
++{
++    local address:8 = Rn_GPR64xsp + sme_off4 * sme_svl_bytes;
++    sme_za_state = SME_ZA_LOAD_EffectsUnmodelled(sme_za_state, address, sme_ws, sme_off4:8, sme_svl_bytes);
++}
++
++:ldr "za["^sme_ws, sme_off4^"], "[Rn_GPR64xsp, "#"^sme_memoff4, "mul vl"]
++is sme_b4_4=0x0 & sme_b10_12=0x0 & sme_b15_31=0x1c200 & Rn_GPR64xsp & sme_ws & sme_off4 & sme_memoff4
++{
++    local address:8 = Rn_GPR64xsp + sme_off4 * sme_svl_bytes;
++    sme_za_state = SME_ZA_LOAD_EffectsUnmodelled(sme_za_state, address, sme_ws, sme_off4:8, sme_svl_bytes);
++}
++
++:ldr "zt0", [Rn_GPR64xsp]
++is sme_b0_4=0x0 & sme_b10_31=0x3847e0 & Rn_GPR64xsp
++{
++    zt0 = *:64 Rn_GPR64xsp;
++}
++
++:str "za["^sme_ws, sme_off4^"], "[Rn_GPR64xsp]
++is sme_b0_4=0x0 & sme_b10_12=0x0 & sme_b15_31=0x1c240 & Rn_GPR64xsp & sme_ws & sme_off4
++{
++    local address:8 = Rn_GPR64xsp + sme_off4 * sme_svl_bytes;
++    SME_ZA_STORE_EffectsUnmodelled(sme_za_state, address, sme_ws, sme_off4:8, sme_svl_bytes);
++}
++
++:str "za["^sme_ws, sme_off4^"], "[Rn_GPR64xsp, "#"^sme_memoff4, "mul vl"]
++is sme_b4_4=0x0 & sme_b10_12=0x0 & sme_b15_31=0x1c240 & Rn_GPR64xsp & sme_ws & sme_off4 & sme_memoff4
++{
++    local address:8 = Rn_GPR64xsp + sme_off4 * sme_svl_bytes;
++    SME_ZA_STORE_EffectsUnmodelled(sme_za_state, address, sme_ws, sme_off4:8, sme_svl_bytes);
++}
++
++:str "zt0", [Rn_GPR64xsp]
++is sme_b0_4=0x0 & sme_b10_31=0x384fe0 & Rn_GPR64xsp
++{
++    *:64 Rn_GPR64xsp = zt0;
++}
++
++:fmopa "za"^sme_tile2^".s", sme_pn^"/m", sme_pm^"/m", Zn^".s", Zm^".s"
++is sme_b2_4=0x0 & sme_b21_31=0x404 & sme_tile2 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmops "za"^sme_tile2^".s", sme_pn^"/m", sme_pm^"/m", Zn^".s", Zm^".s"
++is sme_b2_4=0x4 & sme_b21_31=0x404 & sme_tile2 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmopa "za"^sme_tile3^".d", sme_pn^"/m", sme_pm^"/m", Zn^".d", Zm^".d"
++is sme_b3_4=0x0 & sme_b21_31=0x406 & sme_tile3 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmops "za"^sme_tile3^".d", sme_pn^"/m", sme_pm^"/m", Zn^".d", Zm^".d"
++is sme_b3_4=0x2 & sme_b21_31=0x406 & sme_tile3 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmopa "za"^sme_tile2^".s", sme_pn^"/m", sme_pm^"/m", Zn^".h", Zm^".h"
++is sme_b2_4=0x0 & sme_b21_31=0x40d & sme_tile2 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmops "za"^sme_tile2^".s", sme_pn^"/m", sme_pm^"/m", Zn^".h", Zm^".h"
++is sme_b2_4=0x4 & sme_b21_31=0x40d & sme_tile2 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmopa "za"^sme_tile1^".h", sme_pn^"/m", sme_pm^"/m", Zn^".h", Zm^".h"
++is sme_b1_4=0x4 & sme_b21_31=0x40c & sme_tile1 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:fmops "za"^sme_tile1^".h", sme_pn^"/m", sme_pm^"/m", Zn^".h", Zm^".h"
++is sme_b1_4=0xc & sme_b21_31=0x40c & sme_tile1 & sme_pn & sme_pm & Zn & Zm & sme_word
++{
++    sme_za_state = SME_FMOPA_EffectsUnmodelled(sme_za_state, sme_word:4, sme_pn, sme_pm, Zn, Zm, fpcr, sme_svl_bytes);
++    fpsr = SME_FPStatus_EffectsUnmodelled(fpsr, sme_word:4, fpcr);
++}
++
++:luti2 Zd^".b", "zt0", Zn^"["^sme_index^"]"
++is sme_b10_13=0x0 & sme_b18_31=0x3033 & Zd & Zn & sme_index & sme_word
++{
++    Zd = SME_LUTI2_EffectsUnmodelled(zt0, Zn, sme_index:8, 1:8, sme_svl_bytes);
++}
++
++:luti2 Zd^".h", "zt0", Zn^"["^sme_index^"]"
++is sme_b10_13=0x4 & sme_b18_31=0x3033 & Zd & Zn & sme_index & sme_word
++{
++    Zd = SME_LUTI2_EffectsUnmodelled(zt0, Zn, sme_index:8, 2:8, sme_svl_bytes);
++}
++
++:luti2 Zd^".s", "zt0", Zn^"["^sme_index^"]"
++is sme_b10_13=0x8 & sme_b18_31=0x3033 & Zd & Zn & sme_index & sme_word
++{
++    Zd = SME_LUTI2_EffectsUnmodelled(zt0, Zn, sme_index:8, 4:8, sme_svl_bytes);
++}
++
++:mov "za0"^SMEHV^".b["^sme_ws, sme_b0_3^"]", sme_pn^"/m", Zn^".b"
++is sme_b4_4=0x0 & sme_b16_31=0xc000 & SMEHV & sme_ws & sme_pn & Zn & sme_word & sme_b0_3
++{
++    sme_za_state = SME_MOVA_TO_ZA_EffectsUnmodelled(sme_za_state, Zn, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov Zd^".b", sme_pn^"/m", "za0"^SMEHV^".b["^sme_ws, sme_b5_8^"]"
++is sme_b9_9=0x0 & sme_b16_31=0xc002 & SMEHV & sme_ws & sme_pn & Zd & sme_word & sme_b5_8
++{
++    Zd = SME_MOVA_FROM_ZA_EffectsUnmodelled(sme_za_state, Zd, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1b "{"^"za0"^SMEHV^".b["^sme_ws, sme_b0_3^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp, Rm_GPR64]
++is sme_b4_4=0x0 & sme_b21_31=0x700 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1b "{"^"za0"^SMEHV^".b["^sme_ws, sme_b0_3^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe01f & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1b "{"^"za0"^SMEHV^".b["^sme_ws, sme_b0_3^"]"^"}", sme_pn, [Rn_GPR64xsp, Rm_GPR64]
++is sme_b4_4=0x0 & sme_b21_31=0x701 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1b "{"^"za0"^SMEHV^".b["^sme_ws, sme_b0_3^"]"^"}", sme_pn, [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe03f & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov "za"^sme_b3_3^SMEHV^".h["^sme_ws, sme_b0_2^"]", sme_pn^"/m", Zn^".h"
++is sme_b4_4=0x0 & sme_b16_31=0xc040 & SMEHV & sme_ws & sme_pn & Zn & sme_word & sme_b3_3 & sme_b0_2
++{
++    sme_za_state = SME_MOVA_TO_ZA_EffectsUnmodelled(sme_za_state, Zn, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov Zd^".h", sme_pn^"/m", "za"^sme_b8_8^SMEHV^".h["^sme_ws, sme_b5_7^"]"
++is sme_b9_9=0x0 & sme_b16_31=0xc042 & SMEHV & sme_ws & sme_pn & Zd & sme_word & sme_b8_8 & sme_b5_7
++{
++    Zd = SME_MOVA_FROM_ZA_EffectsUnmodelled(sme_za_state, Zd, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1h "{"^"za"^sme_b3_3^SMEHV^".h["^sme_ws, sme_b0_2^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp, Rm_GPR64, "lsl #1"]
++is sme_b4_4=0x0 & sme_b21_31=0x702 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b3_3 & sme_b0_2
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1h "{"^"za"^sme_b3_3^SMEHV^".h["^sme_ws, sme_b0_2^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe05f & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b3_3 & sme_b0_2
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1h "{"^"za"^sme_b3_3^SMEHV^".h["^sme_ws, sme_b0_2^"]"^"}", sme_pn, [Rn_GPR64xsp, Rm_GPR64, "lsl #1"]
++is sme_b4_4=0x0 & sme_b21_31=0x703 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b3_3 & sme_b0_2
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1h "{"^"za"^sme_b3_3^SMEHV^".h["^sme_ws, sme_b0_2^"]"^"}", sme_pn, [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe07f & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b3_3 & sme_b0_2
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov "za"^sme_b2_3^SMEHV^".s["^sme_ws, sme_b0_1^"]", sme_pn^"/m", Zn^".s"
++is sme_b4_4=0x0 & sme_b16_31=0xc080 & SMEHV & sme_ws & sme_pn & Zn & sme_word & sme_b2_3 & sme_b0_1
++{
++    sme_za_state = SME_MOVA_TO_ZA_EffectsUnmodelled(sme_za_state, Zn, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov Zd^".s", sme_pn^"/m", "za"^sme_b7_8^SMEHV^".s["^sme_ws, sme_b5_6^"]"
++is sme_b9_9=0x0 & sme_b16_31=0xc082 & SMEHV & sme_ws & sme_pn & Zd & sme_word & sme_b7_8 & sme_b5_6
++{
++    Zd = SME_MOVA_FROM_ZA_EffectsUnmodelled(sme_za_state, Zd, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1w "{"^"za"^sme_b2_3^SMEHV^".s["^sme_ws, sme_b0_1^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp, Rm_GPR64, "lsl #2"]
++is sme_b4_4=0x0 & sme_b21_31=0x704 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b2_3 & sme_b0_1
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1w "{"^"za"^sme_b2_3^SMEHV^".s["^sme_ws, sme_b0_1^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe09f & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b2_3 & sme_b0_1
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1w "{"^"za"^sme_b2_3^SMEHV^".s["^sme_ws, sme_b0_1^"]"^"}", sme_pn, [Rn_GPR64xsp, Rm_GPR64, "lsl #2"]
++is sme_b4_4=0x0 & sme_b21_31=0x705 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b2_3 & sme_b0_1
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1w "{"^"za"^sme_b2_3^SMEHV^".s["^sme_ws, sme_b0_1^"]"^"}", sme_pn, [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe0bf & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b2_3 & sme_b0_1
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov "za"^sme_b1_3^SMEHV^".d["^sme_ws, sme_b0_0^"]", sme_pn^"/m", Zn^".d"
++is sme_b4_4=0x0 & sme_b16_31=0xc0c0 & SMEHV & sme_ws & sme_pn & Zn & sme_word & sme_b1_3 & sme_b0_0
++{
++    sme_za_state = SME_MOVA_TO_ZA_EffectsUnmodelled(sme_za_state, Zn, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov Zd^".d", sme_pn^"/m", "za"^sme_b6_8^SMEHV^".d["^sme_ws, sme_b5_5^"]"
++is sme_b9_9=0x0 & sme_b16_31=0xc0c2 & SMEHV & sme_ws & sme_pn & Zd & sme_word & sme_b6_8 & sme_b5_5
++{
++    Zd = SME_MOVA_FROM_ZA_EffectsUnmodelled(sme_za_state, Zd, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1d "{"^"za"^sme_b1_3^SMEHV^".d["^sme_ws, sme_b0_0^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp, Rm_GPR64, "lsl #3"]
++is sme_b4_4=0x0 & sme_b21_31=0x706 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b1_3 & sme_b0_0
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1d "{"^"za"^sme_b1_3^SMEHV^".d["^sme_ws, sme_b0_0^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe0df & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b1_3 & sme_b0_0
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1d "{"^"za"^sme_b1_3^SMEHV^".d["^sme_ws, sme_b0_0^"]"^"}", sme_pn, [Rn_GPR64xsp, Rm_GPR64, "lsl #3"]
++is sme_b4_4=0x0 & sme_b21_31=0x707 & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b1_3 & sme_b0_0
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1d "{"^"za"^sme_b1_3^SMEHV^".d["^sme_ws, sme_b0_0^"]"^"}", sme_pn, [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe0ff & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b1_3 & sme_b0_0
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov "za"^sme_b0_3^SMEHV^".q["^sme_ws, "0"^"]", sme_pn^"/m", Zn^".q"
++is sme_b4_4=0x0 & sme_b16_31=0xc0c1 & SMEHV & sme_ws & sme_pn & Zn & sme_word & sme_b0_3
++{
++    sme_za_state = SME_MOVA_TO_ZA_EffectsUnmodelled(sme_za_state, Zn, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:mov Zd^".q", sme_pn^"/m", "za"^sme_b5_8^SMEHV^".q["^sme_ws, "0"^"]"
++is sme_b9_9=0x0 & sme_b16_31=0xc0c3 & SMEHV & sme_ws & sme_pn & Zd & sme_word & sme_b5_8
++{
++    Zd = SME_MOVA_FROM_ZA_EffectsUnmodelled(sme_za_state, Zd, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1q "{"^"za"^sme_b0_3^SMEHV^".q["^sme_ws, "0"^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp, Rm_GPR64, "lsl #4"]
++is sme_b4_4=0x0 & sme_b21_31=0x70e & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:ld1q "{"^"za"^sme_b0_3^SMEHV^".q["^sme_ws, "0"^"]"^"}", sme_pn^"/z", [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe1df & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    sme_za_state = SME_ZA_LD1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1q "{"^"za"^sme_b0_3^SMEHV^".q["^sme_ws, "0"^"]"^"}", sme_pn, [Rn_GPR64xsp, Rm_GPR64, "lsl #4"]
++is sme_b4_4=0x0 & sme_b21_31=0x70f & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:st1q "{"^"za"^sme_b0_3^SMEHV^".q["^sme_ws, "0"^"]"^"}", sme_pn, [Rn_GPR64xsp]
++is sme_b4_4=0x0 & sme_b16_31=0xe1ff & SMEHV & sme_ws & sme_pn & Rn_GPR64xsp & Rm_GPR64 & sme_word & sme_b0_3
++{
++    SME_ZA_ST1_EffectsUnmodelled(sme_za_state, Rn_GPR64xsp, Rm_GPR64, sme_pn, sme_ws, sme_word:4, sme_svl_bytes);
++}
++
++:addha "za"^sme_tile2^".s", sme_pn^"/m", sme_pm^"/m", Zn^".s"
++is sme_b2_4=0x0 & sme_b16_31=0xc090 & sme_tile2 & sme_pn & sme_pm & Zn & sme_word
++{
++    sme_za_state = SME_ADD_EffectsUnmodelled(sme_za_state, sme_pn, sme_pm, Zn, sme_word:4, sme_svl_bytes);
++}
++
++:addva "za"^sme_tile2^".s", sme_pn^"/m", sme_pm^"/m", Zn^".s"
++is sme_b2_4=0x0 & sme_b16_31=0xc091 & sme_tile2 & sme_pn & sme_pm & Zn & sme_word
++{
++    sme_za_state = SME_ADD_EffectsUnmodelled(sme_za_state, sme_pn, sme_pm, Zn, sme_word:4, sme_svl_bytes);
++}
++
++:addha "za"^sme_tile3^".d", sme_pn^"/m", sme_pm^"/m", Zn^".d"
++is sme_b3_4=0x0 & sme_b16_31=0xc0d0 & sme_tile3 & sme_pn & sme_pm & Zn & sme_word
++{
++    sme_za_state = SME_ADD_EffectsUnmodelled(sme_za_state, sme_pn, sme_pm, Zn, sme_word:4, sme_svl_bytes);
++}
++
++:addva "za"^sme_tile3^".d", sme_pn^"/m", sme_pm^"/m", Zn^".d"
++is sme_b3_4=0x0 & sme_b16_31=0xc0d1 & sme_tile3 & sme_pn & sme_pm & Zn & sme_word
++{
++    sme_za_state = SME_ADD_EffectsUnmodelled(sme_za_state, sme_pn, sme_pm, Zn, sme_word:4, sme_svl_bytes);
++}

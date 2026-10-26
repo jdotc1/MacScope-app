@@ -1,0 +1,153 @@
+diff --git a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+index c25c2da..d6220ff 100644
+--- a/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
++++ b/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc
+@@ -31282,6 +31282,56 @@ is b_3131=0 & q=1 & b_2429=0xe & advSIMD3.size=1 & b_2121=0 & Rm_VPR128.8H & b_1
+ }
+ 
+ 
++# MacScope RX-17: BF16 is a bit encoding, not IEEE binary16.
++# FPConvertBF normal-result contract; exception processing stays an explicit effect.
++macro macscope_fp32_to_bf16(source, result) {
++    # Branch-free: every path is computed and combined with masks so each
++    # use stays inside one basic block.
++    local raw:4 = source;
++    local top:2 = raw[16,16];
++    local exponent:4 = (raw >> 23) & 0xff;
++    local fraction:4 = raw & 0x7fffff;
++    local discarded:4 = raw & 0xffff;
++    local negative:1 = (raw >> 31) != 0;
++    local alternate:1 = (fpcr & 2) != 0;
++    local bfMode:8 = ((fpcr >> 22) & 3) * zext(!alternate);
++    local isSpecial:1 = exponent == 0xff;
++    local isZeroExp:1 = exponent == 0;
++    local isNaN:1 = isSpecial & (fraction != 0);
++    local isDenormal:1 = isZeroExp & (fraction != 0);
++    local fzBit:1 = (fpcr & 0x1000000) != 0;
++    local flushFZ:1 = isDenormal & !alternate & fzBit;
++    local flush:1 = isDenormal & (alternate | fzBit | ((fpcr & 1) != 0));
++    local denormalRound:1 = isDenormal & !flush;
++    local rounds:1 = (!isSpecial & !isZeroExp) | denormalRound;
++    local inexact:1 = rounds & (discarded != 0);
++    local nearestIncrement:1 = (discarded > 0x8000) | ((discarded == 0x8000) & ((top & 1) != 0));
++    local directedIncrement:1 = ((bfMode == 1) & !negative) | ((bfMode == 2) & negative);
++    local increment:1 = inexact & (((bfMode == 0) & nearestIncrement) | ((bfMode != 0) & directedIncrement));
++    local rounded:2 = top + zext(increment);
++    local overflow:1 = inexact & ((rounded & 0x7f80) == 0x7f80);
++    # Preserve the NaN payload, quiet sNaN, and obey default-NaN selection.
++    local defaultNaN:1 = (fpcr & 0x2000000) != 0;
++    local defaultTop:2 = 0x7fc0 | (zext(alternate) << 15);
++    local nanTop:2 = ((top | 0x40) * zext(!defaultNaN)) | (defaultTop * zext(defaultNaN));
++    local signalling:1 = isNaN & ((raw & 0x400000) == 0);
++    local roundedSel:2 = 0 - zext(rounds);
++    local nanSel:2 = 0 - zext(isNaN);
++    local flushSel:2 = 0 - zext(flush);
++    local keepSel:2 = ~(roundedSel | nanSel | flushSel);
++    top = (rounded & roundedSel) | (nanTop & nanSel) | (top & 0x8000 & flushSel) | (top & keepSel);
++    local invalidBit:8 = zext(signalling);
++    local overflowBit:8 = zext(overflow);
++    local underflowBit:8 = zext(denormalRound & ((discarded != 0) | ((fpcr & 0x800) != 0)));
++    local inexactBit:8 = zext(inexact);
++    local denormalBit:8 = zext(flushFZ);
++    local exceptions:8 = (invalidBit | (overflowBit << 2) | (underflowBit << 3) | (inexactBit << 4) | (denormalBit << 7)) * zext(!alternate);
++    local raisedStatus:8 = ARM64FPProcessExceptions(exceptions, fpcr, fpsr);
++    local raised:8 = 0 - zext(exceptions != 0);
++    fpsr = (raisedStatus & raised) | (fpsr & ~raised);
++    result = top;
++}
++
+ # C7.2.13 BFCVT page C7-2037 line 118954 MATCH x1e634000/mask=xfffffc00
+ # C7.2.69 FCVT page C7-2172 line 126762 MATCH x1e224000/mask=xff3e7c00
+ # CONSTRUCT x1e634000/mask=xfffffc00 MATCHED 2 DOCUMENTED OPCODES
+@@ -31290,10 +31340,16 @@ is b_3131=0 & q=1 & b_2429=0xe & advSIMD3.size=1 & b_2121=0 & Rm_VPR128.8H & b_1
+ # SMACRO(pseudo) ARG1 ARG2 =NEON_bfcvt/1
+ # b_0031=0001111001100011010000..........
+ :bfcvt Rd_FPR16, Rn_FPR32
+-is b_1031=0b0001111001100011010000 & Rd_FPR16 & Rn_FPR32 & Zd
++is b_1031=0b0001111001100011010000 & Rd_FPR16 & Rn_FPR32 & Rn_VPR128 & Rd_VPR128 & Zd
+ {
+-	Rd_FPR16 = float2float(Rn_FPR32);
+-	zext_zh(Zd); # zero upper 30 bytes of Zd
++    local sourceN:16 = Rn_VPR128;
++    local converted:2 = 0;
++    macscope_fp32_to_bf16(sourceN[0,32], converted);
++    # FPCR.NEP keeps the source's upper bits (branch-free mask).
++    local result:16 = sourceN * zext((fpcr & 4) != 0);
++    result[0,16] = converted;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.14 BFCVTN, BFCVTN2 page C7-2038 line 119011 MATCH x0ea16800/mask=xbffffc00
+@@ -31303,16 +31359,25 @@ is b_1031=0b0001111001100011010000 & Rd_FPR16 & Rn_FPR32 & Zd
+ # SMACRO(pseudo) ARG1 ARG2 &=NEON_fcvtn/2@4
+ # b_0031=0.00111010100001011010..........
+ 
+-:bfcvtn Rd_VPR128.4S, Rn_VPR128.4H
+-is b_3131=0b0 & Q=0 & b_1029=0b00111010100001011010 & Rn_VPR128.4H & Rd_VPR128.4S & Zd
+-{
+-	TMPQ1 = Rn_VPR128.4H;
+-	# simd resize Rd_VPR128.4S = float2float(TMPQ1) (lane size 4 to 4)
+-	Rd_VPR128.4S[0,32] = float2float(TMPQ1[0,32]);
+-	Rd_VPR128.4S[32,32] = float2float(TMPQ1[32,32]);
+-	Rd_VPR128.4S[64,32] = float2float(TMPQ1[64,32]);
+-	Rd_VPR128.4S[96,32] = float2float(TMPQ1[96,32]);
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++:bfcvtn vRd_VPR128^".4H", Rn_VPR128.4S
++is b_3131=0b0 & Q=0 & b_1029=0b00111010100001011010 & Rn_VPR128.4S & vRd_VPR128 & Rd_VPR128 & Zd
++{
++    local sourceN:16 = Rn_VPR128.4S;
++    local result:16 = 0;
++    local lane0:2 = 0;
++    macscope_fp32_to_bf16(sourceN[0,32], lane0);
++    result[0,16] = lane0;
++    local lane1:2 = 0;
++    macscope_fp32_to_bf16(sourceN[32,32], lane1);
++    result[16,16] = lane1;
++    local lane2:2 = 0;
++    macscope_fp32_to_bf16(sourceN[64,32], lane2);
++    result[32,16] = lane2;
++    local lane3:2 = 0;
++    macscope_fp32_to_bf16(sourceN[96,32], lane3);
++    result[48,16] = lane3;
++    Rd_VPR128 = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.14 BFCVTN, BFCVTN2 page C7-2038 line 119011 MATCH x0ea16800/mask=xbffffc00
+@@ -31321,16 +31386,25 @@ is b_3131=0b0 & Q=0 & b_1029=0b00111010100001011010 & Rn_VPR128.4H & Rd_VPR128.4
+ # SMACRO ARG1 ARG2 =var =$float2float@4:8
+ # SMACRO(pseudo) ARG1 ARG2 &=NEON_fcvtn/2@4
+ 
+-:bfcvtn2 Rd_VPR128.4S, Rn_VPR128.8H
+-is b_3131=0b0 & Q=1 & b_1029=0b00111010100001011010 & Rn_VPR128.8H & Rd_VPR128.4S & Zd
+-{
+-	TMPQ1 = Rn_VPR128.8H;
+-	# simd resize Rd_VPR128.4S = float2float(TMPQ1) (lane size 4 to 4)
+-	Rd_VPR128.4S[0,32] = float2float(TMPQ1[0,32]);
+-	Rd_VPR128.4S[32,32] = float2float(TMPQ1[32,32]);
+-	Rd_VPR128.4S[64,32] = float2float(TMPQ1[64,32]);
+-	Rd_VPR128.4S[96,32] = float2float(TMPQ1[96,32]);
+-	zext_zq(Zd); # zero upper 16 bytes of Zd
++:bfcvtn2 Rd_VPR128.8H, Rn_VPR128.4S
++is b_3131=0b0 & Q=1 & b_1029=0b00111010100001011010 & Rn_VPR128.4S & Rd_VPR128.8H & Zd
++{
++    local sourceN:16 = Rn_VPR128.4S;
++    local result:16 = Rd_VPR128.8H;
++    local lane0:2 = 0;
++    macscope_fp32_to_bf16(sourceN[0,32], lane0);
++    result[64,16] = lane0;
++    local lane1:2 = 0;
++    macscope_fp32_to_bf16(sourceN[32,32], lane1);
++    result[80,16] = lane1;
++    local lane2:2 = 0;
++    macscope_fp32_to_bf16(sourceN[64,32], lane2);
++    result[96,16] = lane2;
++    local lane3:2 = 0;
++    macscope_fp32_to_bf16(sourceN[96,32], lane3);
++    result[112,16] = lane3;
++    Rd_VPR128.8H = result;
++    zext_zq(Zd);
+ }
+ 
+ # C7.2.15 BFDOT (by element) page C7-2039 line 119080 MATCH x0f40f000/mask=xbfc0f400

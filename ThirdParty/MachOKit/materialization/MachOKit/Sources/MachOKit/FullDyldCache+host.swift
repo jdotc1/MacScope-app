@@ -1,0 +1,23 @@
+//
+//  FullDyldCache+host.swift
+//  MachOKit
+//
+//  Created by p-x9 on 2025/07/28
+//  
+//
+
+import Foundation
+
+extension FullDyldCache {
+    public static var host: FullDyldCache? {
+#if canImport(Darwin)
+        guard let path = _DyldSharedCacheRuntime.sharedCacheFilePath() else {
+            return nil
+        }
+        let url: URL = .init(fileURLWithPath: path, isDirectory: false)
+        return try? FullDyldCache(url: url)
+#else
+        return nil
+#endif
+    }
+}

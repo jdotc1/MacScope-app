@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "run_id": 38183536222,
+  "head": "e16369065c0a64a3d87209f7feb4abb92344b698",
+  "ci_event_commit": "71c915ca5a2eb35643b85ff8219c1f1075632750",
+  "ci_event_tree": "50d33fb51015f549c9405cf6d8de245b24497759",
+  "job_started_at": "2026-10-11T23:14:33Z",
+  "job_completed_at": "2026-10-12T00:09:52Z",
+  "job_seconds": 3319,
+  "build_and_test_seconds": 2888,
+  "sanitizer_seconds": 372,
+  "core_tests": 8756,
+  "skips": 54,
+  "failures": 0,
+  "release": "BUILD SUCCEEDED",
+  "native_acceptance": "pending-not-run",
+  "pause": "owner-requested-software-update-reboot",
+  "other_lock_holder_at_pause": {
+    "pid": 26763,
+    "mode": "sweep-serial-1",
+    "integration_ref": "parallel-tests-sweep"
+  },
+  "minimum_50_percent_target_seconds": 1659.5,
+  "stretch_70_percent_target_seconds": 995.7
+}

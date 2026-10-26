@@ -1,0 +1,286 @@
+{
+  "schema": "macscope.parser-oracle-fixtures.v1",
+  "classifications": {
+    "valid": "well-formed input; every oracle is expected to parse it",
+    "boundary": "legal or tolerated edge of the format; oracles may legitimately disagree, and the golden freezes each answer",
+    "malformed": "structurally invalid input; rejection or degraded parse is the expected oracle outcome"
+  },
+  "fixtures": [
+    {
+      "id": "macho-thin-arm64-exec",
+      "format": "macho",
+      "path": "Scripts/parser-oracles/specimens/macho-thin-arm64-exec.bin",
+      "classification": "valid",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "go-macho"
+      ],
+      "consumers": [
+        "MS-15 exact export bytes",
+        "MS-16 thin reanalysis"
+      ]
+    },
+    {
+      "id": "macho-thin-arm64-exec-replaced",
+      "format": "macho",
+      "path": "Scripts/parser-oracles/specimens/macho-thin-arm64-exec-replaced.bin",
+      "classification": "valid",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py; same LC_UUID as macho-thin-arm64-exec, one instruction differs",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "go-macho"
+      ],
+      "consumers": [
+        "MS-15 replaced original exports captured bytes",
+        "RX-05 byte binding (LC_UUID cannot distinguish)"
+      ]
+    },
+    {
+      "id": "macho-arm64e-dylib",
+      "format": "macho",
+      "path": "Scripts/parser-oracles/specimens/macho-arm64e-dylib.bin",
+      "classification": "valid",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "go-macho"
+      ],
+      "consumers": [
+        "MS-16 arm64e selected image",
+        "RX-02 gap audit"
+      ]
+    },
+    {
+      "id": "macho-fat-x86_64-arm64",
+      "format": "macho",
+      "path": "Scripts/parser-oracles/specimens/macho-fat-x86_64-arm64.bin",
+      "classification": "valid",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py",
+      "selections": [
+        "x86_64",
+        "arm64"
+      ],
+      "oracles": [
+        "lief",
+        "go-macho"
+      ],
+      "consumers": [
+        "MS-15 universal export refusal",
+        "MS-16 universal-slice reanalysis"
+      ]
+    },
+    {
+      "id": "macho-sizeofcmds-overflow",
+      "format": "macho",
+      "path": "Scripts/parser-oracles/specimens/macho-sizeofcmds-overflow.bin",
+      "classification": "malformed",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py; sizeofcmds exceeds the file",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "go-macho"
+      ],
+      "consumers": [
+        "loader truncation refusal"
+      ]
+    },
+    {
+      "id": "pe-pe32plus-imports",
+      "format": "pe",
+      "path": "Scripts/parser-oracles/specimens/pe-pe32plus-imports.bin",
+      "classification": "valid",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 baseline import names"
+      ]
+    },
+    {
+      "id": "pe-long-section-name",
+      "format": "pe",
+      "path": "Scripts/parser-oracles/specimens/pe-long-section-name.bin",
+      "classification": "boundary",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py; '/4' section name with a COFF string table in an image",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 section-name string budget"
+      ]
+    },
+    {
+      "id": "pe-import-name-amplification",
+      "format": "pe",
+      "path": "Scripts/parser-oracles/specimens/pe-import-name-amplification.bin",
+      "classification": "boundary",
+      "provenance": "synthesized by Scripts/parser-oracles/specimens.py; 64 thunks share one 4096-byte hint/name entry",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 aggregate string budget (scaled-down amplification shape)"
+      ]
+    },
+    {
+      "id": "corkami-normal",
+      "format": "pe",
+      "path": "ThirdParty/CorkamiPocs/PE/bin/normal.exe",
+      "classification": "valid",
+      "provenance": "corkami/pocs 6d277c83 PE/bin/normal.exe (BSD Licence, 2009-2013 per PE/readme.txt)",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 PE32 regression"
+      ]
+    },
+    {
+      "id": "corkami-normal64",
+      "format": "pe",
+      "path": "ThirdParty/CorkamiPocs/PE/bin/normal64.exe",
+      "classification": "valid",
+      "provenance": "corkami/pocs 6d277c83 PE/bin/normal64.exe (BSD Licence, 2009-2013 per PE/readme.txt)",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 PE32+ regression"
+      ]
+    },
+    {
+      "id": "corkami-tiny",
+      "format": "pe",
+      "path": "ThirdParty/CorkamiPocs/PE/bin/tiny.exe",
+      "classification": "boundary",
+      "provenance": "corkami/pocs 6d277c83 PE/bin/tiny.exe (BSD Licence, 2009-2013 per PE/readme.txt); overlapping, truncated headers",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 truncated-header refusal"
+      ]
+    },
+    {
+      "id": "corkami-nosectionW7",
+      "format": "pe",
+      "path": "ThirdParty/CorkamiPocs/PE/bin/nosectionW7.exe",
+      "classification": "boundary",
+      "provenance": "corkami/pocs 6d277c83 PE/bin/nosectionW7.exe (BSD Licence, 2009-2013 per PE/readme.txt); zero sections",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "lief",
+        "pe-parse"
+      ],
+      "consumers": [
+        "MS-14 section-less image"
+      ]
+    },
+    {
+      "id": "dyld-host-libobjc",
+      "format": "dyld",
+      "host_bound": true,
+      "cache": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/dyld/dyld_shared_cache_arm64e",
+      "image": "/usr/lib/libobjc.A.dylib",
+      "classification": "valid",
+      "provenance": "this Mac's read-only system dyld shared cache; never copied or committed. The golden binds every cache file by SHA-256 and goes stale when macOS updates.",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "dyld_info"
+      ],
+      "consumers": [
+        "MS-16 dyld-cache image identity",
+        "RX-02 gap audit (system framework)"
+      ]
+    },
+    {
+      "id": "type-atlas-swift-app",
+      "format": "type-inventory",
+      "path": "Scripts/parser-oracles/type-atlas/swift-app.bin",
+      "classification": "valid",
+      "provenance": "Authored compile-once specimen; adjacent source; arm64 macOS 27.0, Xcode 27",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "go-macho"
+      ],
+      "consumers": [
+        "K1 ImageTypeCatalog independent metadata inventory"
+      ]
+    },
+    {
+      "id": "type-atlas-mixed",
+      "format": "type-inventory",
+      "path": "Scripts/parser-oracles/type-atlas/mixed.dylib",
+      "classification": "valid",
+      "provenance": "Authored compile-once specimen; adjacent source; arm64 macOS 27.0, Xcode 27",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "go-macho"
+      ],
+      "consumers": [
+        "K1 ImageTypeCatalog independent metadata inventory"
+      ]
+    },
+    {
+      "id": "type-atlas-objc",
+      "format": "type-inventory",
+      "path": "Scripts/parser-oracles/type-atlas/objc.bin",
+      "classification": "valid",
+      "provenance": "Authored compile-once specimen; adjacent source; arm64 macOS 27.0, Xcode 27",
+      "selections": [
+        null
+      ],
+      "oracles": [
+        "go-macho"
+      ],
+      "consumers": [
+        "K1 ImageTypeCatalog independent metadata inventory"
+      ]
+    }
+  ]
+}

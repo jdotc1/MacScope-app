@@ -1,0 +1,1715 @@
+# Source exclusions
+
+Only the direct synchronous analysis and MacIR text export closure is compiled. No production render logic is replaced.
+
+## Listing dependency restored from the full trees
+
+MacScope/Features/Editor/DisassemblyListingModel.swift is now compiled from each admitted tree. It supplies the previously missing listing row/builder declarations without another runtime resource. The earlier packet-only listing exclusion overlay is removed; DocumentExportService is staged byte-identically, including its listing methods. The historical overlay remains visible in earlier patch/build receipts, not in the final staged source.
+
+## SDK import and ABI overlays
+
+Files importing Darwin use PortableDarwin in the generated Linux source to avoid making canImport(Darwin) true inside official swift-crypto. Qualified libc calls bind to the same real Glibc operations. AnalysisEngine receives the missing Linux Mach accounting declarations through this import; task_info traps if reached. ELFArchiveBinaryLoader converts Linux off_t (Int) to the existing Int64 field without changing its value or I/O behavior. These overlays change no analysis/render algorithms.
+
+## Excluded files
+
+- MacScope/Models/AnalysisModels+DocumentPackage.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/AnalysisModels+InstructionSidecar.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/AnalysisModels+PackageManifest.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/AnalysisModels+PackageRecords.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/DecompilerComparison.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/Documents/WorkspaceDocumentSessionModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/InstructionOperandsStorageCodec.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerComparisonNormalizer.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerDocumentProjection.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerDriveModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerFailureCatalog.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerPresentation.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerPresentationContract.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerLiveXPCTestProtocol.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireAuthoredModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireBinaryPropertyListValidator.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireCanonicalRequest.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireCodec.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWirePrimitives.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireResultModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireSemanticValidator.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerWireTargetProfile.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/NativeDecompilerWire/NativeDecompilerXPCPeerRequirement.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/Phase2/Phase2AIDebuggerProposal.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2AIProviderConfiguration.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2AIShellOneShotExecution.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2AIShellProposal.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2AssistantPresentation.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2AssistantShellContinuationStateMachine.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2DebuggerReadEvidence.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2DebuggerReadOperation.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2DurableShellBrokerIdentity.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2GroundedContext.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2HumanPTYBroker.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2HumanPTYSessionReducer.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2HumanPTYTranscript.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2Inference.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LiveQualification.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LiveQualificationScenario.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LocalAIProviderPreference.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LocalAISelection.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LocalModelInventory.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LocalModelLifecycle.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2LocalProviderEndpoint.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ModelProfile.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ModelQualification.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2QualificationEnvironmentV2.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2QualificationRuntimeProvenance.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ReadIdentity.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ReadOperation.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ReadProjection.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ReadRevisionLedger.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ShellBrokerLifecycle.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ShellBrokerXPCProtocol.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ShellLaunchDraft.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2ShellTerminalSizeDraft.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/Phase2/Phase2TerminalRuntimeAuthority.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Models/REA/REAAssetCatalogCaptureModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/REA/REAInspectionModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/REA/REAProcessCaptureModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/REA/REAResultEvidence.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/REA/REAUIResourceModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/Reconstruction/ReconstructionCorpusModels.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionDestinationRoute.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionEvidenceGraphIntegrity.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionEvidenceIntegrity.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionEvidenceModels.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionFinalSynthesisKind.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionIdentity.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionInference.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionJobModels.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionOperationID.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionPackageModels.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionRetrievalQuery.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionSourceBehaviorHarness.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionSourceEvaluation.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionSourceInference.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionSourceOracle.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionSourceRevision.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionToolModels.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/Reconstruction/ReconstructionWorkspaceState.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Models/SectionNavigation.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/SupplementalNavigationAdapter.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/WorkspaceAnalysisIntegrity.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Models/WorkspaceInstructionSidecar.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/AnalysisPayloadCodec.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/AnalysisProviding.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/ApplicationImageGraph.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Assembler/ARM64Assembler.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Assembler/ARM64AssemblyRouter.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Assembler/SwiftAssemblyARM64FallbackBackend.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Assembler/X86_64Assembler.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/CTypeHeaderParser.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/CallGraphModel.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Concurrency/AnalysisHostResourceMonitor.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Concurrency/ResourceBudgetedAnalysisProvider.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/CrashReports/CrashReport.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/CrossImageAddressResolver.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/CrossImageReferenceResolver.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/DebugSymbols/DSYMImportService.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/DebugSymbols/DWARFDIETree.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/DebugSymbols/DWARFFunctionSignatureReader.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/DebugSymbols/DWARFLineProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/DebugSymbols/DWARFReader.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/DebugSymbols/DWARFRecordedDefinitionComparison.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerAttachModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerAuthoredInputValidation.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerAuthoringModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerBreakpointBindingModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerBreakpointBindingReducer.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerBreakpointResolutionCatalog.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerClient.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerInspectionModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerInspectionPresentationModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLLDBSealedLaunchPlan.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLocalProcessAttachWriteInterlock.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLocalProcessDiscoveryService.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLocalProcessIdentityObserver.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLocalProcessModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLocalProcessObservationPolicyProvider.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLogicalBreakpointPresentation.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLogicalBreakpointReconcileRequest.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerLogicalBreakpointResolver.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerMemoryInspectionModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerOriginAwareRecoveryPolicy.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerOwnedInfrastructureRegistry.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerPanelViewModel.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerRuntimeAddressTranslator.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerRuntimeModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerRuntimeModuleCollectionAssembler.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerRuntimeModuleInventoryCollector.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerRuntimeModuleInventoryReducer.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerRuntimeModuleModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerSessionLeaseRegistry.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerSessionReducer.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerSourceInspectionModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerTransportModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerTransportSnapshotProjector.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerVariableInspectionModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerWatchpointModels.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerWorkspaceArtifactCorrelator.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/DebuggerWorkspaceAuthority.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBCLITranscriptDecoder.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBDebuggerBackend.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBLogicalBreakpointCallbackBatchDecoder.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBLogicalBreakpointProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBLogicalBreakpointTransactionCodec.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBLogicalBreakpointTransactionCollector.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBRunToCursorTransactionCodec.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBRuntimeModuleExtractorProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBRuntimeModuleInventoryDecoder.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBVariableExtractorProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBVariableSnapshotDecoder.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LLDBWatchpointProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/LocalLLDBDebuggerClient.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBAttachProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBCLIAdapter.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBCLIProcessChannel.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBDetachProgram.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBLifecycleReceiptTranscriptDecoder.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBOwnedProcessChannelLauncher.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBProductionController.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBSessionCoordinator+Contracts.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBSessionCoordinator.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Debugger/PersistentLLDBTargetlessTransportFactory.swift: Debugger/runtime integration is not on the static Mach-O analysis/render path.
+- MacScope/Services/Demangler/Demangler.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Demangler/ItaniumDemangler.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Documents/WorkspaceDocumentChangeMonitor.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Documents/WorkspaceDocumentIO.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Documents/WorkspaceDocumentPublisher.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Documents/WorkspaceDocumentSession.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Documents/WorkspacePackageVersionProbe.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/DyldCacheAnalysis/DyldCacheAnalysisProviding.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/DyldCacheAnalysis/DyldCacheCatalogDifferentialComparator.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/DyldCacheAnalysis/DyldCacheDifferentialWorkflowCoordinator.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/DyldCacheAnalysis/DyldCacheNativeCatalogFactBuilder.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/AllPseudocodeExportOperation.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/BinExport2Conformance.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/BinExport2Exporter.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/BinExport2OperandParser.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/BinExport2Schema.generated.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/BinExport2StructuredOperands.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/NativeProviderExportValidation.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/NativePseudocodeBatchExport.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/ProviderPseudocodeExport.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Export/PseudocodeExportSpool.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/GraphLayoutGeometry.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/GraphPDFRenderer.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/ImageLayout.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/LayeredGraphLayout.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/MachO/MachOAdHocSigner.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/MachO/MachOPatchWriter.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/MachO/PreparedMachOPatchExport.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/NativeDecompilerXPC/NativeAuthoredCatalogIndex.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeAuthoredFieldStorageParserV1.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeAuthoredTypeParserV1.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerAuthoredInputProjector.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerAuthoredProjectionModels.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerBundleRuntimeAuthorityProvider.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerCoordinator.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerExactFunctionResolver.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerPatchedControlFlowAdmission.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerPatchedPayload.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerPresentationTelemetry.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerProcessRuntime.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerProjectionGate.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerReconstructionAdmission.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotBuilder+AppendedCave.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotBuilder+CalleeHints.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotBuilder+FileBackedCave.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotBuilder+LocalNames.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotBuilder+PatchedRegions.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotBuilder.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerSnapshotProjection.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerXPCClient.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerXPCClientTimer.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/NativeDecompilerXPC/NativeDecompilerXPCConnection.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/Phase2/AIAgentXPCInferenceProvider.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/AIAgentXPCModelDiscoveryService.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/AIAgentXPCModelDiscoveryTransport.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/AIAgentXPCModelLifecycleService.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/AIAgentXPCModelLifecycleTransport.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/AIAgentXPCTransport.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AIWorkerAppCodec.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AIWorkerConfigurationAppCodec.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AIWorkerModelDiscoveryAppCodec.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AIWorkerModelLifecycleAppCodec.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AssistantContinuationDatabaseOwner.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AssistantSessionRunner.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AssistantShellContinuationDatabaseCheckpoint.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AssistantShellContinuationDispatchAdapter.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2AssistantToolSelectionPlan.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ContinuousShellTranscriptController.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2DurableShellBrokerCapabilityStore.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2DurableShellSessionCoordinator.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2EvidenceAcceptor.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2GroundedContextCompiler.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2HumanPTYShellSessionClient.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2InferenceProviding.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2InferenceRunner.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2InstalledRendererEvidenceAdapter.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2InstalledShellSmokeRunner.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LiveQualificationObservationCollector.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LiveQualificationPreflight.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LiveQualificationRequestFactory.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LiveQualificationRunner.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LiveQualificationScenarioCatalog.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LocalAIProviderController.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LocalAIProviderPreferenceStore.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LocalModelDiscovering.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2LocalModelLifecycleControlling.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ModelProfileCanonicalizer.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ModelProfileMatcher.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ModelQualificationEvaluator.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ModelQualificationHarness.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ProductionModelProtocolManifest.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ProductionQualificationPolicy.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2QualificationMeasurementCollector.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2QualificationProcessScopeSampler.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2QualificationProfileContract.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2QualificationProviderAdmission.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2QualificationProviderRuntimeExpectation.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2QualificationRunBuilder.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ReadProjector.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ReadyInferenceCoordinator.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2ShellBrokerLaunchAgentRegistration.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/Phase2StandardModelProfileFactory.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2ModelQualificationReport.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2ProductionProtocolFixtureCorpus.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2ProductionProtocolFixtureExecutor.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateApplicationRunner.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateAuditTokenAuthority.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateBuildAuthority.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateCanaryBarrier.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateComposer.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateProcessAuthority.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateProviderConfigurationProtocol.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateRuntimeCollector.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/QualificationGate/Phase2QualificationGateTrustedExecutablePath.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/ShellBrokerXPCTransport.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Phase2/TypedReadRegistry.swift: Interactive agent/shell integration is not on the synchronous static render path.
+- MacScope/Services/Qualification/WS24InstalledAppQualification.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAAssetCatalogCaptureProvider.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REANativeApplicationCapture.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAProcessComparisonProjection.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAResultEvidenceStore.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAResultReadProjection.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAScenarioCapture.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAScenarioCaptureProvider.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAUIResourceCapture.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAUIResourceProjection.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/REA/REAWorkbenchController.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionCanonicalPageProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionCheckpointToolProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionCorpusToolProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionDecompilerToolProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionEvidenceToolProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionGapsToolProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/Projectors/ReconstructionImageFunctionToolProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionAIWorkerAppCodec.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionAnalysisProviderPool.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionArtifactClassifier.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionAttachmentCatalog.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionAttachmentLifetime.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionBatchScheduler.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionBatchTaskExecutor.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionBudgetPolicy.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionCanonicalJSON.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionCapturedTreeVerifier.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionContainerManifestBuilder.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionContextCompiler.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionCorpusCanonicalizer.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionCorpusImporter.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionDatabaseOwner.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionDestinationSessionResolver+Route.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionDestinationSessionResolver.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionDetachedAnalysisSnapshotBuilder.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionEvidenceAcceptor.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionEvidenceGapFrontier.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionEvidenceProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionEvidenceReadAuthority.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionEvidenceReadContext.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionExecutionBudget.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionGapProjector.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionGlobalAnalysisAdmission.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionHeadlessAnalysisExecutor.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionHeadlessAnalysisRequestResolver.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionInferenceHistory.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionInferenceRunner.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionInstalledSourceRevealQualificationBarrier.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionJobCoordinator.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionJobSession.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionJobStatusSummary.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionModelProducerIdentityAuthority.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionModelRoundScheduler.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionModelTerminalRequestAuthority.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionNativeDecompilerAdapter.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionCommittedRoundCutProvider.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionComposition.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionJobRoundMaterializer.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionReceiptPlanAuthor.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionRoundBasis.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionRoundPlanBuilder.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionSourceAuthority.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionSourceCutResolver.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionProductionSourceTaskExecutor.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionPromptReplayIdentity.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionReadablePromptProjection.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionReceiptAuthority.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionRelationDiscoverer.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionReplayDatabase.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionReplayPromptRecovery.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionReplayRecord.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionReplaySession.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionResumeHost.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionRetrievalCompiler.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceASTAdmission.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceContextCompiler.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceEntryJobRuntime.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceEvaluationCapture.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceEvaluationEvidence.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceExecutionStage.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceExecutionWorkflow.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceOracleEvidence.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceOriginalRecovery.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceOriginalSession.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceOriginalSessionRegistry.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceRevisionAdmission.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionSourceRevisionEvidence.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionStableImageAuthority.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionTaskPlanner.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionToolBroker.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionToolRegistry.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionTransientAnalysisProjection.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionTransientNativeProjection.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionWorkspaceDatabaseRuntime.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionWorkspaceRuntime.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionWorkspaceStateReconciler.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Reconstruction/ReconstructionXPCInferenceProvider.swift: Reconstruction orchestration/evidence/persistence is not called by synchronous binary analysis or MacIR export.
+- MacScope/Services/Scripting/AppleScriptArgumentBridge.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/AppleScriptCommandRunner.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/AppleScriptCommandTranslator.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/MCPAttach/MCPAttachExecutor.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/MCPAttach/MCPAttachSocket.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/MCPServer.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/MacScopeScriptCommand.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/ScriptValue.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/ScriptingHost.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+AttachedSnapshotReads.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+BoundedTypeReads.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+ImageSelector.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+IndirectTargets.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+NEONHitRate.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+SnapshotAnalysisReads.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+SnapshotListReads.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+StructRecovery.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+TypeAtlas.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI+WorkspaceDocument.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Scripting/WorkspaceScriptingAPI.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Search/BinarySearchService.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Search/SearchResultCursor.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Support/ColorTagPalette.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Support/FairSingleLaneWorkScheduler.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/Support/KeyBindingModel.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/VersionMatching/AnnotationTransferCandidates.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/VersionMatching/AnnotationTransferPlanner.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/VersionMatching/FunctionVersionFingerprint.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/VersionMatching/FunctionVersionFingerprintAdapter.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/VersionMatching/FunctionVersionMatchModels.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/VersionMatching/FunctionVersionMatcher.swift: Outside the selected static analysis/render dependency closure; retained sources do not reference its declarations on this path.
+- MacScope/Services/XPC/AnalysisProviderFactory.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisRehydrateWireCodec.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisTransport.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWireCodec.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerCancellationRegistry.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerError.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerService+Rehydrate.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerService.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerXPCPeerRequirement.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerXPCPrincipal.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/AnalysisWorkerXPCProtocol.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/DyldCacheAnalysisTransport.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/DyldCacheAnalysisWireCodec.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/DyldCacheAnalysisWorkerService.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/NSXPCConnectionTransport.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/REAInspectionTransport.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/REAInspectionWireCodec.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/REAWorkerService.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/XPCAnalysisProvider+Rehydrate.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/XPCAnalysisProvider.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/XPCDyldCacheAnalysisProvider.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Services/XPC/XPCREAInspectionProvider.swift: Out-of-process transport/native decompiler service; this harness uses the in-process MacIR path.
+- MacScope/Tests/CoreTests/CalleeContractsLibjpegWitnessTests.swift: Hosted Xcode test support; portable calibration is separately executed through the production entry.
+
+## Additional full-tree files outside the selected closure
+
+- MacScope/AIAgentWorkerCore/Phase2GroundedOutputDecoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2GroundedPromptCompiler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2GroundedPromptModules.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2LoopbackEndpoint.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2MTPLXModelCatalogDecoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2NativeModelCatalogDecoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2NativeModelDiscoveryHTTPClient.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2NativeModelLifecycleHTTPClient.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2OpenAIChatHTTPClient.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2OpenAIChatRequestEncoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2OpenAIChatStreamDecoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2OpenAIToolCallAssembler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ProductionJSONSchema.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ProductionToolRegistry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ReconstructionOpenAIChatRequestEncoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ReconstructionOutputSchemas.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ReconstructionProductionToolRegistry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ReconstructionPromptModules.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ReconstructionRoundAccumulator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2ReconstructionSourceOutput.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerCore/Phase2SSEDecoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerService/Phase2AIWorkerHandler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerService/Phase2AIWorkerModelLifecycleHandler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerService/Phase2AIWorkerPrincipal.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerService/Phase2ReconstructionAIWorkerHandler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIAgentWorkerService/main.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerConfigurationWireCodec.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerConfigurationWireModels.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerModelDiscoveryWireCodec.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerModelDiscoveryWireModels.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerModelLifecycleWireCodec.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerModelLifecycleWireModels.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerProductionProtocol.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerWireCodec.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerWireModels.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2AIWorkerXPCProtocol.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2LocalInferencePolicy.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2ProductionProtocolProbeCatalog.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2ReconstructionAIWorkerWireCodec.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AIWorkerProtocol/Phase2ReconstructionAIWorkerWireModels.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AnalysisWorkerService/MachOKitDyldCacheAnalysisProvider.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AnalysisWorkerService/NativeParserEngines.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AnalysisWorkerService/REAJavaScriptHost.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/AnalysisWorkerService/main.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/AppCommands.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/CLIRunner.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/CrashReportWindowPresenter.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/DebuggerRuntimeAuthorities.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/DebuggerSessionLeaseEnvironment.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/HeadlessWorkspaceAcceptance.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/HeadlessWorkspaceAnnotationTransferAcceptance.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/HeadlessWorkspaceREAAcceptance.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/HeadlessWorkspaceTerminalAcceptance.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/Intents/MacScopeIntents.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/Localization/DSTheme+DisplayName.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/MCPAttachCoordinator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/MCPAttachRelay.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/MCPLauncher.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/MacScopeApp.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/MacScopeAppRuntimeServices.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/MacScopeHeadlessHostPolicy.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/NativeDecompilerRuntimeRegistry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/NativeExportCLI.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/PluginThemeSnapshot+DesignSystem.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceDocumentRuntime.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceOpenBinaryImporterGate.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceOpenCoordinator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceOpenFailurePresentation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceSessionRegistry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceStoreFocusedValue.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/App/WorkspaceWindowActivator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Bridges/DisassemblyRowAccessibilityLeaf.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Bridges/HexViewRepresentable.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Bridges/NativePseudocodeTextView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/AppDesignSystem.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/AppLayout.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSBottomPanel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSBottomPanelContentLayout.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSBottomPanelGeometry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSBuiltInThemes.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSComponents.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSDensity.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSGraph.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSIcon.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSInspector.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSLumenPreferences.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSPaletteEnvironment.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSTextEntryFocus.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSTheme.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSThemeEditor.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSThemeLibrary.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSThemeStore.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSTokenExport.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSTokens.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSToolbar.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSWelcome.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSWorkspaceCommandPalette.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/DSWorkspaceViewCommands.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/Lumen/MacScopePack.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/DesignSystem/WorkspaceBottomPanelPresentation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Assistant/Phase2AssistantLiveContinuationController.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Assistant/Phase2AssistantSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Browsers/BrowserPane.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Browsers/BrowsersView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Browsers/ExportsBrowserModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Browsers/ImportsBrowserModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Browsers/SectionsBrowserModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/CrashReports/CrashReportView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Debugger/DebuggerPanelView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Debugger/LogicalBreakpointEditorSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Debugger/LogicalBreakpointsDeckView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Debugger/WatchpointsDeckView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/AssembleSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/CallGraphPanel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/DecompilerComparisonView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/DisassemblyBranchLanes.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/DisassemblyFormatting.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/DisassemblyListingCache.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/EditorStatusBar.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/EditorSurfaceView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/FocusedPresentationAccessibility.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/GraphLargeCanvas.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/HexEditModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/MakeDataSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/NativePseudocodeActions.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/NativePseudocodeView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/PatchBytesSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/PseudocodeSourceSelector.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Editor/RegisterRenameSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/History/NavigationHistoryView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Inspector/AddressDetailReading.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Inspector/DataValueFormatter.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Inspector/InspectorView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Inspector/TypeAtlasInspectorSection.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Inspector/XRefKindPresentation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Loader/LoaderOptionsInspector.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Loader/LoaderOptionsModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Loader/LoaderOptionsSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/MachOMetadata/MachOMetadataView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Problems/ProblemsView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Problems/ProblemsViewModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/REA/REAInspectionResultView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/REA/REAWorkbenchView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionCorpusSummaryView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionDashboardView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionEvidenceSummaryView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionJobCreationSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionPresentationState.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionProgressSummaryView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Reconstruction/ReconstructionStatusProjection.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Search/FindSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Search/GoToSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Search/RetainedFindModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Settings/AppearancePreferences.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Settings/ColorTagManagerView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Settings/KeyBindingEditorView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Settings/LocalAIProviderSettingsView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Settings/SettingsNavigation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Settings/SettingsView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttyActionRouter.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttyConfiguration.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttyExternalIOBridge.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttyLinkedSurfaceAdapter.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttyRuntime.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttySurfaceCoordinator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttySurfaceDiagnostics.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttySurfaceFeature.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttySurfaceHostView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/GhosttySurface/MacScopeGhosttySurfaceRepresentable.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2GhosttyBrokerSurface.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2GhosttyTerminalGridView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2GhosttyTerminalModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2GhosttyTerminalSurface.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2GhosttyVTTranscriptRenderer.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2InstalledShellRendererPresentation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2ShellAffordanceView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2ShellInputHistory.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2TerminalEmulatorView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2TerminalGridSnapshot.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Phase2TerminalInputEncoder.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Shell/Theme/TerminalThemePalette.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Sidebar/NavigatorFilterRules.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Sidebar/NavigatorToolLayout.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Sidebar/SidebarView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Sidebar/TypeAtlasNavigator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Types/CHeaderImportSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Types/TypeEditorSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/VersionCompare/VersionCompareModels.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/VersionCompare/VersionCompareSheet.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/VersionCompare/VersionCompareViewModel.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/AllPseudocodeExportController.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/AllPseudocodeExportNative.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/AllPseudocodeExportPrompt.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/AnalysisProgressPresentation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/MCPAttachBanner.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/ModalPanelFocus.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/Prototype/NativeToolbarPrototype.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Features/Workspace/WorkspaceRootView.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerCancellationState.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerLiveXPCTestControl.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerRequestScheduler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerServiceComposition.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerServiceHost.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerServiceListenerDelegate.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/NativeDecompilerXPCPrincipal.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/NativeDecompilerXPCService/main.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/PluginSDK/PluginManifest.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/PluginSDK/PluginThemeSnapshot.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginCodeSignatureTrustGate.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginCodeSignatureVerifier.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginRegistry+CodeSignatureTrust.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginRegistry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginXPCHost.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginXPCHostRouter.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginXPCMessageTranslator.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginXPCPeerRequirement.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Plugins/PluginXPCServicePrincipal.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/Phase2DurableShellBrokerRegistry.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/Phase2ShellBrokerPrincipal.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/Phase2ShellBrokerProcessAdapter.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/REAAssetCatalogCaptureService.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/REAScenarioCaptureService.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/ReconstructionSourceExecutionLease.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/ShellBrokerService/main.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/AutosaveScheduler.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/DebuggerBreakpointResolutionCatalogLedger.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/DocumentDirtyTracker.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/NativeDecompilerDriveStateMachine.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/NavigationHistory.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceCommand.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceDatabase+ConstantStrings.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceDatabase+InstructionOperands.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceDatabase.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspacePasteboard.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceRecents.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+AddressPresentation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+AppendedExecutableCave.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+COFFReanalysis.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+COFFReanalysisSource.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+Commands.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+DWARFTypes.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+DebugExtensionsSidebar.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+DocumentSession.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+InstructionPayload.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+LaunchProfiles.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+LogicalBreakpoints.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+NativeDecompilerDrive.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+PatchedBinaryExport.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+Phase2Read.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+Phase2ShellSession.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+REA.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+ReconstructionCorpus.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+ReconstructionEvidence.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+ReconstructionJobs.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+ReconstructionNavigation.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+ReconstructionOrchestration.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+StructRecovery.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore+TypeAtlas.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceStore.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Stores/WorkspaceTypeDefinitionDatabaseCodec.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+- MacScope/Tests/CoreTests/A64LifterOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AIAgentXPCWorkerProcessReceiptTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64AssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64AssemblyRouterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64BF16Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ComplexTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64CryptoSIMDOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64CryptoTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64DecodeTailOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64DisassemblyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64FP16Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64FPAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64FPRoundConvertTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64FailedDecodeSeedTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64FeatureFamilyGoldenTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64LoadLiteralLongSIMDTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64MTETests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64OracleCoverageGoldenTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64PrefetchTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64RangePrefetchTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ReservedEncodingGoldenTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMD3SExtraRDMAI8MMTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDByElementAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDByElementScalarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDFPConvertAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDLoadStoreStructureAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDLongWideningAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDNarrowingAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDPairwiseAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDPermuteTableAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDReductionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDShiftAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64SIMDTwoRegMiscTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ScalableDecodeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ScalarPairwiseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ScalarSIMDTailTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ScalarTwoRegMiscTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64ShippingFamilyGoldenTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64StructuredOperandEmissionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64StructuredSIMDMemoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ARM64TwoRegMiscTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AddressBoundsHardeningTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AddressDisplayModeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AllPseudocodeExportOperationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AllPseudocodeExportPromptTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisBenchmarkTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisBudgetProgressTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisCancellationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisDiagnosticsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisFingerprintTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisPayloadCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisProgressWireTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisProviderFactoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisProvidingSeamTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisResourceBudgetTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisStableIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisWorkerCrashAcceptanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisWorkerServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisWorkerXPCPeerRequirementTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnalysisWorkerXPCPrincipalTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnnotationTransferCandidatesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnnotationTransferPlannerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AnnotationTransferRealBinaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AppendedExecutableCaveAuthoringTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AppleScriptCommandTranslatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AppleScriptRuntimeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ApplicationImageGraphTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ArchitectureDecoderSelectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AssembleCommandTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/AuthoringBatch4ModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BinExport2ExporterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BinExport2InteropTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BinExport2OperandTreeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BinarySearchScopeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BinarySearchServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BreakpointGutterSessionBridgeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/BrowserModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CFGBuilderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CLIRunnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CLayoutABIOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/COFFWorkspaceCoordinateCompatibilityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CPUSubModeDisplayPreferenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderAnonAggregateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderBitfieldTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderFunctionPointerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderLayoutFidelityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderMemberAlignEnumTypedefTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderPackingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderParserTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderPreprocessorGuardTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CTypeHeaderRoundTripTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CallArgumentABIOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CallGraphDP11Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CallSignatureCatalogTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CallSignatureCorpusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CallSignaturePackTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CalleeContractsIntrinsicContractTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CalleeContractsPoisonReportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CallerReturnEvidenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CodeDataEligibilityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ColorTagPaletteTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CompilerRTFunctionSignatureOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CompilerRTLinkedImageOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ConcurrentMapTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CoreSmokeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrashReportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrashReportViewTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrossImageAddressResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrossImageReferenceResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrossImageXRefModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrossImageXRefStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CrossSlotStructuralReanalysisIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/CurrentBlockBandTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D01OwnedControlFlowFixtureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D05RichABIIntegrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06ByElementLongEvaluatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06ByElementLongTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06GeneralVectorRegionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06RegionCallRulesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06RegionJumpTableTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06SelectedLaneStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D06VectorLaneTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/D07VoidReturnInferenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSBottomPanelGeometryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSCommandPaletteFocusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSCommandPaletteTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSDensityAndAccentTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSIconTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSInspectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSListingRowTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSLumenPreferencesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSLumenStoreAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSPaletteTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSScaleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSSnapshot.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSSnapshotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSThemeEditorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSThemeExamplesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSThemeInheritanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSThemeLibraryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSThemeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSThemeWatcherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSTokenExportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSToolbarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSYMImportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DSYMUniversalSelectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFCFITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFCompilerConformanceOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFFunctionSignatureOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFFunctionSignatureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFGlobalTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFLineProgramTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFLocationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFLoclistTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFReaderBreadthTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DWARFRnglistTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DarwinARM64CallBindingOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DarwinARM64ParameterBinderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DarwinARM64RichParameterBinderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DataCrossReferenceParallelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DataInspectorDetailTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DataInspectorWindowTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DataXRefCFGBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebugExtensionsSidebarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerAttachTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerAuthoredInputValidationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerAuthoringTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerBreakpointBindingReducerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerBreakpointEvidencePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerBreakpointSourceEvidenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerCLITranscriptDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerCoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerEventReducerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerExpressionThreadsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerInspectionModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerInspectionPresentationModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLLDBSealedLaunchPlanTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLaunchAdmissionPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLaunchEnvironmentRowsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLaunchProfileDatabasePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLaunchProfileModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLaunchProfilePackagePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLaunchProfileStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLivePCTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessAttachWriteInterlockTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessDiscoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessIdentityReobservationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessInstanceAbsenceObserverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLocalProcessObservationPolicyProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLogicalBreakpointModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLogicalBreakpointPersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLogicalBreakpointPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLogicalBreakpointReconcileRequestTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLogicalBreakpointResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerLogicalBreakpointStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerMemoryInspectionModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerOriginAwareRecoveryPolicyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerOwnedInfrastructureRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentCLIAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentCLIProcessChannelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBAdapterRetirementTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBAuthorityPropagationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBExactAttachTransactionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBExactDetachTransactionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBExactLaunchTransactionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBLiveLaunchStatusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBOwnedProcessChannelLauncherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBSessionCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentLLDBTargetlessTransportPlanTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentProductionExactAttachOrchestrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentProductionLiveSmokeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerPersistentProductionProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerRawSymbolEvidenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerRegisterChangeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerRuntimeAddressTranslatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerRuntimeModuleInventoryCollectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerRuntimeModuleInventoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerSessionLeaseObservationSnapshotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerSessionLeaseRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerSnapshotAcceptanceGateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerSourceInspectionModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerStepIntoOutTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerSubprocessPipeDrainTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerTargetAuthorityReducerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerTargetEndOperationOriginGuardTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerThreadListParserFixtureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerTransportDomainTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerTransportIntegrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerVariableChangeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerVariableInspectionModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerVariablesLiveFixtureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWaitStopFrameTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWatchpointDeckTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWatchpointProgramTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWatchpointRestorationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWorkspaceArtifactCatalogStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWorkspaceArtifactCorrelatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DebuggerWorkspaceAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilationAuditRendererTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerComparisonTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerConditionalCompareTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerCoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerEarlyExitAttributionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerGotoLeafTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerLoopGotoContinuationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerLoopSecondaryExitTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerOptionsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringCatalogueVectorsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringLeverBTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringLoopTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringReadabilityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringRecoverySimplificationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringRecoverySupport.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringRecoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringRecoveryTextCheckTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringTextOracle.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DecompilerStructuringVimGoldenTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DemanglerCorpusGateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DemanglerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DisassemblyBranchLanesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DisassemblyFormattingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DisassemblyListingCacheTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DisassemblyListingModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DisassemblyRowAccessibilityLeafTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DisassemblyRowResolutionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DocumentAlertDefaultActionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DocumentDirtyAutosaveTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DocumentExportServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheAnalysisModelsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheAnalysisTestFixtures.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheAnalysisWireCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheAnalysisWorkerServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheCatalogDifferentialComparatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheDifferentialWorkflowCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheImagePickerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheSourcePreflightTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldCacheSymbolNamingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldSharedCacheLoaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/DyldSharedCacheRealBinaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ELFArchiveLoaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ELFDynamicLinkingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ELFEndianReaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ELFLoaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ELFProgramHeaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ELFRealBinaryOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/EffectiveByteAnalysisTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FairSingleLaneWorkSchedulerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FieldDeclaratorSemanticsCodableTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FindMultiImageTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FocusedAuthoringIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FocusedDebuggerIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FocusedGraphIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FocusedImagePseudocodeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FocusedPresentationIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FocusedSelectionIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FormatStringVariadicRecoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureCorpusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureIntegrationEdgeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureIntegrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureLibraryPackTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureMatcherEdgeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureMatcherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureOverrideCodableTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignaturePipelineTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionSignatureValidationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionStartCoverageTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/FunctionVersionMatcherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GUIReachabilityAuthoringTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoPclntabTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoToMultiImageTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoldenDifferentialTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoldenFixtures/corpus/swift_corpus.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoldenGateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoldenOutputDiffTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GoldenOutputTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphEdgeKindMappingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphLargeOverviewTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphLayoutShotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphNodeColorGroupTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphNodeIndexTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphPDFExportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphSelectionSyncCacheTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/GraphZoomAndNavigationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/HeadlessWorkspaceAcceptanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/HexByteFormatterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/HexEditModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/HexWindowTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/I6MergedUpsampleWitnessTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ImageConstantStringProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ImageDiagnosticsPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ImageLayoutTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ImageTypeCatalogTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ImportedTypeLayoutProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/IndirectTargetResolutionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/IndirectTargetWriteSeparationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/InfoPlistDocumentTypeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/JumpTableADRBaseRecoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/JumpTableAffineProofTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/JumpTableBoundsRegressionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/JumpTableRangeProofTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/JumpTableRealBinaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/JumpTableResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/KeyBindingModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBLogicalBreakpointCallbackBatchDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBLogicalBreakpointProgramTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBLogicalBreakpointTransactionCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBLogicalBreakpointTransactionCollectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBRunToCursorTransactionCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBRuntimeModuleInventoryDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LLDBVariableSnapshotDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LayeredGraphLayoutFuzzRegressionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LayeredGraphLayoutTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LittleEndianReaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LoaderRobustnessDiagnosticsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LogicalBreakpointEditorModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LumenIconScaleConformanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LumenPackCompatibilityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LumenSurfaceStepsConformanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LumenTruncationConformanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/LumenWindowConformanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/M1MaxPerformanceQualificationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPAttachHandshakeOwnershipTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPAttachShotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPAttachTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPIndirectReadOwnershipTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPInstructionReadBudgetTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPLauncherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPServerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MCPTypeReadBudgetTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRArithmeticRewriteTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRCallArgumentAdversarialTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRCallArgumentModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRCallArgumentPublicAPITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRCallArgumentRecoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRCallerClobberTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRConcreteArgumentSnapshotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRConditionalSelectStalenessTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRFPEnvironmentPseudocodeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRFPEnvironmentTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRFrameAnalysisTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRFusedFPOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthRound2Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthRound3Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthRound4Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthRound5Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthRound6Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthRound7Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRLiftingBreadthTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRModernISATests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONBroadcastMemoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONByteDotProductTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONByteMatrixAccumulateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONBytePolynomialMultiplyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONContiguousGroupFormalAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONContiguousGroupTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONFullWidthShiftTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONGroupWidenNarrowTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONIndexedByteDotProductTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONIndexedMemoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONIndexedMixedByteDotProductTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONIndexedProductPairwiseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONInterleavedMemoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONLaneBroadcastBufferTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONLaneMemoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONMagnitudeClampTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONMatrixPackedOutputTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONMixedByteDotProductTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONPackingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONPairwiseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONPopulationCountFMOVTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONPredicateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONProductPairwiseBufferTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONReplicatedIndexedProductTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONRoundedNarrowBufferTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONRoundedShiftTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONScalarIntegerComparisonTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONScalarVariableShiftTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONScaledWideningDifferenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONSelectedWideningAccumulateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONWideningPairwiseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONWiderLanePackingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRNEONWiderMultiChannelReplicateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRParameterBindingValueTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRParameterIdentityModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRParameterRecoveryIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRRegisterAliasTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRScalarCFGStateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRScalarFPExtraOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRScalarFPFidelityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRScalarFPReferenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRSemanticFidelityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRStackRegionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacIRUnknownDestinationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacScopeAppRuntimeServicesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MacScopeIntentTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOAdHocSignerMalformedTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOAdHocSignerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOChainedCaveWriterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOFileOnlyNativeAdmissionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOImportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOLoadMetadataTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOParserSecurityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOPatchWriterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOSectionConsumerSecurityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOSliceArtifactIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOSliceArtifactPersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MachOSliceSelectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MetadataRobustnessTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ModalPanelFocusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MoltenVKWitnessTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/MultiImageNavTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NSXPCConnectionTransportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeAuthoredFieldStorageParserV1Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeAuthoredTypeParserV1Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerAccessibilityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerAppendedCaveTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerAuthoredInputProjectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerAuthoredPersistenceParityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerBundleRuntimeAuthorityProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerComparisonNormalizerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerDocumentProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerDriveControlTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerDriveStateMachineTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerEditorPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerExactFunctionResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerFailurePresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerFileBackedCaveTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerLiveXPCTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerObjCBridgeCrossLanguageTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerPatchedPayloadTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerPresentationReducerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerProcessRuntimeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerProjectionGateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerRuntimeIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerRuntimeRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerServiceCompositionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerServiceHostTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerServiceSchedulingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerSnapshotBuilderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerTelemetryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWireAuthoredModelsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWireBinaryPropertyListValidatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWireCanonicalRequestTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWireCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWireSemanticValidatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWireTargetProfileTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerWorkspaceDriveTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerXPCClientTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeDecompilerXPCPeerRequirementTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativeExportCLITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativePseudocodeActionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativePseudocodeBatchExportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NativePseudocodePresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NavigationHistoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NavigatorFilterRulesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NavigatorToolLayoutTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NeutralRelocationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NoReturnCatalogTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NoReturnDiscoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/NoReturnProvenancePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCCP18RegressionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCCacheMethodListTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCCallArgumentOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCCategoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCClassParserTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCMethodDiscoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjCTypeEncodingArrayTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ObjectiveCHeaderRendererTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PACIntrinsicElisionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PEDataDirectoryCountTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PEDirectoryDoSTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PEImportExportDirectoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PELoaderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PERealBinaryOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PEStringBudgetTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ParameterIdentityABIOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ParserCrossCheckTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PatchedBinaryCapturedBytesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PayloadWireCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PerImageContainerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PerImagePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PersistenceByteIntegrityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PersistentLLDBAttachProgramTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PersistentLLDBDetachProgramTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PersistentLLDBLifecycleReceiptTranscriptDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Phase2LiveAIAgentXPCProductionGateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginCodeSignatureTrustTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginThemeSnapshotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginXPCHostRouterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginXPCHostTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginXPCPeerRequirementTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PluginXPCServicePrincipalTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PreRefactorByteIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ProcedurePrototypeFormatterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ProjectReopenTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PseudocodePaneConstantStringsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PseudocodeParameterIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/PseudocodePrinterBoundedOutputTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RX01InstalledFixtureGeneratorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RealBinaryInvariantTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RecentDocumentsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionAIProtocolBundleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionAIWorkerHandlerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionAIWorkerWireTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionAnalysisProviderPoolTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionAuthorityRaceStressTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionBatchSchedulerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionCorpusImporterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionCrashResumeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionDatabaseOwnerMutationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionDestinationSessionResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionDetachedAnalysisSnapshotBuilderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionInitialJobTransactionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionJobCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionJoinedWorkflowTestFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionModelRoundSchedulerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionPackagePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionPackageValidationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionPresentationContractTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionPresentationRoutingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionProviderPoolCancellationRaceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionReceiptAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionReplayEconomyFixtures.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionReplayEconomyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionReplayTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionSourceIntentPersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionSourceRepairLoopbackTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionStateMachineTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionStatusProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionTask10OracleVectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionTask11IntegratedCandidateEvidenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionWorkspaceDatabaseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ReconstructionWorkspaceRuntimeCompositionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RecursiveDescentDiscoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RegionTreeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RehydrationDerivedProductsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RehydrationStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RehydrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RetainedFindModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RoadmapP0RegressionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RuntimeSignatureSeedsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/RuntimeSlideStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SDKTypeArchiveTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ScriptingAPITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ScriptingImageSelectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ScriptingListLimitScopeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/ScriptingPrimitivesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SearchStepAndSectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SectionNavigationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SegmentOverrideTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SettingsNavigationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SourceLineLookupTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SourceTaskExecutionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StackLocalAuthoringTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StringDisplayEncodingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StructRecoveryAcceptanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StructUsageCandidateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StructuredOperandConsumerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StructuredOperandModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/StubCallSymbolicationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SupplementalNativeAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/A64OracleFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/A64OracleReport.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/A64OracleRunner.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/A64ScalarFPEvaluator.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONBitCount.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONBitView.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONBroadcastMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONBufferMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONBufferSequence.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONByteDotProduct.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONByteMatrixAccumulate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONBytePolynomialMultiply.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONChannelTableComposition.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONComparison.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONContiguousGroup.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONContiguousRegisterPost.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONConversionBuffer.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONExtract.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONFourChannelMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONFullWidthShift.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONGroupWidenNarrow.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONImmediate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONIndexedByteDotProduct.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONIndexedMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONIndexedMixedByteDotProduct.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONInterleavedMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONLaneBroadcastBuffer.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONLaneMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONLogical.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONMagnitudeClamp.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONMixedBuffer.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONMixedByteDotProduct.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONModular.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONMultiChannelLane.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONMultiChannelReplicate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONMultiply.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONOrderConversion.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONPacking.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONPairwise.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONPredicate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONProductPairwiseBuffer.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONRGBLogicalBuffer.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONReduction.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONRoundedNarrowBuffer.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONRoundedShift.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONScalarIntegerComparison.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONScalarShiftCompilerComposition.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONScalarVariableShift.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONSelectedSignedMultiply.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONSelectedUnsignedMultiply.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONSelectedWideningAccumulate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONShiftInsert.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONShiftNarrow.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONSignedLongMultiply.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONTableLookup.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONThreeChannelMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONWideningAddSubtract.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONWideningPairwise.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONWiderChannelMemory.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONWiderMultiChannelLane.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator+NEONWiderMultiChannelReplicate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/A64Oracle/MacIRConcreteEvaluator.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/CoreTestPipeDrain.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/Golden/AnalysisBenchmark.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/Golden/GoldenGate.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/Golden/GoldenOutput.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/Golden/GoldenOutputDiff.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/HostCompilerFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/MachOFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/NativeDecompilerDriveFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/ReconstructionDatabaseTestFixtures.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/ReconstructionHeadlessFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/ReconstructionSourceRepairFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Support/TestSourceRoot.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftConformanceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftDemanglerCP5GrammarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftDemanglerCorpusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftDemanglerResidualGrammarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftMetadataCrossSeamTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftMetadataFunctionExtractorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/SwiftMetadataParserTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Task10CreationHistoryVerifierTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Task10InstalledScenarioFixtureSupport.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/Task10InstalledWorkspaceFixtureGeneratorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TerminalThemePaletteTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TrampolineTargetRecoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeAtlasInspectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeAtlasNavigatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeAtlasOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeAtlasUserTypesTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeAtlasUsersTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeEditorLosslessnessTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/TypeLayoutPersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/UIReviewShots.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/UncachedDisassemblyListingOracle.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/VectorMatcherRetirementTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/VersionCompareViewModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WS24InstalledAppQualificationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkerRehydrateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceBasicBlockSidecarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceBottomPanelPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceCommandRoutingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceCommandTargetingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceControlFlowSidecarTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDatabaseStatementCacheTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDatabaseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentChangeMonitorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentContentSourceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentPublisherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentSaveSheetPresenterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentScriptingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentSessionModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentSessionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceDocumentSourceBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceImageIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceImportCancellationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceInstructionSidecarCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceInstructionSidecarPackageTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceInstructionSidecarScaleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceIntegrityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceOpenBinaryImporterGateTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceOpenCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceOpenFailurePresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceOperandPersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspacePackageByteCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspacePackageValidationHardeningTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspacePackageVersion3KeyPolicyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspacePackageVersionProbeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspacePortabilityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceReanalysisConcurrencyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceRestorationPolicyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceSessionRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceSignatureIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStoreAnnotationTransferTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStoreDyldCacheDifferentialTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStorePhase2ShellSessionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStoreReconstructionIntegrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStoreReconstructionIsolationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStoreReconstructionNavigationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceStoreReconstructionPersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/WorkspaceWorkflowSmokeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86AssemblerPkg2Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86AssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86BMIDisassemblyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86BlendTernlogAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86BreadthOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86DisassemblyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXBreadthOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXDataMoveAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXDataMoveTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXDesyncSweepTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXDisassemblyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXFMATests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXFPMathTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXGatherTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXIntegerMinMaxMulAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXMiscTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXScalarAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXTailTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXUIntConvertTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86EVEXWidenCmpTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86IntegerShiftAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86KMaskTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86PackUnpackShuffleAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86PermuteAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86RealFunctionSweepTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86RealWorldTailTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86ScalarConvertToGPRTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86StragglerTailTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86SystemInstructionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86VEXAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86VEXScalarAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/X86x87DisassemblyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/XPCAnalysisProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/CoreTests/XPCDyldCacheAnalysisProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/InstalledAppUITestHarness.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/InstalledDeterministicLocalAIProvider.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/InstalledELFArchiveFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/Task10CreationHistoryVerifier.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/Task10FixtureDocumentIdentity.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/Task10InstalledScenarioFixtureCatalog.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/Task10InstalledWorkspaceFixture.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/WS24InstalledAppUITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/WorkspaceAdaptivePaneInstalledAppUITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/WorkspaceEditorCommandInstalledAppUITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/MacScopeInstalledAppUITests/WorkspacePaletteFocusInstalledAppUITests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/AIAgentXPCInferenceProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/AIAgentXPCModelDiscoveryServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/AIAgentXPCModelLifecycleServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/AIAgentXPCTransportDeadlineTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyActionRouterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyExternalIOBridgeSaturationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyExternalIOBridgeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyLifecycleProcessOwnershipTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyLifecycleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyLinkedSurfaceAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyRendererEvidenceDiagnosticsTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyRendererSelectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyResizeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyRuntimeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/MacScopeGhosttyTranscriptAdmissionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIAgentXPCModelLifecycleTransportTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIShellProposalTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerConfigurationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerHandlerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerModelDiscoveryPrincipalTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerModelDiscoveryWireTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerModelLifecyclePrincipalTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerModelLifecycleWireTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AIWorkerWireTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantContinuationDatabaseOwnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantConversationPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantSameTurnShellPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantSessionRunnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantShellContinuationDatabaseCheckpointTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantShellContinuationDispatchAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantShellContinuationOrchestratorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2AssistantShellContinuationStateMachineTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ContinuousShellTranscriptControllerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2DebuggerReadEvidenceSnapshotTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2DebuggerReadOperationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2DurableShellBrokerCapabilityStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2DurableShellBrokerIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2DurableShellBrokerRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2DurableShellSessionCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GhosttyBrokerSurfaceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GhosttyTerminalModelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GhosttyTerminalSurfaceAdversarialHarness.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GhosttyTerminalSurfaceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GroundedContextTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GroundedOutputDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GroundedPromptCompilerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2GroundedPromptModuleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2HumanPTYBrokerContractTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2HumanPTYSessionReducerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2HumanPTYShellSessionClientTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2HumanPTYTranscriptTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2InferenceBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2InstalledRendererEvidenceAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2InstalledShellRendererPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2InstalledShellSmokeRunnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LiveQualificationPreflightTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LiveQualificationRunnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LiveQualificationScenarioCatalogTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LocalAIProviderControllerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LocalAIProviderPreferenceStoreTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LocalAIProviderSettingsPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LocalAISelectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LocalModelInventoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LocalModelLifecycleCommandTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2LoopbackEndpointTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2MTPLXIntegrationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ModelProfileTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ModelQualificationEvaluatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2NativeModelCatalogDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2NativeModelDiscoveryHTTPClientTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2NativeModelLifecycleHTTPClientTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2OpenAIChatHTTPClientTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2OpenAIChatRequestEncoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2OpenAIChatStreamDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2OpenAIProtocolRequestEncoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2OpenAIToolCallAssemblerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2OpenAIToolSelectionStreamTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ProductionLiveQualificationScorerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ProductionProtocolFixtureCorpusTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ProductionProtocolManifestTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ProductionQualificationPolicyTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ProductionToolRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationEnvironmentV2Tests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateApplicationRunnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateAuditTokenAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateBuildAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateComposerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateProcessAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateProviderAdmissionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateProviderConfigurationProtocolTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateRuntimeSessionSecurityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationGateTrustedExecutablePathTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationInferenceMeasurementObserverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationMeasurementCollectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationProcessScopeSamplerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationProfileContractTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2QualificationProviderRuntimeExpectationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ReadKernelTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ReadProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ReadStoreCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ReadyInferenceCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2SSEDecoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellAffordancePresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellBrokerLifecycleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellBrokerProcessAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellBrokerXPCBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellInputHistoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellLaunchDraftTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellPanelRetentionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2ShellTerminalSizeDraftTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/Phase2TerminalInputEncoderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAAssetCatalogCaptureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAInspectionProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAInspectionResultPresentationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAInspectionWireCodecTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAJavaScriptHostTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REANativeApplicationCaptureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REANativeApplicationProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAResultEvidenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAResultReadProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAScenarioCaptureProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAScenarioCaptureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAUIResourceCaptureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAUIResourceProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAWorkbenchRetentionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAWorkerServiceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/REAWorkspacePersistenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionAIContractAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionAttachmentLifetimeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionBatchTaskExecutorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionCapturedTreeVerifierTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionCheckpointTransactionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionContainerManifestTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionContextCompilerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionCorpusHistoryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionDestinationRouteTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionEvidenceAcceptorBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionEvidenceAcceptorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionEvidenceIntegrityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionEvidencePersistenceBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionEvidenceProjectorHardeningTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionFreshnessTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionGapResolutionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionHeadlessAnalysisExecutorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionHeadlessAnalysisRequestResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionIdentityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionInferenceRunnerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionInstalledPauseQualificationBarrierTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionJobSessionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionJobSourceIntentTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionModelReceiptGraphValidationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionNativeDecompilerAdapterTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionOracleRemediationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionDynamicDAGTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionFocusedPlannerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionJobRoundMaterializerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionJobRoundPlannerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionReceiptPlanAuthorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionSourceAuthorityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionSourceCutResolverTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionSourceReceiptTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionSourceTaskExecutorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionProductionToolRegistryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionReadablePromptProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionReadableSourceContextTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionRelationDiscoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionResourceAdmissionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionRetrievalCompilerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceASTAdmissionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceEntryJobRuntimeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceEvaluationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceExecutionFrontierTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceExecutionLeaseTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceExecutionStageTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceExecutionWorkflowTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceIntentSelectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceOracleTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceOriginalRecoveryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceOriginalSessionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourcePackageValidationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceRecoveryCoordinatorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceRepairFixtureTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceRequestBindingTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceRevisionEvidenceTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceRevisionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceWireTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionSourceXPCBoundaryTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionToolBrokerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionToolProjectorTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionTransientAnalysisProjectionTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionWorkspaceDatabaseAtomicityTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionWorkspaceDatabaseRuntimeTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionWorkspaceStateReconcilerTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/ReconstructionXPCInferenceProviderTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/SourcePhaseContinuationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/SourceProductionFrontierTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/Tests/Phase2Tests/WorkspaceStoreReconstructionCorpusPublicationTests.swift: Test-target source, not invoked by the production analysis/export executable.
+- MacScope/XPCService/main.swift: Outside the selected synchronous Mach-O analysis/MacIR export dependency closure; no selected entry-path declaration requires this file.
+
+## Additional second-pin exclusions
+
+- MacScope/Services/FunctionSignatures/HeaderPrototypeBinding.swift: Outside the selected synchronous analysis/export closure at the second pin; not required by an entry-path declaration.
+- MacScope/Tests/CoreTests/HeaderPrototypeBindingTests.swift: Outside the selected synchronous analysis/export closure at the second pin; not required by an entry-path declaration.
+
+## Supplied tooling Swift files outside the product closure
+
+- Tools/NativeDecompilerBridge/tests/Fixtures/swift_calls.swift: Separate tooling entry point, not a dependency of the production analysis/export closure.
+- Tools/NativeDecompilerBridge/tests/WireSizeBoundV3Probe.swift: Separate tooling entry point, not a dependency of the production analysis/export closure.

@@ -1,0 +1,5896 @@
+{
+ "cases": [
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:a14116",
+   "source": {
+    "demangled": "partial apply forwarder for increment #1 (Swift.Int) -> Swift.Int in CedarValidation.nestedHost(Swift.String) -> (Swift.Int) -> Swift.Int",
+    "fixture": "independent-compiled",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s15CedarValidation10nestedHostyS2icSSF9incrementL_yS2iFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "CedarValidation.Trouble"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "fixture:a14128",
+   "source": {
+    "demangled": "CedarValidation.typed(Swift.Int) async throws(CedarValidation.Trouble) -> Swift.Int",
+    "fixture": "independent-compiled",
+    "kinds": [
+     "Global",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s15CedarValidation5typedyS2iYaAA7TroubleOYKF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "CedarValidation.Trouble"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:a14129",
+   "source": {
+    "demangled": "async function pointer to CedarValidation.typed(Swift.Int) async throws(CedarValidation.Trouble) -> Swift.Int",
+    "fixture": "independent-compiled",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s15CedarValidation5typedyS2iYaAA7TroubleOYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "OracleFeatures.Failure"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "fixture:d09803",
+   "source": {
+    "demangled": "OracleFeatures.asyncTyped(Swift.Int) async throws(OracleFeatures.Failure) -> Swift.Int",
+    "fixture": "residual-49",
+    "kinds": [
+     "Global",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s14OracleFeatures10asyncTypedyS2iYaAA7FailureOYKF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "OracleFeatures.Failure"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:d09804",
+   "source": {
+    "demangled": "async function pointer to OracleFeatures.asyncTyped(Swift.Int) async throws(OracleFeatures.Failure) -> Swift.Int",
+    "fixture": "residual-49",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s14OracleFeatures10asyncTypedyS2iYaAA7FailureOYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:d09837",
+   "source": {
+    "demangled": "partial apply forwarder for local #1 (Swift.Int) -> Swift.Int in OracleFeatures.closureContext(Swift.Int) -> (Swift.Int) -> Swift.Int",
+    "fixture": "residual-49",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s14OracleFeatures14closureContextyS2icSiF5localL_yS2iFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": true,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": true,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "protocol",
+     "selfTypeIsGeneric": true,
+     "thrownType": "B1"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_ERROR_STORAGE",
+     "STORAGE_GENERIC_H07"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH07"
+   },
+   "id": "fixture:d25212",
+   "source": {
+    "demangled": "(extension in Swift):Swift.Collection.map<A, B where B1: Swift.Error>((A.Element) throws(B1) -> A1) throws(B1) -> [A1]",
+    "fixture": "residual-49",
+    "kinds": [
+     "Global",
+     "Function",
+     "Extension",
+     "Protocol",
+     "DependentGenericType",
+     "DependentGenericSignature",
+     "DependentGenericParamCount",
+     "DependentGenericConformanceRequirement",
+     "DependentGenericParamType",
+     "Index",
+     "Index",
+     "Protocol"
+    ],
+    "mangled": "$sSlsE3mapySayqd__Gqd__7ElementQzqd_0_YKXEqd_0_YKs5ErrorRd_0_r0_lF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": false,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:a06776",
+   "source": {
+    "demangled": "OracleFeatures.asyncTyped(Swift.Int) async throws(OracleFeatures.Failure) -> Swift.Intmetadata instantiation cache for async function pointer to ",
+    "fixture": "hardening-counterexamples",
+    "kinds": [
+     "Global",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s14OracleFeatures10asyncTypedyS2iYaAA7FailureOYKFTuMK",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:a14880",
+   "source": {
+    "demangled": "partial apply forwarder for foobar.baz.f(Swift.Int) -> Swift.Int",
+    "fixture": "hardening-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s3foo3bar3bazV1fyS2iFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:a14881",
+   "source": {
+    "demangled": "async function pointer to foobar.baz.f(Swift.Int) -> Swift.Int",
+    "fixture": "hardening-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s3foo3bar3bazV1fyS2iFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "unknown",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:a14968",
+   "source": {
+    "demangled": "partial apply forwarder for foo.barbaz.f(Swift.Int) -> Swift.Int",
+    "fixture": "hardening-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Structure",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s3foo3barV3baz1fyS2iFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "unknown",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:a14969",
+   "source": {
+    "demangled": "async function pointer to foo.barbaz.f(Swift.Int) -> Swift.Int",
+    "fixture": "hardening-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Structure",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s3foo3barV3baz1fyS2iFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:initial-39",
+   "source": {
+    "demangled": "partial apply forwarder for g #2 () -> () in (extension in M):M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Extension",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1ME1gL0_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-40",
+   "source": {
+    "demangled": "async function pointer to g #2 () -> () in (extension in M):M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Extension",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1ME1gL0_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:initial-43",
+   "source": {
+    "demangled": "partial apply forwarder for g #1 () -> () in (extension in M):M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Extension",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1ME1gL_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-44",
+   "source": {
+    "demangled": "async function pointer to g #1 () -> () in (extension in M):M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Extension",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1ME1gL_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:initial-57",
+   "source": {
+    "demangled": "partial apply forwarder for g #2 () -> () in M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1gL0_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-58",
+   "source": {
+    "demangled": "async function pointer to g #2 () -> () in M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1gL0_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:initial-61",
+   "source": {
+    "demangled": "partial apply forwarder for g #1 () -> () in M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1gL_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-62",
+   "source": {
+    "demangled": "async function pointer to g #1 () -> () in M.T",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Structure",
+     "LocalDeclName",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1TV1gL_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-77",
+   "source": {
+    "demangled": "$s1M1TVySiG1gL0_yyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gL0_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-78",
+   "source": {
+    "demangled": "$s1M1TVySiG1gL0_yyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gL0_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-81",
+   "source": {
+    "demangled": "$s1M1TVySiG1gL_yyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gL_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-82",
+   "source": {
+    "demangled": "$s1M1TVySiG1gL_yyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gL_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-86",
+   "source": {
+    "demangled": "$s1M1TVySiG1gyyF1hyyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gyyF1hyyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-87",
+   "source": {
+    "demangled": "$s1M1TVySiG1gyyF1hyyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gyyF1hyyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-89",
+   "source": {
+    "demangled": "$s1M1TVySiG1gyyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gyyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-90",
+   "source": {
+    "demangled": "$s1M1TVySiG1gyyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1TVySiG1gyyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-100",
+   "source": {
+    "demangled": "$s1M1fyS2iKKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iKKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-101",
+   "source": {
+    "demangled": "$s1M1fyS2iKKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iKKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-104",
+   "source": {
+    "demangled": "$s1M1fyS2iKSiYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iKSiYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-105",
+   "source": {
+    "demangled": "$s1M1fyS2iKSiYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iKSiYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-108",
+   "source": {
+    "demangled": "$s1M1fyS2iKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-109",
+   "source": {
+    "demangled": "$s1M1fyS2iKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-112",
+   "source": {
+    "demangled": "$s1M1fyS2iSiYKSSYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iSiYKSSYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-113",
+   "source": {
+    "demangled": "$s1M1fyS2iSiYKSSYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iSiYKSSYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-116",
+   "source": {
+    "demangled": "$s1M1fyS2iSiYKSSYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iSiYKSSYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-117",
+   "source": {
+    "demangled": "$s1M1fyS2iSiYKSSYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iSiYKSSYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-120",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iKKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iKKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-121",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iKKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iKKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-124",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iKSiYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iKSiYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-125",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iKSiYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iKSiYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-128",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-129",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-132",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-133",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-136",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-137",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-140",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-141",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKSSYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-144",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-145",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iSiYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iSiYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-148",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iYaSiYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iYaSiYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-149",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iYaSiYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iYaSiYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-152",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iYaYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iYaYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-153",
+   "source": {
+    "demangled": "$s1M1fyS2iYaF1gL_yS2iYaYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaF1gL_yS2iYaYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-156",
+   "source": {
+    "demangled": "$s1M1fyS2iYaSiYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaSiYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-157",
+   "source": {
+    "demangled": "$s1M1fyS2iYaSiYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaSiYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-160",
+   "source": {
+    "demangled": "$s1M1fyS2iYaYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-161",
+   "source": {
+    "demangled": "$s1M1fyS2iYaYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyS2iYaYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:initial-306",
+   "source": {
+    "demangled": "partial apply forwarder for g #2 () -> () in (extension in M):T #1 in M.f() -> ()",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Extension",
+     "Structure",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1fyyF1TL_V1ME1gL0_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-307",
+   "source": {
+    "demangled": "async function pointer to g #2 () -> () in (extension in M):T #1 in M.f() -> ()",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Extension",
+     "Structure",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1fyyF1TL_V1ME1gL0_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": true,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "fixture:initial-310",
+   "source": {
+    "demangled": "partial apply forwarder for g #1 () -> () in (extension in M):T #1 in M.f() -> ()",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "PartialApplyForwarder",
+     "Function",
+     "Extension",
+     "Structure",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1fyyF1TL_V1ME1gL_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-311",
+   "source": {
+    "demangled": "async function pointer to g #1 () -> () in (extension in M):T #1 in M.f() -> ()",
+    "fixture": "review-counterexamples",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Extension",
+     "Structure",
+     "Function",
+     "FunctionType"
+    ],
+    "mangled": "$s1M1fyyF1TL_V1ME1gL_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-338",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gL0_yyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gL0_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-339",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gL0_yyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gL0_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-342",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gL_yyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gL_yyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-343",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gL_yyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gL_yyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-347",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gyyF1hyyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gyyF1hyyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-348",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gyyF1hyyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gyyF1hyyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-350",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gyyFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gyyFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-351",
+   "source": {
+    "demangled": "$s1M1fyyF1TL_VySiG1gyyFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyF1TL_VySiG1gyyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-386",
+   "source": {
+    "demangled": "$s1M1fyyS2icKKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icKKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-387",
+   "source": {
+    "demangled": "$s1M1fyyS2icKKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icKKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-390",
+   "source": {
+    "demangled": "$s1M1fyyS2icKSiYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icKSiYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-391",
+   "source": {
+    "demangled": "$s1M1fyyS2icKSiYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icKSiYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-394",
+   "source": {
+    "demangled": "$s1M1fyyS2icKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-395",
+   "source": {
+    "demangled": "$s1M1fyyS2icKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-398",
+   "source": {
+    "demangled": "$s1M1fyyS2icSiYKSSYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icSiYKSSYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-399",
+   "source": {
+    "demangled": "$s1M1fyyS2icSiYKSSYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icSiYKSSYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-402",
+   "source": {
+    "demangled": "$s1M1fyyS2icSiYKSSYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icSiYKSSYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-403",
+   "source": {
+    "demangled": "$s1M1fyyS2icSiYKSSYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icSiYKSSYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-406",
+   "source": {
+    "demangled": "$s1M1fyyS2icYaSiYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icYaSiYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-407",
+   "source": {
+    "demangled": "$s1M1fyyS2icYaSiYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icYaSiYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-410",
+   "source": {
+    "demangled": "$s1M1fyyS2icYaYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icYaYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-411",
+   "source": {
+    "demangled": "$s1M1fyyS2icYaYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyyS2icYaYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-414",
+   "source": {
+    "demangled": "$s1M1fyySiKKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiKKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-415",
+   "source": {
+    "demangled": "$s1M1fyySiKKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiKKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-418",
+   "source": {
+    "demangled": "$s1M1fyySiKSiYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiKSiYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-419",
+   "source": {
+    "demangled": "$s1M1fyySiKSiYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiKSiYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-422",
+   "source": {
+    "demangled": "$s1M1fyySiKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-423",
+   "source": {
+    "demangled": "$s1M1fyySiKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-426",
+   "source": {
+    "demangled": "$s1M1fyySiSiYKSSYKFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiSiYKSSYKFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-427",
+   "source": {
+    "demangled": "$s1M1fyySiSiYKSSYKFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiSiYKSSYKFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-430",
+   "source": {
+    "demangled": "$s1M1fyySiSiYKSSYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiSiYKSSYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-431",
+   "source": {
+    "demangled": "$s1M1fyySiSiYKSSYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiSiYKSSYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-434",
+   "source": {
+    "demangled": "$s1M1fyySiYaSiYKYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiYaSiYKYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-435",
+   "source": {
+    "demangled": "$s1M1fyySiYaSiYKYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiYaSiYKYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-438",
+   "source": {
+    "demangled": "$s1M1fyySiYaYaFTA",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiYaYaFTA",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": null
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "fixture:initial-439",
+   "source": {
+    "demangled": "$s1M1fyySiYaYaFTu",
+    "fixture": "review-counterexamples",
+    "kinds": [],
+    "mangled": "$s1M1fyySiYaYaFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-instance",
+   "source": {
+    "demangled": "Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3baryyF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-static",
+   "source": {
+    "demangled": "static Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Static",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3baryyFZ",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_MUTATING_UNKNOWN"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:struct-instance",
+   "source": {
+    "demangled": "Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3baryyF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:struct-static",
+   "source": {
+    "demangled": "static Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Static",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3baryyFZ",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "enum",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_MUTATING_UNKNOWN"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:enum-instance",
+   "source": {
+    "demangled": "Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Function",
+     "Enum",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooO3baryyF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "enum",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:enum-static",
+   "source": {
+    "demangled": "static Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Static",
+     "Function",
+     "Enum",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooO3baryyFZ",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": true,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "allocatingInit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_AGGREGATE_H03"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "symbol:class-allocating-init",
+   "source": {
+    "demangled": "Main.Foo.__allocating_init() -> Main.Foo",
+    "kinds": [
+     "Global",
+     "Allocator",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooCACycfC",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": true,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "initializingInit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_AGGREGATE_H03"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "symbol:class-initializing-init",
+   "source": {
+    "demangled": "Main.Foo.init() -> Main.Foo",
+    "kinds": [
+     "Global",
+     "Constructor",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooCACycfc",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "deallocatingDeinit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-deallocating-deinit",
+   "source": {
+    "demangled": "Main.Foo.__deallocating_deinit",
+    "kinds": [
+     "Global",
+     "Deallocator",
+     "Class"
+    ],
+    "mangled": "$s4Main3FooCfD",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "destroyingDeinit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-destroying-deinit",
+   "source": {
+    "demangled": "Main.Foo.deinit",
+    "kinds": [
+     "Global",
+     "Destructor",
+     "Class"
+    ],
+    "mangled": "$s4Main3FooCfd",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "deallocatingDeinit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-isolated-deallocating-deinit",
+   "source": {
+    "demangled": "Main.Foo.__isolated_deallocating_deinit",
+    "kinds": [
+     "Global",
+     "IsolatedDeallocator",
+     "Class"
+    ],
+    "mangled": "$s4Main3FooCfZ",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": true,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "allocatingInit",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_AGGREGATE_H03"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "symbol:struct-allocating-init",
+   "source": {
+    "demangled": "Main.Foo.init() -> Main.Foo",
+    "kinds": [
+     "Global",
+     "Allocator",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooVACycfC",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-instance-throws",
+   "source": {
+    "demangled": "Main.Foo.bar() throws -> Swift.Int",
+    "kinds": [
+     "Global",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3barSiyKF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-instance-async-throws",
+   "source": {
+    "demangled": "Main.Foo.bar() async throws -> Swift.Int",
+    "kinds": [
+     "Global",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3barSiyYaKF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:struct-static-throws",
+   "source": {
+    "demangled": "static Main.Foo.bar() throws -> Swift.Int",
+    "kinds": [
+     "Global",
+     "Static",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3barSiyKFZ",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "protocol",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:protocol-extension-instance",
+   "source": {
+    "demangled": "(extension in Main):Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "Function",
+     "Extension",
+     "Protocol",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooPAAE3baryyF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": "Main.Err"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_MUTATING_UNKNOWN",
+     "TYPED_THROWS_ERROR_STORAGE",
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:struct-instance-typed-throws",
+   "source": {
+    "demangled": "Main.Foo.bar() throws(Main.Err) -> Swift.Int",
+    "kinds": [
+     "Global",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3barSiyAA3ErrOYKF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": "Main.Err"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": "x22",
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "symbol:class-instance-async-typed-throws",
+   "source": {
+    "demangled": "Main.Foo.bar() async throws(Main.Err) -> Swift.Int",
+    "kinds": [
+     "Global",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3barSiyYaAA3ErrOYKF",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": true,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "symbol:class-dispatch-thunk",
+   "source": {
+    "demangled": "dispatch thunk of Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "DispatchThunk",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3baryyFTj",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:struct-async-function-pointer",
+   "source": {
+    "demangled": "async function pointer to Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "AsyncFunctionPointer",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3baryyFTu",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": {
+      "index": 1,
+      "kind": "awaitResume"
+     },
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:class-await-resume-funclet",
+   "source": {
+    "demangled": "(1) await resume partial function for Main.Foo.bar() async -> ()",
+    "kinds": [
+     "Global",
+     "AsyncAwaitResumePartialFunction",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3baryyYaFTQ0_",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": {
+      "index": 2,
+      "kind": "suspendResume"
+     },
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:class-suspend-resume-funclet",
+   "source": {
+    "demangled": "(2) suspend resume partial function for Main.Foo.bar() async -> ()",
+    "kinds": [
+     "Global",
+     "AsyncSuspendResumePartialFunction",
+     "Function",
+     "Class",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooC3baryyYaFTY1_",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": true,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": true,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_GENERIC_H07"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH07"
+   },
+   "id": "symbol:struct-static-generic-method",
+   "source": {
+    "demangled": "static Main.Foo.bar<A>(A) -> ()",
+    "kinds": [
+     "Global",
+     "Static",
+     "Function",
+     "Structure",
+     "DependentGenericType",
+     "DependentGenericSignature",
+     "DependentGenericParamCount",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3baryyxlFZ",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": false,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "symbol:struct-method-descriptor",
+   "source": {
+    "demangled": "method descriptor for Main.Foo.bar() -> ()",
+    "kinds": [
+     "Global",
+     "MethodDescriptor",
+     "Function",
+     "Structure",
+     "FunctionType"
+    ],
+    "mangled": "$s4Main3FooV3baryyFTq",
+    "oracle": "swift-demangle (Xcode toolchain)"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": true,
+     "source": "vtable"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_UNKNOWN_SIGNATURE"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:vtable-instance-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isAsync": true,
+     "isInstance": true,
+     "source": "vtable"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_UNKNOWN_SIGNATURE"
+    ],
+    "asyncContextIn": "x22",
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:vtable-async-instance-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": false,
+     "source": "vtable"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_UNKNOWN_SIGNATURE"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:vtable-static-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": false,
+     "source": "witness"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_UNKNOWN_SIGNATURE"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:witness-method-no-symbol",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": true,
+     "source": "vtable"
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:vtable-instance-with-symbol",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": true,
+     "source": "witness"
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:witness-struct-instance-with-symbol",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": false,
+     "source": "witness"
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:witness-struct-static-with-symbol",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "runtimeHelper": {
+     "asyncContextIn": "x22",
+     "cc": "SwiftAsyncCC",
+     "name": "swift_task_switch"
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:runtime-swift_task_switch",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "runtimeHelper": {
+     "cc": "SwiftCC",
+     "name": "swift_allocBox"
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:runtime-swift_allocBox",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "runtimeHelper": {
+     "cc": "SwiftCC",
+     "contextIn": [
+      "x20"
+     ],
+     "errorOut": "x21",
+     "name": "swift_willThrow"
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:runtime-swift_willThrow",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "runtimeHelper": {
+     "cc": "C_CC",
+     "name": "swift_retain"
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "cdecl",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:runtime-swift_retain-C",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "runtimeHelper": {
+     "cc": "unknown",
+     "name": "swift_retainDirect"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "RUNTIME_HELPER_UNKNOWN"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:runtime-unknown-cc",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "isCFacing": true
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "cdecl",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:cdecl-thunk-plain",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "isCFacing": true,
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "cdecl",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:cdecl-thunk-of-async-target",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "observations": {
+     "readsX20BeforeWrite": true,
+     "readsX22BeforeWrite": true
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:observed-saves-x20-x22-only",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "callerEvidence": {
+     "testsX21AfterCall": true
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:observed-caller-tests-x21-only",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {},
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:no-evidence-at-all",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": false,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "NO_HEADER_FACTS"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:symbol-parsed-but-not-function",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "callerEvidence": {
+     "testsX21AfterCall": true
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:throwing-confirmed-by-caller",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "callerEvidence": {
+     "testsX21AfterCall": true
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "CONTRADICTION_X21_TEST_ON_NONTHROWING"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:nonthrowing-but-caller-tests-x21",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "callerEvidence": {
+     "passesX22": true
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "CONTRADICTION_X22_ON_SYNC"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:sync-but-caller-passes-x22",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "observations": {
+     "readsX22BeforeWrite": true
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:async-confirmed-by-x22",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "callerEvidence": {
+     "passesX22": true
+    },
+    "runtimeHelper": {
+     "cc": "SwiftCC",
+     "name": "swift_allocBox"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "CONTRADICTION_X22_ON_SYNC"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:runtime-helper-contradicted",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "callerEvidence": {
+     "testsX21AfterCall": true
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:async-throws-caller-tests-x21-is-not-a-contradiction",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": {
+      "index": 0,
+      "kind": "awaitResume"
+     },
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:await-resume-funclet",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": {
+      "index": 1,
+      "kind": "suspendResume"
+     },
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:suspend-resume-funclet-throwing",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:sync-untyped-throws",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:async-untyped-throws-no-x21",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "M.E"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_ERROR_STORAGE",
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "synthetic:typed-throws-enum",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "M.C"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_ERROR_STORAGE",
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "synthetic:typed-throws-class",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": "M.E"
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "TYPED_THROWS_LAYOUT"
+    ],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "synthetic:async-typed-throws",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:class-static-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:struct-static-method-thin",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": true,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": true,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_GENERIC_H07"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH07"
+   },
+   "id": "synthetic:generic-struct-static-method-thick",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "enum",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:enum-static-method-thin",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "static",
+     "selfNominalKind": "unknown",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_KIND_UNKNOWN"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:static-method-unknown-type",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": true,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:struct-mutating-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": false,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_STORAGE_VALUE_TYPE"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:struct-nonmutating-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_MUTATING_UNKNOWN"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:struct-method-mutating-unknown",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": true,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "enum",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:enum-mutating-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": false,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "enum",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_STORAGE_VALUE_TYPE"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:enum-nonmutating-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "unknown",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "SELF_KIND_UNKNOWN"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:instance-method-unknown-type",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": true,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "instance",
+     "selfNominalKind": "archetype",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_GENERIC_H07"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH07"
+   },
+   "id": "synthetic:archetype-instance-method",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "allocatingInit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:class-allocating-init",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "allocatingInit",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:struct-allocating-init-thin",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "initializingInit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:class-initializing-init",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "deallocatingDeinit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:class-deallocating-deinit",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "destroyingDeinit",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:class-destroying-deinit",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "destroyingDeinit",
+     "selfNominalKind": "unknown",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:deinit-unknown-type",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "static",
+     "selfNominalKind": "struct",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": "x21",
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:struct-static-throws-slot-reserved",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": true,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": true,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_GENERIC_H07"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH07"
+   },
+   "id": "synthetic:generic-function",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": true,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_AGGREGATE_H03"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "abstainH03"
+   },
+   "id": "synthetic:aggregate-return",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": true,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": true,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": true,
+     "selfKind": "instance",
+     "selfNominalKind": "class",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": "x22",
+    "contextIn": [
+     "x20"
+    ],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:dispatch-thunk-async-throws",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": true,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:reabstraction-thunk",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": false,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": true,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "swiftcall",
+    "errorOut": null,
+    "storage": "scalarOnly"
+   },
+   "id": "synthetic:merged-function",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "isAsyncEntryRecord": true
+   },
+   "expected": {
+    "abstentions": [
+     "STORAGE_UNKNOWN_SIGNATURE"
+    ],
+    "asyncContextIn": "x22",
+    "contextIn": [],
+    "convention": "swiftasynccall",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:async-entry-record-only",
+   "source": {
+    "kind": "synthetic"
+   }
+  },
+  {
+   "evidence": {
+    "metadataMethod": {
+     "isInstance": true,
+     "source": "vtable"
+    },
+    "symbolFacts": {
+     "funclet": null,
+     "hasNonScalarParameter": false,
+     "hasNonScalarReturn": false,
+     "isAsync": false,
+     "isAsyncFunctionPointer": true,
+     "isDispatchThunk": false,
+     "isFunction": true,
+     "isGeneric": false,
+     "isMerged": false,
+     "isMutating": null,
+     "isPartialApplyForwarder": false,
+     "isReabstractionThunk": false,
+     "isThrowing": false,
+     "selfKind": "none",
+     "selfNominalKind": "none",
+     "selfTypeIsGeneric": false,
+     "thrownType": null
+    }
+   },
+   "expected": {
+    "abstentions": [
+     "ASYNC_FUNCTION_POINTER_IS_DATA"
+    ],
+    "asyncContextIn": null,
+    "contextIn": [],
+    "convention": "abstain",
+    "errorOut": null,
+    "storage": "notClaimed"
+   },
+   "id": "synthetic:async-fn-ptr-with-metadata",
+   "source": {
+    "kind": "synthetic"
+   }
+  }
+ ],
+ "note": "expected values are hand-stated (category table, SYMBOL_EXPECTED and SYNTHETIC in tools/build_witnesses.py); the adapter is compared against them, never used to produce them",
+ "schemaVersion": 2
+}
