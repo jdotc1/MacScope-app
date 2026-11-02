@@ -20,7 +20,8 @@ with the code they describe.
 
 **[Build and test](#build-and-test)** ·
 **[Python client](MacScope/python/README.md)** ·
-**[Capability contract](MacScope/PARITY_CONTRACT.md)**
+**[Capability contract](MacScope/PARITY_CONTRACT.md)** ·
+**[MIT License](LICENSE)**
 
 > [!IMPORTANT]
 > This repository contains MacScope source code. Build locally with the documented
@@ -237,4 +238,13 @@ product decisions.
 
 ## Distribution and rights
 
-Copyright 2026 the MacScope authors. All rights reserved. No open-source license is granted at this time. Third-party components retain their own licenses and notices.
+Copyright (c) 2026 Jeffrey Cooney. Original MacScope source code,
+documentation, and project-owned assets are licensed under the
+[MIT License](LICENSE), unless another license or copyright notice applies.
+Third-party components and source-derived materials retain their own terms;
+see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+Publication of this source snapshot does not itself establish approval
+for redistribution of the complete dependency-bearing source closure or
+official application binaries. The separate
+[distribution review](Docs/dependencies/LicenseDecision.md) remains unresolved.
