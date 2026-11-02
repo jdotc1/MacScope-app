@@ -35,7 +35,7 @@ The workspace keeps each view tied to the same loaded image, while isolated serv
 flowchart TB
   A["Binary file"] --> B["Load image"]
   B --> C["Disassembly"]
-  C --> D["Pseudocode / CFG"]
+  C --> D["Pseudocode"]
   B --> E["Hex / metadata"]
   D --> F["Saved workspace"]
   E --> F
