@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/brand/app-icon-dark.png">
-    <img src="docs/brand/app-icon-light.png" width="128" height="128" alt="MacScope app icon">
+    <source media="(prefers-color-scheme: dark)" srcset="Docs/brand/app-icon-dark.png">
+    <img src="Docs/brand/app-icon-light.png" width="128" height="128" alt="MacScope app icon">
   </picture>
 </p>
 
@@ -25,6 +25,20 @@ with the code they describe.
 > [!IMPORTANT]
 > This repository contains MacScope source code. Build locally with the documented
 > toolchain and configure signing for your development environment.
+
+## Visual workflow
+
+The workspace keeps each view tied to the same loaded image, while isolated services return bounded analysis results.
+
+```mermaid
+flowchart TB
+  A["Mach-O / ELF / PE input"] --> B["Load and index the image"]
+  B --> C["Disassembly and metadata"]
+  C --> D["ARM64 pseudocode and control-flow graph"]
+  B --> E["Hex and structural inspection"]
+  D --> F["Annotations and .mscope workspace"]
+  E --> F
+```
 
 ## The workspace
 
@@ -91,7 +105,7 @@ suite. The script coordinates heavy build work through the shared gate lock.
 `Scripts/test.sh` remains an explicit test driver and defaults to the full
 CoreTests bundle when called without a selector. Developer-loop output is
 iteration evidence, not a Release, CI, or qualification result. The
-[debugging playbook](docs/dev/DebuggingPlaybook.md) provides troubleshooting
+[debugging playbook](Docs/dev/DebuggingPlaybook.md) provides troubleshooting
 context; use the current repository rules for the appropriate verification scope.
 
 ### Qualify a candidate
@@ -207,7 +221,7 @@ work roots without downloading dependencies. Diagnostic overrides must satisfy
 the same validators. Keep generated artifacts, caches, DerivedData, signed
 products, and install transactions out of the repository.
 
-The [dependency workflow](docs/dependencies/DependencyWorkflow.md) covers acquisition, integration, pinning, and rollback. Local builds retain
+The [dependency workflow](Docs/dependencies/DependencyWorkflow.md) covers acquisition, integration, pinning, and rollback. Local builds retain
 certificate-backed signing and hardened runtime; the isolated CI lane has its
 own signing treatment. Developer ID distribution and notarization are separate
 product decisions.
@@ -219,7 +233,7 @@ product decisions.
 | [MacScope](MacScope/README.md) | App source, worker targets, models, services, workspace state, and tests. |
 | [MacScope/project.yml](MacScope/project.yml) | XcodeGen project and source-membership authority. |
 | [Scripts](Scripts/) | Development loop, dependencies, qualification, controlled installation, and focused checks. |
-| [Nomenclature](docs/brand/Nomenclature.md) | Canonical product vocabulary. |
+| [Nomenclature](Docs/brand/Nomenclature.md) | Canonical product vocabulary. |
 
 ## Distribution and rights
 
