@@ -1,10 +1,12 @@
 # MacScope third-party notices
 
-This file records notices for public open-source components and source-derived
-data currently used by MacScope. The machine-readable authority is
-`THIRD_PARTY_COMPONENTS.yml`. MacScope is presently a private-development
-project; this notice file does not approve public distribution or choose a
-repository license.
+This file records licenses and notices for third-party components and
+source-derived data used by MacScope. Original first-party MacScope files
+are licensed under the [MIT License](LICENSE) unless marked otherwise;
+that license does not replace any third-party terms. The machine-readable
+component inventory is `THIRD_PARTY_COMPONENTS.yml`. This notice file
+does not approve complete-repository or binary distribution; those
+decisions remain [unresolved](Docs/dependencies/LicenseDecision.md).
 
 ## EntitlementDiff exact entitlement comparison
 <!-- component:entitlements-comparison -->

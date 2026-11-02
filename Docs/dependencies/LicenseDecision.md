@@ -4,16 +4,22 @@ Status: **unresolved for public distribution**
 
 Effective record date: **2026-07-20**
 
-MacScope is currently treated as a private-development project. This document
-intentionally does not select a top-level repository license or authorize a
-public binary/source distribution.
+First-party source license selected: **MIT (2026-11-02)**
+
+The original first-party MacScope source code, documentation, and project-owned
+assets are licensed under the MIT License in the repository-root `LICENSE`
+file, except where another license or copyright notice applies. This
+2026-11-02 first-party licensing decision does not relicense third-party
+material. Although this repository already publishes a source snapshot,
+approval of the complete dependency-bearing source closure or official
+application binaries remains unresolved.
 
 Dependency-bearing local development follows
 `MacScope/PARITY_CONTRACT.md` when every component is pinned, governed, and
 used within its approved architecture. Public distribution remains blocked
 until the repository owner records a separate decision covering at least:
 
-- the top-level MacScope source license;
+- the scope and exceptions of the selected first-party MIT license;
 - source-versus-binary distribution scope;
 - all linked, embedded, copied, and generated components;
 - transitive license and notice obligations;
