@@ -33,11 +33,11 @@ The workspace keeps each view tied to the same loaded image, while isolated serv
 
 ```mermaid
 flowchart TB
-  A["Mach-O / ELF / PE input"] --> B["Load and index the image"]
-  B --> C["Disassembly and metadata"]
-  C --> D["ARM64 pseudocode and control-flow graph"]
-  B --> E["Hex and structural inspection"]
-  D --> F["Annotations and .mscope workspace"]
+  A["Binary file"] --> B["Load image"]
+  B --> C["Disassembly"]
+  C --> D["Pseudocode / CFG"]
+  B --> E["Hex / metadata"]
+  D --> F["Saved workspace"]
   E --> F
 ```
 
